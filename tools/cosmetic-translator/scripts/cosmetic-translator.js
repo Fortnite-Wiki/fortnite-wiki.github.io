@@ -109,6 +109,8 @@ async function search() {
     return;
   }
 
+  output.value = "Getting translations...";
+
   try {
     const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path, jsonCache);
     const nameKey = data[0].Properties.ItemName.Key;

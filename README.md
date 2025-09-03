@@ -1,2 +1,2 @@
-# fortnite-wiki.github.io
-Website for the Fortnite Wiki.
+# Fortnite Wiki Tools
+A site to provide tools for [Fortnite Wiki](https://fortnite.fandom.com/) users.

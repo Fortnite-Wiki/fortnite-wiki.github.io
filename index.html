@@ -8,11 +8,11 @@
   
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
+  <script src="https://cdn.jsdelivr.net/npm/pako@latest/dist/pako.min.js"></script>
   <style>
-    /* Inline overrides for your main content */
     main { max-width: 800px; margin: 20px auto; font-family: sans-serif; }
     input, select, button { margin: 5px 0; padding: 5px; font-size: 1rem; }
-	input { width: 500px}
+    input { width: 500px }
     textarea { width: 100%; height: 350px; margin-top: 10px; font-family: monospace; }
     #suggestions { border: 1px solid #ccc; max-height: 150px; overflow-y: auto; }
     #suggestions div { padding: 3px; cursor: pointer; }
@@ -48,17 +48,19 @@
     let jsonCache = {};
     let locCache = {};
 
+    async function loadGzJson(path, cacheObj) {
+      if (!cacheObj[path]) {
+        const resp = await fetch(path + ".gz");
+        const buf = await resp.arrayBuffer();
+        const decompressed = pako.ungzip(new Uint8Array(buf), { to: "string" });
+        cacheObj[path] = JSON.parse(decompressed);
+      }
+      return cacheObj[path];
+    }
+
     async function loadIndex() {
       const resp = await fetch('data/index.json');
       index = await resp.json();
-    }
-
-    async function loadJson(path, cacheObj) {
-      if (!cacheObj[path]) {
-        const resp = await fetch(path);
-        cacheObj[path] = await resp.json();
-      }
-      return cacheObj[path];
     }
 
     function updateSuggestions() {
@@ -83,7 +85,7 @@
       try {
         const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
         const data = await resp.json();
-        const folders = ["Fortnite_locchunk100"]; // always include
+        const folders = ["Fortnite_locchunk100"];
         if (data.dynamicKeys) {
           data.dynamicKeys.forEach(d => {
             const match = d.name.match(/^pakchunk(\d+)-/);
@@ -95,7 +97,7 @@
         }
         return folders;
       } catch {
-        return ["Fortnite_locchunk100"]; // fallback
+        return ["Fortnite_locchunk100"];
       }
     }
 
@@ -113,7 +115,7 @@
       }
 
       try {
-        const data = await loadJson("data/" + entryMeta.path, jsonCache);
+        const data = await loadGzJson("data/" + entryMeta.path, jsonCache);
         const key = mode === "description"
           ? data[0].Properties.ItemDescription.Key
           : data[0].Properties.ItemName.Key;
@@ -127,7 +129,7 @@
           for (const folder of folders) {
             const path = `data/localization/${folder}/${lang}/${folder}.json`;
             try {
-              const loc = await loadJson(path, locCache);
+              const loc = await loadGzJson(path, locCache);
               const text = loc[""]?.[key];
               if (text) {
                 lines.push(`|${lang} = ${text}`);

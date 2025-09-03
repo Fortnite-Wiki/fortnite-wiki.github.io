@@ -1,0 +1,241 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_ArmyFlour",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_ArmyFlour.CP_Athena_Head_M_ArmyFlour",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_ArmyFlour.CP_Athena_Body_M_ArmyFlour",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_ArmyFlour_FaceAcc.CP_M_MED_ArmyFlour_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s37/ArmyFlourM/ArmyFlour_Male_Idle_Montage.ArmyFlour_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_ArmyFlour'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_ArmyFlour.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_ArmyFlour:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_ArmyFlour.1"
+        }
+      ],
+      "BaseShotGridId": 137777,
+      "ShotGridIds": [
+        137777
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "5300B29A440840851A88B5B1029C18B0",
+        "SourceString": "Genos",
+        "LocalizedString": "Genos"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "DF1F96B74897DABB306C3C9F5CCB9CC4",
+        "SourceString": "A young cyborg and student of Saitama.",
+        "LocalizedString": "A young cyborg and student of Saitama."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_ArmyFlour.T_Soldier_ArmyFlour",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_ArmyFlour_L.T_Soldier_ArmyFlour_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Transform",
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.Filter.Season.37",
+            "SoundLibrary.ID.StepType.ShoesDress",
+            "Cosmetics.Set.BaldFist"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            544,
+            553,
+            357,
+            566,
+            560,
+            86,
+            651,
+            246,
+            121,
+            20,
+            665,
+            723,
+            730,
+            7835
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_ArmyFlour",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.ArmyFlour.Default"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4AEA7CA640CCE296C68E9F9225A69108",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_ArmyFlour.T_Soldier_ArmyFlour",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ArmyFlour/Materials/MI_ArmyFlour_Body.MI_ArmyFlour_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Emissive_Intensity"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.ArmyFlour.Glow"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1D36F88C4F0C0E3FB86862BEE0730E27",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_ArmyFlour_EmissiveOn.T_Soldier_ArmyFlour_EmissiveOn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1EE26284448775ACE5149494D41696EE",
+        "SourceString": "glow",
+        "LocalizedString": "glow"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

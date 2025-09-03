@@ -1,0 +1,222 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_OatmealSpreadGolem",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_OatmealSpreadGolem'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_OatmealSpreadGolem.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Backpack_OatmealSpreadGolem:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_OatmealSpreadGolem.1"
+        }
+      ],
+      "BaseShotGridId": 127964,
+      "ShotGridIds": [
+        127964
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "31F67DDC49E3581311C554B8EDD6C216",
+        "SourceString": "Mobile Tron",
+        "LocalizedString": "Mobile Tron"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "8CFD4E0C4BF2A87C124ADBBC069B9E0E",
+        "SourceString": "Keep the score. Literally.",
+        "LocalizedString": "Keep the score. Literally."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "A6CC68F94D4A57077265CDA40E8C3362",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_OatmealSpreadGolem.T_Icon_Backpacks_OatmealSpreadGolem",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_OatmealSpreadGolem_L.T_Icon_Backpacks_OatmealSpreadGolem_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.UserFacingFlags.Elimination",
+            "Cosmetics.Set.RingGoal",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            245,
+            244,
+            705,
+            1000,
+            1003,
+            1002,
+            1004,
+            116,
+            1053,
+            1374,
+            1573,
+            33,
+            1751,
+            1870,
+            1933,
+            3672,
+            3671,
+            6163
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Backpack_OatmealSpreadGolem",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E2943C874BF5567AE47B118077EB18FB",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_OatmealSpreadGolem.T_Icon_Backpacks_OatmealSpreadGolem",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_OatmealSpreadGolem/FX/NS_OatMealSpreadGolem.NS_OatMealSpreadGolem",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0BFE45644701B8A7936173AD880F482C",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_OatmealSpreadGolem_FXOFF.T_Icon_Backpacks_OatmealSpreadGolem_FXOFF",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "8403C0774A74EDEB0D74D583D005ED3A",
+        "SourceString": "reactivity",
+        "LocalizedString": "reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

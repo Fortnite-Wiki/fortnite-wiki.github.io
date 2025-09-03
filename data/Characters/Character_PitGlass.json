@@ -1,0 +1,312 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_PitGlass",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_EmptyHead.CP_Athena_Head_M_EmptyHead",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_PitGlass.CP_Athena_Body_M_PitGlass",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_PitGlass_Mask_FaceAcc.CP_M_MED_PitGlass_Mask_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_PitGlass:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PitGlass.1"
+        }
+      ],
+      "BaseShotGridId": 69540,
+      "ShotGridIds": [
+        69540
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "6D7BE40843382F61A130D9A51C914047",
+        "SourceString": "Void Warrior Absenz",
+        "LocalizedString": "Void Warrior Absenz"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "0ADC1F62429E154728CB2BBF320BD9E2",
+        "SourceString": "There is no return to the void.",
+        "LocalizedString": "There is no return to the void."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "062786F64F2928E89A39E8BCE56945B0",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S28/T-Soldier-Hero-Pitglass.T-Soldier-Hero-Pitglass",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S28/T-Soldier-Hero-Pitglass-L.T-Soldier-Hero-Pitglass-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.BareExit",
+            "Cosmetics.FrontEndPose.DontCrossArms",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            8,
+            564,
+            560,
+            162,
+            572,
+            574,
+            573,
+            567,
+            166,
+            702,
+            242,
+            243,
+            629,
+            637,
+            701,
+            96,
+            106
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_PitGlass",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_PitGlass/FX/NS_Skin_PitGlass.NS_Skin_PitGlass",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E027A6564A971AC6D2884DB0FDA178CB",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S28/T-Soldier-Hero-Pitglass.T-Soldier-Hero-Pitglass",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_PitGlass_FaceAcc.CP_M_MED_PitGlass_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_PitGlass.CP_Athena_Head_M_PitGlass",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Heads/M_MED_Calavera3L_Head/Materials/MI_Calavera3L_Head.MI_Calavera3L_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 02"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 05"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 09"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 1_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 06"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 2_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 07"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Heads/M_MED_Calavera3L_Head/Materials/MI_Calavera3L_Head.MI_Calavera3L_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_PitGlass/FX/NS_Skin_PitGlass.NS_Skin_PitGlass",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "48BA2783448F6C8B9E8C8AACA9988868",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-Pitglass-MaskOff.T-Soldier-Hero-Pitglass-MaskOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "78FCB209464D9D3A365802A43C8E26F1",
+        "SourceString": "Mask",
+        "LocalizedString": "Mask"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

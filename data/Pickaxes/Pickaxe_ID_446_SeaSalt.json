@@ -1,0 +1,365 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_446_SeaSalt",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_SeaSalt'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_SeaSalt.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -15.0,
+        "Y": 0.0,
+        "Z": 5.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 12.0,
+        "Y": 20.0,
+        "Z": -8.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 30.0,
+          "Y": 0.0,
+          "Z": -18.0
+        },
+        "CylinderHalfHeight": 57.0,
+        "CylinderRadius": 57.0
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": -10.0,
+        "Y": -10.0,
+        "Z": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ID_446_SeaSalt:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_446_SeaSalt.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Mesh"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "83B8FB78438D71C3FBEB2E9F5A508697",
+        "SourceString": "Hulk Smashers",
+        "LocalizedString": "Hulk Smashers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "C883F2564D51AFB0D03E36900B7FFAD9",
+        "SourceString": "Hulk Smash!",
+        "LocalizedString": "Hulk Smash!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F3195E394E41561214E19DBE983A1B28",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.13",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -38.0,
+            "Yaw": -30.0,
+            "Roll": 10.0
+          },
+          "Scale": 1.5
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            537,
+            552,
+            7975,
+            545,
+            2,
+            488,
+            544,
+            553,
+            8,
+            237,
+            9,
+            172,
+            627,
+            651,
+            54,
+            542,
+            658,
+            666,
+            192,
+            744,
+            950,
+            2263,
+            2904
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_ID_446_SeaSalt",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3CC8C2484E7DD23643F55E8EC390AA85",
+            "SourceString": "Hulk Smashers",
+            "LocalizedString": "Hulk Smashers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-SeaSaltPickaxe.T-Icon-Pickaxes-SeaSaltPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Sea_Salt/Meshes/SK_Pickaxe_Sea_Salt_R.SK_Pickaxe_Sea_Salt_R",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Sea_Salt_Armor/Meshes/SK_Sea_Salt_Armor_R.SK_Sea_Salt_Armor_R",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Sea_Salt/Meshes/SK_Pickaxe_Sea_Salt_L.SK_Pickaxe_Sea_Salt_L",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Sea_Salt_Armor/Meshes/SK_Sea_Salt_Armor_L.SK_Sea_Salt_Armor_L",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Pickaxe_Swing_Offhand.NS_Blank_Pickaxe_Swing_Offhand",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/NoHome/NS_SSA_Punch_L.NS_SSA_Punch_L",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Pickaxe_Swing_MainHand.NS_Blank_Pickaxe_Swing_MainHand",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Athena/NoHome/NS_SSA_Punch_R.NS_SSA_Punch_R",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt/SC_PA_SeaSalt_1H_Swing.SC_PA_SeaSalt_1H_Swing",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt_Armored/SC_PA_Sea_Salt_Armored_Swing.SC_PA_Sea_Salt_Armored_Swing",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt/SC_PA_SeaSalt_1H_Ready.SC_PA_SeaSalt_1H_Ready",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt_Armored/SC_PA_Sea_Salt_Armored_Ready.SC_PA_Sea_Salt_Armored_Ready",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt/SC_PA_SeaSalt_1H_Impact.SC_PA_SeaSalt_1H_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/1H_Sea_Salt_Armored/SC_PA_Sea_Salt_Armored_Impact.SC_PA_Sea_Salt_Armored_Impact",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D6C7E1EE41561CF884C5A699903604A5",
+            "SourceString": "Hulkbuster",
+            "LocalizedString": "Hulkbuster"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-SeaSaltArmorPickaxe.T-Icon-Pickaxes-SeaSaltArmorPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D9E84E3341D37FD32C0CB2BBCCD8F333",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

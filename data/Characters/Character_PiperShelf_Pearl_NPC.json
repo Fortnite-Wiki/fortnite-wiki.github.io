@@ -1,0 +1,286 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_PiperShelf_Pearl_NPC",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PiperShelf_Pearl_NPC.CP_Athena_Head_F_PiperShelf_Pearl_NPC",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Bodies/CP_Athena_Body_F_PiperShelf_Empress_NPC.CP_Athena_Body_F_PiperShelf_Empress_NPC",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_PiperShelf_Empress_NPC_FaceAcc.CP_F_MED_PiperShelf_Empress_NPC_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s31/PiperShelfPearlF/PiperShelfPeal_Female_Idle_Montage.PiperShelfPeal_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_PiperShelf_Pearl_NPC:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PiperShelf_Pearl_NPC.1"
+        }
+      ],
+      "BaseShotGridId": 100901,
+      "ShotGridIds": [
+        100901
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "664CA41243001CE55A18D6A1C6EBA943",
+        "SourceString": "TBD",
+        "LocalizedString": "TBD"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "EB6D1A9D4D67D09AFCABF2B1B3F75411",
+        "SourceString": "TBD",
+        "LocalizedString": "TBD"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/Game/Athena/Prototype/Textures/T_Placeholder_Item_Outfit.T_Placeholder_Item_Outfit",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "SoundLibrary.ID.StepType.BootsHeeled"
+          ]
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_PiperShelf_Pearl_NPC",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PiperShelf_Pearl.CP_Athena_Head_F_PiperShelf_Pearl",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Bodies/CP_Athena_Body_F_PiperShelf_Pearl.CP_Athena_Body_F_PiperShelf_Pearl",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_PiperShelf_Pearl_FaceAcc.CP_F_MED_PiperShelf_Pearl_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Pearl/Materials/MI_PiperShelf_Pearl_Body.MI_PiperShelf_Pearl_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Empress/Skins/NPC_Default/MI_PiperShelf_Pearl_Body_NPC.MI_PiperShelf_Pearl_Body_NPC",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Pearl/Materials/MI_PiperShelf_Pearl_Head.MI_PiperShelf_Pearl_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Empress/Skins/NPC_Default/MI_PiperShelf_Pearl_Head_NPC.MI_PiperShelf_Pearl_Head_NPC",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Pearl/Materials/MI_PiperShelf_Pearl_FaceAcc.MI_PiperShelf_Pearl_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Empress/Skins/NPC_Default/MI_PiperShelf_Pearl_FaceAcc_NPC.MI_PiperShelf_Pearl_FaceAcc_NPC",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HerbHutch_Breath/Skins/Superlevels/Materials/MI_SL_S31_AnimeOutline_InvHull.MI_SL_S31_AnimeOutline_InvHull",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PiperShelf_Pearl/Skins/Superlevels/MI_SL_PiperShelf_Pearl_AnimeOutline.MI_SL_PiperShelf_Pearl_AnimeOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HerbHutch_Breath/Skins/Superlevels/Materials/MI_SL_S31_AnimeOutline_InvHull_FaceAcc.MI_SL_S31_AnimeOutline_InvHull_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HerbHutch_Breath/Skins/Superlevels/Materials/MI_SL_S31_AnimeOutline_InvHull_Head.MI_SL_S31_AnimeOutline_InvHull_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "917755C0402F227461C7898BFE17BAD6",
+            "SourceString": "non-diamond",
+            "LocalizedString": "non-diamond"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

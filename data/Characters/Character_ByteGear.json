@@ -1,0 +1,272 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_ByteGear",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_ByteGear.CP_Athena_Head_M_ByteGear",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_ByteGear.CP_Athena_Body_M_ByteGear",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_ByteGear_FaceAcc.CP_M_MED_ByteGear_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_ByteGear:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_ByteGear.1"
+        }
+      ],
+      "BaseShotGridId": 129650,
+      "ShotGridIds": [
+        129650
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "46B36E304DC3FDDA441749B19B1B34F3",
+        "SourceString": "The Ron-troller",
+        "LocalizedString": "The Ron-troller"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "42D0EEF640AC677CCC31A79BD3DC023D",
+        "SourceString": "The ultimate gamer's final form. ",
+        "LocalizedString": "The ultimate gamer's final form. "
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S36/T_Soldier_ByteGear.T_Soldier_ByteGear",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S36/T_Soldier_ByteGear_L.T_Soldier_ByteGear_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.ButtonLeader"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            236,
+            357,
+            562,
+            566,
+            561,
+            564,
+            237,
+            560,
+            162,
+            567,
+            166,
+            246,
+            644,
+            642,
+            639,
+            29,
+            902,
+            1194,
+            1374,
+            315,
+            1458,
+            1694,
+            2557,
+            2561,
+            2560,
+            263,
+            492,
+            3486
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_ByteGear",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/FX/NS_Character_ByteGear_Roll_Idle.NS_Character_ByteGear_Roll_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "624BD90A448959996EB880A529B5C9F0",
+            "SourceString": "The Ron-troller",
+            "LocalizedString": "The Ron-troller"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S36/T_Soldier_ByteGear.T_Soldier_ByteGear",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Materials/MI_ByteGear_Body.MI_ByteGear_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Skins/Roll/Materials/MI_ByteGear_Roll_Body.MI_ByteGear_Roll_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Materials/MI_ByteGear_FaceAcc.MI_ByteGear_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Skins/Roll/Materials/MI_ByteGear_Roll_FaceAcc.MI_ByteGear_Roll_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Materials/MI_ByteGear_Head.MI_ByteGear_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_ByteGear/Skins/Roll/Materials/MI_ByteGear_Roll_Head.MI_ByteGear_Roll_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8817E0AB4616B41B4C5FC680B29B51E0",
+            "SourceString": "Game Over Ron-troller",
+            "LocalizedString": "Game Over Ron-troller"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S36/T_Soldier_ByteGear_Roll.T_Soldier_ByteGear_Roll",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "74830C8242718933D9F462B992D451BD",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

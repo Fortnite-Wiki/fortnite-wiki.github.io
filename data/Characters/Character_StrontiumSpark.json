@@ -1,0 +1,434 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_StrontiumSpark",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_StrontiumSpark.CP_Athena_Head_M_StrontiumSpark",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_StrontiumSpark.CP_Athena_Body_M_StrontiumSpark",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_M_MED_StrontiumSpark_FaceAcc.CP_M_MED_StrontiumSpark_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "MetaTags": [
+        "Cosmetics.MetaTags.Special.BodySwap.Full"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_StrontiumSpark:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_StrontiumSpark.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Parts"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 75178,
+      "ShotGridIds": [
+        75178
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B0B0BEDF408FF0CCDD35CCAF86C22965",
+        "SourceString": "Killian",
+        "LocalizedString": "Killian"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "FDA5A6BD4F36BD930D3CABBE7F7DB859",
+        "SourceString": "Brutal poise. Flawless precision.",
+        "LocalizedString": "Brutal poise. Flawless precision."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F5EAEEDC4026C04FDDFBE5845D0186D0",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-StrontiumSpark-Mask.T-Soldier-Hero-StrontiumSpark-Mask",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-StrontiumSpark-Mask-L.T-Soldier-Hero-StrontiumSpark-Mask-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.CultureDriver",
+            "Cosmetics.FrontEndPose.DontCrossArms",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7975,
+            545,
+            236,
+            357,
+            169,
+            562,
+            566,
+            561,
+            558,
+            564,
+            563,
+            560,
+            162,
+            6,
+            575,
+            572,
+            574,
+            569,
+            567,
+            570,
+            576,
+            166,
+            86,
+            246,
+            179,
+            247,
+            698,
+            709,
+            719,
+            11,
+            758,
+            797,
+            805,
+            824,
+            1176,
+            1381,
+            1544
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_StrontiumSpark",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_Head.MI_StrontiumSpark_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 02"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 06"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 09"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 05"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 6_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 0_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 1_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 2_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 03"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 04"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 07"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 08"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 3_5"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_Head.MI_StrontiumSpark_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F7CF06634D69B6E8035CA7B2B7C107EB",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-StrontiumSpark-Mask.T-Soldier-Hero-StrontiumSpark-Mask",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/Game/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_StrontiumSpark_MaskOff.CP_Athena_Head_M_StrontiumSpark_MaskOff",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_FaceAcc.MI_StrontiumSpark_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 4_5"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_FaceAcc.MI_StrontiumSpark_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_Head.MI_StrontiumSpark_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 02"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 06"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 09"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 05"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 6_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 0_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 1_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 2_5"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 03"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 04"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 07"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 08"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 3_5"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_StrontiumSpark/Materials/MI_StrontiumSpark_Head.MI_StrontiumSpark_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8FC197764E098134AB223396A1BA6703",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S28/T-Soldier-Hero-StrontiumSpark.T-Soldier-Hero-StrontiumSpark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "85BBBD39439A2A9DE5678CA2E145C4BC",
+        "SourceString": "mask",
+        "LocalizedString": "mask"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

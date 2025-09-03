@@ -1,0 +1,478 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_CubicVice",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 100.0,
+        "Y": -25.0,
+        "Z": -27.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/Meshes/CubicVice_Glider.CubicVice_Glider",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/CubicVice_Glider_AnimBP1.CubicVice_Glider_AnimBP1_C",
+        "SubPathString": ""
+      },
+      "CameraClass": {
+        "AssetPathName": "/Game/Blueprints/Camera/Athena/Athena_PlayerCameraModeSkydiveSurf.Athena_PlayerCameraModeSkydiveSurf_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/CubicVice/CubicVice_PlayerAnimAsset.CubicVice_PlayerAnimAsset",
+        "SubPathString": ""
+      },
+      "AttachSocket": "attach",
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/FX/NS_Glider_CubicVice_Trail.NS_Glider_CubicVice_Trail",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderOpen_CubicVice.SC_GliderOpen_CubicVice",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderClose_CubicVice.SC_GliderClose_CubicVice",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderThrustLoop_CubicVice.SC_GliderThrustLoop_CubicVice",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderThrustStart_CubicVice.SC_GliderThrustStart_CubicVice",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Sideways",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderThrustStartSideways_CubicVice_.SC_GliderThrustStartSideways_CubicVice_",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Backwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Gliders/CubicVice/SC_GliderThrustStartBackwards_CubicVice.SC_GliderThrustStartBackwards_CubicVice",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_CubicVice:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_CubicVice.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/GliderItemPreview_CubicVice.GliderItemPreview_CubicVice_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 120167,
+      "VariantShotGridIds": [
+        120167,
+        123921
+      ],
+      "ShotGridIds": [
+        120167,
+        120167,
+        123921
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "BCE1189B4AD29DBF3F89F186970608EE",
+        "SourceString": "Nomad's Drifter",
+        "LocalizedString": "Nomad's Drifter"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B1BCACEA46D652492218C5A26E3E53E1",
+        "SourceString": "Float on the wind, restless and free.",
+        "LocalizedString": "Float on the wind, restless and free."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -10.0,
+            "Y": 60.0,
+            "Z": 80.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": -60.0,
+            "Roll": -22.5
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S33/T_Icon_Glider_CubicVice.T_Icon_Glider_CubicVice",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S33/T_Icon_Glider_CubicVice_L.T_Icon_Glider_CubicVice_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.Source.Season33.BattlePass.Paid.Additional",
+            "Cosmetics.Set.MetalWalk",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.LimitedTimeReward"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            357,
+            564,
+            162,
+            567,
+            387,
+            783,
+            769,
+            1046,
+            1279,
+            1344,
+            349,
+            2544,
+            2660,
+            388,
+            2833,
+            4641,
+            4649,
+            7187
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_CubicVice",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/FX/NS_Glider_CubicVice_Trail.NS_Glider_CubicVice_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/FX/NS_Glider_Cubicvice_Intro.NS_Glider_Cubicvice_Intro",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "12502DA64E2EEB5672DD4685EC0C70E9",
+            "SourceString": "Nomad's Drifter",
+            "LocalizedString": "Nomad's Drifter"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S33/T_Icon_Glider_CubicVice.T_Icon_Glider_CubicVice",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/Materials/MI_Glider_Cubic_Vice.MI_Glider_Cubic_Vice",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/Skins/DualSky/Materials/MI_Glider_Cubic_Vice.MI_Glider_Cubic_Vice",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/FX/NS_Glider_CubicVice_Trail.NS_Glider_CubicVice_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CubicVice/FX/NS_Glider_Cubicvice_Intro.NS_Glider_Cubicvice_Intro",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E64D1EE742631293930A90ACAFFF3F21",
+            "SourceString": "Racer's Drifter",
+            "LocalizedString": "Racer's Drifter"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S33/T_Icon_Glider_CubicVice_DualSky_L.T_Icon_Glider_CubicVice_DualSky_L",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1AF2D0A24A7C42137FD95995526E2366",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

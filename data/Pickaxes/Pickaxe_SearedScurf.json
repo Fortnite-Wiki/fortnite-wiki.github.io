@@ -1,0 +1,236 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_SearedScurf",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_SearedScurf'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_SearedScurf.0"
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": -3.0,
+          "Z": 6.0
+        },
+        "CylinderHalfHeight": 30.0,
+        "CylinderRadius": 30.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Pickaxe_SearedScurf:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_SearedScurf.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 126849,
+      "ShotGridIds": [
+        126849
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "105626FC4066A77650BB39A5D82D91FD",
+        "SourceString": "Searing Greenflame",
+        "LocalizedString": "Searing Greenflame"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4A5D39FF4C9BFAE3A57E8A9886C6E93C",
+        "SourceString": "A handy mobile flamethrower.",
+        "LocalizedString": "A handy mobile flamethrower."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F604B52D473AA622E2875F9B2328A1CB",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 5.0,
+            "Yaw": -38.0,
+            "Roll": 38.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.HightowerWasabi",
+            "Cosmetics.Pickaxe.DualWield",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.ToothForest",
+            "UI.ItemPreview.PreviewType.OnPawn",
+            "Cosmetics.FrontEnd.Preview.SkipPlayerSelections"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_SearedScurf.T_Icon_Pickaxes_SearedScurf",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_SearedScurf_L.T_Icon_Pickaxes_SearedScurf_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            237,
+            587,
+            593,
+            579,
+            578,
+            581,
+            215,
+            243,
+            601,
+            756,
+            92,
+            1122,
+            93,
+            1221,
+            1350,
+            453,
+            212,
+            2263,
+            2965,
+            3043,
+            3507,
+            4258,
+            4647,
+            7626
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Pickaxe_SearedScurf",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SearedScurf.Character_SearedScurf",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SearedScurfUniversal/Meshes/SearedScurfUniversal_Axe.SearedScurfUniversal_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

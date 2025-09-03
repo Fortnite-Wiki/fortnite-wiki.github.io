@@ -1,0 +1,397 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_PolishedJade",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_PolishedJade'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_PolishedJade.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 45.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 1.0,
+        "Y": 5.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 5.0
+        },
+        "CylinderHalfHeight": 4.0,
+        "CylinderRadius": 48.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_PolishedJade:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PolishedJade.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 119381,
+      "VariantShotGridIds": [
+        119381,
+        123925
+      ],
+      "ShotGridIds": [
+        119381,
+        119381,
+        123925
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "2C6B7FED4FF3F0479EF71D9E95F71BE4",
+        "SourceString": "Blades of Light",
+        "LocalizedString": "Blades of Light"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "08735F864AF1F84696B540B650302CD9",
+        "SourceString": "The brighter the light, the deeper the shadow.",
+        "LocalizedString": "The brighter the light, the deeper the shadow."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "268CD4CE452941EA2E5A78B34AE84020",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.Set.AuraBlocker",
+            "Cosmetics.Source.Season33.BattlePass.Paid.Additional",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            236,
+            596,
+            581,
+            586,
+            601,
+            24,
+            247,
+            106,
+            758,
+            436,
+            113,
+            1072,
+            258,
+            2056,
+            457,
+            438,
+            2558,
+            474
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_PolishedJade",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Idle.NS_Pickaxe_PolishedJade_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Idle_Offhand.NS_Pickaxe_PolishedJade_Idle_Offhand",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Impact.NS_Pickaxe_PolishedJade_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Trail.NS_Pickaxe_PolishedJade_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "578230D14409A079ED9F0DACF55963A9",
+            "SourceString": "Blades of Light",
+            "LocalizedString": "Blades of Light"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S33/T_Icon_Pickaxes_PolishedJade.T_Icon_Pickaxes_PolishedJade",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/Materials/MI_Pickaxe_PolishedJade.MI_Pickaxe_PolishedJade",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/Skins/MindGloom/Materials/MI_Pickaxe_PolishedJade_MindGloom.MI_Pickaxe_PolishedJade_MindGloom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Idle.NS_Pickaxe_PolishedJade_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Idle_Offhand.NS_Pickaxe_PolishedJade_Idle_Offhand",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Impact.NS_Pickaxe_PolishedJade_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolishedJade/FX/NS_Pickaxe_PolishedJade_Trail.NS_Pickaxe_PolishedJade_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BDAC76C94C5F27C89FC1F6B6CD6CC6EF",
+            "SourceString": "Blades of Shadow",
+            "LocalizedString": "Blades of Shadow"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S33/T_Icon_Pickaxes_PolishedJade_MindBloom.T_Icon_Pickaxes_PolishedJade_MindBloom",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "3EB1BF3240A59B50BBFB5BB410798A8A",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

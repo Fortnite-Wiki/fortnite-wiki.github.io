@@ -1,0 +1,594 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_Nebula",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Nebula.CP_Athena_Head_M_Nebula",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Nebula.CP_Athena_Body_M_Nebula",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Nebula_FaceAcc.CP_M_MED_Nebula_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "PreviewPawnScale": 0.9,
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s24/NebulaF/Nebula_Female_ALT_Idle_Montage.Nebula_Female_ALT_Idle_Montage",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.Emote.CharacterGroup.Skirts"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_Nebula:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Nebula.1"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'Character_Nebula:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Nebula.2"
+        }
+      ],
+      "BaseShotGridId": 65216,
+      "VariantShotGridIds": [
+        65652,
+        65653
+      ],
+      "ShotGridIds": [
+        65216,
+        65652,
+        65653
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "FB9AE42E4D9ED5741068E88068C75C9F",
+        "SourceString": "Mystica",
+        "LocalizedString": "Mystica"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "2A0EA7694AEDF9F360D5F7933C611FF8",
+        "SourceString": "Fabled survivor. Luminary mind.",
+        "LocalizedString": "Fabled survivor. Luminary mind."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Nebula-L.T-Soldier-Hero-Nebula-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Nebula.T-Soldier-Hero-Nebula",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.24",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "SoundLibrary.ID.StepType.BootsHeeled",
+            "SoundLibrary.ID.ClothingType.Scales",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Set.AdventureGroup",
+            "Cosmetics.TallCharacter",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            236,
+            237,
+            560,
+            6,
+            583,
+            593,
+            581,
+            586,
+            242,
+            123,
+            595,
+            607,
+            261,
+            629,
+            486,
+            127,
+            715,
+            756,
+            757,
+            482,
+            1014
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_Nebula",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3EB59F8E472F18BA4E54F39BE0E289B1",
+            "SourceString": "Mystica",
+            "LocalizedString": "Mystica"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Nebula.T-Soldier-Hero-Nebula",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Body.M_MED_Nebula_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/Blast/Materials/M_MED_Nebula_Blast_Body.M_MED_Nebula_Blast_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_FaceAcc.M_MED_Nebula_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/Blast/Materials/M_MED_Nebula_Blast_FaceAcc.M_MED_Nebula_Blast_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Head.M_MED_Nebula_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/Blast/Materials/M_MED_Nebula_Blast_Head.M_MED_Nebula_Blast_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Ball.M_MED_Nebula_Ball",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/Blast/Materials/M_MED_Nebula_Blast_Body_Ball.M_MED_Nebula_Blast_Body_Ball",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/FX_Materials/MI_3DHB_NebulaTeeth_Variant0.MI_3DHB_NebulaTeeth_Variant0",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/FX_Materials/MI_3DHB_NebulaTeeth_Variant1.MI_3DHB_NebulaTeeth_Variant1",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/NS_Nebula_Head_Idle.NS_Nebula_Head_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.182292,
+                    "G": 0.036968,
+                    "B": 0.023871,
+                    "A": 1.0,
+                    "Hex": "76362A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AEE6686E4696C23CA328F49254C9F49B",
+            "SourceString": "Crimsonbloom Mystica",
+            "LocalizedString": "Crimsonbloom Mystica"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Nebula-Blast.T-Soldier-Hero-Nebula-Blast",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Body.M_MED_Nebula_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/sky/Materials/M_MED_Nebula_Sky_Body.M_MED_Nebula_Sky_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_FaceAcc.M_MED_Nebula_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/sky/Materials/M_MED_Nebula_Sky_FaceAcc.M_MED_Nebula_Sky_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Head.M_MED_Nebula_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/sky/Materials/M_MED_Nebula_Sky_Head.M_MED_Nebula_Sky_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Materials/M_MED_Nebula_Ball.M_MED_Nebula_Ball",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/Skins/sky/Materials/M_MED_Nebula_Sky_Ball.M_MED_Nebula_Sky_Ball",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/FX_Materials/MI_3DHB_NebulaTeeth_Variant0.MI_3DHB_NebulaTeeth_Variant0",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/FX_Materials/MI_3DHB_NebulaTeeth_Variant2.MI_3DHB_NebulaTeeth_Variant2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Nebula/FX/NS_Nebula_Head_Idle.NS_Nebula_Head_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.191202,
+                    "G": 0.584078,
+                    "B": 0.693872,
+                    "A": 1.0,
+                    "Hex": "79C9D9"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E2FE6B9348268A5590C0C59043BEC793",
+            "SourceString": "Wintersong Mystica",
+            "LocalizedString": "Wintersong Mystica"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Nebula-Sky.T-Soldier-Hero-Nebula-Sky",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "BC68AC1E4B9929639CB0C184F2317260",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "Character_Nebula",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

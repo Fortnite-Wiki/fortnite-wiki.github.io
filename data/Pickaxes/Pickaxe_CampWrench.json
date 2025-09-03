@@ -1,0 +1,322 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_CampWrench",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_CampWrench'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_CampWrench.1"
+      },
+      "PickaxeImpactFXOnPawnPreviewOffset": {
+        "X": -45.0,
+        "Y": 0.0,
+        "Z": 15.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 1.0,
+        "Y": 5.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 5.0
+        },
+        "CylinderHalfHeight": 4.0,
+        "CylinderRadius": 48.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Pickaxe_CampWrench:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_CampWrench.1"
+        }
+      ],
+      "BaseShotGridId": 137815,
+      "VariantShotGridIds": [
+        162159
+      ],
+      "ShotGridIds": [
+        137815,
+        162159
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "98581EDD40777AF25D493AA819CD8042",
+        "SourceString": "Psionic Orbs",
+        "LocalizedString": "Psionic Orbs"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6BB5C96549EB4028DC1DEB8532AE3DEE",
+        "SourceString": "Sue's powers can pack a serious punch.",
+        "LocalizedString": "Sue's powers can pack a serious punch."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F25386E84B2FAB4CC924A584E5B6B621",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "UI.ItemPreview.PreviewType.OnPawn",
+            "Cosmetics.Set.ColdShield",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_CampWrenchUniversal.T_Icon_Pickaxes_CampWrenchUniversal",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_CampWrenchUniversal_L.T_Icon_Pickaxes_CampWrenchUniversal_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            562,
+            564,
+            162,
+            246,
+            244,
+            542,
+            961,
+            53,
+            1053,
+            90,
+            1194,
+            315,
+            1535,
+            1539,
+            1538,
+            1694,
+            2629,
+            2653,
+            383,
+            2654,
+            3630
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Pickaxe_CampWrench",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CampWrench.Character_CampWrench",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/FX/NS_Pickaxe_CampWrench_Idle.NS_Pickaxe_CampWrench_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "BuiltIn"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/FX/NS_Pickaxe_CampWrench_Trail.NS_Pickaxe_CampWrench_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "BuiltIn"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/FX/NS_Pickaxe_CampWrench_Impact.NS_Pickaxe_CampWrench_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "BuiltIn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield1"
+              }
+            }
+          ],
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/Meshes/CampWrenchUniversal_Axe.CampWrenchUniversal_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/FX/SK_Pickaxe_CampWrench.SK_Pickaxe_CampWrench",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/Meshes/Offhand/CampWrenchUniversal_Offhand_Axe.CampWrenchUniversal_Offhand_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_CampWrenchUniversal/FX/SK_Pickaxe_CampWrench.SK_Pickaxe_CampWrench",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

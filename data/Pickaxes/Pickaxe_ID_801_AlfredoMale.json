@@ -1,0 +1,200 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_801_AlfredoMale",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'WID_Harvest_Pickaxe_AlfredoMale'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_AlfredoMale.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 17.0,
+        "Z": 60.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 19.790777,
+          "Y": 0.0,
+          "Z": 2.004419
+        },
+        "CylinderHalfHeight": 65.0,
+        "CylinderRadius": 59.975864
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_ID_801_AlfredoMale:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_801_AlfredoMale.1"
+        }
+      ],
+      "BaseShotGridId": 54248,
+      "ShotGridIds": [
+        54248
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "83CDEB684170A7D9B9394F991F86FEA3",
+        "SourceString": "Ali-Tech Staff",
+        "LocalizedString": "Ali-Tech Staff"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "2BE812B549BB93DBBEE3BD9496D10709",
+        "SourceString": "Give it a whirl.",
+        "LocalizedString": "Give it a whirl."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "D306F3484E4C3EE68C7ED0A569D6E4E1",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.20",
+            "Cosmetics.Set.KneePorter",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -3.0,
+            "Yaw": 45.0,
+            "Roll": 38.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            357,
+            564,
+            162,
+            292,
+            567,
+            596,
+            581,
+            586,
+            582,
+            215,
+            601,
+            244,
+            106,
+            850,
+            113,
+            1014,
+            440,
+            1190,
+            1194,
+            1221,
+            1350,
+            300,
+            453,
+            437,
+            2042,
+            2494,
+            2508,
+            2635,
+            5647
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Pickaxe_ID_801_AlfredoMale",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.012055,
+            "G": 0.578495,
+            "B": 0.6,
+            "A": 1.0,
+            "Hex": "1CC8CC"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_AlfredoArmor.CS_AlfredoArmor",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Alfredo_Male/Materials/MI_Pickaxe_Alfredo_Male.MI_Pickaxe_Alfredo_Male",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Alfredo_Male/FX/MI_AlfredoMale_Pickaxe.MI_AlfredoMale_Pickaxe",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Alfredo_Male/FX/NS_Pickaxe_AlfredoMale_Idle.NS_Pickaxe_AlfredoMale_Idle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Alfredo_Male/FX/NS_Pickaxe_AlfredoMale_AnimeTrail.NS_Pickaxe_AlfredoMale_AnimeTrail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Alfredo_Male/FX/NS_Pickaxe_AlfredoMale_Impact.NS_Pickaxe_AlfredoMale_Impact",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Emissive Color"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "26AA926F4D34B1012EE9ED9B0A2D6447",
+          "SourceString": "Emissive Color",
+          "LocalizedString": "Emissive Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B5F84627405AF35904F89CB6E52B7634",
+        "SourceString": "Light Color",
+        "LocalizedString": "Light Color"
+      }
+    }
+  }
+]

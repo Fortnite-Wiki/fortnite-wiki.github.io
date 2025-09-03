@@ -1,0 +1,206 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_485_BananaAgent",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_BananaAgent'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_BananaAgent.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.Season.SeasonLevel12"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_485_BananaAgent:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_485_BananaAgent.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "8743BEDA420AF2D1F4D500A75F43C636",
+        "SourceString": "Banana Briefcase",
+        "LocalizedString": "Banana Briefcase"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E58527D74E5BA908403D3EABDA4F6BA7",
+        "SourceString": "More than one, it's a bunch.",
+        "LocalizedString": "More than one, it's a bunch."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "31F4285A40052A2CC4DEC6970794E62F",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-485-BananaAgent.T-Icon-Backpacks-485-BananaAgent",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-485-BananaAgent-L.T-Icon-Backpacks-485-BananaAgent-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.12",
+            "Cosmetics.Source.Season12.BattlePass.Paid",
+            "Cosmetics.Set.PotassiumWin",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            544,
+            357,
+            166,
+            243,
+            650,
+            542,
+            677,
+            37,
+            687,
+            825,
+            826,
+            961,
+            53,
+            1053,
+            2482,
+            2485,
+            2566,
+            2629,
+            2630
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "BID_485_BananaAgent",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B7277B6C4495691E4CF86CB70276495F",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-485-BananaAgent.T-Icon-Backpacks-485-BananaAgent",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Banana_Agent/Materials/F_MED_Banana_Agent_Backpack.F_MED_Banana_Agent_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Banana_Agent/Materials/F_MED_Banana_Agent_Backpack_SL.F_MED_Banana_Agent_Backpack_SL",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D3C0F953490BAB4AF9B4E388A2F99828",
+            "SourceString": "GOLDEN AGENT",
+            "LocalizedString": "GOLDEN AGENT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-485-BananaAgent-Gold.T-Variant-485-BananaAgent-Gold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "460899934A2024D7F2BC70B9DC1A349A",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

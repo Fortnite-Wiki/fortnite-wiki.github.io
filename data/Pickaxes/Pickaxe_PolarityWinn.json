@@ -1,0 +1,532 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_PolarityWinn",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_PolarityWinn'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_PolarityWinn.0"
+      },
+      "PickaxeImpactFXOnPawnPreviewOffset": {
+        "X": -35.0,
+        "Y": 25.0,
+        "Z": 30.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": -8.0,
+          "Y": -8.0,
+          "Z": 7.0
+        },
+        "CylinderHalfHeight": 50.0,
+        "CylinderRadius": 50.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_PolarityWinn:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PolarityWinn.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_PolarityWinn:FortCosmeticParticleVariant_5'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PolarityWinn.2"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 0.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 152500,
+      "VariantShotGridIds": [
+        158358
+      ],
+      "ShotGridIds": [
+        152500,
+        158358
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "92924791413E10A1122ED5909313895F",
+        "SourceString": "Soundwave Slashers",
+        "LocalizedString": "Soundwave Slashers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "8EE478AE49E6F4E14971B8B92051DBB9",
+        "SourceString": "Cut through all the noise.",
+        "LocalizedString": "Cut through all the noise."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "62DA344F42688549DB2960BEFC35CC8B",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": -50.0,
+            "Yaw": -90.0,
+            "Roll": 12.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.MusicPlayer",
+            "Cosmetics.Source.Season36.BattlePass.Paid.Additional",
+            "Cosmetics.Source.Season36.BattlePass.Free"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/Game/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe-S.T_Placeholder_Item_Pickaxe-S",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/Game/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe.T_Placeholder_Item_Pickaxe",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            587,
+            593,
+            579,
+            578,
+            581,
+            242,
+            595,
+            261,
+            244,
+            756,
+            850,
+            92,
+            1122,
+            93,
+            1221,
+            1350,
+            212,
+            2263,
+            3507,
+            4156
+          ]
+        },
+        {
+          "ContextualOverrides": [
+            {
+              "ContextTags": [
+                "UI.ItemPreview.PreviewType.OffPawn"
+              ],
+              "ItemPreviewActorClass": {
+                "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/PickaxeItemPreview_PolarityWinn.PickaxeItemPreview_PolarityWinn_C",
+                "SubPathString": ""
+              },
+              "IdleMontage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "Character": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "VariantOverrides": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_PolarityWinn",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Polarity_Pickaxe_Impact.NS_Polarity_Pickaxe_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Idle.NS_Pickaxe_PolarityWinn_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Trail.NS_Pickaxe_PolarityWinn_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "62EAE1034BD151A595C110AF360764DD",
+            "SourceString": "Soundwave Slashers",
+            "LocalizedString": "Soundwave Slashers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_PolarityWinn.T_Icon_Pickaxes_PolarityWinn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Polarity_Pickaxe_Impact.NS_Polarity_Pickaxe_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Idle.NS_Pickaxe_PolarityWinn_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Trail.NS_Pickaxe_PolarityWinn_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2366B897437F4736721EC184D615A3E7",
+            "SourceString": "Upbeat Slashers",
+            "LocalizedString": "Upbeat Slashers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_PolarityWinn_FieldSalt.T_Icon_Pickaxes_PolarityWinn_FieldSalt",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4E312BC946313E98800A31ADD2374749",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_5",
+    "Outer": "Pickaxe_PolarityWinn",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Idle.NS_Pickaxe_PolarityWinn_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ReactivityEnabled"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4B0B6E86492FC602167CF2B37BCEC810",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_PolarityWinn.T_Icon_Pickaxes_PolarityWinn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": [
+            "Cosmetics.MetaTags.ReactiveOn"
+          ]
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_MistressSombre/Materials/MI_Pickaxe_MistressSombre.MI_Pickaxe_MistressSombre",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_MistressSombre/Materials/MI_Pickaxe_MistressSombre.MI_Pickaxe_MistressSombre",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PolarityWinn/NS_Pickaxe_PolarityWinn_Idle.NS_Pickaxe_PolarityWinn_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityEnabled"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C54542AA48F1D033BD702D9821A537B3",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_PolarityWinn.T_Icon_Pickaxes_PolarityWinn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": [
+            "Cosmetics.MetaTags.ReactiveOff"
+          ]
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "AAAB93CC4A82D80224BF41A7043BA8AC",
+        "SourceString": "reactivity",
+        "LocalizedString": "reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

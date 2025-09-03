@@ -1,0 +1,237 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_MistRaven",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_MistRaven'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_MistRaven.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_MistRaven:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MistRaven.1"
+        }
+      ],
+      "BaseShotGridId": 152496,
+      "ShotGridIds": [
+        152496
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "99B0D4C4438BC31426472F88F8A88852",
+        "SourceString": "Wings of Myst",
+        "LocalizedString": "Wings of Myst"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "59937E7C43FF86AAD806B8A4A2A62E94",
+        "SourceString": "Soar among the shadows.",
+        "LocalizedString": "Soar among the shadows."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "ACD969094DD47D4BEB4D2DBB10929AB3",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_MistRaven.T_Icon_Backpacks_MistRaven",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_MistRaven_L.T_Icon_Backpacks_MistRaven_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.DarkWoman"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            2,
+            236,
+            245,
+            595,
+            605,
+            607,
+            387,
+            542,
+            851,
+            853,
+            77,
+            1010,
+            184,
+            1535,
+            2493
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Backpack_MistRaven",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_MistRaven/FX/NS_Backpack_MistRaven_Idle.NS_Backpack_MistRaven_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7306F7DF41645392D32F97825CB36508",
+            "SourceString": "Wings of Myst",
+            "LocalizedString": "Wings of Myst"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_MistRaven.T_Icon_Backpacks_MistRaven",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_MistRaven/Materials/MI_MistRaven_Backpack.MI_MistRaven_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_MistRaven/Skins/PeckCandy/Materials/MI_MistRaven_PeckCandy_Backpack.MI_MistRaven_PeckCandy_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_MistRaven/FX/NS_Backpack_MistRaven_Idle.NS_Backpack_MistRaven_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "48054107438BEC937C880C8DDB44CE8F",
+            "SourceString": "Wings of the Firebird",
+            "LocalizedString": "Wings of the Firebird"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_MistRaven_PeckCandy.T_Icon_Backpacks_MistRaven_PeckCandy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "DA2F7E56465B61BEB2C73EA11A907D1D",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

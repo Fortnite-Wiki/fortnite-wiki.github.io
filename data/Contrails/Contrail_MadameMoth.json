@@ -1,0 +1,261 @@
+[
+  {
+    "Type": "AthenaSkyDiveContrailItemDefinition",
+    "Name": "Contrail_MadameMoth",
+    "Class": "UScriptClass'AthenaSkyDiveContrailItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraContrailEffect": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_MadameMoth/NS_ConTrail_MadameMoth.NS_ConTrail_MadameMoth",
+        "SubPathString": ""
+      },
+      "PreviewPawnRotationOffset": {
+        "Pitch": 0.0,
+        "Yaw": -35.0,
+        "Roll": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Contrail_MadameMoth:FortCosmeticParticleVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Contrails/Contrail_MadameMoth.1"
+        }
+      ],
+      "BaseShotGridId": 81330,
+      "VariantShotGridIds": [
+        81330,
+        82279
+      ],
+      "ShotGridIds": [
+        81330,
+        81330,
+        82279
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "53646D924E45B2A52B08FAA415C438D4",
+        "SourceString": "Burndown",
+        "LocalizedString": "Burndown"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3361DAA141A0299A43AFFE8831515E6E",
+        "SourceString": "Blaze a path downward.",
+        "LocalizedString": "Blaze a path downward."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "857C9A7248EBB0F968FFD6ADC762ACC4",
+        "SourceString": "Contrail",
+        "LocalizedString": "Contrail"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 15.0,
+            "Y": 120.0,
+            "Z": 45.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-MadameMoth.T-Icon-Trails-FX-MadameMoth",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-MadameMoth-L.T-Icon-Trails-FX-MadameMoth-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionIn",
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionOut",
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.Source.Season28.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FireMoney"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            245,
+            584,
+            587,
+            593,
+            579,
+            578,
+            581,
+            595,
+            215,
+            756,
+            92,
+            1034,
+            1122,
+            1221,
+            1350,
+            2041,
+            3507,
+            3508
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_2",
+    "Outer": "Contrail_MadameMoth",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_MadameMoth/NS_ConTrail_MadameMoth.NS_ConTrail_MadameMoth",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DC12B5C240395DD1EC85308600A30857",
+            "SourceString": "Burndown",
+            "LocalizedString": "Burndown"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-MadameMoth.T-Icon-Trails-FX-MadameMoth",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_MadameMoth/NS_ConTrail_MadameMoth.NS_ConTrail_MadameMoth",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_MadameMoth/NS_ConTrail_MadameMoth_Emerald.NS_ConTrail_MadameMoth_Emerald",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_MadameMoth/NS_ConTrail_MadameMoth.NS_ConTrail_MadameMoth",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B05EABC84787407C7C75C48DD17191D4",
+            "SourceString": "Stygian Burndown",
+            "LocalizedString": "Stygian Burndown"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-MadameMoth-Emerald.T-Icon-Trails-FX-MadameMoth-Emerald",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D90C901846FE4A97C2360E9B54596C1D",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

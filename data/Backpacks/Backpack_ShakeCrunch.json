@@ -1,0 +1,212 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_ShakeCrunch",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_ShakeCrunch'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_ShakeCrunch.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_ShakeCrunch:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_ShakeCrunch.1"
+        }
+      ],
+      "BaseShotGridId": 116140,
+      "ShotGridIds": [
+        116140
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "2088EE9144CE813DFFA00C8516A75BD5",
+        "SourceString": "Hobie's Amp",
+        "LocalizedString": "Hobie's Amp"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "F207D6CC4D1EE31FC10D4D862FE479B4",
+        "SourceString": "Crank it up and make sure they hear you!",
+        "LocalizedString": "Crank it up and make sure they hear you!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "13E02EC042FF2A4EFDAFCEAB5BEBAD73",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_ShakeCrunch.T_Icon_Backpacks_ShakeCrunch",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_ShakeCrunch_L.T_Icon_Backpacks_ShakeCrunch_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.Set.TransferLegend",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            7975,
+            236,
+            357,
+            162,
+            569,
+            567,
+            642,
+            244,
+            826,
+            902,
+            1053,
+            1194,
+            315,
+            1565,
+            2514,
+            2557,
+            2561,
+            2559,
+            2560,
+            263,
+            492
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Backpack_ShakeCrunch",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B6D261B6443371DE07FAC8BE4FAB563F",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_ShakeCrunch.T_Icon_Backpacks_ShakeCrunch",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_ShakeCrunch/Materials/MI_ShakeCrunch_Backpack_Outline.MI_ShakeCrunch_Backpack_Outline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DA2D0A6040F3A6ADC7365186556EB2CC",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_ShakeCrunch_OutlineOff.T_Icon_Backpacks_ShakeCrunch_OutlineOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E67D7BBA4021F0B72B55E888317794BC",
+        "SourceString": "Outline",
+        "LocalizedString": "Outline"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

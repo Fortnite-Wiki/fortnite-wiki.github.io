@@ -1,0 +1,254 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_DimeAviator",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_DimeAviator.CP_Athena_Head_M_DimeAviator",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_DimeAviator.CP_Athena_Body_M_DimeAviator",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_DimeAviator_FaceAcc.CP_M_MED_DimeAviator_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_DimeAviator:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DimeAviator.1"
+        }
+      ],
+      "BaseShotGridId": 61939,
+      "ShotGridIds": [
+        61939
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "3C94BA82431DF8254DC79CAB80149DA7",
+        "SourceString": "Cybernetic Assault Bomber",
+        "LocalizedString": "Cybernetic Assault Bomber"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "53857A2C46644084C71C6F819669D6AA",
+        "SourceString": "Part machine. In full control.",
+        "LocalizedString": "Part machine. In full control."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_DimeAviator.T_Soldier_DimeAviator",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_DimeAviator_L.T_Soldier_DimeAviator_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.Season.37",
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            8,
+            46,
+            564,
+            563,
+            560,
+            162,
+            567,
+            166,
+            269,
+            246,
+            638,
+            640,
+            179,
+            681,
+            275,
+            778,
+            146,
+            965,
+            1044,
+            90,
+            1068,
+            1278,
+            147,
+            1343
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_DimeAviator",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BD606CF846C05B9337DDC0A5CAF6627F",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_DimeAviator.T_Soldier_DimeAviator",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_DimeAviator/Materials/MI_DimeAviator_FaceAcc.MI_DimeAviator_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_DimeAviator/Materials/MI_DimeAviator_FaceAcc.MI_DimeAviator_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_DimeAviator/Materials/MI_DimeAviator_Glass.MI_DimeAviator_Glass",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_DimeAviator/Materials/MI_DimeAviator_Glass.MI_DimeAviator_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "243B6827428DAAB5E5C3B8BD52843C7E",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S37/T_Soldier_DimeAviator_HelmetOff.T_Soldier_DimeAviator_HelmetOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "DF7162D74EC8331405A9D1A4E16867AC",
+        "SourceString": "Helmet",
+        "LocalizedString": "Helmet"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

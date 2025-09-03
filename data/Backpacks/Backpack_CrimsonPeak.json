@@ -1,0 +1,277 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_CrimsonPeak",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_CrimsonPeak'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_CrimsonPeak.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes",
+        "StatManager.DamageReceived"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_CrimsonPeak:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_CrimsonPeak.1"
+        },
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'Backpack_CrimsonPeak:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_CrimsonPeak.2"
+        }
+      ],
+      "BaseShotGridId": 62115,
+      "ShotGridIds": [
+        62115
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "60AFA582484C64565E9E1C90EE859B22",
+        "SourceString": "RIG",
+        "LocalizedString": "RIG"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "F4787C5F47D6D0776D048BB1BAB4EF1C",
+        "SourceString": "Watch your back with a personalized life-monitoring system.",
+        "LocalizedString": "Watch your back with a personalized life-monitoring system."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "A6C651F54AB2287577BD79B11718F4A8",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'PlatformSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/PlatformSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-CrimsonPeak.T-Icon-Backpacks-CrimsonPeak",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-CrimsonPeak-L.T-Icon-Backpacks-CrimsonPeak-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Set.WeirdMessages",
+            "Cosmetics.Filter.Season.23"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            562,
+            564,
+            162,
+            567,
+            166,
+            596,
+            642,
+            826,
+            434,
+            961,
+            1053,
+            1194,
+            315,
+            1539,
+            1538,
+            1565,
+            1694,
+            2563
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Backpack_CrimsonPeak",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DBAC4A9741953BF9EE33E3BEE268EB5C",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-CrimsonPeak.T-Icon-Backpacks-CrimsonPeak",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D8EFDC42462751D1E288FA8D4E642C1A",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-CrimsonPeak.T-Icon-Backpacks-CrimsonPeak",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9FCD21C444ED915811364C9A21932A9A",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "Backpack_CrimsonPeak",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CrimsonPeak.Character_CrimsonPeak",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/Game/Characters/CharacterParts/Common/CP_Backpack_Med_Empty.CP_Backpack_Med_Empty",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

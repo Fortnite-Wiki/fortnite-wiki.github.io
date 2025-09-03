@@ -1,0 +1,337 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_Genius",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_Genius.CP_Athena_Head_F_Genius",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_Genius.CP_Athena_Body_F_Genius",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_Genius_FaceAcc.CP_F_MED_Genius_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s22/GeniusF/Genius_Female_Idle_Montage.Genius_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.Emote.CharacterGroup.Skirts"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_Genius:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Genius.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 58147,
+      "ShotGridIds": [
+        58147
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9D51E7A24C8963E991FB6095D923399C",
+        "SourceString": "Queen Summer",
+        "LocalizedString": "Queen Summer"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6D3320944D9CBE876786B0A7253971D9",
+        "SourceString": "All hail! Queen of the Glorzo.",
+        "LocalizedString": "All hail! Queen of the Glorzo."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/T-Soldier-Hero-GeniusF-L.T-Soldier-Hero-GeniusF-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/T-Soldier-Hero-GeniusF.T-Soldier-Hero-GeniusF",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.SoapPure",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.22",
+            "SoundLibrary.ID.StepType.ShoesDress",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            552,
+            7975,
+            12,
+            544,
+            245,
+            103,
+            243,
+            1,
+            613,
+            269,
+            54,
+            678,
+            688,
+            247,
+            711,
+            275,
+            722,
+            726,
+            755,
+            758,
+            436,
+            944,
+            82,
+            997,
+            1018,
+            1030,
+            1208,
+            1209,
+            1871,
+            1207,
+            1210,
+            1219,
+            1206,
+            1430,
+            1212,
+            1211,
+            1868,
+            1213,
+            101,
+            1858
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_Genius",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "Swaps": [
+                {
+                  "Item": {
+                    "ObjectName": "AthenaCharacterItemDefinition'Character_Genius'",
+                    "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Genius.0"
+                  },
+                  "ChannelInfoList": [
+                    {
+                      "OwnedVariantTags": [],
+                      "ItemVariantIsUsedFor": {
+                        "ObjectName": "AthenaCharacterItemDefinition'Character_Genius'",
+                        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Genius.0"
+                      },
+                      "CustomData": "",
+                      "VariantChannelTag": {
+                        "TagName": "Cosmetics.Variant.Channel.Material"
+                      },
+                      "ActiveVariantTag": {
+                        "TagName": "Cosmetics.Variant.Property.Stage2"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "SwapId": "7497B797-4DDC3591-6D00F9B5-A64708BB",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.Swap.HideBuiltInCape"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Property.Stage1",
+              "Cosmetics.Character.RestrictCape"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FA6479844617D01F49CEB3B42D9F9AD0",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Genius_VariantTextures/T-Soldier-Hero-GeniusF-02.T-Soldier-Hero-GeniusF-02",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Genius/Materials/MI_F_Genius_Body.MI_F_Genius_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Genius/Materials/MI_F_Genius_Body.MI_F_Genius_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Genius/Materials/MI_F_Genius_OverlayOutline_Body.MI_F_Genius_OverlayOutline_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Genius/Materials/MI_F_Genius_OverlayOutline_Body.MI_F_Genius_OverlayOutline_Body",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Property.Stage2"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F83C900A4682393241DB9BB5C6CDB932",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Genius_VariantTextures/T-Soldier-Hero-GeniusF-noCape-02.T-Soldier-Hero-GeniusF-noCape-02",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1ED215AD42F6E063A41FD8BD935D7138",
+        "SourceString": "Cape",
+        "LocalizedString": "Cape"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

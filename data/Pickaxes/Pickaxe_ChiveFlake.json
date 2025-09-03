@@ -1,0 +1,261 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ChiveFlake",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_ChiveFlake'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ChiveFlake.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -13.0,
+        "Y": 0.0,
+        "Z": 59.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 10.0,
+          "Y": -5.0,
+          "Z": 18.0
+        },
+        "CylinderHalfHeight": 55.0,
+        "CylinderRadius": 55.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Pickaxe_ChiveFlake:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ChiveFlake.1"
+        }
+      ],
+      "BaseShotGridId": 126825,
+      "ShotGridIds": [
+        126825
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A10B92DA4EE69FC466CFCCAB6D0CEC22",
+        "SourceString": "Peppermint Axe",
+        "LocalizedString": "Peppermint Axe"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "624A96D545531092252DF89C4A90D7B7",
+        "SourceString": "Candy Kingdom's sharpest (and mintiest) battle axe.",
+        "LocalizedString": "Candy Kingdom's sharpest (and mintiest) battle axe."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9724D93140017EA0CADA2F8A2DA90DBE",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 315.0,
+            "Roll": 5.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.Set.Timmy",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_ChiveFlake.T_Icon_Pickaxes_ChiveFlake",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_ChiveFlake_L.T_Icon_Pickaxes_ChiveFlake_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            488,
+            544,
+            245,
+            586,
+            601,
+            261,
+            246,
+            54,
+            69,
+            683,
+            193,
+            436,
+            266,
+            113,
+            440,
+            1053,
+            442,
+            311,
+            258,
+            437,
+            281,
+            2470,
+            2632,
+            2818,
+            5564
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Pickaxe_ChiveFlake",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "870AC786469CA1C7531BCDB9DCFC758C",
+            "SourceString": "Flat",
+            "LocalizedString": "Flat"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_ChiveFlake.T_Icon_Pickaxes_ChiveFlake",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ChiveFlake/Materials/MI_Pickaxe_ChiveFlake.MI_Pickaxe_ChiveFlake",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.6,
+                  "ParamName": "Dynamic_ColorShaded_Darkening"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ChiveFlake/Materials/MI_Pickaxe_ChiveFlake.MI_Pickaxe_ChiveFlake",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7280500F44C637346D76C18EA8373F18",
+            "SourceString": "Gradient",
+            "LocalizedString": "Gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_ChiveFlake_PBR.T_Icon_Pickaxes_ChiveFlake_PBR",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4D802E0047669F0EE44C9BBB8094CF1C",
+        "SourceString": "Shading",
+        "LocalizedString": "Shading"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

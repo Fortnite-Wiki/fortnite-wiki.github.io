@@ -1,0 +1,550 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_SnapFreeze",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SnapFreezeUniversal'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SnapFreezeUniversal.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SnapFreeze:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnapFreeze.2"
+        },
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Backpack_SnapFreeze:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnapFreeze.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SnapFreeze:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnapFreeze.3"
+        }
+      ],
+      "BaseShotGridId": 107398,
+      "ShotGridIds": [
+        107398
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "264FDB7C462EA9E375F5D496BF2D608E",
+        "SourceString": "Shuri's Cloak",
+        "LocalizedString": "Shuri's Cloak"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "FBAF5D114857E30AD1B289B9B1880135",
+        "SourceString": "Reserved for Wakandan royalty.",
+        "LocalizedString": "Reserved for Wakandan royalty."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "229086F74E4871EE5BE67D9C1AA3A511",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal.T_IconBackpacks_SnapFreezeUniversal",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal_L.T_IconBackpacks_SnapFreezeUniversal_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.Set.GravelAloof",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "ContextualOverrides": [
+            {
+              "ContextTags": [
+                "UI.ItemPreview.SceneChanger.BattlePass"
+              ],
+              "ItemPreviewActorClass": {
+                "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+                "SubPathString": ""
+              },
+              "IdleMontage": {
+                "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/Female/Medium/Commando/Commando_Female_Body_Montage_Idle.Commando_Female_Body_Montage_Idle",
+                "SubPathString": ""
+              },
+              "Character": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SnapFreeze_Hunt.Character_SnapFreeze_Hunt",
+                "SubPathString": ""
+              },
+              "VariantOverrides": [
+                {
+                  "WhenViewingVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Backbling_SnapFreeze_StyleA.VTID_Backbling_SnapFreeze_StyleA",
+                    "SubPathString": ""
+                  },
+                  "OverrideCharacterWithVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Character_SnapFreeze_StyleB.VTID_Character_SnapFreeze_StyleB",
+                    "SubPathString": ""
+                  }
+                },
+                {
+                  "WhenViewingVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Backbling_SnapFreeze_StyleB.VTID_Backbling_SnapFreeze_StyleB",
+                    "SubPathString": ""
+                  },
+                  "OverrideCharacterWithVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Character_SnapFreeze_ColorB.VTID_Character_SnapFreeze_ColorB",
+                    "SubPathString": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            2,
+            540,
+            242,
+            95,
+            13,
+            542,
+            706,
+            893,
+            436,
+            960,
+            1030,
+            664,
+            1175,
+            1061,
+            1219,
+            1063,
+            1060,
+            3081
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Backpack_SnapFreeze",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SnapFreeze_Hunt.Character_SnapFreeze_Hunt",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionA"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.Style.OptionA )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SnapFreeze.CP_Backpack_SnapFreeze",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "19E0159347711E00CF2447AA735726FE",
+            "SourceString": "graze",
+            "LocalizedString": "graze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "721667F74E1D4512569D53A245B613DE",
+        "SourceString": "graze fitted conditional",
+        "LocalizedString": "graze fitted conditional"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_SnapFreeze",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A1AB6E344203666649AB6D8A64A2920C",
+            "SourceString": "Shuri's Cloak",
+            "LocalizedString": "Shuri's Cloak"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal.T_IconBackpacks_SnapFreezeUniversal",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Materials/MI_SnapFreeze_Graze_Cape.MI_SnapFreeze_Graze_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Snow/MI_SnapFreeze_GrazeSnow_Cape.MI_SnapFreeze_GrazeSnow_Cape",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/MI_SnapFreeze_Graze_Cape_Universal.MI_SnapFreeze_Graze_Cape_Universal",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/Snow_Universal/MI_SnapFreeze_GrazeSnow_Cape_Universal.MI_SnapFreeze_GrazeSnow_Cape_Universal",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "ED97EFB04E1CDDBB3AC631B9070DD8BB",
+            "SourceString": "Wakanda Royal",
+            "LocalizedString": "Wakanda Royal"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal_Snow.T_IconBackpacks_SnapFreezeUniversal_Snow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D9CE7C1A4D84C6FF84229F82966F53E0",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Backpack_SnapFreeze",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "38528594476967DD9752BD9C72EFF331",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal_Reactive.T_IconBackpacks_SnapFreezeUniversal_Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Materials/MI_SnapFreeze_Graze_Cape.MI_SnapFreeze_Graze_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SF_ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Materials/MI_SnapFreeze_Graze_Cape.MI_SnapFreeze_Graze_Cape",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/MI_SnapFreeze_Graze_Cape_Universal.MI_SnapFreeze_Graze_Cape_Universal",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SF_ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/MI_SnapFreeze_Graze_Cape_Universal.MI_SnapFreeze_Graze_Cape_Universal",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Snow/MI_SnapFreeze_GrazeSnow_Cape.MI_SnapFreeze_GrazeSnow_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SF_ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Snow/MI_SnapFreeze_GrazeSnow_Cape.MI_SnapFreeze_GrazeSnow_Cape",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/Snow_Universal/MI_SnapFreeze_GrazeSnow_Cape_Universal.MI_SnapFreeze_GrazeSnow_Cape_Universal",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SF_ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_SnapFreeze/Skins/Universal/Snow_Universal/MI_SnapFreeze_GrazeSnow_Cape_Universal.MI_SnapFreeze_GrazeSnow_Cape_Universal",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DFED82BD45589BE16CF8CBAD52A98BDD",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SnapFreezeUniversal.T_IconBackpacks_SnapFreezeUniversal",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "C18E276847B57DF9552FA9B8CC2458B3",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Emissive"
+      }
+    }
+  }
+]

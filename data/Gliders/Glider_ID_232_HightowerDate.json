@@ -1,0 +1,568 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_232_HightowerDate",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_HighTower_Date/Meshes/Glider_HighTower_Date.Glider_HighTower_Date",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/HighTowerDate_Glider_AnimBP.HighTowerDate_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "CameraClass": {
+        "AssetPathName": "/BRCosmetics/Blueprints/Camera/Athena/Athena_PlayerCameraModeSkydiveNoGlider.Athena_PlayerCameraModeSkydiveNoGlider_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/HighTowerDate/HighTowerDatePlayerAnimSet.HighTowerDatePlayerAnimSet",
+        "SubPathString": ""
+      },
+      "AttachSocket": "spine_05",
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_HighTower_Date/FX/NS_Hightower_Date_Glider.NS_Hightower_Date_Glider",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::PlayerPawn"
+        },
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_HighTower_Date/FX/NS_Hightower_Date_Glider_Idle.NS_Hightower_Date_Glider_Idle",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Hightower_Date/SC_Glider_Hightower_Date_Open.SC_Glider_Hightower_Date_Open",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Hightower_Date/SC_Glider_Hightower_Date_Close.SC_Glider_Hightower_Date_Close",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Hightower_Date/SC_Glider_Hightower_Date_Thrust_Loop.SC_Glider_Hightower_Date_Thrust_Loop",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Hightower_Date/SC_Glider_Hightower_Date_Thrust_Start.SC_Glider_Hightower_Date_Thrust_Start",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "bAttachNiagaraEffectToPlayerPawn": true,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Glider_ID_232_HightowerDate:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_232_HightowerDate.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/BRCosmetics/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Glider/ItemOnPawnPreview_HighttowerDate.ItemOnPawnPreview_HighttowerDate_C",
+        "SubPathString": ""
+      },
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_846_Athena_Commando_M_HightowerDate.CID_846_Athena_Commando_M_HightowerDate",
+        "SubPathString": ""
+      },
+      "ExclusiveRequiresOutfitTags": [
+        "Cosmetics.Exclusives.HightowerDate",
+        "Cosmetics.Exclusives.AnglePatch"
+      ],
+      "CustomExclusiveCallout": {
+        "Namespace": "",
+        "Key": "E5D973FB4138B00D3EA318B997E2C16F",
+        "SourceString": "Appears as the Default Glider when not equipped with the Doctor Doom Outfit.",
+        "LocalizedString": "Appears as the Default Glider when not equipped with the Doctor Doom Outfit."
+      },
+      "ExclusiveDesciption": {
+        "Namespace": "",
+        "Key": "F2B66BEC485D7D506869E8B76A0220A5",
+        "SourceString": "None but DOOM dare equip this glider.",
+        "LocalizedString": "None but DOOM dare equip this glider."
+      },
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "0CA718484110D66690B9388E0FA87423",
+        "SourceString": "Arcane Energy Glider",
+        "LocalizedString": "Arcane Energy Glider"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "34999E9F4E938CD05762FD8DC40C35CF",
+        "SourceString": "Doom is a master of the arcane.",
+        "LocalizedString": "Doom is a master of the arcane."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -1.3,
+            "Y": -70.0,
+            "Z": -30.0
+          },
+          "InitialRotation": {
+            "Pitch": -15.0,
+            "Yaw": -115.0,
+            "Roll": -15.0
+          },
+          "Scale": 0.7
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-HTDateGlider.T-Icon_Glider-HTDateGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-HTDateGlider-L.T-Icon_Glider-HTDateGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season14.BattlePass.Paid",
+            "Cosmetics.Glider.HideBackPack",
+            "Cosmetics.Filter.Season.14",
+            "Cosmetics.Set.StrollPeanut",
+            "Cosmetics.Glider.ReliesOnVariantsFromCID"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            237,
+            593,
+            586,
+            756,
+            757,
+            782,
+            850,
+            363,
+            1350,
+            1680,
+            212,
+            2330,
+            2784,
+            3037,
+            3043,
+            3790,
+            4277,
+            4787
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Glider_ID_232_HightowerDate",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "802E2DE048C7E7C4096F19858BF48BB4",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape.M_MED_HighTower_Date_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Skins/HighTower_White/Materials/M_MED_HighTower_White_Cape.M_MED_HighTower_White_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BAC97C6C4734606D8913229339557F45",
+            "SourceString": "WHITE",
+            "LocalizedString": "WHITE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape.M_MED_HighTower_Date_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_Silver.M_MED_HighTower_Date_Cape_SL_Silver",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Skins/HighTower_White/Materials/M_MED_HighTower_White_Cape.M_MED_HighTower_White_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_Silver.M_MED_HighTower_Date_Cape_SL_Silver",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "11C7D54E40DFD9E9DA380EABD4F0A888",
+            "SourceString": "SILVER",
+            "LocalizedString": "SILVER"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape.M_MED_HighTower_Date_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_Gold.M_MED_HighTower_Date_Cape_SL_Gold",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Skins/HighTower_White/Materials/M_MED_HighTower_White_Cape.M_MED_HighTower_White_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_Gold.M_MED_HighTower_Date_Cape_SL_Gold",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8134E34248A69F2BB0E3C88BC04AF450",
+            "SourceString": "GOLD",
+            "LocalizedString": "GOLD"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape.M_MED_HighTower_Date_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_HoloFoil.M_MED_HighTower_Date_Cape_SL_HoloFoil",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Skins/HighTower_White/Materials/M_MED_HighTower_White_Cape.M_MED_HighTower_White_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Date/Materials/M_MED_HighTower_Date_Cape_SL_HoloFoil.M_MED_HighTower_Date_Cape_SL_HoloFoil",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "400E37354AB6D3EDAF1CCC8A4858F14F",
+            "SourceString": "HOLOFOIL",
+            "LocalizedString": "HOLOFOIL"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

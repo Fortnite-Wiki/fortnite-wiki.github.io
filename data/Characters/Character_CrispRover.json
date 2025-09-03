@@ -1,0 +1,1374 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_CrispRover",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_CrispRover.CP_Athena_Head_M_CrispRover",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_CrispRover_BreezeSea.CP_Athena_Body_M_CrispRover_BreezeSea",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_CrispRover_FaceAcc.CP_M_MED_CrispRover_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_CrispRover:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CrispRover.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_CrispRover:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CrispRover.2"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_CrispRover:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CrispRover.3"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'Character_CrispRover:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CrispRover.4"
+        }
+      ],
+      "BaseShotGridId": 67928,
+      "VariantShotGridIds": [
+        69523,
+        69525,
+        71759,
+        71760,
+        71761
+      ],
+      "ShotGridIds": [
+        67928,
+        69523,
+        69525,
+        71759,
+        71760,
+        71761
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "3195CDE64D318BC21C60A3A2EE7512E8",
+        "SourceString": "Lorenzo",
+        "LocalizedString": "Lorenzo"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B441CCB34C19E886B56433A7C04E7713",
+        "SourceString": "Influential explorer and rogueish raconteur.",
+        "LocalizedString": "Influential explorer and rogueish raconteur."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "12C7F68C48D410291D82148245B9E94C",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea.T-Soldier-Hero-CrispRover-BreezeSea",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea-L.T-Soldier-Hero-CrispRover-BreezeSea-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.25",
+            "Cosmetics.Set.HeroicRascal",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            550,
+            552,
+            7975,
+            236,
+            544,
+            553,
+            540,
+            560,
+            89,
+            269,
+            121,
+            20,
+            247,
+            711,
+            722,
+            730,
+            1023
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_CrispRover",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "VariantIndex"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EAE8D6174BBD11F17CAA9DB7FB26385F",
+            "SourceString": "Lorenzo",
+            "LocalizedString": "Lorenzo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea.T-Soldier-Hero-CrispRover-BreezeSea",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_CrispRover.CP_Athena_Body_M_CrispRover",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "VariantIndex"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.025522,
+                    "G": 0.034461,
+                    "B": 0.041667,
+                    "A": 1.0,
+                    "Hex": "2C3439"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E0765BCC45C7C782DED2C897F4C2F4C1",
+            "SourceString": "Lorenzo the Dashing",
+            "LocalizedString": "Lorenzo the Dashing"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S25/T-Soldier-Hero-CrispRover.T-Soldier-Hero-CrispRover",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_CrispRover_Breeze.CP_Athena_Body_M_CrispRover_Breeze",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "VariantIndex"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.030713,
+                    "G": 0.027321,
+                    "B": 0.048172,
+                    "A": 1.0,
+                    "Hex": "312E3E"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "153B31804C4CD95114833E9A9EBAB14B",
+            "SourceString": "Lorenzo the Reckless",
+            "LocalizedString": "Lorenzo the Reckless"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-Breeze.T-Soldier-Hero-CrispRover-Breeze",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CA44B49E45550AE8A1DA6688B3086162",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "Character_CrispRover",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T1.M_MED_CrispRover_FaceAcc_SL_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T1.M_MED_CrispRover_FaceAcc_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T2.M_MED_CrispRover_FaceAcc_SL_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T2.M_MED_CrispRover_FaceAcc_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T3.M_MED_CrispRover_FaceAcc_SL_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T3.M_MED_CrispRover_FaceAcc_SL_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SmokeOffOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B36DAE0348CF7155CA2C6E9B22191F82",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea.T-Soldier-Hero-CrispRover-BreezeSea",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_CrispRover_Masked.CP_Athena_Head_M_CrispRover_Masked",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "SmokeOffOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C034BFD440ED5D33B0FECF9C3D4890BD",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea-Masked.T-Soldier-Hero-CrispRover-BreezeSea-Masked",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "404A460640EF7C0FF088ED8BDDC990CD",
+        "SourceString": "Mask",
+        "LocalizedString": "Mask"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_CrispRover",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "08B1C9EA476EAF8E56BB9EBCD391BB5A",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-BreezeSea.T-Soldier-Hero-CrispRover-BreezeSea",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_Body.M_MED_CrispRover_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Body_SL_T1.M_MED_CrispRover_Body_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T1.M_MED_CrispRover_FaceAcc_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Hair.M_MED_CrispRoverBreezeSea_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Hair_SL_T1.M_MED_CrispRover_Hair_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_Body.M_MED_CrispRover_Breeze_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Skins/Super_Levels/M_MED_CrispRover_Breeze_Body_SL_T1.M_MED_CrispRover_Breeze_Body_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T1.M_MED_CrispRover_FaceAcc_SL_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Body.M_MED_CrispRoverBreezeSea_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Skins/Super_Levels/M_MED_CrispRoverBreezeSea_Body_SL_T1.M_MED_CrispRoverBreezeSea_Body_SL_T1",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SmokeOffOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.009725,
+                    "G": 0.009628,
+                    "B": 0.010417,
+                    "A": 1.0,
+                    "Hex": "19181A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "841720884BFC0568C8F7D7BE5C14D723",
+            "SourceString": "Wildscorch Lorenzo",
+            "LocalizedString": "Wildscorch Lorenzo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-SuperLevel-T1.T-Soldier-Hero-CrispRover-SuperLevel-T1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_Body.M_MED_CrispRover_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Body_SL_T2.M_MED_CrispRover_Body_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T2.M_MED_CrispRover_FaceAcc_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Hair.M_MED_CrispRoverBreezeSea_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Hair_SL_T2.M_MED_CrispRover_Hair_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_Body.M_MED_CrispRover_Breeze_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Skins/Super_Levels/M_MED_CrispRover_Breeze_Body_SL_T2.M_MED_CrispRover_Breeze_Body_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T2.M_MED_CrispRover_FaceAcc_SL_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Body.M_MED_CrispRoverBreezeSea_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Skins/Super_Levels/M_MED_CrispRoverBreezeSea_Body_SL_T2.M_MED_CrispRoverBreezeSea_Body_SL_T2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SmokeOffOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.009725,
+                    "G": 0.009628,
+                    "B": 0.010417,
+                    "A": 1.0,
+                    "Hex": "19181A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "940EA67B461EBC5A26BDA8808EDCD49E",
+            "SourceString": "Confetti Claw Lorenzo",
+            "LocalizedString": "Confetti Claw Lorenzo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-SuperLevel-T2.T-Soldier-Hero-CrispRover-SuperLevel-T2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_Body.M_MED_CrispRover_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Body_SL_T3.M_MED_CrispRover_Body_SL_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Materials/M_MED_CrispRover_FaceAcc.M_MED_CrispRover_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T3.M_MED_CrispRover_FaceAcc_SL_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Hair.M_MED_CrispRoverBreezeSea_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_Hair_SL_T3.M_MED_CrispRover_Hair_SL_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_Body.M_MED_CrispRover_Breeze_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Skins/Super_Levels/M_MED_CrispRover_Breeze_Body_SL_T3.M_MED_CrispRover_Breeze_Body_SL_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_Breeze/Materials/M_MED_CrispRover_Breeze_FaceAcc.M_MED_CrispRover_Breeze_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover/Skins/Super_Levels/M_MED_CrispRover_FaceAcc_SL_T3.M_MED_CrispRover_FaceAcc_SL_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Materials/M_MED_CrispRoverBreezeSea_Body.M_MED_CrispRoverBreezeSea_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/Skins/Super_Levels/M_MED_CrispRoverBreezeSea_Body_SL_T3.M_MED_CrispRoverBreezeSea_Body_SL_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_CrispRover_BreezeSea/FX/NS_Skin_CrispRover_Idle.NS_Skin_CrispRover_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SmokeOffOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.439657,
+                    "G": 0.250158,
+                    "B": 0.043735,
+                    "A": 1.0,
+                    "Hex": "B1893B"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "979414F44B47EB437C5FC0917C0FB9A2",
+            "SourceString": "Regal Hunter Lorenzo",
+            "LocalizedString": "Regal Hunter Lorenzo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S25/Characters/T-Soldier-Hero-CrispRover-SuperLevel-T3.T-Soldier-Hero-CrispRover-SuperLevel-T3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CE0B873645BDBF883FE74BA4C6290EEB",
+        "SourceString": "superlevel",
+        "LocalizedString": "superlevel"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "Character_CrispRover",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

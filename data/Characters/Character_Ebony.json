@@ -1,0 +1,925 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_Ebony",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Ebony.CP_Athena_Head_M_Ebony",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Ebony.CP_Athena_Body_M_Ebony",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Ebony_HoodDown_FaceAcc.CP_M_MED_Ebony_HoodDown_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s24/EbonyM/Ebony_Male_Idle_Montage.Ebony_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_Ebony:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Ebony.2"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_Ebony:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Ebony.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_Ebony:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Ebony.3"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'Character_Ebony:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Ebony.4"
+        }
+      ],
+      "BaseShotGridId": 65285,
+      "VariantShotGridIds": [
+        65088,
+        65663
+      ],
+      "ShotGridIds": [
+        65285,
+        65088,
+        65663
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B6363D08437CBE9FFB6B0695F2E3CA4F",
+        "SourceString": "Stray",
+        "LocalizedString": "Stray"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "BAC103A8458552E6037674B83E7571C4",
+        "SourceString": "Adrift, but never lost.",
+        "LocalizedString": "Adrift, but never lost."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "3CCE630C41BD330A47BFDB98575BC32A",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Ebony.T-Soldier-Hero-Ebony",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Ebony-L.T-Soldier-Hero-Ebony-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.24",
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Set.CluePup",
+            "Cosmetics.Gating.Allow.Shoes",
+            "SoundLibrary.ID.ClothingType.GearTactical"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            236,
+            245,
+            8,
+            559,
+            75,
+            560,
+            6,
+            581,
+            586,
+            95,
+            595,
+            611,
+            246,
+            247,
+            735,
+            757,
+            1106,
+            1105
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_Ebony",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Ebony_FaceAcc.CP_M_MED_Ebony_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_EmptyHead.CP_Athena_Head_M_EmptyHead",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "MaskParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "MaskParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4804FA264962CC5CFBD0FD94ED09B1FF",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Ebony.T-Soldier-Hero-Ebony",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "MaskParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "MaskParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "29276EE8431051FEF66403847639DF2F",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Ebony-HoodDown.T-Soldier-Hero-Ebony-HoodDown",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "2BB0629C4C76E6BC633153A0FC1D5835",
+        "SourceString": "Mask",
+        "LocalizedString": "Mask"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "Character_Ebony",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ParticlesAmount"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "MaskParticlesAmount"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "ColorSwitcher"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BDE8099B4D0159BE9D2A54AF280C821D",
+            "SourceString": "Stray",
+            "LocalizedString": "Stray"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Ebony.T-Soldier-Hero-Ebony",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Ebony_spark.CP_Athena_Body_M_Ebony_spark",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_HoodUp.Ebony_HoodUp",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/Materials/EbonySpark_HoodUp.EbonySpark_HoodUp",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_Mask.Ebony_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/Materials/EbonySpark_Mask.EbonySpark_Mask",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_HoodDown.Ebony_HoodDown",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/Materials/EbonySpark_HoodDown.EbonySpark_HoodDown",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ParticlesAmount"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "ColorSwitcher"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "MaskParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BBC23A4B4A5192E2E724B39216FB8EF6",
+            "SourceString": "Renegade Stray",
+            "LocalizedString": "Renegade Stray"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Ebony-Spark.T-Soldier-Hero-Ebony-Spark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_Body.Ebony_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Skins/Materials/EbonyWhite_Body.EbonyWhite_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_Mask.Ebony_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Skins/Materials/EbonyWhite_Mask.EbonyWhite_Mask",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_HoodDown.Ebony_HoodDown",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Skins/Materials/EbonyWhite_HoodDown.EbonyWhite_HoodDown",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Materials/Ebony_HoodUp.Ebony_HoodUp",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/Skins/Materials/EbonyWhite_HoodUp.EbonyWhite_HoodUp",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.568911,
+                    "G": 0.563263,
+                    "B": 0.609375,
+                    "A": 1.0,
+                    "Hex": "C7C6CD"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Property.Stage3"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "88BF4A2C4679A1C41850CB9CC5BDAA1C",
+            "SourceString": "Stealth Stray",
+            "LocalizedString": "Stealth Stray"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Ebony-White.T-Soldier-Hero-Ebony-White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9C7E773A417FF094C298A985E2BED6F7",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_Ebony",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "43877E814147CB611DA00DBA4127CA82",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/T-Soldier-Hero-Ebony.T-Soldier-Hero-Ebony",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony_Spark/FX/NS_Ebony_Spark_Idle.NS_Ebony_Spark_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Ebony/FX/NS_Ebony_White_Idle.NS_Ebony_White_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ParticlesAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A277DE60471CEEBC24E86DAC2F2AD9C5",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S24/Characters/T-Soldier-Hero-Ebony-NoFX.T-Soldier-Hero-Ebony-NoFX",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F02347AE463F8AE5EBB2768E78A40585",
+        "SourceString": "FX",
+        "LocalizedString": "FX"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "Character_Ebony",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

@@ -1,0 +1,375 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_A_142_Athena_Commando_M_Pliant",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Pliant.CP_Athena_Head_M_Pliant",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Pliant.CP_Athena_Body_M_Pliant",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Pliant_FaceAcc.CP_M_MED_Pliant_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills",
+        "StatManager.DamageReceived",
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'CID_A_142_Athena_Commando_M_Pliant:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_142_Athena_Commando_M_Pliant.2"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'CID_A_142_Athena_Commando_M_Pliant:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_142_Athena_Commando_M_Pliant.3"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'CID_A_142_Athena_Commando_M_Pliant:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_142_Athena_Commando_M_Pliant.1"
+        }
+      ],
+      "ItemVariantPreviewGenerator": {
+        "ObjectName": "FortWrapVariantPreviewGenerator'CID_A_142_Athena_Commando_M_Pliant:FortWrapVariantPreviewGenerator_0'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_142_Athena_Commando_M_Pliant.4"
+      },
+      "BaseShotGridId": 43118,
+      "ShotGridIds": [
+        43118
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "0687649B44602007F6594FAEAFE01093",
+        "SourceString": "Wrap Recon",
+        "LocalizedString": "Wrap Recon"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "897085C04379BDC60D88C6ABD1F365D6",
+        "SourceString": "It's all in the details.",
+        "LocalizedString": "It's all in the details."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-142-Athena-Commando-M-Pliant-L.T-Soldier-HID-A-142-Athena-Commando-M-Pliant-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-142-Athena-Commando-M-Pliant.T-Soldier-HID-A-142-Athena-Commando-M-Pliant",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.PresentForm",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.17",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            546,
+            7975,
+            541,
+            236,
+            544,
+            558,
+            560,
+            162,
+            569,
+            567,
+            166,
+            242,
+            606,
+            261,
+            246,
+            642,
+            20,
+            655,
+            707,
+            703,
+            708,
+            88,
+            159,
+            65,
+            903,
+            910,
+            912,
+            1587
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "CID_A_142_Athena_Commando_M_Pliant",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "CID_A_142_Athena_Commando_M_Pliant",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.927083,
+            "G": 0.092203,
+            "B": 0.507237,
+            "A": 1.0,
+            "Hex": "F755BD"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Pliant.CS_Pliant",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Pliant/Materials/M_MED_Pliant_Head.M_MED_Pliant_Head",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Pliant/Materials/M_MED_Pliant_FaceAcc.M_MED_Pliant_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Pliant/Materials/M_MED_Pliant.M_MED_Pliant",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Pliant_PrimaryColor"
+        },
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "4CD4C3E8411B4301A191E5A475C2BC76",
+          "SourceString": "Primary Color",
+          "LocalizedString": "Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B04CFC8847DBD077EA675493BDD865D0",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "CID_A_142_Athena_Commando_M_Pliant",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "CharacterPartSkelMesh_Body"
+          ],
+          "WrapSectionMask": 1,
+          "AllowedMeshes": [
+            {
+              "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Pliant/Meshes/M_MED_Pliant.M_MED_Pliant",
+              "SubPathString": ""
+            }
+          ]
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A159832C4F23EC6F25129183731B4628",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortWrapVariantPreviewGenerator",
+    "Name": "FortWrapVariantPreviewGenerator_0",
+    "Outer": "CID_A_142_Athena_Commando_M_Pliant",
+    "Class": "UScriptClass'FortWrapVariantPreviewGenerator'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      },
+      "BaseVariantPreview": {
+        "VariantOptions": [
+          {
+            "OwnedVariantTags": [],
+            "ItemVariantIsUsedFor": {
+              "ObjectName": "AthenaCharacterItemDefinition'CID_A_142_Athena_Commando_M_Pliant'",
+              "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_142_Athena_Commando_M_Pliant.0"
+            },
+            "CustomData": "None",
+            "VariantChannelTag": {
+              "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+            },
+            "ActiveVariantTag": {
+              "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+            }
+          }
+        ]
+      },
+      "NumWrapPreviews": 4,
+      "PreviewWrapDefinitions": [
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/ItemWraps/Wrap_379_Pliant.Wrap_379_Pliant",
+          "SubPathString": ""
+        }
+      ],
+      "DefaultCustomData": "None"
+    }
+  }
+]

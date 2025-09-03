@@ -1,0 +1,261 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_LimettaMech",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_LimettaMech.CP_Athena_Head_F_LimettaMech",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_LimettaMech.CP_Athena_Body_F_LimettaMech",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_LimettaMech_FaceAcc.CP_F_MED_LimettaMech_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_LimettaMech:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_LimettaMech.1"
+        }
+      ],
+      "BaseShotGridId": 86107,
+      "ShotGridIds": [
+        86107
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "451727A645AD3E0D2D8D7CAC07180908",
+        "SourceString": "Oona Usagi",
+        "LocalizedString": "Oona Usagi"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D4BA179E4C92DCD66891B7A4F872F75D",
+        "SourceString": "Hop to it!",
+        "LocalizedString": "Hop to it!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_LimettaMech.T_Soldier_LimettaMech",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_LimettaMech_L.T_Soldier_LimettaMech_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.FrontEndPose.DontHandsOnHips",
+            "Cosmetics.Set.FluffyOvals",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            549,
+            7,
+            552,
+            7975,
+            2,
+            541,
+            236,
+            544,
+            540,
+            606,
+            261,
+            1,
+            269,
+            246,
+            635,
+            54,
+            20,
+            542,
+            681,
+            682,
+            678,
+            247,
+            711,
+            708,
+            41,
+            275,
+            159,
+            64,
+            910,
+            76,
+            283,
+            128,
+            53,
+            118,
+            289,
+            1839
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_LimettaMech",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LimettaMech/Materials/MI_LimettaMech_FaceAcc.MI_LimettaMech_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LimettaMech/Materials/MI_LimettaMech_FaceAcc.MI_LimettaMech_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "11B4FB184530530EA34806AA3D2B13AB",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_LimettaMech.T_Soldier_LimettaMech",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "96789C1C46143E44FD70EBBD0B8EEE73",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_LimettaMech_HatOFF.T_Soldier_LimettaMech_HatOFF",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A0A76A66408DBA4090BFCFA6E5F1A40D",
+        "SourceString": "Hat",
+        "LocalizedString": "Hat"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

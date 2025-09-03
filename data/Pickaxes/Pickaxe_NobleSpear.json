@@ -1,0 +1,210 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_NobleSpear",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_NobleSpear'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_NobleSpear.0"
+      },
+      "PickaxeImpactFXOnPawnPreviewOffset": {
+        "X": -25.0,
+        "Y": 10.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -0.7,
+        "Y": 5.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": -5.5,
+          "Z": 12.0
+        },
+        "CylinderHalfHeight": 4.0,
+        "CylinderRadius": 48.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_NobleSpear:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_NobleSpear.1"
+        }
+      ],
+      "BaseShotGridId": 154936,
+      "ShotGridIds": [
+        154936
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "D8355D2944A19A905F53DE8999816152",
+        "SourceString": "Nyte Knives",
+        "LocalizedString": "Nyte Knives"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "48389E8B4701D804C9A223B0ECD87839",
+        "SourceString": "Cut through the night.",
+        "LocalizedString": "Cut through the night."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F1CACE3A43B0546820BC178D7C2F70B4",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 3.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.PowerfulStudent"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_NobleSpear.T_Icon_Pickaxes_NobleSpear",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S36/T_Icon_Pickaxes_NobleSpear_L.T_Icon_Pickaxes_NobleSpear_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            572,
+            242,
+            246,
+            24,
+            698,
+            113,
+            1166,
+            258,
+            2056,
+            214,
+            457,
+            2471,
+            2470,
+            2525,
+            438,
+            2558
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_NobleSpear",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/pickaxe_Splinter_male/Material/pickaxe_Splinter_male.pickaxe_Splinter_male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/pickaxe_Splinter_male/Skins/NobleSpear/Materials/MI_Pickaxe_NobleSpear.MI_Pickaxe_NobleSpear",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DFBD7AAD49844B16A494A99C219564B1",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

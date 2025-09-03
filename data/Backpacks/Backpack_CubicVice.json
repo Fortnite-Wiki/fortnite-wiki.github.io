@@ -1,0 +1,206 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_CubicVice",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_CubicVice'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_CubicVice.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_CubicVice:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_CubicVice.1"
+        }
+      ],
+      "BaseShotGridId": 119386,
+      "ShotGridIds": [
+        119386
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "77FA116940E1695B6D87C5B9E6649812",
+        "SourceString": "Tomoki & Katana",
+        "LocalizedString": "Tomoki & Katana"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "91451CEC40C10022E21916BD271F9A61",
+        "SourceString": "Cut through darkness. Find the light.",
+        "LocalizedString": "Cut through darkness. Find the light."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "6246A17B4D662DC9C2FDFA9E72886BD4",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_CubicVice.T_Icon_Backpacks_CubicVice",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_CubicVice_L.T_Icon_Backpacks_CubicVice_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.MetalWalk"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            229,
+            236,
+            544,
+            547,
+            357,
+            540,
+            237,
+            242,
+            123,
+            170,
+            607,
+            54,
+            24,
+            178,
+            735,
+            113,
+            1169,
+            1173,
+            258
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_CubicVice",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F707876149312500A1427CB1B1E16727",
+            "SourceString": "Tomoki & Katana",
+            "LocalizedString": "Tomoki & Katana"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_CubicVice.T_Icon_Backpacks_CubicVice",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_CubicVice/Materials/MI_CubicVice_Backpack.MI_CubicVice_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_CubicVice/Skins/DualSky/Materials/MI_CubicVice_DualSky_Backpack.MI_CubicVice_DualSky_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "68F520344378CA33C5E1E28AC69C7252",
+            "SourceString": "Racer's Katana",
+            "LocalizedString": "Racer's Katana"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_CubicVice_DualSky.T_Icon_Backpacks_CubicVice_DualSky",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "85245C39456861B4022866AB14D45CC1",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

@@ -1,0 +1,906 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_GreatPoolSwim",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_GreatPoolSwim.CP_Athena_Head_M_GreatPoolSwim",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Bodies/CP_Athena_Body_M_GreatPoolSwim.CP_Athena_Body_M_GreatPoolSwim",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_GreatPoolSwim_FaceAcc.CP_M_MED_GreatPoolSwim_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s30/GreatPoolSwimM/GreatPoolSwim_Male_Idle_Montage.GreatPoolSwim_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_GreatPoolSwim:FortCosmeticParticleVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GreatPoolSwim.4"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_GreatPoolSwim:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GreatPoolSwim.2"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_GreatPoolSwim:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GreatPoolSwim.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_GreatPoolSwim:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GreatPoolSwim.3"
+        }
+      ],
+      "BaseShotGridId": 89571,
+      "ShotGridIds": [
+        89571
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "6F153DB447C1738ACD523ABBF742CD6C",
+        "SourceString": "Puppet Master James",
+        "LocalizedString": "Puppet Master James"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "15D755F643BCB08260D003880857B0A0",
+        "SourceString": "A warrior of the wastes.",
+        "LocalizedString": "A warrior of the wastes."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-HatOn.T-Soldier-GreatPoolSwim-HatOn",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-HatOn-L.T-Soldier-GreatPoolSwim-HatOn-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.Filter.Season.30",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.AngryStone",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty"
+          ]
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            357,
+            8,
+            169,
+            560,
+            556,
+            574,
+            89,
+            576,
+            49,
+            16,
+            19,
+            269,
+            178,
+            40,
+            1237,
+            932,
+            106,
+            159,
+            21,
+            994,
+            92,
+            1034,
+            1064,
+            1065,
+            1123,
+            185,
+            1154,
+            1234,
+            1238,
+            1235,
+            1236,
+            1239,
+            143
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_GreatPoolSwim",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_FaceAcc.MI_GreatPoolSwim_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_FaceAcc.MI_GreatPoolSwim_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_FaceAcc.MI_GreatPool_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 03"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_FaceAcc.MI_GreatPool_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPoolSwim_Trunks_FaceAcc.MI_GreatPoolSwim_Trunks_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPoolSwim_Trunks_FaceAcc.MI_GreatPoolSwim_Trunks_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPoolSwim_Swag_FaceAcc.MI_GreatPoolSwim_Swag_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPoolSwim_Swag_FaceAcc.MI_GreatPoolSwim_Swag_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "21ED184546A1A719D090F6A0D384D39B",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S30/T-Soldier-GreatPoolSwim.T-Soldier-GreatPoolSwim",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_FaceAcc.MI_GreatPool_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Hide Element 03"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_FaceAcc.MI_GreatPool_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "69980E22494DAB9AEA5F75AAEF13FFBB",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-GlassesOn.T-Soldier-GreatPoolSwim-GlassesOn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E0F88E554D5A3FD3363696AD800909A7",
+        "SourceString": "Glasses",
+        "LocalizedString": "Glasses"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "Character_GreatPoolSwim",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_GreatPool_FaceAcc.CP_M_MED_GreatPool_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "21ED184546A1A719D090F6A0D384D39B",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S30/T-Soldier-GreatPoolSwim.T-Soldier-GreatPoolSwim",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_GreatPoolSwim_Hat.CP_Athena_Head_M_GreatPoolSwim_Hat",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "69980E22494DAB9AEA5F75AAEF13FFBB",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-HatOn.T-Soldier-GreatPoolSwim-HatOn",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1D6C483542554D3B2B7543BE06412108",
+        "SourceString": "Hat",
+        "LocalizedString": "Hat"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_GreatPoolSwim",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A0C18DB64FE8DC24AB261AAADB678E1A",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S30/T-Soldier-GreatPoolSwim.T-Soldier-GreatPoolSwim",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPool_Swag_Eyes.MI_GreatPool_Swag_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPool_Trunks_Eyes.MI_GreatPool_Trunks_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_Eyes.MI_GreatPoolSwim_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/FX/NS_GreatPoolSwim_Idle.NS_GreatPoolSwim_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Body.NS_Blank_Body",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/FX/NS_GreatPoolSwim_SwagBodyIdle.NS_GreatPoolSwim_SwagBodyIdle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Body.NS_Blank_Body",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/FX/NS_Character_GreatPoolSwim_Trunks_SmokyFlames.NS_Character_GreatPoolSwim_Trunks_SmokyFlames",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Body.NS_Blank_Body",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "409757C042A8C058BBAF4F8F03492A3D",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-ReactiveOff.T-Soldier-GreatPoolSwim-ReactiveOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FC7CB89F40C13FCD9E75FBB32935D99C",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_2",
+    "Outer": "Character_GreatPoolSwim",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_Eyes.MI_GreatPoolSwim_Eyes",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "436DFD3F475B8A69C3AACFB60A2A6A93",
+            "SourceString": "Puppet Master James",
+            "LocalizedString": "Puppet Master James"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S30/T-Soldier-GreatPoolSwim.T-Soldier-GreatPoolSwim",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPool_Swag_Eyes.MI_GreatPool_Swag_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_Body.MI_GreatPoolSwim_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPoolSwim_Swag_Body.MI_GreatPoolSwim_Swag_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_FaceAcc.MI_GreatPoolSwim_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Swag/Materials/MI_GreatPoolSwim_Swag_FaceAcc.MI_GreatPoolSwim_Swag_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/FX/NS_GreatPoolSwim_Idle.NS_GreatPoolSwim_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/FX/NS_GreatPoolSwim_SwagBodyIdle.NS_GreatPoolSwim_SwagBodyIdle",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "903196FD446DB10CDA1EEA99340A7636",
+            "SourceString": "Lightning Rider",
+            "LocalizedString": "Lightning Rider"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-Swag.T-Soldier-GreatPoolSwim-Swag",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GreatPool/Materials/MI_GreatPool_Eyes.MI_GreatPool_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPool_Trunks_Eyes.MI_GreatPool_Trunks_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_Body.MI_GreatPoolSwim_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPoolSwim_Trunks_Body.MI_GreatPoolSwim_Trunks_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Materials/MI_GreatPoolSwim_FaceAcc.MI_GreatPoolSwim_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/Materials/MI_GreatPoolSwim_Trunks_FaceAcc.MI_GreatPoolSwim_Trunks_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/FX/NS_GreatPoolSwim_Idle.NS_GreatPoolSwim_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GreatPoolSwim/Skins/Trunks/FX/NS_Character_GreatPoolSwim_Trunks_SmokyFlames.NS_Character_GreatPoolSwim_Trunks_SmokyFlames",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CE2880B14B12D54C0271AB9B1FBA4F1C",
+            "SourceString": "Fuel & Fire",
+            "LocalizedString": "Fuel & Fire"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Character/T-Soldier-GreatPoolSwim-Trunks.T-Soldier-GreatPoolSwim-Trunks",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "678178C74B6B9215AC6695A48DDF567B",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

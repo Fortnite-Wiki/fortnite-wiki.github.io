@@ -1,0 +1,527 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_433_NeonAnimal",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_NeonAnimal'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_NeonAnimal.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'BID_433_NeonAnimal:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_433_NeonAnimal.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat4"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_638_Athena_Commando_M_NeonAnimal.CID_638_Athena_Commando_M_NeonAnimal",
+        "SubPathString": ""
+      },
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "645AFF114C0536882455D4B49EFCF6E7",
+        "SourceString": "Diamond Grid",
+        "LocalizedString": "Diamond Grid"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E73A404F40A3700D4E3836B73BC083DD",
+        "SourceString": "High tech and high stakes.",
+        "LocalizedString": "High tech and high stakes."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F3CBA23B450628AB6F95C88D4F2BD38D",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-433-NeonAnimal.T-Icon-Backpacks-433-NeonAnimal",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-433-NeonAnimal-L.T-Icon-Backpacks-433-NeonAnimal-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Set.ColoredForest",
+            "Cosmetics.Filter.Season.12",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            554,
+            545,
+            229,
+            488,
+            236,
+            8,
+            169,
+            566,
+            46,
+            561,
+            237,
+            162,
+            569,
+            567,
+            166,
+            242,
+            629,
+            632,
+            542,
+            219,
+            106,
+            283,
+            1047,
+            1058,
+            1070,
+            1116,
+            114,
+            1194,
+            315,
+            1389,
+            427,
+            145,
+            291
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "BID_433_NeonAnimal",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 2.0,
+                    "B": 0.255789,
+                    "A": 1.0,
+                    "Hex": "00FF8A"
+                  },
+                  "ParamName": "CoreColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.041429,
+                    "G": 0.0,
+                    "B": 0.1,
+                    "A": 1.0,
+                    "Hex": "390059"
+                  },
+                  "ParamName": "Gem Slight Glow Color"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.270588,
+                    "B": 0.47451,
+                    "A": 1.0,
+                    "Hex": "FF8EB7"
+                  },
+                  "ParamName": "EmissiveColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C5E2EEDB453119FEE36A4CB86D47BF1B",
+            "SourceString": "REACTIVE",
+            "LocalizedString": "REACTIVE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-433-NeonAnimal.T-Icon-Backpacks-433-NeonAnimal",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.90625,
+                    "B": 0.576958,
+                    "A": 1.0,
+                    "Hex": "00F5C8"
+                  },
+                  "ParamName": "CoreColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.307292,
+                    "G": 0.035851,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "973500"
+                  },
+                  "ParamName": "Gem Slight Glow Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.505208,
+                    "G": 0.043737,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BD3B00"
+                  },
+                  "ParamName": "EmissiveColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-433-NeonAnimal-Orange.T-Variant-433-NeonAnimal-Orange",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_NeonAnimal_NoCCPM.CP_Backpack_NeonAnimal_NoCCPM",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 2.0,
+                    "B": 0.255789,
+                    "A": 1.0,
+                    "Hex": "00FF8A"
+                  },
+                  "ParamName": "CoreColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.041429,
+                    "G": 0.0,
+                    "B": 0.1,
+                    "A": 1.0,
+                    "Hex": "390059"
+                  },
+                  "ParamName": "Gem Slight Glow Color"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.271652,
+                    "B": 0.473414,
+                    "A": 1.0,
+                    "Hex": "FF8EB7"
+                  },
+                  "ParamName": "EmissiveColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4043F076434268E30F20EC913980F218",
+            "SourceString": "NEON PURPLE",
+            "LocalizedString": "NEON PURPLE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-433-NeonAnimal.T-Icon-Backpacks-433-NeonAnimal",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_NeonAnimal_NoCCPM.CP_Backpack_NeonAnimal_NoCCPM",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.90625,
+                    "B": 0.576958,
+                    "A": 1.0,
+                    "Hex": "00F5C8"
+                  },
+                  "ParamName": "CoreColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.307292,
+                    "G": 0.035851,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "973500"
+                  },
+                  "ParamName": "Gem Slight Glow Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.505208,
+                    "G": 0.043737,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BD3B00"
+                  },
+                  "ParamName": "EmissiveColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Neon_Animal/Materials/M_MED_NeonAnimal_Backpack.M_MED_NeonAnimal_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "103B7F104C3D7693329597AC4507046D",
+            "SourceString": "NEON ORANGE",
+            "LocalizedString": "NEON ORANGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-433-NeonAnimal-Orange.T-Variant-433-NeonAnimal-Orange",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "635491EF4DEC0682400CF7A2E975D3F0",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

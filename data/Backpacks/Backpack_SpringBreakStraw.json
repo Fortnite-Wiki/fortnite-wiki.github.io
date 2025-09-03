@@ -1,0 +1,208 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_SpringBreakStraw",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SpringBreakStraw'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SpringBreakStraw.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SpringBreakStraw:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SpringBreakStraw.1"
+        }
+      ],
+      "BaseShotGridId": 87476,
+      "ShotGridIds": [
+        87476
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "628AD7AD4704248019B03DA4494B8AAD",
+        "SourceString": "Skull and Crossed Swords",
+        "LocalizedString": "Skull and Crossed Swords"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "BDFF8C4141A094E7B2BAE5941204061D",
+        "SourceString": "Never turn your back on the jolly roger.",
+        "LocalizedString": "Never turn your back on the jolly roger."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "37CE2A2F4A7E69A45645C2A9C4706B50",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-SpringBreakStraw.T-Icon-Backpacks-SpringBreakStraw",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.30",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.GroanScheme"
+          ]
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-SpringBreakStraw-L.T-Icon-Backpacks-SpringBreakStraw-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            245,
+            600,
+            626,
+            620,
+            616,
+            612,
+            19,
+            22,
+            617,
+            246,
+            24,
+            687,
+            178,
+            40,
+            39,
+            436,
+            113,
+            1076,
+            538,
+            2056,
+            2808,
+            180
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_SpringBreakStraw",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E8483DC84EBE5C4BACDE36AC354A06A9",
+            "SourceString": "Skull and Crossed Swords",
+            "LocalizedString": "Skull and Crossed Swords"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-SpringBreakStraw.T-Icon-Backpacks-SpringBreakStraw",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_SpringBreakStraw/Materials/MI_SpringBreakStraw_Backpack.MI_SpringBreakStraw_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_SpringBreakStraw/Skins/Claw/Materials/MI_SpringBreakStraw_Claw_Backpack.MI_SpringBreakStraw_Claw_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A486E80F406CEF7A43118AB32A576F8B",
+            "SourceString": "Cursed",
+            "LocalizedString": "Cursed"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-SpringBreakStraw-Claw.T-Icon-Backpacks-SpringBreakStraw-Claw",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "28808DB349F20219D3BD1FAC605839C9",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

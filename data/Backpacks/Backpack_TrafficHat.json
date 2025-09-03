@@ -1,0 +1,369 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_TrafficHat",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_TrafficHat'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_TrafficHat.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_TrafficHat:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_TrafficHat.1"
+        }
+      ],
+      "BaseShotGridId": 126987,
+      "ShotGridIds": [
+        126987
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "6C6981864C97239B55E9BD8EE7F478A9",
+        "SourceString": "Bunsen Backburner",
+        "LocalizedString": "Bunsen Backburner"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B92275964BCC6596195C3EB9B2089D5A",
+        "SourceString": "Spark a bright idea.",
+        "LocalizedString": "Spark a bright idea."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "86D3A0AD4CE002E18897A19396FF40D6",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_TrafficHat_Toon.T_Icon_Backpacks_TrafficHat_Toon",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_TrafficHat_Toon_L.T_Icon_Backpacks_TrafficHat_Toon_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.RandomPotion"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            587,
+            581,
+            242,
+            601,
+            261,
+            613,
+            246,
+            1122,
+            1221,
+            1847,
+            2175,
+            265,
+            2198,
+            2607,
+            2691,
+            2690,
+            2688,
+            2689,
+            2686
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_TrafficHat",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B3F052DA4CCDEF18DAF985B5F634BFD8",
+            "SourceString": "toon",
+            "LocalizedString": "toon"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_TrafficHat_Toon.T_Icon_Backpacks_TrafficHat_Toon",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Glass_Toon.MI_TrafficHat_Backpack_Glass_Toon",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Glass_PBR.MI_TrafficHat_Glass_PBR",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon.MI_TrafficHat_Backpack_Toon",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon.MI_TrafficHat_Backpack_Toon",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon_Liquid.MI_TrafficHat_Backpack_Toon_Liquid",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon_Liquid.MI_TrafficHat_Backpack_Toon_Liquid",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B04DAD054938282408B708BEDBB27BFE",
+            "SourceString": "outlined gradient",
+            "LocalizedString": "outlined gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_TrafficHat_PBR_Outline.T_Icon_Backpacks_TrafficHat_PBR_Outline",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Glass_Toon.MI_TrafficHat_Backpack_Glass_Toon",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Glass_PBR.MI_TrafficHat_Glass_PBR",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon_Outlines.MI_TrafficHat_Backpack_Toon_Outlines",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon.MI_TrafficHat_Backpack_Toon",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 0.7,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon.MI_TrafficHat_Backpack_Toon",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon_Liquid.MI_TrafficHat_Backpack_Toon_Liquid",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 0.7,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_TrafficHat/Materials/MI_TrafficHat_Backpack_Toon_Liquid.MI_TrafficHat_Backpack_Toon_Liquid",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D4965FEF4B3E2637A9852AB0C48B7CC9",
+            "SourceString": "gradient",
+            "LocalizedString": "gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_TrafficHat_PBR.T_Icon_Backpacks_TrafficHat_PBR",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CB212A714A1C728FF59734A9E298FD6E",
+        "SourceString": "shading",
+        "LocalizedString": "shading"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

@@ -1,0 +1,620 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_A_225_Athena_Commando_F_CubeQueen",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_CubeQueen.CP_Athena_Head_F_CubeQueen",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_CubeQueen.CP_Athena_Body_F_CubeQueen",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_CubeQueen_FaceAcc.CP_F_MED_CubeQueen_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "PreviewPawnScale": 0.74,
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s18/CubeQueen/CubeQueen_Female_Idle_Montage.CubeQueen_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_225_Athena_Commando_F_CubeQueen:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_225_Athena_Commando_F_CubeQueen.1"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'CID_A_225_Athena_Commando_F_CubeQueen:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_225_Athena_Commando_F_CubeQueen.2"
+        }
+      ],
+      "BaseShotGridId": 43630,
+      "VariantShotGridIds": [
+        48745,
+        48746
+      ],
+      "ShotGridIds": [
+        43630,
+        48745,
+        48746
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "04D5FC6848FD6DEEDC7851A8E90BB095",
+        "SourceString": "The Cube Queen",
+        "LocalizedString": "The Cube Queen"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "EE8FCD8642A754835504BE91F80715AE",
+        "SourceString": "Terror from beyond reality.",
+        "LocalizedString": "Terror from beyond reality."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen-L.T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen.T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.18",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.BoxRuler",
+            "Cosmetics.Exclusives.CubeQueen",
+            "SoundLibrary.ID.StepType.BootsMetal",
+            "SoundLibrary.ID.ClothingType.ArmorMetal",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            552,
+            7975,
+            229,
+            488,
+            553,
+            8,
+            162,
+            6,
+            569,
+            567,
+            583,
+            593,
+            581,
+            586,
+            242,
+            261,
+            629,
+            246,
+            641,
+            694,
+            482
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "CID_A_225_Athena_Commando_F_CubeQueen",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/FX/NS_Cube_Queen_Head.NS_Cube_Queen_Head",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 5.0,
+                    "G": 0.0,
+                    "B": 3.311019,
+                    "A": 0.8,
+                    "Hex": "CCFF00FF"
+                  },
+                  "ParamName": "Hair_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "06FE155B4F87F16EC60BEFA43BFB2772",
+            "SourceString": "The Cube Queen",
+            "LocalizedString": "The Cube Queen"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen.T-Soldier-HID-A-225-Athena-Commando-F-CubeQueen",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_Body.F_MED_Cube_Queen_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Dark/F_MED_Cube_Queen_Dark_Body.F_MED_Cube_Queen_Dark_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_FaceAcc.F_MED_Cube_Queen_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Dark/F_MED_Cube_Queen_Dark_FaceAcc.F_MED_Cube_Queen_Dark_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_Head.F_MED_Cube_Queen_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Dark/F_MED_Cube_Queen_Dark_Head.F_MED_Cube_Queen_Dark_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/FX/NS_Cube_Queen_Head.NS_Cube_Queen_Head",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "000000"
+                  },
+                  "ParamName": "Hair_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.009725,
+                    "G": 0.009628,
+                    "B": 0.010417,
+                    "A": 1.0,
+                    "Hex": "19181A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "419056CC436A4BD48DA989A2CBFB1D72",
+            "SourceString": "The Cube Queen (Obliterator)",
+            "LocalizedString": "The Cube Queen (Obliterator)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-225-F-CubeQueen-Dark.T-Variant-A-225-F-CubeQueen-Dark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_Body.F_MED_Cube_Queen_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Vibrant/F_MED_Cube_Queen_Body_Vibrant.F_MED_Cube_Queen_Body_Vibrant",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_FaceAcc.F_MED_Cube_Queen_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Vibrant/F_MED_Cube_Queen_FaceAcc_Vibrant.F_MED_Cube_Queen_FaceAcc_Vibrant",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Materials/F_MED_Cube_Queen_Head.F_MED_Cube_Queen_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/Skins/Vibrant/F_MED_Cube_Queen_Head_Vibrant.F_MED_Cube_Queen_Head_Vibrant",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Cube_Queen/FX/NS_Cube_Queen_Head.NS_Cube_Queen_Head",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.832404,
+                    "G": 2.697901,
+                    "B": 3.0,
+                    "A": 0.8,
+                    "Hex": "CCFFFFFF"
+                  },
+                  "ParamName": "Hair_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.019372,
+                    "G": 0.019372,
+                    "B": 0.0865,
+                    "A": 1.0,
+                    "Hex": "262653"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.05,
+                    "G": 0.4,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "3FAAFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2818F83C4305BE2E380A4583E221074A",
+            "SourceString": "The Cube Queen (Islandbane)",
+            "LocalizedString": "The Cube Queen (Islandbane)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-225-F-CubeQueen-Vibrant.T-Variant-A-225-F-CubeQueen-Vibrant",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D4A7EE684DEA70465D8CE38AE232E4CD",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "CID_A_225_Athena_Commando_F_CubeQueen",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

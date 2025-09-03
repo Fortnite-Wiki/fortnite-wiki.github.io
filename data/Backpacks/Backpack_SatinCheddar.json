@@ -1,0 +1,218 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_SatinCheddar",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SatinCheddar'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SatinCheddar.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SatinCheddar:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SatinCheddar.1"
+        }
+      ],
+      "BaseShotGridId": 104847,
+      "ShotGridIds": [
+        104847
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "F65F658F4FD8E8CDCDE3E1BF8A1AD3D6",
+        "SourceString": "Frozone's Shield",
+        "LocalizedString": "Frozone's Shield"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "5ACD14C14D426B76EAEB6E9878F15564",
+        "SourceString": "An essential addition to your super suit.",
+        "LocalizedString": "An essential addition to your super suit."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "6580FBB64082C83F3A012EAF9A921B5F",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SatinCheddar.T_IconBackpacks_SatinCheddar",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SatinCheddar_L.T_IconBackpacks_SatinCheddar_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.Set.ShawlTime",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            593,
+            579,
+            578,
+            581,
+            586,
+            595,
+            601,
+            244,
+            106,
+            1014,
+            1304,
+            1350,
+            300,
+            1022,
+            287,
+            453,
+            2263,
+            2494
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_SatinCheddar",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.ReactiveOn"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1641ACC64B743A0ECAAEA098AFD2D0EE",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SatinCheddar.T_IconBackpacks_SatinCheddar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_SatinCheddar/Materials/MI_SatinCheddar_Backpack.MI_SatinCheddar_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_SatinCheddar/Materials/MI_SatinCheddar_Backpack.MI_SatinCheddar_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.ReactiveOff"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "53DD81F548FBE4151F5609B10BA21D58",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_SatinCheddar_ReactiveOFF.T_IconBackpacks_SatinCheddar_ReactiveOFF",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "0B0F99524DCA47186899CC8726A79189",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

@@ -1,0 +1,364 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_HealedScar",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_HealedScar'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_HealedScar.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 3.0,
+        "Y": 0.0,
+        "Z": 79.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 3.5,
+          "Y": -13.0,
+          "Z": 32.0
+        },
+        "CylinderHalfHeight": 58.0,
+        "CylinderRadius": 56.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_HealedScar:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_HealedScar.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 119282,
+      "VariantShotGridIds": [
+        123899
+      ],
+      "ShotGridIds": [
+        119282,
+        123899
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C30B13CD4C6DB486A10088A911C142D0",
+        "SourceString": "Dark Cloud Katana",
+        "LocalizedString": "Dark Cloud Katana"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B6928A5742EB22087ACE8A80AFAFA916",
+        "SourceString": "Strike under cover of darkness.",
+        "LocalizedString": "Strike under cover of darkness."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "FB5341E14F9985DE1182B4BB24199CD9",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": -38.0,
+            "Roll": 3.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.Set.RodentSquats",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            237,
+            613,
+            269,
+            246,
+            24,
+            665,
+            753,
+            113,
+            258,
+            1924,
+            457,
+            2471,
+            2470,
+            438,
+            458,
+            241,
+            2757,
+            2756,
+            3053,
+            3165
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_HealedScar",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/Skins/Sand/Materials/MI_Pickaxe_HealedScar_Sand_SoftGlowOutlines.MI_Pickaxe_HealedScar_Sand_SoftGlowOutlines",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Sand_Idle.NS_Pickaxe_HealedScar_Sand_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Swing.NS_Pickaxe_HealedScar_Swing",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Impact.NS_Pickaxe_HealedScar_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4DD905464EEFAEC880AEF48FEC3FA0AA",
+            "SourceString": "Dark Cloud Katana",
+            "LocalizedString": "Dark Cloud Katana"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S33/T_Icon_Pickaxes_HealedScar.T_Icon_Pickaxes_HealedScar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/Materials/MI_Pickaxe_HealedScar.MI_Pickaxe_HealedScar",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/Skins/Sand/Materials/MI_Pickaxe_HealedScar_Sand.MI_Pickaxe_HealedScar_Sand",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Sand_Idle.NS_Pickaxe_HealedScar_Sand_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Sand_Idle.NS_Pickaxe_HealedScar_Sand_Idle",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Swing.NS_Pickaxe_HealedScar_Swing",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HealedScar/FX/NS_Pickaxe_HealedScar_Impact.NS_Pickaxe_HealedScar_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "58132F1A42F97BA5EE7D329E8B54A978",
+            "SourceString": "Possessed Cloud Katana",
+            "LocalizedString": "Possessed Cloud Katana"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S33/T_Icon_Pickaxes_HealedScar_Sand.T_Icon_Pickaxes_HealedScar_Sand",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B1CDE0624FA3A8A53FD0648826D11ED4",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

@@ -1,0 +1,559 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_DenimEquip_Stock",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_DenimEquip_Stock.CP_Head_F_DenimEquip_Stock",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Bodies/CP_Athena_Body_F_DenimEquip_Stock.CP_Athena_Body_F_DenimEquip_Stock",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_DenimEquip_Stock_FaceAcc.CP_F_MED_DenimEquip_Stock_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "PreviewPawnScale": 0.94,
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S32/DenimEquip_StockF/DenimEquip_Stock_Female_Idle_Montage.DenimEquip_Stock_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_DenimEquip_Stock:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DenimEquip_Stock.2"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_DenimEquip_Stock:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DenimEquip_Stock.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_DenimEquip_Stock:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DenimEquip_Stock.3"
+        }
+      ],
+      "BaseShotGridId": 86223,
+      "ShotGridIds": [
+        86223
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A031347449C6F5A2E327EA8D2CEC9EC0",
+        "SourceString": "Undercover Skye",
+        "LocalizedString": "Undercover Skye"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "FF856F7F427721FD11667AAD7F10B4C8",
+        "SourceString": "She's got the Guff stuff.",
+        "LocalizedString": "She's got the Guff stuff."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock.T_Soldier_DenimEquip_Stock",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.32",
+            "Cosmetics.Set.StrongWalk",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock_L.T_Soldier_DenimEquip_Stock_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            549,
+            552,
+            7975,
+            544,
+            540,
+            109,
+            166,
+            596,
+            123,
+            243,
+            606,
+            261,
+            635,
+            631,
+            632,
+            633,
+            54,
+            683,
+            1048,
+            1049,
+            1050
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_DenimEquip_Stock",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_DenimEquip_StockMask_FaceAcc.CP_F_MED_DenimEquip_StockMask_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_DenimEquip_StockMask.CP_Head_F_DenimEquip_StockMask",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E78BF2E84E55BE55B782A3A43A3D47D4",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock.T_Soldier_DenimEquip_Stock",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F42209834F325FE570D729B591B9E703",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock_MaskOff.T_Soldier_DenimEquip_Stock_MaskOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "BB2847534D123C5ECADE7A99FDA453D7",
+        "SourceString": "Mask",
+        "LocalizedString": "Mask"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_DenimEquip_Stock",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D1004C36454049FDDFEAB980C4A27E32",
+            "SourceString": "Undercover Skye",
+            "LocalizedString": "Undercover Skye"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock.T_Soldier_DenimEquip_Stock",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Materials/MI_DenimEquip_Stock_Body.MI_DenimEquip_Stock_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/StockGlow/Materials/MI_DenimEquip_StockGlow_Body.MI_DenimEquip_StockGlow_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Materials/MI_DenimEquip_Stock_Mask.MI_DenimEquip_Stock_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/StockGlow/Materials/MI_DenimEquip_StockGlow_Mask.MI_DenimEquip_StockGlow_Mask",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.067056,
+                    "G": 0.011134,
+                    "B": 0.227083,
+                    "A": 1.0,
+                    "Hex": "491B83"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7091B95846C6BC3F375A888364D8B1D3",
+            "SourceString": "Midnight Skye",
+            "LocalizedString": "Midnight Skye"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_StockGlow.T_Soldier_DenimEquip_StockGlow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B9A63CD8481AC3AF6EB83EB00D4BF53E",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Character_DenimEquip_Stock",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9BF3896D4E08ACBF950F8F80A3C2FF3A",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquip_Stock.T_Soldier_DenimEquip_Stock",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Materials/MI_DenimEquip_Stock_Body.MI_DenimEquip_Stock_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_Stock_Body_SL.MI_DenimEquip_Stock_Body_SL",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Materials/MI_DenimEquip_Stock_FaceAcc.MI_DenimEquip_Stock_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_Stock_FaceAcc_SL.MI_DenimEquip_Stock_FaceAcc_SL",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Materials/MI_DenimEquip_Stock_Mask.MI_DenimEquip_Stock_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_Stock_Mask_SL.MI_DenimEquip_Stock_Mask_SL",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/StockGlow/Materials/MI_DenimEquip_StockGlow_Body.MI_DenimEquip_StockGlow_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_StockGlow_Body_SL.MI_DenimEquip_StockGlow_Body_SL",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/StockGlow/Materials/MI_DenimEquip_StockGlow_Mask.MI_DenimEquip_StockGlow_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_StockGlow_Mask_SL.MI_DenimEquip_StockGlow_Mask_SL",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/StockGlow/Materials/MI_DenimEquip_StockGlow_Mask.MI_DenimEquip_StockGlow_Mask",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DenimEquip_Stock/Skins/SuperLevel/Materials/MI_DenimEquip_StockGlow_Mask_SL.MI_DenimEquip_StockGlow_Mask_SL",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "687C025244CBDE603D24FDA8CDDCF10A",
+            "SourceString": "Street Art Undercover Skye",
+            "LocalizedString": "Street Art Undercover Skye"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S32/T_Soldier_DenimEquipStock_SuperLevel.T_Soldier_DenimEquipStock_SuperLevel",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "587D0EBD4E2F4266C9A8ACA868B536BD",
+        "SourceString": "super levels",
+        "LocalizedString": "super levels"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

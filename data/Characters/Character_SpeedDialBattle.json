@@ -1,0 +1,974 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_SpeedDialBattle",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_SpeedDialBattle.CP_Athena_Head_M_SpeedDialBattle",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_SpeedDialBattle.CP_Athena_Body_M_SpeedDialBattle",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_SpeedDialBattle_FaceAcc.CP_M_MED_SpeedDialBattle_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S28/SpeedDialBattleM/SpeedDialBattle_Male_Idle_Montage.SpeedDialBattle_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_SpeedDial_Mask'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_SpeedDial_Mask.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_SpeedDialBattle:FortCosmeticCharacterPartVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.3"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_SpeedDialBattle:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_SpeedDialBattle:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.2"
+        },
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Character_SpeedDialBattle:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.4"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Mesh"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 74645,
+      "VariantShotGridIds": [
+        80640,
+        80641,
+        80641,
+        76509
+      ],
+      "ShotGridIds": [
+        74645,
+        80640,
+        80641,
+        80641,
+        76509
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "0F4F6CAA44582180DA5FB383E56CCDEC",
+        "SourceString": "The Weeknd Combat",
+        "LocalizedString": "The Weeknd Combat"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "172F9EE544D8FED161E806B1B8F235E9",
+        "SourceString": "Battle ready.",
+        "LocalizedString": "Battle ready."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "C8A1B0D74776B06F15BE75AB337A95AD",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle-L.T-Soldier-Hero-SpeedDialBattle-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle.T-Soldier-Hero-SpeedDialBattle",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Transform",
+            "Cosmetics.Set.HugeSilk",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            546,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            357,
+            169,
+            560,
+            576,
+            166,
+            606,
+            86,
+            49,
+            16,
+            269,
+            122,
+            652,
+            179,
+            667,
+            131,
+            781,
+            790,
+            793,
+            940,
+            113,
+            961,
+            1036,
+            1035,
+            478,
+            1257,
+            1492,
+            1512,
+            1511
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_SpeedDialBattle",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "414120C7456B328EB503D0AC742005B5",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle.T-Soldier-Hero-SpeedDialBattle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_SpeedDialBattle_Jacket.CP_Athena_Body_M_SpeedDialBattle_Jacket",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C217889A4F559800B47EFBA86890B31E",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle-Jacket.T-Soldier-Hero-SpeedDialBattle-Jacket",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F9B3DA46451B9D6DD80385A96EC6A8BF",
+        "SourceString": "XO Jacket",
+        "LocalizedString": "XO Jacket"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "Character_SpeedDialBattle",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionC"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "04CE120647A37ADF141F50BD83B9F0CE",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle.T-Soldier-Hero-SpeedDialBattle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle/Materials/MI_SpeedDialBattle_HeadBeard.MI_SpeedDialBattle_HeadBeard",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle/Materials/MI_SpeedDialBattle_HeadBeard.MI_SpeedDialBattle_HeadBeard",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionD"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3D6EA4A84400D182F8093DA2DDB17514",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle-Mask.T-Soldier-Hero-SpeedDialBattle-Mask",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A52838B949EAC9B1DA2B03894BE0F5E5",
+        "SourceString": "Maskd",
+        "LocalizedString": "Maskd"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_2",
+    "Outer": "Character_SpeedDialBattle",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionA"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DC9397614AFBCFA841FB7EAC513B3B83",
+            "SourceString": "The Weeknd Combat",
+            "LocalizedString": "The Weeknd Combat"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle.T-Soldier-Hero-SpeedDialBattle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle/Materials/MI_SpeedDialBattle_Body.MI_SpeedDialBattle_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle_White/Materials/MI_SpeedDialBattle_White_Body.MI_SpeedDialBattle_White_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle/Materials/MI_SpeedDialBattle_JacketBody.MI_SpeedDialBattle_JacketBody",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle_White/Materials/MI_SpeedDialBattle_White_JacketBody.MI_SpeedDialBattle_White_JacketBody",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle/Materials/MI_SpeedDialBattle_HeadBeard.MI_SpeedDialBattle_HeadBeard",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDialBattle_White/Materials/MI_SpeedDialBattle_White_HeadBeard.MI_SpeedDialBattle_White_HeadBeard",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.603827,
+                    "G": 0.603827,
+                    "B": 0.603827,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionB"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D528CE6647C2B7E5F365628B8FA8FB36",
+            "SourceString": "White",
+            "LocalizedString": "White"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle-White.T-Soldier-Hero-SpeedDialBattle-White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "EDE7B5D24CFC0151D3EA67A70A0B9F8D",
+        "SourceString": "Color",
+        "LocalizedString": "Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Character_SpeedDialBattle",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.Character_SpeedDialBattle",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionC"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionB"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionA"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  5,
+                  2,
+                  2,
+                  2,
+                  0,
+                  1,
+                  3,
+                  1,
+                  2
+                ],
+                "UserDescription": "If White + Mask Off -> Normal",
+                "AutoDescription": " ALL(  ALL( Cosmetics.MetaTags.Style.OptionC, Cosmetics.MetaTags.Style.OptionB ),  NONE( Cosmetics.MetaTags.Style.OptionA ) )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_SpeedDialBattle_WhiteCap_FaceAcc.CP_M_MED_SpeedDialBattle_WhiteCap_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BF33DF8545272E706C1A92A044842EDD",
+            "SourceString": "Mask Off",
+            "LocalizedString": "Mask Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle.T-Soldier-Hero-SpeedDialBattle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.Character_SpeedDialBattle",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionB"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionD"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionA"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  5,
+                  2,
+                  2,
+                  2,
+                  0,
+                  1,
+                  3,
+                  1,
+                  2
+                ],
+                "UserDescription": "If White + Mask On -> White Mask",
+                "AutoDescription": " ALL(  ALL( Cosmetics.MetaTags.Style.OptionB, Cosmetics.MetaTags.Style.OptionD ),  NONE( Cosmetics.MetaTags.Style.OptionA ) )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_SpeedDialBattle_White_FaceAcc.CP_M_MED_SpeedDialBattle_White_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_SpeedDialBattle.CP_Athena_Head_M_SpeedDialBattle",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDial/Materials/MI_SpeedDial_Head.MI_SpeedDial_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDial/Materials/MI_SpeedDial_Head.MI_SpeedDial_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9A7EBCFF439AA747F7C21D8A6B3A15AC",
+            "SourceString": "Mask On",
+            "LocalizedString": "Mask On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Characters/T-Soldier-Hero-SpeedDialBattle-White-Mask.T-Soldier-Hero-SpeedDialBattle-White-Mask",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SpeedDialBattle.Character_SpeedDialBattle",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionA"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionD"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionB"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  5,
+                  2,
+                  2,
+                  2,
+                  0,
+                  1,
+                  3,
+                  1,
+                  2
+                ],
+                "UserDescription": "black+black mask",
+                "AutoDescription": " ALL(  ALL( Cosmetics.MetaTags.Style.OptionA, Cosmetics.MetaTags.Style.OptionD ),  NONE( Cosmetics.MetaTags.Style.OptionB ) )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_SpeedDialBattle_Mask_FaceAcc.CP_M_MED_SpeedDialBattle_Mask_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_SpeedDialBattle_Masked.CP_Athena_Head_M_SpeedDialBattle_Masked",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SpeedDial/Materials/MI_SpeedDial_Eyes.MI_SpeedDial_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_HighTower_Tomato_Casual/Materials/M_VertexCrunch.M_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8C6DC33A40EB3DC2886344ABDAEC3355",
+            "SourceString": "black mask",
+            "LocalizedString": "black mask"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "29FAAC974B945B6AD5A4CE8770A9FDB5",
+        "SourceString": "Mask Swap Conditional",
+        "LocalizedString": "Mask Swap Conditional"
+      }
+    }
+  }
+]

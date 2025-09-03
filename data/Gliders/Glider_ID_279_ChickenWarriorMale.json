@@ -1,0 +1,569 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_279_ChickenWarriorMale",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 200.0,
+        "Y": -10.0,
+        "Z": 0.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/Meshes/Chicken_Warrior_Male_Glider.Chicken_Warrior_Male_Glider",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/Chicken_Warrior_Male/Chicken_Warrior_Male_Glider_AnimBP.Chicken_Warrior_Male_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Feather_FX.NS_Glider_ChickenWarrior_Feather_FX",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        },
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Trail.NS_Glider_ChickenWarrior_Trail",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/GliderOpen_ChickenWarriorMale_Cue.GliderOpen_ChickenWarriorMale_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderClose_ChickenWarrior_Male.SC_GliderClose_ChickenWarrior_Male",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderThrustLoop_ChickenWarrior_Male.SC_GliderThrustLoop_ChickenWarrior_Male",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/GliderWingFlaps_ChickenWarrior_Male_Cue.GliderWingFlaps_ChickenWarrior_Male_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.25,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.05,
+                "InterruptFadeTime": 0.25
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Sideways",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/GliderWingFlaps_Soft_ChickenWarrior_Male_Cue.GliderWingFlaps_Soft_ChickenWarrior_Male_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.25,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.05,
+                "InterruptFadeTime": 0.25
+              }
+            ]
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_279_ChickenWarriorMale:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_279_ChickenWarriorMale.1"
+        }
+      ],
+      "BaseShotGridId": 37211,
+      "VariantShotGridIds": [
+        37852,
+        37853
+      ],
+      "ShotGridIds": [
+        37211,
+        37852,
+        37853
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9491739143C48DA85C4DAFA7F1E8ACD0",
+        "SourceString": "Eggar",
+        "LocalizedString": "Eggar"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "76A47CEE4F940A95C6255A9BB859F502",
+        "SourceString": "He's a little shy.",
+        "LocalizedString": "He's a little shy."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ChickenWarriorGlider.T-Icon_Glider-ChickenWarriorGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ChickenWarriorGlider-L.T-Icon_Glider-ChickenWarriorGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season16.BattlePass.Paid",
+            "Cosmetics.Filter.Season.16",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.ChickenAce"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -10.0,
+            "Yaw": 115.0,
+            "Roll": 25.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            544,
+            586,
+            123,
+            243,
+            605,
+            607,
+            387,
+            269,
+            247,
+            715,
+            855,
+            851,
+            853,
+            77,
+            1008,
+            1010,
+            1012,
+            338,
+            1156,
+            1535
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_279_ChickenWarriorMale",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Feather_FX.NS_Glider_ChickenWarrior_Feather_FX",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.791298,
+                    "B": 0.016807,
+                    "A": 1.0,
+                    "Hex": "FFE623"
+                  },
+                  "ParamName": "VariantColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/GliderOpen_ChickenWarriorMale_Slurp_Cue.GliderOpen_ChickenWarriorMale_Slurp_Cue",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/GliderOpen_ChickenWarriorMale_Cue.GliderOpen_ChickenWarriorMale_Cue",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/SC_GliderClose_ChickenWarrior_Slurp_Male.SC_GliderClose_ChickenWarrior_Slurp_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderClose_ChickenWarrior_Male.SC_GliderClose_ChickenWarrior_Male",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/SC_GliderThrustLoop_ChickenWarrior_Slurp_Male.SC_GliderThrustLoop_ChickenWarrior_Slurp_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "FortLayeredAudioComponent0",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderThrustLoop_ChickenWarrior_Male.SC_GliderThrustLoop_ChickenWarrior_Male",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AE7D911E48508EAF03D4F8A8DF486660",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ChickenWarriorGlider.T-Icon_Glider-ChickenWarriorGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/Materials/MI_Glider_ChickenWarrior_Male.MI_Glider_ChickenWarrior_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/Materials/MI_Glider_ChickenWarrior_Dark_Male.MI_Glider_ChickenWarrior_Dark_Male",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Feather_FX.NS_Glider_ChickenWarrior_Feather_FX",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.119792,
+                    "G": 0.109185,
+                    "B": 0.109185,
+                    "A": 1.0,
+                    "Hex": "615D5D"
+                  },
+                  "ParamName": "VariantColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "81AF71FD4B4652B8A5E2DFA0895A9AC8",
+            "SourceString": "Eggar (Eggsplosive)",
+            "LocalizedString": "Eggar (Eggsplosive)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ChickenWarriorGlider-dark.T-Icon_Glider-ChickenWarriorGlider-dark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/Materials/MI_Glider_ChickenWarrior_Male.MI_Glider_ChickenWarrior_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/Materials/MI_Glider_ChickenWarrior_Slurp_Male.MI_Glider_ChickenWarrior_Slurp_Male",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Feather_FX.NS_Glider_ChickenWarrior_Feather_FX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_ChickenWarrior_Male/FX/NS_Glider_ChickenWarrior_Slurp_FX.NS_Glider_ChickenWarrior_Slurp_FX",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/GliderOpen_ChickenWarriorMale_Cue.GliderOpen_ChickenWarriorMale_Cue",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/GliderOpen_ChickenWarriorMale_Slurp_Cue.GliderOpen_ChickenWarriorMale_Slurp_Cue",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderClose_ChickenWarrior_Male.SC_GliderClose_ChickenWarrior_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/SC_GliderClose_ChickenWarrior_Slurp_Male.SC_GliderClose_ChickenWarrior_Slurp_Male",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarrior/SC_GliderThrustLoop_ChickenWarrior_Male.SC_GliderThrustLoop_ChickenWarrior_Male",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "FortLayeredAudioComponent0",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/ChickenWarriorSlurp/SC_GliderThrustLoop_ChickenWarrior_Slurp_Male.SC_GliderThrustLoop_ChickenWarrior_Slurp_Male",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5034C55A4C067B412B84B98417C4E31A",
+            "SourceString": "Eggar (Slurpy)",
+            "LocalizedString": "Eggar (Slurpy)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ChickenWarriorGlider-slurp.T-Icon_Glider-ChickenWarriorGlider-slurp",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D19255BD45845287BD1388BA39A8DEAF",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

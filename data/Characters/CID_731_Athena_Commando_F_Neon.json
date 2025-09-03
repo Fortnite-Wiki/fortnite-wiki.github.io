@@ -1,0 +1,241 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_731_Athena_Commando_F_Neon",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_Neon.CP_Head_F_Neon",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_Neon.CP_Body_Commando_F_Neon",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.MetaTags.Trait.Headless",
+        "Cosmetics.MetaTags.Special.BodySwap.Full"
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.DamageReceived",
+        "StatManager.DamageDealt",
+        "StatManager.AthenaKills",
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes",
+        "StatManager.OpenChests"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'CID_731_Athena_Commando_F_Neon:FortCosmeticPropertyVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_731_Athena_Commando_F_Neon.1"
+        }
+      ],
+      "BaseShotGridId": 29124,
+      "ShotGridIds": [
+        29124
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A10260F74FCD09CDD7533E9696080940",
+        "SourceString": "Flow",
+        "LocalizedString": "Flow"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "C127A57D4AB5111EE110EBAC46A094DB",
+        "SourceString": "Light the way.",
+        "LocalizedString": "Light the way."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-731-Athena-Commando-F-Neon-L.T-Soldier-HID-731-Athena-Commando-F-Neon-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-731-Athena-Commando-F-Neon.T-Soldier-HID-731-Athena-Commando-F-Neon",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.15",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Set.GlowCrew",
+            "SoundLibrary.ID.StepType.Barefoot",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.FrontEndPose.IsRebirth",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            7975,
+            541,
+            561,
+            564,
+            237,
+            162,
+            292,
+            567,
+            593,
+            243,
+            644,
+            244,
+            106,
+            776,
+            850,
+            1047,
+            1101,
+            1350,
+            212,
+            1740,
+            2069,
+            2107,
+            2104,
+            2115,
+            472,
+            105,
+            2123
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_1",
+    "Outer": "CID_731_Athena_Commando_F_Neon",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

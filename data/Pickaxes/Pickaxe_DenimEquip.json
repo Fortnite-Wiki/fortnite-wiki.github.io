@@ -1,0 +1,291 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_DenimEquip",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_DenimEquip'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_DenimEquip.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 55.0,
+        "Z": 60.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": -18.0,
+          "Z": 8.0
+        },
+        "CylinderHalfHeight": 95.0,
+        "CylinderRadius": 50.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_DenimEquip:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_DenimEquip.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/BRCosmetics/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Pickaxe/PickaxeItemPreview_DenimEquip.PickaxeItemPreview_DenimEquip_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 100549,
+      "VariantShotGridIds": [
+        0
+      ],
+      "ShotGridIds": [
+        100549,
+        0
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "4AD82ECD4BFBD368AB73348CC8EC80B2",
+        "SourceString": "Epic Blade of Floof",
+        "LocalizedString": "Epic Blade of Floof"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6599449E4D7BD45FE70A53B1A6C7F293",
+        "SourceString": "The only thing better than one pickaxe? Two pickaxes!",
+        "LocalizedString": "The only thing better than one pickaxe? Two pickaxes!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "40F21FCF414A60A40B077A86721ECB0B",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -3.0,
+            "Yaw": 38.0,
+            "Roll": 32.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.32",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Set.StrongWalk",
+            "Cosmetics.Source.Season32.BattlePass.Free",
+            "Cosmetics.Source.Season32.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S32/T_Icon_Pickaxes_DenimEquip.T_Icon_Pickaxes_DenimEquip",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S32/T_Icon_Pickaxes_DenimEquip_L.T_Icon_Pickaxes_DenimEquip_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            488,
+            544,
+            237,
+            586,
+            607,
+            601,
+            24,
+            244,
+            247,
+            893,
+            436,
+            113,
+            80,
+            440,
+            311,
+            1219,
+            258,
+            2494,
+            2470,
+            2634
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_DenimEquip",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1DA8F34B4531115EE3A5AC8ABF3932BD",
+            "SourceString": "Epic Blade of Floof",
+            "LocalizedString": "Epic Blade of Floof"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S32/T_Icon_Pickaxes_DenimEquip.T_Icon_Pickaxes_DenimEquip",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_DenimEquip/Materials/MI_Pickaxe_DenimEquip.MI_Pickaxe_DenimEquip",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_DenimEquip/Skins/DenimEquip_StockGlow/Materials/MI_Pickaxe_DenimEquip_StockGlow.MI_Pickaxe_DenimEquip_StockGlow",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_DenimEquip/FX/NS_Pickaxe_DenimEquip_Trail.NS_Pickaxe_DenimEquip_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "45622E5848B4C1FACC5DC1BD96473107",
+            "SourceString": "Midnight Blade of Floof",
+            "LocalizedString": "Midnight Blade of Floof"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S32/T_Icon_Pickaxes_DenimEquip_StockGlow.T_Icon_Pickaxes_DenimEquip_StockGlow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F1DC684D46352D195096ED9E91009BAB",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

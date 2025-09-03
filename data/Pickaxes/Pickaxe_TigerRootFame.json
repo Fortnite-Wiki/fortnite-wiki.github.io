@@ -1,0 +1,249 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_TigerRootFame",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_TigerRootFame'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_TigerRootFame.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 22.0,
+        "Z": 88.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 26.0,
+          "Y": -5.0,
+          "Z": 10.0
+        },
+        "CylinderHalfHeight": 85.0,
+        "CylinderRadius": 85.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_TigerRootFame:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_TigerRootFame.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "40EC0AED426EED652D9D0A85F38A424E",
+        "SourceString": "Electropalm Staff",
+        "LocalizedString": "Electropalm Staff"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "DFAAD8154F3BF093F86383B0DDA7B439",
+        "SourceString": "Feel the beat in the palm of your hand.",
+        "LocalizedString": "Feel the beat in the palm of your hand."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "81F65F9F4C3B108F140F71B1CE454FBF",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -5.0,
+            "Yaw": 35.0,
+            "Roll": 30.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.24",
+            "Cosmetics.Set.PenRatio",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            587,
+            579,
+            578,
+            581,
+            586,
+            582,
+            242,
+            215,
+            243,
+            601,
+            261,
+            244,
+            436,
+            440,
+            1122,
+            93,
+            1221,
+            1304,
+            437,
+            2042,
+            2494,
+            2508,
+            4563
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_TigerRootFame",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_TigerRootFame/FX/NS_Pickaxe_TigerRootFame.NS_Pickaxe_TigerRootFame",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "isReactive"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "10833D0F42D255056715F7AE9A10B445",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S24/T-Icon-Pickaxes-TigerRootFame-HighFrequency.T-Icon-Pickaxes-TigerRootFame-HighFrequency",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_TigerRootFame/FX/NS_Pickaxe_TigerRootFame.NS_Pickaxe_TigerRootFame",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "isReactive"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3FB6BF4B466758C27CB2FE95C129C000",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S24/T-Icon-Pickaxes-TigerRootFame.T-Icon-Pickaxes-TigerRootFame",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "804743824F050046B977C3A29DFB8CE1",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

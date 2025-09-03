@@ -1,0 +1,469 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ShinyStar",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_ShinyStar'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ShinyStar.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -15.0,
+        "Y": -6.0,
+        "Z": 18.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 5.0,
+          "Z": -15.0
+        },
+        "CylinderHalfHeight": 60.0,
+        "CylinderRadius": 55.0
+      },
+      "MetaTags": [
+        "Cosmetics.MetaTags.ShinyStar"
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ShinyStar:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ShinyStar.2"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Pickaxe_ShinyStar:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ShinyStar.1"
+        }
+      ],
+      "BaseShotGridId": 39455,
+      "VariantShotGridIds": [
+        43941
+      ],
+      "ShotGridIds": [
+        39455,
+        43941
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "EFF193804074430CC7D4B591375CC2D2",
+        "SourceString": "Brite's Shield",
+        "LocalizedString": "Brite's Shield"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3E40DA9B4E7A20105D9372A6E45560C0",
+        "SourceString": "In every shade of bravery.",
+        "LocalizedString": "In every shade of bravery."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "568D2F7D4BD8FA44A3D2FC83D2A07403",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.23",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.JudgePace",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.Reactive"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": -55.0,
+            "Roll": 13.0
+          },
+          "Scale": 1.6
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            546,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            553,
+            540,
+            8,
+            564,
+            162,
+            574,
+            567,
+            166,
+            596,
+            242,
+            606,
+            261,
+            246,
+            632,
+            14,
+            244,
+            192,
+            786,
+            826,
+            875,
+            283,
+            80,
+            1047,
+            1058,
+            1070,
+            1116,
+            1389,
+            145,
+            2335,
+            291,
+            2337,
+            2495,
+            2505,
+            2518,
+            310,
+            2584
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Pickaxe_ShinyStar",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7D05EB4C4A212CC23D878D97C2A6401D",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S23/T-Icon-Pickaxes-ShinyStar-Reactive.T-Icon-Pickaxes-ShinyStar-Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack.F_MED_ShinyStar_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack.F_MED_ShinyStar_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack_Alt.F_MED_ShinyStar_Backpack_Alt",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityToggle"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack_Alt.F_MED_ShinyStar_Backpack_Alt",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CD40462F419CA994C3DD44A5036A9ED7",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S23/T-Icon-Pickaxes-ShinyStar.T-Icon-Pickaxes-ShinyStar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CF746218470FE21932360CBF9CB94E08",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Emissive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ShinyStar",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ShinyStar/FX/NS_ShinyStar_Pickaxe_AnimTrail.NS_ShinyStar_Pickaxe_AnimTrail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "AltStyle"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ShinyStar/FX/NS_ShinyStar_Pickaxe_Impact.NS_ShinyStar_Pickaxe_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "AltStyle"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D243EC3748A04BA503D0C6A33ABDC0AB",
+            "SourceString": "Brite's Shield",
+            "LocalizedString": "Brite's Shield"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S23/T-Icon-Pickaxes-ShinyStar.T-Icon-Pickaxes-ShinyStar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack.F_MED_ShinyStar_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_ShinyStar/Materials/F_MED_ShinyStar_Backpack_Alt.F_MED_ShinyStar_Backpack_Alt",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ShinyStar/FX/NS_ShinyStar_Pickaxe_AnimTrail.NS_ShinyStar_Pickaxe_AnimTrail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "AltStyle"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ShinyStar/FX/NS_ShinyStar_Pickaxe_Impact.NS_ShinyStar_Pickaxe_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "AltStyle"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9A314A19474EBE9DAE0054B295F14B1C",
+            "SourceString": "Red Brite and Blue",
+            "LocalizedString": "Red Brite and Blue"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S23/T-Icon-Pickaxes-ShinyStar-ALT.T-Icon-Pickaxes-ShinyStar-ALT",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "34A9F0A647CF251A9D7F0CB125A66049",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

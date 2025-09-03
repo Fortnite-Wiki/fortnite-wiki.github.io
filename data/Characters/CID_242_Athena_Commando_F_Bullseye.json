@@ -1,0 +1,447 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_242_Athena_Commando_F_Bullseye",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_Bullseye.CP_Head_F_Bullseye",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_Bullseye.CP_Body_Commando_F_Bullseye",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Hats/CP_Hat_F_Commando_Bullseye.CP_Hat_F_Commando_Bullseye",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_242_Athena_Commando_F_Bullseye:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_242_Athena_Commando_F_Bullseye.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat3"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 16271,
+      "VariantShotGridIds": [
+        25224
+      ],
+      "ShotGridIds": [
+        16271,
+        25224
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A2EBA189401FC19B0AE24B8AA6437F38",
+        "SourceString": "Bullseye",
+        "LocalizedString": "Bullseye"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "5BDC0D1A4F2BCA1E72897A93FBCC3CC9",
+        "SourceString": "I never miss.",
+        "LocalizedString": "I never miss."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-242-Athena-Commando-F-Bullseye-L.T-Soldier-HID-242-Athena-Commando-F-Bullseye-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-242-Athena-Commando-F-Bullseye.T-Soldier-HID-242-Athena-Commando-F-Bullseye",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.Bullseye",
+            "Cosmetics.Filter.Season.6",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            518,
+            115,
+            543,
+            7,
+            552,
+            7975,
+            545,
+            229,
+            12,
+            488,
+            236,
+            544,
+            540,
+            245,
+            169,
+            566,
+            46,
+            166,
+            606,
+            86,
+            261,
+            49,
+            269,
+            54,
+            179,
+            45,
+            732,
+            955,
+            961,
+            1235,
+            171,
+            539,
+            1823
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "CID_242_Athena_Commando_F_Bullseye",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "04A740714D75EC93C933279FD145784F",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-242-Athena-Commando-F-Bullseye.T-Soldier-HID-242-Athena-Commando-F-Bullseye",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_Med_Soldier_01/F_MED_Bullseye/Materials/F_MED_Bullseye.F_MED_Bullseye",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PixelHeart/Materials/MI_F_PixelHeart.MI_F_PixelHeart",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/Hats/F_MED_Commando_Bullesye/Materials/F_MED_Commando_Bullseye_Helmet.F_MED_Commando_Bullseye_Helmet",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PixelHeart/Materials/MI_F_PixelHeart_Helmet.MI_F_PixelHeart_Helmet",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.318547,
+                    "G": 0.022174,
+                    "B": 0.132868,
+                    "A": 1.0,
+                    "Hex": "992966"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.55,
+                    "G": 0.3,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "C49500"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "129A35554BD6D9C15EF2E0BC50371EDB",
+            "SourceString": "PIXEL HEART",
+            "LocalizedString": "PIXEL HEART"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-F-Pixel-Heart.T-Variant-F-Pixel-Heart",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_BullseyeTech.CP_F_MED_BullseyeTech",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_BullseyeTech.CP_Body_Commando_F_BullseyeTech",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_BullseyeTech.CP_Head_F_BullseyeTech",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.024158,
+                    "G": 0.031896,
+                    "B": 0.074214,
+                    "A": 1.0,
+                    "Hex": "2B324D"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.5,
+                    "G": 0.55,
+                    "B": 0.6,
+                    "A": 0.0,
+                    "Hex": "BCC4CC"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "30D883F64C0D381138266889B2C4D5BC",
+            "SourceString": "TECH",
+            "LocalizedString": "TECH"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-242-F-Bullseye-Tech.T-Variant-242-F-Bullseye-Tech",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7B8A066E4A74488DE406BBB70992D5BC",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

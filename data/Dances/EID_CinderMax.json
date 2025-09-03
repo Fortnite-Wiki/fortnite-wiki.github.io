@@ -1,0 +1,220 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_CinderMax",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CMM_M.Emote_CinderMax_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CMF_M.Emote_CinderMax_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CLM_M.Emote_CinderMax_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CLF_M.Emote_CinderMax_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'EID_CinderMax:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_CinderMax.1"
+        }
+      ],
+      "BaseShotGridId": 71460,
+      "ShotGridIds": [
+        71460
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "D62DC7354FE32BAA23F516A5870B2838",
+        "SourceString": "This is Fine",
+        "LocalizedString": "This is Fine"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "07FD287C4493DBF8FDC293B8254DA95F",
+        "SourceString": "Everything is perfectly alright.",
+        "LocalizedString": "Everything is perfectly alright."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "32028474472017D6FD1D26B6437C8CCC",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Filter.Season.25",
+            "Cosmetics.Set.StoneRover",
+            "Cosmetics.Emote.HideMimosaInPreview"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S25/T-Icon-Emotes-CinderMax.T-Icon-Emotes-CinderMax",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S25/T-Icon-Emotes-CinderMax-L.T-Icon-Emotes-CinderMax-L",
+            "SubPathString": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "EID_CinderMax",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CMM_M.Emote_CinderMax_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/BigHead/Emote_CinderMax_CMM_BigHead_M.Emote_CinderMax_CMM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CMF_M.Emote_CinderMax_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/BigHead/Emote_CinderMax_CMF_BigHead_M.Emote_CinderMax_CMF_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CLM_M.Emote_CinderMax_CLM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/BigHead/Emote_CinderMax_CLM_BigHead_M.Emote_CinderMax_CLM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/Emote_CinderMax_CLF_M.Emote_CinderMax_CLF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/CinderMax/BigHead/Emote_CinderMax_CLF_BigHead_M.Emote_CinderMax_CLF_BigHead_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.Emote.CharacterGroup.BigHead"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL( Cosmetics.Emote.CharacterGroup.BigHead )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

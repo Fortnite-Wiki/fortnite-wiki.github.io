@@ -1,0 +1,410 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_SilverBellWind",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_SilverBellWind.CP_Athena_Head_F_SilverBellWind",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_SilverBellWind.CP_Athena_Body_F_SilverBellWind",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_F_MED_SilverBellWind_FaceAcc.CP_F_MED_SilverBellWind_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S29/SilverBell_WindF/SilverBellWind_Female_Idle_Montage.SilverBellWind_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.MetaTags.Special.ReplaceFace"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_SilverBellWind:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SilverBellWind.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 80146,
+      "VariantShotGridIds": [
+        80146,
+        86228
+      ],
+      "ShotGridIds": [
+        80146,
+        80146,
+        86228
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "8E3FD1504F9287B2B8684E9B104471DB",
+        "SourceString": "Eclipse",
+        "LocalizedString": "Eclipse"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "46DCF6D44BD30D4BD7FEED9D00204FA8",
+        "SourceString": "Dynamic duality.",
+        "LocalizedString": "Dynamic duality."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-SilverBellWind.T-Soldier-Hero-SilverBellWind",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-SilverBellWind-L.T-Soldier-Hero-SilverBellWind-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.29",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.SkyLove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty",
+            "SoundLibrary.ID.ClothingType.Gelatinous"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            549,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            541,
+            544,
+            553,
+            357,
+            540,
+            109,
+            8,
+            169,
+            562,
+            561,
+            564,
+            563,
+            162,
+            292,
+            567,
+            166,
+            242,
+            261,
+            246,
+            644,
+            637,
+            639,
+            122,
+            244,
+            20,
+            106,
+            787,
+            845,
+            890
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_SilverBellWind",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6D84F53B422D48B16ED2DE8E83EF154B",
+            "SourceString": "Day",
+            "LocalizedString": "Day"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-SilverBellWind.T-Soldier-Hero-SilverBellWind",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBellWind_Body_FakeTrans.MI_SilverBellWind_Body_FakeTrans",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBellWind_Dark_Body_FakeTrans.MI_SilverBellWind_Dark_Body_FakeTrans",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBellWind_Eyes.MI_SilverBellWind_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBellWind_Dark_Eyes.MI_SilverBellWind_Dark_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBellWind_FaceAcc.MI_SilverBellWind_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBellWind_Dark_FaceAcc.MI_SilverBellWind_Dark_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBellWind_Head_FakeTrans.MI_SilverBellWind_Head_FakeTrans",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBellWind_Dark_Head_FakeTrans.MI_SilverBellWind_Dark_Head_FakeTrans",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBellWind_Glass.MI_SilverBellWind_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBellWind_Dark_Glass.MI_SilverBellWind_Dark_Glass",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBell_OverlayTrans_Head.MI_SilverBell_OverlayTrans_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBell_Dark_OverlayTrans_Head.MI_SilverBell_Dark_OverlayTrans_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Materials/MI_SilverBell_OverlayTrans_Body.MI_SilverBell_OverlayTrans_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_SilverBellWind/Skins/SilverBellWind_Dark/Materials/MI_SilverBell_Dark_OverlayTrans_Body.MI_SilverBell_Dark_OverlayTrans_Body",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.213542,
+                    "G": 0.041151,
+                    "B": 0.089444,
+                    "A": 1.0,
+                    "Hex": "7F3954"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryEmissiveStrength",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.0,
+                    "G": 0.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "000000"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "475AA98B4F74D7D86251DDAFD3FCF1E4",
+            "SourceString": "Night",
+            "LocalizedString": "Night"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-SilverBellWindDark.T-Soldier-Hero-SilverBellWindDark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "C71573E049D8F7316F803CA30CA6FE56",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

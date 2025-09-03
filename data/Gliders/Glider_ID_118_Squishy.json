@@ -1,0 +1,348 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_118_Squishy",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": -50.0,
+        "Y": -5.0,
+        "Z": 0.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/BRCosmetics/Athena/Cosmetics/Blueprints/Gliders/LegacyGliderBPs/B_Athena_Glider_Legacy_Marshmellow.B_Athena_Glider_Legacy_Marshmellow_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Meshes/SK_M_VinderTech_GliderChute.SK_M_VinderTech_GliderChute",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.70710677,
+          "W": 0.7071067,
+          "IsNormalized": true,
+          "Size": 0.99999994,
+          "SizeSquared": 0.9999999
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/VinderTech_GliderChute_AnimBP_Squishy.VinderTech_GliderChute_AnimBP_Squishy_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Squishy/Glider_Squishy_Open_Cue.Glider_Squishy_Open_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Squishy/Glider_Squishy_Close_Cue.Glider_Squishy_Close_Cue",
+        "SubPathString": ""
+      },
+      "TrailEffectNiagara": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/FX/NS_Glider_Mello_Idle.NS_Glider_Mello_Idle",
+        "SubPathString": ""
+      },
+      "MaterialOverrides": [
+        {
+          "ComponentName": "ParachuteMesh0",
+          "MaterialOverrideIndex": 0,
+          "OverrideMaterial": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/Materials/MI_Glider_Marshmellow.MI_Glider_Marshmellow",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_118_Squishy:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_118_Squishy.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 54186,
+      "ShotGridIds": [
+        54186
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "6BCD06F845F32DFDE8D7928AFCBC4FDB",
+        "SourceString": "Mello Rider",
+        "LocalizedString": "Mello Rider"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "20B5D58046C51B5EF18AB3BC2E95DE9A",
+        "SourceString": "Fly happier.",
+        "LocalizedString": "Fly happier."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 10.000004,
+            "Yaw": -43.86128,
+            "Roll": -2.00001
+          },
+          "Scale": 0.8
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Glider-Marshmellow.T-Icon_Glider-Glider-Marshmellow",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Glider-Marshmellow-L.T-Icon_Glider-Glider-Marshmellow-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.Squishy",
+            "Cosmetics.Filter.Season.7",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            562,
+            162,
+            569,
+            243,
+            605,
+            387,
+            246,
+            687,
+            247,
+            1053,
+            1194,
+            315,
+            1535,
+            1531,
+            1539,
+            1538,
+            1962,
+            349,
+            2541,
+            2538,
+            383,
+            2660,
+            2832,
+            402,
+            390,
+            4630
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_118_Squishy",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "57C22A364FE0D4CBEDF0FB886C28E517",
+            "SourceString": "Mello Rider",
+            "LocalizedString": "Mello Rider"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Glider-Marshmellow.T-Icon_Glider-Glider-Marshmellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/Materials/MI_Glider_Marshmellow.MI_Glider_Marshmellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow_DJ_Camo_Male/Materials/MI_Glider_Marshmellow_DJ_Camo_Male.MI_Glider_Marshmellow_DJ_Camo_Male",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/FX/NS_Glider_Mello_Idle.NS_Glider_Mello_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/FX/NS_Glider_Mello_Idle_Gold.NS_Glider_Mello_Idle_Gold",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/FX/NS_Glider_Mello_Deploy.NS_Glider_Mello_Deploy",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Marshmellow/FX/NS_Glider_Mello_Deploy_Gold.NS_Glider_Mello_Deploy_Gold",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2BB1706147105F716B7090ADBE6EC75F",
+            "SourceString": "Roasty Rider",
+            "LocalizedString": "Roasty Rider"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-MarshmellowDJCamoGlider.T-Icon_Glider-MarshmellowDJCamoGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FCD529094A0FAFF76A12A2929D32DDB9",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

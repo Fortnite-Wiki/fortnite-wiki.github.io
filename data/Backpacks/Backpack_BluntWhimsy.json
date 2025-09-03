@@ -1,0 +1,565 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_BluntWhimsy",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_BluntWhimsy'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_BluntWhimsy.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_BluntWhimsy:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            },
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle3"
+              }
+            },
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle4"
+              }
+            },
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle5"
+              }
+            },
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle6"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 134107,
+      "VariantShotGridIds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ShotGridIds": [
+        134107,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "AD6C913142BEBC729C23C6B599CC34E7",
+        "SourceString": "Gumball Gun",
+        "LocalizedString": "Gumball Gun"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "87225FEB4985095B66C3B696CE93853C",
+        "SourceString": "Shoot 'em a snack.",
+        "LocalizedString": "Shoot 'em a snack."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "82E845184CB8CAE4985B829994109AB9",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy.T_Icon_Backpacks_BluntWhimsy",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_L.T_Icon_Backpacks_BluntWhimsy_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.35",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.CrewBling.Progressive",
+            "Cosmetics.Set.SourMace"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CrewSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CrewSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            562,
+            237,
+            242,
+            636,
+            633,
+            254,
+            683,
+            45,
+            802,
+            824,
+            1194,
+            315,
+            1539,
+            1537,
+            1538,
+            2043,
+            2557,
+            451,
+            4881,
+            7590,
+            7591
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Backpack_BluntWhimsy",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "89B128804BEF78DD62918B88D71A8008",
+            "SourceString": "Gumball Gun",
+            "LocalizedString": "Gumball Gun"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy.T_Icon_Backpacks_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack.MI_BluntWhimsy_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Taffy/Material/MI_BluntWhimsy_Taffy_Backpack_Inst.MI_BluntWhimsy_Taffy_Backpack_Inst",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack_Glass.MI_BluntWhimsy_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Taffy/Material/MI_BluntWhimsy_Taffy_Backpack_Glass.MI_BluntWhimsy_Taffy_Backpack_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A527320845DF6B1A3BD193B656128907",
+            "SourceString": "Sweet Legacy",
+            "LocalizedString": "Sweet Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_Taffy.T_Icon_Backpacks_BluntWhimsy_Taffy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack.MI_BluntWhimsy_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Gold/Materials/MI_BluntWhimsy_Gold_Backpack.MI_BluntWhimsy_Gold_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack_Glass.MI_BluntWhimsy_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Gold/Materials/MI_BluntWhimsy_Gold_Backpack_Glass.MI_BluntWhimsy_Gold_Backpack_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B1E0BD624C989486AC41B59AB533ADE7",
+            "SourceString": "Auric Legacy",
+            "LocalizedString": "Auric Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_Gold.T_Icon_Backpacks_BluntWhimsy_Gold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack.MI_BluntWhimsy_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Holofoil/Materials/MI_BluntWhimsy_Holofoil_Backpack.MI_BluntWhimsy_Holofoil_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack_Glass.MI_BluntWhimsy_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Holofoil/Materials/MI_BluntWhimsy_Holofoil_Backpack_Glass.MI_BluntWhimsy_Holofoil_Backpack_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "68C257C24CC31A055BF64BB482CA9CAB",
+            "SourceString": "Phase Legacy",
+            "LocalizedString": "Phase Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_Holofoil.T_Icon_Backpacks_BluntWhimsy_Holofoil",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack.MI_BluntWhimsy_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Ice/Materials/MI_BluntWhimsy_Ice_Backpack.MI_BluntWhimsy_Ice_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack_Glass.MI_BluntWhimsy_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Ice/Materials/MI_BluntWhimsy_Ice_Backpack_Glass.MI_BluntWhimsy_Ice_Backpack_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EC3950A54D44CC78735C39AFA2C199EF",
+            "SourceString": "Rimebound Legacy",
+            "LocalizedString": "Rimebound Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_Ice.T_Icon_Backpacks_BluntWhimsy_Ice",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack.MI_BluntWhimsy_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Galaxy/Materials/MI_BluntWhimsy_Galaxy_Backpack.MI_BluntWhimsy_Galaxy_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Material/MI_BluntWhimsy_Backpack_Glass.MI_BluntWhimsy_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_BluntWhimsy/Skins/Galaxy/Materials/MI_BluntWhimsy_Galaxy_Backpack_Glass.MI_BluntWhimsy_Galaxy_Backpack_Glass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9726CC294C2CE0E045E62584D770415E",
+            "SourceString": "Cosmic Legacy",
+            "LocalizedString": "Cosmic Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S35/T_Icon_Backpacks_BluntWhimsy_Galaxy.T_Icon_Backpacks_BluntWhimsy_Galaxy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BluntWhimsy.Backpack_BluntWhimsy",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FA12B1F94D115DC2358DFCB2BF83EDB8",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

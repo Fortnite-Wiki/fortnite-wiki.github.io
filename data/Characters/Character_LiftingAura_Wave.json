@@ -1,0 +1,1083 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_LiftingAura_Wave",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_LiftingAura_Wave.CP_Athena_Head_F_LiftingAura_Wave",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_LiftingAura_Wave.CP_Athena_Body_F_LiftingAura_Wave",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_LiftingAura_Wave_FaceAcc.CP_F_MED_LiftingAura_Wave_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S29/LiftingAura_WaveF/LiftingAura_Wave_Idle_Montage.LiftingAura_Wave_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_LiftingAura_Wave:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_LiftingAura_Wave.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_LiftingAura_Wave:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_LiftingAura_Wave.2"
+        }
+      ],
+      "BaseShotGridId": 80621,
+      "VariantShotGridIds": [
+        83831,
+        85581,
+        99060,
+        99061,
+        99062
+      ],
+      "ShotGridIds": [
+        80621,
+        83831,
+        85581,
+        99060,
+        99061,
+        99062
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B9D00B544F09A34ECCB9CBB57CD63441",
+        "SourceString": "Aphrodite",
+        "LocalizedString": "Aphrodite"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "116616FD497584AC0415E29552BF3EAF",
+        "SourceString": "Lead with your heart.",
+        "LocalizedString": "Lead with your heart."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-LiftingAuraWave.T-Soldier-Hero-LiftingAuraWave",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-LiftingAuraWave-L.T-Soldier-Hero-LiftingAuraWave-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.29",
+            "Cosmetics.Set.QueenLove",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            552,
+            7975,
+            229,
+            541,
+            544,
+            553,
+            540,
+            109,
+            8,
+            628,
+            629,
+            630,
+            246,
+            648,
+            536,
+            247,
+            1202
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_LiftingAura_Wave",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D97365994E967CDC046C0B86E89003D3",
+            "SourceString": "Aphrodite",
+            "LocalizedString": "Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-LiftingAuraWave.T-Soldier-Hero-LiftingAuraWave",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_LiftingAura_Allure.CP_Athena_Body_F_LiftingAura_Allure",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_LiftingAura_Allure_FaceAcc.CP_F_MED_LiftingAura_Allure_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Head.F_MED_LiftingAura_Wave_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Head.F_MED_LiftingAura_Allure_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Eyes.F_MED_LiftingAura_Wave_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Eyes.F_MED_LiftingAura_Allure_Eyes",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.364583,
+                    "G": 0.131022,
+                    "B": 0.235205,
+                    "A": 1.0,
+                    "Hex": "A36585"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AD87383F4C17442EE6F99AB6AAB6A49D",
+            "SourceString": "Immortal Aphrodite",
+            "LocalizedString": "Immortal Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-LiftingAuraAllure-L.T-Soldier-Hero-LiftingAuraAllure-L",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Body.F_MED_LiftingAura_Wave_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Body.F_MED_LiftingAura_WaveVine_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_FaceAcc.F_MED_LiftingAura_Wave_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_FaceAcc.F_MED_LiftingAura_WaveVine_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Body_Glass.F_MED_LiftingAura_Wave_Body_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Body_Glass.F_MED_LiftingAura_WaveVine_Body_Glass",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Eyes.F_MED_LiftingAura_Wave_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Eyes.F_MED_LiftingAura_WaveVine_Eyes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Head.F_MED_LiftingAura_Wave_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Head.F_MED_LiftingAura_WaveVine_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.035601,
+                    "G": 0.064803,
+                    "B": 0.144128,
+                    "A": 1.0,
+                    "Hex": "35486A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "012E90814A194EB5AFB27B8A358F40AB",
+            "SourceString": "Heartbreaker Aphrodite",
+            "LocalizedString": "Heartbreaker Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-LiftingAura-WaveVine.T-Soldier-Hero-LiftingAura-WaveVine",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "286545CA480AFD20287F028F3A2B0F6E",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_LiftingAura_Wave",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B988D53241876149667145889EEA41B3",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-LiftingAuraWave.T-Soldier-Hero-LiftingAuraWave",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Body.F_MED_LiftingAura_Wave_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T1.MI_LiftingAura_Wave_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_FaceAcc.F_MED_LiftingAura_Wave_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T1.MI_LiftingAura_Wave_FaceAcc_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Eyes.F_MED_LiftingAura_Wave_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T1.MI_GlowyEyes_Sl29_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Body.F_MED_LiftingAura_Allure_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_Body_T1.MI_LiftingAura_Allure_SL_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_FaceAcc.F_MED_LiftingAura_Allure_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_FaceAcc_T1.MI_LiftingAura_Allure_SL_FaceAcc_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Eyes.F_MED_LiftingAura_Allure_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_GlowyEyes_Sl29_T1.MI_GlowyEyes_Sl29_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Eyes.F_MED_LiftingAura_WaveVine_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T1.MI_GlowyEyes_Sl29_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Body.F_MED_LiftingAura_WaveVine_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T1.MI_LiftingAura_Wave_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_FaceAcc.F_MED_LiftingAura_WaveVine_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T1.MI_LiftingAura_Wave_FaceAcc_T1",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.439657,
+                    "G": 0.439657,
+                    "B": 0.439657,
+                    "A": 1.0,
+                    "Hex": "B1B1B1"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "35720A044EBED45C427903B971DE246C",
+            "SourceString": "Stygian Aphrodite",
+            "LocalizedString": "Stygian Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-LiftingAuraWaveSuperLevelT1.T-Soldier-Hero-LiftingAuraWaveSuperLevelT1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Body.F_MED_LiftingAura_Wave_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T2.MI_LiftingAura_Wave_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_FaceAcc.F_MED_LiftingAura_Wave_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T2.MI_LiftingAura_Wave_FaceAcc_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Eyes.F_MED_LiftingAura_Wave_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T2.MI_GlowyEyes_Sl29_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Body.F_MED_LiftingAura_Allure_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_Body_T2.MI_LiftingAura_Allure_SL_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_FaceAcc.F_MED_LiftingAura_Allure_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_FaceAcc_T2.MI_LiftingAura_Allure_SL_FaceAcc_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Eyes.F_MED_LiftingAura_Allure_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_GlowyEyes_Sl29_T2.MI_GlowyEyes_Sl29_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Eyes.F_MED_LiftingAura_WaveVine_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T2.MI_GlowyEyes_Sl29_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Body.F_MED_LiftingAura_WaveVine_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T2.MI_LiftingAura_Wave_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_FaceAcc.F_MED_LiftingAura_WaveVine_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T2.MI_LiftingAura_Wave_FaceAcc_T2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.439657,
+                    "G": 0.439657,
+                    "B": 0.439657,
+                    "A": 1.0,
+                    "Hex": "B1B1B1"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E3C9384649A61C3905462E9112C06797",
+            "SourceString": "Olympian Aphrodite",
+            "LocalizedString": "Olympian Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-LiftingAuraWaveSuperLevelT2.T-Soldier-Hero-LiftingAuraWaveSuperLevelT2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Body.F_MED_LiftingAura_Wave_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T3.MI_LiftingAura_Wave_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_FaceAcc.F_MED_LiftingAura_Wave_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T3.MI_LiftingAura_Wave_FaceAcc_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Materials/F_MED_LiftingAura_Wave_Eyes.F_MED_LiftingAura_Wave_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T3.MI_GlowyEyes_Sl29_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Body.F_MED_LiftingAura_Allure_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_Body_T3.MI_LiftingAura_Allure_SL_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_FaceAcc.F_MED_LiftingAura_Allure_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_LiftingAura_Allure_SL_FaceAcc_T3.MI_LiftingAura_Allure_SL_FaceAcc_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Materials/F_MED_LiftingAura_Allure_Eyes.F_MED_LiftingAura_Allure_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Allure/Skins/SL/Materials/MI_GlowyEyes_Sl29_T3.MI_GlowyEyes_Sl29_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Eyes.F_MED_LiftingAura_WaveVine_Eyes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_GlowyEyes_Sl29_T3.MI_GlowyEyes_Sl29_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_Body.F_MED_LiftingAura_WaveVine_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_Body_T3.MI_LiftingAura_Wave_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/LiftingAura_WaveVine/Materials/F_MED_LiftingAura_WaveVine_FaceAcc.F_MED_LiftingAura_WaveVine_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_LiftingAura_Wave/Skins/SL/MI_LiftingAura_Wave_FaceAcc_T3.MI_LiftingAura_Wave_FaceAcc_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.024158,
+                    "G": 0.014444,
+                    "B": 0.049707,
+                    "A": 1.0,
+                    "Hex": "2B203F"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "04E198E44C0BCA257A6CF0A9EEABC6D1",
+            "SourceString": "Titanflame Aphrodite",
+            "LocalizedString": "Titanflame Aphrodite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-LiftingAuraWaveSuperLevelT3.T-Soldier-Hero-LiftingAuraWaveSuperLevelT3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F99E055B4A2F4B8A8DFEFDA4A0C17F0A",
+        "SourceString": "super levels",
+        "LocalizedString": "super levels"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

@@ -1,0 +1,287 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_JadeTowelGloss",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_JadeTowelGloss.CP_Athena_Head_F_JadeTowelGloss",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_JadeTowelGloss.CP_Athena_Body_F_JadeTowelGloss",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_JadeTowelGloss_FaceAcc.CP_F_MED_JadeTowelGloss_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S32/JadeTowelGlossF/JadeTowelGloss_Female_Idle_Montage.JadeTowelGloss_Female_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_JadeTowelGloss:FortCosmeticParticleVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_JadeTowelGloss.1"
+        }
+      ],
+      "BaseShotGridId": 118396,
+      "ShotGridIds": [
+        118396
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "807A4EDF431A2F6949BDBA857F60F1A4",
+        "SourceString": "Hatsune Miku",
+        "LocalizedString": "Hatsune Miku"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B6F9ECB24D7F81AA7876FCBE334D1ED6",
+        "SourceString": "A virtual singer and cultural icon.",
+        "LocalizedString": "A virtual singer and cultural icon."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S33/T_Soldier_JadeTowelGloss.T_Soldier_JadeTowelGloss",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S33/T_Soldier_JadeTowelGloss_L.T_Soldier_JadeTowelGloss_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Set.LifeForce",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            7,
+            552,
+            7975,
+            535,
+            236,
+            544,
+            555,
+            357,
+            67,
+            596,
+            86,
+            261,
+            54,
+            121,
+            244,
+            20,
+            34,
+            779,
+            776,
+            788,
+            884,
+            1019,
+            539,
+            3448,
+            5339,
+            7143,
+            7141,
+            7142
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_1",
+    "Outer": "Character_JadeTowelGloss",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AFA954F24826F307664880AADFC3C85F",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S33/T_Soldier_JadeTowelGloss_Reactive.T_Soldier_JadeTowelGloss_Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_JadeTowelGloss/Materials/MI_JadeTowelGloss_Body.MI_JadeTowelGloss_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "EmissiveIntensity"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_JadeTowelGloss/Materials/MI_JadeTowelGloss_Body.MI_JadeTowelGloss_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_JadeTowelGloss/Materials/MI_JadeTowelGloss_FaceAcc.MI_JadeTowelGloss_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "EmissiveIntensity"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_JadeTowelGloss/Materials/MI_JadeTowelGloss_FaceAcc.MI_JadeTowelGloss_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_JadeTowelGloss/FX/NS_Character_JadeTowelGloss_Hair.NS_Character_JadeTowelGloss_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CE11DBE744CF48F1EDE72F846EA314D0",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S33/T_Soldier_JadeTowelGloss.T_Soldier_JadeTowelGloss",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A992021644C15B86F05716B1EA335094",
+        "SourceString": "reactivity",
+        "LocalizedString": "reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Emissive"
+      }
+    }
+  }
+]

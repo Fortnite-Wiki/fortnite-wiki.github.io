@@ -1,0 +1,371 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_SnapFreeze",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_SnapFreeze'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_SnapFreeze.0"
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 30.0,
+          "Y": -15.0,
+          "Z": 11.0
+        },
+        "CylinderHalfHeight": 85.0,
+        "CylinderRadius": 85.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_SnapFreeze:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_SnapFreeze.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 0.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/BRCosmetics/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Pickaxe/ItemOnPawnPreview_Lance.ItemOnPawnPreview_Lance_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 107907,
+      "VariantShotGridIds": [
+        111648
+      ],
+      "ShotGridIds": [
+        107907,
+        111648
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B440FEC54F0E632F0B5E25A7D2DA015A",
+        "SourceString": "Vibranium Spear",
+        "LocalizedString": "Vibranium Spear"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4B9D07D4484022D57A445588DC0BBE46",
+        "SourceString": "A Wakandan weapon typically wielded by the Dora Milaje.",
+        "LocalizedString": "A Wakandan weapon typically wielded by the Dora Milaje."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E1D99401427D1A7A615E179531A4E1D8",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -5.0,
+            "Yaw": 38.0,
+            "Roll": 30.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.Source.Season31.BattlePass.Free",
+            "Cosmetics.Source.Season31.BattlePass.Paid.Additional",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Set.GravelAloof",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "ContextualOverrides": [
+            {
+              "ContextTags": [
+                "UI.ItemPreview.SceneChanger.BattlePass"
+              ],
+              "ItemPreviewActorClass": {
+                "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+                "SubPathString": ""
+              },
+              "IdleMontage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "Character": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SnapFreeze_Hunt.Character_SnapFreeze_Hunt",
+                "SubPathString": ""
+              },
+              "VariantOverrides": [
+                {
+                  "WhenViewingVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Pickaxe_SnapFreeze_StyleA.VTID_Pickaxe_SnapFreeze_StyleA",
+                    "SubPathString": ""
+                  },
+                  "OverrideCharacterWithVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Character_SnapFreeze_StyleB.VTID_Character_SnapFreeze_StyleB",
+                    "SubPathString": ""
+                  }
+                },
+                {
+                  "WhenViewingVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Pickaxe_SnapFreeze_StyleB.VTID_Pickaxe_SnapFreeze_StyleB",
+                    "SubPathString": ""
+                  },
+                  "OverrideCharacterWithVariant": {
+                    "AssetPathName": "/BRCosmetics/Athena/Items/CosmeticVariantTokens/VTID_Character_SnapFreeze_ColorB.VTID_Character_SnapFreeze_ColorB",
+                    "SubPathString": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            237,
+            242,
+            607,
+            613,
+            246,
+            758,
+            893,
+            436,
+            113,
+            439,
+            440,
+            1219,
+            258,
+            2528,
+            2819,
+            2818,
+            2945
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_SnapFreeze",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/FX/NS_Pickaxe_Snapfreeze_Impact.NS_Pickaxe_Snapfreeze_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/FX/NS_Pickaxe_Snapfreeze_AnimTrail.NS_Pickaxe_Snapfreeze_AnimTrail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "77C9B4114E14B0CEF5500CAF806740A6",
+            "SourceString": "Vibranium Spear",
+            "LocalizedString": "Vibranium Spear"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S31/TIconPickaxesSnapFreeze.TIconPickaxesSnapFreeze",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/Materials/MI_Pickaxe_SnapFreeze.MI_Pickaxe_SnapFreeze",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/Skins/Snow/Materials/MI_Pickaxe_SnapFreeze_Snow.MI_Pickaxe_SnapFreeze_Snow",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/FX/NS_Pickaxe_Snapfreeze_Impact.NS_Pickaxe_Snapfreeze_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SnapFreeze/FX/NS_Pickaxe_Snapfreeze_AnimTrail.NS_Pickaxe_Snapfreeze_AnimTrail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "30221094436CFBDE7937B28048969CFB",
+            "SourceString": "Wakanda Royal",
+            "LocalizedString": "Wakanda Royal"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S31/TIconPickaxesSnapFreezeSnow.TIconPickaxesSnapFreezeSnow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E8CE98344CD1FCAD2B194CB4E193DB4F",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

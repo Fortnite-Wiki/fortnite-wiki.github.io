@@ -1,0 +1,226 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_ArcticIceTalus",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_ArcticIceTalus_Cape'",
+          "ObjectPath": "/Game/Characters/CharacterParts/Backpacks/CP_Backpack_ArcticIceTalus_Cape.1"
+        }
+      ],
+      "MetaTags": [
+        "Cosmetics.MetaTags.ArcticIce.Cape"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Backpack_ArcticIceTalus:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_ArcticIceTalus.1"
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_ArcticIceTalus.Character_ArcticIceTalus",
+        "SubPathString": ""
+      },
+      "ExclusiveRequiresOutfitTags": [
+        "Cosmetics.Exclusives.ArcticIceTalus"
+      ],
+      "CustomExclusiveCallout": {
+        "Namespace": "",
+        "Key": "C5E8BACC470F7AB62BB124A570B9A3E3",
+        "SourceString": "Hidden when not equipped along with Piccolo Outfit.",
+        "LocalizedString": "Hidden when not equipped along with Piccolo Outfit."
+      },
+      "BaseShotGridId": 65319,
+      "ShotGridIds": [
+        65319
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "32E1BD91453888156C40B0AC9412AEC2",
+        "SourceString": "Piccolo's Cape and Turban",
+        "LocalizedString": "Piccolo's Cape and Turban"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "F7BCEE3A42E4324012C9539E159AE68E",
+        "SourceString": "Traditional Namekian attire.",
+        "LocalizedString": "Traditional Namekian attire."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F8A9C81349439F2B48CE01B18D72CCCF",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-ArcticIceTalus.T-Icon-Backpacks-ArcticIceTalus",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S23/T-Icon-Backpacks-ArcticIceTalus-L.T-Icon-Backpacks-ArcticIceTalus-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Backpack.IsCape",
+            "Cosmetics.Set.WordRemark",
+            "Cosmetics.Filter.Season.23",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            546,
+            552,
+            7975,
+            545,
+            229,
+            2,
+            357,
+            237,
+            584,
+            588,
+            599,
+            702,
+            103,
+            590,
+            581,
+            592,
+            586,
+            582,
+            242,
+            95,
+            580,
+            215,
+            606,
+            246,
+            121,
+            662,
+            666,
+            665,
+            657,
+            34,
+            671,
+            929,
+            52,
+            127,
+            192,
+            96,
+            1168,
+            1061,
+            1063,
+            2504
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Backpack_ArcticIceTalus",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_ArcticIceTalus.Character_ArcticIceTalus",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.NotStyle.OptionC"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ANY( Cosmetics.MetaTags.NotStyle.OptionC )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/Game/Characters/CharacterParts/Common/CP_Backpack_Med_Empty.CP_Backpack_Med_Empty",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.CapeOff"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

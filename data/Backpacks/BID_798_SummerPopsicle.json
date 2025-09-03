@@ -1,0 +1,506 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_798_SummerPopsicle",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SummerPopsicle'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SummerPopsicle.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'BID_798_SummerPopsicle:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_798_SummerPopsicle.1"
+        }
+      ],
+      "VariantChannelToUseForThumbnails": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      },
+      "BaseShotGridId": 41149,
+      "VariantShotGridIds": [
+        44192,
+        44190,
+        43883,
+        50637
+      ],
+      "ShotGridIds": [
+        41149,
+        44192,
+        44190,
+        43883,
+        50637
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9EE9DAFF4829E300618EBE98D2DE8B9A",
+        "SourceString": "Brain Freeze",
+        "LocalizedString": "Brain Freeze"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "39A51DB9487A4C193C17F2AD96A8B8EB",
+        "SourceString": "Dripping with berry-blasted goodness.",
+        "LocalizedString": "Dripping with berry-blasted goodness."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "FD8D60EA40EBAB48F24ED89078B0C8F0",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-798-SummerPopsicle.T-Icon-Backpacks-798-SummerPopsicle",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-798-SummerPopsicle-L.T-Icon-Backpacks-798-SummerPopsicle-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.17",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Set.SecretHeat"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            242,
+            261,
+            675,
+            516,
+            1328,
+            1330,
+            1329,
+            1327,
+            1331,
+            1371,
+            2246,
+            2595,
+            375,
+            3816,
+            3814,
+            3815,
+            3817
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "BID_798_SummerPopsicle",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CFA9434245334D8B7BD669B33D76E4EE",
+            "SourceString": "Brain Freeze",
+            "LocalizedString": "Brain Freeze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-798-SummerPopsicle.T-Icon-Backpacks-798-SummerPopsicle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Materials/F_MED_SummerPopsicle_Backpack.F_MED_SummerPopsicle_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Skins/Blue/Materials/F_MED_SummerPopsicle_Blue_Backpack.F_MED_SummerPopsicle_Blue_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/FX/NS_Summer_Popsicle.NS_Summer_Popsicle",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.242281,
+                    "B": 0.434154,
+                    "A": 1.0,
+                    "Hex": "0087B0"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.25,
+                    "G": 0.764334,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "89E3FF"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "66E576A5415894ED78B134879B2E0475",
+            "SourceString": "Slurpberry Brain Freeze",
+            "LocalizedString": "Slurpberry Brain Freeze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-798-SummerPopsicle-Blue.T-Variant-798-SummerPopsicle-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "EDCD6A0C4961F0232B0CDEA27BA2A671",
+            "SourceString": "Unlocked by completing quest during Cosmic Summer event",
+            "LocalizedString": "Unlocked by completing quest during Cosmic Summer event"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Materials/F_MED_SummerPopsicle_Backpack.F_MED_SummerPopsicle_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Skins/Green/Materials/F_MED_SummerPopsicle_Backpack_Green.F_MED_SummerPopsicle_Backpack_Green",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/FX/NS_Summer_Popsicle.NS_Summer_Popsicle",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.074214,
+                    "G": 0.238398,
+                    "B": 0.01096,
+                    "A": 1.0,
+                    "Hex": "4D861B"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.219526,
+                    "G": 0.401978,
+                    "B": 0.01096,
+                    "A": 1.0,
+                    "Hex": "81AA1B"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "69EFC50547BFA4D7ADB250BD8840ACE7",
+            "SourceString": "Slimeberry Brain Freeze ",
+            "LocalizedString": "Slimeberry Brain Freeze "
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-798-SummerPopsicle-Lime.T-Variant-798-SummerPopsicle-Lime",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "15D752174692C7F64EE7A7AD13BD4EE5",
+            "SourceString": "Unlocked by completing quest during Cosmic Summer event",
+            "LocalizedString": "Unlocked by completing quest during Cosmic Summer event"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Materials/F_MED_SummerPopsicle_Backpack.F_MED_SummerPopsicle_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Skins/Orange/Materials/F_MED_SummerPopsicle_Backpack_Orange.F_MED_SummerPopsicle_Backpack_Orange",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/FX/NS_Summer_Popsicle.NS_Summer_Popsicle",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.571125,
+                    "G": 0.066626,
+                    "B": 0.012983,
+                    "A": 1.0,
+                    "Hex": "C7491E"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.715693,
+                    "G": 0.226966,
+                    "B": 0.006512,
+                    "A": 1.0,
+                    "Hex": "DC8313"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "87A111DD472E3B5CF5F6318B84BC53D1",
+            "SourceString": "Orangeberry Brain Freeze",
+            "LocalizedString": "Orangeberry Brain Freeze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-798-SummerPopsicle-Cream.T-Variant-798-SummerPopsicle-Cream",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "BFFE2369405429A57C35E1BA52CDF579",
+            "SourceString": "Unlocked by completing quest during Cosmic Summer event",
+            "LocalizedString": "Unlocked by completing quest during Cosmic Summer event"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Materials/F_MED_SummerPopsicle_Backpack.F_MED_SummerPopsicle_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/Skins/Swirl/Materials/F_MED_SummerPopsicle_Backpack_Swirl.F_MED_SummerPopsicle_Backpack_Swirl",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Summer_Popsicle/FX/NS_Summer_Popsicle.NS_Summer_Popsicle",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.57758,
+                    "G": 0.015209,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "C82100"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.64448,
+                    "G": 0.215861,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "D28000"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5D8D72C3469EC30CFBAE21A8C4333524",
+            "SourceString": "Whirlberry Brain Freeze",
+            "LocalizedString": "Whirlberry Brain Freeze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-798-SummerPopsicle-Swirl.T-Variant-798-SummerPopsicle-Swirl",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "0C6B0CDB42D80D5A2147BDA40C4140FD",
+            "SourceString": "Unlocked by completing quest during Cosmic Summer event",
+            "LocalizedString": "Unlocked by completing quest during Cosmic Summer event"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

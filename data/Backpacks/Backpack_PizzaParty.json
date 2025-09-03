@@ -1,0 +1,204 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_PizzaParty",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_PizzaParty'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_PizzaParty.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_PizzaParty:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_PizzaParty.1"
+        }
+      ],
+      "BaseShotGridId": 73013,
+      "VariantShotGridIds": [
+        73014
+      ],
+      "ShotGridIds": [
+        73013,
+        73014
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "8F5D5F374440C80790F6CA9E949DA251",
+        "SourceString": "Stealing Wheel",
+        "LocalizedString": "Stealing Wheel"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "428706ED44183DBB4AE8C1888AF8583D",
+        "SourceString": "Take the wheel.",
+        "LocalizedString": "Take the wheel."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "7E0AC2A342F03AFB3CBE3D8F61866FEC",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S26/T-Icon-Backpacks-PizzaParty.T-Icon-Backpacks-PizzaParty",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.26",
+            "Cosmetics.Source.Season26.BattlePass.Paid",
+            "Cosmetics.Set.GoodDrop"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            552,
+            7975,
+            236,
+            357,
+            245,
+            162,
+            633,
+            542,
+            783,
+            1194,
+            349,
+            262,
+            2713,
+            2729,
+            2901,
+            3030,
+            3027,
+            404,
+            3029,
+            3028
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_PizzaParty",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "18016D55469120ABFBAA918B0630697B",
+            "SourceString": "Stealing Wheel",
+            "LocalizedString": "Stealing Wheel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S26/T-Icon-Backpacks-PizzaParty.T-Icon-Backpacks-PizzaParty",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_PizzaParty/Materials/M_MED_PizzaParty_Backpack.M_MED_PizzaParty_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_PizzaParty/Skins/Blue/Materials/MI_PizzaParty_Blue_Backpack.MI_PizzaParty_Blue_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C748E3C14C48C39DCE211F9CC1344FB1",
+            "SourceString": "Hyperspace",
+            "LocalizedString": "Hyperspace"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S26/Backpacks/T-Icon-Backpacks-PizzaParty-Blue.T-Icon-Backpacks-PizzaParty-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "82D142744A8CED7597742C8E8A31CE66",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

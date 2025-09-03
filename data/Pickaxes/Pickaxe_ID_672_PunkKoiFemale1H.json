@@ -1,0 +1,365 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_672_PunkKoiFemale1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_PunkKoiFemale1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_PunkKoiFemale1H.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 5.0,
+        "Y": 0.0,
+        "Z": 90.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 1.0,
+        "Y": 5.0,
+        "Z": -2.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 15.0,
+          "Y": 0.0,
+          "Z": 40.0
+        },
+        "CylinderHalfHeight": 70.0,
+        "CylinderRadius": 59.975864
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -45.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ID_672_PunkKoiFemale1H:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_672_PunkKoiFemale1H.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Pickaxe/PickaxeItemPreview_PunkKoi.PickaxeItemPreview_PunkKoi_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 50636,
+      "VariantShotGridIds": [
+        46702
+      ],
+      "ShotGridIds": [
+        50636,
+        46702
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9F70E02C403D45171DCFBF84A0C46ACB",
+        "SourceString": "Demonslayer Blade",
+        "LocalizedString": "Demonslayer Blade"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "2BCFD4BF4BADBBA717F7BE8CEA3915EE",
+        "SourceString": "What? You've never seen a demon trapped in a sword before?",
+        "LocalizedString": "What? You've never seen a demon trapped in a sword before?"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "4D0AABB04FEE7CE8B0E3D5BF2D8027BC",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.18",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.Season18.BattlePass.Paid",
+            "Cosmetics.Set.RebelFish"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 310.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.2
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            357,
+            246,
+            24,
+            665,
+            436,
+            113,
+            1077,
+            258,
+            153,
+            1924,
+            457,
+            2471,
+            2470,
+            438,
+            458,
+            2759
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ID_672_PunkKoiFemale1H",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/NS_Pickaxe_PunkKoi_Fringe_Impact.NS_Pickaxe_PunkKoi_Fringe_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Skirmish_Female/FX/NS_Pickaxe_Metal_Impact.NS_Pickaxe_Metal_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/Punk_Koi_Female_1h_Axe_Trail_Empty.Punk_Koi_Female_1h_Axe_Trail_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/Punk_Koi_Female_1h_Axe_Trail.Punk_Koi_Female_1h_Axe_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.PunkKoi"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F89559B6464DCDEBBB01CBB1171E0E86",
+            "SourceString": "Demonslayer Blade",
+            "LocalizedString": "Demonslayer Blade"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PunkKoi1HPickaxe.T-Icon-Pickaxes-PunkKoi1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/Materials/MI_Pickaxe_Punk_Koi_Female_1H.MI_Pickaxe_Punk_Koi_Female_1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/Materials/MI_Pickaxe_Punk_Koi_Female_1H_Fringe.MI_Pickaxe_Punk_Koi_Female_1H_Fringe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/Materials/MI_Pickaxe_Punk_Koi_Female_1H_Flowers.MI_Pickaxe_Punk_Koi_Female_1H_Flowers",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/Materials/MI_Pickaxe_Punk_Koi_Female_1H_Fringe_Flowers.MI_Pickaxe_Punk_Koi_Female_1H_Fringe_Flowers",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/Punk_Koi_Female_1h_Axe_Sheen.Punk_Koi_Female_1h_Axe_Sheen",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/NS_Punk_Koi_Fringe_IdleFlame.NS_Punk_Koi_Fringe_IdleFlame",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Skirmish_Female/FX/NS_Pickaxe_Metal_Impact.NS_Pickaxe_Metal_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/NS_Pickaxe_PunkKoi_Fringe_Impact.NS_Pickaxe_PunkKoi_Fringe_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Pickaxe_Swing_MainHand.NS_Blank_Pickaxe_Swing_MainHand",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Punk_Koi_Female_1H/FX/NS_Pickaxe_Punk_Koi_F_Trail.NS_Pickaxe_Punk_Koi_F_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemale_1H/SC_PickaxeImpactEnemy_PunkKoiFemale_1H.SC_PickaxeImpactEnemy_PunkKoiFemale_1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemaleFringe_1H/SC_PickaxeImpactEnemy_PunkKoiFemaleFringe.SC_PickaxeImpactEnemy_PunkKoiFemaleFringe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemale_1H/SC_PickaxeReady_PunkKoiFemale_1H.SC_PickaxeReady_PunkKoiFemale_1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemaleFringe_1H/SC_PickaxeReady_PunkKoiFemaleFringe.SC_PickaxeReady_PunkKoiFemaleFringe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemale_1H/SC_PickaxeSwing_PunkKoiFemale_1H.SC_PickaxeSwing_PunkKoiFemale_1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Athena/Sounds/Weapons/PickAxes/PunkKoiFemaleFringe_1H/SC_PickaxeSwing_PunkKoiFemaleFringe.SC_PickaxeSwing_PunkKoiFemaleFringe",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1A2328AD44E398E820D0988BEE07FD9F",
+            "SourceString": "Demonfire Blade",
+            "LocalizedString": "Demonfire Blade"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PunkKoiFringe1HPickaxe.T-Icon-Pickaxes-PunkKoiFringe1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B4A184F04D218D37460E2AA4A61F031F",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

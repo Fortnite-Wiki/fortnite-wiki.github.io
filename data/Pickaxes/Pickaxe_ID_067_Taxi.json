@@ -1,0 +1,355 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_067_Taxi",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'WID_Harvest_Pickaxe_Taxi'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_Taxi.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 48.0,
+        "Z": 68.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 5.0,
+          "Y": 0.0,
+          "Z": 13.0
+        },
+        "CylinderHalfHeight": 69.1005,
+        "CylinderRadius": 68.71861
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -15.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ID_067_Taxi:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_067_Taxi.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "VariantShotGridIds": [
+        51456
+      ],
+      "ShotGridIds": [
+        51456
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "82F5EF91479FC314AC9505AF889BA46C",
+        "SourceString": "Victory Lap",
+        "LocalizedString": "Victory Lap"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "B6A8E3E046A79A00CCBCF1BA8C1B5342",
+        "SourceString": "Give it a spin.",
+        "LocalizedString": "Give it a spin."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "8F93D1C94EAE24582B490A9F93C98FC7",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.Taxi",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.4",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 5.0,
+            "Yaw": 225.0,
+            "Roll": -38.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            552,
+            7975,
+            236,
+            544,
+            357,
+            562,
+            581,
+            586,
+            243,
+            605,
+            246,
+            824,
+            436,
+            113,
+            283,
+            440,
+            442,
+            1194,
+            1219,
+            437,
+            2042,
+            2494,
+            337,
+            2508,
+            2737,
+            308,
+            3386
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ID_067_Taxi",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeMultiColored_Swing01.NS_Pickaxe_TaxiUpgradeMultiColored_Swing01",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Effects/Melee/NS_Melee_Trail_Default/NS_Melee_Trail_Default_V2.NS_Melee_Trail_Default_V2",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5BE9DC754FCADF59159866BA978EA268",
+            "SourceString": "Victory Lap",
+            "LocalizedString": "Victory Lap"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-Pickaxe-ID-067-Taxi.T-Icon-Pickaxes-Pickaxe-ID-067-Taxi",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Racer/Materials/MI_Pickaxe_Racer.MI_Pickaxe_Racer",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Taxi_Upgraded_White_Female/Materials/MI_Pickaxe_Taxi_Upgraded_White_Female.MI_Pickaxe_Taxi_Upgraded_White_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Effects/Impacts/P_Melee_Impact_Default.P_Melee_Impact_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeWhite_Impact1.NS_Pickaxe_TaxiUpgradeWhite_Impact1",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/World/Destruction/Impact_Effects/P_Melee_Hit_Metal.P_Melee_Hit_Metal",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeWhite_Impact1.NS_Pickaxe_TaxiUpgradeWhite_Impact1",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/World/Destruction/Impact_Effects/P_Melee_Hit_Plant.P_Melee_Hit_Plant",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeWhite_Impact1.NS_Pickaxe_TaxiUpgradeWhite_Impact1",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/World/Destruction/Impact_Effects/P_Melee_Hit_Stone.P_Melee_Hit_Stone",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeWhite_Impact1.NS_Pickaxe_TaxiUpgradeWhite_Impact1",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/World/Destruction/Impact_Effects/P_Melee_Hit_Wood.P_Melee_Hit_Wood",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeWhite_Impact1.NS_Pickaxe_TaxiUpgradeWhite_Impact1",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Racer/VFX/TaxiUpgradedMultiColor/NS_Pickaxe_TaxiUpgradeMultiColored_Swing01.NS_Pickaxe_TaxiUpgradeMultiColored_Swing01",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "User.VariantWhite"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A962894045870C6499294DA9A6F9D466",
+            "SourceString": "Victory Lap (Silver Streak)",
+            "LocalizedString": "Victory Lap (Silver Streak)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-TaxiUpgratedWhitePickaxe.T-Icon-Pickaxes-TaxiUpgratedWhitePickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "59550BFF454AAD60C25C84B51C98B7DE",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

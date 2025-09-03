@@ -1,0 +1,310 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_211_BunkerMan_1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_BunkerMan_1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_BunkerMan_1H.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -28.0,
+        "Y": 0.0,
+        "Z": 55.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -15.0,
+        "Y": -4.0,
+        "Z": 9.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 12.0,
+          "Y": 10.0,
+          "Z": 15.0
+        },
+        "CylinderHalfHeight": 45.0,
+        "CylinderRadius": 55.0
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 8.0,
+        "Z": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ID_211_BunkerMan_1H:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_211_BunkerMan_1H.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "7DED30924179C589047F26B03BBB15C4",
+        "SourceString": "Ripe Rippers",
+        "LocalizedString": "Ripe Rippers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4ACCBACB4CED2E3B346EA798A53393E0",
+        "SourceString": "Two strikes.",
+        "LocalizedString": "Two strikes."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "0ABCCB1640B86951AE71E89C1EFBE8AF",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 33.0,
+            "Yaw": 100.0,
+            "Roll": -20.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Source.Season9.BattlePass.Paid",
+            "Cosmetics.Set.BunkerMan",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.9"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            544,
+            357,
+            237,
+            613,
+            269,
+            650,
+            916,
+            113,
+            442,
+            258,
+            281,
+            2470,
+            474,
+            3125,
+            3736,
+            5559,
+            5561
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_ID_211_BunkerMan_1H",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Meshes/Demo/SK_Pickaxe_BunkerMan1HLeather_DEMO.SK_Pickaxe_BunkerMan1HLeather_DEMO",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Meshes/Demo/SK_Pickaxe_BunkerMan1HLeather_DEMO.SK_Pickaxe_BunkerMan1HLeather_DEMO",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Materials/MI_Pickaxe_BunkerMan1H_Leather.MI_Pickaxe_BunkerMan1H_Leather",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Materials/MI_Pickaxe_BunkerMan1H_Leather.MI_Pickaxe_BunkerMan1H_Leather",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9799483A44E834E4707E809EAE272A59",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-BunkerMan1HPickaxe.T-Icon-Pickaxes-BunkerMan1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Meshes/Demo/SK_Pickaxe_BunkerMan1HLeather_DEMO.SK_Pickaxe_BunkerMan1HLeather_DEMO",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_BunkerMan1H/Meshes/Bunker_Man_1h_Axe.Bunker_Man_1h_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_BunkerMan1H_Leather/Materials/MI_Pickaxe_BunkerMan1H_Leather.MI_Pickaxe_BunkerMan1H_Leather",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_BunkerMan1H/Materials/MI_Pickaxe_BunkerMan1H.MI_Pickaxe_BunkerMan1H",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "001915EA4D2611E93E31D8BFE2ED0C5E",
+            "SourceString": "PEELY",
+            "LocalizedString": "PEELY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-BunkerMan1HPickaxeBanana.T-Icon-Pickaxes-BunkerMan1HPickaxeBanana",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "0D2E046041094C896832C69351DD7FFD",
+            "SourceString": "Collect 30 Fortbytes",
+            "LocalizedString": "Collect 30 Fortbytes"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "35453AB8447450D4C533FA801AE17F2A",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

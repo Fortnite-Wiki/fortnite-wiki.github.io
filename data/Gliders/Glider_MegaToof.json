@@ -1,0 +1,465 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_MegaToof",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 160.0,
+        "Y": -40.0,
+        "Z": -23.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/Meshes/MegaToof_Glider.MegaToof_Glider",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/MegaToof/MegaToof_AnimBP.MegaToof_AnimBP_C",
+        "SubPathString": ""
+      },
+      "CameraClass": {
+        "AssetPathName": "/Game/Blueprints/Camera/Athena/Athena_PlayerCameraModeSkydiveSurf.Athena_PlayerCameraModeSkydiveSurf_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/RebelClaw_Aviator/Player/RebelClaw_PlayerAnimSet.RebelClaw_PlayerAnimSet",
+        "SubPathString": ""
+      },
+      "AttachSocket": "attach",
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/FX/NS_Glider_MegaToof_Trail.NS_Glider_MegaToof_Trail",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::AutoActivate",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/SC_GliderOpen_MegaToof.SC_GliderOpen_MegaToof",
+        "SubPathString": ""
+      },
+      "OpenFrontEndSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/SC_GliderOpen_MegaToof.SC_GliderOpen_MegaToof",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/GliderClose_MegaToof_Cue.GliderClose_MegaToof_Cue",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/GliderThrustLoop_MegaToof_Cue.GliderThrustLoop_MegaToof_Cue",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/GliderThrustStart_MegaToof_Cue.GliderThrustStart_MegaToof_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Sideways",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/GliderThrustStart_Small_MegaToof_Cue.GliderThrustStart_Small_MegaToof_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Backwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MegaToof/GliderThrustStart_Small_MegaToof_Cue.GliderThrustStart_Small_MegaToof_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_MegaToof:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_MegaToof.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Glider/GliderItemPreview_MegaToof.GliderItemPreview_MegaToof_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 99366,
+      "VariantShotGridIds": [
+        106568
+      ],
+      "ShotGridIds": [
+        99366,
+        106568
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "41FE3B474C73CF335BF3AF8358013B63",
+        "SourceString": "Mobile Megalodon",
+        "LocalizedString": "Mobile Megalodon"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "65E741764E9BEB717A4DE2A33DBFBCA6",
+        "SourceString": "Burn your name across the sky!",
+        "LocalizedString": "Burn your name across the sky!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 60.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -5.0,
+            "Yaw": 133.0,
+            "Roll": 12.0
+          },
+          "Scale": 0.9
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S30/T-Icon_Glider-MegaToof.T-Icon_Glider-MegaToof",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S30/T-Icon_Glider-MegaToof-L.T-Icon_Glider-MegaToof-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.30",
+            "Cosmetics.Set.BigSnake",
+            "Cosmetics.Source.Season30.BattlePass.Paid.Additional",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.LimitedTimeReward"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            236,
+            357,
+            562,
+            566,
+            564,
+            162,
+            166,
+            179,
+            824,
+            1279,
+            1280,
+            1277,
+            251,
+            2480,
+            2570,
+            2708,
+            3162,
+            3875,
+            4628,
+            4720
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_MegaToof",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/FX/NS_Glider_MegaToof_Trail.NS_Glider_MegaToof_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DFD7E14040CDE7EBB9A5DB8E8F9BA961",
+            "SourceString": "Mobile Megalodon",
+            "LocalizedString": "Mobile Megalodon"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S30/T-Icon_Glider-MegaToof.T-Icon_Glider-MegaToof",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/Materials/MI_Glider_Megatoof.MI_Glider_Megatoof",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/Skins/Bone/Materials/MI_Glider_Megatoof_Bone.MI_Glider_Megatoof_Bone",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/Materials/MI_Glider_MegaToof_NitroTubes.MI_Glider_MegaToof_NitroTubes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/Skins/Bone/Materials/MI_Glider_MegaToof_Bone_NitroTubes.MI_Glider_MegaToof_Bone_NitroTubes",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_MegaToof/FX/NS_Glider_MegaToof_Trail.NS_Glider_MegaToof_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F46EAEEF414A7D7E26114E8E04E29BEF",
+            "SourceString": "Oasis Megalodon",
+            "LocalizedString": "Oasis Megalodon"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Skydiving/T-Icon_Glider-MegaToof-Bone.T-Icon_Glider-MegaToof-Bone",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E6586511465622BDED94348B69200ED1",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

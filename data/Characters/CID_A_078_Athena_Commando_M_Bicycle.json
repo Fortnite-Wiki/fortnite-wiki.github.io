@@ -1,0 +1,778 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_A_078_Athena_Commando_M_Bicycle",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Bicycle.CP_Athena_Head_M_Bicycle",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Bicycle.CP_Athena_Body_M_Bicycle",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Bicycle_FaceAcc.CP_M_MED_Bicycle_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S16/Bicycle/Bicycle_Male_Idle_Montage.Bicycle_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_BicycleStyle'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_BicycleStyle.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_078_Athena_Commando_M_Bicycle:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_078_Athena_Commando_M_Bicycle.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_078_Athena_Commando_M_Bicycle:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_078_Athena_Commando_M_Bicycle.2"
+        }
+      ],
+      "BaseShotGridId": 34691,
+      "ShotGridIds": [
+        34691
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "DC64F5F84E4E2A94074301BF78369F7F",
+        "SourceString": "Neymar Jr",
+        "LocalizedString": "Neymar Jr"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "57CDBF3F47849E30FC09F79FCCB9A7BA",
+        "SourceString": "Boldness is my nickname.",
+        "LocalizedString": "Boldness is my nickname."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-078-Athena-Commando-M-Bicycle-L.T-Soldier-HID-A-078-Athena-Commando-M-Bicycle-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-078-Athena-Commando-M-Bicycle.T-Soldier-HID-A-078-Athena-Commando-M-Bicycle",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.QuestsMetaData.Outfit.Bicycle",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.GoodParachute",
+            "Cosmetics.Filter.Season.16",
+            "Cosmetics.UserFacingFlags.Transform",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.FrontEndPose.DontCrossArms",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            7975,
+            541,
+            236,
+            544,
+            560,
+            89,
+            16,
+            269,
+            54,
+            667,
+            711,
+            726,
+            776,
+            813,
+            65,
+            903
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "CID_A_078_Athena_Commando_M_Bicycle",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_SUIT_OPAQUE.MAT_Bicycle_Yellow_Body_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_SUIT_OPAQUE.MAT_Bicycle_Yellow_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Body_SUIT_OPAQUE.MAT_Bicycle_Body_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Body_SUIT_OPAQUE.MAT_Bicycle_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_FaceAccs_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Hair_OPAQUE.MAT_Bicycle_Hair_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Hair_OPAQUE.MAT_Bicycle_Hair_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Head_OPAQUE.MAT_Bicycle_Head_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Head_OPAQUE.MAT_Bicycle_Head_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Black_Body_OPAQUE.MAT_Bicycle_Black_Body_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Black_Body_OPAQUE.MAT_Bicycle_Black_Body_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_OPAQUE.MAT_Bicycle_Yellow_Body_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_OPAQUE.MAT_Bicycle_Yellow_Body_OPAQUE",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.Bicycle.Jersey"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7BA8E99E418EABFAC0109E8CB4BD1A61",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Black_Body_OPAQUE.MAT_Bicycle_Black_Body_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Black_Body_OPAQUE.MAT_Bicycle_Black_Body_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_OPAQUE.MAT_Bicycle_Yellow_Body_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_OPAQUE.MAT_Bicycle_Yellow_Body_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Hair_OPAQUE.MAT_Bicycle_Hair_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Hair_OPAQUE.MAT_Bicycle_Hair_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Head_OPAQUE.MAT_Bicycle_Head_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Head_OPAQUE.MAT_Bicycle_Head_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Body_SUIT_OPAQUE.MAT_Bicycle_Body_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Body_SUIT_OPAQUE.MAT_Bicycle_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_FaceAccs_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_SUIT_OPAQUE.MAT_Bicycle_Yellow_Body_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_SUIT_OPAQUE.MAT_Bicycle_Yellow_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.011612,
+                    "G": 0.011612,
+                    "B": 0.011612,
+                    "A": 1.0,
+                    "Hex": "1C1C1C"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.Bicycle.Suit",
+              "Cosmetics.MetaTags.Special.BodySwap.Full"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7C54CD0B4F65EC691CFC1FAB3F123626",
+            "SourceString": "JAGUAR",
+            "LocalizedString": "JAGUAR"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "CID_A_078_Athena_Commando_M_Bicycle",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F6DC5EDA45162915A60B34B0E044F2A1",
+            "SourceString": "Neymar Jr",
+            "LocalizedString": "Neymar Jr"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-078-Athena-Commando-M-Bicycle.T-Soldier-HID-A-078-Athena-Commando-M-Bicycle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Black_Body_OPAQUE.MAT_Bicycle_Black_Body_OPAQUE",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_OPAQUE.MAT_Bicycle_Yellow_Body_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Body_SUIT_OPAQUE.MAT_Bicycle_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_Body_SUIT_OPAQUE.MAT_Bicycle_Yellow_Body_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Bicycle/Materials/Black/MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE.MAT_Bicycle_Yellow_FaceAccs_SUIT_OPAQUE",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/BicycleStyle/NS_Emote_BicycleStyle_SwapSkin.NS_Emote_BicycleStyle_SwapSkin",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "IsYellow"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "46D2D7644B4B9E5F20D256812FA41F04",
+            "SourceString": "Neymar Jr (Exhibition)",
+            "LocalizedString": "Neymar Jr (Exhibition)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-078-M-Bicycle-Yellow.T-Variant-A-078-M-Bicycle-Yellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "22EFDC174A6D4C08A5533D807D1CF29F",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

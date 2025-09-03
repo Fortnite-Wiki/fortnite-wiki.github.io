@@ -1,0 +1,642 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_GoldAccomplishment",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_GoldAccomplishment.CP_Athena_Head_M_GoldAccomplishment",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Bodies/CP_Athena_Body_M_GoldAccomplishment.CP_Athena_Body_M_GoldAccomplishment",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_GoldAccomplishment_FaceAcc.CP_M_MED_GoldAccomplishment_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_S29/GoldAccomplishmentM/GoldAccomplishment_Male_idle_Montage.GoldAccomplishment_Male_idle_Montage",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_GoldAccomplishment:FortCosmeticParticleVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.1"
+        }
+      ],
+      "BaseShotGridId": 80505,
+      "VariantShotGridIds": [
+        80505,
+        84633,
+        84633,
+        84633,
+        84633,
+        84633
+      ],
+      "ShotGridIds": [
+        80505,
+        80505,
+        84633,
+        84633,
+        84633,
+        84633,
+        84633
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "780ACC9E4D15F7A0D60999A1EA4AFA7C",
+        "SourceString": "Ares",
+        "LocalizedString": "Ares"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D13743924B582AFF56F379B15552FE75",
+        "SourceString": "The ever-brawling god of war.",
+        "LocalizedString": "The ever-brawling god of war."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-GoldAccomplishment-L.T-Soldier-Hero-GoldAccomplishment-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-GoldAccomplishment.T-Soldier-Hero-GoldAccomplishment",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.CrewBling.Progressive",
+            "SoundLibrary.ID.ClothingType.ArmorMetal",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.29",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FightKing",
+            "Cosmetics.Source.CrewPack.April2024",
+            "Cosmetics.Gating.Allow.Shoes",
+            "SoundLibrary.ID.StepType.BootsMetal"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            357,
+            245,
+            8,
+            169,
+            566,
+            46,
+            564,
+            563,
+            560,
+            162,
+            574,
+            629,
+            641,
+            640,
+            29,
+            694
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CrewSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CrewSeries.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_2",
+    "Outer": "Character_GoldAccomplishment",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "07173BE74B492B8CE39AD9B1762D12C0",
+            "SourceString": "Ares",
+            "LocalizedString": "Ares"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S29/T-Soldier-Hero-GoldAccomplishment.T-Soldier-Hero-GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_Body.MI_GoldAccomplishment_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Sulfur/Materials/MI_GoldAccomplishment_Sulfur_Body.MI_GoldAccomplishment_Sulfur_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_FaceAcc.MI_GoldAccomplishment_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Sulfur/Materials/MI_GoldAccomplishment_Sulfur_FaceAcc.MI_GoldAccomplishment_Sulfur_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4CFD947644EB74FC3F09799C993C4C1C",
+            "SourceString": "War God's Legacy",
+            "LocalizedString": "War God's Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-GoldAccomplishmentSulfur.T-Soldier-Hero-GoldAccomplishmentSulfur",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_Body.MI_GoldAccomplishment_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Gold/Materials/MI_GoldAccomplishment_Gold_Body.MI_GoldAccomplishment_Gold_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_FaceAcc.MI_GoldAccomplishment_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Gold/Materials/MI_GoldAccomplishment_Gold_FaceAcc.MI_GoldAccomplishment_Gold_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "17ED735C4ECC6D84D38AC48F0393E24C",
+            "SourceString": "Auric Legacy",
+            "LocalizedString": "Auric Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-GoldAccomplishmentGold.T-Soldier-Hero-GoldAccomplishmentGold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_Body.MI_GoldAccomplishment_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Holofoil/Materials/MI_GoldAccomplishment_Holofoil_Body.MI_GoldAccomplishment_Holofoil_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_FaceAcc.MI_GoldAccomplishment_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Holofoil/Materials/MI_GoldAccomplishment_Holofoil_FaceAcc.MI_GoldAccomplishment_Holofoil_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 4.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D44F43C24D03F319ADA42CA8D5F7578C",
+            "SourceString": "Phase Legacy",
+            "LocalizedString": "Phase Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-GoldAccomplishmentHolofoil.T-Soldier-Hero-GoldAccomplishmentHolofoil",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_Body.MI_GoldAccomplishment_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Ice/Materials/MI_GoldAccomplishment_Ice_Body.MI_GoldAccomplishment_Ice_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_FaceAcc.MI_GoldAccomplishment_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Ice/Materials/MI_GoldAccomplishment_Ice_FaceAcc.MI_GoldAccomplishment_Ice_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.768151,
+                    "G": 0.760525,
+                    "B": 0.822786,
+                    "A": 1.0,
+                    "Hex": "E3E2EA"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7BAB484341378DB0C0E4D9A86065609A",
+            "SourceString": "Rimebound Legacy",
+            "LocalizedString": "Rimebound Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-GoldAccomplishmentIce.T-Soldier-Hero-GoldAccomplishmentIce",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_Body.MI_GoldAccomplishment_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Galaxy/Materials/MI_GoldAccomplishment_Galaxy_Body.MI_GoldAccomplishment_Galaxy_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Materials/MI_GoldAccomplishment_FaceAcc.MI_GoldAccomplishment_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/Skins/Galaxy/Materials/MI_GoldAccomplishment_Galaxy_FaceAcc.MI_GoldAccomplishment_Galaxy_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_GoldAccomplishment/FX/NS_GoldAccomplishment_Hair.NS_GoldAccomplishment_Hair",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 5.0,
+                  "ParamName": "VariantID"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "359156F34FD996EA625CF49284C18DF3",
+            "SourceString": "Cosmic Legacy",
+            "LocalizedString": "Cosmic Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Characters/T-Soldier-Hero-GoldAccomplishmentGalaxy.T-Soldier-Hero-GoldAccomplishmentGalaxy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_GoldAccomplishment.Character_GoldAccomplishment",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "027F4BA04034DC45AF335994BB067D4B",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

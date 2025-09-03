@@ -1,0 +1,303 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_132_Pirate01Octopus",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": -50.0,
+        "Y": -5.0,
+        "Z": 0.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/Gliders/LegacyGliderBPs/B_Athena_Glider_Legacy.B_Athena_Glider_Legacy_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Meshes/SK_M_VinderTech_GliderChute.SK_M_VinderTech_GliderChute",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.70710677,
+          "W": 0.70710677,
+          "IsNormalized": true,
+          "Size": 0.99999994,
+          "SizeSquared": 0.99999994
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/VinderTech_GliderChute_AnimBP.VinderTech_GliderChute_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/PirateGliders/Octopus/Athena_Glider_PirateOctopus_Open.Athena_Glider_PirateOctopus_Open",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/PirateGliders/Octopus/Athena_Glider_PirateOctopus_Close_Cue.Athena_Glider_PirateOctopus_Close_Cue",
+        "SubPathString": ""
+      },
+      "MaterialOverrides": [
+        {
+          "ComponentName": "ParachuteMesh0",
+          "MaterialOverrideIndex": 0,
+          "OverrideMaterial": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Pirate01_Octopus/Materials/MI_VinderTech_GliderChute_Pirate01_Octopus.MI_VinderTech_GliderChute_Pirate01_Octopus",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_132_Pirate01Octopus:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_132_Pirate01Octopus.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "CD4F0F4145F9E5EB706B66869AAED656",
+        "SourceString": "Plunder",
+        "LocalizedString": "Plunder"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "CF6431E94200F1D091A9B88510B2217F",
+        "SourceString": "Set sail to plunder!",
+        "LocalizedString": "Set sail to plunder!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 10.000004,
+            "Yaw": -43.86128,
+            "Roll": -2.00001
+          },
+          "Scale": 0.8
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Pirate01OctopusGlider.T-Icon_Glider-Pirate01OctopusGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Pirate01OctopusGlider-L.T-Icon_Glider-Pirate01OctopusGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.Pirate",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.Event.PirateParty",
+            "Cosmetics.Filter.Season.8"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            562,
+            596,
+            387,
+            246,
+            264,
+            244,
+            824,
+            893,
+            436,
+            1194,
+            315,
+            1539,
+            1538,
+            2138,
+            349,
+            2480,
+            2538,
+            2660,
+            2832,
+            3100
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_132_Pirate01Octopus",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9DF735BF4BF267099884668C775D2A87",
+            "SourceString": "OCTOPUS",
+            "LocalizedString": "OCTOPUS"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Pirate01OctopusGlider.T-Icon_Glider-Pirate01OctopusGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Pirate01_Octopus/Materials/MI_VinderTech_GliderChute_Pirate01_Octopus.MI_VinderTech_GliderChute_Pirate01_Octopus",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Compass/Materials/MI_Glider_Compass.MI_Glider_Compass",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C1EFF00D4A52F8CD037BED80D1477A1D",
+            "SourceString": "COMPASS",
+            "LocalizedString": "COMPASS"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-Pirate02CompassGlider.T-Icon_Glider-Pirate02CompassGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "52D2E4F9458A430DD9A358B1D3468949",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

@@ -1,0 +1,256 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_594_Athena_Commando_F_SoccerZombieB",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_SoccerZombieB.CP_Head_F_SoccerZombieB",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_SoccerZombieB.CP_Athena_Body_F_SoccerZombieB",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticNumericalVariant'CID_594_Athena_Commando_F_SoccerZombieB:FortCosmeticNumericalVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_594_Athena_Commando_F_SoccerZombieB.1"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'CID_594_Athena_Commando_F_SoccerZombieB:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_594_Athena_Commando_F_SoccerZombieB.2"
+        }
+      ],
+      "BaseShotGridId": 24402,
+      "ShotGridIds": [
+        24402
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "303717144134861D3A823BB90D8D2799",
+        "SourceString": "Putrid Playmaker",
+        "LocalizedString": "Putrid Playmaker"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "8C2ECF6F43740E766CF6D49465BA6112",
+        "SourceString": "Represent your crypt in style.",
+        "LocalizedString": "Represent your crypt in style."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-594-Athena-Commando-F-SoccerZombieB-L.T-Soldier-HID-594-Athena-Commando-F-SoccerZombieB-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-594-Athena-Commando-F-SoccerZombieB.T-Soldier-HID-594-Athena-Commando-F-SoccerZombieB",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.ScaryBall",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Filter.Season.11",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            552,
+            7975,
+            544,
+            357,
+            237,
+            591,
+            527,
+            476,
+            589,
+            577,
+            600,
+            123,
+            595,
+            170,
+            164,
+            54,
+            764,
+            877,
+            994,
+            1262,
+            154,
+            1411,
+            2036,
+            2035,
+            2034
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticNumericalVariant",
+    "Name": "FortCosmeticNumericalVariant_0",
+    "Outer": "CID_594_Athena_Commando_F_SoccerZombieB",
+    "Class": "UScriptClass'FortCosmeticNumericalVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ZerosDigitParamName": "Second Digit",
+      "TensDigitParamName": "First Digit",
+      "MaterialsToAlter": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Soccer_Zombie_1/Skins/Soccer_Zombie_2/Materials/F_MED_Soccer_Zombie_2_Body.F_MED_Soccer_Zombie_2_Body",
+          "SubPathString": ""
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F69249E447D407214F13DEBC5A1EE079",
+        "SourceString": "NUMBER",
+        "LocalizedString": "NUMBER"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Numeric"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "CID_594_Athena_Commando_F_SoccerZombieB",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

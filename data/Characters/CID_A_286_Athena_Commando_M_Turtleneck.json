@@ -1,0 +1,780 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_A_286_Athena_Commando_M_Turtleneck",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_TurtleneckHelm.CP_Athena_Head_M_TurtleneckHelm",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Turtleneck.CP_Athena_Body_M_Turtleneck",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s19/TurtleneckM/Turtleneck_Male_Idle_Montage.Turtleneck_Male_Idle_Montage",
+        "SubPathString": ""
+      },
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_Turtleneck'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Turtleneck.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'CID_A_286_Athena_Commando_M_Turtleneck:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_286_Athena_Commando_M_Turtleneck.2"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_286_Athena_Commando_M_Turtleneck:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_286_Athena_Commando_M_Turtleneck.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'CID_A_286_Athena_Commando_M_Turtleneck:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_286_Athena_Commando_M_Turtleneck.3"
+        }
+      ],
+      "BaseShotGridId": 31637,
+      "VariantShotGridIds": [
+        52444
+      ],
+      "ShotGridIds": [
+        31637,
+        52444
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "BD164AB24D0887217BEDFAB1984B8E6C",
+        "SourceString": "The Foundation",
+        "LocalizedString": "The Foundation"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A57AC94A44B30F32ECE6CF997BD86669",
+        "SourceString": "His mission is Everything. Leader of The Seven. ",
+        "LocalizedString": "His mission is Everything. Leader of The Seven. "
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck-L.T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck.T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Exclusives.Turtleneck",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.Asteroid",
+            "SoundLibrary.ID.StepType.BootsMetal",
+            "SoundLibrary.ID.ClothingType.ArmorMetal",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Filter.Season.19",
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.QuestsMetaData.Outfit.Turtleneck",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            357,
+            245,
+            8,
+            169,
+            566,
+            46,
+            561,
+            564,
+            560,
+            162,
+            6,
+            567,
+            166,
+            638,
+            640,
+            29,
+            179,
+            244,
+            146,
+            1028
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "CID_A_286_Athena_Commando_M_Turtleneck",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FF8F02154240CC76804BABAC769FEF7E",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck.T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Turtleneck.CP_Athena_Head_M_Turtleneck",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "69DB83C74CDE68B55024978460C3EE00",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-MaskOff.T-Variant-A-286-M-Turtleneck-MaskOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "C88C115147FEB68DA571B2B983B13F77",
+        "SourceString": "headwear",
+        "LocalizedString": "headwear"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "CID_A_286_Athena_Commando_M_Turtleneck",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "56FFB25344F1AC02EEFD29921B416D2B",
+            "SourceString": "The Foundation",
+            "LocalizedString": "The Foundation"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck.T-Soldier-HID-A-286-Athena-Commando-M-Turtleneck",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_Turtleneck_Body.M_MED_Turtleneck_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_Turtleneck_Dark_Body.M_MED_Turtleneck_Dark_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_MaskFX.M_MED_TurtleNeck_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Animation/Props/Gadgets_Turtleneck/Materials/M_MED_TurtleNeck_Mask_gadget.M_MED_TurtleNeck_Mask_gadget",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor1.M_MED_TurtleNeck_Mask_Visor1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor1.M_MED_TurtleNeck_Dark_Mask_Visor1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor2.M_MED_TurtleNeck_Mask_Visor2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor2.M_MED_TurtleNeck_Dark_Mask_Visor2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor3.M_MED_TurtleNeck_Mask_Visor3",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor3.M_MED_TurtleNeck_Dark_Mask_Visor3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.009725,
+                    "G": 0.009628,
+                    "B": 0.010417,
+                    "A": 1.0,
+                    "Hex": "19181A"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FAFDEC21454A940524835AA635EA941C",
+            "SourceString": "The Foundation (Combat)",
+            "LocalizedString": "The Foundation (Combat)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-Dark.T-Variant-A-286-M-Turtleneck-Dark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "43F9015443B9099449A76CBF0F68BECC",
+        "SourceString": "color",
+        "LocalizedString": "color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "CID_A_286_Athena_Commando_M_Turtleneck",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "42FEB4884A42055F03A1E4B0F488ED18",
+            "SourceString": "default",
+            "LocalizedString": "default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-Visor0.T-Variant-A-286-M-Turtleneck-Visor0",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_MaskFX.M_MED_TurtleNeck_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor1.M_MED_TurtleNeck_Mask_Visor1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Animation/Props/Gadgets_Turtleneck/Materials/M_MED_TurtleNeck_Mask_gadget.M_MED_TurtleNeck_Mask_gadget",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor1.M_MED_TurtleNeck_Mask_Visor1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor1.M_MED_TurtleNeck_Dark_Mask_Visor1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor1.M_MED_TurtleNeck_Dark_Mask_Visor1",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F8C259C446B1D3D3872624BE0E8F855E",
+            "SourceString": "Tactical",
+            "LocalizedString": "Tactical"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-Visor1.T-Variant-A-286-M-Turtleneck-Visor1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_MaskFX.M_MED_TurtleNeck_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor2.M_MED_TurtleNeck_Mask_Visor2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Animation/Props/Gadgets_Turtleneck/Materials/M_MED_TurtleNeck_Mask_gadget.M_MED_TurtleNeck_Mask_gadget",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor2.M_MED_TurtleNeck_Mask_Visor2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor2.M_MED_TurtleNeck_Dark_Mask_Visor2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor2.M_MED_TurtleNeck_Dark_Mask_Visor2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "631414754EB47EB6B4C664B274A2AB0A",
+            "SourceString": "Combat Elite",
+            "LocalizedString": "Combat Elite"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-Visor2.T-Variant-A-286-M-Turtleneck-Visor2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_MaskFX.M_MED_TurtleNeck_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor3.M_MED_TurtleNeck_Mask_Visor3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Animation/Props/Gadgets_Turtleneck/Materials/M_MED_TurtleNeck_Mask_gadget.M_MED_TurtleNeck_Mask_gadget",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/M_MED_TurtleNeck_Mask_Visor3.M_MED_TurtleNeck_Mask_Visor3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor3.M_MED_TurtleNeck_Dark_Mask_Visor3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/MI_MED_TurtleNeck_Dark_MaskFX.MI_MED_TurtleNeck_Dark_MaskFX",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Turtleneck/Materials/Dark/M_MED_TurtleNeck_Dark_Mask_Visor3.M_MED_TurtleNeck_Dark_Mask_Visor3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F281C5A5425C7081F8ED07A0CD74FD1F",
+            "SourceString": "Ultimate",
+            "LocalizedString": "Ultimate"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-286-M-Turtleneck-Visor3.T-Variant-A-286-M-Turtleneck-Visor3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6C223444478F0F70C1E9158569B39B18",
+        "SourceString": "visor",
+        "LocalizedString": "visor"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Emissive"
+      }
+    }
+  }
+]

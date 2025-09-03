@@ -1,0 +1,3601 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GliderType": "EFortGliderType::Umbrella",
+      "CameraFramingBoundsCenterOffset": {
+        "X": -120.0,
+        "Y": -10.0,
+        "Z": 10.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/Gliders/B_Athena_Glider_Generic_Build_A_Brella.B_Athena_Glider_Generic_Build_A_Brella_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Meshes/SK_VinderTech_Umbella.SK_VinderTech_Umbella",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.70710677,
+          "W": 0.7071067,
+          "IsNormalized": true,
+          "Size": 0.99999994,
+          "SizeSquared": 0.9999999
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/VinderTech_Umbrella_BuildABrella_AnimBP.VinderTech_Umbrella_BuildABrella_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/Umbrella/UmbrellaPlayerAnimSet.UmbrellaPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/Game/Gadgets/Assets/VinderTech_GliderChute/Glider_Umbrella_Build_A_Brella/FX/Glider_Umbrella_Build_A_Brella.Glider_Umbrella_Build_A_Brella",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderClose_BAB_Close.GliderClose_BAB_Close",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Umbrella_BuildABrella:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Umbrella_BuildABrella:FortCosmeticMeshVariant_5'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.4"
+        },
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Umbrella_BuildABrella:FortCosmeticMeshVariant_4'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.3"
+        },
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Umbrella_BuildABrella:FortCosmeticMeshVariant_3'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.2"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.6"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.5"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.7"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_3'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.8"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_4'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.9"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Umbrella_BuildABrella:FortCosmeticRichColorVariant_5'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Umbrella_BuildABrella.10"
+        }
+      ],
+      "ItemSearchTags": [
+        {
+          "Namespace": "",
+          "Key": "F17431F943D9C7FBA4E2DF83AC485B30",
+          "SourceString": "Umbrella",
+          "LocalizedString": "Umbrella"
+        }
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "F64DB6274623D830D2015FA06B2FFCF0",
+        "SourceString": "Brella",
+        "LocalizedString": "Brella"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "751AC0E14344B8580FFFF49306DDDA35",
+        "SourceString": "Float into action with the first ever customizable umbrella.",
+        "LocalizedString": "Float into action with the first ever customizable umbrella."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "5110886B4B82702C760EDCBF12AFD624",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-BAB-Default.T-Icon_Glider-BAB-Default",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-BAB-Default-L.T-Icon_Glider-BAB-Default-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season13.BattlePass.Paid",
+            "Cosmetics.Filter.Season.13",
+            "Cosmetics.Set.PersonalMade",
+            "Cosmetics.FrontEndPose.NoVariantEditingAllowed",
+            "UI.ItemPreview.NewTech.BuildABrella",
+            "Cosmetics.AllowLockedDefaultVariants"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 15.0,
+            "Yaw": 45.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.05
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            614,
+            558,
+            246,
+            542,
+            824,
+            849,
+            436,
+            950,
+            1024,
+            114,
+            1239,
+            2293,
+            2923,
+            392,
+            346
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A5EC01EB4D4129CCF274519D08070726",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Black_Knight/Models/SK_BAB_Canopy_BlackKnight.SK_BAB_Canopy_BlackKnight",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Black_Knight/Materials/MI_BAB_Canopy_Black_Knight.MI_BAB_Canopy_Black_Knight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_BlackKnight.GliderOpen_BAB_BlackKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E8FEC4CD4586716CC45BDDB8399DD9FC",
+            "SourceString": "Canopy 2",
+            "LocalizedString": "Canopy 2"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Durr/Models/SK_BAB_Canopy_Durr.SK_BAB_Canopy_Durr",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Durr/Materials/MI_BAB_Canopy_Durr.MI_BAB_Canopy_Durr",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Durr.GliderOpen_BAB_Durr",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3BF6D8214F6BCF665D27BCB421C1F975",
+            "SourceString": "Canopy 3",
+            "LocalizedString": "Canopy 3"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Ocean_Rider/Models/SK_BAB_Canopy_OceanRider.SK_BAB_Canopy_OceanRider",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Ocean_Rider/Materials/MI_BAB_Canopy_Ocean_Rider.MI_BAB_Canopy_Ocean_Rider",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_OceanRider.GliderOpen_BAB_OceanRider",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6AFF4E76489FA6B7600F72863F9A6577",
+            "SourceString": "Canopy 4",
+            "LocalizedString": "Canopy 4"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Pirate/Models/SK_BAB_Canopy_Pirate.SK_BAB_Canopy_Pirate",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Pirate/Materials/MI_BAB_Canopy_Pirate.MI_BAB_Canopy_Pirate",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Pirate.GliderOpen_BAB_Pirate",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5BABA3A643D930D4640EDBAFC850F3CA",
+            "SourceString": "Canopy 5",
+            "LocalizedString": "Canopy 5"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Professor_Pup/Models/SK_BAB_Canopy_ProfessorPup.SK_BAB_Canopy_ProfessorPup",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Professor_Pup/Materials/MI_BAB_Canopy_Professor_Pup.MI_BAB_Canopy_Professor_Pup",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_ProfessorPup.GliderOpen_BAB_ProfessorPup",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EBCBB32545F2291384DF02B34DFB796A",
+            "SourceString": "Canopy 6",
+            "LocalizedString": "Canopy 6"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Space_Wanderer/Models/SK_BAB_Canopy_SpaceWanderer.SK_BAB_Canopy_SpaceWanderer",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Space_Wanderer/Materials/MI_BAB_Canopy_Space_Wanderer.MI_BAB_Canopy_Space_Wanderer",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_SpaceWanderer.GliderOpen_BAB_SpaceWanderer",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A3CACEA4410A8E0E48944888A2E4FDE0",
+            "SourceString": "Canopy 7",
+            "LocalizedString": "Canopy 7"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tactical_Scuba/Models/SK_BAB_Canopy_TacticalScuba.SK_BAB_Canopy_TacticalScuba",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tactical_Scuba/Materials/MI_BAB_Canopy_Tactical_Scuba.MI_BAB_Canopy_Tactical_Scuba",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_TacticalScuba.GliderOpen_TacticalScuba",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8B8FEEA54F602D242C585D8C8155C588",
+            "SourceString": "Canopy 8",
+            "LocalizedString": "Canopy 8"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Inner_Tube/Models/SK_BAB_Canopy_InnerTube.SK_BAB_Canopy_InnerTube",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Inner_Tube/Materials/MI_BAB_Canopy_Inner_Tube.MI_BAB_Canopy_Inner_Tube",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_InnerTube.GliderOpen_BAB_InnerTube",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage9"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Meshes/SK_BAB_Canopy_Beach.SK_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tire/Models/SK_BAB_Canopy_Tire.SK_BAB_Canopy_Tire",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tire/Materials/MI_BAB_Canopy_Tire.MI_BAB_Canopy_Tire",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Default.GliderOpen_BAB_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/BuildABrella/GliderOpen_BAB_Tire.GliderOpen_BAB_Tire",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage10"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "0805BD77489EF8B586E1F886B6AA030E",
+        "SourceString": "Canopy",
+        "LocalizedString": "Canopy"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_3",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F4D29D95464B6B8F9953A482249EBEBE",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Tactical_Scuba/Models/SK_BAB_Handle_TacticalScuba.SK_BAB_Handle_TacticalScuba",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Tactical_Scuba/Materials/MI_BAB_Handle_Tactical_Scuba.MI_BAB_Handle_Tactical_Scuba",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "065D5DAF44F506EE400066AC51C7445B",
+            "SourceString": "Handle 2",
+            "LocalizedString": "Handle 2"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Professor_Pup/Models/SK_BAB_Handle_ProfessorPup.SK_BAB_Handle_ProfessorPup",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Professor_Pup/Materials/MI_BAB_Handle_Professor_Pup.MI_BAB_Handle_Professor_Pup",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat14"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "554923EF4050A242134485948FD9D915",
+            "SourceString": "Handle 3",
+            "LocalizedString": "Handle 3"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Ocean_Rider/Models/SK_BAB_Handle_OceanRider.SK_BAB_Handle_OceanRider",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Ocean_Rider/Materials/MI_BAB_Handle_Ocean_Rider.MI_BAB_Handle_Ocean_Rider",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat15"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3F5B97164FE365658B241EB2B9EF280D",
+            "SourceString": "Handle 4",
+            "LocalizedString": "Handle 4"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Black_Knight/Models/SK_BAB_Handle_BlackKnight.SK_BAB_Handle_BlackKnight",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Black_Knight/Materials/MI_BAB_Handle_Black_Knight.MI_BAB_Handle_Black_Knight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat16"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "255190514BAC2258F152D0833C4CE577",
+            "SourceString": "Handle 5",
+            "LocalizedString": "Handle 5"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Space_Wanderer/Models/SK_BAB_Handle_SpaceWanderer.SK_BAB_Handle_SpaceWanderer",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Space_Wanderer/Materials/MI_BAB_Handle_Space_Wanderer.MI_BAB_Handle_Space_Wanderer",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat17"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "04E295774BF12B908CF8409741E1D14E",
+            "SourceString": "Handle 6",
+            "LocalizedString": "Handle 6"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Pirate/Models/SK_BAB_Handle_Pirate.SK_BAB_Handle_Pirate",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Pirate/Materials/MI_BAB_Handle_Pirate.MI_BAB_Handle_Pirate",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat18"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "73EDD9014D8611CC2CFC008A2AEEDD9D",
+            "SourceString": "Handle 7",
+            "LocalizedString": "Handle 7"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Durr/Models/SK_BAB_Handle_Durr.SK_BAB_Handle_Durr",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Durr/Materials/MI_BAB_Handle_Durr.MI_BAB_Handle_Durr",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat19"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "164827B945CD9651C50062A15A296EE2",
+            "SourceString": "Handle 8",
+            "LocalizedString": "Handle 8"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Models/SK_BAB_Handle_Default.SK_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Beach/Models/SK_BAB_Handle_Beach.SK_BAB_Handle_Beach",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Beach/Materials/MI_BAB_Handle_Beach.MI_BAB_Handle_Beach",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat20"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "395170974152E9463E6A2FA780C12315",
+        "SourceString": "Bottom Cap",
+        "LocalizedString": "Bottom Cap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_4",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4813BCD64E035766D1F59681728697F0",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Tactical_Scuba/Models/SK_BAB_Topper_TacticalScuba.SK_BAB_Topper_TacticalScuba",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Tactical_Scuba/Materials/MI_BAB_Topper_Tactical_Scuba.MI_BAB_Topper_Tactical_Scuba",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FFA2097A43207BDD16A8D9BA5F5EE448",
+            "SourceString": "Topper 2",
+            "LocalizedString": "Topper 2"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Space_Wanderer/Models/SK_BAB_Topper_SpaceWanderer.SK_BAB_Topper_SpaceWanderer",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Space_Wanderer/Materials/MI_BAB_Topper_Space_Wanderer.MI_BAB_Topper_Space_Wanderer",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "654623624486B24522E27F9A5524F7C7",
+            "SourceString": "Topper 3",
+            "LocalizedString": "Topper 3"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Professor_Pup/Models/SK_BAB_Topper_ProfessorPup.SK_BAB_Topper_ProfessorPup",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Professor_Pup/Materials/MI_BAB_Topper_Professor_Pup.MI_BAB_Topper_Professor_Pup",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "90BE5192459F3A6A379CDD87D6B08FCD",
+            "SourceString": "Topper 4",
+            "LocalizedString": "Topper 4"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Pirate/Models/SK_BAB_Topper_Pirate.SK_BAB_Topper_Pirate",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Pirate/Materials/MI_BAB_Topper_Pirate.MI_BAB_Topper_Pirate",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B1AAA5454CC2DCE1D810EAB022522980",
+            "SourceString": "Topper 5",
+            "LocalizedString": "Topper 5"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Ocean_Rider/Models/SK_BAB_Topper_OceanRider.SK_BAB_Topper_OceanRider",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Ocean_Rider/Materials/MI_BAB_Topper_Ocean_Rider.MI_BAB_Topper_Ocean_Rider",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1A42A77A4AA524FC5CB8D6A18E00569C",
+            "SourceString": "Topper 6",
+            "LocalizedString": "Topper 6"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Durr/Models/SK_BAB_Topper_Durr.SK_BAB_Topper_Durr",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Durr/Materials/MI_BAB_Topper_Durr.MI_BAB_Topper_Durr",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3A5F71B54CEA80563A8888BFD9BBA795",
+            "SourceString": "Topper 7",
+            "LocalizedString": "Topper 7"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Black_Knight/Models/SK_BAB_Topper_BlackKnight.SK_BAB_Topper_BlackKnight",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Black_Knight/Materials/MI_BAB_Topper_Black_Knight.MI_BAB_Topper_Black_Knight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "62D9FF2C42F5987A272202BCEC693E7F",
+            "SourceString": "Topper 8",
+            "LocalizedString": "Topper 8"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Duck/Models/SK_BAB_Topper_Duck.SK_BAB_Topper_Duck",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Duck/Materials/MI_BAB_Topper_Duck.MI_BAB_Topper_Duck",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat9"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "75B7D61345FC1470259598838EA404DB",
+            "SourceString": "Topper 9",
+            "LocalizedString": "Topper 9"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Kill_Counter/Models/SK_BAB_Topper_KillCounter.SK_BAB_Topper_KillCounter",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Kill_Counter/Materials/MI_BAB_Topper_Kill_Counter.MI_BAB_Topper_Kill_Counter",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat10"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "200BF0FB4D0BF8A8505EE4858F87B353",
+            "SourceString": "Topper 10",
+            "LocalizedString": "Topper 10"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Models/SK_BAB_Topper_Default.SK_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Beach/Models/SK_BAB_Topper_Beach.SK_BAB_Topper_Beach",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Beach/Materials/MI_BAB_Topper_Beach.MI_BAB_Topper_Beach",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4758F03042DE98456FBDA29987AE0363",
+            "SourceString": "Topper 11",
+            "LocalizedString": "Topper 11"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "AF33FE864C896B429CF06999A3345C0E",
+        "SourceString": "Topper",
+        "LocalizedString": "Topper"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_5",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E2DA44A74824ABD180E5B5B5BED8A0A6",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Durr/Models/SK_BAB_Shaft_Durr.SK_BAB_Shaft_Durr",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Durr/Materials/MI_BAB_Shaft_Durr.MI_BAB_Shaft_Durr",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2D61BA8D498DFD1D691EF9B837418B22",
+            "SourceString": "Shaft 2",
+            "LocalizedString": "Shaft 2"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Pirate/Models/SK_BAB_Shaft_Pirate.SK_BAB_Shaft_Pirate",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Pirate/Materials/MI_BAB_Shaft_Pirate.MI_BAB_Shaft_Pirate",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A330AD6B4EE924FBBC501FA0DCFB3CBB",
+            "SourceString": "Shaft 3",
+            "LocalizedString": "Shaft 3"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Space_Wanderer/Models/SK_BAB_Shaft_SpaceWanderer.SK_BAB_Shaft_SpaceWanderer",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Space_Wanderer/Materials/MI_BAB_Shaft_Space_Wanderer.MI_BAB_Shaft_Space_Wanderer",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage14"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9916C0F04445A6E5DA4F9CB1F2641745",
+            "SourceString": "Shaft 4",
+            "LocalizedString": "Shaft 4"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Black_Knight/Models/SK_BAB_Shaft_BlackKnight.SK_BAB_Shaft_BlackKnight",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Black_Knight/Materials/MI_BAB_Shaft_Black_Knight.MI_BAB_Shaft_Black_Knight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage15"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "35A73CD3441842C66811E3B3A51C96D2",
+            "SourceString": "Shaft 5",
+            "LocalizedString": "Shaft 5"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Ocean_Rider/Models/SK_BAB_Shaft_OceanRider.SK_BAB_Shaft_OceanRider",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Ocean_Rider/Materials/MI_BAB_Shaft_Ocean_Rider.MI_BAB_Shaft_Ocean_Rider",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage16"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E7D5DFF24A2D70F6111D28B3F6833C2D",
+            "SourceString": "Shaft 6",
+            "LocalizedString": "Shaft 6"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Tactical_Scuba/Models/SK_BAB_Shaft_TacticalScuba.SK_BAB_Shaft_TacticalScuba",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Tactical_Scuba/Materials/MI_BAB_Shaft_Tactical_Scuba.MI_BAB_Shaft_Tactical_Scuba",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage17"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "84FB909A403ECEA172CC33AE94846520",
+            "SourceString": "Shaft 7",
+            "LocalizedString": "Shaft 7"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Models/SK_BAB_Shaft_Beach.SK_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Professor_Pup/Models/SK_BAB_Shaft_ProfessorPup.SK_BAB_Shaft_ProfessorPup",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Professor_Pup/Materials/MI_BAB_Shaft_Professor_Pup.MI_BAB_Shaft_Professor_Pup",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage18"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F27D332A40F272D28F0D25B1E3C4F47D",
+            "SourceString": "Shaft 8",
+            "LocalizedString": "Shaft 8"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D495B7F64697449913196F806CF408F4",
+        "SourceString": "Shaft",
+        "LocalizedString": "Shaft"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.262251,
+            "G": 0.262251,
+            "B": 0.262251,
+            "A": 1.0,
+            "Hex": "8C8C8C"
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Black_Knight/Materials/MI_BAB_Canopy_Black_Knight.MI_BAB_Canopy_Black_Knight",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Durr/Materials/MI_BAB_Canopy_Durr.MI_BAB_Canopy_Durr",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Ocean_Rider/Materials/MI_BAB_Canopy_Ocean_Rider.MI_BAB_Canopy_Ocean_Rider",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Pirate/Materials/MI_BAB_Canopy_Pirate.MI_BAB_Canopy_Pirate",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Professor_Pup/Materials/MI_BAB_Canopy_Professor_Pup.MI_BAB_Canopy_Professor_Pup",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Space_Wanderer/Materials/MI_BAB_Canopy_Space_Wanderer.MI_BAB_Canopy_Space_Wanderer",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tactical_Scuba/Materials/MI_BAB_Canopy_Tactical_Scuba.MI_BAB_Canopy_Tactical_Scuba",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Inner_Tube/Materials/MI_BAB_Canopy_Inner_Tube.MI_BAB_Canopy_Inner_Tube",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tire/Materials/MI_BAB_Canopy_Tire.MI_BAB_Canopy_Tire",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "BAB_MainColor"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "8C38252E44B26E7C72CEF4B72BA835A4",
+          "SourceString": "Canopy Primary Color",
+          "LocalizedString": "Canopy Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "2225F3704B6B98C6D70F569943EAF36E",
+        "SourceString": "Canopy Primary Color",
+        "LocalizedString": "Canopy Primary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor2"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_1",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 0.0,
+            "Hex": "000000"
+          },
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_GliderChute/Glider_Umbrella_Build_A_Brella/FX/Glider_Umbrella_Build_A_Brella.Glider_Umbrella_Build_A_Brella",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "User.Color"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "2392489F4653EDA2FB50868959F289C3",
+          "SourceString": "Trail Effects Color",
+          "LocalizedString": "Trail Effects Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "C8026810464B1E3CB52192B3867AB42E",
+        "SourceString": "Trail Effects Color",
+        "LocalizedString": "Trail Effects Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_2",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.262251,
+            "G": 0.262251,
+            "B": 0.262251,
+            "A": 1.0,
+            "Hex": "8C8C8C"
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Beach/Materials/MI_BAB_Shaft_Beach.MI_BAB_Shaft_Beach",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Black_Knight/Materials/MI_BAB_Shaft_Black_Knight.MI_BAB_Shaft_Black_Knight",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Durr/Materials/MI_BAB_Shaft_Durr.MI_BAB_Shaft_Durr",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Ocean_Rider/Materials/MI_BAB_Shaft_Ocean_Rider.MI_BAB_Shaft_Ocean_Rider",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Pirate/Materials/MI_BAB_Shaft_Pirate.MI_BAB_Shaft_Pirate",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Professor_Pup/Materials/MI_BAB_Shaft_Professor_Pup.MI_BAB_Shaft_Professor_Pup",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Space_Wanderer/Materials/MI_BAB_Shaft_Space_Wanderer.MI_BAB_Shaft_Space_Wanderer",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Shaft_Tactical_Scuba/Materials/MI_BAB_Shaft_Tactical_Scuba.MI_BAB_Shaft_Tactical_Scuba",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "BAB_MainColor"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "8A9FCDDF488F94D24C278E849F5403B0",
+          "SourceString": "Shaft Color",
+          "LocalizedString": "Shaft Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6C69D5DB477BA27B912CE1AC37A1D748",
+        "SourceString": "Shaft Color",
+        "LocalizedString": "Shaft Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor3"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_3",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.262251,
+            "G": 0.262251,
+            "B": 0.262251,
+            "A": 1.0,
+            "Hex": "8C8C8C"
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Beach/Materials/MI_BAB_Topper_Beach.MI_BAB_Topper_Beach",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Black_Knight/Materials/MI_BAB_Topper_Black_Knight.MI_BAB_Topper_Black_Knight",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Durr/Materials/MI_BAB_Topper_Durr.MI_BAB_Topper_Durr",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Ocean_Rider/Materials/MI_BAB_Topper_Ocean_Rider.MI_BAB_Topper_Ocean_Rider",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Pirate/Materials/MI_BAB_Topper_Pirate.MI_BAB_Topper_Pirate",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Professor_Pup/Materials/MI_BAB_Topper_Professor_Pup.MI_BAB_Topper_Professor_Pup",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Space_Wanderer/Materials/MI_BAB_Topper_Space_Wanderer.MI_BAB_Topper_Space_Wanderer",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Tactical_Scuba/Materials/MI_BAB_Topper_Tactical_Scuba.MI_BAB_Topper_Tactical_Scuba",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Default/Materials/MI_BAB_Topper_Default.MI_BAB_Topper_Default",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Duck/Materials/MI_BAB_Topper_Duck.MI_BAB_Topper_Duck",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Topper_Kill_Counter/Materials/MI_BAB_Topper_Kill_Counter.MI_BAB_Topper_Kill_Counter",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "BAB_MainColor"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "EDCF24D54AF92A2AACA44388A6A7004A",
+          "SourceString": "Topper Color",
+          "LocalizedString": "Topper Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "806C11D140156FA4724991B31E1857C2",
+        "SourceString": "Topper Color",
+        "LocalizedString": "Topper Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor4"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_4",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.262251,
+            "G": 0.262251,
+            "B": 0.262251,
+            "A": 1.0,
+            "Hex": "8C8C8C"
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Beach/Materials/MI_BAB_Handle_Beach.MI_BAB_Handle_Beach",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Black_Knight/Materials/MI_BAB_Handle_Black_Knight.MI_BAB_Handle_Black_Knight",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Durr/Materials/MI_BAB_Handle_Durr.MI_BAB_Handle_Durr",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Ocean_Rider/Materials/MI_BAB_Handle_Ocean_Rider.MI_BAB_Handle_Ocean_Rider",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Pirate/Materials/MI_BAB_Handle_Pirate.MI_BAB_Handle_Pirate",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Professor_Pup/Materials/MI_BAB_Handle_Professor_Pup.MI_BAB_Handle_Professor_Pup",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Space_Wanderer/Materials/MI_BAB_Handle_Space_Wanderer.MI_BAB_Handle_Space_Wanderer",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Tactical_Scuba/Materials/MI_BAB_Handle_Tactical_Scuba.MI_BAB_Handle_Tactical_Scuba",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Handle_Default/Materials/MI_BAB_Handle_Default.MI_BAB_Handle_Default",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "BAB_MainColor"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "48E6356C47FD6D47FF08CFB54126BD3F",
+          "SourceString": "Handle Color",
+          "LocalizedString": "Handle Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B5FB52CC43278FB84EADFF8058E65713",
+        "SourceString": "Bottom Cap Color",
+        "LocalizedString": "Bottom Cap Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor5"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_5",
+    "Outer": "Umbrella_BuildABrella",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.783538,
+            "G": 0.783538,
+            "B": 0.783538,
+            "A": 1.0,
+            "Hex": "E5E5E5"
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Beach/Materials/MI_BAB_Canopy_Beach.MI_BAB_Canopy_Beach",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Black_Knight/Materials/MI_BAB_Canopy_Black_Knight.MI_BAB_Canopy_Black_Knight",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Durr/Materials/MI_BAB_Canopy_Durr.MI_BAB_Canopy_Durr",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Ocean_Rider/Materials/MI_BAB_Canopy_Ocean_Rider.MI_BAB_Canopy_Ocean_Rider",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Pirate/Materials/MI_BAB_Canopy_Pirate.MI_BAB_Canopy_Pirate",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Professor_Pup/Materials/MI_BAB_Canopy_Professor_Pup.MI_BAB_Canopy_Professor_Pup",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Space_Wanderer/Materials/MI_BAB_Canopy_Space_Wanderer.MI_BAB_Canopy_Space_Wanderer",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tactical_Scuba/Materials/MI_BAB_Canopy_Tactical_Scuba.MI_BAB_Canopy_Tactical_Scuba",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Inner_Tube/Materials/MI_BAB_Canopy_Inner_Tube.MI_BAB_Canopy_Inner_Tube",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Gadgets/Assets/VinderTech_Umbrella/Umbrella_BuildABrella/BAB_Canopy_Tire/Materials/MI_BAB_Canopy_Tire.MI_BAB_Canopy_Tire",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "BAB_SecondColor"
+        },
+        "bStartUnlocked": false,
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "0249F2A34C7A72AF22C6BABA207B0AFD",
+          "SourceString": "Canopy Secondary Color",
+          "LocalizedString": "Canopy Secondary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "66AF37C544757819DFEE83B2BBE9DCA0",
+        "SourceString": "Canopy Secondary Color",
+        "LocalizedString": "Canopy Secondary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor6"
+      }
+    }
+  }
+]

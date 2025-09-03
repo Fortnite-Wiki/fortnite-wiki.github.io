@@ -1,0 +1,516 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_179_CrazyEight",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": -15.0,
+        "Z": 10.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/BRCosmetics/Athena/Cosmetics/Blueprints/Gliders/LegacyGliderBPs/B_Athena_Glider_Legacy_CrazyEight.B_Athena_Glider_Legacy_CrazyEight_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/Meshes/Crazy_eight.Crazy_eight",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/CrazyEight_Glider_AnimBP.CrazyEight_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CrazyEight/Glider_CrazyEight_Open_Cue.Glider_CrazyEight_Open_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CrazyEight/Glider_CrazyEight_Close_Cue.Glider_CrazyEight_Close_Cue",
+        "SubPathString": ""
+      },
+      "TrailEffect": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Crazy_Eight_Propeller_Loop.P_Crazy_Eight_Propeller_Loop",
+        "SubPathString": ""
+      },
+      "TrailEffectNiagara2": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/NS_Glider_Crazy_Eight_Begin.NS_Glider_Crazy_Eight_Begin",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_179_CrazyEight:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_179_CrazyEight.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 6.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [
+                "Cosmetics.Variant.Property.Particle1"
+              ],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle1"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 6.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 23603,
+      "VariantShotGridIds": [
+        23687
+      ],
+      "ShotGridIds": [
+        23603,
+        23687
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "98978A9B46019F1E48E9C7A05809010A",
+        "SourceString": "Crazy Eight",
+        "LocalizedString": "Crazy Eight"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D96F2E4B47BF89A1423977B89281D988",
+        "SourceString": "Land the shot.",
+        "LocalizedString": "Land the shot."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CrazyEightGlider.T-Icon_Glider-CrazyEightGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CrazyEightGlider-L.T-Icon_Glider-CrazyEightGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season11.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.Billiards",
+            "Cosmetics.Filter.Season.11"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -15.0,
+            "Yaw": -115.0,
+            "Roll": -15.0
+          },
+          "Scale": 0.7
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            357,
+            562,
+            557,
+            162,
+            569,
+            567,
+            387,
+            246,
+            264,
+            824,
+            1194,
+            1279,
+            315,
+            1539,
+            1694,
+            396,
+            395,
+            366,
+            2543
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_179_CrazyEight",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "ACC8FC13476B6DB5DA05C0BD69BB20B6",
+            "SourceString": "8-BALL",
+            "LocalizedString": "8-BALL"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CrazyEightGlider.T-Icon_Glider-CrazyEightGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/Materials/MI_Glider_Crazy_Eight.MI_Glider_Crazy_Eight",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight_Alter_Ego/Materials/MI_Glider_Crazy_Eight_Alter_Ego.MI_Glider_Crazy_Eight_Alter_Ego",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Crazy_Eight_Propeller_Loop.P_Crazy_Eight_Propeller_Loop",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 1.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Glider_Crazy_Eight_Begin.P_Glider_Crazy_Eight_Begin",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 1.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Glider_Crazy_Eight_Begin_FrontEnd_Short.P_Glider_Crazy_Eight_Begin_FrontEnd_Short",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 1.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8F8837094C67BCD07A208C89B638EF61",
+            "SourceString": "SCRATCH",
+            "LocalizedString": "SCRATCH"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CrazyEightAlterGlider.T-Icon_Glider-CrazyEightAlterGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "49A8B5C74D30A8EE95E89D8A2267CAB1",
+            "SourceString": "Unlocked During Chapter 2, Season 1",
+            "LocalizedString": "Unlocked During Chapter 2, Season 1"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/Materials/MI_Glider_Crazy_Eight.MI_Glider_Crazy_Eight",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_CrazyEightGold/Materials/MI_Glider_CrazyEightGold.MI_Glider_CrazyEightGold",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Crazy_Eight_Propeller_Loop.P_Crazy_Eight_Propeller_Loop",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.7,
+                    "G": 0.64,
+                    "B": 0.28,
+                    "A": 1.0,
+                    "Hex": "DAD290"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Glider_Crazy_Eight_Begin.P_Glider_Crazy_Eight_Begin",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.7,
+                    "G": 0.64,
+                    "B": 0.28,
+                    "A": 1.0,
+                    "Hex": "DAD290"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Crazy_Eight/FX/P_Glider_Crazy_Eight_Begin_FrontEnd_Short.P_Glider_Crazy_Eight_Begin_FrontEnd_Short",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.25,
+                    "G": 0.1875,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "897800"
+                  },
+                  "ParamName": "brightness"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "299F4C594FDAE56D5440BF8AE0034793",
+            "SourceString": "GOLD",
+            "LocalizedString": "GOLD"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CrazyEightGoldGlider.T-Icon_Glider-CrazyEightGoldGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "8F3CA03842E70CE3E397358A7C8FC5A5",
+            "SourceString": "Unlocked During Chapter 2, Season 1",
+            "LocalizedString": "Unlocked During Chapter 2, Season 1"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7988CEFA4D444D0A34B5118B6F3F0543",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

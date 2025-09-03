@@ -1,0 +1,238 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_EggnogFaucet",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_EggnogFaucet'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_EggnogFaucet.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_EggnogFaucet:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_EggnogFaucet.1"
+        }
+      ],
+      "BaseShotGridId": 137811,
+      "ShotGridIds": [
+        137811
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B51BA47446A9D866F267D38A3058D00E",
+        "SourceString": "Johnny's Fantastic Logo",
+        "LocalizedString": "Johnny's Fantastic Logo"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E12BABEF40AB51195A238B9103F93FDE",
+        "SourceString": "The Fantastic Logo of the Human Torch.",
+        "LocalizedString": "The Fantastic Logo of the Human Torch."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "5CC01F7B4C71DF3C3F96FBA6BD6903EC",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_EggnogFaucet.T_Icon_Backpacks_EggnogFaucet",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_EggnogFaucet_L.T_Icon_Backpacks_EggnogFaucet_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.ColdShield"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            552,
+            7975,
+            156,
+            246,
+            632,
+            244,
+            542,
+            283,
+            1058,
+            1116,
+            47,
+            1389,
+            145,
+            2337,
+            2497,
+            2495,
+            2518,
+            310,
+            2584,
+            2755,
+            3192,
+            331
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Backpack_EggnogFaucet",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E04AA6BE48CC4C7DC8A156A6A3AE4336",
+            "SourceString": "Johnny's Fantastic Logo",
+            "LocalizedString": "Johnny's Fantastic Logo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_EggnogFaucet.T_Icon_Backpacks_EggnogFaucet",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_EggnogFaucet/Materials/MI_EggnogFaucet_Backpack.MI_EggnogFaucet_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "EffectMask"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_EggnogFaucet/Materials/MI_EggnogFaucet_Backpack.MI_EggnogFaucet_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Effects/Niagara/Systems/Blanks/NS_Blank_Backpack.NS_Blank_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_EggnogFaucet/FX/NS_BackPack_EggnogFaucet.NS_BackPack_EggnogFaucet",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DA3CDF4C4C0187DA566472BABAAA1817",
+            "SourceString": "Flame On!",
+            "LocalizedString": "Flame On!"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_EggnogFaucet_FireStyle.T_Icon_Backpacks_EggnogFaucet_FireStyle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "01CC8112440F8464517D5ABE3DBB99F0",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

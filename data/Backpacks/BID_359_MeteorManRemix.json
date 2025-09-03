@@ -1,0 +1,203 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_359_MeteorManRemix",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_MeteorManRemix'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_MeteorManRemix.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_359_MeteorManRemix:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_359_MeteorManRemix.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "05B9963D402706D5FF10DE8B173E6325",
+        "SourceString": "Star Surge",
+        "LocalizedString": "Star Surge"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "DDC5D78F414CD2D89D948CB3CFEB6822",
+        "SourceString": "Power through the rifts. ",
+        "LocalizedString": "Power through the rifts. "
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "7DF68F8541871043EDC9E69EBB4230EE",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-359-MeteorManRemix.T-Icon-Backpacks-359-MeteorManRemix",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-359-MeteorManRemix-L.T-Icon-Backpacks-359-MeteorManRemix-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.Asteroid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.10",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            236,
+            357,
+            245,
+            562,
+            564,
+            162,
+            567,
+            166,
+            179,
+            732,
+            55,
+            802,
+            824,
+            113,
+            1194,
+            1350,
+            1694,
+            2043,
+            3139
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "BID_359_MeteorManRemix",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "703F0AA845B823228E530E833F0B31C4",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-359-MeteorManRemix.T-Icon-Backpacks-359-MeteorManRemix",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_LRG_MeteorManRemix/Materials/M_LRG_MeteormanRemix_Backpack.M_LRG_MeteormanRemix_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_LRG_MeteorManRemix/Skins/White/Materials/M_LRG_MeteormanRemix_White_Backpack.M_LRG_MeteormanRemix_White_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F24B2ACF49394A22A28FE2B04F009683",
+            "SourceString": "WHITE",
+            "LocalizedString": "WHITE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-359-MeteorManRemixWhite.T-Variant-359-MeteorManRemixWhite",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B8CD18A5450F03CD28E4748AA8FC47E4",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

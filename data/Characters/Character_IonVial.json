@@ -1,0 +1,497 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_IonVial",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_IonVial.CP_Athena_Head_F_IonVial",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_IonVial.CP_Athena_Body_F_IonVial",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_F_MED_IonVial_FaceAcc.CP_F_MED_IonVial_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.Emote.CharacterGroup.Skirts"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_IonVial:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_IonVial.2"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_IonVial:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_IonVial.1"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Character_IonVial:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_IonVial.3"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'Character_IonVial:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_IonVial.4"
+        }
+      ],
+      "BaseShotGridId": 69324,
+      "VariantShotGridIds": [
+        78384
+      ],
+      "ShotGridIds": [
+        69324,
+        78384
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "210E13974D873BC2746136BAD54A91FF",
+        "SourceString": "Verity",
+        "LocalizedString": "Verity"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "5E3E57B4467C60FFCD3FDF9DD1A90026",
+        "SourceString": "Dare to discover.",
+        "LocalizedString": "Dare to discover."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "DDB836DA404635200FBC5A8319B7F116",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S26/T-Soldier-Hero-IonVial.T-Soldier-Hero-IonVial",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S26/T-Soldier-Hero-IonVial-L.T-Soldier-Hero-IonVial-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.26",
+            "cosmetics.set.NotableSight",
+            "Cosmetics.FrontEndPose.DontHandsOnHips",
+            "Cosmetics.Gating.Allow.Shoes",
+            "SoundLibrary.ID.StepType.ShoesDress"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            552,
+            7975,
+            541,
+            236,
+            544,
+            564,
+            162,
+            567,
+            242,
+            86,
+            246,
+            244,
+            681,
+            759,
+            778,
+            836,
+            903,
+            944,
+            1014,
+            1044,
+            90,
+            1068,
+            1279,
+            1278,
+            147,
+            1275,
+            1280,
+            1277,
+            207,
+            1276
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_IonVial",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "57B164FB4901D239AA2DFFB1DEE78E21",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S26/T-Soldier-Hero-IonVial.T-Soldier-Hero-IonVial",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_ACC_Glasses.MI_IonVial_ACC_Glasses",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_ACC_Glasses.MI_IonVial_ACC_Glasses",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_ACC_Lens.MI_IonVial_ACC_Lens",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_ACC_Lens.MI_IonVial_ACC_Lens",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Skin/Dark/Materials/MI_IonVial_Dark_ACC_Glasses.MI_IonVial_Dark_ACC_Glasses",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "HT_CrunchVerts"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Skin/Dark/Materials/MI_IonVial_Dark_ACC_Glasses.MI_IonVial_Dark_ACC_Glasses",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DE774689414BC37650BEBDAA7431AE42",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S26/Characters/T-Soldier-Hero-IonVial-GlassesOff.T-Soldier-Hero-IonVial-GlassesOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FB9818B344421D95AFCDFABB1FBA38CD",
+        "SourceString": "glasses",
+        "LocalizedString": "glasses"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Character_IonVial",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "179BC80140A9D9B6E98B419C9E92A89A",
+            "SourceString": "Verity",
+            "LocalizedString": "Verity"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S26/T-Soldier-Hero-IonVial.T-Soldier-Hero-IonVial",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_Body.MI_IonVial_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Skin/Dark/Materials/MI_IonVial_Dark_Body.MI_IonVial_Dark_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_ACC_Glasses.MI_IonVial_ACC_Glasses",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Skin/Dark/Materials/MI_IonVial_Dark_ACC_Glasses.MI_IonVial_Dark_ACC_Glasses",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C870ED824F30E18AC77A32B0CE6F07D0",
+            "SourceString": "Darkspace",
+            "LocalizedString": "Darkspace"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S26/Characters/T-Soldier-Hero-IonVial-Dark.T-Soldier-Hero-IonVial-Dark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E3CE2E80470E3F245F853A9B6DC7A7AC",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Character_IonVial",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.0,
+            "G": 0.266101,
+            "B": 0.958333,
+            "A": 1.0,
+            "Hex": "008DFB"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_IonVial.CS_IonVial",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Materials/MI_IonVial_Body.MI_IonVial_Body",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Skin/Dark/Materials/MI_IonVial_Dark_Body.MI_IonVial_Dark_Body",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "IonVial_CustomColor"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F5FF52EB445CFC96544F38B1852FED44",
+        "SourceString": "Custom Color",
+        "LocalizedString": "Custom Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "Character_IonVial",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "CharacterPartSkelMesh_Body"
+          ],
+          "WrapSectionMask": 1,
+          "AllowedMeshes": [
+            {
+              "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_IonVial/Meshes/F_MED_IonVial.F_MED_IonVial",
+              "SubPathString": ""
+            }
+          ],
+          "DefaultSelectedItem": "AthenaItemWrap:wrap_ionvial"
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "003CAE464557BFA40B6D5393E0486BAB",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  }
+]

@@ -1,0 +1,337 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ProdigySage",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_ProdigySage'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ProdigySage.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 12.0,
+        "Z": 90.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 20.0,
+          "Y": 0.0,
+          "Z": 2.0
+        },
+        "CylinderHalfHeight": 81.0,
+        "CylinderRadius": 55.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ProdigySage:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ProdigySage.1"
+        }
+      ],
+      "BaseShotGridId": 73378,
+      "VariantShotGridIds": [
+        917267
+      ],
+      "ShotGridIds": [
+        73378,
+        917267
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "24514A35484FBF58ECE93F9113F84C7F",
+        "SourceString": "Twice Bitten",
+        "LocalizedString": "Twice Bitten"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "5725D6A142F06A9839FCC688DBC64F49",
+        "SourceString": "Take two big bites out of the competition.",
+        "LocalizedString": "Take two big bites out of the competition."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E8A950B1472E49379ED185929CFC763B",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -3.0,
+            "Yaw": 38.0,
+            "Roll": 32.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.26",
+            "cosmetics.set.RiskyGroup",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            583,
+            593,
+            578,
+            581,
+            586,
+            582,
+            215,
+            601,
+            244,
+            113,
+            440,
+            1122,
+            1221,
+            1304,
+            300,
+            437,
+            2494,
+            2508
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ProdigySage",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CDE12F944F6106AAC6E945A1211D4A95",
+            "SourceString": "Reactive",
+            "LocalizedString": "Reactive"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigySage-Reactive.T-Icon-Pickaxes-ProdigySage-Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/Materials/MI_Pickaxe_ProdigySage.MI_Pickaxe_ProdigySage",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ReactivityStatus"
+                },
+                {
+                  "Value": 0.6,
+                  "ParamName": "OverallGlowMultiplier"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/Materials/MI_Pickaxe_ProdigySage.MI_Pickaxe_ProdigySage",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/FX/NS_Pickaxe_ProdigySage_Idle.NS_Pickaxe_ProdigySage_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 5.0,
+                  "ParamName": "Gems_EffectAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9723D0F64662941BAE02A295913230B8",
+            "SourceString": "Reactive Fully On",
+            "LocalizedString": "Reactive Fully On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigySage-Reactive.T-Icon-Pickaxes-ProdigySage-Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/Materials/MI_Pickaxe_ProdigySage.MI_Pickaxe_ProdigySage",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "ReactivityStatus"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/Materials/MI_Pickaxe_ProdigySage.MI_Pickaxe_ProdigySage",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigySage/FX/NS_Pickaxe_ProdigySage_Idle.NS_Pickaxe_ProdigySage_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Gems_EffectAmount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "11A1F36E462F6F33359B0B88E5B29E62",
+            "SourceString": "Reactive Fully Off",
+            "LocalizedString": "Reactive Fully Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigySage.T-Icon-Pickaxes-ProdigySage",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B5CC38C745080E39CAD2DAAE3515C8CB",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

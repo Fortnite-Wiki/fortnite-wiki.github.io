@@ -1,0 +1,654 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_MagmaBreak",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_MagmaBreak'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_MagmaBreak.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_MagmaBreak:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_MagmaBreak:FortCosmeticParticleVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.2"
+        }
+      ],
+      "BaseShotGridId": 107835,
+      "ShotGridIds": [
+        107835
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "F82513144349C571CB6500817DEAA18F",
+        "SourceString": "The Rune of Temptation",
+        "LocalizedString": "The Rune of Temptation"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "36669FE440C69B4C960D748908D863A8",
+        "SourceString": "The mark of challenge to come.",
+        "LocalizedString": "The mark of challenge to come."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "CC14334C4F45BFC47D6FD582C37A7436",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak.T_IconBackpacks_MagmaBreak",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_L.T_IconBackpacks_MagmaBreak_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.CrewBling.Progressive",
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.HotPebble",
+            "Cosmetics.UserFacingFlags.Reactive"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            245,
+            162,
+            569,
+            593,
+            578,
+            581,
+            586,
+            219,
+            275,
+            756,
+            106,
+            1304,
+            1350,
+            287,
+            453,
+            2263,
+            2476,
+            2494,
+            2955
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CrewSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CrewSeries.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_MagmaBreak",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AB2C8AE7418DDDC4ABFEAD9790B29038",
+            "SourceString": "The Rune of Temptation",
+            "LocalizedString": "The Rune of Temptation"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak.T_IconBackpacks_MagmaBreak",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Cinnabar/Materials/MI_MagmaBreak_Cinnabar_Backpack.MI_MagmaBreak_Cinnabar_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "66AEACAB49B390D23173A0BC59FD7459",
+            "SourceString": "Foresight Legacy",
+            "LocalizedString": "Foresight Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_Cinnabar.T_IconBackpacks_MagmaBreak_Cinnabar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Gold/Materials/MI_MagmaBreak_Gold_Backpack.MI_MagmaBreak_Gold_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A01FD13945A85F669AAE22A16F517C8B",
+            "SourceString": "Auric Legacy",
+            "LocalizedString": "Auric Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_Gold.T_IconBackpacks_MagmaBreak_Gold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Holofoil/Materials/MI_MagmaBreak_Holofoil_Backpack.MI_MagmaBreak_Holofoil_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "85AFC25D497A598CDE611B8DD600055A",
+            "SourceString": "Phase Legacy",
+            "LocalizedString": "Phase Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_Holofoil.T_IconBackpacks_MagmaBreak_Holofoil",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Ice/Materials/MI_MagmaBreak_Ice_Backpack.MI_MagmaBreak_Ice_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "276758484555C134D0975596687113CA",
+            "SourceString": "Rimebound Legacy",
+            "LocalizedString": "Rimebound Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_Ice.T_IconBackpacks_MagmaBreak_Ice",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Galaxy/Materials/MI_MagmaBreak_Galaxy_Backpack.MI_MagmaBreak_Galaxy_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "606D29EA4D5D15BD16506F9F93BE682D",
+            "SourceString": "Cosmic Legacy",
+            "LocalizedString": "Cosmic Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_Galaxy.T_IconBackpacks_MagmaBreak_Galaxy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MagmaBreak.Backpack_MagmaBreak",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "979A4D4E4457F775C16807A6AE52B40F",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_2",
+    "Outer": "Backpack_MagmaBreak",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "49F06B2A4CF0B61570D08AA5A26F9E36",
+            "SourceString": "On",
+            "LocalizedString": "On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak.T_IconBackpacks_MagmaBreak",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": [
+            "Cosmetics.MetaTags.ReactiveOn"
+          ]
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Materials/MI_MagmaBreak_Backpack.MI_MagmaBreak_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Cinnabar/Materials/MI_MagmaBreak_Cinnabar_Backpack.MI_MagmaBreak_Cinnabar_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Cinnabar/Materials/MI_MagmaBreak_Cinnabar_Backpack.MI_MagmaBreak_Cinnabar_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Galaxy/Materials/MI_MagmaBreak_Galaxy_Backpack.MI_MagmaBreak_Galaxy_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Galaxy/Materials/MI_MagmaBreak_Galaxy_Backpack.MI_MagmaBreak_Galaxy_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Gold/Materials/MI_MagmaBreak_Gold_Backpack.MI_MagmaBreak_Gold_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Gold/Materials/MI_MagmaBreak_Gold_Backpack.MI_MagmaBreak_Gold_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Holofoil/Materials/MI_MagmaBreak_Holofoil_Backpack.MI_MagmaBreak_Holofoil_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Holofoil/Materials/MI_MagmaBreak_Holofoil_Backpack.MI_MagmaBreak_Holofoil_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Ice/Materials/MI_MagmaBreak_Ice_Backpack.MI_MagmaBreak_Ice_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ReactivityOn"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/Skins/Ice/Materials/MI_MagmaBreak_Ice_Backpack.MI_MagmaBreak_Ice_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_MagmaBreak/FX/NS_BackPack_MagmaBreak_Idle.NS_BackPack_MagmaBreak_Idle",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Effects/Niagara/Systems/Blanks/NS_Blank_Backpack.NS_Blank_Backpack",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8EF3819E4CE01DEC2CBD9FB2ECD0FE82",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S31/T_IconBackpacks_MagmaBreak_ReactiveOff.T_IconBackpacks_MagmaBreak_ReactiveOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": [
+            "Cosmetics.MetaTags.ReactiveOff"
+          ]
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9A3327C84A02E8FCF27EF6ACB644BD62",
+        "SourceString": "Reactivity",
+        "LocalizedString": "Reactivity"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

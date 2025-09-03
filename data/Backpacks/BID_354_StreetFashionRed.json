@@ -1,0 +1,335 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_354_StreetFashionRed",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_StreetFashionRed'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_StreetFashionRed.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_354_StreetFashionRed:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_354_StreetFashionRed.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 4.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat3"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_527_Athena_Commando_F_StreetFashionRed.CID_527_Athena_Commando_F_StreetFashionRed",
+        "SubPathString": ""
+      },
+      "VariantShotGridIds": [
+        52002,
+        67902
+      ],
+      "ShotGridIds": [
+        52002,
+        67902
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C0338D8144971A4096DF1B94CF96E3B4",
+        "SourceString": "Red Alert",
+        "LocalizedString": "Red Alert"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3A28F84A45C18F5EB5773EB2B49B9681",
+        "SourceString": "Let 'em know what's up.",
+        "LocalizedString": "Let 'em know what's up."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "AD3F4BAD4AC8110C71A6DFB9200E403D",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-354-StreetFashionRed.T-Icon-Backpacks-354-StreetFashionRed",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-354-StreetFashionRed-L.T-Icon-Backpacks-354-StreetFashionRed-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.StreetStripes",
+            "Cosmetics.Filter.Season.10",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            7975,
+            545,
+            236,
+            544,
+            245,
+            166,
+            54,
+            179,
+            650,
+            542,
+            687,
+            705,
+            711,
+            703,
+            708,
+            41,
+            779,
+            808,
+            809,
+            825,
+            826,
+            775,
+            895,
+            516,
+            930,
+            961,
+            53,
+            1053,
+            1141,
+            1274,
+            171,
+            1584,
+            2331,
+            2325,
+            2486,
+            2566,
+            2826
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "BID_354_StreetFashionRed",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/F_MED_Street_Fashion_Red/Materials/F_MED_StreetFashionRed_Backpack.F_MED_StreetFashionRed_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "00813D31487562E1861422BFE9E289B3",
+            "SourceString": "Red Alert",
+            "LocalizedString": "Red Alert"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-354-StreetFashionRed.T-Icon-Backpacks-354-StreetFashionRed",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/F_MED_Street_Fashion_Red/Materials/F_MED_StreetFashionRed_Backpack.F_MED_StreetFashionRed_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/F_MED_Street_Fashion_Red/Skins/FoL/Materials/F_MED_FeastOfLights_Backpack.F_MED_FeastOfLights_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "ADF6CADF4F7EB9136E5EFCAD1479D533",
+            "SourceString": "feast of lights",
+            "LocalizedString": "feast of lights"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-423-StreetFashionRed-B.T-Variant-423-StreetFashionRed-B",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/F_MED_Street_Fashion_Red/Materials/F_MED_StreetFashionRed_Backpack.F_MED_StreetFashionRed_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/F_MED_Street_Fashion_Red/Skins/Casual/Materials/F_MED_StreetFashion_Casual_Backpack.F_MED_StreetFashion_Casual_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0078EED4426091D4246AB684FC9C50BA",
+            "SourceString": "Pastel",
+            "LocalizedString": "Pastel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S25/T-Icon-Backpacks-StreetFashionRed-Casual.T-Icon-Backpacks-StreetFashionRed-Casual",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "BE2C98A4498ADA20B4CC7B8FAB7CF1EC",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

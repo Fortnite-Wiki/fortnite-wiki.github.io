@@ -1,0 +1,446 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_321_CubeQueenFemale",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": -25.0,
+        "Z": -60.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/Meshes/Cube_Queen_Female_Glider.Cube_Queen_Female_Glider",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/CubeQueen_Glider_AnimBP.CubeQueen_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "CameraClass": {
+        "AssetPathName": "/Game/Blueprints/Camera/Athena/Athena_PlayerCameraModeSkydiveSurf.Athena_PlayerCameraModeSkydiveSurf_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Skydive/ParaGlide/CubeQueen/CubeQueenPlayerAnimSet.CubeQueenPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "AttachSocket": "attach",
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/FX/NS_Glider_Cube_Queen_Female.NS_Glider_Cube_Queen_Female",
+            "SubPathString": ""
+          },
+          "EffectSocket": "root",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CubeQueenFemale/Glider_CubeQueenFemale_Open_Cue.Glider_CubeQueenFemale_Open_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CubeQueenFemale/Glider_CubeQueenFemale_Close_Cue.Glider_CubeQueenFemale_Close_Cue",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CubeQueenFemale/SC_Glider_CubeQueenFemale_Thrust_Loop.SC_Glider_CubeQueenFemale_Thrust_Loop",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/CubeQueenFemale/Glider_CubeQueenFemale_Thrust_Cue.Glider_CubeQueenFemale_Thrust_Cue",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "PreviewPawnRotationOffset": {
+        "Pitch": 0.0,
+        "Yaw": 30.0,
+        "Roll": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_321_CubeQueenFemale:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_321_CubeQueenFemale.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Glider/ItemOnPawnPreview_Walking.ItemOnPawnPreview_Walking_C",
+        "SubPathString": ""
+      },
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_225_Athena_Commando_F_CubeQueen.CID_A_225_Athena_Commando_F_CubeQueen",
+        "SubPathString": ""
+      },
+      "ExclusiveRequiresOutfitTags": [
+        "Cosmetics.Exclusives.CubeQueen"
+      ],
+      "CustomExclusiveCallout": {
+        "Namespace": "",
+        "Key": "7249425E4C0238AF98FA9091E3C94D5B",
+        "SourceString": "Appears as the Default Glider when not equipped with The Cube Queen Outfit.",
+        "LocalizedString": "Appears as the Default Glider when not equipped with The Cube Queen Outfit."
+      },
+      "BaseShotGridId": 48329,
+      "VariantShotGridIds": [
+        48757,
+        48758
+      ],
+      "ShotGridIds": [
+        48329,
+        48757,
+        48758
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "4F8E829D4F9679768783A095163C1F42",
+        "SourceString": "Queen's Procession",
+        "LocalizedString": "Queen's Procession"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "554A0DCE41D2450DB88820BB94C8202D",
+        "SourceString": "Make way for the queen.",
+        "LocalizedString": "Make way for the queen."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": -60.0,
+            "Roll": 0.0
+          },
+          "Scale": 0.65
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CubeQueenGlider.T-Icon_Glider-CubeQueenGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CubeQueenGlider-L.T-Icon_Glider-CubeQueenGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.18",
+            "Cosmetics.Source.Season18.BattlePass.Paid.Additional",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.BoxRuler"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            583,
+            593,
+            581,
+            586,
+            242,
+            595,
+            244,
+            757,
+            363,
+            1014,
+            1350,
+            2474,
+            2784,
+            2785,
+            2788,
+            2786,
+            2839,
+            3040,
+            4277,
+            4787,
+            4817
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_321_CubeQueenFemale",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "72FA74964F8ACF339CDE5BB72A77AD53",
+            "SourceString": "Queen's Procession",
+            "LocalizedString": "Queen's Procession"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CubeQueenGlider.T-Icon_Glider-CubeQueenGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/Materials/MI_Glider_Cube_Queen_Female.MI_Glider_Cube_Queen_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/Materials/MI_Glider_Cube_Queen_Female_Dark.MI_Glider_Cube_Queen_Female_Dark",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/FX/NS_Glider_Cube_Queen_Female.NS_Glider_Cube_Queen_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/FX/NS_Glider_Cube_Queen_Female_Dark.NS_Glider_Cube_Queen_Female_Dark",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F71A822746E05317A5BA1089376CA9D2",
+            "SourceString": "Queen's Procession (Obliterator)",
+            "LocalizedString": "Queen's Procession (Obliterator)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CubeQueenDarkGlider.T-Icon_Glider-CubeQueenDarkGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/Materials/MI_Glider_Cube_Queen_Female.MI_Glider_Cube_Queen_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/Materials/MI_Glider_Cube_Queen_Female_Vibrant.MI_Glider_Cube_Queen_Female_Vibrant",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/FX/NS_Glider_Cube_Queen_Female.NS_Glider_Cube_Queen_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cube_Queen_Female/FX/NS_Glider_Cube_Queen_Female_Vibrant.NS_Glider_Cube_Queen_Female_Vibrant",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F9F2B1134FECB72B0951559B75FCD8C7",
+            "SourceString": "Queen's Procession (Islandbane)",
+            "LocalizedString": "Queen's Procession (Islandbane)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-CubeQueenVibrantGlider.T-Icon_Glider-CubeQueenVibrantGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FC5E0D474C968C249FE808A44824B3A0",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

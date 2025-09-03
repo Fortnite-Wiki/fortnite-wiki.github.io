@@ -1,0 +1,637 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ZirconSweep",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_ZirconSweep'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ZirconSweep.1"
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 12.0,
+          "Y": -10.0,
+          "Z": 10.0
+        },
+        "CylinderHalfHeight": 80.0,
+        "CylinderRadius": 80.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ZirconSweep:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ZirconSweep.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/BRCosmetics/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Pickaxe/ItemOnPawnPreview_Lance.ItemOnPawnPreview_Lance_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 67770,
+      "VariantShotGridIds": [
+        69905,
+        70003,
+        72037
+      ],
+      "ShotGridIds": [
+        67770,
+        69905,
+        70003,
+        72037
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "2733CF5348E7205BE5B77BAAC7760894",
+        "SourceString": "Nomad's Spear",
+        "LocalizedString": "Nomad's Spear"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A32CB5CB45656E2096A7AFAD2DA3ECEB",
+        "SourceString": "A gift from storm and desert.",
+        "LocalizedString": "A gift from storm and desert."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "A8790C554BBAA2D0A4010FBCD30861B4",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -5.0,
+            "Yaw": 38.0,
+            "Roll": 30.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.25",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.CelebTraitor",
+            "Cosmetics.Source.Season25.BattlePass.Paid"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            564,
+            162,
+            596,
+            593,
+            586,
+            244,
+            106,
+            436,
+            113,
+            439,
+            440,
+            1219,
+            258,
+            1350,
+            2819,
+            2818
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_ZirconSweep",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Meshes/ZirconSweep_Axe_R.ZirconSweep_Axe_R",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Meshes/ZirconSweep_Axe.ZirconSweep_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Meshes/ZirconSweep_Axe_L.ZirconSweep_Axe_L",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Impact.NS_Pickaxe_ZirconSweep_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Trail.NS_Pickaxe_ZirconSweep_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B5DEAB3F4F5ECBD9BD5A25B1C37DFE34",
+            "SourceString": "Nomad's Spear",
+            "LocalizedString": "Nomad's Spear"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S25/T-Icon-Pickaxes-ZirconSweep.T-Icon-Pickaxes-ZirconSweep",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Impact.NS_Pickaxe_ZirconSweep_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Trail.NS_Pickaxe_ZirconSweep_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep/SC_PickaxeSwing_ZirconSweep.SC_PickaxeSwing_ZirconSweep",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep_Axe/SC_PickaxeSwing_ZirconSweep_Axe.SC_PickaxeSwing_ZirconSweep_Axe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep/SC_PickaxeImpactEnemy_ZirconSweep.SC_PickaxeImpactEnemy_ZirconSweep",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep_Axe/SC_PickaxeImpactEnemy_ZirconSweep_Axe.SC_PickaxeImpactEnemy_ZirconSweep_Axe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep/SC_PickaxeReady_ZirconSweep.SC_PickaxeReady_ZirconSweep",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ZirconSweep_Axe/SC_PickaxeReady_ZirconSweep_Axe.SC_PickaxeReady_ZirconSweep_Axe",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield1"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.OverridePreviewActor.ItemOnPawnPreview"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BF07100A40DCD40F90F7A1B2FB69E1C6",
+            "SourceString": "Nomad's Carvers",
+            "LocalizedString": "Nomad's Carvers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S25/T-Icon-Pickaxes-ZirconSweep-Axe.T-Icon-Pickaxes-ZirconSweep-Axe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Meshes/ZirconSweep_Axe_R.ZirconSweep_Axe_R",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Meshes/ZirconSweep_Axe.ZirconSweep_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Meshes/ZirconSweep_Axe_L.ZirconSweep_Axe_L",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Materials/MI_Pickaxe_ZirconSweep.MI_Pickaxe_ZirconSweep",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Skins/Lantern/Materials/MI_Pickaxe_ZirconSweep_Lantern.MI_Pickaxe_ZirconSweep_Lantern",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Materials/MI_Pickaxe_ZirconSweep_Axe.MI_Pickaxe_ZirconSweep_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Skins/Lantern/Materials/MI_Pickaxe_ZirconSweep_AxeLantern.MI_Pickaxe_ZirconSweep_AxeLantern",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Impact.NS_Pickaxe_ZirconSweep_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Trail.NS_Pickaxe_ZirconSweep_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5FCEE40749FB30428D750F955F2A46B6",
+            "SourceString": "Nomad's Spear (Rebel)",
+            "LocalizedString": "Nomad's Spear (Rebel)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S25/T-Icon-Pickaxes-ZirconSweep-Lantern.T-Icon-Pickaxes-ZirconSweep-Lantern",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Materials/MI_Pickaxe_ZirconSweep.MI_Pickaxe_ZirconSweep",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ZirconSweep/Skins/Lantern/Materials/MI_Pickaxe_ZirconSweep_Lantern.MI_Pickaxe_ZirconSweep_Lantern",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Materials/MI_Pickaxe_ZirconSweep_Axe.MI_Pickaxe_ZirconSweep_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ZirconSweep_Axe/Skins/Lantern/Materials/MI_Pickaxe_ZirconSweep_AxeLantern.MI_Pickaxe_ZirconSweep_AxeLantern",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Impact.NS_Pickaxe_ZirconSweep_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZirconSweep/FX/NS_Pickaxe_ZirconSweep_Trail.NS_Pickaxe_ZirconSweep_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield1"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.OverridePreviewActor.ItemOnPawnPreview"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A7013E6348B985005D9BEE8770DF4B5B",
+            "SourceString": "Nomad's Carvers (Rebel)",
+            "LocalizedString": "Nomad's Carvers (Rebel)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S25/T-Icon-Pickaxes-ZirconSweep-AxeLantern.T-Icon-Pickaxes-ZirconSweep-AxeLantern",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "731FD7A6415F1DAF4039ABB60AD1653F",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

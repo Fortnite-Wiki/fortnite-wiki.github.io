@@ -1,0 +1,332 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_700_ZombieElasticFemale1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_ZombieElasticFemale1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_ZombieElasticFemale1H.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -10.0,
+        "Y": 0.0,
+        "Z": 75.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 3.0,
+        "Y": 6.0,
+        "Z": -2.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 15.0,
+          "Y": -3.0,
+          "Z": 7.0
+        },
+        "CylinderHalfHeight": 52.0,
+        "CylinderRadius": 52.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_ID_700_ZombieElasticFemale1H:FortCosmeticRichColorVariant_5'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_700_ZombieElasticFemale1H.2"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_ID_700_ZombieElasticFemale1H:FortCosmeticRichColorVariant_4'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_700_ZombieElasticFemale1H.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 51234,
+      "ShotGridIds": [
+        51234
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "5A1C79F04C70AFBB8314EDABAF5C066D",
+        "SourceString": "Antimatter Pulse",
+        "LocalizedString": "Antimatter Pulse"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A65FB96A4138A98A3507FBAD5AA955AA",
+        "SourceString": "Carry a touch of weaponized corruption.",
+        "LocalizedString": "Carry a touch of weaponized corruption."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E2D7433A4F80859F4E229B9064EEEE4D",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.Filter.Season.18",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.DroppedModel",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -58.0,
+            "Yaw": 310.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            237,
+            587,
+            593,
+            579,
+            578,
+            581,
+            586,
+            595,
+            215,
+            601,
+            756,
+            363,
+            1122,
+            1221,
+            1350,
+            453,
+            212,
+            2041,
+            2474,
+            2690,
+            3507,
+            3790,
+            5796
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_4",
+    "Outer": "Pickaxe_ID_700_ZombieElasticFemale1H",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.27,
+            "G": 0.02,
+            "B": 0.95,
+            "A": 1.0,
+            "Hex": "8E26FA"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Elastic_Pickaxe.CS_Elastic_Pickaxe",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Pickaxe_Elastic_Fire_01.MI_Pickaxe_Elastic_Fire_01",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Tar_Male/FX/MI_Particle_Flare_HotCenter_Flicker_TarMaleIdle.MI_Particle_Flare_HotCenter_Flicker_TarMaleIdle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/HighTower_Squash/MI_Hightower_Squash_Decal.MI_Hightower_Squash_Decal",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Effects/Niagara/MasterMaterials/Sprite/MI_SparkRound_01_BasicWhite.MI_SparkRound_01_BasicWhite",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_RibbonSoft_Elastic_Fire.MI_RibbonSoft_Elastic_Fire",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Cosmic/MI_Pickaxe_Elastic_Cosmic_Trail.MI_Pickaxe_Elastic_Cosmic_Trail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Elastic_Fire_Inst.MI_Elastic_Fire_Inst",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Impact_Elastic_Fire_Inst.MI_Impact_Elastic_Fire_Inst",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Athena/Effects/Materials/M_Flash_Spike_VariantColor_01.M_Flash_Spike_VariantColor_01",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_Idle.NS_Pickaxe_ZombieElasticFemale1H_Idle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_AnimTrail.NS_Pickaxe_ZombieElasticFemale1H_AnimTrail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_Impact.NS_Pickaxe_ZombieElasticFemale1H_Impact",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Secondary Color"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "A8B38B5F4437AD4B6C3DB88441816934",
+          "SourceString": "Secondary Color",
+          "LocalizedString": "Secondary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4F4DE8CD4740D3EC4B90ECA5D30721C6",
+        "SourceString": "Secondary Color",
+        "LocalizedString": "Secondary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor3"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_5",
+    "Outer": "Pickaxe_ID_700_ZombieElasticFemale1H",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "00FF00"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Elastic_Pickaxe.CS_Elastic_Pickaxe",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Pickaxe_Elastic_Fire_01.MI_Pickaxe_Elastic_Fire_01",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Tar_Male/FX/MI_Particle_Flare_HotCenter_Flicker_TarMaleIdle.MI_Particle_Flare_HotCenter_Flicker_TarMaleIdle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/HighTower_Squash/MI_Hightower_Squash_Decal.MI_Hightower_Squash_Decal",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Effects/Niagara/MasterMaterials/Sprite/MI_SparkRound_01_BasicWhite.MI_SparkRound_01_BasicWhite",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_RibbonSoft_Elastic_Fire.MI_RibbonSoft_Elastic_Fire",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Cosmic/MI_Pickaxe_Elastic_Cosmic_Trail.MI_Pickaxe_Elastic_Cosmic_Trail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Elastic_Fire_Inst.MI_Elastic_Fire_Inst",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Elastic/Fire/MI_Impact_Elastic_Fire_Inst.MI_Impact_Elastic_Fire_Inst",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Athena/Effects/Materials/M_Flash_Spike_VariantColor_01.M_Flash_Spike_VariantColor_01",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_Idle.NS_Pickaxe_ZombieElasticFemale1H_Idle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_AnimTrail.NS_Pickaxe_ZombieElasticFemale1H_AnimTrail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ZombieElasticFemale1H/FX/NS_Pickaxe_ZombieElasticFemale1H_Impact.NS_Pickaxe_ZombieElasticFemale1H_Impact",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Primary Color"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "C705F1D74D25B18597D850ABB6F48F0B",
+          "SourceString": "Primary Color",
+          "LocalizedString": "Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A2A4313240A168D391E1438024259F3D",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor4"
+      }
+    }
+  }
+]

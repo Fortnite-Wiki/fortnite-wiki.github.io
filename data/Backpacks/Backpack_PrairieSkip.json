@@ -1,0 +1,252 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_PrairieSkip",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_PrairieSkip'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_PrairieSkip.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_PrairieSkip:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_PrairieSkip.1"
+        }
+      ],
+      "BaseShotGridId": 98522,
+      "VariantShotGridIds": [
+        106465
+      ],
+      "ShotGridIds": [
+        98522,
+        106465
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "CA99F5AC41C8EF0825FE53853C723008",
+        "SourceString": "Ignition Pack",
+        "LocalizedString": "Ignition Pack"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6CDED3794952E75840E9D2ABA29AEF2E",
+        "SourceString": "Nitro-inspired mobile afterburner.",
+        "LocalizedString": "Nitro-inspired mobile afterburner."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "843834B748848872C4CCE69A904E1328",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-PrairieSkip.T-Icon-Backpacks-PrairieSkip",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-PrairieSkip-L.T-Icon-Backpacks-PrairieSkip-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.30",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FastStart"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            245,
+            562,
+            162,
+            569,
+            567,
+            264,
+            275,
+            824,
+            1194,
+            1279,
+            1694,
+            349,
+            251,
+            396,
+            395,
+            2544,
+            2605,
+            2653,
+            2660
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Backpack_PrairieSkip",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E7BF5685475D0E0A2F85CB8616CEDCD4",
+            "SourceString": "Ignition Pack",
+            "LocalizedString": "Ignition Pack"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S30/T-Icon-Backpacks-PrairieSkip.T-Icon-Backpacks-PrairieSkip",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Materials/MI_PrairieSkip_Backpack.MI_PrairieSkip_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Skins/Hunter/Materials/MI_PrairieSkip_Hunter_Backpack.MI_PrairieSkip_Hunter_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Materials/MI_PrairieSkip_Backpack_Glass.MI_PrairieSkip_Backpack_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Skins/Hunter/Materials/MI_PrairieSkip_Hunter_Backpack_Glass.MI_PrairieSkip_Hunter_Backpack_Glass",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Materials/MI_PrairieSkip_Backpack_NitroTubes.MI_PrairieSkip_Backpack_NitroTubes",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Skins/Hunter/Materials/MI_PrairieSkip_Hunter_Backpack_NitroTubes.MI_PrairieSkip_Hunter_Backpack_NitroTubes",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Materials/MI_PrairieSkip_Backpack_NitroWindow.MI_PrairieSkip_Backpack_NitroWindow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PrairieSkip/Skins/Hunter/Materials/MI_PrairieSkip_Hunter_Backpack_NitroWindow.MI_PrairieSkip_Hunter_Backpack_NitroWindow",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B6BE70B94097D2B6AD22BA9381ABC6D0",
+            "SourceString": "Nitro Flare Ignition Pack",
+            "LocalizedString": "Nitro Flare Ignition Pack"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S30/Backpacks/T-Icon-Backpacks-PrairieSkip-Hunter.T-Icon-Backpacks-PrairieSkip-Hunter",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "467BD39F4C6B5E952A39B7BE75DA7DA7",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

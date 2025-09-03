@@ -1,0 +1,603 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_Impulse",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_Impulse'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_Impulse.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_Impulse:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_Impulse.1"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Backpack_Impulse:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_Impulse.2"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Backpack_Impulse:FortCosmeticRichColorVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_Impulse.3"
+        }
+      ],
+      "BaseShotGridId": 61718,
+      "ShotGridIds": [
+        61718
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "10B6336340153BB9941FB2BBACA23FBB",
+        "SourceString": "Top Trophy",
+        "LocalizedString": "Top Trophy"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D3C7F32C4A9FF41B82011C902803D354",
+        "SourceString": "Show off that win!",
+        "LocalizedString": "Show off that win!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F11226644BB6CDDD24A60AAA823F281D",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-ImpulseBackpack.T-Icon-Backpacks-ImpulseBackpack",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-ImpulseBackpack-L.T-Icon-Backpacks-ImpulseBackpack-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.22",
+            "Cosmetics.Set.TellEm",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            245,
+            246,
+            247,
+            1000,
+            1002,
+            1095,
+            1219,
+            2228,
+            2334,
+            2335,
+            2338,
+            291,
+            2337,
+            290,
+            2753,
+            2754,
+            2899,
+            2900
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_Impulse",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F6827E5C4B7B5DB713371C9A7B9D147F",
+            "SourceString": "vest",
+            "LocalizedString": "vest"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern1.T-Impulse_Patterns-Impulse-Pattern1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_1.T_M_MED_Impulse_Backpack_FX_1",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "537DF8844FE2B8AACC2FFB98B01F66F5",
+            "SourceString": "stripes",
+            "LocalizedString": "stripes"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern3.T-Impulse_Patterns-Impulse-Pattern3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_2.T_M_MED_Impulse_Backpack_FX_2",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C36E5E844E76136E6FECE2A0280D1F4C",
+            "SourceString": "verticals",
+            "LocalizedString": "verticals"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern7.T-Impulse_Patterns-Impulse-Pattern7",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_3.T_M_MED_Impulse_Backpack_FX_3",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "40E0E1164205194275A942822263B5E0",
+            "SourceString": "chevrons",
+            "LocalizedString": "chevrons"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern2.T-Impulse_Patterns-Impulse-Pattern2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_4.T_M_MED_Impulse_Backpack_FX_4",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BBFF26FC43E3BBBC23200C87DEEDBFC8",
+            "SourceString": "panels",
+            "LocalizedString": "panels"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern5.T-Impulse_Patterns-Impulse-Pattern5",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_5.T_M_MED_Impulse_Backpack_FX_5",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A132C945411B73A25AF9D3BBD28B35D3",
+            "SourceString": "holster",
+            "LocalizedString": "holster"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern6.T-Impulse_Patterns-Impulse-Pattern6",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Textures/T_M_MED_Impulse_Backpack_FX_6.T_M_MED_Impulse_Backpack_FX_6",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C67732D746877110AB3253B2A04DC763",
+            "SourceString": "bolts",
+            "LocalizedString": "bolts"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/Impulse_Icons/T-Impulse_Patterns-Impulse-Pattern4.T-Impulse_Patterns-Impulse-Pattern4",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6B4ED1AC41411C4A6D0AA0B44F4DC111",
+        "SourceString": "patterns",
+        "LocalizedString": "patterns"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Backpack_Impulse",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.75,
+            "G": 0.75,
+            "B": 0.75,
+            "A": 1.0,
+            "Hex": "E1E1E1"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Impulse.CS_Impulse",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "CustomColor 1"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9384DB4F4940BBC012722D9E0562BC4F",
+        "SourceString": "color 1",
+        "LocalizedString": "color 1"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Slot.1"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_1",
+    "Outer": "Backpack_Impulse",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.376262,
+            "G": 0.0,
+            "B": 0.014444,
+            "A": 1.0,
+            "Hex": "A50020"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Impulse.CS_Impulse",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Impulse/Materials/M_MED_Impulse_Backpack_custom.M_MED_Impulse_Backpack_custom",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "CustomColor 2"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "C8E797194F0C99EA04B8579AF852BC9F",
+        "SourceString": "color 2",
+        "LocalizedString": "color 2"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Slot.2"
+      }
+    }
+  }
+]

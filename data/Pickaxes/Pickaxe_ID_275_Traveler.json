@@ -1,0 +1,235 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_275_Traveler",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'WID_Harvest_Pickaxe_Traveler'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_Traveler.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 35.0,
+        "Z": 45.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 20.0,
+          "Y": 0.0,
+          "Z": 8.0
+        },
+        "CylinderHalfHeight": 65.0,
+        "CylinderRadius": 65.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Pickaxe_ID_275_Traveler:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_275_Traveler.1"
+        }
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "4555DCEC4654EDF3B7CFBDA0DF71749E",
+        "SourceString": "Flying Slasher",
+        "LocalizedString": "Flying Slasher"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E8F0FCDB4D8FA4A81543BC93D0511FE5",
+        "SourceString": "Harvest the truth.",
+        "LocalizedString": "Harvest the truth."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "8D9FB43443567267373262B9E2C26194",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.AbandonedCrowd",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.10",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 5.0,
+            "Yaw": -148.0,
+            "Roll": -28.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            544,
+            357,
+            564,
+            237,
+            123,
+            170,
+            86,
+            269,
+            246,
+            54,
+            644,
+            244,
+            127,
+            683,
+            174,
+            329,
+            1029,
+            1333,
+            1922,
+            2008,
+            2082,
+            2325,
+            2488,
+            2491,
+            293,
+            2510,
+            2632,
+            375,
+            4271,
+            4272,
+            4269,
+            5719
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Pickaxe_ID_275_Traveler",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0B577EE14AB6C06FB39D159C1E727416",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-TravelerPickaxe.T-Icon-Pickaxes-TravelerPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Traveler/Materials/MI_Pickaxe_Traveler.MI_Pickaxe_Traveler",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Traveler_Dark/Materials/MI_Pickaxe_Traveler_Dark.MI_Pickaxe_Traveler_Dark",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "26B55FD543FBE0ABEB1D49AF08317DAD",
+            "SourceString": "DARK",
+            "LocalizedString": "DARK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-TravelerDarkPickaxe.T-Icon-Pickaxes-TravelerDarkPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "0BD005444BB4E8D45B17AF8212FA8AA0",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

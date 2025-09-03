@@ -1,0 +1,256 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_HydroBottle",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_HydroBottle'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_HydroBottle.0"
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 1.0,
+        "Y": 5.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 5.0
+        },
+        "CylinderHalfHeight": 4.0,
+        "CylinderRadius": 48.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'Pickaxe_HydroBottle:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_HydroBottle.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 88676,
+      "ShotGridIds": [
+        88676
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "09D0D73940EB00EBBE5ECB97DD175486",
+        "SourceString": "Weapon X Claws",
+        "LocalizedString": "Weapon X Claws"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A0890D0241B4288CBFD53BB30D46BD86",
+        "SourceString": "Virtually indestructible, adamantium bonded claws.",
+        "LocalizedString": "Virtually indestructible, adamantium bonded claws."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "D697781240428BC6268B908D3951874D",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S30/T-Icon-Pickaxes-HydroBottle.T-Icon-Pickaxes-HydroBottle",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S30/T-Icon-Pickaxes-HydroBottle-L.T-Icon-Pickaxes-HydroBottle-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Pickaxe.HightowerWasabi",
+            "Cosmetics.Filter.Season.30",
+            "Cosmetics.Set.BlindGrace",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            553,
+            357,
+            562,
+            156,
+            566,
+            564,
+            563,
+            162,
+            574,
+            576,
+            166,
+            608,
+            606,
+            618,
+            16,
+            269,
+            651,
+            246,
+            639,
+            486,
+            662,
+            666,
+            668,
+            932,
+            824,
+            113,
+            1194,
+            1261,
+            2439,
+            438,
+            474,
+            3743
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "Pickaxe_HydroBottle",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HydroBottle.Character_HydroBottle",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HydroBottle/Meshes/HydroBottle_Axe.HydroBottle_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_HydroBottle_BuiltIn/Meshes/M_MED_HydroBottle_BuiltIn_Axe.M_MED_HydroBottle_BuiltIn_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage0"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

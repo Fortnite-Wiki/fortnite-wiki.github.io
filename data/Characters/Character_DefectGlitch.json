@@ -1,0 +1,607 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_DefectGlitch",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_DefectGlitch.CP_Athena_Head_F_DefectGlitch",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_DefectGlitch.CP_Athena_Body_F_DefectGlitch",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_DefectGlitch_FaceAcc.CP_F_MED_DefectGlitch_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills",
+        "StatManager.DamageReceived",
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Character_DefectGlitch:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectGlitch.2"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_DefectGlitch:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectGlitch.1"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'Character_DefectGlitch:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectGlitch.3"
+        }
+      ],
+      "ItemVariantPreviewGenerator": {
+        "ObjectName": "FortWrapVariantPreviewGenerator'Character_DefectGlitch:FortWrapVariantPreviewGenerator_0'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectGlitch.4"
+      },
+      "BaseShotGridId": 59656,
+      "ShotGridIds": [
+        59656
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C488414949B4A007DF9CE5BFBEB3E9FA",
+        "SourceString": "Glitch",
+        "LocalizedString": "Glitch"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "1CF019B240D2D1AFFD507B9E72AD4F26",
+        "SourceString": "You are more than your programming.",
+        "LocalizedString": "You are more than your programming."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/T-Soldier-Hero-DefectGlitch-A-L.T-Soldier-Hero-DefectGlitch-A-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S22/T-Soldier-Hero-DefectGlitch-A.T-Soldier-Hero-DefectGlitch-A",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.22",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.BotTaught",
+            "SoundLibrary.ID.StepType.BootsHeeled",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Cosmetics.FrontEndPose.IsRebirth",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            552,
+            7975,
+            545,
+            229,
+            488,
+            236,
+            553,
+            357,
+            8,
+            169,
+            561,
+            559,
+            564,
+            162,
+            572,
+            574,
+            573,
+            567,
+            576,
+            166,
+            608,
+            606,
+            261,
+            629,
+            247,
+            32,
+            701,
+            786
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_DefectGlitch",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AE2C841F442101025C451698EF9C268F",
+            "SourceString": "Brass",
+            "LocalizedString": "Brass"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-gold.T-Variant-Defect-gold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "542149544594A44E707FAE88A368197B",
+            "SourceString": "Rose Gold",
+            "LocalizedString": "Rose Gold"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-RoseGold.T-Variant-Defect-RoseGold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9B4DCD004087CA213410849133D7DE6C",
+            "SourceString": "Bluish Steel",
+            "LocalizedString": "Bluish Steel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-bluishsteel.T-Variant-Defect-bluishsteel",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 4.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 4.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2D42260943F94AB01B5C7FBC53A6BB85",
+            "SourceString": "Heated",
+            "LocalizedString": "Heated"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-heated.T-Variant-Defect-heated",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "BDA1A7B14A95BA85AF067685FA3ADCB1",
+        "SourceString": "Metal Color",
+        "LocalizedString": "Metal Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor2"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Character_DefectGlitch",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.693872,
+            "G": 0.011612,
+            "B": 0.309469,
+            "A": 1.0,
+            "Hex": "D91C97"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Defect.CS_Defect",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Head.F_MED_DefectGlitch_Head",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Hair.F_MED_DefectGlitch_Hair",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Materials/F_MED_DefectGlitch_Body.F_MED_DefectGlitch_Body",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "CO_ColorOverride"
+        },
+        "bIsDefault": true,
+        "VariantName": {
+          "Namespace": "",
+          "Key": "63F736DB41DDA1B9EF88BF857CC542FC",
+          "SourceString": "Primary Color",
+          "LocalizedString": "Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "352A4D114D1E48B8A6A885B270736402",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "Character_DefectGlitch",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "CharacterPartSkelMesh_Body"
+          ],
+          "WrapSectionMask": 1,
+          "AllowedMeshes": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_DefectGlitch/Meshes/F_MED_DefectGlitch.F_MED_DefectGlitch",
+              "SubPathString": ""
+            }
+          ]
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7C7B6CAA417398E823D7FFB8980A5A79",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortWrapVariantPreviewGenerator",
+    "Name": "FortWrapVariantPreviewGenerator_0",
+    "Outer": "Character_DefectGlitch",
+    "Class": "UScriptClass'FortWrapVariantPreviewGenerator'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      },
+      "BaseVariantPreview": {
+        "PreviewTime": 4.0,
+        "VariantOptions": [
+          {
+            "OwnedVariantTags": [],
+            "ItemVariantIsUsedFor": {
+              "ObjectName": "AthenaCharacterItemDefinition'Character_DefectGlitch'",
+              "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectGlitch.0"
+            },
+            "CustomData": "None",
+            "VariantChannelTag": {
+              "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+            },
+            "ActiveVariantTag": {
+              "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+            }
+          }
+        ]
+      },
+      "NumWrapPreviews": 4,
+      "PreviewWrapDefinitions": [
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/ItemWraps/Wrap_379_Pliant.Wrap_379_Pliant",
+          "SubPathString": ""
+        }
+      ],
+      "DefaultCustomData": "None"
+    }
+  }
+]

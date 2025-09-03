@@ -1,0 +1,217 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_BrawnyBass",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_BrawnyBass'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_BrawnyBass.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_BrawnyBass:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_BrawnyBass.1"
+        }
+      ],
+      "BaseShotGridId": 72986,
+      "VariantShotGridIds": [
+        72987
+      ],
+      "ShotGridIds": [
+        72986,
+        72987
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "4BB65DD64D35B5097A2DF1B8009B2290",
+        "SourceString": "Powder Keg",
+        "LocalizedString": "Powder Keg"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "9B71650A4EC8DEF48C7798A7F2109126",
+        "SourceString": "Sprinkle that on your tank, pal.",
+        "LocalizedString": "Sprinkle that on your tank, pal."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "A9E691B245CAB26DBC8B8687F94DC034",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S26/T-Icon-Backpacks-BrawnyBass.T-Icon-Backpacks-BrawnyBass",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.26",
+            "Cosmetics.Source.Season26.BattlePass.Paid",
+            "Cosmetics.Set.SwoleChum"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            236,
+            245,
+            809,
+            1000,
+            1260,
+            1396,
+            1395,
+            265,
+            2482,
+            2581,
+            2573,
+            2575,
+            2576,
+            2580,
+            2578,
+            2582,
+            2577,
+            2583,
+            2579,
+            2574
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Backpack_BrawnyBass",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6A74F0E849D6808A5580C6A9D4EE54D8",
+            "SourceString": "Powder Keg",
+            "LocalizedString": "Powder Keg"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S26/T-Icon-Backpacks-BrawnyBass.T-Icon-Backpacks-BrawnyBass",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_BrawnyBass/Materials/M_MED_BrawnyBass_Backpack.M_MED_BrawnyBass_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_BrawnyBass/Skins/Style/Materials/Mi_M_MED_BrawnyBass_Style_Backpack.Mi_M_MED_BrawnyBass_Style_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_BrawnyBass/Materials/MI_Gadget_BrawnyBass.MI_Gadget_BrawnyBass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_BrawnyBass/Skins/Style/Materials/MI_Gadget_BrawnyBass_Style.MI_Gadget_BrawnyBass_Style",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0A6223104E0B6EAEDBA760B42C70867E",
+            "SourceString": "Fin-dication",
+            "LocalizedString": "Fin-dication"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S26/Backpacks/T-Icon-Backpacks-BrawnyBass-Style.T-Icon-Backpacks-BrawnyBass-Style",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6D396A594DA4C50EBDAB388FAE767B49",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_CameraShake",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_CameraShake'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_CameraShake.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Backpack_CameraShake:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_CameraShake.1"
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_CameraShake.Character_CameraShake",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 70649,
+      "ShotGridIds": [
+        70649
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9DA314E94D8B984954D4A6A219EB66E4",
+        "SourceString": "Ball In Play",
+        "LocalizedString": "Ball In Play"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A20772AE443BD78DD5E1289BC220664F",
+        "SourceString": "The whole world is your pitch.",
+        "LocalizedString": "The whole world is your pitch."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "93DFF985425F5601AF5651ACC1A11EE5",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S25/T-Icon-Backpacks-CameraShake.T-Icon-Backpacks-CameraShake",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.SphereKickGroup",
+            "Cosmetics.Filter.Season.25",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            229,
+            236,
+            357,
+            562,
+            566,
+            564,
+            237,
+            162,
+            569,
+            567,
+            166,
+            606,
+            86,
+            246,
+            898,
+            127,
+            705,
+            106,
+            759,
+            774,
+            773,
+            808,
+            897,
+            895,
+            1194,
+            1279,
+            315,
+            287,
+            453,
+            1694,
+            291,
+            395,
+            2605,
+            2606
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Backpack_CameraShake",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.06301,
+            "G": 0.64448,
+            "B": 0.043735,
+            "A": 1.0,
+            "Hex": "47D23B"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_CameraShake.CS_CameraShake",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_CameraShake/Materials/MI_Backpack_CameraShake.MI_Backpack_CameraShake",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "CO_ColorOverride"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B5CD954E40CC8273083F60A290C09981",
+        "SourceString": "color",
+        "LocalizedString": "color"
+      }
+    }
+  }
+]

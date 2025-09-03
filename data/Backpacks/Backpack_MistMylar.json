@@ -1,0 +1,348 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_MistMylar",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_MistMylarUniversal'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_MistMylarUniversal.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'Backpack_MistMylar:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MistMylar.2"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Backpack_MistMylar:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_MistMylar.1"
+        }
+      ],
+      "BaseShotGridId": 128487,
+      "ShotGridIds": [
+        128487
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "64005DCA48B6C6B4D6D187A283B07E94",
+        "SourceString": "Shadow Shroud",
+        "LocalizedString": "Shadow Shroud"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "750809534C4B68739D2DD8874F340980",
+        "SourceString": "Grasp your darkest ambitions.",
+        "LocalizedString": "Grasp your darkest ambitions."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "01BB034747AECA5A661E78B0C9B81594",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_MistMylar.T_Icon_Backpacks_MistMylar",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_MistMylar_L.T_Icon_Backpacks_MistMylar_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.33",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FaceHat",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            2,
+            236,
+            75,
+            95,
+            613,
+            13,
+            542,
+            247,
+            706,
+            96,
+            710,
+            960,
+            986,
+            1061,
+            1063,
+            3026
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Backpack_MistMylar",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9B5E5060459D01312DFF0A8A90BCD580",
+            "SourceString": "Shadow Shroud",
+            "LocalizedString": "Shadow Shroud"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_MistMylar.T_Icon_Backpacks_MistMylar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/M_Cape_MistMylar_TrailTOP.M_Cape_MistMylar_TrailTOP",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Armor_TrailTOP.MI_Cape_MistMylar_Armor_TrailTOP",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/M_Cape_MistMylar_TrailLong.M_Cape_MistMylar_TrailLong",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Armor_TrailLong.MI_Cape_MistMylar_Armor_TrailLong",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Universal_TrailTOP.MI_Cape_MistMylar_Universal_TrailTOP",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Armor_Universal_TrailTOP.MI_Cape_MistMylar_Armor_Universal_TrailTOP",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Universal_TrailLong.MI_Cape_MistMylar_Universal_TrailLong",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_Cape_MistMylar_Armor_Universal_TrailLong.MI_Cape_MistMylar_Armor_Universal_TrailLong",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/M_MistMylar_Cape_BlandMesh.M_MistMylar_Cape_BlandMesh",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_MistMylar_Cape_ArmorBlandMesh.MI_MistMylar_Cape_ArmorBlandMesh",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_MistMylar_Cape_Universal_BlandMesh.MI_MistMylar_Cape_Universal_BlandMesh",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_MistMylar/FX/MI_MistMylar_Cape_ArmorUniversal_BlandMesh.MI_MistMylar_Cape_ArmorUniversal_BlandMesh",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B5E60408475CB51383EB5BA1D9EDBD71",
+            "SourceString": "Shadow-Lit Shroud",
+            "LocalizedString": "Shadow-Lit Shroud"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S33/T_Icon_Backpacks_MistMylar_ArmorUniversal.T_Icon_Backpacks_MistMylar_ArmorUniversal",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9B2585B14DC7E8DB56904CB7399BC569",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "Backpack_MistMylar",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_MistMylar_Claw.Character_MistMylar_Claw",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_MistMylar.CP_Backpack_MistMylar",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

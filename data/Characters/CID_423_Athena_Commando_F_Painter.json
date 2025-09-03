@@ -1,0 +1,680 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_423_Athena_Commando_F_Painter",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_Painter.CP_Head_F_Painter",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_Painter.CP_Body_Commando_F_Painter",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_Painter.CP_F_MED_Painter",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "MetaTags": [
+        "Cosmetics.MetaTags.Special.BodySwap.Full"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'CID_423_Athena_Commando_F_Painter:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_423_Athena_Commando_F_Painter.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "Namespace": "",
+            "Key": "35A329034FC1051B9580E28F1B50A7A4",
+            "SourceString": "Collect 100 coins or more coins in 3 creative games",
+            "LocalizedString": "Collect 100 coins or more coins in 3 creative games"
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "Namespace": "",
+            "Key": "B51395664094071749C7348E399E2105",
+            "SourceString": "Play any 3 creative games",
+            "LocalizedString": "Play any 3 creative games"
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat3"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "Namespace": "",
+            "Key": "D2B5BC0E4CDE2E4FF818C3960AD7E3E9",
+            "SourceString": "Complete all style challenges",
+            "LocalizedString": "Complete all style challenges"
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat4"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 21621,
+      "VariantShotGridIds": [
+        21621,
+        21623,
+        21622,
+        18213
+      ],
+      "ShotGridIds": [
+        21621,
+        21621,
+        21623,
+        21622,
+        18213
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "7DF267B44E9BFBEB45B29080C8763FE4",
+        "SourceString": "Clutch",
+        "LocalizedString": "Clutch"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "750034B5470A8D5993395E8B90D4D327",
+        "SourceString": "Clutch under pressure.",
+        "LocalizedString": "Clutch under pressure."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-423-Athena-Commando-F-Painter-L.T-Soldier-HID-423-Athena-Commando-F-Painter-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-423-Athena-Commando-F-Painter.T-Soldier-HID-423-Athena-Commando-F-Painter",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.Vigilante",
+            "Cosmetics.Source.Event.CreativePromo.Character",
+            "Cosmetics.Filter.Season.9",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.FrontEndPose.DontHandsOnHips",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            543,
+            549,
+            552,
+            7975,
+            484,
+            541,
+            236,
+            544,
+            357,
+            54,
+            542,
+            667,
+            710,
+            41,
+            776,
+            890
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "CID_423_Athena_Commando_F_Painter",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Accessory_D.T_F_MED_Painter_silver_Accessory_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Accessory_S.T_F_MED_Painter_silver_Accessory_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Hair_D.T_F_MED_Painter_silver_Hair_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Hair_S.T_F_MED_Painter_silver_Hair_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body.F_MED_Painter_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Body_D.T_F_MED_Painter_silver_Body_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Body_N.T_F_MED_Painter_silver_Body_N",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Normals"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Silver/T_F_MED_Painter_silver_Body_S.T_F_MED_Painter_silver_Body_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body.F_MED_Painter_Body",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AC743AD047EE0B7A32830D920CC56A26",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-423-Athena-Commando-F-Painter.T-Soldier-HID-423-Athena-Commando-F-Painter",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Accessory_D.T_F_MED_Painter_pink_Accessory_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Accessory_S.T_F_MED_Painter_pink_Accessory_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Hair_D.T_F_MED_Painter_pink_Hair_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Hair_S.T_F_MED_Painter_pink_Hair_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body.F_MED_Painter_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Body_D.T_F_MED_Painter_pink_Body_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Body_N.T_F_MED_Painter_pink_Body_N",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Normals"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Pink/T_F_MED_Painter_pink_Body_S.T_F_MED_Painter_pink_Body_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body.F_MED_Painter_Body",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.768151,
+                    "G": 0.760525,
+                    "B": 0.822786,
+                    "A": 1.0,
+                    "Hex": "E3E2EA"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D9AFF505433BB78F31CA33B15FB91541",
+            "SourceString": "PINK ",
+            "LocalizedString": "PINK "
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-F-Painter-Pink.T-Variant-F-Painter-Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body.F_MED_Painter_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Body_Yellow.F_MED_Painter_Body_Yellow",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Yellow/T_F_MED_Painter_yellow_Accessory_D.T_F_MED_Painter_yellow_Accessory_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Yellow/T_F_MED_Painter_yellow_Accessory_S.T_F_MED_Painter_yellow_Accessory_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hat.F_MED_Painter_Hat",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Yellow/T_F_MED_Painter_yellow_Hair_D.T_F_MED_Painter_yellow_Hair_D",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Diffuse"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Textures/Yellow/T_F_MED_Painter_yellow_Hair_S.T_F_MED_Painter_yellow_Hair_S",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SpecularMasks"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Painter/Materials/F_MED_Painter_Hair.F_MED_Painter_Hair",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1DB431624861B63585A59A8083FB2BCA",
+            "SourceString": "YELLOW",
+            "LocalizedString": "YELLOW"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-F-Painter-Yellow.T-Variant-F-Painter-Yellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "24DAEC2447586DB9F27D3A8A59F465F5",
+            "SourceString": "RED",
+            "LocalizedString": "RED"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-F-Painter-Red.T-Variant-F-Painter-Red",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "68843E5747FB3673DCB1B4B0F88B8B3C",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

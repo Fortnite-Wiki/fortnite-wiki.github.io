@@ -1,0 +1,304 @@
+[
+  {
+    "Type": "AthenaSkyDiveContrailItemDefinition",
+    "Name": "Contrail_PinkSpike",
+    "Class": "UScriptClass'AthenaSkyDiveContrailItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraContrailEffect": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_PinkSpike/NS_Contrail_PinkSpike.NS_Contrail_PinkSpike",
+        "SubPathString": ""
+      },
+      "PreviewPawnRotationOffset": {
+        "Pitch": 0.0,
+        "Yaw": -35.0,
+        "Roll": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Contrail_PinkSpike:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Contrails/Contrail_PinkSpike.1"
+        }
+      ],
+      "BaseShotGridId": 61814,
+      "ShotGridIds": [
+        61814
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "61CA53FA4CEC13BA232FBC83BB62B849",
+        "SourceString": "Hop Drop",
+        "LocalizedString": "Hop Drop"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "9502480D48E7BA9D2AF1FC84F3BDC2ED",
+        "SourceString": "We've got a bunny down!",
+        "LocalizedString": "We've got a bunny down!"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "6E25489B427D82CDC87E9786FEF095AD",
+        "SourceString": "Contrail",
+        "LocalizedString": "Contrail"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionIn",
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionOut",
+            "Cosmetics.Filter.Season.22",
+            "Cosmetics.Source.Season22.BattlePass.Paid",
+            "Cosmetics.Set.BlushNail",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-PinkSpike.T-Icon-Trails-FX-PinkSpike",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-PinkSpike-L.T-Icon-Trails-FX-PinkSpike-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 15.0,
+            "Y": 120.0,
+            "Z": 45.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            236,
+            544,
+            261,
+            246,
+            684,
+            66,
+            219,
+            875,
+            436,
+            363,
+            1072,
+            1070,
+            2476,
+            2861,
+            2951,
+            4823,
+            5070,
+            5876
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Contrail_PinkSpike",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_PinkSpike/NS_Contrail_PinkSpike.NS_Contrail_PinkSpike",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant_Float"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "06B9BF4344A71A9EE469CD8DE1D6E081",
+            "SourceString": "Hop Drop",
+            "LocalizedString": "Hop Drop"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-PinkSpike.T-Icon-Trails-FX-PinkSpike",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_PinkSpike/NS_Contrail_PinkSpike.NS_Contrail_PinkSpike",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "Variant_Float"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7FF71F714353323B2749DF9F51B6CD27",
+            "SourceString": "Fresh Vandal",
+            "LocalizedString": "Fresh Vandal"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-PinkSpike-Blue.T-Icon-Trails-FX-PinkSpike-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_PinkSpike/NS_Contrail_PinkSpike.NS_Contrail_PinkSpike",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant_Float"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DB20A5ED4BD81DDDA282CF9506B8F45B",
+            "SourceString": "Bubblegum Punk",
+            "LocalizedString": "Bubblegum Punk"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-PinkSpike-Pink.T-Icon-Trails-FX-PinkSpike-Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4FAFE9E642AD2ABD399C71939FB55549",
+        "SourceString": "Float",
+        "LocalizedString": "Float"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

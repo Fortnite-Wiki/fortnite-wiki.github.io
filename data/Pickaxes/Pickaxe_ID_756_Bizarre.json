@@ -1,0 +1,1559 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_756_Bizarre",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_Bizarre'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_Bizarre.5"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 1000.0,
+        "Y": 1000.0,
+        "Z": 1000.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 25.0,
+          "Y": 0.0,
+          "Z": 15.0
+        },
+        "CylinderHalfHeight": 65.0,
+        "CylinderRadius": 65.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ID_756_Bizarre:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ID_756_Bizarre:FortCosmeticParticleVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.2"
+        }
+      ],
+      "BaseShotGridId": 58291,
+      "VariantShotGridIds": [
+        54805,
+        56119,
+        56120,
+        56121,
+        56122,
+        58289,
+        58290
+      ],
+      "ShotGridIds": [
+        58291,
+        54805,
+        56119,
+        56120,
+        56121,
+        56122,
+        58289,
+        58290
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "1E795B1E4638562AA4C6C79970D2682B",
+        "SourceString": "Photonic Striker",
+        "LocalizedString": "Photonic Striker"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "509F577449C31D7D98137AA7A383623C",
+        "SourceString": "A nice, clean cut.",
+        "LocalizedString": "A nice, clean cut."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "6E76D4D54CCDEAF82E30DA80F28181AB",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 310.0,
+            "Roll": 5.0
+          },
+          "Scale": 1.6
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.CrewPack",
+            "Cosmetics.CrewBling.Progressive",
+            "Cosmetics.AllowLockedDefaultVariants",
+            "Cosmetics.Set.LightHistory",
+            "Cosmetics.Filter.Season.22"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            488,
+            544,
+            564,
+            162,
+            243,
+            24,
+            247,
+            275,
+            106,
+            113,
+            1047,
+            258,
+            1350,
+            2056,
+            2470,
+            438,
+            2526
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_ID_756_Bizarre",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "66A3F26148F6207077EE96BCD99DE625",
+            "SourceString": "Photonic Striker",
+            "LocalizedString": "Photonic Striker"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier1.T-Icon-Pickaxes-PickaxeBizarreTier1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_1_Axe.Bizarre_Tier_1_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_2_Axe.Bizarre_Tier_2_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Yellow.NS_Pickaxe_Bizarre_2_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Yellow.NS_Pickaxe_Bizarre_Trail_2_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT1.SC_PickaxeReady_BizarreT1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT2.SC_PickaxeReady_BizarreT2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.OneHanded1"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3E54B21B4092EFB1A2F5F491E7CC691E",
+            "SourceString": "Advanced",
+            "LocalizedString": "Advanced"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier2.T-Icon-Pickaxes-PickaxeBizarreTier2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_1_Axe.Bizarre_Tier_1_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_3_Axe.Bizarre_Tier_3_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Yellow.NS_Pickaxe_Bizarre_3_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Yellow.NS_Pickaxe_Bizarre_Trail_4_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT1-2.SC_PickaxeSwing_BizarreT1-2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT3-4.SC_PickaxeSwing_BizarreT3-4",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT1.SC_PickaxeReady_BizarreT1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT3.SC_PickaxeReady_BizarreT3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield1"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3FCBF39B49B807831883D6AFF56E230F",
+            "SourceString": "Cyberlight",
+            "LocalizedString": "Cyberlight"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier3.T-Icon-Pickaxes-PickaxeBizarreTier3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_1_Axe.Bizarre_Tier_1_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_4_Axe.Bizarre_Tier_4_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_3_Axe.Bizarre_Tier_3_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_4_Axe.Bizarre_Tier_4_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Yellow.NS_Pickaxe_Bizarre_4_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Yellow.NS_Pickaxe_Bizarre_Trail_4_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT1-2.SC_PickaxeSwing_BizarreT1-2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT3-4.SC_PickaxeSwing_BizarreT3-4",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT1.SC_PickaxeReady_BizarreT1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT4.SC_PickaxeReady_BizarreT4",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield2"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A13B23774053F2F4AFC1F3B85D68B2C1",
+            "SourceString": "Tuned",
+            "LocalizedString": "Tuned"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier4.T-Icon-Pickaxes-PickaxeBizarreTier4",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_1_Axe.Bizarre_Tier_1_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Meshes/Bizarre_Tier_5_Axe.Bizarre_Tier_5_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Yellow.NS_Pickaxe_Bizarre_5_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Yellow.NS_Pickaxe_Bizarre_Trail_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT1-2.SC_PickaxeSwing_BizarreT1-2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeSwing_BizarreT5.SC_PickaxeSwing_BizarreT5",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT1.SC_PickaxeReady_BizarreT1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/Bizarre/SC_PickaxeReady_BizarreT5.SC_PickaxeReady_BizarreT5",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.StyleTwo"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2B06B83B40010F5420E7399EB0AF333E",
+            "SourceString": "Complex",
+            "LocalizedString": "Complex"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier5.T-Icon-Pickaxes-PickaxeBizarreTier5",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "2BE8F7E94B47F398F554BC82E2414854",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_1",
+    "Outer": "Pickaxe_ID_756_Bizarre",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "114E4EF54E62ACA92DA1C193C10E0968",
+            "SourceString": "Energy Orange",
+            "LocalizedString": "Energy Orange"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier5-L.T-Icon-Pickaxes-PickaxeBizarreTier5-L",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_1.MI_Bizarre_Teal_Tier_1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Materials/MI_Bizarre_Tier_1.MI_Bizarre_Tier_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_2.MI_Bizarre_Teal_Tier_2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Materials/MI_Bizarre_Tier_2.MI_Bizarre_Tier_2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_3.MI_Bizarre_Teal_Tier_3",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Materials/MI_Bizarre_Tier_3.MI_Bizarre_Tier_3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_4.MI_Bizarre_Teal_Tier_4",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Materials/MI_Bizarre_Tier_4.MI_Bizarre_Tier_4",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_5.MI_Bizarre_Teal_Tier_5",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Materials/MI_Bizarre_Tier_5.MI_Bizarre_Tier_5",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Pink.NS_Pickaxe_Bizarre_1_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Yellow.NS_Pickaxe_Bizarre_2_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Pink.NS_Pickaxe_Bizarre_2_Idle_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Yellow.NS_Pickaxe_Bizarre_3_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Pink.NS_Pickaxe_Bizarre_3_Idle_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Yellow.NS_Pickaxe_Bizarre_4_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Pink.NS_Pickaxe_Bizarre_4_Idle_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Yellow.NS_Pickaxe_Bizarre_5_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Pink.NS_Pickaxe_Bizarre_5_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_Yellow.NS_Pickaxe_Bizarre_Impact_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_2.NS_Pickaxe_Bizarre_Impact_2",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Pink.NS_Pickaxe_Bizarre_Trail_1_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Yellow.NS_Pickaxe_Bizarre_Trail_2_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Pink.NS_Pickaxe_Bizarre_Trail_2_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Yellow.NS_Pickaxe_Bizarre_Trail_4_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Pink.NS_Pickaxe_Bizarre_Trail_4_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Yellow.NS_Pickaxe_Bizarre_Trail_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Pink.NS_Pickaxe_Bizarre_Trail_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy_Yellow.NS_Pickaxe_Bizarre_2_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy.NS_Pickaxe_Bizarre_2_Deploy",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy_Yellow.NS_Pickaxe_Bizarre_3_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy.NS_Pickaxe_Bizarre_3_Deploy",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy_Yellow.NS_Pickaxe_Bizarre_4_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy.NS_Pickaxe_Bizarre_4_Deploy",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy_Yellow.NS_Pickaxe_Bizarre_5_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy.NS_Pickaxe_Bizarre_5_Deploy",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EF422E7A44C2134FCBEDEE946A7E26D0",
+            "SourceString": "Laser Red",
+            "LocalizedString": "Laser Red"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-BizarrePickaxeTier5.T-Icon-Pickaxes-BizarrePickaxeTier5",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_1.MI_Bizarre_Teal_Tier_1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Silver/Materials/MI_Bizarre_Silver_Tier_1.MI_Bizarre_Silver_Tier_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_2.MI_Bizarre_Teal_Tier_2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Silver/Materials/MI_Bizarre_Silver_Tier_2.MI_Bizarre_Silver_Tier_2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_3.MI_Bizarre_Teal_Tier_3",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Silver/Materials/MI_Bizarre_Silver_Tier_3.MI_Bizarre_Silver_Tier_3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_4.MI_Bizarre_Teal_Tier_4",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Silver/Materials/MI_Bizarre_Silver_Tier_4.MI_Bizarre_Silver_Tier_4",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_5.MI_Bizarre_Teal_Tier_5",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Silver/Materials/MI_Bizarre_Silver_Tier_5.MI_Bizarre_Silver_Tier_5",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Blue.NS_Pickaxe_Bizarre_1_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Yellow.NS_Pickaxe_Bizarre_2_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Blue.NS_Pickaxe_Bizarre_2_Idle_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Yellow.NS_Pickaxe_Bizarre_3_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Blue.NS_Pickaxe_Bizarre_3_Idle_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Yellow.NS_Pickaxe_Bizarre_4_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Blue.NS_Pickaxe_Bizarre_4_Idle_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Yellow.NS_Pickaxe_Bizarre_5_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Blue.NS_Pickaxe_Bizarre_5_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Blue.NS_Pickaxe_Bizarre_Trail_1_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Yellow.NS_Pickaxe_Bizarre_Trail_2_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Blue.NS_Pickaxe_Bizarre_Trail_2_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Yellow.NS_Pickaxe_Bizarre_Trail_4_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Blue.NS_Pickaxe_Bizarre_Trail_4_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Yellow.NS_Pickaxe_Bizarre_Trail_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Blue.NS_Pickaxe_Bizarre_Trail_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_Yellow.NS_Pickaxe_Bizarre_Impact_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_Blue.NS_Pickaxe_Bizarre_Impact_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy_Yellow.NS_Pickaxe_Bizarre_2_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy_Blue.NS_Pickaxe_Bizarre_2_Deploy_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy_Yellow.NS_Pickaxe_Bizarre_3_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy_Blue.NS_Pickaxe_Bizarre_3_Deploy_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy_Yellow.NS_Pickaxe_Bizarre_4_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy_Blue.NS_Pickaxe_Bizarre_4_Deploy_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy_Yellow.NS_Pickaxe_Bizarre_5_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy_Blue.NS_Pickaxe_Bizarre_5_Deploy_Blue",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "242BFF3A4BE69B8692652BB16EBCC913",
+            "SourceString": "Radiant Blue",
+            "LocalizedString": "Radiant Blue"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier5silver-neonblue.T-Icon-Pickaxes-PickaxeBizarreTier5silver-neonblue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_1.MI_Bizarre_Teal_Tier_1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Grey/Materials/MI_Bizarre_Grey_Tier_1.MI_Bizarre_Grey_Tier_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_2.MI_Bizarre_Teal_Tier_2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Grey/Materials/MI_Bizarre_Grey_Tier_2.MI_Bizarre_Grey_Tier_2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_3.MI_Bizarre_Teal_Tier_3",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Grey/Materials/MI_Bizarre_Grey_Tier_3.MI_Bizarre_Grey_Tier_3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_4.MI_Bizarre_Teal_Tier_4",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Grey/Materials/MI_Bizarre_Grey_Tier_4.MI_Bizarre_Grey_Tier_4",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Teal/Materials/MI_Bizarre_Teal_Tier_5.MI_Bizarre_Teal_Tier_5",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/Skin/Grey/Materials/MI_Bizarre_Grey_Tier_5.MI_Bizarre_Grey_Tier_5",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Yellow.NS_Pickaxe_Bizarre_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Idle/NS_Pickaxe_Bizarre_1_Green.NS_Pickaxe_Bizarre_1_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Yellow.NS_Pickaxe_Bizarre_2_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Idle/NS_Pickaxe_Bizarre_2_Idle_Green.NS_Pickaxe_Bizarre_2_Idle_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Yellow.NS_Pickaxe_Bizarre_3_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Idle/NS_Pickaxe_Bizarre_3_Idle_Green.NS_Pickaxe_Bizarre_3_Idle_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Yellow.NS_Pickaxe_Bizarre_4_Idle_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Idle/NS_Pickaxe_Bizarre_4_Idle_Green.NS_Pickaxe_Bizarre_4_Idle_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Yellow.NS_Pickaxe_Bizarre_5_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Idle/NS_Pickaxe_Bizarre_5_Green.NS_Pickaxe_Bizarre_5_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_Yellow.NS_Pickaxe_Bizarre_Impact_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/Impact/NS_Pickaxe_Bizarre_Impact_Green.NS_Pickaxe_Bizarre_Impact_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Yellow.NS_Pickaxe_Bizarre_Trail_1_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/1/Trail/NS_Pickaxe_Bizarre_Trail_1_Green.NS_Pickaxe_Bizarre_Trail_1_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Yellow.NS_Pickaxe_Bizarre_Trail_2_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Trail/NS_Pickaxe_Bizarre_Trail_2_Green.NS_Pickaxe_Bizarre_Trail_2_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Yellow.NS_Pickaxe_Bizarre_Trail_4_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Trail/NS_Pickaxe_Bizarre_Trail_4_Green.NS_Pickaxe_Bizarre_Trail_4_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Yellow.NS_Pickaxe_Bizarre_Trail_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Trail/NS_Pickaxe_Bizarre_Trail_Green.NS_Pickaxe_Bizarre_Trail_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy_Yellow.NS_Pickaxe_Bizarre_2_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/2/Deploy/NS_Pickaxe_Bizarre_2_Deploy_Green.NS_Pickaxe_Bizarre_2_Deploy_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy_Yellow.NS_Pickaxe_Bizarre_3_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/3/Deploy/NS_Pickaxe_Bizarre_3_Deploy_Green.NS_Pickaxe_Bizarre_3_Deploy_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy_Yellow.NS_Pickaxe_Bizarre_4_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/4/Deploy/NS_Pickaxe_Bizarre_4_Deploy_Green.NS_Pickaxe_Bizarre_4_Deploy_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy_Yellow.NS_Pickaxe_Bizarre_5_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Bizarre/FX/Niagara/5/Deploy/NS_Pickaxe_Bizarre_5_Deploy_Green.NS_Pickaxe_Bizarre_5_Deploy_Green",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8EB68B3A43890C8FFCDAABAF1B2D3004",
+            "SourceString": "Magnetic Green",
+            "LocalizedString": "Magnetic Green"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-PickaxeBizarreTier5metallic-green.T-Icon-Pickaxes-PickaxeBizarreTier5metallic-green",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_756_Bizarre.Pickaxe_ID_756_Bizarre",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "0C53B4BC452AA80367A6FEB9765F4AD8",
+        "SourceString": "Color",
+        "LocalizedString": "Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

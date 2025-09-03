@@ -1,0 +1,763 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_FumeFleeceFade",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FrontEndAnimation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+        "SubPathString": ""
+      },
+      "FrontEndAnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMF_M.Emote_FumeFleeceFade_FE_CMF_M",
+        "SubPathString": ""
+      },
+      "FrontEndAnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CLM_M.Emote_FumeFleeceFade_FE_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CLF_M.Emote_FumeFleeceFade_FE_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "CustomDanceAbility": {
+        "AssetPathName": "/BRCosmetics/Abilities/Emotes/GAB_Emote_FumeFleeceFade.GAB_Emote_FumeFleeceFade_C",
+        "SubPathString": ""
+      },
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMF_M.Emote_FumeFleeceFade_FE_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CLM_M.Emote_FumeFleeceFade_FE_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CLF_M.Emote_FumeFleeceFade_FE_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "PreviewLength": 6.0,
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'EID_FumeFleeceFade:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_FumeFleeceFade.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview_LargeGroupEmote.ItemOnPawnPreview_LargeGroupEmote_C",
+        "SubPathString": ""
+      },
+      "ItemName": {
+        "Namespace": "",
+        "Key": "ABA00AF34AD0B207BC7262B1342A7C98",
+        "SourceString": "GO GO POWER RANGERS",
+        "LocalizedString": "GO GO POWER RANGERS"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "CFF8663A4CEA595DE0FB75A6FFD7A4C0",
+        "SourceString": "Strike a pose and prepare for battle.",
+        "LocalizedString": "Strike a pose and prepare for battle."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F2B69492451DC7A5908236ABA0AB4131",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 10.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 2.5
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.37",
+            "Cosmetics.UserFacingFlags.Emote.Group",
+            "Cosmetics.Set.SuperSentai"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S37/T_Icon_Emotes_FumeFleeceFade.T_Icon_Emotes_FumeFleeceFade",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S37/T_Icon_Emotes_FumeFleeceFade_L.T_Icon_Emotes_FumeFleeceFade_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GroupEmotePreviewSettings": {
+            "GroupCameraPivotOrigin": "EGroupEmotePreviewPivotOrigin::ManualOffsetRelativeToLeaderPawn",
+            "LeaderRelativePivotOriginOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "bLeaderRotationShouldFaceSecondaryPawnIfLocked": false,
+            "SecondaryPreviewPawnGroupEmoteConfig": {
+              "bOverrideGroupEmotePositionOffsetForPreview": true,
+              "PositionOffsetOverride": {
+                "X": -290.0,
+                "Y": -45.0,
+                "Z": 0.0
+              },
+              "AdditionalJoinDelay": 0.0,
+              "bEnableEmoteAudio": false,
+              "OverrideEmoteItemDefinition": {
+                "ObjectName": "AthenaDanceItemDefinition'EID_FumeFleeceFade_Joiner5_FE'",
+                "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_FumeFleeceFade_Joiner5_FE.0"
+              },
+              "RotationBehavior": "EGroupMontagePreviewFollowerRotationBehavior::UseActorComponentSpawnRotation",
+              "AdditionalYaw": 0.01
+            },
+            "AdditionalPreviewFollowerConfigs": [
+              {
+                "bOverrideGroupEmotePositionOffsetForPreview": true,
+                "PositionOffsetOverride": {
+                  "X": -190.0,
+                  "Y": 80.0,
+                  "Z": 0.0
+                },
+                "AdditionalJoinDelay": 0.06,
+                "bEnableEmoteAudio": false,
+                "OverrideEmoteItemDefinition": {
+                  "ObjectName": "AthenaDanceItemDefinition'EID_FumeFleeceFade_Joiner2_FE'",
+                  "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_FumeFleeceFade_Joiner2_FE.0"
+                },
+                "RotationBehavior": "EGroupMontagePreviewFollowerRotationBehavior::UseActorComponentSpawnRotation",
+                "AdditionalYaw": 0.0
+              },
+              {
+                "bOverrideGroupEmotePositionOffsetForPreview": true,
+                "PositionOffsetOverride": {
+                  "X": -300.0,
+                  "Y": 58.0,
+                  "Z": 0.0
+                },
+                "AdditionalJoinDelay": 0.04,
+                "bEnableEmoteAudio": false,
+                "OverrideEmoteItemDefinition": {
+                  "ObjectName": "AthenaDanceItemDefinition'EID_FumeFleeceFade_Joiner3_FE'",
+                  "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_FumeFleeceFade_Joiner3_FE.0"
+                },
+                "RotationBehavior": "EGroupMontagePreviewFollowerRotationBehavior::UseActorComponentSpawnRotation",
+                "AdditionalYaw": 0.0
+              },
+              {
+                "bOverrideGroupEmotePositionOffsetForPreview": true,
+                "PositionOffsetOverride": {
+                  "X": -200.0,
+                  "Y": -85.0,
+                  "Z": 0.0
+                },
+                "AdditionalJoinDelay": 0.02,
+                "bEnableEmoteAudio": false,
+                "OverrideEmoteItemDefinition": {
+                  "ObjectName": "AthenaDanceItemDefinition'EID_FumeFleeceFade_Joiner4_FE'",
+                  "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_FumeFleeceFade_Joiner4_FE.0"
+                },
+                "RotationBehavior": "EGroupMontagePreviewFollowerRotationBehavior::UseActorComponentSpawnRotation",
+                "AdditionalYaw": 0.0
+              }
+            ],
+            "GroupMontagePreviewFollowerJoinBehavior": "EGroupMontagePreviewFollowerJoinBehavior::Automatic",
+            "GroupEmotePreviewFollowerJoinDelayOverride": -1.0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "EID_FumeFleeceFade",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/Joiner1Red/Emote_FumeFleeceFade_PlayerOne_Red_CMM_M.Emote_FumeFleeceFade_PlayerOne_Red_CMM_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_FumeFleeceFade.Character_FumeFleeceFade",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/Joiner2Black/Emote_FumeFleeceFade_PlayerTwo_Black_CMM_M.Emote_FumeFleeceFade_PlayerTwo_Black_CMM_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_FumeFleeceShack.Character_FumeFleeceShack",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMF_M.Emote_FumeFleeceFade_FE_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/Joiner3Yellow/Emote_FumeFleeceFade_PlayerThree_Yellow_CMF_M.Emote_FumeFleeceFade_PlayerThree_Yellow_CMF_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_FumeFleeceWag.Character_FumeFleeceWag",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/Joiner4Blue/Emote_FumeFleeceFade_PlayerFour_Blue_CMM_M.Emote_FumeFleeceFade_PlayerFour_Blue_CMM_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_FumeFleeceClap.Character_FumeFleeceClap",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage4"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMF_M.Emote_FumeFleeceFade_FE_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/Joiner5Pink/Emote_FumeFleeceFade_PlayerFive_Pink_CMF_M.Emote_FumeFleeceFade_PlayerFive_Pink_CMF_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_FumeFleeceJig.Character_FumeFleeceJig",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage5"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_Hero_Ode_CMM_M.Emote_FumeFleeceFade_FE_Hero_Ode_CMM_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SatireCane_Ode.Character_SatireCane_Ode",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.SatireCane_Ode"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "Green Ranger",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.SatireCane_Ode )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage6"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_CMM_M.Emote_FumeFleeceFade_FE_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/FlumeFleeceFade/FE/Emote_FumeFleeceFade_FE_Hero_OdeYap_CMM_M.Emote_FumeFleeceFade_FE_Hero_OdeYap_CMM_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SatireCane_Ode.Character_SatireCane_Ode",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.SatireCane_OdeYap"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "White Ranger Tag",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.SatireCane_OdeYap )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage7"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

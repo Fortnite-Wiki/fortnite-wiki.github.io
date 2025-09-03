@@ -1,0 +1,278 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_InflatoDodo",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_InflatoDodo'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_InflatoDodo.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_InflatoDodo:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_InflatoDodo.1"
+        },
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'Backpack_InflatoDodo:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_InflatoDodo.2"
+        }
+      ],
+      "BaseShotGridId": 128161,
+      "ShotGridIds": [
+        128161
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "F55E9753463A7DD4D44EABB8A3A9E467",
+        "SourceString": "R3X Tail",
+        "LocalizedString": "R3X Tail"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3F25E01446EA8A94362F87B3A9A3332A",
+        "SourceString": "Surprisingly sensitive.",
+        "LocalizedString": "Surprisingly sensitive."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "82BCC28E4B4DA0F3E89B579966CAFE2C",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_InflatoDodo.T_Icon_Backpacks_InflatoDodo",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_InflatoDodo_L.T_Icon_Backpacks_InflatoDodo_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.CrumbleStone"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            554,
+            8,
+            237,
+            123,
+            170,
+            269,
+            715,
+            766,
+            35,
+            765,
+            832,
+            135,
+            1407,
+            1722,
+            252,
+            3415
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_InflatoDodo",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9CD3DC234D7B933D53B1ED8100D74E88",
+            "SourceString": "R3X Tail",
+            "LocalizedString": "R3X Tail"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_InflatoDodo.T_Icon_Backpacks_InflatoDodo",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_InflatoDodo/Materials/MI_InflatoDodo_Backpack.MI_InflatoDodo_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_InflatoDodo/Skins/Wave/Materials/MI_InflatoDodo_Wave_Backpack.MI_InflatoDodo_Wave_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0C8FE5074BDB823BF12E15996CABFB3C",
+            "SourceString": "Extinction Armor R3X Tail",
+            "LocalizedString": "Extinction Armor R3X Tail"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S34/T_Icon_Backpacks_InflatoDodo_Wave.T_Icon_Backpacks_InflatoDodo_Wave",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7BA4095745B49B6E1F8000945902A7D7",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "Backpack_InflatoDodo",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_InflatoDodo.Character_InflatoDodo",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_InflatoDodo_Fitted.CP_Backpack_InflatoDodo_Fitted",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

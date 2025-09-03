@@ -1,0 +1,339 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ProdigyHaughty",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_ProdigyHaughty'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ProdigyHaughty.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -50.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": -8.0,
+          "Y": -10.0,
+          "Z": 10.0
+        },
+        "CylinderHalfHeight": 65.0,
+        "CylinderRadius": 65.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ProdigyHaughty:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ProdigyHaughty.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 73382,
+      "VariantShotGridIds": [
+        917267
+      ],
+      "ShotGridIds": [
+        73382,
+        917267
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "AEF327A04921A739BC2B32965146BAC0",
+        "SourceString": "Westward Knuckles",
+        "LocalizedString": "Westward Knuckles"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "0CDAABD3404E03E08CC5C088DF4E921B",
+        "SourceString": "Carves its own path.",
+        "LocalizedString": "Carves its own path."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "064C85094F8F87877B9E4CBB58186D7C",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": -58.0,
+            "Yaw": -49.00091,
+            "Roll": 180.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.Filter.Season.26",
+            "cosmetics.set.RiskyGroup",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            544,
+            245,
+            586,
+            607,
+            613,
+            24,
+            436,
+            113,
+            1072,
+            1219,
+            1307,
+            258,
+            2056,
+            2471,
+            438
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ProdigyHaughty",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "676E041A4CD9F57C59FE4A8E0666F91D",
+            "SourceString": "Reactive",
+            "LocalizedString": "Reactive"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigyHaughty-Reactive.T-Icon-Pickaxes-ProdigyHaughty-Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/Materials/MI_Pickaxe_ProdigyHaughty.MI_Pickaxe_ProdigyHaughty",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ReactivityStatus"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/Materials/MI_Pickaxe_ProdigyHaughty.MI_Pickaxe_ProdigyHaughty",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/FX/NS_Pickaxe_ProdigyHaughty_IdleGemsGlow.NS_Pickaxe_ProdigyHaughty_IdleGemsGlow",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 5.0,
+                  "ParamName": "User.HitCount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5204FB77456C184B8D0CC697B48985C4",
+            "SourceString": "Reactive Fully On",
+            "LocalizedString": "Reactive Fully On"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigyHaughty-Reactive.T-Icon-Pickaxes-ProdigyHaughty-Reactive",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/Materials/MI_Pickaxe_ProdigyHaughty.MI_Pickaxe_ProdigyHaughty",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "ReactivityStatus"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/Materials/MI_Pickaxe_ProdigyHaughty.MI_Pickaxe_ProdigyHaughty",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ProdigyHaughty/FX/NS_Pickaxe_ProdigyHaughty_IdleGemsGlow.NS_Pickaxe_ProdigyHaughty_IdleGemsGlow",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "User.HitCount"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "632603304F15970A4BD73AB61AB2BB77",
+            "SourceString": "Reactive Fully Off",
+            "LocalizedString": "Reactive Fully Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-ProdigyHaughty.T-Icon-Pickaxes-ProdigyHaughty",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "95262D214B119C28BE67FA8DCBB8CA4C",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

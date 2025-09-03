@@ -1,0 +1,424 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_SwoopClasp",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_SwoopClasp'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_SwoopClasp.0"
+      },
+      "PickaxeImpactFXOnPawnPreviewOffset": {
+        "X": -29.0,
+        "Y": 0.0,
+        "Z": 25.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 15.0,
+          "Y": 4.0,
+          "Z": -8.0
+        },
+        "CylinderHalfHeight": 40.0,
+        "CylinderRadius": 40.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_SwoopClasp:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_SwoopClasp.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 157384,
+      "VariantShotGridIds": [
+        157384,
+        163275
+      ],
+      "ShotGridIds": [
+        157384,
+        157384,
+        163275
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C301945643AF82FFB8574CBDA57CFB21",
+        "SourceString": "Electro-Pincers",
+        "LocalizedString": "Electro-Pincers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E8E2447C487475C332AA52A23F3139EF",
+        "SourceString": "Assume pincer formation.",
+        "LocalizedString": "Assume pincer formation."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "CDF8444544D236C4E9FEDE8D311CFF82",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": -58.0,
+            "Yaw": 312.0,
+            "Roll": 5.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.37",
+            "Cosmetics.Set.PlatoonLead",
+            "Cosmetics.Source.Season37.BattlePass.Free",
+            "Cosmetics.Source.Season37.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.Reactive"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/Game/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe-S.T_Placeholder_Item_Pickaxe-S",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe.T_Placeholder_Item_Pickaxe",
+            "SubPathString": ""
+          }
+        },
+        {
+          "ContextualOverrides": [
+            {
+              "ContextTags": [
+                "UI.ItemPreview.PreviewType.OffPawn"
+              ],
+              "ItemPreviewActorClass": {
+                "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/PickaxeItemPreview_SwoopClasp.PickaxeItemPreview_SwoopClasp_C",
+                "SubPathString": ""
+              },
+              "IdleMontage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "Character": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "VariantOverrides": []
+            }
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            236,
+            562,
+            564,
+            162,
+            567,
+            166,
+            596,
+            179,
+            244,
+            247,
+            106,
+            113,
+            1053,
+            1190,
+            442,
+            1194,
+            1350,
+            315,
+            2557,
+            2707
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_SwoopClasp",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Idle.NS_Pickaxe_SwoopClasp_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HueShift"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Impact.NS_Pickaxe_SwoopClasp_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "HueShift"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "Index"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Trail.NS_Pickaxe_SwoopClasp_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D4FBEAAD467157A5EE85A891D77D1B18",
+            "SourceString": "Electro-Pincers",
+            "LocalizedString": "Electro-Pincers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S37/T_Icon_Pickaxes_SwoopClasp.T_Icon_Pickaxes_SwoopClasp",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/Materials/MI_PIckaxe_SwoopClasp_Glass.MI_PIckaxe_SwoopClasp_Glass",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/Skins/Buckle/Materials/MI_PIckaxe_SwoopClasp_Buckle_Glass.MI_PIckaxe_SwoopClasp_Buckle_Glass",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/Materials/MI_PIckaxe_SwoopClasp.MI_PIckaxe_SwoopClasp",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/Skins/Buckle/Materials/MI_PIckaxe_SwoopClasp_Buckle.MI_PIckaxe_SwoopClasp_Buckle",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Idle.NS_Pickaxe_SwoopClasp_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.95,
+                  "ParamName": "HueShift"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Impact.NS_Pickaxe_SwoopClasp_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.89,
+                  "ParamName": "HueShift"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Index"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SwoopClasp/FX/NS_Pickaxe_SwoopClasp_Trail.NS_Pickaxe_SwoopClasp_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "716C69A146BA0F248539E383D0B73710",
+            "SourceString": "Hunter Electro-Pincers",
+            "LocalizedString": "Hunter Electro-Pincers"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S37/T_Icon_Pickaxes_SwoopClasp_Buckle.T_Icon_Pickaxes_SwoopClasp_Buckle",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "3F53B2F646B3FD0689AFC0A4AB383339",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

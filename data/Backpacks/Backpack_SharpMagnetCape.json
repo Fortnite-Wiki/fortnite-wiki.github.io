@@ -1,0 +1,191 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_SharpMagnetCape",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SharpMagnetCape_Generic'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SharpMagnetCape_Generic.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'Backpack_SharpMagnetCape:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SharpMagnetCape.1"
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SharpMagnet.Character_SharpMagnet",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 70115,
+      "ShotGridIds": [
+        70115
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "290101F2482706D36A5B7A9F22957DA6",
+        "SourceString": "Omni-Man's Cape",
+        "LocalizedString": "Omni-Man's Cape"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3C455EB64307FF7F2F4F9C986F35CA98",
+        "SourceString": "Never wrinkles... even when destroying entire planets.",
+        "LocalizedString": "Never wrinkles... even when destroying entire planets."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "7E19AFD7451FBB11F6696283277AB5B6",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S27/T-Icon-Backpacks-SharpMagnetUniversal.T-Icon-Backpacks-SharpMagnetUniversal",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S27/T-Icon-Backpacks-SharpMagnetUniversal-L.T-Icon-Backpacks-SharpMagnetUniversal-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.27",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.EarthSavior",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7,
+            552,
+            7975,
+            229,
+            2,
+            553,
+            357,
+            245,
+            574,
+            95,
+            628,
+            629,
+            630,
+            13,
+            246,
+            542,
+            662,
+            666,
+            192,
+            694,
+            706,
+            742,
+            751,
+            785,
+            786,
+            664,
+            1175,
+            1061,
+            1362,
+            1063,
+            408,
+            1060,
+            368,
+            3081
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "Backpack_SharpMagnetCape",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_SharpMagnet.Character_SharpMagnet",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SharpMagnetCape.CP_Backpack_SharpMagnetCape",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

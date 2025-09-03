@@ -1,0 +1,1525 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_610_ElasticHologram",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_ElasticFemale'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_ElasticFemale.1"
+        }
+      ],
+      "VariantChannelsToNeverSendToMCP": [
+        {
+          "TagName": "Cosmetics.Variant.Channel.PetTemperament"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticItemTexture'BID_610_ElasticHologram:FortCosmeticItemTexture_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_610_ElasticHologram.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_610_ElasticHologram:FortCosmeticMaterialVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_610_ElasticHologram.2"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "8509612646428CF13322D1B92AEFDCBC",
+        "SourceString": "Holo-Back",
+        "LocalizedString": "Holo-Back"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "CCA1BF3346D842CAE9A2C0B9F892A3D0",
+        "SourceString": "Holographic self-expression.",
+        "LocalizedString": "Holographic self-expression."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "519AF94243869E295DB9139045C88CD4",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-610-ElasticHologram.T-Icon-Backpacks-610-ElasticHologram",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-610-ElasticHologram-L.T-Icon-Backpacks-610-ElasticHologram-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.14",
+            "Cosmetics.Set.Endless",
+            "Cosmetics.Variant.FilterSet.Elastic.Hologram",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            261,
+            246,
+            675,
+            1328,
+            1330,
+            1329,
+            1327,
+            1331,
+            1654,
+            1659,
+            1657,
+            1655,
+            1653,
+            2246,
+            2590,
+            2947,
+            3686,
+            3685,
+            3687
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticItemTexture",
+    "Name": "FortCosmeticItemTexture_0",
+    "Outer": "BID_610_ElasticHologram",
+    "Class": "UScriptClass'FortCosmeticItemTexture'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ItemTextureVar": {
+        "InnerDef": {
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+              "SubPathString": ""
+            }
+          ],
+          "ParamName": "2DHologramTexture",
+          "DefaultSelectedItem": "AthenaDance:Emoji_S14_Elastic_Cupcake"
+        },
+        "FilterOutItemsWithTags": [
+          "Cosmetics.UserFacingFlags.Spray.Animated",
+          "Cosmetics.FrontEndPose.NoVariantEditingAllowed"
+        ],
+        "bAllowClear": false,
+        "bIsDefault": true,
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.ItemTexture"
+        },
+        "VariantName": {
+          "CultureInvariantString": "Never Display!"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9982DBB8401FB900FAFEDFAC421656FC",
+        "SourceString": "Sticker",
+        "LocalizedString": "Sticker"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Numeric"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_2",
+    "Outer": "BID_610_ElasticHologram",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat24"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E9FCD73A414234BEB46A9DBCBA7185D6",
+            "SourceString": "None",
+            "LocalizedString": "None"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow.T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "26BE07BE418FF68A3E5A8FA0823C16F7",
+            "SourceString": "arrow",
+            "LocalizedString": "arrow"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow.T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb.T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B23B282640B4D5BBC58D9EA7FFBF93A6",
+            "SourceString": "bomb",
+            "LocalizedString": "bomb"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb.T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly.T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8E3929DD4935CBCE93AA2791BFFC05B5",
+            "SourceString": "butterfly",
+            "LocalizedString": "butterfly"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly.T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake.T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9269DC814CA0E326081FFEB79E42AF3E",
+            "SourceString": "cupcake",
+            "LocalizedString": "cupcake"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake.T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise.T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B5F17F2745415B78E0487886B0E4F321",
+            "SourceString": "disguise",
+            "LocalizedString": "disguise"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise.T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-dog.T-Emote-Icons-Season14-S14-Sticker-Elastic-dog",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8E9D877F4698292A8500D6826067C9E7",
+            "SourceString": "dog",
+            "LocalizedString": "dog"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-dog.T-Emote-Icons-Season14-S14-Sticker-Elastic-dog",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky.T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F4D1D5B846755A5D050D2A9E2141226E",
+            "SourceString": "ducky",
+            "LocalizedString": "ducky"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky.T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E37EC7274AF652F4A76460B38FFC00B2",
+            "SourceString": "eye-blue",
+            "LocalizedString": "eye-blue"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F32DDDFE42925D4934FAF9AA45FBC2CF",
+            "SourceString": "eye-green",
+            "LocalizedString": "eye-green"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat9"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C6426300472FA17F03772C8CC1D511AF",
+            "SourceString": "eye-red",
+            "LocalizedString": "eye-red"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fire.T-Emote-Icons-Season14-S14-Sticker-Elastic-fire",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat10"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E11AD6DD4A11AE5413EEFFA74CC0AA87",
+            "SourceString": "fire",
+            "LocalizedString": "fire"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fire.T-Emote-Icons-Season14-S14-Sticker-Elastic-fire",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone.T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0D1014DD4DF850FE59524897F0293560",
+            "SourceString": "fishbone",
+            "LocalizedString": "fishbone"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone.T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-flask.T-Emote-Icons-Season14-S14-Sticker-Elastic-flask",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "66A1CBF247EB7D6A4629BAA90DA07D94",
+            "SourceString": "flask",
+            "LocalizedString": "flask"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-flask.T-Emote-Icons-Season14-S14-Sticker-Elastic-flask",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fly.T-Emote-Icons-Season14-S14-Sticker-Elastic-fly",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C9E5E94440C4EDB95C08EB8D330E5690",
+            "SourceString": "fly",
+            "LocalizedString": "fly"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fly.T-Emote-Icons-Season14-S14-Sticker-Elastic-fly",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule.T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat14"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F291F135489FFA9820A66095516E751B",
+            "SourceString": "molecule",
+            "LocalizedString": "molecule"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule.T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus.T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat15"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4B38338C4DFD05266AD550A453AD4886",
+            "SourceString": "skullopus",
+            "LocalizedString": "skullopus"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus.T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-snail.T-Emote-Icons-Season14-S14-Sticker-Elastic-snail",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat16"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3E8A9B284E3473D43277F5B983C2743D",
+            "SourceString": "snail",
+            "LocalizedString": "snail"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-snail.T-Emote-Icons-Season14-S14-Sticker-Elastic-snail",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-spider.T-Emote-Icons-Season14-S14-Sticker-Elastic-spider",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat17"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "829E73C249F3528651639FBF3B66172B",
+            "SourceString": "spider",
+            "LocalizedString": "spider"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-spider.T-Emote-Icons-Season14-S14-Sticker-Elastic-spider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-taco.T-Emote-Icons-Season14-S14-Sticker-Elastic-taco",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat18"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9B247F974CC390A50D969EBC476785FF",
+            "SourceString": "taco",
+            "LocalizedString": "taco"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-taco.T-Emote-Icons-Season14-S14-Sticker-Elastic-taco",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella.T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat19"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BF606BE14A7FF2E2399E669C02EA2B16",
+            "SourceString": "umbrella",
+            "LocalizedString": "umbrella"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella.T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-water.T-Emote-Icons-Season14-S14-Sticker-Elastic-water",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat20"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7922CE91404B8CC6DCDB16AEC89C53FC",
+            "SourceString": "water",
+            "LocalizedString": "water"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-water.T-Emote-Icons-Season14-S14-Sticker-Elastic-water",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-web.T-Emote-Icons-Season14-S14-Sticker-Elastic-web",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "2DHologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_Elastic/FX/M_Elastic_Holograms.M_Elastic_Holograms",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat21"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AEDCFF4A4F1A70CC23A824814CAD4449",
+            "SourceString": "web",
+            "LocalizedString": "web"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-web.T-Emote-Icons-Season14-S14-Sticker-Elastic-web",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "27267C564A638BB00C78D1A2720E3E95",
+        "SourceString": "Sticker",
+        "LocalizedString": "Sticker"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.PetTemperament"
+      }
+    }
+  }
+]

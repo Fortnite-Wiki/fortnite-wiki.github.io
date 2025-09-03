@@ -1,0 +1,462 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_182_Sheath",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 5.0,
+        "Z": -20.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/BRCosmetics/Athena/Cosmetics/Blueprints/Gliders/LegacyGliderBPs/B_Athena_Glider_Legacy_Sheath.B_Athena_Glider_Legacy_Sheath_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Sheath/Meshes/Sheath.Sheath",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/Sheath_Glider_AnimBP.Sheath_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Sheath/Glider_Sheath_Open_Cue.Glider_Sheath_Open_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/Sheath/Glider_Sheath_Close_Cue.Glider_Sheath_Close_Cue",
+        "SubPathString": ""
+      },
+      "TrailEffect": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail_Alter.P_Glider_Sheath_trail_Alter",
+        "SubPathString": ""
+      },
+      "TrailEffect2": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail_Alter.P_Glider_Sheath_trail_Alter",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_182_Sheath:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_182_Sheath.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [
+                "Cosmetics.Variant.Property.Particle1"
+              ],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle1"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 24372,
+      "VariantShotGridIds": [
+        24373
+      ],
+      "ShotGridIds": [
+        24372,
+        24373
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "BBA4F0A7453686D87209B98BC2D5C6EE",
+        "SourceString": "Metalmark",
+        "LocalizedString": "Metalmark"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "F2BC821748DEB653AFB72B905B0EA567",
+        "SourceString": "Why soar when you can flutter.",
+        "LocalizedString": "Why soar when you can flutter."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-SheathFGlider.T-Icon_Glider-SheathFGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-SheathFGlider-L.T-Icon_Glider-SheathFGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season11.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.CounterSpy",
+            "Cosmetics.Filter.Season.11"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 20.0,
+            "Yaw": -5.0,
+            "Roll": -5.0
+          },
+          "Scale": 0.5
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            488,
+            245,
+            562,
+            557,
+            564,
+            563,
+            162,
+            596,
+            123,
+            605,
+            604,
+            387,
+            261,
+            642,
+            640,
+            264,
+            29,
+            1194,
+            395,
+            4728
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_182_Sheath",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4344E6424C7755E6C3480A85ACD76B32",
+            "SourceString": "CAMEO",
+            "LocalizedString": "CAMEO"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-SheathFGlider.T-Icon_Glider-SheathFGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Sheath/Skins/Glider_Sheath_Alter_Ego/Materials/MI_Glider_Sheath_Alter_Ego.MI_Glider_Sheath_Alter_Ego",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Sheath/Materials/MI_Glider_Sheath.MI_Glider_Sheath",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail_Alter.P_Glider_Sheath_trail_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail.P_Glider_Sheath_trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Burner_Alter.P_Glider_Sheath_Burner_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_SHeath_Burner.P_Glider_SHeath_Burner",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Deploy_Alter.P_Glider_Sheath_Deploy_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Deploy.P_Glider_Sheath_Deploy",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6F7473A34CB17DC86F91B38B25D0459C",
+            "SourceString": "CHIC",
+            "LocalizedString": "CHIC"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-SheathFAlterGlider.T-Icon_Glider-SheathFAlterGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "942579C14B79F74B27F14F919DF60D02",
+            "SourceString": "Unlocked During Chapter 2, Season 1",
+            "LocalizedString": "Unlocked During Chapter 2, Season 1"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Sheath/Skins/Glider_Sheath_Alter_Ego/Materials/MI_Glider_Sheath_Alter_Ego.MI_Glider_Sheath_Alter_Ego",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Sheath/Skins/Yellow/Materials/MI_Glider_SheathYellow.MI_Glider_SheathYellow",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail_Alter.P_Glider_Sheath_trail_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_trail_Alter_Yellow.P_Glider_Sheath_trail_Alter_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Burner_Alter.P_Glider_Sheath_Burner_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Burner_Yellow.P_Glider_Sheath_Burner_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Deploy_Alter.P_Glider_Sheath_Deploy_Alter",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Gliders/P_Glider_Sheath_Deploy_Yellow.P_Glider_Sheath_Deploy_Yellow",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "355B51DD45750AC9DFE0D5A0787116C1",
+            "SourceString": "YELLOW",
+            "LocalizedString": "YELLOW"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-ShealthFGliderYellow.T-Icon_Glider-ShealthFGliderYellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "137E87B248FE92DE9AE36581ED4327D3",
+            "SourceString": "Unlocked During Chapter 2, Season 1",
+            "LocalizedString": "Unlocked During Chapter 2, Season 1"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "751F3C3A443B72EF623700B45E6C2BB4",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

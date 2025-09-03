@@ -1,0 +1,344 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_SatireCane_Ode",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_SatireCane_Ode'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_SatireCane_Ode.0"
+      },
+      "PickaxeImpactFXOnPawnPreviewOffset": {
+        "X": -20.0,
+        "Y": 0.0,
+        "Z": 20.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 15.0,
+          "Y": -1.0,
+          "Z": 12.0
+        },
+        "CylinderHalfHeight": 42.0,
+        "CylinderRadius": 42.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_SatireCane_Ode:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_SatireCane_Ode.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 5.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Mesh"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 155278,
+      "VariantShotGridIds": [
+        155278,
+        157555
+      ],
+      "ShotGridIds": [
+        155278,
+        155278,
+        157555
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A00C440E410681253E0304846E0E96F2",
+        "SourceString": "Dragon Dagger",
+        "LocalizedString": "Dragon Dagger"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "FE24927C43AF8A76239E7E98A3AB4237",
+        "SourceString": "Summon your Zord.",
+        "LocalizedString": "Summon your Zord."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "250793E94B6D7703630305AA8A75F79F",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 30.0,
+            "Yaw": 312.0,
+            "Roll": 5.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.37",
+            "Cosmetics.Set.SuperSentai",
+            "Cosmetics.Source.Season37.BattlePass.Paid"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/Game/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe-S.T_Placeholder_Item_Pickaxe-S",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/Athena/Prototype/Textures/T_Placeholder_Item_Pickaxe.T_Placeholder_Item_Pickaxe",
+            "SubPathString": ""
+          }
+        },
+        {
+          "ContextualOverrides": [
+            {
+              "ContextTags": [
+                "UI.ItemPreview.PreviewType.OffPawn"
+              ],
+              "ItemPreviewActorClass": {
+                "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/PickaxeItemPreview_SatireCane_Ode.PickaxeItemPreview_SatireCane_Ode_C",
+                "SubPathString": ""
+              },
+              "IdleMontage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "Character": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "VariantOverrides": []
+            }
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            156,
+            237,
+            613,
+            24,
+            247,
+            893,
+            436,
+            113,
+            1230,
+            258,
+            1976,
+            438,
+            458,
+            2756,
+            2469
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_SatireCane_Ode",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.SatireCane_Ode"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9F35C4B44C0F3020C6C8AA88E64F3F83",
+            "SourceString": "Dragon Dagger",
+            "LocalizedString": "Dragon Dagger"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S37/T_Icon_Pickaxes_SatireCane_Ode.T_Icon_Pickaxes_SatireCane_Ode",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Ode/Meshes/SatireCane_Ode_Axe.SatireCane_Ode_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Yap/Meshes/SatireCane_Yap_Axe.SatireCane_Yap_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::SwapOnMatch",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Ode/FX/NS_Pickaxe_SatireCane_Ode_ImpactDirectional.NS_Pickaxe_SatireCane_Ode_ImpactDirectional",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Yap/FX/NS_Pickaxe_SatireCane_Yap_Impact.NS_Pickaxe_SatireCane_Yap_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Ode/FX/NS_Pickaxe_SatireCane_Ode_Trail.NS_Pickaxe_SatireCane_Ode_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_SatireCane_Yap/FX/NS_Pickaxe_SatireCane_Yap_Trail.NS_Pickaxe_SatireCane_Yap_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.SatireCane_OdeYap"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B4F9483F47DB15404EC64D908727C253",
+            "SourceString": "Saba",
+            "LocalizedString": "Saba"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S37/T_Icon_Pickaxes_SatireCane_Yap.T_Icon_Pickaxes_SatireCane_Yap",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1A81D2B2491D04DC5834BB8773008463",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

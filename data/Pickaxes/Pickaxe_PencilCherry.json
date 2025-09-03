@@ -1,0 +1,403 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_PencilCherry",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_PencilCherry'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_PencilCherry.0"
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 1.0,
+        "Y": 5.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 5.0
+        },
+        "CylinderHalfHeight": 4.0,
+        "CylinderRadius": 48.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_PencilCherry:FortCosmeticRichColorVariant_3'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PencilCherry.3"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_PencilCherry:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PencilCherry.2"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Pickaxe_PencilCherry:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_PencilCherry.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 68463,
+      "ShotGridIds": [
+        68463
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "165BCDC741D903D987EA8396A5CA9A61",
+        "SourceString": "Scholar Slashers",
+        "LocalizedString": "Scholar Slashers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "539A21654E25509C765509B13686CC7D",
+        "SourceString": "Perfect for any academy champion.",
+        "LocalizedString": "Perfect for any academy champion."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "CBDE0F7041EA25C1675AD9A9617CE790",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.24",
+            "Cosmetics.Set.SchoolHeroes",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            236,
+            544,
+            564,
+            162,
+            569,
+            292,
+            166,
+            596,
+            242,
+            24,
+            244,
+            106,
+            436,
+            113,
+            1166,
+            258,
+            2056,
+            2476,
+            2471,
+            2470,
+            438,
+            2558,
+            474
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Pickaxe_PencilCherry",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Pencil.Toon"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle18"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A382668A4289C74DA2A53BA215E5F41B",
+            "SourceString": "Cel",
+            "LocalizedString": "Cel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/Pencil_Cosmetics/T-Soldier-Pencil-Shader-Toon.T-Soldier-Pencil-Shader-Toon",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Pencil.PBR"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle19"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B782F4FB473A34D32B456CB0AA22A30E",
+            "SourceString": "Outlined Gradient",
+            "LocalizedString": "Outlined Gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/Pencil_Cosmetics/T-Soldier-Pencil-Shader-PBROutline.T-Soldier-Pencil-Shader-PBROutline",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Materials/MI_Pickaxe_PencilCherry.MI_Pickaxe_PencilCherry",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Textures/T_Pickaxe_PencilCherry_FX_02.T_Pickaxe_PencilCherry_FX_02",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Materials/MI_Pickaxe_PencilCherry.MI_Pickaxe_PencilCherry",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Pencil.PBR",
+              "Cosmetics.MetaTags.Pencil.OutlinesOff"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle20"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BEAAFBC94706C30A1D0FDB86775361F5",
+            "SourceString": "Gradient",
+            "LocalizedString": "Gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S24/Pencil_Cosmetics/T-Soldier-Pencil-Shader-PBR.T-Soldier-Pencil-Shader-PBR",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D4BF963047B4048D124158A9270D8014",
+        "SourceString": "Shading",
+        "LocalizedString": "Shading"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Pickaxe_PencilCherry",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "MinimumDistance": 0.02,
+      "AntiConflictRules": "EFortRichColorConflictResolutionRules::MinimumDistanceBlackOrWhite",
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.140374,
+            "G": 0.371238,
+            "B": 0.333071,
+            "A": 1.0,
+            "Hex": "69A49C"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Pencil.CS_Pencil",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Materials/MI_Pickaxe_PencilCherry_Outlines.MI_Pickaxe_PencilCherry_Outlines",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Materials/MI_Pickaxe_PencilCherry_AnimeInvertedHullOutline.MI_Pickaxe_PencilCherry_AnimeInvertedHullOutline",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/FX/NS_Pickaxe_PencilCherry_Impact.NS_Pickaxe_PencilCherry_Impact",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/FX/NS_Pickaxe_PencilCherry_Trail.NS_Pickaxe_PencilCherry_Trail",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "CustomColor"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A835AD184FF864BEA480BBAC09B4D8E6",
+        "SourceString": "Color 2",
+        "LocalizedString": "Color 2"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor2"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_3",
+    "Outer": "Pickaxe_PencilCherry",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "MinimumDistance": 0.02,
+      "AntiConflictRules": "EFortRichColorConflictResolutionRules::MinimumDistanceBlackOrWhite",
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.666667,
+            "G": 0.153896,
+            "B": 0.363128,
+            "A": 1.0,
+            "Hex": "D66DA3"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Pencil.CS_Pencil",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_PencilCherry/Materials/MI_Pickaxe_PencilCherry.MI_Pickaxe_PencilCherry",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "ColorLit_R_Mask"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "34E750014E45EF997C1EB4BDFBA9FDBF",
+        "SourceString": "Color 1",
+        "LocalizedString": "Color 1"
+      }
+    }
+  }
+]

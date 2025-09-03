@@ -1,0 +1,1657 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_609_ElasticCape",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_ElasticMale'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_ElasticMale.1"
+        }
+      ],
+      "VariantChannelsToNeverSendToMCP": [
+        {
+          "TagName": "Cosmetics.Variant.Channel.PetTemperament"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'BID_609_ElasticCape:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_609_ElasticCape.3"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'BID_609_ElasticCape:FortCosmeticRichColorVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_609_ElasticCape.4"
+        },
+        {
+          "ObjectName": "FortCosmeticItemTexture'BID_609_ElasticCape:FortCosmeticItemTexture_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_609_ElasticCape.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_609_ElasticCape:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_609_ElasticCape.2"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9714F9F74D89451D4B02009C8CF1500D",
+        "SourceString": "Emoticape",
+        "LocalizedString": "Emoticape"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "F88B64D3408EC10C536619A99F40D22B",
+        "SourceString": "Express yourself on the battlecape.",
+        "LocalizedString": "Express yourself on the battlecape."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "231E72B442B4F847D839C3ADFC0A7A6D",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-609-ElasticCape.T-Icon-Backpacks-609-ElasticCape",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-609-ElasticCape-L.T-Icon-Backpacks-609-ElasticCape-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.14",
+            "Cosmetics.Set.Endless",
+            "Cosmetics.Variant.FilterSet.Elastic.Backs",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Backpack.IsCape",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7,
+            552,
+            7975,
+            2,
+            553,
+            245,
+            95,
+            13,
+            244,
+            542,
+            192,
+            706,
+            703,
+            755,
+            785,
+            1004,
+            1175,
+            1061,
+            1394,
+            1063,
+            1666,
+            330,
+            2325,
+            2436,
+            2568,
+            429,
+            2572,
+            462,
+            2571,
+            2569,
+            2570,
+            3026,
+            3035,
+            230,
+            3081
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticItemTexture",
+    "Name": "FortCosmeticItemTexture_0",
+    "Outer": "BID_609_ElasticCape",
+    "Class": "UScriptClass'FortCosmeticItemTexture'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ItemTextureVar": {
+        "InnerDef": {
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+              "SubPathString": ""
+            }
+          ],
+          "ParamName": "Sticker",
+          "DefaultSelectedItem": "AthenaDance:Emoji_S14_Elastic_Water"
+        },
+        "FilterOutItemsWithTags": [
+          "Cosmetics.UserFacingFlags.Spray.Animated",
+          "Cosmetics.UserFacingFlags.Emoticon.Animated",
+          "Cosmetics.FrontEndPose.NoVariantEditingAllowed"
+        ],
+        "bIsDefault": true,
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.ItemTexture"
+        },
+        "VariantName": {
+          "CultureInvariantString": "Never Display!"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "97F23D994F01BE15DE86AE9F6D5E7C14",
+        "SourceString": "Sticker",
+        "LocalizedString": "Sticker"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Numeric"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "BID_609_ElasticCape",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat24"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1AE563A94F4BA97316CBE5A4DAD917F8",
+            "SourceString": "None",
+            "LocalizedString": "None"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow.T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5A8AC2F144DB1CE740A005B5138623B5",
+            "SourceString": "arrow",
+            "LocalizedString": "arrow"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow.T-Emote-Icons-Season14-S14-Sticker-Elastic-arrow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb.T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "506E882D482B3AE5FDF0D99850E14623",
+            "SourceString": "bomb",
+            "LocalizedString": "bomb"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb.T-Emote-Icons-Season14-S14-Sticker-Elastic-bomb",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly.T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FBC8556B42A559180F19C18890B7DE99",
+            "SourceString": "butterfly",
+            "LocalizedString": "butterfly"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly.T-Emote-Icons-Season14-S14-Sticker-Elastic-butterfly",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake.T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7AB3A4FC4E74319053183FB1FAA0EBA7",
+            "SourceString": "cupcake",
+            "LocalizedString": "cupcake"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake.T-Emote-Icons-Season14-S14-Sticker-Elastic-cupcake",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise.T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CF45C9B049195D015365A799F58E4675",
+            "SourceString": "disguise",
+            "LocalizedString": "disguise"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise.T-Emote-Icons-Season14-S14-Sticker-Elastic-disguise",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-dog.T-Emote-Icons-Season14-S14-Sticker-Elastic-dog",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DAE004A94DD25E93E85C06BF1E0634F5",
+            "SourceString": "dog",
+            "LocalizedString": "dog"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-dog.T-Emote-Icons-Season14-S14-Sticker-Elastic-dog",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky.T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A47CED21450596210EFD90867224392F",
+            "SourceString": "ducky",
+            "LocalizedString": "ducky"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky.T-Emote-Icons-Season14-S14-Sticker-Elastic-ducky",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0C6B9871404362693AF84F872469C19A",
+            "SourceString": "eye-blue",
+            "LocalizedString": "eye-blue"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "982DA68847C2D6518BF518BA891F04BB",
+            "SourceString": "eye-green",
+            "LocalizedString": "eye-green"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-green",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat9"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7E081FF644E715A172D506AB5A7C6A58",
+            "SourceString": "eye-red",
+            "LocalizedString": "eye-red"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red.T-Emote-Icons-Season14-S14-Sticker-Elastic-eye-red",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fire.T-Emote-Icons-Season14-S14-Sticker-Elastic-fire",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat10"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BAE6EAD041FC64C8BF68179627638891",
+            "SourceString": "fire",
+            "LocalizedString": "fire"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fire.T-Emote-Icons-Season14-S14-Sticker-Elastic-fire",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone.T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E5A0D4B547E94688AE3F599984A0686D",
+            "SourceString": "fishbone",
+            "LocalizedString": "fishbone"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone.T-Emote-Icons-Season14-S14-Sticker-Elastic-fishbone",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-flask.T-Emote-Icons-Season14-S14-Sticker-Elastic-flask",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E072AD134CB446B5B028FA9C1DB0179C",
+            "SourceString": "flask",
+            "LocalizedString": "flask"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-flask.T-Emote-Icons-Season14-S14-Sticker-Elastic-flask",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fly.T-Emote-Icons-Season14-S14-Sticker-Elastic-fly",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F0892725483DCE91419D34B4B87C61FA",
+            "SourceString": "fly",
+            "LocalizedString": "fly"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-fly.T-Emote-Icons-Season14-S14-Sticker-Elastic-fly",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule.T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat14"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E6D2CE374655A2338B43F4A699AA8E2B",
+            "SourceString": "molecule",
+            "LocalizedString": "molecule"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule.T-Emote-Icons-Season14-S14-Sticker-Elastic-molecule",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus.T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat15"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5143D7F04BC2565F2AF09AAD902DD1C1",
+            "SourceString": "skullopus",
+            "LocalizedString": "skullopus"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus.T-Emote-Icons-Season14-S14-Sticker-Elastic-skullopus",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-snail.T-Emote-Icons-Season14-S14-Sticker-Elastic-snail",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat16"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E873447B41022E01D3F7CABADA061BEF",
+            "SourceString": "snail",
+            "LocalizedString": "snail"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-snail.T-Emote-Icons-Season14-S14-Sticker-Elastic-snail",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-spider.T-Emote-Icons-Season14-S14-Sticker-Elastic-spider",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat17"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1EAAB92C49015032AFBB2E83563B60AE",
+            "SourceString": "spider",
+            "LocalizedString": "spider"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-spider.T-Emote-Icons-Season14-S14-Sticker-Elastic-spider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-taco.T-Emote-Icons-Season14-S14-Sticker-Elastic-taco",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat18"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7C7E122049BDB4211FDEF583CCDF7339",
+            "SourceString": "taco",
+            "LocalizedString": "taco"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-taco.T-Emote-Icons-Season14-S14-Sticker-Elastic-taco",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella.T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat19"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4544F2274491811C988D2882513CBD91",
+            "SourceString": "umbrella",
+            "LocalizedString": "umbrella"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella.T-Emote-Icons-Season14-S14-Sticker-Elastic-umbrella",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-water.T-Emote-Icons-Season14-S14-Sticker-Elastic-water",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat20"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CCC1D653458EBC73BCC1E984EB65F3B7",
+            "SourceString": "water",
+            "LocalizedString": "water"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-water.T-Emote-Icons-Season14-S14-Sticker-Elastic-water",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-web.T-Emote-Icons-Season14-S14-Sticker-Elastic-web",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Sticker"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat21"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BA55BED540FB54F3AE824FB899B52BA0",
+            "SourceString": "web",
+            "LocalizedString": "web"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/2dAssets/Emoji/Season14/Elastic/T-Emote-Icons-Season14-S14-Sticker-Elastic-web.T-Emote-Icons-Season14-S14-Sticker-Elastic-web",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "5398A87642B52F54E3942E92A563DD01",
+        "SourceString": "Sticker",
+        "LocalizedString": "Sticker"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.PetTemperament"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "BID_609_ElasticCape",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.01,
+            "G": 0.05,
+            "B": 0.9,
+            "A": 1.0,
+            "Hex": "193FF4"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Elastic_Common.CS_Elastic_Common",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Cosmic/NS_Pickaxe_Elastic_Cosmic_AnimTrail.NS_Pickaxe_Elastic_Cosmic_AnimTrail",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "PrimaryColor"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "6C02D32B42D86EF80ED6C2AD60CD9CAC",
+          "SourceString": "Primary Color",
+          "LocalizedString": "Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F1CAF5054BFC0A1A4CAA5E83F43DABAB",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor4"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_1",
+    "Outer": "BID_609_ElasticCape",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.9,
+            "G": 0.03,
+            "B": 0.01,
+            "A": 1.0,
+            "Hex": "F43019"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Elastic_Common.CS_Elastic_Common",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_M_MED_Elastic/Materials/M_MED_Elastic_Cape.M_MED_Elastic_Cape",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Cosmic/NS_Pickaxe_Elastic_Cosmic_AnimTrail.NS_Pickaxe_Elastic_Cosmic_AnimTrail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Elastic/Cosmic/NS_Pickaxe_Elastic_Cosmic_Idle.NS_Pickaxe_Elastic_Cosmic_Idle",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "SecondaryColor"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "9BB4514F41FB420691DFC19F0B326CB0",
+          "SourceString": "Secondary Color",
+          "LocalizedString": "Secondary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1BC25C6E4B56BA079DFC8381BA4678BE",
+        "SourceString": "Secondary Color",
+        "LocalizedString": "Secondary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor3"
+      }
+    }
+  }
+]

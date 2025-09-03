@@ -1,0 +1,312 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ScareyBeary",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_ScareyBeary'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_ScareyBeary.0"
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -12.0,
+        "Y": 8.0,
+        "Z": -6.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 8.0,
+        "Yaw": 180.0,
+        "Roll": -40.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 30.0,
+          "Y": 0.0,
+          "Z": 2.0
+        },
+        "CylinderHalfHeight": 37.0,
+        "CylinderRadius": 37.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ScareyBeary:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ScareyBeary.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 0.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "FBA337174FCE536D5E5BDDA3A81D893C",
+        "SourceString": "Iron Shadowclaw",
+        "LocalizedString": "Iron Shadowclaw"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "BF083F3F4515F7F0197AED922D8D2A86",
+        "SourceString": "Claw away.",
+        "LocalizedString": "Claw away."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "4C20091C4569AB141DE10E898863A424",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 45.0,
+            "Yaw": -40.0,
+            "Roll": -5.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.HightowerWasabi",
+            "Cosmetics.Pickaxe.DualWield",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Cosmetics.Filter.Season.27",
+            "Cosmetics.Set.NotLove",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            488,
+            547,
+            357,
+            540,
+            8,
+            586,
+            242,
+            9,
+            441,
+            261,
+            613,
+            627,
+            244,
+            542,
+            849,
+            436,
+            950,
+            1053
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ScareyBeary",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E16ABF6B4787CBD84641D6B5AA376370",
+            "SourceString": "Iron Shadowclaw",
+            "LocalizedString": "Iron Shadowclaw"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S27/T-Icon-Pickaxes-ScareyBeary.T-Icon-Pickaxes-ScareyBeary",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ScareyBeary/Materials/MI_Pickaxe_ScareyBeary.MI_Pickaxe_ScareyBeary",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ScareyBeary/Skins/Pink/Materials/MI_Pickaxe_ScareyBeary_Pink.MI_Pickaxe_ScareyBeary_Pink",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/NS_Pickaxe_ScareyBeary_L.NS_Pickaxe_ScareyBeary_L",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/Variant/NS_Pickaxe_ScareyBeary_Pink_L.NS_Pickaxe_ScareyBeary_Pink_L",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/NS_Pickaxe_ScareyBeary_R.NS_Pickaxe_ScareyBeary_R",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/Variant/NS_Pickaxe_ScareyBeary_Pink_R.NS_Pickaxe_ScareyBeary_Pink_R",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/NS_Pickaxe_ScareyBeary_AnimTrail.NS_Pickaxe_ScareyBeary_AnimTrail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/Variant/NS_Pickaxe_ScareyBeary_AnimTrail_Pink.NS_Pickaxe_ScareyBeary_AnimTrail_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/NS_Pickaxe_ScareyBeary_Impact.NS_Pickaxe_ScareyBeary_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_ScareyBeary/FX/Variant/NS_Pickaxe_ScareyBeary_Impact_Pink.NS_Pickaxe_ScareyBeary_Impact_Pink",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1BAC56B9400C11CB59C304ABE9970D3D",
+            "SourceString": "Cuddly",
+            "LocalizedString": "Cuddly"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S27/T-Icon-Pickaxes-ScareyBeary-Pink.T-Icon-Pickaxes-ScareyBeary-Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "054948EB4D6F4400A4E70DBF9419DDBD",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

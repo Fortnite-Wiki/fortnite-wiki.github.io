@@ -1,0 +1,453 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_DefectBlip",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_DefectBlip'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_DefectBlip.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills",
+        "StatManager.DamageReceived",
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_DefectBlip:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_DefectBlip.1"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'Backpack_DefectBlip:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_DefectBlip.2"
+        }
+      ],
+      "ItemVariantPreviewGenerator": {
+        "ObjectName": "FortWrapVariantPreviewGenerator'Backpack_DefectBlip:FortWrapVariantPreviewGenerator_0'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_DefectBlip.3"
+      },
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_DefectBlip.Character_DefectBlip",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 59659,
+      "ShotGridIds": [
+        59659
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "D332805447D55682E1E8D5A19B6960F3",
+        "SourceString": "Power Panels",
+        "LocalizedString": "Power Panels"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E45075614AECEF384ACA3CBAD978E2E3",
+        "SourceString": "Status: Charging",
+        "LocalizedString": "Status: Charging"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9E9A04374A2C51D51F3D62AD38D2DDAE",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-DefectBlipBackpack.T-Icon-Backpacks-DefectBlipBackpack",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-DefectBlipBackpack-L.T-Icon-Backpacks-DefectBlipBackpack-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.22",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.BotTaught",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            236,
+            8,
+            561,
+            564,
+            563,
+            162,
+            292,
+            567,
+            581,
+            243,
+            261,
+            642,
+            684,
+            247,
+            219,
+            106,
+            786,
+            283,
+            991,
+            1044,
+            1047,
+            1046,
+            1058,
+            1072,
+            1070,
+            1116,
+            1131,
+            1389,
+            145,
+            2476,
+            2494,
+            2518,
+            2711,
+            2710
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_DefectBlip",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "02C13DB241557BA5DDAEB9B56F2C8B2A",
+            "SourceString": "Brass",
+            "LocalizedString": "Brass"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-gold.T-Variant-Defect-gold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "27E90B2C4C23E8C9EA5A14AFAB3376CB",
+            "SourceString": "Rose Gold",
+            "LocalizedString": "Rose Gold"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-RoseGold.T-Variant-Defect-RoseGold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C38D1A9443681C56DB7E75B0ACEA667F",
+            "SourceString": "Bluish Steel",
+            "LocalizedString": "Bluish Steel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-bluishsteel.T-Variant-Defect-bluishsteel",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "DcM Metal Index"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DefectBlip/Materials/M_MED_DefectBlip_Backpack.M_MED_DefectBlip_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "59060AF14A6FE0E0CF7EE3A2FE81D3F4",
+            "SourceString": "Heated",
+            "LocalizedString": "Heated"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Defect-heated.T-Variant-Defect-heated",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "0DBE35444868AC91E4C0C890F31C9B2F",
+        "SourceString": "Metal Color",
+        "LocalizedString": "Metal Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor2"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "Backpack_DefectBlip",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "CharacterPartSkelMesh_Backpack"
+          ],
+          "WrapSectionMask": 1
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6AC1D5A0466B41029DC46598E9576724",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortWrapVariantPreviewGenerator",
+    "Name": "FortWrapVariantPreviewGenerator_0",
+    "Outer": "Backpack_DefectBlip",
+    "Class": "UScriptClass'FortWrapVariantPreviewGenerator'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      },
+      "BaseVariantPreview": {
+        "VariantOptions": [
+          {
+            "OwnedVariantTags": [],
+            "ItemVariantIsUsedFor": {
+              "ObjectName": "AthenaBackpackItemDefinition'BID_816_PliantMale'",
+              "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_816_PliantMale.0"
+            },
+            "CustomData": "",
+            "VariantChannelTag": {
+              "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+            },
+            "ActiveVariantTag": {
+              "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+            }
+          }
+        ]
+      },
+      "NumWrapPreviews": 4,
+      "PreviewWrapDefinitions": [
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/ItemWraps/Wrap_379_Pliant.Wrap_379_Pliant",
+          "SubPathString": ""
+        }
+      ],
+      "DefaultCustomData": "None"
+    }
+  }
+]

@@ -1,0 +1,1659 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_Citadel",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Citadel.CP_Athena_Head_M_Citadel",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Citadel.CP_Athena_Body_M_Citadel",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Citadel_FaceAcc.CP_M_MED_Citadel_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "MetaTags": [
+        "Cosmetics.MetaTags.Citadel"
+      ],
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_Citadel'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Citadel.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_Citadel:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_Citadel:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.3"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_Citadel:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.4"
+        },
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Character_Citadel:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.2"
+        },
+        {
+          "ObjectName": "FortCosmeticPropertyVariant'Character_Citadel:FortCosmeticPropertyVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.5"
+        }
+      ],
+      "BaseShotGridId": 61491,
+      "VariantShotGridIds": [
+        61946
+      ],
+      "ShotGridIds": [
+        61491,
+        61946
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "27481ABB4E7B5C18A66B4C8967C25460",
+        "SourceString": "The Ageless",
+        "LocalizedString": "The Ageless"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4D831FD745FBB626F98A74A84CB7BDEA",
+        "SourceString": "The Snapshot left to rule an Empire.",
+        "LocalizedString": "The Snapshot left to rule an Empire."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S23/T-Soldier-Hero-Citadel-L.T-Soldier-Hero-Citadel-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S23/T-Soldier-Hero-Citadel.T-Soldier-Hero-Citadel",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.23",
+            "Cosmetics.Set.PowerLight",
+            "Cosmetics.UserFacingFlags.Transform",
+            "SoundLibrary.ID.StepType.BootsMetal",
+            "SoundLibrary.ID.ClothingType.ArmorMetal",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Source.Season23.BattlePass.Paid",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            229,
+            12,
+            488,
+            541,
+            236,
+            544,
+            553,
+            357,
+            540,
+            8,
+            169,
+            564,
+            560,
+            162,
+            567,
+            629,
+            630,
+            246,
+            244,
+            787
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_Citadel",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Citadel.Default"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7DA91DAA4259AA1CE1FCC4B5D33C1088",
+            "SourceString": "The Ageless",
+            "LocalizedString": "The Ageless"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S23/T-Soldier-Hero-Citadel.T-Soldier-Hero-Citadel",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_Citadel_Armor.CP_Athena_Body_M_Citadel_Armor",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Citadel.Armor"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4CCCE61243B5C53B7CBA0399CBFAD15A",
+            "SourceString": "The Ageless Champion",
+            "LocalizedString": "The Ageless Champion"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel-Armor.T-Soldier-Hero-Citadel-Armor",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1184C87E44F7275F30B94485B7EF6D88",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Character_Citadel",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.Character_Citadel",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Citadel.Armor"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Citadel.Helm"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  2,
+                  0,
+                  1
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.Citadel.Armor, Cosmetics.MetaTags.Citadel.Helm )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Citadel_Empty.CP_Athena_Head_M_Citadel_Empty",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Citadel_Armor_FaceAcc.CP_M_MED_Citadel_Armor_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": "Helm"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_Citadel.Character_Citadel",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Citadel.Armor"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Citadel.NoHelm"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  2,
+                  0,
+                  1
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.Citadel.Armor, Cosmetics.MetaTags.Citadel.NoHelm )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_Citadel.CP_Athena_Head_M_Citadel",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_M_MED_Citadel_Armor_Hair_FaceAcc.CP_M_MED_Citadel_Armor_Hair_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "CultureInvariantString": "ArmorNoHelm"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "CultureInvariantString": "HeadParts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Character_Citadel",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Citadel.Helm"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AF69118E4AC23129EDAF2B91B6C394C7",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel-Armor.T-Soldier-Hero-Citadel-Armor",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_FaceAcc.M_MED_CitadelArmor_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_FaceAcc.M_MED_CitadelArmor_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Black_FaceAcc.M_S23_Superlevel_CitadelArmor_Black_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Black_FaceAcc.M_S23_Superlevel_CitadelArmor_Black_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Pink_FaceAcc.M_S23_Superlevel_CitadelArmor_Pink_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Pink_FaceAcc.M_S23_Superlevel_CitadelArmor_Pink_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Gold_FaceAcc.M_S23_Superlevel_CitadelArmor_Gold_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Gold_FaceAcc.M_S23_Superlevel_CitadelArmor_Gold_FaceAcc",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Citadel.Helm"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "82D9F3EB495036EB01C2FEBCFAA3486F",
+            "SourceString": "Crown Off",
+            "LocalizedString": "Crown Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel-Armor-NoHalo.T-Soldier-Hero-Citadel-Armor-NoHalo",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Citadel.NoHelm"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B965AC5343B07B6469AA4FBACBBAB7EB",
+            "SourceString": "Helmet Off",
+            "LocalizedString": "Helmet Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel-Armor-ALT.T-Soldier-Hero-Citadel-Armor-ALT",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F5EDE4504045AB5430B322883C7C1CD2",
+        "SourceString": "Armored Helm Style",
+        "LocalizedString": "Armored Helm Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_Citadel",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Citadel/FX/NS_Emote_Citadel_Armor_Burst.NS_Emote_Citadel_Armor_Burst",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 1.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "SuperLevelColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "SuperLevel"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/FX/NS_Citadel.NS_Citadel",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 23.875002,
+                    "G": 13.75,
+                    "B": 25.0,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.96,
+                    "G": 0.6,
+                    "B": 1.0,
+                    "A": 0.025,
+                    "Hex": "06FBCCFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 47.750004,
+                    "G": 27.5,
+                    "B": 50.0,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/FX/NS_Citadel_Armor.NS_Citadel_Armor",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 23.875002,
+                    "G": 13.75,
+                    "B": 25.0,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.96,
+                    "G": 0.6,
+                    "B": 1.0,
+                    "A": 0.25,
+                    "Hex": "3FFBCCFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 47.750004,
+                    "G": 27.5,
+                    "B": 50.0,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3900E6A948A91C714176B6A12EAC1C47",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S23/T-Soldier-Hero-Citadel.T-Soldier-Hero-Citadel",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Materials/M_MED_Citadel_Body.M_MED_Citadel_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Skins/SuperLevel/Materials/M_S23_Superlevel_Citadel_Black.M_S23_Superlevel_Citadel_Black",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_Body.M_MED_CitadelArmor_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/MI_Citadel_Armor_SL23_Body.MI_Citadel_Armor_SL23_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_FaceAcc.M_MED_CitadelArmor_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Black_FaceAcc.M_S23_Superlevel_CitadelArmor_Black_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Materials/M_MED_CitadelArmor_Prop.M_MED_CitadelArmor_Prop",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Skins/Superlevel/MI_CitadelArmor_Prop_Black.MI_CitadelArmor_Prop_Black",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Citadel/FX/NS_Emote_Citadel_Armor_Burst.NS_Emote_Citadel_Armor_Burst",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.03087,
+                    "G": 0.030984,
+                    "B": 0.03125,
+                    "A": 1.0,
+                    "Hex": "313131"
+                  },
+                  "ParamName": "SuperLevelColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "SuperLevel"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/FX/NS_Citadel.NS_Citadel",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 22.5,
+                    "G": 25.0,
+                    "B": 23.750002,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.9,
+                    "G": 1.0,
+                    "B": 0.95,
+                    "A": 0.025,
+                    "Hex": "06F4FFFA"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 45.0,
+                    "G": 50.0,
+                    "B": 47.500004,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/FX/NS_Citadel_Armor.NS_Citadel_Armor",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 20.0,
+                    "G": 25.0,
+                    "B": 22.5,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.9,
+                    "G": 1.0,
+                    "B": 0.95,
+                    "A": 0.25,
+                    "Hex": "3FF4FFFA"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 45.0,
+                    "G": 50.0,
+                    "B": 47.500004,
+                    "A": 0.0,
+                    "Hex": "FFFFFF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.07562,
+                    "G": 0.088508,
+                    "B": 0.098958,
+                    "A": 1.0,
+                    "Hex": "4E5458"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "56B56CE04CB70D9810F37DAF7D90A389",
+            "SourceString": "Elysian",
+            "LocalizedString": "Elysian"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel_T1.T-Soldier-Hero-Citadel_T1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Materials/M_MED_Citadel_Body.M_MED_Citadel_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Skins/SuperLevel/Materials/M_S23_Superlevel_Citadel_Pink_01.M_S23_Superlevel_Citadel_Pink_01",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_Body.M_MED_CitadelArmor_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/MI_Citadel_Armor_SL23_Body_Pink.MI_Citadel_Armor_SL23_Body_Pink",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_FaceAcc.M_MED_CitadelArmor_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Pink_FaceAcc.M_S23_Superlevel_CitadelArmor_Pink_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Materials/M_MED_CitadelArmor_Prop.M_MED_CitadelArmor_Prop",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Skins/Superlevel/MI_CitadelArmor_Prop_Pink.MI_CitadelArmor_Prop_Pink",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Citadel/FX/NS_Emote_Citadel_Armor_Burst.NS_Emote_Citadel_Armor_Burst",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.097198,
+                    "G": 0.386043,
+                    "B": 0.434,
+                    "A": 1.0,
+                    "Hex": "58A7B0"
+                  },
+                  "ParamName": "SuperLevelColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "SuperLevel"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/FX/NS_Citadel.NS_Citadel",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 18.750023,
+                    "G": 0.0,
+                    "B": 25.0,
+                    "A": 0.0,
+                    "Hex": "FF00FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.75,
+                    "G": 0.0,
+                    "B": 1.0,
+                    "A": 0.025,
+                    "Hex": "06E100FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 37.500023,
+                    "G": 0.0,
+                    "B": 50.0,
+                    "A": 0.0,
+                    "Hex": "FF00FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/FX/NS_Citadel_Armor.NS_Citadel_Armor",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 18.750023,
+                    "G": 0.0,
+                    "B": 25.0,
+                    "A": 0.0,
+                    "Hex": "FF00FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 0.75,
+                    "G": 0.0,
+                    "B": 1.0,
+                    "A": 0.5,
+                    "Hex": "7FE100FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 37.500023,
+                    "G": 0.0,
+                    "B": 50.0,
+                    "A": 0.0,
+                    "Hex": "FF00FF"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.042311,
+                    "G": 0.022174,
+                    "B": 0.057805,
+                    "A": 1.0,
+                    "Hex": "3A2944"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "11DA4E7843E7CE892A5D8EB4B6737346",
+            "SourceString": "Aeon",
+            "LocalizedString": "Aeon"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel-T2.T-Soldier-Hero-Citadel-T2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Materials/M_MED_Citadel_Body.M_MED_Citadel_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/Skins/SuperLevel/Materials/M_S23_Superlevel_Citadel_Gold.M_S23_Superlevel_Citadel_Gold",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_Body.M_MED_CitadelArmor_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/MI_Citadel_Armor_SL23_Body_Gold.MI_Citadel_Armor_SL23_Body_Gold",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Materials/M_MED_CitadelArmor_FaceAcc.M_MED_CitadelArmor_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/Skins/SuperLevel/M_S23_Superlevel_CitadelArmor_Gold_FaceAcc.M_S23_Superlevel_CitadelArmor_Gold_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Materials/M_MED_CitadelArmor_Prop.M_MED_CitadelArmor_Prop",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Animation/Props/Gadgets_M_MED_Citadel/Skins/Superlevel/MI_CitadelArmor_Prop_Gold.MI_CitadelArmor_Prop_Gold",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Citadel/FX/NS_Emote_Citadel_Armor_Burst.NS_Emote_Citadel_Armor_Burst",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.461805,
+                    "G": 0.245824,
+                    "B": 0.025656,
+                    "A": 1.0,
+                    "Hex": "B5882C"
+                  },
+                  "ParamName": "SuperLevelColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "SuperLevel"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel/FX/NS_Citadel.NS_Citadel",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 25.0,
+                    "G": 4.166667,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "FFFF00"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.166667,
+                    "B": 0.0,
+                    "A": 0.025,
+                    "Hex": "06FF7100"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 50.0,
+                    "G": 8.333334,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "FFFF00"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_Citadel_Armor/FX/NS_Citadel_Armor.NS_Citadel_Armor",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 25.0,
+                    "G": 4.166667,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "FFFF00"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Chest"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.166667,
+                    "B": 0.0,
+                    "A": 0.5,
+                    "Hex": "7FFF7100"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Glow"
+                },
+                {
+                  "Value": {
+                    "R": 50.0,
+                    "G": 8.333334,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "FFFF00"
+                  },
+                  "ParamName": "Variant_Color_Plasma_Inverted"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.571125,
+                    "G": 0.226966,
+                    "B": 0.051269,
+                    "A": 1.0,
+                    "Hex": "C78340"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "266DD88748F28B0C07C861B421C5CFD0",
+            "SourceString": "Halcyon",
+            "LocalizedString": "Halcyon"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S23/Characters/T-Soldier-Hero-Citadel_T3.T-Soldier-Hero-Citadel_T3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "839ABE9E447297935876519A9494F94C",
+        "SourceString": "Super Level",
+        "LocalizedString": "Super Level"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticPropertyVariant",
+    "Name": "FortCosmeticPropertyVariant_0",
+    "Outer": "Character_Citadel",
+    "Class": "UScriptClass'FortCosmeticPropertyVariant'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericPropertyOptions": [
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Signature"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSignature",
+            "SourceString": "Signature",
+            "LocalizedString": "Signature"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CosmeticProperties": [
+            {
+              "AssembledMeshSchema": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "PropertyTag": {
+                "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.FigureDetailsLevel.Simple"
+          },
+          "VariantName": {
+            "Namespace": "JunoAccountItemsConversionTypes",
+            "Key": "FigureDetailsLevelSimple",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "JunoAccountItemsConversionTypes",
+        "Key": "FigureDetailsLevelChannelName",
+        "SourceString": "LEGO® Style",
+        "LocalizedString": "LEGO® Style"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.FigureDetailsLevel"
+      }
+    }
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_800_Majesty_U8JHQ",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_Majesty'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_Majesty.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticFloatSliderVariant'BID_800_Majesty_U8JHQ:FortCosmeticFloatSliderVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_800_Majesty_U8JHQ.1"
+        }
+      ],
+      "UnlockRequirements": {
+        "Namespace": "",
+        "Key": "A965009C489219838683128CC81220F5",
+        "SourceString": "Complete the quest to unlock goldness customization.",
+        "LocalizedString": "Complete the quest to unlock goldness customization."
+      },
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_136_Athena_Commando_M_Majesty_YR1GJ.CID_A_136_Athena_Commando_M_Majesty_YR1GJ",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 39683,
+      "ShotGridIds": [
+        39683
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "28F55FD14D33EDF26210BA98CED4A57E",
+        "SourceString": "King's Bling",
+        "LocalizedString": "King's Bling"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "383748C146B59C9FD18393A331788896",
+        "SourceString": "Ready for the tip-off.",
+        "LocalizedString": "Ready for the tip-off."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "599F04E44731D220362645ABF1242CAE",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-800-Majesty.T-Icon-Backpacks-800-Majesty",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-800-Majesty-L.T-Icon-Backpacks-800-Majesty-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.17",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FlatPiece"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7,
+            546,
+            552,
+            7975,
+            541,
+            236,
+            544,
+            357,
+            245,
+            162,
+            569,
+            292,
+            86,
+            261,
+            1,
+            269,
+            54,
+            644,
+            682,
+            678,
+            711,
+            283,
+            161,
+            1031,
+            1116,
+            1350,
+            1627,
+            212,
+            1740,
+            145,
+            105,
+            2263,
+            278,
+            2339,
+            2495,
+            3822,
+            3821
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticFloatSliderVariant",
+    "Name": "FortCosmeticFloatSliderVariant_0",
+    "Outer": "BID_800_Majesty_U8JHQ",
+    "Class": "UScriptClass'FortCosmeticFloatSliderVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxParamValue": 23.0,
+      "UnlockChallengeBundle": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/ChallengeBundles/Styles/QuestBundle_S17_Majesty_Backbling.QuestBundle_S17_Majesty_Backbling",
+        "SubPathString": ""
+      },
+      "MaterialParamName": "MLJ_TransformCurve",
+      "ParticleParamName": "user.Type_Transformation",
+      "MaterialsToAlter": [
+        {
+          "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Majesty/Materials/M_MED_Majesty_Backpack.M_MED_Majesty_Backpack",
+          "SubPathString": ""
+        }
+      ],
+      "ParticleSystemsToAlter": [
+        {
+          "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Majesty/FX/NS_Backpack_Majesty.NS_Backpack_Majesty",
+          "SubPathString": ""
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "24BD83CA4B6B4A0E735B7FAF8B7AB982",
+        "SourceString": "Gold",
+        "LocalizedString": "Gold"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Corruption"
+      }
+    }
+  }
+]

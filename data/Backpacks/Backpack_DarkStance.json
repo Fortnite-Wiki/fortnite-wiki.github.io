@@ -1,0 +1,207 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_DarkStance",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_DarkStance'",
+          "ObjectPath": "/Game/Characters/CharacterParts/Backpacks/CP_Backpack_DarkStance.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_DarkStance:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_DarkStance.1"
+        }
+      ],
+      "BaseShotGridId": 83806,
+      "VariantShotGridIds": [
+        90305
+      ],
+      "ShotGridIds": [
+        83806,
+        90305
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "FF6D34E3420F0276C0E991BB5983A547",
+        "SourceString": "Snakebite Keyring",
+        "LocalizedString": "Snakebite Keyring"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "C2940CBF4BBDF9734F15478E3F72D787",
+        "SourceString": "The Underworld is loath to give up its secrets.",
+        "LocalizedString": "The Underworld is loath to give up its secrets."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "583AC83643CE16AB391E6FA8F1B115E3",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S29/T-Icon-Backpacks-DarkStance.T-Icon-Backpacks-DarkStance",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S29/T-Icon-Backpacks-DarkStance-L.T-Icon-Backpacks-DarkStance-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.29",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Set.BelowRoyalty",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            586,
+            607,
+            542,
+            247,
+            35,
+            765,
+            793,
+            436,
+            1076,
+            1164,
+            1248,
+            163,
+            2445,
+            2494,
+            2712,
+            2713
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_DarkStance",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BC33FAB64E25188D718C3F8BC87703A0",
+            "SourceString": "Snakebite Keyring",
+            "LocalizedString": "Snakebite Keyring"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S29/T-Icon-Backpacks-DarkStance.T-Icon-Backpacks-DarkStance",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_M_MED_DarkStance/Materials/MI_DarkStance_Backpack.MI_DarkStance_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_DarkStance/Skins/Tyrian/Materials/MI_DarkStance_Tyrian_Backpack.MI_DarkStance_Tyrian_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8DEA30CB4C07F182A9244B9BC162325A",
+            "SourceString": "Lethean Keyring",
+            "LocalizedString": "Lethean Keyring"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S29/Backpacks/T-Icon-Backpacks-DarkStance-Tyrian.T-Icon-Backpacks-DarkStance-Tyrian",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "8307DFAD480DDFACCBF43DB216347692",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

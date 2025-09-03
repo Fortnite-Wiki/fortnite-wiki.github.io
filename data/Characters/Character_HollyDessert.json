@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_HollyDessert",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_HollyDessert.CP_Athena_Head_F_HollyDessert",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_HollyDessert.CP_Athena_Body_F_HollyDessert",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_HollyDessert_FaceAcc.CP_F_MED_HollyDessert_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "FrontendAnimMontageIdleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Menu/BR/CustomSkins/_s34/HollyDessertF/HollyDessertF_Idle_Montage.HollyDessertF_Idle_Montage",
+        "SubPathString": ""
+      },
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticNumericalVariant'Character_HollyDessert:FortCosmeticNumericalVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HollyDessert.1"
+        }
+      ],
+      "BaseShotGridId": 120192,
+      "ShotGridIds": [
+        120192
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "987854CA4088386D433351B5AA54DA36",
+        "SourceString": "Dupli-Kate",
+        "LocalizedString": "Dupli-Kate"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A95C94D94B823C1158E022BCF224C41F",
+        "SourceString": "She's a one-woman army.",
+        "LocalizedString": "She's a one-woman army."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HollyDessert.T_Soldier_HollyDessert",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HollyDessert_L.T_Soldier_HollyDessert_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.StepType.BootsCombat",
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.Set.EarthSavior"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            549,
+            552,
+            7975,
+            545,
+            229,
+            541,
+            236,
+            544,
+            553,
+            357,
+            564,
+            162,
+            574,
+            571,
+            242,
+            86,
+            628,
+            629,
+            630,
+            651,
+            54,
+            244,
+            192,
+            678,
+            275,
+            755,
+            786,
+            283
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticNumericalVariant",
+    "Name": "FortCosmeticNumericalVariant_0",
+    "Outer": "Character_HollyDessert",
+    "Class": "UScriptClass'FortCosmeticNumericalVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultStartingNumeric": 1,
+      "MaxNumbericalValue": 31,
+      "ZerosDigitParamName": "DigitOnes",
+      "TensDigitParamName": "DigitTens",
+      "MaterialsToAlter": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_HollyDessert/Materials/MI_HollyDessert_Body.MI_HollyDessert_Body",
+          "SubPathString": ""
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E21FF9FD4F2C37103E7A47A1680B2474",
+        "SourceString": "NUMBER",
+        "LocalizedString": "NUMBER"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Numeric"
+      }
+    }
+  }
+]

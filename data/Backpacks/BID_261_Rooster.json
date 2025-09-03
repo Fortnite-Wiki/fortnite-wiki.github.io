@@ -1,0 +1,221 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_261_Rooster",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_Rooster'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_Rooster.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'BID_261_Rooster:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_261_Rooster.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9C95EDCC436828EA5A49AABC411F705C",
+        "SourceString": "Hot Wings",
+        "LocalizedString": "Hot Wings"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3AAEFB6C4370B91C55379C9E81CE3590",
+        "SourceString": "Sear through the sky.",
+        "LocalizedString": "Sear through the sky."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "C041C3294018BAEA80660AB924F7EDD6",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-261-Rooster.T-Icon-Backpacks-261-Rooster",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-261-Rooster-L.T-Icon-Backpacks-261-Rooster-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.Season9.BattlePass.Paid",
+            "Cosmetics.Set.Rooster",
+            "Cosmetics.Filter.Season.9"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            229,
+            357,
+            245,
+            564,
+            162,
+            243,
+            605,
+            246,
+            247,
+            965,
+            1279,
+            1277,
+            1344,
+            1531,
+            2138,
+            349,
+            251,
+            2480,
+            381,
+            2545,
+            2660,
+            386
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "BID_261_Rooster",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EB091BA945907F8EF7C2B29CED1446F4",
+            "SourceString": "WHITE",
+            "LocalizedString": "WHITE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-261-Rooster.T-Icon-Backpacks-261-Rooster",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_Rooster/Materials/M_MED_Rooster_Backpack.M_MED_Rooster_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_Rooster/Skins/Rooster_Dark/Materials/M_MED_Rooster_Dark_Backpack.M_MED_Rooster_Dark_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Effects/Fort_Effects/Effects/Characters/Athena_Parts/Rooster/P_Rooster_Backpack.P_Rooster_Backpack",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "P_Rooster_Backpack",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Effects/Fort_Effects/Effects/Characters/Athena_Parts/Rooster/P_Rooster_Backpack_DARK.P_Rooster_Backpack_DARK",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7B143E4740102B305D91629F5E4C8615",
+            "SourceString": "DARK",
+            "LocalizedString": "DARK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-M-Rooster-Dark-Backpack.T-Variant-M-Rooster-Dark-Backpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A53E70C4495802C95E7647848DBF6EE6",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

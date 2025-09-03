@@ -1,0 +1,587 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_265_BattleSuit",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_BattleSuit'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_BattleSuit.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'BID_265_BattleSuit:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_265_BattleSuit.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "7CAFFA4C4914F7464809DCB3E7CC1B6C",
+        "SourceString": "Retribution",
+        "LocalizedString": "Retribution"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "007CAAD54F930C76524DF4AAA4A3C902",
+        "SourceString": "Strike back. ",
+        "LocalizedString": "Strike back. "
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E5D43B324818347C23E72B8E11C9FDA1",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-265-BattleSuit.T-Icon-Backpacks-265-BattleSuit",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-265-BattleSuit-L.T-Icon-Backpacks-265-BattleSuit-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.Season9.BattlePass.Paid",
+            "Cosmetics.Set.BattleSuit",
+            "Cosmetics.Filter.Season.9",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            236,
+            357,
+            245,
+            562,
+            162,
+            569,
+            567,
+            166,
+            179,
+            824,
+            113,
+            961,
+            1053,
+            1194,
+            258,
+            315,
+            1694,
+            1976,
+            2056
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "BID_265_BattleSuit",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1D3C32C3488E4BCBA40CE385BB11E0E7",
+            "SourceString": "RED",
+            "LocalizedString": "RED"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-265-BattleSuit.T-Icon-Backpacks-265-BattleSuit",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.190505,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "FF7900"
+                  },
+                  "ParamName": "Emissive Color"
+                }
+              ],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V2_Armor.T_M_MED_BattleSuit_Gradient_V2_Armor",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer1_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V2_Sleeves.T_M_MED_BattleSuit_Gradient_V2_Sleeves",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer2_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V2_Backpack.T_M_MED_BattleSuit_Gradient_V2_Backpack",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer3_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V2_Shirt.T_M_MED_BattleSuit_Gradient_V2_Shirt",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer4_Gradient"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Layer1_Metalness"
+                },
+                {
+                  "Value": 0.8,
+                  "ParamName": "Layer1_Roughness"
+                },
+                {
+                  "Value": 2.0,
+                  "ParamName": "Layer2_Metalness"
+                },
+                {
+                  "Value": 0.9,
+                  "ParamName": "Layer2_Roughness"
+                },
+                {
+                  "Value": 2.0,
+                  "ParamName": "Layer3_Metalness"
+                },
+                {
+                  "Value": 0.9,
+                  "ParamName": "Layer3_Roughness"
+                },
+                {
+                  "Value": 1.4,
+                  "ParamName": "Layer4_Metalness"
+                },
+                {
+                  "Value": 1.6,
+                  "ParamName": "Layer4_Roughness"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/FX/P_BattleSuit_Backpack.P_BattleSuit_Backpack",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.190505,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "FF7900"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4A5D3292466A238EBA889E8484D9D669",
+            "SourceString": "ORANGE",
+            "LocalizedString": "ORANGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-M-BattleSuit-Orange-Backpack.T-Variant-M-BattleSuit-Orange-Backpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.706665,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "00DBFF"
+                  },
+                  "ParamName": "Emissive Color"
+                }
+              ],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V3_Armor.T_M_MED_BattleSuit_Gradient_V3_Armor",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer1_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V3_Sleeves.T_M_MED_BattleSuit_Gradient_V3_Sleeves",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer2_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V3_Backpack.T_M_MED_BattleSuit_Gradient_V3_Backpack",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer3_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V3_Sleeves.T_M_MED_BattleSuit_Gradient_V3_Sleeves",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer4_Gradient"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Layer1_Metalness"
+                },
+                {
+                  "Value": 1.2,
+                  "ParamName": "Layer1_Roughness"
+                },
+                {
+                  "Value": 2.0,
+                  "ParamName": "Layer2_Metalness"
+                },
+                {
+                  "Value": 0.85,
+                  "ParamName": "Layer2_Roughness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Layer3_Metalness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "Layer3_Roughness"
+                },
+                {
+                  "Value": 1.3,
+                  "ParamName": "Layer4_Metalness"
+                },
+                {
+                  "Value": 1.6,
+                  "ParamName": "Layer4_Roughness"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/FX/P_BattleSuit_Backpack.P_BattleSuit_Backpack",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.777,
+                    "B": 1.333,
+                    "A": 1.0,
+                    "Hex": "00E5FF"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D203991B45928FD9A2899886489CB1DE",
+            "SourceString": "NEON BLUE",
+            "LocalizedString": "NEON BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-M-BattleSuit-Blue-Backpack.T-Variant-M-BattleSuit-Blue-Backpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.404823,
+                    "G": 1.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "ABFF00"
+                  },
+                  "ParamName": "Emissive Color"
+                }
+              ],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V4_Armor.T_M_MED_BattleSuit_Gradient_V4_Armor",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer1_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V4_Sleeves.T_M_MED_BattleSuit_Gradient_V4_Sleeves",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer2_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V4_Hood.T_M_MED_BattleSuit_Gradient_V4_Hood",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer3_Gradient"
+                },
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Characters/Player/Male/Medium/Bodies/M_MED_BattleSuit/Textures/Gradient/T_M_MED_BattleSuit_Gradient_V4_Shirt.T_M_MED_BattleSuit_Gradient_V4_Shirt",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "Layer4_Gradient"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 1.5,
+                  "ParamName": "Layer3_Metalness"
+                },
+                {
+                  "Value": 0.8,
+                  "ParamName": "Layer3_Roughness"
+                },
+                {
+                  "Value": 1.3,
+                  "ParamName": "Layer4_Metalness"
+                },
+                {
+                  "Value": 1.6,
+                  "ParamName": "Layer4_Roughness"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/Materials/M_MED_BattleSuit_Backpack.M_MED_BattleSuit_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/M_MED_BattleSuit_Cape/FX/P_BattleSuit_Backpack.P_BattleSuit_Backpack",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.404823,
+                    "G": 1.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "ABFF00"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0C4EE88140F68D53E1FD09943E7219A8",
+            "SourceString": "NEON GREEN",
+            "LocalizedString": "NEON GREEN"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-M-BattleSuit-Green-Backpack.T-Variant-M-BattleSuit-Green-Backpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "73F2A8D747AFA9AB0BBC4FA1E7EF2C5C",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

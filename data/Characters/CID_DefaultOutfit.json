@@ -1,0 +1,1136 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_DefaultOutfit",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bIsOwnedByCampaignHero": true,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticGameplayTagVariant'CID_DefaultOutfit:FortCosmeticGameplayTagVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_DefaultOutfit.3"
+        },
+        {
+          "ObjectName": "FortCosmeticCIDRedirectorVariant'CID_DefaultOutfit:FortCosmeticCIDRedirectorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_DefaultOutfit.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCIDRedirectorVariant'CID_DefaultOutfit:FortCosmeticCIDRedirectorVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_DefaultOutfit.2"
+        }
+      ],
+      "Rarity": "EFortRarity::Common",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A88DBB194DEE9C3EE121368639363E8E",
+        "SourceString": "Default",
+        "LocalizedString": "Default"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E71BBB534CDBF014E5ED6F954C8C070F",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack",
+            "Item.Trait.DefaultTile"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Locker/T_UI_Outfit_Default_128.T_UI_Outfit_Default_128",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Locker/T_UI_Outfit_Default.T_UI_Outfit_Default",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.DefaultItem"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "SharedFilterSet": {
+            "AssetPathName": "/Game/Athena/UI/Customization/DefaultOutfitFilterSet.DefaultOutfitFilterSet",
+            "SubPathString": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCIDRedirectorVariant",
+    "Name": "FortCosmeticCIDRedirectorVariant_0",
+    "Outer": "CID_DefaultOutfit",
+    "Class": "UScriptClass'FortCosmeticCIDRedirectorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CIDRedirectors": [
+        {
+          "CharacterItem": null,
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Random"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7AA562A14B8D017052588383AD42E1E9",
+            "SourceString": "Random",
+            "LocalizedString": "Random"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Locker/ShuffleIcons/T_UI_Shuffle_LobbyMusicSetting_RandomAll.T_UI_Shuffle_LobbyMusicSetting_RandomAll",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_272_Athena_Commando_F_Prime'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_272_Athena_Commando_F_Prime.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4558FE2E41E64C1B7F10679D7913118E",
+            "SourceString": "Emmy",
+            "LocalizedString": "Emmy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-272-Athena-Commando-F-Prime.T-Soldier-HID-A-272-Athena-Commando-F-Prime",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_273_Athena_Commando_F_Prime_B'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_273_Athena_Commando_F_Prime_B.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "972A4F7F41738A00D4D308ACAE36A39D",
+            "SourceString": "Amy",
+            "LocalizedString": "Amy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-273-Athena-Commando-F-Prime-B.T-Soldier-HID-A-273-Athena-Commando-F-Prime-B",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_274_Athena_Commando_F_Prime_C'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_274_Athena_Commando_F_Prime_C.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6D915FA74F333A3D559541A2F1E6637E",
+            "SourceString": "Melody",
+            "LocalizedString": "Melody"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-274-Athena-Commando-F-Prime-C.T-Soldier-HID-A-274-Athena-Commando-F-Prime-C",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_275_Athena_Commando_F_Prime_D'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_275_Athena_Commando_F_Prime_D.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "81A29DF148EE798719C26E8CCE547FBF",
+            "SourceString": "Ramirez",
+            "LocalizedString": "Ramirez"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-275-Athena-Commando-F-Prime-D.T-Soldier-HID-A-275-Athena-Commando-F-Prime-D",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_276_Athena_Commando_F_Prime_E'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_276_Athena_Commando_F_Prime_E.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B224665B41BB3CCDAD40C0B79324FE5C",
+            "SourceString": "Simone",
+            "LocalizedString": "Simone"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-276-Athena-Commando-F-Prime-E.T-Soldier-HID-A-276-Athena-Commando-F-Prime-E",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_277_Athena_Commando_F_Prime_F'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_277_Athena_Commando_F_Prime_F.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "29E319F8459CC81F4C3B539D2E629E4C",
+            "SourceString": "Lena",
+            "LocalizedString": "Lena"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-277-Athena-Commando-F-Prime-F.T-Soldier-HID-A-277-Athena-Commando-F-Prime-F",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_278_Athena_Commando_F_Prime_G'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_278_Athena_Commando_F_Prime_G.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4246935A427DE85D72626397C1F9A9CC",
+            "SourceString": "Jo",
+            "LocalizedString": "Jo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-278-Athena-Commando-F-Prime-G.T-Soldier-HID-A-278-Athena-Commando-F-Prime-G",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_279_Athena_Commando_M_Prime'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_279_Athena_Commando_M_Prime.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DEC42F6D49F6F085AF9393B1DAAAE7E2",
+            "SourceString": "Jonesy",
+            "LocalizedString": "Jonesy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-279-Athena-Commando-M-Prime.T-Soldier-HID-A-279-Athena-Commando-M-Prime",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_280_Athena_Commando_M_Prime_B'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_280_Athena_Commando_M_Prime_B.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2FAB081845711F7943AE5C806A6B7779",
+            "SourceString": "Aiden",
+            "LocalizedString": "Aiden"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-280-Athena-Commando-M-Prime-B.T-Soldier-HID-A-280-Athena-Commando-M-Prime-B",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_281_Athena_Commando_M_Prime_C'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_281_Athena_Commando_M_Prime_C.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit9"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8B30AE4A488C1A9E45D89B909FEDDC49",
+            "SourceString": "Cyrus",
+            "LocalizedString": "Cyrus"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-281-Athena-Commando-M-Prime-C.T-Soldier-HID-A-281-Athena-Commando-M-Prime-C",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_282_Athena_Commando_M_Prime_D'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_282_Athena_Commando_M_Prime_D.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit10"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6572D23D41BA4287B98266AD0CFB492E",
+            "SourceString": "Elias",
+            "LocalizedString": "Elias"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-282-Athena-Commando-M-Prime-D.T-Soldier-HID-A-282-Athena-Commando-M-Prime-D",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_283_Athena_Commando_M_Prime_E'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_283_Athena_Commando_M_Prime_E.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E23F8473413A788E942DA18F9F56AC25",
+            "SourceString": "Jonah",
+            "LocalizedString": "Jonah"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-283-Athena-Commando-M-Prime-E.T-Soldier-HID-A-283-Athena-Commando-M-Prime-E",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_284_Athena_Commando_M_Prime_F'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_284_Athena_Commando_M_Prime_F.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "07D430504A618BFBD653BEAF3315F7F3",
+            "SourceString": "Robbie",
+            "LocalizedString": "Robbie"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-284-Athena-Commando-M-Prime-F.T-Soldier-HID-A-284-Athena-Commando-M-Prime-F",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'CID_A_285_Athena_Commando_M_Prime_G'",
+            "ObjectPath": "/DefaultCosmeticsAthena/Characters/Items/Character/CID_A_285_Athena_Commando_M_Prime_G.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "118284A64DBAD8C0EC3613864186B227",
+            "SourceString": "Liam",
+            "LocalizedString": "Liam"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/DefaultCosmeticsAthena/Characters/UI/T-Soldier-HID-A-285-Athena-Commando-M-Prime-G.T-Soldier-HID-A-285-Athena-Commando-M-Prime-G",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "ThemeChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ThemeFilter"
+      },
+      "ThemeVariantTag": {
+        "TagName": "Cosmetics.Variant.Property.Theme.Military"
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "DCA986DF49CED707E361D0B8EA6B9E56",
+        "SourceString": "Combat",
+        "LocalizedString": "Combat"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.FNE"
+        },
+        {
+          "TagName": "Product.Juno"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Theme.Military"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCIDRedirectorVariant",
+    "Name": "FortCosmeticCIDRedirectorVariant_1",
+    "Outer": "CID_DefaultOutfit",
+    "Class": "UScriptClass'FortCosmeticCIDRedirectorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CIDRedirectors": [
+        {
+          "CharacterItem": null,
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Random"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7AA562A14B8D017052588383AD42E1E9",
+            "SourceString": "Random",
+            "LocalizedString": "Random"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/Game/UI/Foundation/Textures/Icons/Locker/ShuffleIcons/T_UI_Shuffle_LobbyMusicSetting_RandomAll.T_UI_Shuffle_LobbyMusicSetting_RandomAll",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B7D0355D409848A7B798639130D944E7",
+            "SourceString": "Emmy",
+            "LocalizedString": "Emmy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm.T_Soldier_WaterfallCharm",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_B'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_B.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D7FF43C64D78E2D684573E89DC0D4394",
+            "SourceString": "Amy",
+            "LocalizedString": "Amy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_B.T_Soldier_WaterfallCharm_B",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_C'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_C.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "202546D04BCD524C26AC949B3AEA120B",
+            "SourceString": "Melody",
+            "LocalizedString": "Melody"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_C.T_Soldier_WaterfallCharm_C",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_D'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_D.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DE6C206C467084DE36B385B9F6CD066C",
+            "SourceString": "Ramirez",
+            "LocalizedString": "Ramirez"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_D.T_Soldier_WaterfallCharm_D",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_E'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_E.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C36D241F4DFADD787F6850BB2830994E",
+            "SourceString": "Simone",
+            "LocalizedString": "Simone"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_E.T_Soldier_WaterfallCharm_E",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_F'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_F.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "08507D8B4B26A378C876B4AC5F9E0320",
+            "SourceString": "Lena",
+            "LocalizedString": "Lena"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_F.T_Soldier_WaterfallCharm_F",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_WaterfallCharm_G'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_WaterfallCharm_G.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AAE7C8214978DBF6A7C11B9A31C9E7EC",
+            "SourceString": "Jo",
+            "LocalizedString": "Jo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_WaterfallCharm_G.T_Soldier_WaterfallCharm_G",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A24EE8FB4D53B595F9A46199D64BE387",
+            "SourceString": "Jonesy",
+            "LocalizedString": "Jonesy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity.T_Soldier_HabitatSecurity",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_B'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_B.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "831440024493F8444BE3C2A3EB18D11A",
+            "SourceString": "Aiden",
+            "LocalizedString": "Aiden"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_B.T_Soldier_HabitatSecurity_B",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_C'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_C.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit9"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D67426F9405A502712C976AF731648D6",
+            "SourceString": "Cyrus",
+            "LocalizedString": "Cyrus"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_C.T_Soldier_HabitatSecurity_C",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_D'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_D.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit10"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "266A59DB4EE92F1FCBBB28BC6666756A",
+            "SourceString": "Elias",
+            "LocalizedString": "Elias"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_D.T_Soldier_HabitatSecurity_D",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_E'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_E.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit11"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D72EA7A54483488E498377A0FA36A386",
+            "SourceString": "Jonah",
+            "LocalizedString": "Jonah"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_E.T_Soldier_HabitatSecurity_E",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_F'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_F.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit12"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "ECDA47CE436BEFD3052A9889488A2375",
+            "SourceString": "Robbie",
+            "LocalizedString": "Robbie"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_F.T_Soldier_HabitatSecurity_F",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "CharacterItem": {
+            "ObjectName": "AthenaCharacterItemDefinition'Character_HabitatSecurity_G'",
+            "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_HabitatSecurity_G.0"
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Outfit.Outfit13"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "46CA2348436C2CC6A0C7FE8E6C152BBB",
+            "SourceString": "Liam",
+            "LocalizedString": "Liam"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S34/T_Soldier_HabitatSecurity_G.T_Soldier_HabitatSecurity_G",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "ThemeChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ThemeFilter"
+      },
+      "ThemeVariantTag": {
+        "TagName": "Cosmetics.Variant.Property.Theme.Streetwear"
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6B52694641FFE7D5C2F61D9D9F0B3EED",
+        "SourceString": "Casual",
+        "LocalizedString": "Casual"
+      },
+      "ProductTags": [
+        {
+          "TagName": "Product.Juno"
+        },
+        {
+          "TagName": "Product.FNE"
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Theme.Streetwear"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticGameplayTagVariant",
+    "Name": "FortCosmeticGameplayTagVariant_0",
+    "Outer": "CID_DefaultOutfit",
+    "Class": "UScriptClass'FortCosmeticGameplayTagVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GenericTagOptions": [
+        {
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Theme.Military"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CD7320FB4D9806CDDA12D588BCBE7B52",
+            "SourceString": "Combat",
+            "LocalizedString": "Combat"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Theme.Streetwear"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "80A0FC604BEF661EE5A5C297791EC56F",
+            "SourceString": "Casual",
+            "LocalizedString": "Casual"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "203B8548406CB0C3884E5CBEDEB3AAB3",
+        "SourceString": "Theme Filter",
+        "LocalizedString": "Theme Filter"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ThemeFilter"
+      }
+    }
+  }
+]

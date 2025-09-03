@@ -1,0 +1,3443 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_SnowKnight",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_SnowKnight'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_SnowKnight.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SnowKnight:FortCosmeticMaterialVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnowKnight.1"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_SnowKnight:FortCosmeticMaterialVariant_3'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnowKnight.2"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Backpack_SnowKnight:FortCosmeticRichColorVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnowKnight.4"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Backpack_SnowKnight:FortCosmeticRichColorVariant_4'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnowKnight.5"
+        },
+        {
+          "ObjectName": "FortCosmeticProfileBannerVariant'Backpack_SnowKnight:FortCosmeticProfileBannerVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SnowKnight.3"
+        }
+      ],
+      "BaseShotGridId": 79164,
+      "ShotGridIds": [
+        79164
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "870A9E8C408A870ACFEEC1A33885ED21",
+        "SourceString": "Spectra Protector",
+        "LocalizedString": "Spectra Protector"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4BD0D2834CB561C69D07B782EBDAE670",
+        "SourceString": "This shield has seen everything.",
+        "LocalizedString": "This shield has seen everything."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "269C9C74410DD362AEB7EFA8884A5FD8",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S27/T-Icon-Backpacks-SnowKnight.T-Icon-Backpacks-SnowKnight",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S27/T-Icon-Backpacks-SnowKnight-L.T-Icon-Backpacks-SnowKnight-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.27",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.BrightChampion"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            8,
+            156,
+            613,
+            629,
+            246,
+            247,
+            436,
+            950,
+            1016,
+            1053,
+            1072,
+            114,
+            126,
+            1974
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_2",
+    "Outer": "Backpack_SnowKnight",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "463F478543F1C04A445251B312437F40",
+            "SourceString": "WHITE",
+            "LocalizedString": "WHITE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.145833,
+                    "G": 0.145833,
+                    "B": 0.145833,
+                    "A": 1.0,
+                    "Hex": "6B6B6B"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.145833,
+                    "G": 0.145833,
+                    "B": 0.145833,
+                    "A": 1.0,
+                    "Hex": "6B6B6B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FCE41DBC49ACB18922621FAD97B83C6F",
+            "SourceString": "GREY",
+            "LocalizedString": "GREY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05,
+                    "G": 0.05,
+                    "B": 0.05,
+                    "A": 1.0,
+                    "Hex": "3F3F3F"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05,
+                    "G": 0.05,
+                    "B": 0.05,
+                    "A": 1.0,
+                    "Hex": "3F3F3F"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3D97460741E042D22586AE9C3FD85450",
+            "SourceString": "DARK GREY",
+            "LocalizedString": "DARK GREY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E9326C5A428C1CE908ADB5890AFFBDBA",
+            "SourceString": "BLACK",
+            "LocalizedString": "BLACK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.065511,
+                    "G": 0.117983,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "486061"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.065511,
+                    "G": 0.117983,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "486061"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.013"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2E72F98F46E559410ECD5683A5749ABC",
+            "SourceString": "SAGE",
+            "LocalizedString": "SAGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0125,
+                    "G": 0.05,
+                    "B": 0.025,
+                    "A": 1.0,
+                    "Hex": "1D3F2B"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0125,
+                    "G": 0.05,
+                    "B": 0.025,
+                    "A": 1.0,
+                    "Hex": "1D3F2B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.007"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9EBD3F7D497E98CBDC59A180A9E1C44F",
+            "SourceString": "GREEN",
+            "LocalizedString": "GREEN"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.122776,
+                    "G": 0.272945,
+                    "B": 0.380208,
+                    "A": 1.0,
+                    "Hex": "628FA6"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.122776,
+                    "G": 0.272945,
+                    "B": 0.380208,
+                    "A": 1.0,
+                    "Hex": "628FA6"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.012"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "88D811B042CC0B677A04F3BE9A1FE44E",
+            "SourceString": "LIGHT BLUE",
+            "LocalizedString": "LIGHT BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.013702,
+                    "G": 0.05448,
+                    "B": 0.132868,
+                    "A": 1.0,
+                    "Hex": "1F4266"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.013702,
+                    "G": 0.05448,
+                    "B": 0.132868,
+                    "A": 1.0,
+                    "Hex": "1F4266"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.005"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C70CDF8A4CAB81801027469F9ED14B4C",
+            "SourceString": "BLUE",
+            "LocalizedString": "BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.298644,
+                    "G": 0.228353,
+                    "B": 0.317708,
+                    "A": 1.0,
+                    "Hex": "958399"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.298644,
+                    "G": 0.228353,
+                    "B": 0.317708,
+                    "A": 1.0,
+                    "Hex": "958399"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.011"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "40524F8A43F4C3421BC01BB1304D009D",
+            "SourceString": "MAUVE",
+            "LocalizedString": "MAUVE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05492,
+                    "G": 0.035265,
+                    "B": 0.130208,
+                    "A": 1.0,
+                    "Hex": "423465"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05492,
+                    "G": 0.035265,
+                    "B": 0.130208,
+                    "A": 1.0,
+                    "Hex": "423465"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.006"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "90A263CF4C7E8618A375769A6E1E1C86",
+            "SourceString": "PURPLE",
+            "LocalizedString": "PURPLE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.208333,
+                    "G": 0.016276,
+                    "B": 0.019477,
+                    "A": 1.0,
+                    "Hex": "7E2226"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.208333,
+                    "G": 0.016276,
+                    "B": 0.019477,
+                    "A": 1.0,
+                    "Hex": "7E2226"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.004"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7EF86F3146ED14CA38681DBE7CE472BA",
+            "SourceString": "RED",
+            "LocalizedString": "RED"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.5625,
+                    "G": 0.164063,
+                    "B": 0.326642,
+                    "A": 1.0,
+                    "Hex": "C6719B"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.5625,
+                    "G": 0.164063,
+                    "B": 0.326642,
+                    "A": 1.0,
+                    "Hex": "C6719B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.010"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "329344BD480DA11E4AEA13ABD6546852",
+            "SourceString": "PINK",
+            "LocalizedString": "PINK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.682292,
+                    "G": 0.489213,
+                    "B": 0.103054,
+                    "A": 1.0,
+                    "Hex": "D8BA5A"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.682292,
+                    "G": 0.489213,
+                    "B": 0.103054,
+                    "A": 1.0,
+                    "Hex": "D8BA5A"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.009"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "30F212424A592B651D51C781F9ED603A",
+            "SourceString": "YELLOW",
+            "LocalizedString": "YELLOW"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.354167,
+                    "G": 0.251623,
+                    "B": 0.19184,
+                    "A": 1.0,
+                    "Hex": "A18979"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.354167,
+                    "G": 0.251623,
+                    "B": 0.19184,
+                    "A": 1.0,
+                    "Hex": "A18979"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.014"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "199F788246E58DC6836B6783AE258E0C",
+            "SourceString": "TAUPE",
+            "LocalizedString": "TAUPE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.630208,
+                    "G": 0.151534,
+                    "B": 0.0558,
+                    "A": 1.0,
+                    "Hex": "D06C43"
+                  },
+                  "ParamName": "Primary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.630208,
+                    "G": 0.151534,
+                    "B": 0.0558,
+                    "A": 1.0,
+                    "Hex": "D06C43"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.008"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CDD851DB4BA0D7B72BB5CB99732B5518",
+            "SourceString": "ORANGE",
+            "LocalizedString": "ORANGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PrimaryChroma"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseChroma"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.015"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E79C24A24B3119AB5CBE21868F84BD18",
+            "SourceString": "CHROMA",
+            "LocalizedString": "CHROMA"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PrimaryGalaxy"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseGalaxy"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.016"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "67E6EC8140B7D8FF76F14A8104E0D1CE",
+            "SourceString": "GALAXY",
+            "LocalizedString": "GALAXY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PrimaryIce"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseIce"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.017"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "792EDA3745DFB99BCDBDF2ABC057270D",
+            "SourceString": "ICE",
+            "LocalizedString": "ICE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "CustomPreviewTileMaterial": {
+        "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+        "SubPathString": ""
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E4D06B1445ADBB2958480CA2A695DA72",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.JerseyColor"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_3",
+    "Outer": "Backpack_SnowKnight",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "463F478543F1C04A445251B312437F40",
+            "SourceString": "WHITE",
+            "LocalizedString": "WHITE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.145833,
+                    "G": 0.145833,
+                    "B": 0.145833,
+                    "A": 1.0,
+                    "Hex": "6B6B6B"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.145833,
+                    "G": 0.145833,
+                    "B": 0.145833,
+                    "A": 1.0,
+                    "Hex": "6B6B6B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FCE41DBC49ACB18922621FAD97B83C6F",
+            "SourceString": "GREY",
+            "LocalizedString": "GREY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05,
+                    "G": 0.05,
+                    "B": 0.05,
+                    "A": 1.0,
+                    "Hex": "3F3F3F"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05,
+                    "G": 0.05,
+                    "B": 0.05,
+                    "A": 1.0,
+                    "Hex": "3F3F3F"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3D97460741E042D22586AE9C3FD85450",
+            "SourceString": "DARK GREY",
+            "LocalizedString": "DARK GREY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E9326C5A428C1CE908ADB5890AFFBDBA",
+            "SourceString": "BLACK",
+            "LocalizedString": "BLACK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.065511,
+                    "G": 0.117983,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "486061"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.065511,
+                    "G": 0.117983,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "486061"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.013"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2E72F98F46E559410ECD5683A5749ABC",
+            "SourceString": "SAGE",
+            "LocalizedString": "SAGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0125,
+                    "G": 0.05,
+                    "B": 0.025,
+                    "A": 1.0,
+                    "Hex": "1D3F2B"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0125,
+                    "G": 0.05,
+                    "B": 0.025,
+                    "A": 1.0,
+                    "Hex": "1D3F2B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.007"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9EBD3F7D497E98CBDC59A180A9E1C44F",
+            "SourceString": "GREEN",
+            "LocalizedString": "GREEN"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.122776,
+                    "G": 0.272945,
+                    "B": 0.380208,
+                    "A": 1.0,
+                    "Hex": "628FA6"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.122776,
+                    "G": 0.272945,
+                    "B": 0.380208,
+                    "A": 1.0,
+                    "Hex": "628FA6"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.012"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E09B4A254F5569AF845F29AB59BDC93B",
+            "SourceString": "LIGHT BLUE",
+            "LocalizedString": "LIGHT BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.013702,
+                    "G": 0.05448,
+                    "B": 0.132868,
+                    "A": 1.0,
+                    "Hex": "1F4266"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.013702,
+                    "G": 0.05448,
+                    "B": 0.132868,
+                    "A": 1.0,
+                    "Hex": "1F4266"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.005"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C70CDF8A4CAB81801027469F9ED14B4C",
+            "SourceString": "BLUE",
+            "LocalizedString": "BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.298644,
+                    "G": 0.228353,
+                    "B": 0.317708,
+                    "A": 1.0,
+                    "Hex": "958399"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.298644,
+                    "G": 0.228353,
+                    "B": 0.317708,
+                    "A": 1.0,
+                    "Hex": "958399"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.011"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "40524F8A43F4C3421BC01BB1304D009D",
+            "SourceString": "MAUVE",
+            "LocalizedString": "MAUVE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05492,
+                    "G": 0.035265,
+                    "B": 0.130208,
+                    "A": 1.0,
+                    "Hex": "423465"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.05492,
+                    "G": 0.035265,
+                    "B": 0.130208,
+                    "A": 1.0,
+                    "Hex": "423465"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.006"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "90A263CF4C7E8618A375769A6E1E1C86",
+            "SourceString": "PURPLE",
+            "LocalizedString": "PURPLE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.208333,
+                    "G": 0.016276,
+                    "B": 0.019477,
+                    "A": 1.0,
+                    "Hex": "7E2226"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.208333,
+                    "G": 0.016276,
+                    "B": 0.019477,
+                    "A": 1.0,
+                    "Hex": "7E2226"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.004"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "7EF86F3146ED14CA38681DBE7CE472BA",
+            "SourceString": "RED",
+            "LocalizedString": "RED"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.5625,
+                    "G": 0.164063,
+                    "B": 0.326642,
+                    "A": 1.0,
+                    "Hex": "C6719B"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.5625,
+                    "G": 0.164063,
+                    "B": 0.326642,
+                    "A": 1.0,
+                    "Hex": "C6719B"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.010"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "329344BD480DA11E4AEA13ABD6546852",
+            "SourceString": "PINK",
+            "LocalizedString": "PINK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.682292,
+                    "G": 0.489213,
+                    "B": 0.103054,
+                    "A": 1.0,
+                    "Hex": "D8BA5A"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.682292,
+                    "G": 0.489213,
+                    "B": 0.103054,
+                    "A": 1.0,
+                    "Hex": "D8BA5A"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.009"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "30F212424A592B651D51C781F9ED603A",
+            "SourceString": "YELLOW",
+            "LocalizedString": "YELLOW"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.354167,
+                    "G": 0.251623,
+                    "B": 0.19184,
+                    "A": 1.0,
+                    "Hex": "A18979"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.354167,
+                    "G": 0.251623,
+                    "B": 0.19184,
+                    "A": 1.0,
+                    "Hex": "A18979"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.014"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "199F788246E58DC6836B6783AE258E0C",
+            "SourceString": "TAUPE",
+            "LocalizedString": "TAUPE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.630208,
+                    "G": 0.151534,
+                    "B": 0.0558,
+                    "A": 1.0,
+                    "Hex": "D06C43"
+                  },
+                  "ParamName": "Secondary_Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.630208,
+                    "G": 0.151534,
+                    "B": 0.0558,
+                    "A": 1.0,
+                    "Hex": "D06C43"
+                  },
+                  "ParamName": "Color"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.008"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CDD851DB4BA0D7B72BB5CB99732B5518",
+            "SourceString": "ORANGE",
+            "LocalizedString": "ORANGE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "SecondaryChroma"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseChroma"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.015"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E79C24A24B3119AB5CBE21868F84BD18",
+            "SourceString": "CHROMA",
+            "LocalizedString": "CHROMA"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "SecondaryGalaxy"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseGalaxy"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.016"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "67E6EC8140B7D8FF76F14A8104E0D1CE",
+            "SourceString": "GALAXY",
+            "LocalizedString": "GALAXY"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "SecondaryIce"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "UseIce"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.017"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "792EDA3745DFB99BCDBDF2ABC057270D",
+            "SourceString": "ICE",
+            "LocalizedString": "ICE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "CustomPreviewTileMaterial": {
+        "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/SnowKnight/MI_UI_SnowKnight.MI_UI_SnowKnight",
+        "SubPathString": ""
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FCC655254B73628004EEA1ACA3BCAD68",
+        "SourceString": "Secondary Color",
+        "LocalizedString": "Secondary Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileBannerVariant",
+    "Name": "FortCosmeticProfileBannerVariant_0",
+    "Outer": "Backpack_SnowKnight",
+    "Class": "UScriptClass'FortCosmeticProfileBannerVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialsToAlter": [
+        {
+          "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+          "SubPathString": ""
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "75CC97E44CF484F8BEB2EC95AC6FA4F3",
+        "SourceString": "Banner",
+        "LocalizedString": "Banner"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_2",
+    "Outer": "Backpack_SnowKnight",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.752942,
+            "G": 0.498889,
+            "B": 0.090196,
+            "A": 1.0,
+            "Hex": "E1BC55"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_SnowKnight_Trim_v2.CS_SnowKnight_Trim_v2",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Trim_Color"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "322EAC3B41EA81CAC2AE8CB48DAEC331",
+          "SourceString": "Trim Color",
+          "LocalizedString": "Trim Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FB7D912B41DF5E481F77CDA24F660D62",
+        "SourceString": "Trim Color",
+        "LocalizedString": "Trim Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor3"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_4",
+    "Outer": "Backpack_SnowKnight",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.051758,
+            "G": 0.323486,
+            "B": 0.828125,
+            "A": 1.0,
+            "Hex": "409AEB"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_SnowKnight_Crystal.CS_SnowKnight_Crystal",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_SnowKnight/Materials/MI_SnowKnight_Backpack.MI_SnowKnight_Backpack",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Crystal_Color"
+        },
+        "VariantName": {
+          "Namespace": "",
+          "Key": "B9EEF0E045563D42ADFA9FBE863DE88C",
+          "SourceString": "Crystal Color",
+          "LocalizedString": "Crystal Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7B4EE88940A0A72E47A70E8B2BC57FD4",
+        "SourceString": "Crystal Color",
+        "LocalizedString": "Crystal Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor4"
+      }
+    }
+  }
+]

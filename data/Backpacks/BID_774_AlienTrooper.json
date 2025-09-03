@@ -1,0 +1,1403 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_774_AlienTrooper",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_AlienTrooper'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_AlienTrooper.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'BID_774_AlienTrooper:FortCosmeticParticleVariant_2'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_774_AlienTrooper.2"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'BID_774_AlienTrooper:FortCosmeticParticleVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_774_AlienTrooper.1"
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/Game/Athena/Items/Cosmetics/Characters/CID_560_Athena_Commando_M_RebirthDefaultA.CID_560_Athena_Commando_M_RebirthDefaultA",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 39221,
+      "ShotGridIds": [
+        39221
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "E6A829224841C4C9217E9280BE6419AD",
+        "SourceString": "Kymera's Plasma Pak",
+        "LocalizedString": "Kymera's Plasma Pak"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "62E8B1734350C1ECE499CCB41CF0DB2B",
+        "SourceString": "A roiling ball of raw energy. Might give you a sunburn.",
+        "LocalizedString": "A roiling ball of raw energy. Might give you a sunburn."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "00C3708E4153EAF47B92058E5B0B0AA4",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-774-AlienTrooper.T-Icon-Backpacks-774-AlienTrooper",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-774-AlienTrooper-L.T-Icon-Backpacks-774-AlienTrooper-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.17",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.VeryAdvanced",
+            "Cosmetics.Source.Season17.BattlePass.Paid",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            357,
+            562,
+            563,
+            162,
+            569,
+            242,
+            261,
+            246,
+            264,
+            643,
+            29,
+            902,
+            1100,
+            1194,
+            1279,
+            315,
+            1539,
+            1538,
+            1694,
+            395,
+            2543
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_1",
+    "Outer": "BID_774_AlienTrooper",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.806952,
+                    "G": 0.022174,
+                    "B": 0.955973,
+                    "A": 1.0,
+                    "Hex": "E829FA"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.9,
+                    "G": 0.060937,
+                    "B": 0.727187,
+                    "A": 1.0,
+                    "Hex": "F446DE"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "55997B7541EDD0075B9608964C954E87",
+            "SourceString": "Magenta",
+            "LocalizedString": "Magenta"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Pink.T_Ui_AlienTrooper_Variant_ArmorGlow_Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.991102,
+                    "G": 0.864213,
+                    "B": 0.029263,
+                    "A": 1.0,
+                    "Hex": "FEF02F"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.55,
+                    "G": 0.38968,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "C4A800"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.006"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "09FF94D84925A3EE6B33EE97C9DD645E",
+            "SourceString": "579 NM",
+            "LocalizedString": "579 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Yellow.T_Ui_AlienTrooper_Variant_ArmorGlow_Yellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "6424D7964BB0D4CC78CF3C807DECE4C6",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.01033,
+                    "G": 0.814847,
+                    "B": 0.610496,
+                    "A": 1.0,
+                    "Hex": "1AE9CD"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.55,
+                    "B": 0.481425,
+                    "A": 1.0,
+                    "Hex": "00C4B9"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.005"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2F3401E04BDFCEFE15E680B0592B15A1",
+            "SourceString": "488 NM",
+            "LocalizedString": "488 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Cyan.T_Ui_AlienTrooper_Variant_ArmorGlow_Cyan",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "64C97A704EFB19DDE1214C898E99CC4F",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.991102,
+                    "G": 0.266356,
+                    "B": 0.004777,
+                    "A": 1.0,
+                    "Hex": "FE8D0F"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.7,
+                    "G": 0.112438,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "DA5E00"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "105B5314440620EA9E7713A5BDFDFE93",
+            "SourceString": "609 NM",
+            "LocalizedString": "609 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Orange.T_Ui_AlienTrooper_Variant_ArmorGlow_Orange",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "162644554112B7E77A636497C44B24D3",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.8,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "00E800"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.034572,
+                    "G": 0.4,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "34AA00"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BB5FCE854A19DF9444350EB0C589DB48",
+            "SourceString": "518 NM",
+            "LocalizedString": "518 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Green.T_Ui_AlienTrooper_Variant_ArmorGlow_Green",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "0B2D27154DC4F28C884D37921D6B87F8",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.027968,
+                    "G": 0.184107,
+                    "B": 0.991102,
+                    "A": 1.0,
+                    "Hex": "2E77FE"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.053833,
+                    "G": 0.329992,
+                    "B": 0.991102,
+                    "A": 1.0,
+                    "Hex": "419CFE"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A426A0EA4381A653D18B8DA955D8B991",
+            "SourceString": "464 NM",
+            "LocalizedString": "464 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Blue.T_Ui_AlienTrooper_Variant_ArmorGlow_Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "50F5AB894F7CA5B0268F4A84B0636259",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.042937,
+                    "B": 0.050397,
+                    "A": 1.0,
+                    "Hex": "FF3A3F"
+                  },
+                  "ParamName": "AT_SuitEmissive"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/FX/NS_Backpack_Alien_Trooper.NS_Backpack_Alien_Trooper",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.061198,
+                    "B": 0.061198,
+                    "A": 1.0,
+                    "Hex": "FF4646"
+                  },
+                  "ParamName": "BackPack_Color"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.004"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "70D377394337540B99F1498C0422A201",
+            "SourceString": "647 NM",
+            "LocalizedString": "647 NM"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_ArmorGlow_Red.T_Ui_AlienTrooper_Variant_ArmorGlow_Red",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "DC4744BB497BCAB63C373AAD3EA51D4F",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "D3D40159428063C9B03C22AC1F55E223",
+        "SourceString": "Armor Emissive",
+        "LocalizedString": "Armor Emissive"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_2",
+    "Outer": "BID_774_AlienTrooper",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.0,
+                    "B": 3.5,
+                    "A": 1.0,
+                    "Hex": "0000FF"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.651406,
+                    "G": 0.341914,
+                    "B": 0.072272,
+                    "A": 1.0,
+                    "Hex": "D39E4C"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.298039,
+                    "G": 0.294118,
+                    "B": 0.282353,
+                    "A": 1.0,
+                    "Hex": "959491"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.000"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6B2A1CFA4DD61BD718601A9ED91EB5BA",
+            "SourceString": "Lunar",
+            "LocalizedString": "Lunar"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_White.T_Ui_AlienTrooper_Variant_Armor_White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.275,
+                    "G": 1.66,
+                    "B": 0.85,
+                    "A": 1.0,
+                    "Hex": "8FFFEE"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.5,
+                    "G": 0.5,
+                    "B": 0.5,
+                    "A": 1.0,
+                    "Hex": "BCBCBC"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.033105,
+                    "G": 0.06301,
+                    "B": 0.119538,
+                    "A": 1.0,
+                    "Hex": "334761"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.003"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "48DA9B80440620E6E5FEDC934991F408",
+            "SourceString": "Terra",
+            "LocalizedString": "Terra"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Green.T_Ui_AlienTrooper_Variant_Armor_Green",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "0FCEB60044AEE5DA703487A198D3EC68",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.95,
+                    "G": 1.5,
+                    "B": 2.5,
+                    "A": 1.0,
+                    "Hex": "FAFFFF"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 1.0,
+                    "Hex": "CCCCCC"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.327778,
+                    "G": 0.258183,
+                    "B": 0.539479,
+                    "A": 1.0,
+                    "Hex": "9B8BC2"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.006"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B733230B468F1D0E9C00A8BED93400BC",
+            "SourceString": "Astral",
+            "LocalizedString": "Astral"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Pink.T_Ui_AlienTrooper_Variant_Armor_Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "27758A664DF82987AFA1B8B09327C641",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.6,
+                    "G": 3.0,
+                    "B": 0.625,
+                    "A": 1.0,
+                    "Hex": "CCFFCF"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.991102,
+                    "G": 0.571125,
+                    "B": 0.095307,
+                    "A": 1.0,
+                    "Hex": "FEC757"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.024158,
+                    "G": 0.024158,
+                    "B": 0.024158,
+                    "A": 1.0,
+                    "Hex": "2B2B2B"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.002"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "66E215234150DFC1752343B4AE3D79E7",
+            "SourceString": "Celestial",
+            "LocalizedString": "Celestial"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Blue.T_Ui_AlienTrooper_Variant_Armor_Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "799966E048421FE5A71A789FB2AF31E9",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.025,
+                    "G": 3.0,
+                    "B": 0.8,
+                    "A": 1.0,
+                    "Hex": "2BFFE8"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.760525,
+                    "G": 0.467784,
+                    "B": 0.095307,
+                    "A": 1.0,
+                    "Hex": "E2B657"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.004"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AF0EFE7742EE6E138436D89C7B7266C7",
+            "SourceString": "Redshift",
+            "LocalizedString": "Redshift"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Red.T_Ui_AlienTrooper_Variant_Armor_Red",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "4DC87EA5434EFF8EA134E5B686668841",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.75,
+                    "G": 2.3,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "E1FFFF"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.517361,
+                    "G": 0.517361,
+                    "B": 0.517361,
+                    "A": 1.0,
+                    "Hex": "BFBFBF"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.02,
+                    "G": 0.02,
+                    "B": 0.02,
+                    "A": 1.0,
+                    "Hex": "262626"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.005"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3828A83E468C1657DFE087992CB7AD29",
+            "SourceString": "Ultraviolet",
+            "LocalizedString": "Ultraviolet"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Purple.T_Ui_AlienTrooper_Variant_Armor_Purple",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "C721D29C4ABC270B8FEE02933FFEDD7E",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.0,
+                    "B": 0.03,
+                    "A": 1.0,
+                    "Hex": "000030"
+                  },
+                  "ParamName": "AT_SuitPrimary_HSV"
+                },
+                {
+                  "Value": {
+                    "R": 0.5,
+                    "G": 0.5,
+                    "B": 0.5,
+                    "A": 1.0,
+                    "Hex": "BCBCBC"
+                  },
+                  "ParamName": "AT_SuitAccent"
+                },
+                {
+                  "Value": {
+                    "R": 0.06,
+                    "G": 0.06,
+                    "B": 0.06,
+                    "A": 1.0,
+                    "Hex": "454545"
+                  },
+                  "ParamName": "AT_SuitSecondary"
+                },
+                {
+                  "Value": {
+                    "R": 0.1,
+                    "G": 0.1,
+                    "B": 0.1,
+                    "A": 1.0,
+                    "Hex": "595959"
+                  },
+                  "ParamName": "AT_EmblemColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_M_MED_Alien_Trooper/Materials/M_MED_AlienTrooper_Backpack.M_MED_AlienTrooper_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Color.001"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "94CEB66C4A9558610D5F0B9B6AAC1E33",
+            "SourceString": "Singularity",
+            "LocalizedString": "Singularity"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/AlienTrooper/T_Ui_AlienTrooper_Variant_Armor_Black.T_Ui_AlienTrooper_Variant_Armor_Black",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "57891F2A4153C4E7CD2067A0179B47A3",
+            "SourceString": "Claim additional styles to customize Kymera within the Battle Pass",
+            "LocalizedString": "Claim additional styles to customize Kymera within the Battle Pass"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F4192C8B45D9164363F529A04EC4C85F",
+        "SourceString": "Armor",
+        "LocalizedString": "Armor"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.JerseyColor"
+      }
+    }
+  }
+]

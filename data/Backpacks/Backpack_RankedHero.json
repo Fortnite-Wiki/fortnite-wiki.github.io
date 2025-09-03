@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_RankedHero",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_RankedHero'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_RankedHero.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.HabaneroS36"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRankedVariant'Backpack_RankedHero:FortCosmeticRankedVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_RankedHero.1"
+        }
+      ],
+      "BaseShotGridId": 155649,
+      "ShotGridIds": [
+        155649
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "47D6A68B4D366813FE3D529BF4259853",
+        "SourceString": "Supernova Ranker",
+        "LocalizedString": "Supernova Ranker"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "51864F4B407A8D3A6ABB58960838FB5E",
+        "SourceString": "Top of the class.",
+        "LocalizedString": "Top of the class."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E41232FB49313AC3596743B75C4B25C9",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_RankedHero.T_Icon_Backpacks_RankedHero",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S36/T_Icon_Backpacks_RankedHero_L.T_Icon_Backpacks_RankedHero_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            586,
+            613,
+            244,
+            247,
+            275,
+            436,
+            283,
+            996,
+            1058,
+            1072,
+            1116,
+            114,
+            1219,
+            1389,
+            145,
+            2042,
+            2494,
+            2499,
+            2495,
+            2562
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRankedVariant",
+    "Name": "FortCosmeticRankedVariant_1",
+    "Outer": "Backpack_RankedHero",
+    "Class": "UScriptClass'FortCosmeticRankedVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RankedIconData": {
+        "ObjectName": "RankedVariantIconData'FortRankedVariantIconConfig'",
+        "ObjectPath": "/BRCosmetics/Athena/UI/Customization/MPL/EditStyles/FortRankedVariantIconConfig.0"
+      },
+      "StatTagToWatch": {
+        "TagName": "StatManager.HabaneroS36"
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "1CA25D5D41F4A390F2D5A383C17245FF",
+        "SourceString": "Rank",
+        "LocalizedString": "Rank"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Ranked"
+      }
+    }
+  }
+]

@@ -1,0 +1,3495 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PillowMill_Mastery.CP_Athena_Head_F_PillowMill_Mastery",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_PillowMill_Mastery.CP_Athena_Body_F_PillowMill_Mastery",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_PillowMill_Mastery:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'Character_PillowMill_Mastery:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.2"
+        },
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Character_PillowMill_Mastery:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.3"
+        },
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Character_PillowMill_Mastery:FortCosmeticMaterialVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.4"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Character_PillowMill_Mastery:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.5"
+        }
+      ],
+      "BaseShotGridId": 101260,
+      "ShotGridIds": [
+        101260
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9421EED840F09184DE15369A017507AF",
+        "SourceString": "Gwenpool",
+        "LocalizedString": "Gwenpool"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "47A4B71742C987E072AA798A8511CF55",
+        "SourceString": "I played the Galactus Event. That makes me an Avenger, right?",
+        "LocalizedString": "I played the Galactus Event. That makes me an Avenger, right?"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMastery.TSoldierPillowMillMastery",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMasteryL.TSoldierPillowMillMasteryL",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "SoundLibrary.ID.ClothingType.GearTactical",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.HypothesisFlow",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Cosmetics.Gating.Allow.Shoes",
+            "Cosmetics.Filter.ThirdParty",
+            "SoundLibrary.ID.StepType.ShoesSneakers"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'MarvelSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/MarvelSeries.0"
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            552,
+            7975,
+            545,
+            229,
+            2,
+            488,
+            236,
+            553,
+            245,
+            8,
+            6,
+            574,
+            261,
+            629,
+            630,
+            246,
+            192,
+            694,
+            701,
+            11,
+            755,
+            786,
+            1362
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionA"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0C9CA8F94D56AABAB7D165AFA7FECA87",
+            "SourceString": "Gwenpool",
+            "LocalizedString": "Gwenpool"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMastery.TSoldierPillowMillMastery",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_F_PillowMill_Myriad.CP_Athena_Body_F_PillowMill_Myriad",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_PillowMill_Myriad_FaceAcc.CP_F_MED_PillowMill_Myriad_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PillowMill_Myriad.CP_Athena_Head_F_PillowMill_Myriad",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionB"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AB46327142A51A23596F4D9A8CEE7886",
+            "SourceString": "Gwendolyn Poole",
+            "LocalizedString": "Gwendolyn Poole"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/S31/TSoldierPillowMillMyriad.TSoldierPillowMillMyriad",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionC"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0887560A448919F25A1246B2753259F5",
+            "SourceString": "Dark Gwenpool",
+            "LocalizedString": "Dark Gwenpool"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMasteryBlack.TSoldierPillowMillMasteryBlack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "5A659A4546C981E0536330B35F12200B",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "AccessoryOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "549E1716408948BE111AE09D33DB816C",
+            "SourceString": "on",
+            "LocalizedString": "on"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMastery.TSoldierPillowMillMastery",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PillowMill_Myriad.CP_Athena_Head_F_PillowMill_Myriad",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_PillowMill_Myriad_FaceAcc.CP_F_MED_PillowMill_Myriad_FaceAcc",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Glass_FaceAcc.MI_PillowMill_Myriad_Glass_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Glass_FaceAcc.MI_PillowMill_Myriad_Glass_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T1.MI_SL_PillowMill_Myriad_FaceAcc_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T1.MI_SL_PillowMill_Myriad_FaceAcc_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T2.MI_SL_PillowMill_Myriad_FaceAcc_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T2.MI_SL_PillowMill_Myriad_FaceAcc_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T3.MI_SL_PillowMill_Myriad_FaceAcc_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Hide Element 01"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T3.MI_SL_PillowMill_Myriad_FaceAcc_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "AccessoryOn"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionD"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F70B2ED04F17C084F5A86CABDA05738A",
+            "SourceString": "off",
+            "LocalizedString": "off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMasteryMaskOff.TSoldierPillowMillMasteryMaskOff",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4274FAE3439B5AB5ED82018C10A81CF7",
+        "SourceString": "Accessory",
+        "LocalizedString": "Accessory"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.Character_PillowMill_Mastery",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionA"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionD"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  2,
+                  0,
+                  1
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL( Cosmetics.MetaTags.Style.OptionA, Cosmetics.MetaTags.Style.OptionD )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/FaceAccessories/CP_F_MED_PillowMill_Myriad_FaceAcc.CP_F_MED_PillowMill_Myriad_FaceAcc",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PillowMill_Myriad.CP_Athena_Head_F_PillowMill_Myriad",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_PillowMill_Mastery.Character_PillowMill_Mastery",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionC"
+                  },
+                  {
+                    "TagName": "Cosmetics.MetaTags.Style.OptionD"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  5,
+                  2,
+                  2,
+                  1,
+                  0,
+                  3,
+                  1,
+                  1
+                ],
+                "UserDescription": "",
+                "AutoDescription": " ALL(  ALL( Cosmetics.MetaTags.Style.OptionC ),  NONE( Cosmetics.MetaTags.Style.OptionD ) )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [
+            {
+              "AssetPathName": "/BRCosmetics/Characters/CharacterParts/Female/Medium/Heads/CP_Athena_Head_F_PillowMill_Match.CP_Athena_Head_F_PillowMill_Match",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage5"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "FA9D24FD4E370524D31770A3200331FB",
+        "SourceString": "mask off conditional",
+        "LocalizedString": "mask off conditional"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_1",
+    "Outer": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5978EFF84A1C6B394FA65D8B8B462925",
+            "SourceString": "Cel",
+            "LocalizedString": "Cel"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMastery.TSoldierPillowMillMastery",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                },
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T1.MI_SL_PillowMill_Mastery_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T1.MI_SL_PillowMill_Mastery_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T1.MI_SL_PillowMill_Mastery_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T1.MI_SL_PillowMill_Mastery_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T1.MI_SL_PillowMill_Match_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T1.MI_SL_PillowMill_Match_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T1.MI_SL_PillowMill_Match_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T1.MI_SL_PillowMill_Match_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T1.MI_SL_PillowMill_Myriad_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T1.MI_SL_PillowMill_Myriad_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T1.MI_SL_PillowMill_Myriad_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T1.MI_SL_PillowMill_Myriad_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T2.MI_SL_PillowMill_Mastery_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T2.MI_SL_PillowMill_Mastery_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T2.MI_SL_PillowMill_Mastery_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T2.MI_SL_PillowMill_Mastery_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T2.MI_SL_PillowMill_Match_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T2.MI_SL_PillowMill_Match_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T2.MI_SL_PillowMill_Match_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T2.MI_SL_PillowMill_Match_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T2.MI_SL_PillowMill_Myriad_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T2.MI_SL_PillowMill_Myriad_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T2.MI_SL_PillowMill_Myriad_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T2.MI_SL_PillowMill_Myriad_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T3.MI_SL_PillowMill_Mastery_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T3.MI_SL_PillowMill_Mastery_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T3.MI_SL_PillowMill_Mastery_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T3.MI_SL_PillowMill_Mastery_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T3.MI_SL_PillowMill_Match_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T3.MI_SL_PillowMill_Match_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T3.MI_SL_PillowMill_Match_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T3.MI_SL_PillowMill_Match_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T3.MI_SL_PillowMill_Myriad_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T3.MI_SL_PillowMill_Myriad_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T3.MI_SL_PillowMill_Myriad_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T3.MI_SL_PillowMill_Myriad_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T1_1.MI_SL_PillowMill_Mastery_Head2_T1_1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T1_1.MI_SL_PillowMill_Mastery_Head2_T1_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T2.MI_SL_PillowMill_Mastery_Head2_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T2.MI_SL_PillowMill_Mastery_Head2_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T3.MI_SL_PillowMill_Mastery_Head2_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T3.MI_SL_PillowMill_Mastery_Head2_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8E8E78D64D0148E0A5945A835D60647C",
+            "SourceString": "Outlined Gradient",
+            "LocalizedString": "Outlined Gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMasteryPBR.TSoldierPillowMillMasteryPBR",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body_InvHullOutline.MI_PillowMill_Mastery_Body_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2_InvHullOutline.MI_PillowMill_Mastery_Head2_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head_InvHullOutline.MI_PillowMill_Mastery_Head_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body_InvHullOutline.MI_PillowMill_Myriad_Body_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FacAcc_Extra_InvHullOutline.MI_PillowMill_Myriad_FacAcc_Extra_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FacAcc_InvHullOutline.MI_PillowMill_Myriad_FacAcc_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head_InvHullOutline.MI_PillowMill_Myriad_Head_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body_InvHullOutline.MI_PillowMill_Match_Body_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2_InvHullOutline.MI_PillowMill_Match_Head2_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head_InvHullOutline.MI_PillowMill_Match_Head_InvHullOutline",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Global/Materials/M_Overlay_VertexCrunch.M_Overlay_VertexCrunch",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T1.MI_SL_PillowMill_Mastery_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T1.MI_SL_PillowMill_Mastery_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T1.MI_SL_PillowMill_Mastery_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T1.MI_SL_PillowMill_Mastery_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T1.MI_SL_PillowMill_Match_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T1.MI_SL_PillowMill_Match_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T1.MI_SL_PillowMill_Match_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T1.MI_SL_PillowMill_Match_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T1.MI_SL_PillowMill_Myriad_Body_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T1.MI_SL_PillowMill_Myriad_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T1.MI_SL_PillowMill_Myriad_Head_T1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T1.MI_SL_PillowMill_Myriad_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T2.MI_SL_PillowMill_Mastery_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T2.MI_SL_PillowMill_Mastery_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T2.MI_SL_PillowMill_Mastery_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T2.MI_SL_PillowMill_Mastery_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T2.MI_SL_PillowMill_Match_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T2.MI_SL_PillowMill_Match_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T2.MI_SL_PillowMill_Match_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T2.MI_SL_PillowMill_Match_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T2.MI_SL_PillowMill_Myriad_Body_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T2.MI_SL_PillowMill_Myriad_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T2.MI_SL_PillowMill_Myriad_Head_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T2.MI_SL_PillowMill_Myriad_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T3.MI_SL_PillowMill_Mastery_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T3.MI_SL_PillowMill_Mastery_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T3.MI_SL_PillowMill_Mastery_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T3.MI_SL_PillowMill_Mastery_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T3.MI_SL_PillowMill_Match_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T3.MI_SL_PillowMill_Match_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T3.MI_SL_PillowMill_Match_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T3.MI_SL_PillowMill_Match_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T3.MI_SL_PillowMill_Myriad_Body_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T3.MI_SL_PillowMill_Myriad_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T3.MI_SL_PillowMill_Myriad_Head_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T3.MI_SL_PillowMill_Myriad_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T1_1.MI_SL_PillowMill_Mastery_Head2_T1_1",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T1_1.MI_SL_PillowMill_Mastery_Head2_T1_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T2.MI_SL_PillowMill_Mastery_Head2_T2",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T2.MI_SL_PillowMill_Mastery_Head2_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T3.MI_SL_PillowMill_Mastery_Head2_T3",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.2,
+                  "ParamName": "Dynamic_DFLColor_Darkening"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "DF_LineHardness"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "PBR_Shading"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T3.MI_SL_PillowMill_Mastery_Head2_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A7880548499533112D85CA88AD96998D",
+            "SourceString": "Gradient",
+            "LocalizedString": "Gradient"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMasteryPBRNoOutlines.TSoldierPillowMillMasteryPBRNoOutlines",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "892AC5EE4444B16C710C318EE22E1A9D",
+        "SourceString": "Shading",
+        "LocalizedString": "Shading"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Character_PillowMill_Mastery",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2472E6E8451ED382064137BD412EC5EB",
+            "SourceString": "Off",
+            "LocalizedString": "Off"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/TSoldierPillowMillMastery.TSoldierPillowMillMastery",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T1.MI_SL_PillowMill_Mastery_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T1.MI_SL_PillowMill_Mastery_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T1.MI_SL_PillowMill_Match_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T1.MI_SL_PillowMill_Match_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T1.MI_SL_PillowMill_Myriad_Body_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T1.MI_SL_PillowMill_Myriad_FaceAcc_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T1.MI_SL_PillowMill_Myriad_Head_T1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T1_1.MI_SL_PillowMill_Mastery_Head2_T1_1",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head2_T1.MI_SL_PillowMill_Match_Head2_T1",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL_Pupil.NS_Character_PillowMill_Myriad_SL_Pupil",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "ColorVariant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.863157,
+                    "G": 1.0,
+                    "B": 0.205079,
+                    "A": 1.0,
+                    "Hex": "EFFF7D"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A6972E2F404F287D59D047956B1286F9",
+            "SourceString": "Arcane Burn Gwenpool",
+            "LocalizedString": "Arcane Burn Gwenpool"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/T_Soldier_PillowMillMastery_SuperLevelT1.T_Soldier_PillowMillMastery_SuperLevelT1",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T2.MI_SL_PillowMill_Mastery_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T2.MI_SL_PillowMill_Mastery_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T2.MI_SL_PillowMill_Match_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T2.MI_SL_PillowMill_Match_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T2.MI_SL_PillowMill_Myriad_Body_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T2.MI_SL_PillowMill_Myriad_FaceAcc_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T2.MI_SL_PillowMill_Myriad_Head_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T2.MI_SL_PillowMill_Mastery_Head2_T2",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head2_T2.MI_SL_PillowMill_Match_Head2_T2",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL_Pupil.NS_Character_PillowMill_Myriad_SL_Pupil",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "ColorVariant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.027936,
+                    "G": 0.075749,
+                    "B": 0.109462,
+                    "A": 1.0,
+                    "Hex": "2E4E5D"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CA4237D948046BCF02B65EA731A0B363",
+            "SourceString": "Cold Sorcery Gwenpool",
+            "LocalizedString": "Cold Sorcery Gwenpool"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/T_Soldier_PillowMillMastery_SuperLevelT2.T_Soldier_PillowMillMastery_SuperLevelT2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Body.MI_PillowMill_Mastery_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Body_T3.MI_SL_PillowMill_Mastery_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head.MI_PillowMill_Mastery_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head_T3.MI_SL_PillowMill_Mastery_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Body.MI_PillowMill_Match_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Body_T3.MI_SL_PillowMill_Match_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head.MI_PillowMill_Match_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head_T3.MI_SL_PillowMill_Match_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Body.MI_PillowMill_Myriad_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Body_T3.MI_SL_PillowMill_Myriad_Body_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_FaceAcc.MI_PillowMill_Myriad_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_FaceAcc_T3.MI_SL_PillowMill_Myriad_FaceAcc_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Materials/MI_PillowMill_Myriad_Head.MI_PillowMill_Myriad_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/Skins/Superlevels/MI_SL_PillowMill_Myriad_Head_T3.MI_SL_PillowMill_Myriad_Head_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Materials/MI_PillowMill_Mastery_Head2.MI_PillowMill_Mastery_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Mastery_Head2_T3.MI_SL_PillowMill_Mastery_Head2_T3",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Match/Materials/MI_PillowMill_Match_Head2.MI_PillowMill_Match_Head2",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/Skins/Superlevels/MI_SL_PillowMill_Match_Head2_T3.MI_SL_PillowMill_Match_Head2_T3",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_SunBurst/FX/NS_Empty.NS_Empty",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Mastery/FX/NS_Character_PillowMill_Mastery_SL.NS_Character_PillowMill_Mastery_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL.NS_Character_PillowMill_Myriad_SL",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "ColorVariant"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "isOff"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Characters/Player/Female/Medium/Bodies/F_MED_PillowMill_Myriad/FX/NS_Character_PillowMill_Myriad_SL_Pupil.NS_Character_PillowMill_Myriad_SL_Pupil",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "ColorVariant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.07036,
+                    "G": 0.033105,
+                    "B": 0.015996,
+                    "A": 1.0,
+                    "Hex": "4B3322"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.2,
+                    "G": 0.2,
+                    "B": 1.0,
+                    "A": 0.0,
+                    "Hex": "7C7CFF"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "FC1DFD8B422DFBE11152C7B12FDD9453",
+            "SourceString": "Doomforged Gwenpool",
+            "LocalizedString": "Doomforged Gwenpool"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S31/T_Soldier_PillowMillMastery_SuperLevelT3.T_Soldier_PillowMillMastery_SuperLevelT3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "613A25FE481FEEC8DADBFB8BF76F388A",
+        "SourceString": "Superlevels",
+        "LocalizedString": "Superlevels"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Slot.0"
+      }
+    }
+  }
+]

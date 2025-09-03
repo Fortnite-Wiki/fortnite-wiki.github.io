@@ -1,0 +1,886 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_A_042_Athena_Commando_F_Scholar",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Female/Medium/Heads/CP_Head_F_Scholar.CP_Head_F_Scholar",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_Scholar.CP_Body_Commando_F_Scholar",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_F_MED_Scholar_FaceAcc.CP_F_MED_Scholar_FaceAcc",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Female",
+      "DefaultMontageLookupTable": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Menu/MontageLookUpTables/MediumFemale.MediumFemale",
+        "SubPathString": ""
+      },
+      "BuiltInEmotes": [
+        {
+          "ObjectName": "AthenaDanceItemDefinition'EID_Scholar'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Scholar.0"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_042_Athena_Commando_F_Scholar:FortCosmeticCharacterPartVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_042_Athena_Commando_F_Scholar.1"
+        },
+        {
+          "ObjectName": "FortCosmeticCharacterPartVariant'CID_A_042_Athena_Commando_F_Scholar:FortCosmeticCharacterPartVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_042_Athena_Commando_F_Scholar.2"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Parts"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Parts"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            },
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Mat2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 37225,
+      "VariantShotGridIds": [
+        37227,
+        38829,
+        37229,
+        37227,
+        37229
+      ],
+      "ShotGridIds": [
+        37225,
+        37227,
+        38829,
+        37229,
+        37227,
+        37229
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "D7ACA9114ABC340B0D7BF68DE95E8E88",
+        "SourceString": "Isabelle",
+        "LocalizedString": "Isabelle"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6B13BCA6454E5B51656E61A9810A3355",
+        "SourceString": "Voted \"Most Likely To Succeed... Or Burn the Place Down.\"",
+        "LocalizedString": "Voted \"Most Likely To Succeed... Or Burn the Place Down.\""
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-042-Athena-Commando-F-Scholar-L.T-Soldier-HID-A-042-Athena-Commando-F-Scholar-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-042-Athena-Commando-F-Scholar.T-Soldier-HID-A-042-Athena-Commando-F-Scholar",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Variant.ForceLoadAllParts",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Filter.Season.16",
+            "Cosmetics.Set.MagicInstitute",
+            "Cosmetics.Character.RestrictCape",
+            "Cosmetics.UserFacingFlags.Transform",
+            "SoundLibrary.ID.StepType.ShoesSneakers",
+            "SoundLibrary.ID.ClothingType.Generic",
+            "SoundLibrary.ID.HandType.Bare",
+            "Cosmetics.FrontEndPose.DontHandsOnHips",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            543,
+            546,
+            552,
+            7975,
+            545,
+            229,
+            12,
+            236,
+            544,
+            540,
+            245,
+            564,
+            162,
+            574,
+            567,
+            570,
+            166,
+            242,
+            606,
+            86,
+            269,
+            629,
+            246,
+            54,
+            667,
+            69,
+            192,
+            787,
+            786,
+            944,
+            85,
+            1018,
+            664,
+            1116,
+            1210,
+            1206,
+            2194,
+            2289,
+            2290,
+            268,
+            2288,
+            2291,
+            2287
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_0",
+    "Outer": "CID_A_042_Athena_Commando_F_Scholar",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.Scholar.Student",
+              "Cosmetics.Emote.CharacterGroup.Skirts"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F13355D8495FBD262962C8A3826BF280",
+            "SourceString": "Isabelle",
+            "LocalizedString": "Isabelle"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [
+            {
+              "AssetPathName": "/Game/Athena/Heroes/Meshes/Bodies/CP_Body_Commando_F_Scholar_Armor.CP_Body_Commando_F_Scholar_Armor",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_F_MED_Scholar_Armor.CP_F_MED_Scholar_Armor",
+              "SubPathString": ""
+            }
+          ],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Heads/F_MED_HIS_Jane_Head_01/Materials/F_MED_HIS_Jane_Head_01.F_MED_HIS_Jane_Head_01",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Materials/F_MED_HIS_Jane_ScholarWitchArmor_Head.F_MED_HIS_Jane_ScholarWitchArmor_Head",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.040915,
+                    "G": 0.022174,
+                    "B": 0.022174,
+                    "A": 1.0,
+                    "Hex": "392929"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.45,
+                    "G": 0.5,
+                    "B": 0.46,
+                    "A": 0.0,
+                    "Hex": "B3BCB5"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.Variant.Meta.Scholar.Witch",
+              "Cosmetics.Character.RestrictCape"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E842D0D74B6908A8FA0E86A5F4D32BCF",
+            "SourceString": "Isabelle (Night Classes)",
+            "LocalizedString": "Isabelle (Night Classes)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticCharacterPartVariant",
+    "Name": "FortCosmeticCharacterPartVariant_1",
+    "Outer": "CID_A_042_Athena_Commando_F_Scholar",
+    "Class": "UScriptClass'FortCosmeticCharacterPartVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PartOptions": [
+        {
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "42FE13AC402141F29E65569D976D5DA2",
+            "SourceString": "Isabelle",
+            "LocalizedString": "Isabelle"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-A-042-Athena-Commando-F-Scholar.T-Soldier-HID-A-042-Athena-Commando-F-Scholar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Materials/F_MED_Scholar_FaceAcc.F_MED_Scholar_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Skins/Dark/Materials/F_MED_ScholarDark_FaceAcc.F_MED_ScholarDark_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Materials/F_MED_Scholar_Hair.F_MED_Scholar_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Skins/Dark/Materials/F_MED_ScholarDark_Hair.F_MED_ScholarDark_Hair",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Materials/F_MED_Scholar_Body.F_MED_Scholar_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar/Skins/Dark/Materials/F_MED_ScholarDark_Body.F_MED_ScholarDark_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Materials/F_MED_HIS_Jane_ScholarWitchArmor_Head.F_MED_HIS_Jane_ScholarWitchArmor_Head",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Skins/Dark/Materials/F_MED_ScholarWitchArmorDark_Head.F_MED_ScholarWitchArmorDark_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Materials/F_MED_ScholarWitchArmor_FaceAcc.F_MED_ScholarWitchArmor_FaceAcc",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Skins/Dark/Materials/F_MED_ScholarWitchArmorDark_FaceAcc.F_MED_ScholarWitchArmorDark_FaceAcc",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Materials/F_MED_ScholarWitchArmor_Hair.F_MED_ScholarWitchArmor_Hair",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Skins/Dark/Materials/F_MED_ScholarWitchArmorDark_Hair.F_MED_ScholarWitchArmorDark_Hair",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Materials/F_MED_ScholarWitchArmor_Body.F_MED_ScholarWitchArmor_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/Skins/Dark/Materials/F_MED_ScholarWitchArmorDark_Body.F_MED_ScholarWitchArmorDark_Body",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Characters/Player/Female/Medium/Bodies/F_MED_Scholar_Witch_Armor/FX/NS_MED_Scholar_Witch_Armor_Body.NS_MED_Scholar_Witch_Armor_Body",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.01033,
+                    "G": 0.799103,
+                    "B": 0.01033,
+                    "A": 1.5,
+                    "Hex": "1AE71A"
+                  },
+                  "ParamName": "GrenadeLightColorAndBrightnessScale"
+                },
+                {
+                  "Value": {
+                    "R": 0.0,
+                    "G": 0.75,
+                    "B": 0.0,
+                    "A": 0.125,
+                    "Hex": "1F00E100"
+                  },
+                  "ParamName": "HazeColor"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_Explosion.NS_ScholarEmote_Explosion",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.220504,
+                    "G": 0.651406,
+                    "B": 0.130281,
+                    "A": 1.0,
+                    "Hex": "81D365"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "UseGreenMat"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_Trail.NS_ScholarEmote_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.220504,
+                    "G": 0.651406,
+                    "B": 0.130281,
+                    "A": 1.0,
+                    "Hex": "81D365"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "UseGreenMat"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_BookBurst.NS_ScholarEmote_BookBurst",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.220504,
+                    "G": 0.651406,
+                    "B": 0.130281,
+                    "A": 1.0,
+                    "Hex": "81D365"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "UseGreenMat"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_FireBurst_Start.NS_ScholarEmote_FireBurst_Start",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.133213,
+                    "G": 0.651406,
+                    "B": 0.024713,
+                    "A": 1.0,
+                    "Hex": "66D32B"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_FireBurst_End.NS_ScholarEmote_FireBurst_End",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.133213,
+                    "G": 0.651406,
+                    "B": 0.024713,
+                    "A": 1.0,
+                    "Hex": "66D32B"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Emotes/Scholar/NS_ScholarEmote_Explosion_FE.NS_ScholarEmote_Explosion_FE",
+                "SubPathString": ""
+              },
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.220504,
+                    "G": 0.651406,
+                    "B": 0.130281,
+                    "A": 1.0,
+                    "Hex": "81D365"
+                  },
+                  "ParamName": "Color_01"
+                },
+                {
+                  "Value": {
+                    "R": 0.043735,
+                    "G": 0.219526,
+                    "B": 0.05448,
+                    "A": 1.0,
+                    "Hex": "3B8142"
+                  },
+                  "ParamName": "Color_02"
+                }
+              ],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "UseGreenMat"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.051269,
+                    "G": 0.038204,
+                    "B": 0.040915,
+                    "A": 1.0,
+                    "Hex": "403739"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.55,
+                    "G": 0.6,
+                    "B": 0.6,
+                    "A": 0.0,
+                    "Hex": "C4CCCC"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8A356BDC4B6728A0105234B1567C92BF",
+            "SourceString": "Isabelle (Potions Major)",
+            "LocalizedString": "Isabelle (Potions Major)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-A-042-F-Scholar-Dark.T-Variant-A-042-F-Scholar-Dark",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6B01934144CEF501EB638B9942C1CABE",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

@@ -1,0 +1,386 @@
+[
+  {
+    "Type": "AthenaCharacterItemDefinition",
+    "Name": "CID_250_Athena_Commando_M_EvilCowboy",
+    "Class": "UScriptClass'AthenaCharacterItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BaseCharacterParts": [
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/Male/Medium/Heads/CP_Athena_Head_M_EvilCowboy.CP_Athena_Head_M_EvilCowboy",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Heroes/Meshes/Bodies/CP_Athena_Body_M_EvilCowboy.CP_Athena_Body_M_EvilCowboy",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Characters/CharacterParts/FaceAccessories/CP_M_MED_EvilCowboy.CP_M_MED_EvilCowboy",
+          "SubPathString": ""
+        }
+      ],
+      "Gender": "EFortCustomGender::Male",
+      "MetaTags": [
+        "Cosmetics.Sepia.Exclude"
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.DamageDealt"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'CID_250_Athena_Commando_M_EvilCowboy:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_250_Athena_Commando_M_EvilCowboy.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Parts"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 14772,
+      "VariantShotGridIds": [
+        16216,
+        32641
+      ],
+      "ShotGridIds": [
+        14772,
+        16216,
+        32641
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A90337F84F4B8BD546DC8EBB48C2FD48",
+        "SourceString": "Deadfire",
+        "LocalizedString": "Deadfire"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "8B041EF044143650B76748ABF08B4F8E",
+        "SourceString": "This town ain't big enough...\r\nReactive: Transforms by dealing damage, or by outliving other players.",
+        "LocalizedString": "This town ain't big enough...\r\nReactive: Transforms by dealing damage, or by outliving other players."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9658361F4EFF6B98FF153898E58C9D52",
+        "SourceString": "Outfit",
+        "LocalizedString": "Outfit"
+      },
+      "DataList": [
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-250-Athena-Commando-M-EvilCowboy-L.T-Soldier-HID-250-Athena-Commando-M-EvilCowboy-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-250-Athena-Commando-M-EvilCowboy.T-Soldier-HID-250-Athena-Commando-M-EvilCowboy",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.Cowgirl",
+            "Cosmetics.UserFacingFlags.Reactive",
+            "Cosmetics.Filter.Season.6",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "SoundLibrary.ID.StepType.ShoesDress",
+            "SoundLibrary.ID.ClothingType.ArmorLeather",
+            "SoundLibrary.ID.HandType.Glove",
+            "Cosmetics.Gating.Allow.Shoes"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            546,
+            552,
+            7975,
+            236,
+            357,
+            540,
+            245,
+            560,
+            574,
+            527,
+            476,
+            19,
+            269,
+            18,
+            34,
+            178,
+            732,
+            767,
+            802,
+            940,
+            1005,
+            1064,
+            1065,
+            1144,
+            185,
+            1154,
+            1235,
+            1236,
+            1730,
+            1837,
+            1838
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "CID_250_Athena_Commando_M_EvilCowboy",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3B00DFFD4974D16EE36E5F87603E0851",
+            "SourceString": "DEFAULT",
+            "LocalizedString": "DEFAULT"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Athena/Soldier/T-Soldier-HID-250-Athena-Commando-M-EvilCowboy.T-Soldier-HID-250-Athena-Commando-M-EvilCowboy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Materials/MI_M_MED_BadassCowboy_01_Head1.MI_M_MED_BadassCowboy_01_Head1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Materials/MI_M_MED_BadassCowboy_03_Head.MI_M_MED_BadassCowboy_03_Head",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Materials/MI_M_MED_BadassCowboy_01_Body.MI_M_MED_BadassCowboy_01_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Skins/M_MED_EvilCowboy_Ghost/Materials/BadassCowboy_Ghost_Body.BadassCowboy_Ghost_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Materials/MI_M_MED_BadassCowboy_01_Body.MI_M_MED_BadassCowboy_01_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 2,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Skins/M_MED_EvilCowboy_Ghost/Materials/BadassCowboy_Ghost_Body.BadassCowboy_Ghost_Body",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Materials/MI_M_MED_BadassCowboy_01_FaceAccessory1.MI_M_MED_BadassCowboy_01_FaceAccessory1",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/Skins/M_MED_EvilCowboy_Ghost/Materials/BadassCowboy_Ghost_Hat.BadassCowboy_Ghost_Hat",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Athena/Effects/Particles/Skins/EvilCowboy/P_EvilCowboy_Stage3_Onbody_Fire.P_EvilCowboy_Stage3_Onbody_Fire",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/VFX/Ghost/P_EvilCowboy_Ghost_Ghost_Stage3_Onbody_Fire.P_EvilCowboy_Ghost_Ghost_Stage3_Onbody_Fire",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Athena/Effects/Particles/Skins/EvilCowboy/P_EvilCowboy_Stage2_Onbody_Transition.P_EvilCowboy_Stage2_Onbody_Transition",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/VFX/Ghost/P_EvilCowboy_Ghost_Stage2_Onbody_Transition.P_EvilCowboy_Ghost_Stage2_Onbody_Transition",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Athena/Effects/Particles/Skins/EvilCowboy/P_EvilCowboy_Stage3_Onbody_Transition.P_EvilCowboy_Stage3_Onbody_Transition",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Characters/Player/Male/Medium/Bodies/M_MED_BadassCowboy/VFX/Ghost/P_EvilCowboy_Ghost_Stage3_Onbody_Transition.P_EvilCowboy_Ghost_Stage3_Onbody_Transition",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [
+            {
+              "OverrideMaterialParams": null,
+              "AdditionalScalarParameters": [],
+              "AdditionalVectorParameters": [
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimaryColor",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.250158,
+                    "G": 0.250158,
+                    "B": 0.250158,
+                    "A": 1.0,
+                    "Hex": "898989"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                },
+                {
+                  "ParameterInfo": {
+                    "Name": "SockPrimarySRMF",
+                    "Association": "EMaterialParameterAssociation::GlobalParameter",
+                    "Index": -1
+                  },
+                  "ParameterValue": {
+                    "R": 0.22,
+                    "G": 0.65,
+                    "B": 0.0,
+                    "A": 0.0,
+                    "Hex": "81D300"
+                  },
+                  "ExpressionGUID": "00000000-00000000-00000000-00000000"
+                }
+              ],
+              "AdditionalTextureParameters": [],
+              "bAttemptVariantInfoTransfer": false,
+              "MaterialParameterNameForVariantInfo": "None",
+              "PropertyTag": {
+                "TagName": "CosmeticProperty.MorphOverrideData"
+              }
+            }
+          ],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A139AAF24ED0187DFE6FE8A5CDEDF91C",
+            "SourceString": "GHOST",
+            "LocalizedString": "GHOST"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-250-M-EvilCowboy-Ghost.T-Variant-250-M-EvilCowboy-Ghost",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "86C189304499F91DE49CDD849D731454",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Parts"
+      }
+    }
+  }
+]

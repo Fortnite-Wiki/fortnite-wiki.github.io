@@ -1,0 +1,124 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_RankedFaction",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_RankedFaction'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_RankedFaction.1"
+        }
+      ],
+      "ObservedPlayerStats": [
+        "StatManager.HabaneroS28"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRankedVariant'Backpack_RankedFaction:FortCosmeticRankedVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_RankedFaction.1"
+        }
+      ],
+      "BaseShotGridId": 81607,
+      "ShotGridIds": [
+        81607
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "337330744742B68D350C6B81D04DB7B9",
+        "SourceString": "Society Emblem Ranker",
+        "LocalizedString": "Society Emblem Ranker"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "252F05204C0C02DA76542CAF5A56BF3A",
+        "SourceString": "Join the Island's elite.",
+        "LocalizedString": "Join the Island's elite."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "8DD2D9FB4B3C0A3814024DAF61EA706C",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-RankedFaction.T-Icon-Backpacks-RankedFaction",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-RankedFaction-L.T-Icon-Backpacks-RankedFaction-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.28"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            245,
+            584,
+            581,
+            646,
+            247,
+            283,
+            1058,
+            1070,
+            1116,
+            1304,
+            1389,
+            145,
+            2028,
+            2042,
+            2494,
+            2497,
+            2499
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRankedVariant",
+    "Name": "FortCosmeticRankedVariant_0",
+    "Outer": "Backpack_RankedFaction",
+    "Class": "UScriptClass'FortCosmeticRankedVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RankedIconData": {
+        "ObjectName": "RankedVariantIconData'FortRankedVariantIconConfig'",
+        "ObjectPath": "/BRCosmetics/Athena/UI/Customization/MPL/EditStyles/FortRankedVariantIconConfig.0"
+      },
+      "StatTagToWatch": {
+        "TagName": "StatManager.HabaneroS28"
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CF15904E498E58A4777F5BA5DB191D54",
+        "SourceString": "RANK",
+        "LocalizedString": "RANK"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Ranked"
+      }
+    }
+  }
+]

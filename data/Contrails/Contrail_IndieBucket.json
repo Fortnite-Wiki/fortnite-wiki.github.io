@@ -1,0 +1,309 @@
+[
+  {
+    "Type": "AthenaSkyDiveContrailItemDefinition",
+    "Name": "Contrail_IndieBucket",
+    "Class": "UScriptClass'AthenaSkyDiveContrailItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraContrailEffect": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_IndieBucket/NS_Contrail_IndieBucket.NS_Contrail_IndieBucket",
+        "SubPathString": ""
+      },
+      "PreviewPawnRotationOffset": {
+        "Pitch": 0.0,
+        "Yaw": -35.0,
+        "Roll": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Contrail_IndieBucket:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Contrails/Contrail_IndieBucket.1"
+        }
+      ],
+      "BaseShotGridId": 70877,
+      "VariantShotGridIds": [
+        70877,
+        76860,
+        76861
+      ],
+      "ShotGridIds": [
+        70877,
+        70877,
+        76860,
+        76861
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "CF8BBC5E4D2C1A49E53FD6849D26A481",
+        "SourceString": "Mae's Amazing Maze",
+        "LocalizedString": "Mae's Amazing Maze"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D73AD3F548956C3B23D0D98539BB974D",
+        "SourceString": "All drop, no drag! >:3",
+        "LocalizedString": "All drop, no drag! >:3"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "9DA96511461678EB61C133BE1AF22729",
+        "SourceString": "Contrail",
+        "LocalizedString": "Contrail"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 15.0,
+            "Y": 120.0,
+            "Z": 45.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-IndieBucket.T-Icon-Trails-FX-IndieBucket",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-IndieBucket-L.T-Icon-Trails-FX-IndieBucket-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionIn",
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionOut",
+            "Cosmetics.Filter.Season.26",
+            "Cosmetics.Set.CuteHack",
+            "Cosmetics.Source.Season26.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            236,
+            269,
+            675,
+            1328,
+            1330,
+            1329,
+            1327,
+            1331,
+            1654,
+            1656,
+            1659,
+            1655,
+            2241,
+            2697,
+            2698
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Contrail_IndieBucket",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_IndieBucket/NS_Contrail_IndieBucket.NS_Contrail_IndieBucket",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "58AFF0084642FF9C1A9ADE91F898F0CF",
+            "SourceString": "Mae's Amazing Maze",
+            "LocalizedString": "Mae's Amazing Maze"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-IndieBucket.T-Icon-Trails-FX-IndieBucket",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_IndieBucket/NS_Contrail_IndieBucket.NS_Contrail_IndieBucket",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0B1D31734B486F7FBEF820B6850AFAEC",
+            "SourceString": "Dark Mode",
+            "LocalizedString": "Dark Mode"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-IndieBucket-Purple.T-Icon-Trails-FX-IndieBucket-Purple",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_IndieBucket/NS_Contrail_IndieBucket.NS_Contrail_IndieBucket",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "9EBDBFFD4FCBF38894B6509D150C52EE",
+            "SourceString": "Deboot",
+            "LocalizedString": "Deboot"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-IndieBucket-White.T-Icon-Trails-FX-IndieBucket-White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "44CA779643192DE6A980B484EF93B59C",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

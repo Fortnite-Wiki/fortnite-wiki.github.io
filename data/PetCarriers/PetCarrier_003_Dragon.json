@@ -1,0 +1,313 @@
+[
+  {
+    "Type": "AthenaPetCarrierItemDefinition",
+    "Name": "PetCarrier_003_Dragon",
+    "Class": "UScriptClass'AthenaPetCarrierItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultPet": {
+        "ObjectName": "AthenaPetItemDefinition'PetID_003_Dragon'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pets/PetID_003_Dragon.0"
+      },
+      "CameraFramingBounds": {
+        "CylinderRadius": 63.88523
+      },
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_TBD_Dragon_Carrier'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_TBD_Dragon_Carrier.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'PetCarrier_003_Dragon:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/PetCarriers/PetCarrier_003_Dragon.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C7124EF845675399372A85AECE067AA9",
+        "SourceString": "Scales",
+        "LocalizedString": "Scales"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "C1B3F6A044D5670D1AD425B6F743C46B",
+        "SourceString": "A scaly sidekick.",
+        "LocalizedString": "A scaly sidekick."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "EA52BF584A386ECEBA8CDEA203045590",
+        "SourceString": "Pet",
+        "LocalizedString": "Pet"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Pets/T-Pet-Dragon-Blue.T-Pet-Dragon-Blue",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Pets/T-Pet-Dragon-Blue-L.T-Pet-Dragon-Blue-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.Season6.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Filter.Season.6"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            544,
+            540,
+            123,
+            605,
+            607,
+            387,
+            635,
+            244,
+            45,
+            715,
+            735,
+            35,
+            53,
+            1164,
+            1358,
+            1551,
+            3668
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "PetCarrier_003_Dragon",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/Pets_Dragon_Body.Pets_Dragon_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/MI_Pets_Dragon_Body_VariantA.MI_Pets_Dragon_Body_VariantA",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Pet.M_MED_BackPack_Pet",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Dragon.M_MED_BackPack_Dragon",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A8FA76B347DABCCDBB7987B605BD4708",
+            "SourceString": "BLUE",
+            "LocalizedString": "BLUE"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Pets/T-Pet-Dragon-Blue.T-Pet-Dragon-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/Pets_Dragon_Body.Pets_Dragon_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/MI_Pets_Dragon_Body_VariantB.MI_Pets_Dragon_Body_VariantB",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Pet.M_MED_BackPack_Pet",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Dragon.M_MED_BackPack_Dragon",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F198BBEC469A8FA1C659299E6074C3DC",
+            "SourceString": "PINK",
+            "LocalizedString": "PINK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Pets/T-Pet-Dragon-Pink.T-Pet-Dragon-Pink",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "916BBA064AEB1A4F202EF7821147B6D1",
+            "SourceString": "Unlock at Tier 74 in Season 6",
+            "LocalizedString": "Unlock at Tier 74 in Season 6"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/Pets_Dragon_Body.Pets_Dragon_Body",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Characters/Pets/Dragon/Materials/MI_Pets_Dragon_Body_VariantC.MI_Pets_Dragon_Body_VariantC",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Pet.M_MED_BackPack_Pet",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/BackPack_Pet/Materials/M_MED_BackPack_Dragon.M_MED_BackPack_Dragon",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BCF67C6F414177EAA6BE4E8F19EE75E3",
+            "SourceString": "BLACK",
+            "LocalizedString": "BLACK"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Pets/T-Pet-Dragon-Black.T-Pet-Dragon-Black",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "CEDA4CEC44D10321F8A2949FBA8CD4EA",
+            "SourceString": "Unlock at Tier 98 in Season 6",
+            "LocalizedString": "Unlock at Tier 98 in Season 6"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "34F527C9416E4A6EAD4B619D0418B0DE",
+        "SourceString": "COLOR",
+        "LocalizedString": "COLOR"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

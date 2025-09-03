@@ -1,0 +1,474 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_InflatoDodo",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_InflatoDodo'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_InflatoDodo.1"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 20.0,
+        "Z": 20.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -10.0,
+        "Y": 10.0,
+        "Z": 6.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.0,
+        "Roll": -20.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 20.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "CylinderHalfHeight": 35.0,
+        "CylinderRadius": 35.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'Pickaxe_InflatoDodo:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_InflatoDodo.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_InflatoDodo:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_InflatoDodo.2"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/Game/Environments/FrontEnd/Blueprints/ItemPreview/ItemOnPawnPreview.ItemOnPawnPreview_C",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 128162,
+      "VariantShotGridIds": [
+        128162,
+        138068,
+        153768
+      ],
+      "ShotGridIds": [
+        128162,
+        128162,
+        138068,
+        153768
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "65C2B7C44E9AD3BE78C9478BC7FB65E1",
+        "SourceString": "R3X Claws",
+        "LocalizedString": "R3X Claws"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3E2C0DAA408D28E515443AA25FAAF49E",
+        "SourceString": "Dominate the competition.",
+        "LocalizedString": "Dominate the competition."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "71F5D2AC45D22F71C9E14F9C69DC1F24",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.HightowerWasabi",
+            "Cosmetics.Pickaxe.DualWield",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.CrumbleStone",
+            "Cosmetics.FrontEnd.Preview.SkipPlayerSelections",
+            "Cosmetics.Type.Pickaxe.Claws"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 10.0,
+            "Yaw": -60.0,
+            "Roll": 10.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_InflatoDodo_L.T_Icon_Pickaxes_InflatoDodo_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_InflatoDodo.T_Icon_Pickaxes_InflatoDodo",
+            "SubPathString": ""
+          }
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            562,
+            557,
+            237,
+            162,
+            569,
+            441,
+            269,
+            542,
+            275,
+            824,
+            113,
+            961,
+            1006,
+            1053,
+            442,
+            1194,
+            258,
+            315,
+            2557,
+            2737
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "Pickaxe_InflatoDodo",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/Character_InflatoDodo.Character_InflatoDodo",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [],
+                "QueryTokenStream": [],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.DualWield1"
+              }
+            }
+          ],
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Meshes/InflatoDodoUniversal_Axe.InflatoDodoUniversal_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Meshes/InflatoDodo_Axe.InflatoDodo_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::SwapOnMatch",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Meshes/InflatoDodoUniversal_Axe_AnimBP.InflatoDodoUniversal_Axe_AnimBP_C",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Meshes/InflatoDodo_Axe_AnimBP.InflatoDodo_Axe_AnimBP_C",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Meshes/InflatoDodoUniversal_Axe.InflatoDodoUniversal_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Meshes/InflatoDodo_Axe.InflatoDodo_Axe",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::SwapOnMatch",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Meshes/InflatoDodoUniversal_Axe_AnimBP.InflatoDodoUniversal_Axe_AnimBP_C",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Meshes/InflatoDodoOffhand_Axe_AnimBP.InflatoDodoOffhand_Axe_AnimBP_C",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [
+              "Cosmetics.MetaTags.Style.OptionA"
+            ],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C3C7AFA14EC729E773AF6EB235A7F630",
+            "SourceString": "Built-In",
+            "LocalizedString": "Built-In"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_InflatoDodo.T_Icon_Pickaxes_InflatoDodo",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_InflatoDodo",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/FX/NS_Pickaxe_InflatoDodo_Trail.NS_Pickaxe_InflatoDodo_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/FX/NS_Pickaxe_InflatoDodo_Impact.NS_Pickaxe_InflatoDodo_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A2ACD20C4E24EFACFC75718F0622A28A",
+            "SourceString": "R3X Claws",
+            "LocalizedString": "R3X Claws"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_InflatoDodo.T_Icon_Pickaxes_InflatoDodo",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Materials/MI_InflatoDodo_Pickaxe.MI_InflatoDodo_Pickaxe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/Skins/Wave/Materials/MI_InflatoDodo_Wave_Pickaxe.MI_InflatoDodo_Wave_Pickaxe",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Materials/MI_InflatoDodoUniversal_Pickaxe.MI_InflatoDodoUniversal_Pickaxe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodoUniversal/Skins/Wave/Materials/MI_InflatoDodoUniversal_Wave_Pickaxe.MI_InflatoDodoUniversal_Wave_Pickaxe",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/FX/NS_Pickaxe_InflatoDodo_Trail.NS_Pickaxe_InflatoDodo_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_InflatoDodo/FX/NS_Pickaxe_InflatoDodo_Impact.NS_Pickaxe_InflatoDodo_Impact",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A39F0DAA47EF43F38856C18ACA3E9979",
+            "SourceString": "Extinction Armor R3X Claws",
+            "LocalizedString": "Extinction Armor R3X Claws"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S34/T_Icon_Pickaxes_InflatoDodo_Wave.T_Icon_Pickaxes_InflatoDodo_Wave",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "562BD53A4D7E653DD6ADE1ABEDF11740",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

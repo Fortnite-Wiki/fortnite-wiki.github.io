@@ -1,0 +1,415 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_245_VoyagerRemix1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_VoyagerRemix1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_VoyagerRemix1H.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -25.0,
+        "Y": 0.0,
+        "Z": 50.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -15.0,
+        "Y": -4.0,
+        "Z": 9.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 20.0
+        },
+        "CylinderHalfHeight": 55.0,
+        "CylinderRadius": 59.975864
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 9.0,
+        "Z": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_ID_245_VoyagerRemix1H:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_245_VoyagerRemix1H.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 2.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [
+                "Cosmetics.Variant.Property.Particle1"
+              ],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle1"
+              }
+            },
+            {
+              "OwnedVariantTags": [
+                "Cosmetics.Variant.Property.Particle2"
+              ],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "3CEE822C41E2331A7DAF92A0E01D6479",
+        "SourceString": "Cosmic Cleavers",
+        "LocalizedString": "Cosmic Cleavers"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "AD0DEC96463CEC71D4675B987FA9FF7D",
+        "SourceString": "Strike for the stars.",
+        "LocalizedString": "Strike for the stars."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "C441D4494E76D5E6F2BB4687B1EBEE53",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Set.SpaceExplorers",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.Season10.BattlePass.Paid",
+            "Cosmetics.Filter.Season.10"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 30.0,
+            "Yaw": -70.0,
+            "Roll": 20.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            236,
+            564,
+            237,
+            162,
+            567,
+            166,
+            113,
+            1053,
+            442,
+            258,
+            281,
+            2470,
+            2558,
+            241,
+            2814,
+            3736
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_ID_245_VoyagerRemix1H",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H.MI_Pickaxe_Voyager_Remix1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H.MI_Pickaxe_Voyager_Remix1H",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02.MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02.MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle0"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D63C7D4A406F824302C0AA9CCDD0BDF6",
+            "SourceString": "GREEN",
+            "LocalizedString": "GREEN"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-VoyagerRemix1HPickaxe.T-Icon-Pickaxes-VoyagerRemix1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H.MI_Pickaxe_Voyager_Remix1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H_Bule.MI_Pickaxe_Voyager_Remix1H_Bule",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02.MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 1,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Bule02.MI_Pickaxe_Voyager_Remix_1H_Blade_Bule02",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/FX/P_Melee_Trail_Voyager_1h.P_Melee_Trail_Voyager_1h",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/FX/P_Melee_Trail_Voyager_1h_BLUE.P_Melee_Trail_Voyager_1h_BLUE",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6CFDD5FE41ED11F1B2C45BA508B7AE81",
+            "SourceString": "CERULEAN",
+            "LocalizedString": "CERULEAN"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-VoyagerRemix1HPickaxe-Blue.T-Icon-Pickaxes-VoyagerRemix1HPickaxe-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "99FC5502480E993DE8EC86BA24B4C7DD",
+            "SourceString": "Unlocked during Season X",
+            "LocalizedString": "Unlocked during Season X"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H.MI_Pickaxe_Voyager_Remix1H",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix1H_Red.MI_Pickaxe_Voyager_Remix1H_Red",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02.MI_Pickaxe_Voyager_Remix_1H_Blade_Yellow02",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/Materials/MI_Pickaxe_Voyager_Remix_1H_Blade_Red02.MI_Pickaxe_Voyager_Remix_1H_Blade_Red02",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/FX/P_Melee_Trail_Voyager_1h.P_Melee_Trail_Voyager_1h",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoyagerRemix1H/FX/P_Melee_Trail_Voyager_1h_RED.P_Melee_Trail_Voyager_1h_RED",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3C7242D846E23DD91368FA9DEEC09E3B",
+            "SourceString": "RED",
+            "LocalizedString": "RED"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-VoyagerRemixRedPickaxe.T-Icon-Pickaxes-VoyagerRemixRedPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "Namespace": "",
+            "Key": "58E083C742D24C1CD9066DB81B6E1004",
+            "SourceString": "Unlocked during Season X",
+            "LocalizedString": "Unlocked during Season X"
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "409ACC434920667C3B315587F18A7690",
+        "SourceString": "Color",
+        "LocalizedString": "Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

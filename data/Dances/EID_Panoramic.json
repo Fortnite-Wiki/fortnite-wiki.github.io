@@ -1,0 +1,356 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_Panoramic",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CMM_M.Emote_Panoramic_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CMF_M.Emote_Panoramic_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CLM_M.Emote_Panoramic_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CLF_M.Emote_Panoramic_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "PreviewLoops": 3,
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'EID_Panoramic:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Panoramic.1"
+        }
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "3BD97B2B4AABC0D79FEF73A8C476C9A5",
+        "SourceString": "360",
+        "LocalizedString": "360"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "043B2B9843A3FDDF133D608D54C51A7A",
+        "SourceString": "Be everywhere.",
+        "LocalizedString": "Be everywhere."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "AD703CDB4233742C9A301A83C0F5EE68",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 55.0,
+            "Z": 20.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.34",
+            "Cosmetics.UserFacingFlags.Emote.Dance",
+            "Cosmetics.Emote.HideMimosaInPreview"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S34/T_Icon_Emotes_Panoramic.T_Icon_Emotes_Panoramic",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S34/T_Icon_Emotes_Panoramic_L.T_Icon_Emotes_Panoramic_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "EID_Panoramic",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CMM_M.Emote_Panoramic_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/BigHeads/Emote_Panoramic_CMM_BigHead_M.Emote_Panoramic_CMM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CMF_M.Emote_Panoramic_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/BigHeads/Emote_Panoramic_CMF_BigHead_M.Emote_Panoramic_CMF_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CLM_M.Emote_Panoramic_CLM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/BigHeads/Emote_Panoramic_CLM_BigHead_M.Emote_Panoramic_CLM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/Emote_Panoramic_CLF_M.Emote_Panoramic_CLF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Panoramic/BigHeads/Emote_Panoramic_CLF_BigHead_M.Emote_Panoramic_CLF_BigHead_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.Emote.CharacterGroup.BigHead"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "BigHeads",
+                "AutoDescription": " ALL( Cosmetics.Emote.CharacterGroup.BigHead )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/Emote_WartyBrine_CMM_M.Emote_WartyBrine_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/BigHeads/Emote_WartyBrine_CMM_BigHead_M.Emote_WartyBrine_CMM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/CMF/Emote_WartyBrine_CMF_M.Emote_WartyBrine_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/BigHeads/CMF/Emote_WartyBrine_CMF_BigHead_M.Emote_WartyBrine_CMF_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/CLM/Emote_WartyBrine_CLM_M.Emote_WartyBrine_CLM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/BigHeads/CLM/Emote_WartyBrine_CLM_BigHead_M.Emote_WartyBrine_CLM_BigHead_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/CLF/Emote_WartyBrine_CLF_M.Emote_WartyBrine_CLF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WartyBrine/BigHeads/CMF/Emote_WartyBrine_CMF_BigHead_M.Emote_WartyBrine_CMF_BigHead_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.Emote.CharacterGroup.BigHead"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "UserDescription": "BigHeads",
+                "AutoDescription": " ALL( Cosmetics.Emote.CharacterGroup.BigHead )"
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "None"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

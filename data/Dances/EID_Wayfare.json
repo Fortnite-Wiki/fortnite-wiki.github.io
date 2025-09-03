@@ -1,0 +1,349 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_Wayfare",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GroupEmotePositionOffset": {
+        "X": 107.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMM_M.Emote_Wayfare_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMF_M.Emote_Wayfare_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLM_M.Emote_Wayfare_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLF_M.Emote_Wayfare_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'EID_Wayfare:FortCosmeticLoadoutTagDrivenVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Wayfare.1"
+        }
+      ],
+      "BaseShotGridId": 58808,
+      "ShotGridIds": [
+        58808
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "B407F56B4D4B38319D41599C7A0D0A8B",
+        "SourceString": "Investigate",
+        "LocalizedString": "Investigate"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "CBF7E9A7478CF55E9FB2BA8D90BDA9F4",
+        "SourceString": "Have your Ghost scan for important information.",
+        "LocalizedString": "Have your Ghost scan for important information."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F5307C574CCF15BE583531B78072F34D",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'PlatformSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/PlatformSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-E-Wayfare.T-Icon-Emotes-E-Wayfare",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-E-Wayfare-L.T-Icon-Emotes-E-Wayfare-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Filter.Season.21",
+            "Cosmetics.Set.WildLinen",
+            "Cosmetics.Source.ItemShop"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_1",
+    "Outer": "EID_Wayfare",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMM_M.Emote_Wayfare_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_CMM_M.Emote_Wayfare_Pack_CMM_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMF_M.Emote_Wayfare_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_CMF_M.Emote_Wayfare_Pack_CMF_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLM_M.Emote_Wayfare_CLM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_CLM_M.Emote_Wayfare_Pack_CLM_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLF_M.Emote_Wayfare_CLF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_CLF_M.Emote_Wayfare_Pack_CLF_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Backpack",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_A_060_WayfareMale.BID_A_060_WayfareMale",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.WayfareFemale"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "13425E5C4306DA7BB688E69FE3194C59",
+            "SourceString": "Male",
+            "LocalizedString": "Male"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMM_M.Emote_Wayfare_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_Female_CMM_M.Emote_Wayfare_Pack_Female_CMM_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CMF_M.Emote_Wayfare_CMF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_Female_CMF_M.Emote_Wayfare_Pack_Female_CMF_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLM_M.Emote_Wayfare_CLM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_Female_CLM_M.Emote_Wayfare_Pack_Female_CLM_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/Emote_Wayfare_CLF_M.Emote_Wayfare_CLF_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/WayFare/WayfarePackMontages/Emote_Wayfare_Pack_Female_CLF_M.Emote_Wayfare_Pack_Female_CLF_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Backpack",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_A_061_WayfareFemale.BID_A_061_WayfareFemale",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.WayfareFemale"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CDB4B2FE48B92BDFE185C8A2FD7ACD3F",
+            "SourceString": "Female",
+            "LocalizedString": "Female"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

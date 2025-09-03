@@ -1,0 +1,599 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_884_DisguiseFemale",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_DisguiseFemale'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_DisguiseFemale.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'BID_884_DisguiseFemale:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_884_DisguiseFemale.1"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'BID_884_DisguiseFemale:FortCosmeticRichColorVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_884_DisguiseFemale.3"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'BID_884_DisguiseFemale:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_884_DisguiseFemale.2"
+        },
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'BID_884_DisguiseFemale:FortCosmeticRichColorVariant_3'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_884_DisguiseFemale.4"
+        }
+      ],
+      "ItemPreviewHero": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_229_Athena_Commando_F_DisguiseBlack.CID_A_229_Athena_Commando_F_DisguiseBlack",
+        "SubPathString": ""
+      },
+      "BaseShotGridId": 51026,
+      "ShotGridIds": [
+        51026
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "F4E5553441A4875543C3AD9AF7580444",
+        "SourceString": "Treats 2 Go",
+        "LocalizedString": "Treats 2 Go"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "2EC9220043E6257B4FC0A883988F2900",
+        "SourceString": "Mind if I have this Slurp-Blasted Sourfish?",
+        "LocalizedString": "Mind if I have this Slurp-Blasted Sourfish?"
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "65759B0D4A8041517309239B3C08E2D0",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-884-DisguiseFemale.T-Icon-Backpacks-884-DisguiseFemale",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-884-DisguiseFemale-L.T-Icon-Backpacks-884-DisguiseFemale-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.18",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.PloyCandy"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            7,
+            546,
+            552,
+            7975,
+            229,
+            236,
+            572,
+            574,
+            576,
+            702,
+            606,
+            244,
+            674,
+            675,
+            32,
+            701,
+            698,
+            96,
+            794,
+            825,
+            871,
+            917,
+            1043,
+            1327,
+            1331,
+            1472,
+            1659,
+            1658,
+            190,
+            1887,
+            1908,
+            2246,
+            2482,
+            284,
+            2566,
+            3191,
+            353,
+            3909
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "BID_884_DisguiseFemale",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Textures/Patterns/T_F_MED_Disguise_Backpack_FX_2.T_F_MED_Disguise_Backpack_FX_2",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5E8F73F440DE6F0AB340CFAF6466EEFE",
+            "SourceString": "stripes",
+            "LocalizedString": "stripes"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Disguise-Bar.T-Variant-Disguise-Bar",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Textures/Patterns/T_F_MED_Disguise_Backpack_FX_3.T_F_MED_Disguise_Backpack_FX_3",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "CE7D6B3A457E75130D178CA3FB58CD53",
+            "SourceString": "camo",
+            "LocalizedString": "camo"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Disguise-Camo.T-Variant-Disguise-Camo",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Textures/Patterns/T_F_MED_Disguise_Backpack_FX_5.T_F_MED_Disguise_Backpack_FX_5",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8801B4494668F8827D29F9ADDDF1F8B9",
+            "SourceString": "pumpkin",
+            "LocalizedString": "pumpkin"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Disguise-Pumpkin.T-Variant-Disguise-Pumpkin",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Textures/Patterns/T_F_MED_Disguise_Backpack_FX_4.T_F_MED_Disguise_Backpack_FX_4",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "BFFC8A484FCB48EB1D741DB7FBFEDB7E",
+            "SourceString": "skull",
+            "LocalizedString": "skull"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Disguise-Skullz.T-Variant-Disguise-Skullz",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Textures/Patterns/T_F_MED_Disguise_Backpack_FX_1.T_F_MED_Disguise_Backpack_FX_1",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "SkinFX_Mask"
+                }
+              ],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4CC6C77C47B76FD8A770D9B3881D70D9",
+            "SourceString": "zebra",
+            "LocalizedString": "zebra"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Disguise-Tiger.T-Variant-Disguise-Tiger",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4B681A5F45F83644F7947A81B19C610B",
+        "SourceString": "Patterns",
+        "LocalizedString": "Patterns"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "BID_884_DisguiseFemale",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.225,
+            "G": 0.553215,
+            "B": 0.75,
+            "A": 1.0,
+            "Hex": "82C4E1"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_DisguiseBlack_SecondaryAlt.CS_DisguiseBlack_SecondaryAlt",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Secondary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "9BFD798C4E28200C11B02D98E61C347E",
+        "SourceString": "Pattern Color",
+        "LocalizedString": "Pattern Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_1",
+    "Outer": "BID_884_DisguiseFemale",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.02,
+            "G": 0.02,
+            "B": 0.02,
+            "A": 1.0,
+            "Hex": "262626"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_DisguiseBlack_PrimaryAlt.CS_DisguiseBlack_PrimaryAlt",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Primary Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "764389C0401B6A5979F3B1842B497C20",
+        "SourceString": "Base Color",
+        "LocalizedString": "Base Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor2"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_3",
+    "Outer": "BID_884_DisguiseFemale",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 1.0,
+            "G": 0.031373,
+            "B": 0.066667,
+            "A": 1.0,
+            "Hex": "FF3149"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_DisguiseBlack_Accent.CS_DisguiseBlack_Accent",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_Disguise/Materials/F_MED_DisguiseBlack_Backpack.F_MED_DisguiseBlack_Backpack",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "Accent Color"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "645EC49E4C3BC93B42554A92C2FDF7A2",
+        "SourceString": "Accent Color",
+        "LocalizedString": "Accent Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.RichColor3"
+      }
+    }
+  }
+]

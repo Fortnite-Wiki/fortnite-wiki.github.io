@@ -1,0 +1,553 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_513_ShapeshifterFemale1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_ShapeshifterFemale1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_ShapeshifterFemale1H.2"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 60.0,
+        "Y": 5.0,
+        "Z": 32.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": -2.5,
+        "Y": 7.0,
+        "Z": 2.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": -7.0,
+          "Z": 17.0
+        },
+        "CylinderHalfHeight": 60.0,
+        "CylinderRadius": 60.0
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 3.0,
+        "Z": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ID_513_ShapeshifterFemale1H:FortCosmeticMeshVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_513_ShapeshifterFemale1H.1"
+        }
+      ],
+      "ItemPreviewActorClass": {
+        "AssetPathName": "/BRCosmetics/Environments/FrontEnd/Blueprints/ItemPreview/Cameras_Pickaxe/PickaxeItemPreview_Shapeshifter.PickaxeItemPreview_Shapeshifter_C",
+        "SubPathString": ""
+      },
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "1F0790F2477220D020121EAE99DEFB3F",
+        "SourceString": "Beastfang",
+        "LocalizedString": "Beastfang"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "87E1848E486165BC64C8249B41879B53",
+        "SourceString": "Passed down through the generations.",
+        "LocalizedString": "Passed down through the generations."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "CBD154A74A2F0E1F2708EE98302D9B9D",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.15",
+            "Cosmetics.Set.CrazyLung",
+            "Cosmetics.Source.Season15.BattlePass.Paid",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            544,
+            357,
+            269,
+            436,
+            113,
+            258,
+            1976,
+            2056,
+            2476,
+            457,
+            2471,
+            2470,
+            438,
+            2526,
+            2558,
+            3781
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_1",
+    "Outer": "Pickaxe_ID_513_ShapeshifterFemale1H",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female.SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeSwing_ShapeShifter_Female.SC_PickaxeSwing_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeSwing_ShapeShifter_LightArmour_Female.SC_PickaxeSwing_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeSwing_ShapeShifter_Female.SC_PickaxeSwing_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeReady_ShapeShifter_HeavyArmour_Female.SC_PickaxeReady_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeReady_ShapeShifter_Female.SC_PickaxeReady_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeReady_ShapeShifter_LightArmour_Female.SC_PickaxeReady_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeReady_ShapeShifter_Female.SC_PickaxeReady_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeImpactEnemy_ShapeShifter_Female.SC_PickaxeImpactEnemy_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeImpactEnemy_ShapeShifter_Female.SC_PickaxeImpactEnemy_ShapeShifter_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "424AC90349350CF8578BC6A151F05B80",
+            "SourceString": "Default",
+            "LocalizedString": "Default"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-ShapeShifter-Pickaxe-Default.T-Icon-Pickaxes-ShapeShifter-Pickaxe-Default",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Shapeshifter_Female/Meshes/Shapeshifter_Female_Axe.Shapeshifter_Female_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Shapeshifter_Light_Armor_Female/Meshes/Shapeshifter_Light_Armor_Female.Shapeshifter_Light_Armor_Female",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Shapeshifter_Female/FX/NS_Shapeshifter_AnimTrail.NS_Shapeshifter_AnimTrail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "WidthSetting"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeSwing_ShapeShifter_Female.SC_PickaxeSwing_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeSwing_ShapeShifter_LightArmour_Female.SC_PickaxeSwing_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female.SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeSwing_ShapeShifter_LightArmour_Female.SC_PickaxeSwing_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeReady_ShapeShifter_Female.SC_PickaxeReady_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeReady_ShapeShifter_LightArmour_Female.SC_PickaxeReady_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeReady_ShapeShifter_HeavyArmour_Female.SC_PickaxeReady_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeReady_ShapeShifter_LightArmour_Female.SC_PickaxeReady_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeImpactEnemy_ShapeShifter_Female.SC_PickaxeImpactEnemy_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield.StyleTwo"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "794081684A5658E9FD7E10B6C098ABA9",
+            "SourceString": "Harpy's Claw",
+            "LocalizedString": "Harpy's Claw"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-ShapeShifter-Pickaxe-Light.T-Icon-Pickaxes-ShapeShifter-Pickaxe-Light",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Shapeshifter_Female/Meshes/Shapeshifter_Female_Axe.Shapeshifter_Female_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Shapeshifter_Heavy_Armor_Female/Meshes/Shapeshifter_Heavy_Armor_Female.Shapeshifter_Heavy_Armor_Female",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeSwing_ShapeShifter_Female.SC_PickaxeSwing_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female.SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeReady_ShapeShifter_LightArmour_Female.SC_PickaxeReady_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female.SC_PickaxeSwing_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeReady_ShapeShifter_Female.SC_PickaxeReady_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeReady_ShapeShifter_HeavyArmour_Female.SC_PickaxeReady_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeReady_ShapeShifter_LightArmour_Female.SC_PickaxeReady_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeReady_ShapeShifter_HeavyArmour_Female.SC_PickaxeReady_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale/SC_PickaxeImpactEnemy_ShapeShifter_Female.SC_PickaxeImpactEnemy_ShapeShifter_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_LightArmor/SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_LightArmour_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/ShapeshifterFemale_HeavyArmor/SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female.SC_PickaxeImpactEnemy_ShapeShifter_HeavyArmour_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [
+            {
+              "ActionTag": {
+                "TagName": "Cosmetics.Variant.Actions.Reconfig.BecomeSingleWield"
+              }
+            }
+          ],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "01F7AE6D43188B54B90D059F1B342E8E",
+            "SourceString": "Sharktooth Spear",
+            "LocalizedString": "Sharktooth Spear"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-ShapeShifter-Pickaxe-Heavy.T-Icon-Pickaxes-ShapeShifter-Pickaxe-Heavy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "BFE222744623246BEDEA06BC8C277A3D",
+        "SourceString": "Pickaxe Type",
+        "LocalizedString": "Pickaxe Type"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

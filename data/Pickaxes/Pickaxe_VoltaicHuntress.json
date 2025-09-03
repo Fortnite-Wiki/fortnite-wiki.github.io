@@ -1,0 +1,699 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_VoltaicHuntress",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'Weapon_Pickaxe_VoltaicHuntress'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_VoltaicHuntress.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -3.0,
+        "Y": 0.0,
+        "Z": 86.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 10.0,
+          "Y": -15.0,
+          "Z": 20.0
+        },
+        "CylinderHalfHeight": 65.0,
+        "CylinderRadius": 55.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Pickaxe_VoltaicHuntress:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.1"
+        }
+      ],
+      "BaseShotGridId": 83793,
+      "ShotGridIds": [
+        83793
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "AE4121194F9B12E160CA08954C1EDEED",
+        "SourceString": "Spirit Glitcher",
+        "LocalizedString": "Spirit Glitcher"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "6F29CEE342EF916768DF81869C04C47D",
+        "SourceString": "Disrupt the dead.",
+        "LocalizedString": "Disrupt the dead."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "981AB933409B7E133BCCD0AEAAAD4751",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": -20.0,
+            "Y": -15.0,
+            "Z": -32.0
+          },
+          "InitialRotation": {
+            "Pitch": 32.0,
+            "Yaw": 315.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntress.T-Icon-Pickaxes-VoltaicHuntress",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.OneHanded",
+            "Cosmetics.Filter.Season.29",
+            "Cosmetics.Set.EndlessPupil",
+            "Cosmetics.CrewBling.Progressive",
+            "Cosmetics.Source.CrewPack.May2024"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            547,
+            357,
+            586,
+            601,
+            613,
+            246,
+            24,
+            244,
+            687,
+            106,
+            113,
+            1230,
+            258,
+            1350,
+            458,
+            2756
+          ]
+        },
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CrewSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CrewSeries.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Pickaxe_VoltaicHuntress",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "SwingFX",
+              "OverrideParticleSystem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "EBFAD2984F6A248B95A265B6032827B0",
+            "SourceString": "Spirit Glitcher",
+            "LocalizedString": "Spirit Glitcher"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntress.T-Icon-Pickaxes-VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Materials/MI_Pickaxe_VoltaicHuntress.MI_Pickaxe_VoltaicHuntress",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Skins/Circuit/Materials/MI_Pickaxe_VoltaicHuntress_Circuit.MI_Pickaxe_VoltaicHuntress_Circuit",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Circuit/NS_Pickaxe_VoltaicHuntress_Circuit_Trail.NS_Pickaxe_VoltaicHuntress_Circuit_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Circuit/NS_Pickaxe_VoltaicHuntress_Circuit_Impact.NS_Pickaxe_VoltaicHuntress_Circuit_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "2BFB9907481578F46E5A42BA670AC20E",
+            "SourceString": "Styxhacker's Legacy",
+            "LocalizedString": "Styxhacker's Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntressCircuit.T-Icon-Pickaxes-VoltaicHuntressCircuit",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Materials/MI_Pickaxe_VoltaicHuntress.MI_Pickaxe_VoltaicHuntress",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Skins/Gold/Materials/MI_Pickaxe_VoltaicHuntress_Gold.MI_Pickaxe_VoltaicHuntress_Gold",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Gold/NS_Pickaxe_VoltaicHuntress_Gold_Trail.NS_Pickaxe_VoltaicHuntress_Gold_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "ImpactFX",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_RainbowStraps/FX/Gold/NS_Pickaxe_RainbowStraps_Gold_Impact.NS_Pickaxe_RainbowStraps_Gold_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "6FB104F341942208651526BB46BDFD8A",
+            "SourceString": "Auric Legacy",
+            "LocalizedString": "Auric Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntressGold.T-Icon-Pickaxes-VoltaicHuntressGold",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Materials/MI_Pickaxe_VoltaicHuntress.MI_Pickaxe_VoltaicHuntress",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Skins/HoloFoil/Materials/MI_Pickaxe_VoltaicHuntress_Holofoil.MI_Pickaxe_VoltaicHuntress_Holofoil",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Holo/NS_Pickaxe_VoltaicHuntress_Trail_Holo.NS_Pickaxe_VoltaicHuntress_Trail_Holo",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "ImpactFX",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Holo/NS_Pickaxe_VoltaicHuntress_Impact_Holo.NS_Pickaxe_VoltaicHuntress_Impact_Holo",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "607008D54FBC400A81BFE59BD2262D59",
+            "SourceString": "Phase Legacy",
+            "LocalizedString": "Phase Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntressHolofoil.T-Icon-Pickaxes-VoltaicHuntressHolofoil",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Materials/MI_Pickaxe_VoltaicHuntress.MI_Pickaxe_VoltaicHuntress",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Skins/Ice/Materials/MI_Pickaxe_VoltaicHuntress_Ice.MI_Pickaxe_VoltaicHuntress_Ice",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Ice/NS_Pickaxe_VoltaicHuntress_Ice_Trail.NS_Pickaxe_VoltaicHuntress_Ice_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "ImpactFX",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Ice/NS_Pickaxe_VoltaicHuntress_Ice_Impact.NS_Pickaxe_VoltaicHuntress_Ice_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 4.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B83E7A844CEB1B063B5F37B3649DD398",
+            "SourceString": "Rimebound Legacy",
+            "LocalizedString": "Rimebound Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntressIce.T-Icon-Pickaxes-VoltaicHuntressIce",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Materials/MI_Pickaxe_VoltaicHuntress.MI_Pickaxe_VoltaicHuntress",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/Skins/Galaxy/Materials/MI_Pickaxe_VoltaicHuntress_Galaxy.MI_Pickaxe_VoltaicHuntress_Galaxy",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Trail.NS_Pickaxe_VoltaicHuntress_Trail",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Galaxy/NS_Pickaxe_VoltaicHuntress_Galaxy_Trail.NS_Pickaxe_VoltaicHuntress_Galaxy_Trail",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_Pickaxe_VoltaicHuntress_Impact.NS_Pickaxe_VoltaicHuntress_Impact",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "ImpactFX",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/Galaxy/NS_VoltaicHuntress_Galaxy_Impact.NS_VoltaicHuntress_Galaxy_Impact",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": true
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_VoltaicHuntress/FX/NS_VoltaicHuntress_Pickaxe_Idle.NS_VoltaicHuntress_Pickaxe_Idle",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 5.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F292611947E9A93BBDB174819ED6F7B2",
+            "SourceString": "Cosmic Legacy",
+            "LocalizedString": "Cosmic Legacy"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S29/T-Icon-Pickaxes-VoltaicHuntressGalaxy.T-Icon-Pickaxes-VoltaicHuntressGalaxy",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_VoltaicHuntress.Pickaxe_VoltaicHuntress",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "4B97309743760EF9EB009EAAA1AE37FC",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

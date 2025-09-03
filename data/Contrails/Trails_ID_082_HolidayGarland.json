@@ -1,0 +1,394 @@
+[
+  {
+    "Type": "AthenaSkyDiveContrailItemDefinition",
+    "Name": "Trails_ID_082_HolidayGarland",
+    "Class": "UScriptClass'AthenaSkyDiveContrailItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraContrailEffect": {
+        "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+        "SubPathString": ""
+      },
+      "PreviewPawnRotationOffset": {
+        "Pitch": 0.0,
+        "Yaw": -35.0,
+        "Roll": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Trails_ID_082_HolidayGarland:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Contrails/Trails_ID_082_HolidayGarland.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 2.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        },
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 2.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Particle"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Particle3"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "10AFFD574679C37D440C589133B38D7C",
+        "SourceString": "Holly and Divey",
+        "LocalizedString": "Holly and Divey"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "57271B974CC946B41C06B0B8183FCAF0",
+        "SourceString": "Deck your falls.",
+        "LocalizedString": "Deck your falls."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "DFA7365048C355DB7174D0A1D97147BC",
+        "SourceString": "Contrail",
+        "LocalizedString": "Contrail"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Source.Winterfest.Presents",
+            "Cosmetics.Filter.Season.11",
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionIn",
+            "Cosmetics.BattlepassTrack.Display.DisableVFXDuringTransitionOut"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-HolidayGarland-01.T-Icon-Trails-FX-HolidayGarland-01",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-HolidayGarland-01-L.T-Icon-Trails-FX-HolidayGarland-01-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 15.0,
+            "Y": 120.0,
+            "Z": 45.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            236,
+            237,
+            513,
+            531,
+            530,
+            529,
+            246,
+            814,
+            816,
+            822,
+            815,
+            3119,
+            1525,
+            176,
+            1597,
+            1819,
+            2208,
+            2209,
+            2360,
+            3120,
+            3152,
+            4016
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Trails_ID_082_HolidayGarland",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "V2"
+                },
+                {
+                  "Value": 0.0,
+                  "ParamName": "V3"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "3E37A25345F60E4F2F486290F606C486",
+            "SourceString": "GARLAND",
+            "LocalizedString": "GARLAND"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-HolidayGarland-01.T-Icon-Trails-FX-HolidayGarland-01",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "V2"
+                }
+              ],
+              "TextureParams": []
+            },
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "V3"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4F62BEA942BC8E0EB7F68B9063FEBA4D",
+            "SourceString": "SHINY GARLAND",
+            "LocalizedString": "SHINY GARLAND"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-HolidayGarland-02.T-Icon-Trails-FX-HolidayGarland-02",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/Effects/Particles/Skydiving/NS_Contrail_HolidayGarland/NS_Contrail_HolidayGarland.NS_Contrail_HolidayGarland",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "V2"
+                },
+                {
+                  "Value": 1.0,
+                  "ParamName": "V3"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "E350E20D4E788F2EB02FC599678F44FA",
+            "SourceString": "FESTIVE GARLAND",
+            "LocalizedString": "FESTIVE GARLAND"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/FX-Trails/T-Icon-Trails-FX-HolidayGarland-03.T-Icon-Trails-FX-HolidayGarland-03",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "6D00A15B43CD4E47BD1E3AA6EC781B46",
+        "SourceString": "STYLE",
+        "LocalizedString": "STYLE"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

@@ -1,0 +1,268 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_Indigo",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bMovingEmote": true,
+      "bMoveForwardOnly": true,
+      "WalkForwardSpeed": 40.0,
+      "FrontEndAnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CLF_M.Indigo_CLF_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CLM_M.Indigo_CLM_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMM_M.Indigo_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMF_M.Indigo_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CLF_M.Indigo_CLF_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CLM_M.Indigo_CLM_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "PreviewLoops": 4,
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticLoadoutTagDrivenVariant'EID_Indigo:FortCosmeticLoadoutTagDrivenVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_Indigo.1"
+        }
+      ],
+      "BaseShotGridId": 57567,
+      "ShotGridIds": [
+        57567
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "0860AAED4E38CD32E425099DFC4C36E5",
+        "SourceString": "Lil' ED-209",
+        "LocalizedString": "Lil' ED-209"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "D2D8BBFE45E2AC1D6470B7A3BEDC9783",
+        "SourceString": "Careful on the stairs.",
+        "LocalizedString": "Careful on the stairs."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "57E7256C41D09A5FF53396B9B3E71C73",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.20",
+            "Cosmetics.UserFacingFlags.Emote.Traversal",
+            "Cosmetics.Set.ShortDefend"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-IndigoEmote.T-Icon-Emotes-IndigoEmote",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-IndigoEmote-L.T-Icon-Emotes-IndigoEmote-L",
+            "SubPathString": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticLoadoutTagDrivenVariant",
+    "Name": "FortCosmeticLoadoutTagDrivenVariant_0",
+    "Outer": "EID_Indigo",
+    "Class": "UScriptClass'FortCosmeticLoadoutTagDrivenVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Variants": [
+        {
+          "MontageSwaps": [],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "MontageSwaps": [
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMM_M.Indigo_CMM_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMurphM_M.Indigo_CMurphM_M",
+                "SubPathString": ""
+              }
+            },
+            {
+              "ToSwapFrom": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMM_FRONTEND_M.Indigo_CMM_FRONTEND_M",
+                "SubPathString": ""
+              },
+              "ToSwapTo": {
+                "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Indigo/Indigo_CMurphM_FRONTEND_M.Indigo_CMurphM_FRONTEND_M",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "RequiredMetaTags": [],
+          "ExcludedMetaTags": [],
+          "RequiredConditions": [
+            {
+              "ItemCategory": "ECosmeticMetaTagRequirementCategory::Character",
+              "SpecificItem": {
+                "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_A_397_Athena_Commando_M_Indigo.CID_A_397_Athena_Commando_M_Indigo",
+                "SubPathString": ""
+              },
+              "MetaTagQuery": {
+                "TokenStreamVersion": 0,
+                "TagDictionary": [
+                  {
+                    "TagName": "Cosmetics.MetaTags.Indigo"
+                  }
+                ],
+                "QueryTokenStream": [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ],
+                "UserDescription": "",
+                "AutoDescription": ""
+              },
+              "RequiredMetaTags": [],
+              "ExcludedMetaTags": []
+            }
+          ],
+          "ExcludedConditions": [],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "bUseDefaultIfNoConditionsAreSatisfied": true
+    }
+  }
+]

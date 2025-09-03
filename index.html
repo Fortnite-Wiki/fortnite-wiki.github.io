@@ -8,6 +8,16 @@
   
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
+  <style>
+    /* Inline overrides for your main content */
+    main { max-width: 800px; margin: 20px auto; font-family: sans-serif; }
+    input, select, button { margin: 5px 0; padding: 5px; font-size: 1rem; }
+	input { width: 500px}
+    textarea { width: 100%; height: 350px; margin-top: 10px; font-family: monospace; }
+    #suggestions { border: 1px solid #ccc; max-height: 150px; overflow-y: auto; }
+    #suggestions div { padding: 3px; cursor: pointer; }
+    #suggestions div:hover { background-color: #eee; }
+  </style>
 </head>
 <body>
   <header>
@@ -17,9 +27,129 @@
       <span class="version">v0.00</span>
     </span>
   </header>
+
   <main>
-    <h1>Update Item Shop Stuff</h1>
-    <button>Button</button>
+    <h1>Cosmetic Translator</h1>
+
+    <input id="cosmeticInput" placeholder="Enter cosmetic ID or Name" autocomplete="off">
+    <div id="suggestions"></div>
+    <select id="mode">
+      <option value="name">Name</option>
+      <option value="description">Description</option>
+    </select>
+    <button onclick="search()">Submit</button>
+
+    <h3>Output</h3>
+    <textarea id="output" readonly></textarea>
   </main>
+
+  <script>
+    let index = [];
+    let jsonCache = {};
+    let locCache = {};
+
+    async function loadIndex() {
+      const resp = await fetch('data/index.json');
+      index = await resp.json();
+    }
+
+    async function loadJson(path, cacheObj) {
+      if (!cacheObj[path]) {
+        const resp = await fetch(path);
+        cacheObj[path] = await resp.json();
+      }
+      return cacheObj[path];
+    }
+
+    function updateSuggestions() {
+      const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
+      const sugDiv = document.getElementById("suggestions");
+      sugDiv.innerHTML = "";
+      if (!input) return;
+
+      const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.toLowerCase().includes(input));
+      matches.slice(0, 10).forEach(e => {
+        const div = document.createElement("div");
+        div.textContent = `${e.name} (${e.id})`;
+        div.onclick = () => { 
+          document.getElementById("cosmeticInput").value = e.id; 
+          sugDiv.innerHTML = ""; 
+        };
+        sugDiv.appendChild(div);
+      });
+    }
+
+    async function getPakChunkFolders() {
+      try {
+        const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
+        const data = await resp.json();
+        const folders = ["Fortnite_locchunk100"]; // always include
+        if (data.dynamicKeys) {
+          data.dynamicKeys.forEach(d => {
+            const match = d.name.match(/^pakchunk(\d+)-/);
+            if (match) {
+              const folderName = `Fortnite_locchunk${match[1]}`;
+              if (!folders.includes(folderName)) folders.push(folderName);
+            }
+          });
+        }
+        return folders;
+      } catch {
+        return ["Fortnite_locchunk100"]; // fallback
+      }
+    }
+
+    async function search() {
+      const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
+      const mode = document.getElementById("mode").value;
+      const output = document.getElementById("output");
+      output.value = "";
+      if (!input) return;
+
+      const entryMeta = index.find(e => e.id.toLowerCase() === input || e.name.toLowerCase() === input);
+      if (!entryMeta) {
+        output.value = "Cosmetic not found.";
+        return;
+      }
+
+      try {
+        const data = await loadJson("data/" + entryMeta.path, jsonCache);
+        const key = mode === "description"
+          ? data[0].Properties.ItemDescription.Key
+          : data[0].Properties.ItemName.Key;
+
+        const langs = ["en","ar","de","es","es-419","fr","id","it","ja","ko","pl","pt-BR","ru","th","tr","vi","zh-Hans","zh-Hant"];
+        const folders = await getPakChunkFolders();
+        let lines = ["{{Other Languages"];
+
+        for (const lang of langs) {
+          let textFound = false;
+          for (const folder of folders) {
+            const path = `data/localization/${folder}/${lang}/${folder}.json`;
+            try {
+              const loc = await loadJson(path, locCache);
+              const text = loc[""]?.[key];
+              if (text) {
+                lines.push(`|${lang} = ${text}`);
+                textFound = true;
+                break;
+              }
+            } catch {}
+          }
+          if (!textFound) lines.push(`|${lang} = `);
+        }
+
+        lines.push("}}");
+        output.value = lines.join("\n");
+
+      } catch (e) {
+        console.error(e);
+        output.value = "Error loading cosmetic data or localization.";
+      }
+    }
+
+    document.getElementById("cosmeticInput").addEventListener("input", updateSuggestions);
+    loadIndex();
+  </script>
 </body>
 </html>

@@ -1,0 +1,211 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_TheHerald",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_TheHerald'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_TheHerald.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_TheHerald:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_TheHerald.1"
+        }
+      ],
+      "BaseShotGridId": 59708,
+      "VariantShotGridIds": [
+        59834
+      ],
+      "ShotGridIds": [
+        59708,
+        59834
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "EA47D12349C39BE1877539A41D1C6380",
+        "SourceString": "Fading Ember Cloak",
+        "LocalizedString": "Fading Ember Cloak"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "E39CE4AB4B4B51842F98E3BE0B467D6A",
+        "SourceString": "The last light you'll see.",
+        "LocalizedString": "The last light you'll see."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E9CD478D4BD869F3E5A53E88640C189C",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-TheHeraldBackpack.T-Icon-Backpacks-TheHeraldBackpack",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-TheHeraldBackpack-L.T-Icon-Backpacks-TheHeraldBackpack-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.22",
+            "Cosmetics.Set.NeverAlways",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Backpack.IsCape"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            583,
+            593,
+            586,
+            242,
+            123,
+            170,
+            607,
+            261,
+            619,
+            127,
+            1083,
+            1355,
+            1758,
+            1899,
+            2107,
+            2108,
+            1351,
+            2159,
+            1356,
+            2475,
+            3149
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_TheHerald",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1F66732A4646D1D178D345983686C4B2",
+            "SourceString": "Fading Ember Cloak",
+            "LocalizedString": "Fading Ember Cloak"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-TheHeraldBackpack.T-Icon-Backpacks-TheHeraldBackpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_TheHerald/Materials/F_MED_TheHerald_Backpack_TA.F_MED_TheHerald_Backpack_TA",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_TheHerald/Skins/Dark/Materials/F_MED_TheHerald_Backpack_DarkTA.F_MED_TheHerald_Backpack_DarkTA",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "21A19FD741A88FE7E8F13CA30672C758",
+            "SourceString": "Burning Ember Cloak",
+            "LocalizedString": "Burning Ember Cloak"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S22/T-Icon-Backpacks-TheHerald-DarkBackpack.T-Icon-Backpacks-TheHerald-DarkBackpack",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "2CECABBC4BAA960A35FD6E87F4C9D959",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

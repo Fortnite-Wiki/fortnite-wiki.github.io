@@ -1,0 +1,175 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_HornedJudgment",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_HornedJudgment'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_HornedJudgment.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.6424,
+        "Y": 61.0,
+        "Z": 43.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 20.0,
+          "Y": -7.0,
+          "Z": -3.0
+        },
+        "CylinderHalfHeight": 80.0,
+        "CylinderRadius": 80.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_HornedJudgment:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_HornedJudgment.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Legendary",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "52F8016243E4F0B6A4CC8AB001BC9416",
+        "SourceString": "Winter's Onslaught",
+        "LocalizedString": "Winter's Onslaught"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "30B16F3140204BF51F3057BC141A6727",
+        "SourceString": "The unrelenting end, carved from glacial ice.",
+        "LocalizedString": "The unrelenting end, carved from glacial ice."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "54C153B041C4ABA14EE7598833439128",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Filter.Season.27",
+            "Cosmetics.Set.AlphaOmen",
+            "Cosmetics.Source.Season27.BattlePass.Paid"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -3.0,
+            "Yaw": 38.0,
+            "Roll": 32.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            562,
+            564,
+            162,
+            513,
+            531,
+            530,
+            529,
+            246,
+            244,
+            106,
+            113,
+            440,
+            258,
+            430,
+            1812,
+            2305,
+            457,
+            2471,
+            2819
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Pickaxe_HornedJudgment",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.019413,
+            "G": 0.272727,
+            "B": 0.526042,
+            "A": 1.0,
+            "Hex": "268FC0"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_HornedJudgement.CS_HornedJudgement",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_HornedJudgment/Materials/MI_Pickaxe_HornedJudgement.MI_Pickaxe_HornedJudgement",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_HornedJudgment/FX/NS_Pickaxe_HornedJudgement_Idle.NS_Pickaxe_HornedJudgement_Idle",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_HornedJudgment/FX/NS_Pickaxe_HornedJudgement_Trail.NS_Pickaxe_HornedJudgement_Trail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_HornedJudgment/FX/NS_Pickaxe_HornedJudgement_Impact.NS_Pickaxe_HornedJudgement_Impact",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "AdvancedEmissiveColor"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "85BF3731444FF8B9FA4FC9B5DCFA11E0",
+        "SourceString": "emissives",
+        "LocalizedString": "emissives"
+      }
+    }
+  }
+]

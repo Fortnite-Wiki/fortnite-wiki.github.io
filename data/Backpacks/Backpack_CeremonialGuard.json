@@ -1,0 +1,209 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_CeremonialGuard",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Cape_F_MED_CeremonialGuard'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Cape_F_MED_CeremonialGuard.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_CeremonialGuard:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_CeremonialGuard.1"
+        }
+      ],
+      "BaseShotGridId": 78379,
+      "VariantShotGridIds": [
+        80560
+      ],
+      "ShotGridIds": [
+        78379,
+        80560
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "51FC254F4D89CEB36F257ABDBFF6A69E",
+        "SourceString": "Society Shield",
+        "LocalizedString": "Society Shield"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3B9749F3472C48AEE24D698A0369B9F9",
+        "SourceString": "Never leave your back unguarded.",
+        "LocalizedString": "Never leave your back unguarded."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F82F5C4549936B30F750838484A913A9",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-Cape-CeremonialGuard.T-Icon-Backpacks-Cape-CeremonialGuard",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-Cape-CeremonialGuard-L.T-Icon-Backpacks-Cape-CeremonialGuard-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Backpack.IsCape",
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Set.FendOff"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            547,
+            540,
+            613,
+            246,
+            24,
+            247,
+            893,
+            436,
+            113,
+            114,
+            1219,
+            1230,
+            258,
+            1976,
+            458
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_CeremonialGuard",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "22DD86AD457B7AB2941436B83701642F",
+            "SourceString": "Society Shield",
+            "LocalizedString": "Society Shield"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-Cape-CeremonialGuard.T-Icon-Backpacks-Cape-CeremonialGuard",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_CeremonialGuard/Materials/MI_CeremonialGuard_Cape.MI_CeremonialGuard_Cape",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Accessories/FORT_Capes/Cape_F_MED_CeremonialGuard/Skins/Black/Materials/MI_CeremonialGuard_Black_Cape.MI_CeremonialGuard_Black_Cape",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0D0BCDB24831D4E88037CB828E15836E",
+            "SourceString": "Midnight Society Shield",
+            "LocalizedString": "Midnight Society Shield"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-Cape-CeremonialGuard-Black.T-Icon-Backpacks-Cape-CeremonialGuard-Black",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "E980FFEF4AFA05E4AE2AFAA0CE8AC4DB",
+        "SourceString": "style",
+        "LocalizedString": "style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Progressive"
+      }
+    }
+  }
+]

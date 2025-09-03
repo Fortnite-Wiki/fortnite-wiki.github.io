@@ -1,0 +1,114 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "BID_334_BannerMale",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_BannerMale'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_BannerMale.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileBannerVariant'BID_334_BannerMale:FortCosmeticProfileBannerVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/BID_334_BannerMale.1"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "AF7910E044A0C12D2899D480CB8D778D",
+        "SourceString": "Banner Shield",
+        "LocalizedString": "Banner Shield"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "137738B54F536BF4393DD78D325401CD",
+        "SourceString": "Customize your look by choosing a Banner and color in your Locker.",
+        "LocalizedString": "Customize your look by choosing a Banner and color in your Locker."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "80BEC38E4587948249DF4FB6AA111C20",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-334-BannerMale.T-Icon-Backpacks-334-BannerMale",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/T-Icon-Backpacks-334-BannerMale-L.T-Icon-Backpacks-334-BannerMale-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Set.Banner",
+            "Cosmetics.Source.ItemShop",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Cosmetics.Filter.Season.10"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            236,
+            357,
+            237,
+            162,
+            569,
+            596,
+            613,
+            113,
+            950,
+            961,
+            283,
+            1053,
+            1116,
+            114,
+            1511,
+            1974,
+            2175,
+            3047,
+            3042,
+            3490
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileBannerVariant",
+    "Name": "FortCosmeticProfileBannerVariant_0",
+    "Outer": "BID_334_BannerMale",
+    "Class": "UScriptClass'FortCosmeticProfileBannerVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialsToAlter": [
+        {
+          "AssetPathName": "/Game/Accessories/FORT_Backpacks/M_MED_Banner/Materials/M_MED_Banner_Shield.M_MED_Banner_Shield",
+          "SubPathString": ""
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,1103 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_CarbideWeld",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": -25.0,
+        "Z": 10.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Meshes/SK_Glider_Speedy.SK_Glider_Speedy",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": -0.0,
+          "Z": 0.70710677,
+          "W": 0.70710677,
+          "IsNormalized": true,
+          "Size": 0.99999994,
+          "SizeSquared": 0.99999994
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/Speedy_Glider_AnimBP.Speedy_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/FX/CarbideWeld/NS_Glider_CarbideWeld_Trail.NS_Glider_CarbideWeld_Trail",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/DefaultMarkII/Glider_Mark2_Open_Cue.Glider_Mark2_Open_Cue",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/DefaultMarkII/Glider_Mark2_Close_Cue.Glider_Mark2_Close_Cue",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/DefaultMarkII/Glider_Mark2_Loop_Cue.Glider_Mark2_Loop_Cue",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::Forwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/LoneWolfMale/SC_GliderThrustStart_LoneWolfMale.SC_GliderThrustStart_LoneWolfMale",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Sideways",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/LoneWolfMale/SC_GliderThrustStartSmall_LoneWolfMale.SC_GliderThrustStartSmall_LoneWolfMale",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "Key": "ELayeredAudioTriggerDirection::Backwards",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/LoneWolfMale/SC_GliderThrustStartSmall_LoneWolfMale.SC_GliderThrustStartSmall_LoneWolfMale",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "MaterialOverrides": [
+        {
+          "ComponentName": "None",
+          "MaterialOverrideIndex": 0,
+          "OverrideMaterial": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Glider_CarbideWeld:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_CarbideWeld.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_CarbideWeld:FortCosmeticParticleVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_CarbideWeld.2"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Material"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Emissive1"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "BaseShotGridId": 154104,
+      "VariantShotGridIds": [
+        154105,
+        157273,
+        157272,
+        157274
+      ],
+      "ShotGridIds": [
+        154104,
+        154105,
+        157273,
+        157272,
+        157274
+      ],
+      "Rarity": "EFortRarity::Epic",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "5F0CC5FB41044FEAA8DE0EA8651F3559",
+        "SourceString": "O.M.E.G.A. Aerial",
+        "LocalizedString": "O.M.E.G.A. Aerial"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "318B9B1B4732645F0BA76CB4824F87F5",
+        "SourceString": "Rise above the rest.",
+        "LocalizedString": "Rise above the rest."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 20.0,
+            "Yaw": -45.0,
+            "Roll": -25.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S36/T_Icon_Glider_CarbideWeld.T_Icon_Glider_CarbideWeld",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S36/T_Icon_Glider_CarbideWeld_L.T_Icon_Glider_CarbideWeld_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.LimitedTimeReward",
+            "Cosmetics.Set.CircleImage",
+            "Cosmetics.Filter.Season.36",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            229,
+            357,
+            564,
+            162,
+            246,
+            275,
+            965,
+            1279,
+            1280,
+            2138,
+            349,
+            251,
+            2480,
+            381,
+            2545,
+            2660,
+            386,
+            3085
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Glider_CarbideWeld",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": true,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "F2DA3B5442535B51079D88ABCD1B3B6D",
+            "SourceString": "O.M.E.G.A. Aerial",
+            "LocalizedString": "O.M.E.G.A. Aerial"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S36/T_Icon_Glider_CarbideWeld.T_Icon_Glider_CarbideWeld",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C922703E400D81F063AB858D2C1677D8",
+            "SourceString": "Golden O.M.E.G.A. Aerial",
+            "LocalizedString": "Golden O.M.E.G.A. Aerial"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/S36/T_Icon_Glider_CarbideWeld_Gut.T_Icon_Glider_CarbideWeld_Gut",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "991B275642109726665F49B846392BC1",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_1",
+    "Outer": "Glider_CarbideWeld",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "FF0000"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.446376,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "FFB261"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "FF0000"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.446376,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "FFB261"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "FF0000"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.446376,
+                    "B": 0.119792,
+                    "A": 1.0,
+                    "Hex": "FFB261"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/FX/CarbideWeld/NS_Glider_CarbideWeld_Trail.NS_Glider_CarbideWeld_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1F73458245333F861911EC86B45F32C0",
+            "SourceString": "Red",
+            "LocalizedString": "Red"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.552012,
+                    "G": 1.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "C4FF00"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 0.914105,
+                    "G": 1.0,
+                    "B": 0.578125,
+                    "A": 1.0,
+                    "Hex": "F6FFC8"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.552012,
+                    "G": 1.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "C4FF00"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 0.914105,
+                    "G": 1.0,
+                    "B": 0.578125,
+                    "A": 1.0,
+                    "Hex": "F6FFC8"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.552012,
+                    "G": 1.0,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "C4FF00"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.914105,
+                    "G": 1.0,
+                    "B": 0.578125,
+                    "A": 1.0,
+                    "Hex": "F6FFC8"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/FX/CarbideWeld/NS_Glider_CarbideWeld_Trail.NS_Glider_CarbideWeld_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "1175027A406959AB32BE28A6C22313BD",
+            "SourceString": "Green",
+            "LocalizedString": "Green"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.432863,
+                    "G": 0.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "B000FF"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 0.682932,
+                    "G": 0.59375,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "D8CBFF"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.432863,
+                    "G": 0.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "B000FF"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 0.682932,
+                    "G": 0.59375,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "D8CBFF"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.432863,
+                    "G": 0.0,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "B000FF"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 0.682932,
+                    "G": 0.59375,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "D8CBFF"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/FX/CarbideWeld/NS_Glider_CarbideWeld_Trail.NS_Glider_CarbideWeld_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "AA19AB4540323AD68DD580A2BDC43DA3",
+            "SourceString": "Purple",
+            "LocalizedString": "Purple"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.117496,
+                    "B": 0.000434,
+                    "A": 1.0,
+                    "Hex": "FF6001"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.9819,
+                    "B": 0.302083,
+                    "A": 1.0,
+                    "Hex": "FFFD95"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld/Materials/MI_Glider_CarbideWeld.MI_Glider_CarbideWeld",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.117496,
+                    "B": 0.000434,
+                    "A": 1.0,
+                    "Hex": "FF6001"
+                  },
+                  "ParamName": "EmissiveTint"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.9819,
+                    "B": 0.302083,
+                    "A": 1.0,
+                    "Hex": "FFFD95"
+                  },
+                  "ParamName": "AdvancedEmissiveColor2"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/Skins/CarbideWeld_Gut/Materials/MI_Glider_CarbideWeld_Gut.MI_Glider_CarbideWeld_Gut",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.117496,
+                    "B": 0.000434,
+                    "A": 1.0,
+                    "Hex": "FF6001"
+                  },
+                  "ParamName": "ColorA"
+                },
+                {
+                  "Value": {
+                    "R": 1.0,
+                    "G": 0.9819,
+                    "B": 0.302083,
+                    "A": 1.0,
+                    "Hex": "FFFD95"
+                  },
+                  "ParamName": "ColorB"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Speedy/FX/CarbideWeld/NS_Glider_CarbideWeld_Trail.NS_Glider_CarbideWeld_Trail",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "Variant"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Emissive4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "281D751E440BA745FC8021B2A9156655",
+            "SourceString": "Orange",
+            "LocalizedString": "Orange"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "CustomPreviewTileMaterial": {
+        "AssetPathName": "/BRCosmetics/Athena/UI/Frontend/CosmeticItemCard/Materials/WingBath/MI_UI_WingBath.MI_UI_WingBath",
+        "SubPathString": ""
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "CAF828B84FB0CA2CE67B19A751AA8FAE",
+        "SourceString": "Emissive Color",
+        "LocalizedString": "Emissive Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Emissive"
+      }
+    }
+  }
+]

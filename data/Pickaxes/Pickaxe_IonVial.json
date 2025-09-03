@@ -1,0 +1,231 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_IonVial",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeItemDefinition'Weapon_Pickaxe_IonVial'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/Weapon_Pickaxe_IonVial.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 0.0,
+        "Y": 53.0,
+        "Z": 63.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": -10.0,
+          "Z": 2.0
+        },
+        "CylinderHalfHeight": 90.0,
+        "CylinderRadius": 90.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_IonVial:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_IonVial.1"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'Pickaxe_IonVial:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_IonVial.2"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "343F47A042834F15150851994B3EBC1A",
+        "SourceString": "Variable Slicer",
+        "LocalizedString": "Variable Slicer"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "65714CBA434C9D33A252968317FC5C2D",
+        "SourceString": "Cut through just about anything and everything.",
+        "LocalizedString": "Cut through just about anything and everything."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "3BBAEC7E49514364176373A2E792337A",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-IonVial.T-Icon-Pickaxes-IonVial",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/S26/T-Icon-Pickaxes-IonVial-L.T-Icon-Pickaxes-IonVial-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.26",
+            "cosmetics.set.NotableSight",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": -5.0,
+            "Yaw": 38.0,
+            "Roll": 30.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            564,
+            162,
+            583,
+            593,
+            586,
+            246,
+            244,
+            106,
+            113,
+            1014,
+            440,
+            90,
+            1190,
+            207,
+            258,
+            1350,
+            300,
+            1022,
+            437,
+            281,
+            2494,
+            2508,
+            2470,
+            2635,
+            2814,
+            2818
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Pickaxe_IonVial",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.0,
+            "G": 0.266101,
+            "B": 0.958333,
+            "A": 1.0,
+            "Hex": "008DFB"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_IonVial.CS_IonVial",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_IonVial/Materials/MI_IonVial_Axe.MI_IonVial_Axe",
+              "SubPathString": ""
+            }
+          ],
+          "ParticlesToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_IonVial/FX/NS_Pickaxe_IonVial_AnimTrail.NS_Pickaxe_IonVial_AnimTrail",
+              "SubPathString": ""
+            },
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_IonVial/FX/NS_Pickaxe_IonVial_Impact.NS_Pickaxe_IonVial_Impact",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "IonVial_CustomColor"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "8D17244249ADC530E031E09D86DD17A8",
+        "SourceString": "Custom Color",
+        "LocalizedString": "Custom Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "Pickaxe_IonVial",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "WeaponMesh0"
+          ],
+          "WrapSectionMask": 1,
+          "AllowedMeshes": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_IonVial/Meshes/IonVial_Axe.IonVial_Axe",
+              "SubPathString": ""
+            }
+          ],
+          "DefaultSelectedItem": "AthenaItemWrap:wrap_ionvial",
+          "WrapMaterialType": "EItemWrapMaterialType::WeaponWrap"
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "F60E6B4B4F5B02C07561A7A432C18D61",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  }
+]

@@ -1,0 +1,329 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_520_FancyCandyMale1H",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_FancyCandyMale1H'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_FancyCandyMale1H.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": -20.0,
+        "Y": -2.0,
+        "Z": 30.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 0.0,
+        "Y": -5.0,
+        "Z": 2.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 125.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 16.0,
+          "Y": -2.0,
+          "Z": 6.0
+        },
+        "CylinderHalfHeight": 58.0,
+        "CylinderRadius": 58.0
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 3.0,
+        "Z": 0.0
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMeshVariant'Pickaxe_ID_520_FancyCandyMale1H:FortCosmeticMeshVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_520_FancyCandyMale1H.1"
+        }
+      ],
+      "ItemVariantPreviews": [
+        {
+          "UnlockCondition": {
+            "CultureInvariantString": null
+          },
+          "PreviewTime": 3.0,
+          "VariantOptions": [
+            {
+              "OwnedVariantTags": [],
+              "ItemVariantIsUsedFor": null,
+              "CustomData": "",
+              "VariantChannelTag": {
+                "TagName": "Cosmetics.Variant.Channel.Mesh"
+              },
+              "ActiveVariantTag": {
+                "TagName": "Cosmetics.Variant.Property.Stage2"
+              }
+            }
+          ],
+          "AdditionalItems": []
+        }
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "C588604E4E83409AD2567684CEC8BD68",
+        "SourceString": "Fancy Dandy Canes",
+        "LocalizedString": "Fancy Dandy Canes"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "3BF349C6448BCC66F43339B25D1A00AA",
+        "SourceString": "Merry minty mallets.",
+        "LocalizedString": "Merry minty mallets."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "A69CE06D41C08FBB5644FF825DDAB76B",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 26.0,
+            "Yaw": 270.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.2
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.15",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Cosmetics.Set.DapperCandy"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            7975,
+            236,
+            357,
+            245,
+            19,
+            513,
+            531,
+            530,
+            529,
+            246,
+            69,
+            193,
+            874,
+            871,
+            875,
+            917,
+            128,
+            1070,
+            1328,
+            1330,
+            1327,
+            1415,
+            1659,
+            1658,
+            1703,
+            190
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMeshVariant",
+    "Name": "FortCosmeticMeshVariant_0",
+    "Outer": "Pickaxe_ID_520_FancyCandyMale1H",
+    "Class": "UScriptClass'FortCosmeticMeshVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MeshOptions": [
+        {
+          "VariantMeshes": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyPlainMale_1H/SC_PickaxeSwing_FancyCandyMalePlain.SC_PickaxeSwing_FancyCandyMalePlain",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyMale_1H/PickaxeSwing_FancyCandyMale1H_Cue.PickaxeSwing_FancyCandyMale1H_Cue",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyPlainMale_1H/SC_PickaxeImpactEnemy_FancyCandyMalePlain.SC_PickaxeImpactEnemy_FancyCandyMalePlain",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyMale_1H/PickaxeImpactEnemy_FancyCandyMale_1H_Cue.PickaxeImpactEnemy_FancyCandyMale_1H_Cue",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "82B883A243574EC9F6AC97B025F5F595",
+            "SourceString": "Fancy Dandy Canes",
+            "LocalizedString": "Fancy Dandy Canes"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-FancyCandy1HPickaxe.T-Icon-Pickaxes-FancyCandy1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMeshes": [
+            {
+              "MeshToSwap": {
+                "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Fancy_Candy_Male_1H/Meshes/Fancy_Candy_Male_1h_Axe.Fancy_Candy_Male_1h_Axe",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideMesh": {
+                "AssetPathName": "/BRCosmetics/Weapons/FORT_Melee/Pickaxe_Fancy_Candy_Plain_Male_1h/Meshes/Fancy_Candy_Plain_Male_1h.Fancy_Candy_Plain_Male_1h",
+                "SubPathString": ""
+              },
+              "AnimInstanceClassSwapType": "EAnimInstanceClassSwapType::None",
+              "AnimInstanceClassToSwap": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "OverrideAnimInstanceClass": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "SocketTransforms": [],
+          "VariantSounds": [
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyMale_1H/PickaxeSwing_FancyCandyMale1H_Cue.PickaxeSwing_FancyCandyMale1H_Cue",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyPlainMale_1H/SC_PickaxeSwing_FancyCandyMalePlain.SC_PickaxeSwing_FancyCandyMalePlain",
+                "SubPathString": ""
+              }
+            },
+            {
+              "SoundToSwap": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyMale_1H/PickaxeImpactEnemy_FancyCandyMale_1H_Cue.PickaxeImpactEnemy_FancyCandyMale_1H_Cue",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideSound": {
+                "AssetPathName": "/BRCosmetics/Sounds/PickAxes/FancyCandyPlainMale_1H/SC_PickaxeImpactEnemy_FancyCandyMalePlain.SC_PickaxeImpactEnemy_FancyCandyMalePlain",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantFoley": [],
+          "VariantActions": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "330D43BF40839EDC150EB89DA42F8115",
+            "SourceString": "Dandy Canes",
+            "LocalizedString": "Dandy Canes"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Weapons/Items/T-Icon-Pickaxes-FancyCandyPlain1HPickaxe.T-Icon-Pickaxes-FancyCandyPlain1HPickaxe",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "A40A3AE54197CE09BEDA3DBCAAD6FC02",
+        "SourceString": "Style",
+        "LocalizedString": "Style"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Mesh"
+      }
+    }
+  }
+]

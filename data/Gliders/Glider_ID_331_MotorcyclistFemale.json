@@ -1,0 +1,922 @@
+[
+  {
+    "Type": "AthenaGliderItemDefinition",
+    "Name": "Glider_ID_331_MotorcyclistFemale",
+    "Class": "UScriptClass'AthenaGliderItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CameraFramingBoundsCenterOffset": {
+        "X": 60.0,
+        "Y": -20.0,
+        "Z": 10.0
+      },
+      "ParachutePrefabClass": {
+        "AssetPathName": "/Game/Athena/Cosmetics/Blueprints/B_Athena_Glider_Generic.B_Athena_Glider_Generic_C",
+        "SubPathString": ""
+      },
+      "SkeletalMesh": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Meshes/Motorcyclist_Female_Glider.Motorcyclist_Female_Glider",
+        "SubPathString": ""
+      },
+      "GliderMeshTransform": {
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsNormalized": true,
+          "Size": 1.0,
+          "SizeSquared": 1.0
+        },
+        "Translation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Scale3D": {
+          "X": 1.0,
+          "Y": 1.0,
+          "Z": 1.0
+        }
+      },
+      "AnimClass": {
+        "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Blueprints/MotorcyclistFemale_Glider_AnimBP.MotorcyclistFemale_Glider_AnimBP_C",
+        "SubPathString": ""
+      },
+      "PlayerAnimSet": {
+        "AssetPathName": "/Game/Animation/Game/MainPlayer/Skydive/ParaGlide/HangGlider/HangGliderPlayerAnimSet.HangGliderPlayerAnimSet",
+        "SubPathString": ""
+      },
+      "TrailEffectDefinitions": [
+        {
+          "NiagaraSystem": {
+            "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/FX/NS_Glider_Motorcyclist_Female.NS_Glider_Motorcyclist_Female",
+            "SubPathString": ""
+          },
+          "EffectSocket": "None",
+          "Offset": {
+            "Rotation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0,
+              "W": 1.0,
+              "IsNormalized": true,
+              "Size": 1.0,
+              "SizeSquared": 1.0
+            },
+            "Translation": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Scale3D": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            }
+          },
+          "ActivationMode": "EGliderTrailActivationMode::FullyDeployed",
+          "AttachmentMode": "EGliderTrailAttachmentMode::GliderMesh"
+        }
+      ],
+      "OpenSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MotorcyclistFemale/SC_GliderOpen_MotorcyclistFemale.SC_GliderOpen_MotorcyclistFemale",
+        "SubPathString": ""
+      },
+      "CloseSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MotorcyclistFemale/SC_GliderClose_MotorcyclistFemale.SC_GliderClose_MotorcyclistFemale",
+        "SubPathString": ""
+      },
+      "ThrustLoopSound": {
+        "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MotorcyclistFemale/SC_GliderThrustLoop_MotorcyclistFemale.SC_GliderThrustLoop_MotorcyclistFemale",
+        "SubPathString": ""
+      },
+      "ThrustSoundParams": [
+        {
+          "Key": "ELayeredAudioTriggerDirection::AnyDirection",
+          "Value": {
+            "InterpType": "ELayeredAudioInterpolationType::Linear",
+            "Curve": null,
+            "AttackSpeed": 3.0,
+            "ReleaseSpeed": 2.0,
+            "Oneshots": [
+              {
+                "SoundRef": {
+                  "AssetPathName": "/BRCosmetics/Sounds/Fort_Gadgets/Athena/MotorcyclistFemale/SC_GliderThrustStart_MotorcyclistFemale.SC_GliderThrustStart_MotorcyclistFemale",
+                  "SubPathString": ""
+                },
+                "GateValue": 0.5,
+                "Direction": "ELayeredAudioTriggerDir::Forward",
+                "FadeWhenOutsideGate": true,
+                "MinTimeSinceTrigger": 0.1,
+                "InterruptFadeTime": 0.5
+              }
+            ]
+          }
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Glider_ID_331_MotorcyclistFemale:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_331_MotorcyclistFemale.1"
+        },
+        {
+          "ObjectName": "FortCosmeticParticleVariant'Glider_ID_331_MotorcyclistFemale:FortCosmeticParticleVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Gliders/Glider_ID_331_MotorcyclistFemale.2"
+        }
+      ],
+      "BaseShotGridId": 52578,
+      "VariantShotGridIds": [
+        52653
+      ],
+      "ShotGridIds": [
+        52578,
+        52653
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "308949244665588354AA0DB2FC29B2E4",
+        "SourceString": "WYVERN X77",
+        "LocalizedString": "WYVERN X77"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "02865E5640957F644E9296A17D3E3608",
+        "SourceString": "You're better off not knowing how she found this...",
+        "LocalizedString": "You're better off not knowing how she found this..."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "F6696CF34A757AA818C004912AAFEC0F",
+        "SourceString": "Glider",
+        "LocalizedString": "Glider"
+      },
+      "DataList": [
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 15.0,
+            "Yaw": 60.0,
+            "Roll": 25.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-MotorcyclistGlider.T-Icon_Glider-MotorcyclistGlider",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-MotorcyclistGlider-L.T-Icon_Glider-MotorcyclistGlider-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.UserFacingFlags.HasUpgradeQuests",
+            "Cosmetics.Source.Season19.BattlePass.Paid",
+            "Cosmetics.Set.TimeSheriff",
+            "Cosmetics.Filter.Season.19"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            552,
+            7975,
+            545,
+            229,
+            236,
+            357,
+            564,
+            162,
+            596,
+            242,
+            605,
+            965,
+            1279,
+            1280,
+            1344,
+            251,
+            2480,
+            381,
+            2545,
+            2708,
+            2729,
+            2977,
+            3167
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Glider_ID_331_MotorcyclistFemale",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "388637AD49E3A8629B00DDB0E71DD62C",
+            "SourceString": "WYVERN X77",
+            "LocalizedString": "WYVERN X77"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-MotorcyclistGlider.T-Icon_Glider-MotorcyclistGlider",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A3B4B01240BA926216EC4BAF4579F0D4",
+            "SourceString": "WYVERN X77 (Future Frost)",
+            "LocalizedString": "WYVERN X77 (Future Frost)"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Skydiving/T-Icon_Glider-MotorcyclistGlider-White.T-Icon_Glider-MotorcyclistGlider-White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "109E718D47D7AE47660E4EA1A8CA3C74",
+        "SourceString": "Color",
+        "LocalizedString": "Color"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticParticleVariant",
+    "Name": "FortCosmeticParticleVariant_0",
+    "Outer": "Glider_ID_331_MotorcyclistFemale",
+    "Class": "UScriptClass'FortCosmeticParticleVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParticleOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/FX/NS_Glider_Motorcyclist_Female.NS_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "EmissiveColorSelection"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5C78B3DB4C2167F77CC9C8B763646C90",
+            "SourceString": "Blue",
+            "LocalizedString": "Blue"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Motorcyclist-Blue.T-Variant-Motorcyclist-Blue",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.322494,
+                    "G": 0.051248,
+                    "B": 0.328125,
+                    "A": 1.0,
+                    "Hex": "9A409B"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.275769,
+                    "G": 0.011719,
+                    "B": 0.28125,
+                    "A": 1.0,
+                    "Hex": "8F1C91"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.322494,
+                    "G": 0.051248,
+                    "B": 0.328125,
+                    "A": 1.0,
+                    "Hex": "9A409B"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.196568,
+                    "G": 0.031237,
+                    "B": 0.2,
+                    "A": 1.0,
+                    "Hex": "7B317C"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.322494,
+                    "G": 0.051248,
+                    "B": 0.328125,
+                    "A": 1.0,
+                    "Hex": "9A409B"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.275769,
+                    "G": 0.011719,
+                    "B": 0.28125,
+                    "A": 1.0,
+                    "Hex": "8F1C91"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.322494,
+                    "G": 0.051248,
+                    "B": 0.328125,
+                    "A": 1.0,
+                    "Hex": "9A409B"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.982839,
+                    "G": 0.156185,
+                    "B": 1.0,
+                    "A": 1.0,
+                    "Hex": "FE6EFF"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/FX/NS_Glider_Motorcyclist_Female.NS_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 1.0,
+                  "ParamName": "EmissiveColorSelection"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "D8C34B13459CAB85E8EB30A234B6C486",
+            "SourceString": "Magenta",
+            "LocalizedString": "Magenta"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Motorcyclist-Magenta.T-Variant-Motorcyclist-Magenta",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.515625,
+                    "G": 0.343385,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BE9E00"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.317708,
+                    "G": 0.173159,
+                    "B": 0.010053,
+                    "A": 1.0,
+                    "Hex": "997319"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.515625,
+                    "G": 0.343385,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BE9E00"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.25,
+                    "G": 0.16649,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "897100"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.515625,
+                    "G": 0.343385,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BE9E00"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.317708,
+                    "G": 0.173159,
+                    "B": 0.010053,
+                    "A": 1.0,
+                    "Hex": "997319"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.515625,
+                    "G": 0.343385,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "BE9E00"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.8,
+                    "G": 0.532767,
+                    "B": 0.0,
+                    "A": 1.0,
+                    "Hex": "E8C100"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/FX/NS_Glider_Motorcyclist_Female.NS_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 2.0,
+                  "ParamName": "EmissiveColorSelection"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5A8FA2904238AF8459A6BA887A84BFAD",
+            "SourceString": "Yellow",
+            "LocalizedString": "Yellow"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Motorcyclist-Yellow.T-Variant-Motorcyclist-Yellow",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.770833,
+                    "G": 0.75474,
+                    "B": 0.722656,
+                    "A": 1.0,
+                    "Hex": "E4E2DD"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.546875,
+                    "G": 0.538845,
+                    "B": 0.529785,
+                    "A": 1.0,
+                    "Hex": "C3C2C1"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.770833,
+                    "G": 0.75474,
+                    "B": 0.722656,
+                    "A": 1.0,
+                    "Hex": "E4E2DD"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.5,
+                    "G": 0.489561,
+                    "B": 0.46875,
+                    "A": 1.0,
+                    "Hex": "BCBAB6"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [
+                {
+                  "Value": 0.0,
+                  "ParamName": "None"
+                }
+              ],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Materials/MI_Glider_Motorcyclist_Female.MI_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              }
+            },
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [
+                {
+                  "Value": {
+                    "R": 0.770833,
+                    "G": 0.75474,
+                    "B": 0.722656,
+                    "A": 1.0,
+                    "Hex": "E4E2DD"
+                  },
+                  "ParamName": "Emissive Color"
+                },
+                {
+                  "Value": {
+                    "R": 0.546875,
+                    "G": 0.538845,
+                    "B": 0.529785,
+                    "A": 1.0,
+                    "Hex": "C3C2C1"
+                  },
+                  "ParamName": "EmissiveColor"
+                },
+                {
+                  "Value": {
+                    "R": 0.770833,
+                    "G": 0.75474,
+                    "B": 0.722656,
+                    "A": 1.0,
+                    "Hex": "E4E2DD"
+                  },
+                  "ParamName": "EmissiveMultiplier"
+                },
+                {
+                  "Value": {
+                    "R": 0.8,
+                    "G": 0.783298,
+                    "B": 0.75,
+                    "A": 1.0,
+                    "Hex": "E8E5E1"
+                  },
+                  "ParamName": "MotorcyclistDiffuseColor"
+                }
+              ],
+              "TextureParams": [],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/Skins/White/Materials/MI_Glider_Motorcyclist_White_Female.MI_Glider_Motorcyclist_White_Female",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "InitialParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Motorcyclist_Female/FX/NS_Glider_Motorcyclist_Female.NS_Glider_Motorcyclist_Female",
+                "SubPathString": ""
+              },
+              "ColorParams": [],
+              "VectorParams": [],
+              "FloatParams": [
+                {
+                  "Value": 3.0,
+                  "ParamName": "EmissiveColorSelection"
+                }
+              ],
+              "TextureParams": []
+            }
+          ],
+          "VariantSounds": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": false,
+          "bIsDefault": false,
+          "bHideIfNotOwned": true,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Particle4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "A2C105B4491181AC2CCA608647EE50F3",
+            "SourceString": "White",
+            "LocalizedString": "White"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/T-Variant-Motorcyclist-White.T-Variant-Motorcyclist-White",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "B1BE672F40C688172FD0739F0F3F39F8",
+        "SourceString": "Emissives",
+        "LocalizedString": "Emissives"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Particle"
+      }
+    }
+  }
+]

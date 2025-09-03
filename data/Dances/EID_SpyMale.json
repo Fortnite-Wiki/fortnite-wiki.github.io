@@ -1,0 +1,287 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_SpyMale",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SpyMale/Emote_SpyMale_CMM_M.Emote_SpyMale_CMM_M",
+        "SubPathString": ""
+      },
+      "EmoteCooldownSecs": 1.0,
+      "RequiredEmoteParent": {
+        "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Characters/CID_712_Athena_Commando_M_Spy.CID_712_Athena_Commando_M_Spy",
+        "SubPathString": ""
+      },
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'EID_SpyMale:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_SpyMale.1"
+        },
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'EID_SpyMale:FortCosmeticProfileLoadoutVariant_1'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_SpyMale.2"
+        }
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "E82173AA4E9C3BE6491AB4BDD312A5C4",
+        "SourceString": "Butterfly knife",
+        "LocalizedString": "Butterfly knife"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "293F4F7043297DBB2210738BE4497F5A",
+        "SourceString": "This will end in tears.",
+        "LocalizedString": "This will end in tears."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "7CC7DE5642945ED3AB1BE89848F53F19",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack",
+            "Item.Trait.Transient"
+          ]
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.Stealthy",
+            "Cosmetics.UserFacingFlags.BuiltInEmote",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2",
+            "Cosmetics.Emote.HideMimosaInPreview"
+          ]
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-E-SpyMale.T-Icon-Emotes-E-SpyMale",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/T-Icon-Emotes-E-SpyMale-L.T-Icon-Emotes-E-SpyMale-L",
+            "SubPathString": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "EID_SpyMale",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_366_SpyMale1H.Pickaxe_ID_366_SpyMale1H",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": true,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [
+            {
+              "MontageSwaps": [
+                {
+                  "ToSwapFrom": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SpyMale/Emote_SpyMale_CMM_M.Emote_SpyMale_CMM_M",
+                    "SubPathString": ""
+                  },
+                  "ToSwapTo": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SpyMale/Emote_SpyMale_CMM_Pickaxe_M.Emote_SpyMale_CMM_Pickaxe_M",
+                    "SubPathString": ""
+                  }
+                }
+              ],
+              "MetaTags": {
+                "MetaTagsToApply": [],
+                "MetaTagsToRemove": []
+              },
+              "bStartUnlocked": true,
+              "bIsDefault": false,
+              "bHideIfNotOwned": false,
+              "CustomizationVariantTag": {
+                "TagName": "None"
+              },
+              "VariantName": {
+                "CultureInvariantString": null
+              },
+              "PreviewImage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "UnlockRequirements": {
+                "CultureInvariantString": null
+              },
+              "UnlockingItemDef": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "VariantGameplayTags": []
+            }
+          ],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.ProfileLoadout"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_1",
+    "Outer": "EID_SpyMale",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_366_SpyMale1H.Pickaxe_ID_366_SpyMale1H",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [],
+          "VariantParts": [],
+          "VariantMaterials": [
+            {
+              "MaterialToSwap": {
+                "AssetPathName": "/Game/Effects/Fort_Effects/Materials/Tech/M_Galileo_Hologram.M_Galileo_Hologram",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "CascadeMaterialName": "None",
+              "MaterialOverrideIndex": 0,
+              "OverrideMaterial": {
+                "AssetPathName": "/Game/Gadgets/Assets/Butterfly_Knife/Materials/MI_Butterfly_Knife.MI_Butterfly_Knife",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [
+            {
+              "ParticleSystemToAlter": {
+                "AssetPathName": "/Game/Effects/Niagara/Systems/Blanks/NS_Blank_Emote.NS_Blank_Emote",
+                "SubPathString": ""
+              },
+              "ComponentToOverride": "None",
+              "OverrideParticleSystem": {
+                "AssetPathName": "/Game/Animation/Game/MainPlayer/Emotes/SpyMale/Effects/NS_ButterflyKnife.NS_ButterflyKnife",
+                "SubPathString": ""
+              },
+              "bResetParameterOverridesOnSwap": false
+            }
+          ],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage2"
+          },
+          "VariantName": {
+            "CultureInvariantString": null
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ProfileLoadout2"
+      }
+    }
+  }
+]

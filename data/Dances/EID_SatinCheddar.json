@@ -1,0 +1,255 @@
+[
+  {
+    "Type": "AthenaDanceItemDefinition",
+    "Name": "EID_SatinCheddar",
+    "Class": "UScriptClass'AthenaDanceItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Animation": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMM/Emote_SatinCheddar_CMM_M.Emote_SatinCheddar_CMM_M",
+        "SubPathString": ""
+      },
+      "AnimationFemaleOverride": {
+        "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMF/Emote_SatinCheddar_CMF_M.Emote_SatinCheddar_CMF_M",
+        "SubPathString": ""
+      },
+      "AnimationOverrides": [
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Male",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLM/Emote_SatinCheddar_CLM_M.Emote_SatinCheddar_CLM_M",
+            "SubPathString": ""
+          }
+        },
+        {
+          "BodyType": "EFortCustomBodyType::Large",
+          "Gender": "EFortCustomGender::Female",
+          "EmoteMontage": {
+            "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLF/Emote_SatinCheddar_CLF_M.Emote_SatinCheddar_CLF_M",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "PreviewLoops": 4,
+      "EmoteCooldownSecs": 1.0,
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticProfileLoadoutVariant'EID_SatinCheddar:FortCosmeticProfileLoadoutVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Dances/EID_SatinCheddar.1"
+        }
+      ],
+      "ItemName": {
+        "Namespace": "",
+        "Key": "9549C159433B8994450538A973EE24CD",
+        "SourceString": "Frozone's Stunt",
+        "LocalizedString": "Frozone's Stunt"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "5736FAAF487DC80558987AB92D99A6AE",
+        "SourceString": "Now that's a cool move.",
+        "LocalizedString": "Now that's a cool move."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "48A17388431CA0AE56425581894DC02E",
+        "SourceString": "Emote",
+        "LocalizedString": "Emote"
+      },
+      "DataList": [
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S31/T_IconEmotes_SatinCheddar.T_IconEmotes_SatinCheddar",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Emotes/S31/T_IconEmotes_SatinCheddar_L.T_IconEmotes_SatinCheddar_L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 80.0,
+            "Z": 35.0
+          },
+          "InitialRotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Tags": [
+            "Cosmetics.EmoteType.Dance",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Filter.Season.31",
+            "Cosmetics.Set.ShawlTime",
+            "Cosmetics.Emote.HideMimosaInPreview"
+          ]
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticProfileLoadoutVariant",
+    "Name": "FortCosmeticProfileLoadoutVariant_0",
+    "Outer": "EID_SatinCheddar",
+    "Class": "UScriptClass'FortCosmeticProfileLoadoutVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadoutAugmentations": [
+        {
+          "LoadoutItem": {
+            "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_SatinCheddar.Backpack_SatinCheddar",
+            "SubPathString": ""
+          },
+          "LocationToInsert": "ELoadoutVariantInsertType::StartOfArray",
+          "bItemExpectedInLoadout": true,
+          "bRequireItemToBeCurrent": false,
+          "bIgnoreRequireItemToBeCurrentInFrontEnd": false,
+          "bRequirePawnGameplayTagQuery": false,
+          "PawnGameplayTagQuery": {
+            "TokenStreamVersion": 0,
+            "TagDictionary": [],
+            "QueryTokenStream": [],
+            "UserDescription": "",
+            "AutoDescription": ""
+          },
+          "VariantEmoteMontages": [
+            {
+              "MontageSwaps": [
+                {
+                  "ToSwapFrom": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMM/Emote_SatinCheddar_CMM_M.Emote_SatinCheddar_CMM_M",
+                    "SubPathString": ""
+                  },
+                  "ToSwapTo": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMM/Emote_SatinCheddar_CMM_M_BackpackHide.Emote_SatinCheddar_CMM_M_BackpackHide",
+                    "SubPathString": ""
+                  }
+                },
+                {
+                  "ToSwapFrom": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMF/Emote_SatinCheddar_CMF_M.Emote_SatinCheddar_CMF_M",
+                    "SubPathString": ""
+                  },
+                  "ToSwapTo": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CMF/Emote_SatinCheddar_CMF_M_BackpackHide.Emote_SatinCheddar_CMF_M_BackpackHide",
+                    "SubPathString": ""
+                  }
+                },
+                {
+                  "ToSwapFrom": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLM/Emote_SatinCheddar_CLM_M.Emote_SatinCheddar_CLM_M",
+                    "SubPathString": ""
+                  },
+                  "ToSwapTo": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLM/Emote_SatinCheddar_CLM_M_BackpackHide.Emote_SatinCheddar_CLM_M_BackpackHide",
+                    "SubPathString": ""
+                  }
+                },
+                {
+                  "ToSwapFrom": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLF/Emote_SatinCheddar_CLF_M.Emote_SatinCheddar_CLF_M",
+                    "SubPathString": ""
+                  },
+                  "ToSwapTo": {
+                    "AssetPathName": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/SatinCheddar/CLF/Emote_SatinCheddar_CLF_M_BackpackHide.Emote_SatinCheddar_CLF_M_BackpackHide",
+                    "SubPathString": ""
+                  }
+                }
+              ],
+              "MetaTags": {
+                "MetaTagsToApply": [],
+                "MetaTagsToRemove": []
+              },
+              "bStartUnlocked": true,
+              "bIsDefault": false,
+              "bHideIfNotOwned": false,
+              "CustomizationVariantTag": {
+                "TagName": "None"
+              },
+              "VariantName": {
+                "CultureInvariantString": null
+              },
+              "PreviewImage": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "UnlockRequirements": {
+                "CultureInvariantString": null
+              },
+              "UnlockingItemDef": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              },
+              "VariantGameplayTags": []
+            }
+          ],
+          "VariantParts": [],
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "InitalParticleSystemData": [],
+          "VariantParticles": [],
+          "VariantParticleParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "SocketTransforms": [],
+          "VariantActions": [],
+          "VariantMeshes": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Stage1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "484771414C846919F653F78ACDFB4F23",
+            "SourceString": "backpack equip hide",
+            "LocalizedString": "backpack equip hide"
+          },
+          "PreviewImage": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,581 @@
+[
+  {
+    "Type": "AthenaBackpackItemDefinition",
+    "Name": "Backpack_PastaSauce",
+    "Class": "UScriptClass'AthenaBackpackItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterParts": [
+        {
+          "ObjectName": "CustomCharacterPart'CP_Backpack_PastaSauce'",
+          "ObjectPath": "/BRCosmetics/Characters/CharacterParts/Backpacks/CP_Backpack_PastaSauce.1"
+        }
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticMaterialVariant'Backpack_PastaSauce:FortCosmeticMaterialVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Backpacks/Backpack_PastaSauce.1"
+        }
+      ],
+      "BaseShotGridId": 87457,
+      "ShotGridIds": [
+        87457
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "5B255D8443D2E50AFB4FCEBEB3B98D9D",
+        "SourceString": "Electric Sine",
+        "LocalizedString": "Electric Sine"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "4FC2FDC0454AEB5EC0EACCABA903215E",
+        "SourceString": "Split the signal.",
+        "LocalizedString": "Split the signal."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "E23A98664CD10F3A45C459B54FF3CC98",
+        "SourceString": "Back Bling",
+        "LocalizedString": "Back Bling"
+      },
+      "DataList": [
+        {
+          "Series": {
+            "ObjectName": "FortItemSeriesDefinition'CreatorCollabSeries'",
+            "ObjectPath": "/Game/Athena/Items/Cosmetics/Series/CreatorCollabSeries.0"
+          }
+        },
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Icon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-PastaSauce.T-Icon-Backpacks-PastaSauce",
+            "SubPathString": ""
+          }
+        },
+        {
+          "LargeIcon": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-PastaSauce-L.T-Icon-Backpacks-PastaSauce-L",
+            "SubPathString": ""
+          }
+        },
+        {
+          "Tags": [
+            "Cosmetics.Filter.Season.28",
+            "Cosmetics.Set.FlowerRelate",
+            "Cosmetics.UserFacingFlags.HasVariants"
+          ]
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            549,
+            552,
+            7975,
+            236,
+            162,
+            242,
+            632,
+            849,
+            283,
+            1058,
+            1070,
+            1116,
+            114,
+            1389,
+            145,
+            291,
+            2494,
+            2499,
+            2495,
+            310,
+            2584
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticMaterialVariant",
+    "Name": "FortCosmeticMaterialVariant_0",
+    "Outer": "Backpack_PastaSauce",
+    "Class": "UScriptClass'FortCosmeticMaterialVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaterialOptions": [
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": true,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat1"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "C113008148059B40319F898E7633756B",
+            "SourceString": "Wave",
+            "LocalizedString": "Wave"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Backpacks/S28/T-Icon-Backpacks-PastaSauce.T-Icon-Backpacks-PastaSauce",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_01.T_PastaSauce_Backpack_SelectableSymbol_01",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat2"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "B8BFD6EC442F31AE0DFD7BBC099806FF",
+            "SourceString": "Heart",
+            "LocalizedString": "Heart"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-2.T-Icon-Backpacks-PastaSauce-2",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_02.T_PastaSauce_Backpack_SelectableSymbol_02",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat3"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "8DA588EE485A3A0F81F1EEB09CB21A64",
+            "SourceString": "Orbit",
+            "LocalizedString": "Orbit"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-8.T-Icon-Backpacks-PastaSauce-8",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_04.T_PastaSauce_Backpack_SelectableSymbol_04",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat4"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "DA5790A04E7FF0838679F09FFF8E9FAA",
+            "SourceString": "Ladybug",
+            "LocalizedString": "Ladybug"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-3.T-Icon-Backpacks-PastaSauce-3",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_05.T_PastaSauce_Backpack_SelectableSymbol_05",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat5"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "5EA166BC4637B442793DF298C3AE7C99",
+            "SourceString": "Star",
+            "LocalizedString": "Star"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-4.T-Icon-Backpacks-PastaSauce-4",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_06.T_PastaSauce_Backpack_SelectableSymbol_06",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat6"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "4600332540127ADA489760A4A8E18635",
+            "SourceString": "Repeat",
+            "LocalizedString": "Repeat"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-5.T-Icon-Backpacks-PastaSauce-5",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_07.T_PastaSauce_Backpack_SelectableSymbol_07",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat7"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "47AB15814CB3BCC4098DC1BC2DD367FC",
+            "SourceString": "Eclipse",
+            "LocalizedString": "Eclipse"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-6.T-Icon-Backpacks-PastaSauce-6",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        },
+        {
+          "VariantMaterials": [],
+          "VariantMaterialParams": [
+            {
+              "MaterialsToAlter": [
+                {
+                  "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                  "SubPathString": ""
+                }
+              ],
+              "CascadeMaterialName": "None",
+              "ColorParams": [],
+              "TextureParams": [
+                {
+                  "Value": {
+                    "AssetPathName": "/BRCosmetics/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Textures/SelectableSymbols/T_PastaSauce_Backpack_SelectableSymbol_08.T_PastaSauce_Backpack_SelectableSymbol_08",
+                    "SubPathString": ""
+                  },
+                  "ParamName": "HologramTexture"
+                }
+              ],
+              "FloatParams": [],
+              "MaterialToAlter": {
+                "AssetPathName": "/Game/Accessories/FORT_Backpacks/Backpack_F_MED_PastaSauce/Materials/MI_PastaSauce_Backpack_Hologram.MI_PastaSauce_Backpack_Hologram",
+                "SubPathString": ""
+              }
+            }
+          ],
+          "VariantSounds": [],
+          "VariantFoley": [],
+          "CosmeticProperties": [],
+          "MetaTags": {
+            "MetaTagsToApply": [],
+            "MetaTagsToRemove": []
+          },
+          "bStartUnlocked": true,
+          "bIsDefault": false,
+          "bHideIfNotOwned": false,
+          "CustomizationVariantTag": {
+            "TagName": "Cosmetics.Variant.Property.Mat8"
+          },
+          "VariantName": {
+            "Namespace": "",
+            "Key": "0D24920E47C6D50E6A88D6B05DA9EF50",
+            "SourceString": "Alignment",
+            "LocalizedString": "Alignment"
+          },
+          "PreviewImage": {
+            "AssetPathName": "/BRCosmetics/UI/Foundation/Textures/Icons/Heroes/Variants/S28/Backpacks/T-Icon-Backpacks-PastaSauce-7.T-Icon-Backpacks-PastaSauce-7",
+            "SubPathString": ""
+          },
+          "UnlockRequirements": {
+            "CultureInvariantString": null
+          },
+          "UnlockingItemDef": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "VariantGameplayTags": []
+        }
+      ],
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "43311FB2477FB7EBA7B543883D9DEF2D",
+        "SourceString": "logo",
+        "LocalizedString": "logo"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.Material"
+      }
+    }
+  }
+]

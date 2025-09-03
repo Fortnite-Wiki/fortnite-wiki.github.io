@@ -1,0 +1,271 @@
+[
+  {
+    "Type": "AthenaPickaxeItemDefinition",
+    "Name": "Pickaxe_ID_639_PliantFemale",
+    "Class": "UScriptClass'AthenaPickaxeItemDefinition'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponDefinition": {
+        "ObjectName": "FortWeaponMeleeDualWieldItemDefinition'WID_Harvest_Pickaxe_PliantFemale'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Weapons/WID_Harvest_Pickaxe_PliantFemale.0"
+      },
+      "PickaxeImpactFXPreviewOffset": {
+        "X": 5.0,
+        "Y": -20.0,
+        "Z": 50.0
+      },
+      "PickaxeDualWieldPreviewOffset": {
+        "X": 0.0,
+        "Y": -4.0,
+        "Z": 0.0
+      },
+      "PickaxeDualWieldPreviewRotation": {
+        "Pitch": 115.0,
+        "Yaw": 0.0,
+        "Roll": 180.0
+      },
+      "CameraFramingBounds": {
+        "Origin": {
+          "X": 30.0,
+          "Y": 2.0,
+          "Z": 4.0
+        },
+        "CylinderHalfHeight": 50.0,
+        "CylinderRadius": 50.0
+      },
+      "CameraFramingBoundsCenterOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -20.0
+      },
+      "ObservedPlayerStats": [
+        "StatManager.AthenaKills",
+        "StatManager.DamageReceived",
+        "StatManager.GainedHealthTimes",
+        "StatManager.GainedShieldTimes"
+      ],
+      "ItemVariants": [
+        {
+          "ObjectName": "FortCosmeticRichColorVariant'Pickaxe_ID_639_PliantFemale:FortCosmeticRichColorVariant_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_639_PliantFemale.1"
+        },
+        {
+          "ObjectName": "FortCosmeticVariantApplyWrap'Pickaxe_ID_639_PliantFemale:FortCosmeticVariantApplyWrap_0'",
+          "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_639_PliantFemale.2"
+        }
+      ],
+      "ItemVariantPreviewGenerator": {
+        "ObjectName": "FortWrapVariantPreviewGenerator'Pickaxe_ID_639_PliantFemale:FortWrapVariantPreviewGenerator_0'",
+        "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_639_PliantFemale.3"
+      },
+      "BaseShotGridId": 43123,
+      "ShotGridIds": [
+        43123
+      ],
+      "Rarity": "EFortRarity::Rare",
+      "ItemName": {
+        "Namespace": "",
+        "Key": "A9ED102A421B8246A164E0A8A4AA910E",
+        "SourceString": "Futureproof Flail",
+        "LocalizedString": "Futureproof Flail"
+      },
+      "ItemDescription": {
+        "Namespace": "",
+        "Key": "A13771404FC93870C85ADF8F0559B266",
+        "SourceString": "Complete the look with a bold statement piece.",
+        "LocalizedString": "Complete the look with a bold statement piece."
+      },
+      "ItemShortDescription": {
+        "Namespace": "",
+        "Key": "219281384292B0B488424A8AB71FEEAA",
+        "SourceString": "Pickaxe",
+        "LocalizedString": "Pickaxe"
+      },
+      "DataList": [
+        {
+          "MinLevel": 1,
+          "MaxLevel": 1
+        },
+        {
+          "Tags": [
+            "Cosmetics.Pickaxe.DualWield",
+            "Cosmetics.Filter.Season.17",
+            "Cosmetics.Source.ItemShop",
+            "Cosmetics.Set.PresentForm",
+            "Cosmetics.UserFacingFlags.HasVariants",
+            "Phoebe.Cosmetic.Minus.Zone1",
+            "Phoebe.Cosmetic.Minus.Zone2"
+          ]
+        },
+        {
+          "MeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "SkeletalMeshOverride": {
+            "AssetPathName": "",
+            "SubPathString": ""
+          },
+          "PivotOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "InitialRotation": {
+            "Pitch": 30.0,
+            "Yaw": 90.0,
+            "Roll": -4.0
+          },
+          "Scale": 1.0
+        },
+        {
+          "Traits": [
+            "Item.Trait.SingleStack"
+          ]
+        },
+        {
+          "GeneratedTagsIndexes": [
+            115,
+            549,
+            552,
+            7975,
+            545,
+            488,
+            236,
+            357,
+            564,
+            162,
+            569,
+            292,
+            567,
+            166,
+            242,
+            24,
+            244,
+            106,
+            113,
+            1047,
+            258,
+            1350,
+            2056,
+            2476,
+            2471,
+            2470,
+            438,
+            2558,
+            474
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "FortCosmeticRichColorVariant",
+    "Name": "FortCosmeticRichColorVariant_0",
+    "Outer": "Pickaxe_ID_639_PliantFemale",
+    "Class": "UScriptClass'FortCosmeticRichColorVariant'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AntiConflictChannel": 1,
+      "InlineVariant": {
+        "RichColorVar": {
+          "DefaultStartingColor": {
+            "R": 0.927083,
+            "G": 0.092203,
+            "B": 0.507237,
+            "A": 1.0,
+            "Hex": "F755BD"
+          },
+          "ColorSwatchForChoices": {
+            "AssetPathName": "/Game/Characters/CharacterColorSwatches/Misc/CS_Pliant_Pickaxe.CS_Pliant_Pickaxe",
+            "SubPathString": ""
+          },
+          "MaterialsToAlter": [
+            {
+              "AssetPathName": "/Game/Weapons/FORT_Melee/Pickaxe_Pliant_Female/Material/Pickaxe_Pliant_Female.Pickaxe_Pliant_Female",
+              "SubPathString": ""
+            }
+          ],
+          "ColorParamName": "EmissiveMultiplier"
+        },
+        "bIsDefault": true
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "7DEA94E1449E6FCC706D8EA57BDE4034",
+        "SourceString": "Primary Color",
+        "LocalizedString": "Primary Color"
+      }
+    }
+  },
+  {
+    "Type": "FortCosmeticVariantApplyWrap",
+    "Name": "FortCosmeticVariantApplyWrap_0",
+    "Outer": "Pickaxe_ID_639_PliantFemale",
+    "Class": "UScriptClass'FortCosmeticVariantApplyWrap'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariant": {
+        "InnerDef": {
+          "ComponentNameAllowList": [
+            "WeaponMesh0",
+            "WeaponMeshOffhand",
+            "Left Hand Weapon Mesh"
+          ],
+          "WrapSectionMask": 1,
+          "WrapMaterialType": "EItemWrapMaterialType::WeaponWrap"
+        },
+        "CustomizationVariantTag": {
+          "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+        }
+      },
+      "VariantChannelName": {
+        "Namespace": "",
+        "Key": "489C6B3A4A7B96F29F08F99B9C493F15",
+        "SourceString": "Wrap",
+        "LocalizedString": "Wrap"
+      },
+      "VariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      }
+    }
+  },
+  {
+    "Type": "FortWrapVariantPreviewGenerator",
+    "Name": "FortWrapVariantPreviewGenerator_0",
+    "Outer": "Pickaxe_ID_639_PliantFemale",
+    "Class": "UScriptClass'FortWrapVariantPreviewGenerator'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WrapVariantChannelTag": {
+        "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+      },
+      "BaseVariantPreview": {
+        "VariantOptions": [
+          {
+            "OwnedVariantTags": [],
+            "ItemVariantIsUsedFor": {
+              "ObjectName": "AthenaPickaxeItemDefinition'Pickaxe_ID_639_PliantFemale'",
+              "ObjectPath": "/BRCosmetics/Athena/Items/Cosmetics/Pickaxes/Pickaxe_ID_639_PliantFemale.0"
+            },
+            "CustomData": "",
+            "VariantChannelTag": {
+              "TagName": "Cosmetics.Variant.Channel.ClothingColor"
+            },
+            "ActiveVariantTag": {
+              "TagName": "Cosmetics.Variant.Property.AppliedWrap"
+            }
+          }
+        ]
+      },
+      "NumWrapPreviews": 4,
+      "PreviewWrapDefinitions": [
+        {
+          "AssetPathName": "/BRCosmetics/Athena/Items/Cosmetics/ItemWraps/Wrap_379_Pliant.Wrap_379_Pliant",
+          "SubPathString": ""
+        }
+      ],
+      "DefaultCustomData": "None"
+    }
+  }
+]

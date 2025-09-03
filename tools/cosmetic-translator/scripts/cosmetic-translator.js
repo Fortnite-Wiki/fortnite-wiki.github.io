@@ -192,10 +192,44 @@ async function search() {
     
     lines.push("}}");
     output.value = lines.join("\n");
+    
+    // Enable copy button
+    const copyBtn = document.getElementById("copy-btn");
+    copyBtn.disabled = false;
 
   } catch (e) {
     console.error(e);
     output.value = "Error loading cosmetic data or localization.";
+  }
+}
+
+// Copy to clipboard function
+async function copyToClipboard() {
+  const output = document.getElementById("output");
+  const copyBtn = document.getElementById("copy-btn");
+  
+  try {
+    await navigator.clipboard.writeText(output.value);
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = "Copied!";
+    copyBtn.style.backgroundColor = "#28a745";
+    
+    setTimeout(() => {
+      copyBtn.textContent = originalText;
+      copyBtn.style.backgroundColor = "";
+    }, 2000);
+  } catch (err) {
+    // Fallback for older browsers
+    output.select();
+    document.execCommand('copy');
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = "Copied!";
+    copyBtn.style.backgroundColor = "#28a745";
+    
+    setTimeout(() => {
+      copyBtn.textContent = originalText;
+      copyBtn.style.backgroundColor = "";
+    }, 2000);
   }
 }
 
@@ -210,6 +244,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     });
     document.getElementById("translate-btn").addEventListener("click", search);
+    document.getElementById("copy-btn").addEventListener("click", copyToClipboard);
     loadIndex();
     initializeFlagCycling();
   } catch (error) {

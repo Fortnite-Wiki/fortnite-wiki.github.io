@@ -155,34 +155,39 @@ async function search() {
       }
     }
 
-    // Build the tabber output
-    let lines = ["{{#tag:tabber|Name="];
-    lines.push("===Name===");
-    lines.push("{{Other Languages");
+    // Build the Cosmetic Translations output
+    let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
     
-    // Add name translations
-    for (const lang of langs) {
-      const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
-      const translation = nameTranslations[lang] || "";
-      lines.push(`|${langKey} = ${translation}`);
+    const nameEn = nameTranslations["en"] || "";
+    if (nameEn) {
+      lines.push(`|name = ${nameEn}`);
     }
     
-    lines.push("}}");
+    for (const lang of langs) {
+      if (lang === "en") continue; // Skip English as it's already added as |name
+      const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
+      const translation = nameTranslations[lang] || "";
+      if (translation) {
+        lines.push(`|name-${langKey} = ${translation}`);
+      }
+    }
     
-    // Add description section if description key exists
+    lines.push("");
+    
     if (descriptionKey) {
-      lines.push("{{!}}-{{!}}Description=");
-      lines.push("===Description===");
-      lines.push("{{Other Languages");
-      
-      // Add description translations
-      for (const lang of langs) {
-        const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
-        const translation = descriptionTranslations[lang] || "";
-        lines.push(`|${langKey} = ${translation}`);
+      const descEn = descriptionTranslations["en"] || "";
+      if (descEn) {
+        lines.push(`|desc = ${descEn}`);
       }
       
-      lines.push("}}");
+      for (const lang of langs) {
+        if (lang === "en") continue; // Skip English as it's already added as |desc
+        const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
+        const translation = descriptionTranslations[lang] || "";
+        if (translation) {
+          lines.push(`|desc-${langKey} = ${translation}`);
+        }
+      }
     }
     
     lines.push("}}");

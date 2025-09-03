@@ -67,7 +67,7 @@
       sugDiv.innerHTML = "";
       if (!input) return;
 
-      const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.startsWith().includes(input));
+      const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.toLowerCase().startsWith(input));
       matches.slice(0, 10).forEach(e => {
         const div = document.createElement("div");
         div.textContent = `${e.name} (${e.id})`;

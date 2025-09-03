@@ -1,0 +1,95 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Rancho&display=swap');
+
+/* Variables */
+:root {
+    --col-bg: #1e1e1e;
+    --col-bg2: #252525;
+    --col-bg3: #323232;
+    --col-acc: #444;
+    --col-acc2: #4a4a4a;
+    --hover-color: #c93;
+    --state-shadow: 0 0 3px 2px var(--hover-color);
+    --link-shadow: 0 0 10px 0 #fff1;
+    --link-bgcolor: #fff1;
+}
+
+/* Normalize margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General */
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: var(--col-bg);
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: Montserrat, sans-serif;
+}
+
+/* Inputs */
+button,
+input[type="submit"] {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid var(--col-acc);
+    border-radius: 4px;
+    background-color: var(--col-bg2);
+    padding: 0.2rem 0.3rem;
+    width: max-content;
+    height: max-content;
+    color: white;
+}
+
+button:disabled,
+input[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: default;
+    color: #aaa;
+}
+
+textarea {
+    transition: box-shadow 0.1s ease;
+    margin: 0.5rem 0;
+    border: 1px solid var(--col-acc);
+    border-radius: 4px;
+    background-color: var(--col-bg2);
+    padding: 0.2rem;
+    width: 100%;
+    height: 5rem;
+    min-height: 4rem;
+    resize: none;
+    color: #aaa;
+    font-family: "Fira Mono", monospace;
+}
+
+input[type="text"],
+input[type="number"] {
+    transition: box-shadow 0.1s ease;
+    margin: 0.5rem 0;
+    border: 1px solid var(--col-acc);
+    border-radius: 4px;
+    background-color: var(--col-bg2);
+    padding: 0.2rem;
+    width: 16rem;
+    resize: none;
+    color: #aaa;
+    font-family: "Fira Mono", monospace;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: var(--state-shadow);
+}

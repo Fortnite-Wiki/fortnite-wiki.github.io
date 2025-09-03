@@ -1,0 +1,203 @@
+/*  
+======================
+		Header
+======================
+*/
+header {
+    display: flex;
+    position: static;
+    align-items: center;
+    background: var(--col-bg3);
+    padding: 0.3rem 0;
+    width: 100%;
+    height: 5.5rem;
+}
+
+header > span {
+    display: flex;
+}
+
+header img {
+    margin-right: 1.5rem;
+    width: 4rem;
+}
+
+header .switch-mode {
+    margin-right: 0.5rem;
+    margin-left: auto;
+}
+
+header .switch-mode img {
+    margin: 0 1.5rem;
+    padding: 0.3rem;
+}
+
+header .name {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+header .version {
+    align-self: flex-end;
+    margin-left: 0.5rem;
+    color: #ffffffa0;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+#return-main {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin: auto 0.5rem;
+    border-right: 3px solid #666;
+    padding: 0.6rem 1rem;
+}
+
+#return-main img {
+    vertical-align: middle;
+    margin-right: 0;
+}
+
+#return-main:hover {
+    box-shadow: 0 0 10px 0 #fff1;
+    background: #fff1;
+}
+
+/*  
+=======================
+		Columns
+=======================
+*/
+#wrapper {
+    display: flex;
+    flex-grow: 1;
+    clear: both;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+main,
+aside {
+    padding: 2rem;
+    width: 50%;
+}
+
+/*  
+=======================
+		Main Col
+=======================
+*/
+main {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--col-bg3);
+}
+
+main section {
+    padding: 1rem 0.5rem;
+}
+
+main section:not(:last-child) {
+    border-bottom: 1px solid var(--col-bg3);
+}
+
+h3:not(.contributors h3) {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-size: 1.25rem;
+    font-family: Montserrat, sans-serif;
+}
+
+p {
+    margin-bottom: 0.8rem;
+    font-weight: 200;
+    font-size: 0.9rem;
+    font-family: Montserrat, sans-serif;
+}
+
+#warning {
+    display: none;
+    color: red;
+    font-weight: 200;
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+/*  
+=============================
+		Aside
+=============================
+*/
+aside {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+}
+
+/*  
+=============================
+		Responsiveness
+=============================
+*/
+@media screen and (width <= 830px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #wrapper {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    main,
+    aside {
+        border: none;
+        width: 100%;
+    }
+
+    aside {
+        border-top: 2px solid var(--col-acc2);
+    }
+}
+
+@media screen and (width <= 630px) {
+    /*
+    main {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    header {
+        height: 3.4rem;
+    }
+    header img {
+        margin-right: 0.5rem;
+        width: 3rem;
+    }
+    header .name {
+        font-size: 1.25rem;
+    }
+    header .version {
+        font-size: 0.8rem;
+    }
+    */
+    header .switch-mode {
+        display: none;
+    }
+
+    #return-main {
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+/*
+@media screen and (max-width: 380px) {
+    header .name {
+        font-size: 1rem;
+    }
+    header .version {
+        font-size: 0.6rem;
+    }
+}
+*/

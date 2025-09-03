@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmetic Translator</title>
+
+    <script src="./scripts/cosmetic-translator.js" type="module"></script>
+    <script src="/scripts/pageinfo.js" type="module"></script>
+
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="icon" href="/files/images/return-icon.png" />
+    <link rel="icon" href="/files/images/tool-icons/flag-en.png" />
+  </head>
+
+  <body>
+    <header>
+      <a href="/index.html" id="return-main">
+        <span>
+          <img src="/files/images/return-icon.png" alt="back" />
+        </span>
+      </a>
+      <img src="/files/images/tool-icons/flag-en.png" alt="logo" id="header-flag" />
+      <span>
+        <h1 class="name">Cosmetic Translator</h1>
+        <span class="version"></span>
+      </span>
+    </header>
+
+    <div id="wrapper">
+      <main>
+        <section>
+          <h3>Cosmetic Search</h3>
+          <input id="cosmeticInput" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
+          <div id="suggestions"></div>
+          <button class="sec-subm" id="translate-btn">Translate</button>
+        </section>
+      </main>
+
+      <aside>
+        <section>
+          <div class="title-box">
+            <h3>Translation Output:</h3>
+          </div>
+          <textarea id="output" readonly placeholder="Translation results will appear here..."></textarea>
+        </section>
+      </aside>
+    </div>
+  </body>
+</html>

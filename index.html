@@ -1,157 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fortnite Wiki Tools</title>
-  
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
-  <script src="https://cdn.jsdelivr.net/npm/pako@latest/dist/pako.min.js"></script>
-  <style>
-    main { max-width: 800px; margin: 20px auto; font-family: sans-serif; }
-    input, select, button { margin: 5px 0; padding: 5px; font-size: 1rem; }
-    input { width: 500px }
-    textarea { width: 100%; height: 350px; margin-top: 10px; font-family: monospace; }
-    #suggestions { border: 1px solid #ccc; max-height: 150px; overflow-y: auto; }
-    #suggestions div { padding: 3px; cursor: pointer; }
-    #suggestions div:hover { background-color: #eee; }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" alt="logo">
-    <span>
-      <span class="name">Fortnite Wiki Tools</span>
-      <span class="version">v0.00</span>
-    </span>
-  </header>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Fortnite Wiki Tools</title>
+		
+		<!-- Preloads -->
+		<link rel="preload" href="/styles/styles.css" as="style" />
 
-  <main>
-    <h1>Cosmetic Translator</h1>
-
-    <input id="cosmeticInput" placeholder="Enter cosmetic ID or Name" autocomplete="off">
-    <div id="suggestions"></div>
-    <select id="mode">
-      <option value="name">Name</option>
-      <option value="description">Description</option>
-    </select>
-    <button onclick="search()">Submit</button>
-
-    <h3>Output</h3>
-    <textarea id="output" readonly></textarea>
-  </main>
-
-  <script>
-    let index = [];
-    let jsonCache = {};
-    let locCache = {};
-
-    async function loadGzJson(path, cacheObj) {
-      if (!cacheObj[path]) {
-        const resp = await fetch(path + ".gz");
-        const buf = await resp.arrayBuffer();
-        const decompressed = pako.ungzip(new Uint8Array(buf), { to: "string" });
-        cacheObj[path] = JSON.parse(decompressed);
-      }
-      return cacheObj[path];
-    }
-
-    async function loadIndex() {
-      const resp = await fetch('data/index.json');
-      index = await resp.json();
-    }
-
-    function updateSuggestions() {
-      const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
-      const sugDiv = document.getElementById("suggestions");
-      sugDiv.innerHTML = "";
-      if (!input) return;
-
-      const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.toLowerCase().includes(input));
-      matches.slice(0, 10).forEach(e => {
-        const div = document.createElement("div");
-        div.textContent = `${e.name} (${e.id})`;
-        div.onclick = () => { 
-          document.getElementById("cosmeticInput").value = e.id; 
-          sugDiv.innerHTML = ""; 
-        };
-        sugDiv.appendChild(div);
-      });
-    }
-
-    async function getPakChunkFolders() {
-      try {
-        const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
-        const data = await resp.json();
-        const folders = ["Fortnite_locchunk100"];
-        if (data.dynamicKeys) {
-          data.dynamicKeys.forEach(d => {
-            const match = d.name.match(/^pakchunk(\d+)-/);
-            if (match) {
-              const folderName = `Fortnite_locchunk${match[1]}`;
-              if (!folders.includes(folderName)) folders.push(folderName);
-            }
-          });
-        }
-        return folders;
-      } catch {
-        return ["Fortnite_locchunk100"];
-      }
-    }
-
-    async function search() {
-      const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
-      const mode = document.getElementById("mode").value;
-      const output = document.getElementById("output");
-      output.value = "";
-      if (!input) return;
-
-      const entryMeta = index.find(e => e.id.toLowerCase() === input || e.name.toLowerCase() === input);
-      if (!entryMeta) {
-        output.value = "Cosmetic not found.";
-        return;
-      }
-
-      try {
-        const data = await loadGzJson("data/" + entryMeta.path, jsonCache);
-        const key = mode === "description"
-          ? data[0].Properties.ItemDescription.Key
-          : data[0].Properties.ItemName.Key;
-
-        const langs = ["en","ar","de","es","es-419","fr","id","it","ja","ko","pl","pt-BR","ru","th","tr","vi","zh-Hans","zh-Hant"];
-        const folders = await getPakChunkFolders();
-        let lines = ["{{Other Languages"];
-
-        for (const lang of langs) {
-          let textFound = false;
-          for (const folder of folders) {
-            const path = `data/localization/${folder}/${lang}/${folder}.json`;
-            try {
-              const loc = await loadGzJson(path, locCache);
-              const text = loc[""]?.[key];
-              if (text) {
-                lines.push(`|${lang} = ${text}`);
-                textFound = true;
-                break;
-              }
-            } catch {}
-          }
-          if (!textFound) lines.push(`|${lang} = `);
-        }
-
-        lines.push("}}");
-        output.value = lines.join("\n");
-
-      } catch (e) {
-        console.error(e);
-        output.value = "Error loading cosmetic data or localization.";
-      }
-    }
-
-    document.getElementById("cosmeticInput").addEventListener("input", updateSuggestions);
-    loadIndex();
-  </script>
-</body>
+		<!-- Styles -->
+        <link rel="stylesheet" href="/styles/styles.css" />
+		<link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
+		
+		<!-- Scripts -->
+		<script src="./scripts/load-tools.js" type="module"></script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="logo">
+				<img src="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" alt="logo">
+				<span>
+				  <span class="name">Fortnite Wiki Tools</span>
+				  <span class="version">v0.00</span>
+				</span>
+			</div>
+			<nav>
+				<a href="#" class="link">Home</a>
+				<a href="#tools" class="link">Tools</a>
+				<a href="https://fortnite.fandom.com/wiki/" class="link" target="_blank">Wiki Site</a>
+			</nav>
+		</header>
+		
+		<main>
+			<section class="home"></section>
+            <section class="tools">
+                <h1 id="tools">Tools and Links</h1>
+                <ul></ul>
+            </section>
+		</main>
+	</body>
 </html>

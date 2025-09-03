@@ -1,0 +1,236 @@
+@import url("./sections.css");
+@import url("./global.css");
+
+/* logo link styles */
+.logo a,
+a:not(.link) {
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+a:not(.link):hover {
+    filter: brightness(80%);
+}
+
+a:not(.link):active {
+    box-shadow: var(--link-shadow);
+    border-radius: 3px;
+    background: var(--link-bgcolor);
+}
+
+.logo > a {
+    margin: 0.25rem;
+    padding: 0.5rem;
+}
+
+/*  
+======================
+		Header
+======================
+*/
+header {
+    display: flex;
+    position: static;
+    align-items: center;
+    background: var(--col-bg3);
+    padding: 0.3rem 6rem 0.3rem 4rem;
+    width: 100%;
+    height: 5.5rem;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    margin-right: 1.5rem;
+    width: 4rem;
+}
+
+header .logo > span {
+    display: flex;
+}
+
+header .logo .name,
+header .logo .name-short {
+    font-weight: 500;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+header .logo .name-short {
+    display: none;
+}
+
+header .logo .version {
+    align-self: flex-end;
+    margin-left: 0.5rem;
+    color: #ffffffa0;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+header nav {
+    display: flex;
+    justify-content: stretch;
+    margin-left: auto;
+    padding-left: 4rem;
+    width: 100%;
+    height: 100%;
+}
+
+header nav a {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    margin: 0.5rem 1rem;
+    outline: none;
+    border-radius: 999px;
+    height: calc(100% - 1rem);
+    color: white;
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+}
+
+header nav a:hover,
+header nav a:focus {
+    box-shadow: 0 0 10px 0 #fff1;
+    background: #fff1;
+}
+
+header .hamburger {
+    display: none;
+}
+
+/*  
+========================
+		Main CSS
+========================
+*/
+body {
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+CSS for "tools", "downloads", and "contributors" sections is loaded on top
+
+source file: ROOT/styles/sections.css
+*/
+
+/*  
+=============================
+		Responsiveness
+=============================
+*/
+@media screen and (width <= 1000px) {
+    header {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        height: 3.6rem;
+    }
+
+    header .logo img {
+        margin: 0.5rem;
+        width: 2.4rem;
+    }
+
+    header .logo .name {
+        font-size: 1.15rem;
+    }
+
+    header .logo .version {
+        font-size: 0.8rem;
+    }
+
+    header nav {
+        padding-left: 1rem;
+    }
+
+    header nav a {
+        margin: 0.2rem 0.5rem;
+        height: calc(100% - 0.4rem);
+    }
+}
+
+@media screen and (width <= 730px) {
+    header .logo .name {
+        display: none;
+    }
+
+    header .logo .name-short {
+        display: inline;
+    }
+}
+
+@media screen and (width <= 600px) {
+    header nav {
+        position: absolute;
+        top: 0;
+        right: -55%;
+        flex-direction: column;
+        transition: right 0.4s ease;
+        margin-left: 3rem;
+        background: #0005;
+        width: 55%;
+        height: max-content;
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    header nav a {
+        justify-content: flex-start;
+        margin: 0.5rem 3rem 0.5rem 0.5rem;
+        padding: 0.3rem;
+        height: 2.5rem;
+    }
+
+    header .hamburger {
+        display: block;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 0.5rem;
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+
+    header .hamburger span {
+        transition:
+            all 0.2s ease,
+            opacity 0.1s ease;
+        margin: 0.4rem 0;
+        border-top: 1px solid white;
+        width: 2.6rem;
+    }
+
+    .hamburger.active span:nth-of-type(1) {
+        position: relative;
+        top: 13px;
+        transform: rotate(45deg);
+    }
+
+    .hamburger.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-of-type(3) {
+        position: relative;
+        top: -13px;
+        transform: rotate(-45deg);
+    }
+}

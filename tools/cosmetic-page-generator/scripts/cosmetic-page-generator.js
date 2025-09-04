@@ -490,7 +490,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
             cost = `{{V-Bucks|1,000}} <br> ({{BattlePass|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
         }
     } else if (settings.isItemShop && settings.shopCost) {
-        cost = settings.shopCost;
+        cost = `{{V-Bucks|${settings.shopCost}}}`;
     }
     out.push(`|cost = ${cost}`);
     

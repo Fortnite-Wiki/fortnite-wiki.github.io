@@ -474,8 +474,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
         const freeFlag = settings.bpFree ? "|Free" : "";
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
         unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
-    } else if (settings.isItemShop && settings.shopUnlocked) {
-        unlocked = settings.shopUnlocked;
+    } else if (settings.isItemShop) {
+        unlocked = "[[Item Shop]]";
     }
     out.push(`|unlocked = ${unlocked}`);
 
@@ -574,7 +574,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
         article += `that can be obtained on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
     } else if (settings.isItemShop) {
-        article += `that can be purchased from the [[Item Shop]].`;
+        const costFlag = settings.shopCost ? ` for {{V-Bucks|${settings.shopCost}}}` : "";
+        article += `that can be purchased in the [[Item Shop]]${costFlag}.`;
     } else if (settings.unreleasedTemplate) {
         article += "that is currently unreleased.";
     } else {
@@ -792,7 +793,6 @@ async function generatePage() {
             isFortniteCrew,
             
             // Item Shop specific
-            shopUnlocked: elements.shopUnlocked.value,
             shopCost: elements.shopCost.value,
             includeAppearances: elements.includeAppearances.checked,
             
@@ -853,7 +853,6 @@ async function initializeApp() {
         
         // Item Shop settings
         itemShopSettings: document.getElementById('item-shop-settings'),
-        shopUnlocked: document.getElementById('shop-unlocked'),
         shopCost: document.getElementById('shop-cost'),
         includeAppearances: document.getElementById('include-appearances'),
         

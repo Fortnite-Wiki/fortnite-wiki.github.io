@@ -33,7 +33,6 @@
         <section>
           <h3>Cosmetic Search</h3>
           <p>Enter a cosmetic ID or name to generate its "Other Languages" section</p>
-          <p><small><strong>Note:</strong> The first output may take a few seconds as the localization cache is built. Subsequent uses will be faster.</small></p>
           <input id="cosmeticInput" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
           <div id="suggestions"></div>
           <button class="sec-subm" id="translate-btn">Translate</button>
@@ -44,6 +43,7 @@
         <section>
           <div class="title-box">
             <h3>Translation Output:</h3>
+            <p><small><strong>Note:</strong> The first output may take a few seconds as the localization cache is built. Subsequent outputs will be much faster.</small></p>
           </div>
           <textarea id="output" readonly placeholder="Translation results will appear here..."></textarea>
           <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>

@@ -107,7 +107,7 @@ function updateSuggestions() {
     const div = document.createElement("div");
     div.textContent = `${e.name} (${e.id})`;
     div.onclick = () => { 
-      document.getElementById("cosmetic-input").value = e.id; 
+      document.getElementById("cosmetic-input").value = e.name; 
       sugDiv.innerHTML = ""; 
     };
     sugDiv.appendChild(div);
@@ -197,6 +197,46 @@ const SEASON_RELEASE_DATES = {
     'C6MS1': new Date(2025, 4, 2), // May 2, 2025
     'C6S3': new Date(2025, 5, 7), // June 7, 2025
     'C6S4': new Date(2025, 7, 7), // August 7, 2025
+};
+
+const SEASON_UPDATE_VERSIONS = {
+    'C1S1': '1.8',
+    'C1S2': '1.11',
+    'C1S3': '3.0',
+    'C1S4': '4.0',
+    'C1S5': '5.0',
+    'C1S6': '6.0',
+    'C1S7': '7.0',
+    'C1S8': '8.0',
+    'C1S9': '9.0',
+    'C1S10': '10.0',
+    'C2S1': '11.0',
+    'C2S2': '12.0',
+    'C2S3': '13.0',
+    'C2S4': '14.0',
+    'C2S5': '15.0',
+    'C2S6': '16.0',
+    'C2S7': '17.0',
+    'C2S8': '18.0',
+    'C3S1': '19.0',
+    'C3S2': '20.0',
+    'C3S3': '21.0',
+    'C3S4': '22.0',
+    'C4S1': '23.0',
+    'C4S2': '24.0',
+    'C4S3': '25.0',
+    'C4S4': '26.0',
+    'C4SOG': '27.0',
+    'C5S1': '28.0',
+    'C5S2': '29.0',
+    'C5S3': '30.0',
+    'C5S4': '31.0',
+    'C2R': '32.0',
+    'C6S1': '33.0',
+    'C6S2': '34.0',
+    'C6MS1': '35.0',
+    'C6S3': '36.0',
+    'C6S4': '37.0',
 };
 
 function parseBattlePassSeason(seasonInput) {
@@ -386,7 +426,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
     const out = [];
     
-    if (settings.unreleasedTemplate) {
+    if (settings.unreleasedTemplate && !settings.isFortniteCrew) {
         out.push("{{Unreleased|Cosmetic}}");
     }
     
@@ -454,7 +494,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
     }
     out.push(`|cost = ${cost}`);
     
-    out.push(`|added_in = [[Update v${settings.updateVersion}]]`);
+    if (settings.updateVersion != "") {
+        out.push(`|added_in = [[Update v${settings.updateVersion}]]`);
+    } else {
+        out.push("|added_in = ");
+    }
 
     // Release section
     let release = "";
@@ -462,8 +506,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
         const date = new Date(settings.releaseDate);
         if (settings.itemShopHistory) {
             const historyDate = getFormattedReleaseDate(date);
-            const part = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";
-            release = `[[Item Shop History/${historyDate}|${historyDate}${part}]]`;
+            const partLink = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";
+            const partText = settings.shopHistoryPart ? `<br/><small><small>Part ${settings.shopHistoryPart}</small></small>` : "";
+            release = `[[Item Shop History/${historyDate}${partLink}|${historyDate}${partText}]]`;
         } else {
             release = getFormattedReleaseDate(date);
         }
@@ -603,6 +648,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
         if (hasLegoStyleFlag || hasBeanStyleFlag) {
             out.push("");
         }
+    } else if (cosmeticType === "Emote") {
+        const hasLegoStyleFlag = hasLegoStyle(entryMeta);
+        if (hasLegoStyleFlag) {
+            out.push(`{{LEGO Emote|${name}}}`);
+            out.push("");
+        }
     }
 
     if (cosmeticType === "Emoticon" && tags.includes("Cosmetics.UserFacingFlags.Emoticon.Animated") && props.SpriteSheet) {
@@ -667,23 +718,25 @@ async function copyToClipboard() {
 }
 
 async function generatePage() {
-    const updateVersion = elements.updateVersion.value.trim();
     const cosmeticInput = elements.cosmeticInput.value.trim();
+    const isReleased = elements.releasedSwitch.checked;
     
     // Get source selection
     const isItemShop = elements.sourceItemShop.checked;
     const isBattlePass = elements.sourceBattlePass.checked;
     const isFortniteCrew = elements.sourceFortniteCrew.checked;
 
-    // Basic validation
-    if (!updateVersion) {
-        showStatus('Please enter an update version', 'error');
-        return;
-    }
-
     if (!cosmeticInput) {
         showStatus('Please enter a cosmetic ID or name', 'error');
         return;
+    }
+
+    // Source selection validation for released cosmetics only
+    if (isReleased) {
+        if (!isItemShop && !isBattlePass && !isFortniteCrew) {
+            showStatus('Please select a cosmetic source (Item Shop, Battle Pass, or Fortnite Crew)', 'error');
+            return;
+        }
     }
 
     // Source-specific validation
@@ -727,11 +780,11 @@ async function generatePage() {
 
         // Build settings object for the new interface
         const settings = {
-            updateVersion,
-            unreleasedTemplate: elements.unreleasedTemplate.checked,
-            releaseDate: elements.releaseDate.value,
-            itemShopHistory: elements.itemShopHistory.checked,
-            shopHistoryPart: elements.shopHistoryPart.value,
+            updateVersion: elements.updateVersion.value.trim(),
+            unreleasedTemplate: !isReleased, // Automatically set based on released state
+            releaseDate: isReleased ? elements.releaseDate.value : "",
+            itemShopHistory: isReleased ? elements.itemShopHistory.checked : false,
+            shopHistoryPart: isReleased ? elements.shopHistoryPart.value : "",
             
             // Source settings
             isItemShop,
@@ -786,7 +839,8 @@ async function initializeApp() {
         output: document.getElementById('output'),
         
         // Release status elements
-        unreleasedTemplate: document.getElementById('unreleased-template'),
+        releasedSwitch: document.getElementById('released-switch'),
+        releasedLabel: document.getElementById('released-label'),
         releaseDate: document.getElementById('release-date'),
         itemShopHistory: document.getElementById('item-shop-history'),
         shopHistoryPart: document.getElementById('shop-history-part'),
@@ -827,12 +881,33 @@ async function initializeApp() {
         elements.battlePassSettings.classList.toggle('hidden', !battlePassChecked);
         elements.fortniteCrewSettings.classList.toggle('hidden', !fortniteCrewChecked);
         
-        // Disable and clear release date field if Battle Pass is checked
-        if (battlePassChecked) {
-            elements.releaseDate.disabled = true;
+        // Hide/show released fields based on source selection
+        const releasedFields = document.querySelectorAll('.released-fields');
+        if (battlePassChecked || fortniteCrewChecked) {
+            // Hide all released fields for Battle Pass and Fortnite Crew
+            releasedFields.forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Clear release field values
             elements.releaseDate.value = '';
+            elements.itemShopHistory.checked = false;
+            elements.shopHistoryPart.value = '';
+            
+            // Force released switch to "Yes" and disable it
+            elements.releasedSwitch.checked = true;
+            elements.releasedSwitch.disabled = true;
+            elements.releasedLabel.textContent = 'Yes';
         } else {
-            elements.releaseDate.disabled = false;
+            // Re-enable released switch for Item Shop
+            elements.releasedSwitch.disabled = false;
+            
+            // Show released fields if switch is on
+            if (elements.releasedSwitch.checked) {
+                releasedFields.forEach(field => {
+                    field.style.display = 'flex';
+                });
+            }
         }
         
         // Disable mutual exclusivity logic
@@ -853,6 +928,18 @@ async function initializeApp() {
         }
     }
 
+    // Auto-fill update version for Battle Pass based on season
+    function autoFillBattlePassVersion() {
+        const seasonInput = elements.bpSeason.value.trim().toUpperCase();
+        
+        if (seasonInput && elements.sourceBattlePass.checked) {
+            const updateVersion = SEASON_UPDATE_VERSIONS[seasonInput];
+            if (updateVersion) {
+                elements.updateVersion.value = updateVersion;
+            }
+        }
+    }
+
     // Handle Fortnite Crew checkbox with auto-detection protection
     function handleFortniteCrewClick(e) {
         // If trying to uncheck when auto-detected, prevent it
@@ -870,10 +957,52 @@ async function initializeApp() {
         handleSourceSelection();
     }
 
+    // Handle Released switch functionality
+    function handleReleasedSwitch() {
+        const isReleased = elements.releasedSwitch.checked;
+        const releasedFields = document.querySelectorAll('.released-fields');
+        const battlePassChecked = elements.sourceBattlePass.checked;
+        const fortniteCrewChecked = elements.sourceFortniteCrew.checked;
+        
+        // Update label
+        elements.releasedLabel.textContent = isReleased ? 'Yes' : 'No';
+        
+        if (isReleased) {
+            // Show released fields only if not Battle Pass or Fortnite Crew
+            if (!battlePassChecked && !fortniteCrewChecked) {
+                releasedFields.forEach(field => {
+                    field.style.display = 'flex';
+                });
+            }
+        } else {
+            // Hide released fields (only for Item Shop)
+            if (!battlePassChecked && !fortniteCrewChecked) {
+                releasedFields.forEach(field => {
+                    field.style.display = 'none';
+                });
+                
+                // Clear released field values (but keep updateVersion)
+                elements.releaseDate.value = '';
+                elements.itemShopHistory.checked = false;
+                elements.shopHistoryPart.value = '';
+            }
+        }
+        
+        // Trigger shop history part visibility update
+        elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
+    }
+
+    // Event listeners for released switch
+    elements.releasedSwitch.addEventListener('change', handleReleasedSwitch);
+
     // Event listeners for source selection
     elements.sourceItemShop.addEventListener('change', handleSourceSelection);
     elements.sourceBattlePass.addEventListener('change', handleSourceSelection);
+    elements.sourceFortniteCrew.addEventListener('change', handleSourceSelection);
     elements.sourceFortniteCrew.addEventListener('click', handleFortniteCrewClick);
+
+    // Battle Pass season auto-fill event listener
+    elements.bpSeason.addEventListener('input', autoFillBattlePassVersion);
 
     // Item Shop History part visibility
     elements.itemShopHistory.addEventListener('change', () => {
@@ -910,6 +1039,9 @@ async function initializeApp() {
         
         await loadIndex();
         await loadCosmeticSets();
+
+        // Initialize released switch to default state (unreleased)
+        handleReleasedSwitch();
 
         hideStatus();
         console.log('Cosmetic Page Generator initialized successfully');

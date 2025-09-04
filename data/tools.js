@@ -1,5 +1,13 @@
 export default [
     {
+        id: 'cosmetic-page-generator',
+		thumbnail: 'cosmetic-page-generator',
+        name: 'Cosmetic Page Generator',
+        version: 'v0.0',
+        description: 'Generates cosmetic pages.',
+        isSiteTool: true,
+    },
+    {
         id: 'cosmetic-translator',
 		thumbnails: ["flag-en", "flag-ar", "flag-de", "flag-es", "flag-fr", "flag-it", "flag-ja", "flag-ko", "flag-pl", "flag-pt-BR", "flag-ru", "flag-tr"],
         name: 'Cosmetic Translator',

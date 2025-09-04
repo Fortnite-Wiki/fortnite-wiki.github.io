@@ -1,23 +1,7 @@
-let index = [];
-let jsonCache = {};
-let locCache = {};
-let pakoLoaded = false;
+import { loadGzJson } from '../../../scripts/pageinfo.js';
 
-// Dynamically load pako library
-async function loadPako() {
-  if (pakoLoaded) return;
-  
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/pako@latest/dist/pako.min.js';
-    script.onload = () => {
-      pakoLoaded = true;
-      resolve();
-    };
-    script.onerror = () => reject(new Error('Failed to load pako library'));
-    document.head.appendChild(script);
-  });
-}
+const DATA_BASE_PATH = '../../../data/';
+let index = [];
 
 // Flag cycling functionality
 const flagThumbnails = ["flag-en", "flag-ar", "flag-de", "flag-es", "flag-fr", "flag-it", "flag-ja", "flag-ko", "flag-pl", "flag-pt-BR", "flag-ru", "flag-tr"];
@@ -43,20 +27,8 @@ function initializeFlagCycling() {
   }
 }
 
-async function loadGzJson(path, cacheObj) {
-  if (!cacheObj[path]) {
-    await loadPako(); // Ensure pako is loaded before using it
-    const resp = await fetch(path + ".gz");
-    const buf = await resp.arrayBuffer();
-    const decompressed = pako.ungzip(new Uint8Array(buf), { to: "string" });
-    cacheObj[path] = JSON.parse(decompressed);
-  }
-  return cacheObj[path];
-}
-
 async function loadIndex() {
-  const resp = await fetch('../../data/index.json');
-  index = await resp.json();
+  index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 }
 
 function updateSuggestions() {
@@ -112,7 +84,7 @@ async function search() {
   output.value = "Getting translations...";
 
   try {
-    const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path, jsonCache);
+    const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
     const nameKey = data[0].Properties.ItemName.Key;
     const descriptionKey = data[0].Properties.ItemDescription?.Key;
 
@@ -130,7 +102,7 @@ async function search() {
       for (const folder of folders) {
         const path = `../../data/localization/${folder}/${lang}/${folder}.json`;
         try {
-          const loc = await loadGzJson(path, locCache);
+          const loc = await loadGzJson(path);
           
           // Get name translation
           if (!nameTextFound) {
@@ -236,7 +208,6 @@ async function copyToClipboard() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
   try {
-    await loadPako(); // Load pako library first
     document.getElementById("cosmeticInput").addEventListener("input", updateSuggestions);
     document.getElementById("cosmeticInput").addEventListener("keypress", function(e) {
       if (e.key === "Enter") {

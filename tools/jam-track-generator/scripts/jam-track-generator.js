@@ -287,8 +287,12 @@ function generateWikiText(track) {
     // Categories
     wikiText += '[[Category:Jam Tracks]]\n';
     if (artist) {
-        // Extract plain artist name from potential Spotify link format
-        const plainArtist = artist.includes(']') ? artist.split('] ')[1] || artist : artist;
+        // Extract plain artist name from potential Spotify link format [link artist]
+        let plainArtist = artist;
+        const match = artist.match(/^\[.*?\s([^\]]+)\]$/);
+        if (match) {
+            plainArtist = match[1];
+        }
         wikiText += `[[Category:Jam Tracks by ${plainArtist}]]\n`;
     }
     

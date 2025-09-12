@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jam Track Generator</title>
+
+    <script src="./scripts/jam-track-generator.js" type="module"></script>
+    <script src="/scripts/pageinfo.js" type="module"></script>
+
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="icon" href="/files/images/return-icon.png" />
+    <link rel="icon" href="/files/images/tool-icons/jam-track-generator.png" />
+  </head>
+
+  <body>
+    <header>
+      <a href="/index.html" id="return-main">
+        <span>
+          <img src="/files/images/return-icon.png" alt="back" />
+        </span>
+      </a>
+      <img src="/files/images/tool-icons/jam-track-generator.png" alt="logo" id="header-flag" />
+      <span>
+        <h1 class="name">Jam Track Generator</h1>
+        <span class="version"></span>
+      </span>
+    </header>
+
+    <div id="wrapper">
+      <main>
+        <section>
+          <h3>Jam Track Search</h3>
+          <p>Enter a jam track name to generate its page</p>
+          <input id="jamTrackInput" placeholder="Enter jam track name" autocomplete="off" />
+          <div id="suggestions"></div>
+        </section>
+
+        <section>
+          <h3>Page Configuration</h3>
+
+          <div class="form-group">
+            <label for="albumInput">Album Name (if applicable):</label>
+            <input type="text" id="albumInput" placeholder="e.g. Album Name">
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="collaborationCheck" checked>
+              Include Collaboration template
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="sharedMusicEmote">Shared Music Emote (leave empty to exclude):</label>
+            <input type="text" id="sharedMusicEmote" placeholder="e.g. Trophy Drop">
+          </div>
+
+          <div class="form-group">
+            <label for="artistInput">Artist Spotify Link (if applicable):</label>
+            <input type="text" id="artistInput" placeholder="e.g. [https://open.spotify.com/artist/... Artist Name]">
+          </div>
+
+          <div class="form-group">
+            <label for="appearancesInput">Appearances name:</label>
+            <input type="text" id="appearancesInput" placeholder="e.g. Track Name">
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="featuredRotationCheck">
+              Featured Rotation? (includes JamTrackAppearances)
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="spotifyLink">Spotify Link (leave empty to exclude External Links):</label>
+            <input type="text" id="spotifyLink" placeholder="https://open.spotify.com/track/...">
+          </div>
+
+          <div class="form-group">
+            <label for="spotifyTitle">Spotify Track Title:</label>
+            <input type="text" id="spotifyTitle" placeholder="Track Title">
+          </div>
+
+          <button class="sec-subm" id="generate-btn">Generate</button>
+        </section>
+      </main>
+
+      <aside>
+        <section>
+            <div class="title-box">
+                <h3>Generated Page:</h3>
+            </div>
+            <textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
+            <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+            <button class="sec-subm secondary" id="clear-btn">Clear</button>
+        </section>
+      </aside>
+    </div>
+  </body>
+</html>

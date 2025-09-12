@@ -16,6 +16,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'jam-track-generator',
+        thumbnail: 'jam-track-generator',
+        name: 'Jam Track Generator',
+        version: 'v0.0',
+        description: 'Generates jam track pages.',
+        isSiteTool: true,
+    },
+    {
         link: 'https://fmodel.app/',
         thumbnail: 'fmodel',
         name: 'FModel',

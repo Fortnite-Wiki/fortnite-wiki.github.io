@@ -17,6 +17,12 @@ const TYPE_MAP = {
     "AthenaPetCarrierItemDefinition": "Pet",
     "AthenaPetItemDefinition": "Pet",
     "AthenaToyItemDefinition": "Toy",
+	"SparksBassItemDefinition": "Bass",
+	"SparksDrumItemDefinition": "Drums",
+	"SparksGuitarItemDefinition": "Guitar",
+	"SparksKeyboardItemDefinition": "Keytar",
+	"SparksMicItemDefinition": "Microphone",
+	"SparksAuraItemDefinition": "Aura"
 };
 
 const SERIES_CONVERSION = {
@@ -92,23 +98,42 @@ async function autoDetectCosmeticSource(input) {
 }
 
 function updateSuggestions() {
-  const input = document.getElementById("cosmetic-input").value.trim().toLowerCase();
+  const input = document.getElementById("cosmetic-display").value.trim().toLowerCase();
   const sugDiv = document.getElementById("suggestions");
   sugDiv.innerHTML = "";
   if (!input) return;
 
   // Safety check to ensure index is loaded and is an array
-  if (!Array.isArray(index) || index.length === 0) {
-    return;
-  }
+  if (!Array.isArray(index) || index.length === 0) return;
 
-  const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.toLowerCase().includes(input));
-  matches.slice(0, 10).forEach(e => {
+	const scoredMatches = index
+	  .map(e => {
+		const name = e.name.toLowerCase();
+		const id = e.id.toLowerCase();
+		let score = 0;
+
+		if (name === input) score += 100;
+		else if (name.startsWith(input)) score += 75;
+		else if (name.includes(input)) score += 50;
+
+		if (id === input) score += 40;
+		else if (id.startsWith(input)) score += 25;
+		else if (id.includes(input)) score += 10;
+
+		return { entry: e, score };
+	  })
+	  .filter(item => item.score > 0)
+	  .sort((a, b) => b.score - a.score)
+	  .slice(0, 10);
+
+  scoredMatches.forEach(({ entry }) => {
     const div = document.createElement("div");
-    div.textContent = `${e.name} (${e.id})`;
-    div.onclick = () => { 
-      document.getElementById("cosmetic-input").value = e.name; 
-      sugDiv.innerHTML = ""; 
+    div.textContent = `${entry.name} (${entry.id})`;
+    div.onclick = () => {
+      document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+      document.getElementById("cosmetic-input").value = entry.id;
+	  sugDiv.innerHTML = "";
+	  autoDetectCosmeticSource(entry.id);
     };
     sugDiv.appendChild(div);
   });
@@ -720,6 +745,7 @@ async function copyToClipboard() {
 
 async function generatePage() {
     const cosmeticInput = elements.cosmeticInput.value.trim();
+	const cosmeticDisplayInput = elements.cosmeticDisplayInput.value.trim();
     const isReleased = elements.releasedSwitch.checked;
     
     // Get source selection
@@ -769,6 +795,7 @@ async function generatePage() {
     try {
         showStatus('Searching for cosmetic...', 'loading');
         
+		const inputId = document.getElementById("cosmetic-input").value;
         const result = await searchCosmetic(cosmeticInput);
         const { data, allData, entryMeta } = result;
 
@@ -832,6 +859,7 @@ async function initializeApp() {
     elements = {
         // Basic elements
         cosmeticInput: document.getElementById('cosmetic-input'),
+		cosmeticDisplayInput: document.getElementById('cosmetic-display'),
         generateBtn: document.getElementById('generate-btn'),
         copyBtn: document.getElementById('copy-btn'),
         clearBtn: document.getElementById('clear-btn'),
@@ -1017,21 +1045,7 @@ async function initializeApp() {
         if (e.key === 'Enter') generatePage();
     });
 
-    elements.cosmeticInput.addEventListener('input', updateSuggestions);
-
-    // Auto-detect cosmetic source with debouncing
-    let autoDetectTimeout;
-    elements.cosmeticInput.addEventListener('input', (e) => {
-        // Reset auto-detection flag when user manually types
-        if (isCrewAutoDetected) {
-            isCrewAutoDetected = false;
-        }
-        
-        clearTimeout(autoDetectTimeout);
-        autoDetectTimeout = setTimeout(() => {
-            autoDetectCosmeticSource(e.target.value);
-        }, 1000); // Wait 1 second after user stops typing
-    });
+    elements.cosmeticDisplayInput.addEventListener('input', updateSuggestions);
 
     try {
         showStatus('Loading cosmetic data...', 'loading');

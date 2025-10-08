@@ -53,7 +53,7 @@ async function getPakChunkFolders() {
   try {
     const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
     const data = await resp.json();
-    const folders = ["Fortnite_locchunk100"];
+    const folders = ["SparksCosmetics", "Fortnite_locchunk100"];
     if (data.dynamicKeys) {
       data.dynamicKeys.forEach(d => {
         const match = d.name.match(/^pakchunk(\d+)-/);
@@ -65,7 +65,7 @@ async function getPakChunkFolders() {
     }
     return folders;
   } catch {
-    return ["Fortnite_locchunk100"];
+    return ["SparksCosmetics", "Fortnite_locchunk100"];
   }
 }
 
@@ -85,80 +85,67 @@ async function search() {
 
   try {
     const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
-    const nameKey = data[0].Properties.ItemName.Key;
-    const descriptionKey = data[0].Properties.ItemDescription?.Key;
-
-    const langs = ["en","ar","de","es","es-419","fr","id","it","ja","ko","pl","pt-BR","ru","th","tr","vi","zh-Hans","zh-Hant"];
+    const item = data[0]?.Properties;
+    const nameKey = item?.ItemName?.Key;
+    const descriptionKey = item?.ItemDescription?.Key;
+	
     const folders = await getPakChunkFolders();
-    
-    // Get translations for both name and description
     const nameTranslations = {};
     const descriptionTranslations = {};
 
-    for (const lang of langs) {
-      let nameTextFound = false;
-      let descTextFound = false;
-      
-      for (const folder of folders) {
-        const path = `../../data/localization/${folder}/${lang}/${folder}.json`;
-        try {
-          const loc = await loadGzJson(path);
-          
-          // Get name translation
-          if (!nameTextFound) {
-            const nameText = loc[""]?.[nameKey];
-            if (nameText) {
-              nameTranslations[lang] = nameText;
-              nameTextFound = true;
+    for (const folder of folders) {
+      try {
+        const metaPath = `../../data/localization/${folder}/${folder}.json`;
+        const meta = await loadGzJson(metaPath);
+        const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
+
+        for (const lang of compiledLangs) {
+          const alreadyHasName = nameTranslations[lang] !== undefined;
+          const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
+
+          if (alreadyHasName && alreadyHasDesc) continue;
+
+          const locPath = `../../data/localization/${folder}/${lang}/${folder}.json`;
+          try {
+            const loc = await loadGzJson(locPath);
+
+            if (!alreadyHasName) {
+              const nameText = loc[""]?.[nameKey];
+              if (nameText) nameTranslations[lang] = nameText;
             }
-          }
-          
-          // Get description translation if key exists
-          if (descriptionKey && !descTextFound) {
-            const descText = loc[""]?.[descriptionKey];
-            if (descText) {
-              descriptionTranslations[lang] = descText;
-              descTextFound = true;
+
+            if (descriptionKey && !alreadyHasDesc) {
+              const descText = loc[""]?.[descriptionKey];
+              if (descText) descriptionTranslations[lang] = descText;
             }
-          }
-          
-          if (nameTextFound && (descTextFound || !descriptionKey)) break;
-        } catch {}
-      }
+          } catch {}
+        }
+      } catch {}
     }
 
     // Build the Cosmetic Translations output
     let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
     
     const nameEn = nameTranslations["en"] || "";
-    if (nameEn) {
-      lines.push(`|name = ${nameEn}`);
-    }
+    if (nameEn) lines.push(`|name = ${nameEn}`);
     
-    for (const lang of langs) {
+    for (const [lang, translation] of Object.entries(nameTranslations)) {
       if (lang === "en") continue; // Skip English as it's already added as |name
-      const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
+      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
       const translation = nameTranslations[lang] || "";
-      if (translation) {
-        lines.push(`|name-${langKey} = ${translation}`);
-      }
+      lines.push(`|name-${langKey} = ${translation}`);
     }
     
     lines.push("");
     
     if (descriptionKey) {
-      const descEn = descriptionTranslations["en"] || "";
-      if (descEn) {
-        lines.push(`|desc = ${descEn}`);
-      }
+      const descEn = descriptionTranslations["en"];
+      if (descEn) lines.push(`|desc = ${descEn}`);
       
-      for (const lang of langs) {
+      for (const [lang, translation] of Object.entries(descriptionTranslations)) {
         if (lang === "en") continue; // Skip English as it's already added as |desc
-        const langKey = lang === "pt-BR" ? "pt-br" : lang.toLowerCase();
-        const translation = descriptionTranslations[lang] || "";
-        if (translation) {
-          lines.push(`|desc-${langKey} = ${translation}`);
-        }
+        const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
+		lines.push(`|desc-${langKey} = ${translation}`);
       }
     }
     

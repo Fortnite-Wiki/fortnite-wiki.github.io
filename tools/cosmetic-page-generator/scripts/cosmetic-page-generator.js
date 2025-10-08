@@ -171,6 +171,9 @@ function extractSetName(tags, cosmeticSets) {
 
 function extractAdditionals(tags) {
     const additional = [];
+	if (tags.includes("Cosmetics.EmoteType.Dance")) {
+		additional.push("{{Dance Emote}}");
+	}
     if (tags.includes("Cosmetics.UserFacingFlags.HasVariants") || 
         tags.includes("Cosmetics.UserFacingFlags.HasUpgradeQuests")) {
         additional.push("{{Selectable Styles}}");

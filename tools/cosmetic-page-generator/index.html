@@ -1,178 +1,191 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cosmetic Page Generator</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cosmetic Page Generator</title>
 
-    <script src="./scripts/cosmetic-page-generator.js" type="module"></script>
-    <script src="/scripts/pageinfo.js" type="module"></script>
+	<script src="./scripts/cosmetic-page-generator.js" type="module"></script>
+	<script src="/scripts/pageinfo.js" type="module"></script>
 
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="icon" href="/files/images/return-icon.png" />
+	<link rel="stylesheet" href="./styles/styles.css" />
+	<link rel="icon" href="/files/images/return-icon.png" />
 </head>
 
 <body>
-    <header>
-        <a href="/index.html" id="return-main">
-            <span>
-                <img src="/files/images/return-icon.png" alt="back" />
-            </span>
-        </a>
-        <img src="https://static.wikia.nocookie.net/fortnite/images/d/dc/Schematic_-_Icon_-_Save_the_World.png" alt="logo" />
-        <span>
-            <h1 class="name">Cosmetic Page Generator</h1>
-            <span class="version"></span>
-        </span>
-    </header>
+	<header>
+		<a href="/index.html" id="return-main">
+			<span>
+				<img src="/files/images/return-icon.png" alt="back" />
+			</span>
+		</a>
+		<img src="https://static.wikia.nocookie.net/fortnite/images/d/dc/Schematic_-_Icon_-_Save_the_World.png" alt="logo" />
+		<span>
+			<h1 class="name">Cosmetic Page Generator</h1>
+			<span class="version"></span>
+		</span>
+	</header>
 
-    <div id="wrapper">
-        <main>
-            <section>
-                <h3>Cosmetic Search</h3>
-                <input type="text" id="cosmetic-display" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
-                <input type="hidden" id="cosmetic-input" />
-                <div id="suggestions"></div>
-            </section>
+	<div id="wrapper">
+		<main>
+			<section>
+				<h3>Cosmetic Search</h3>
+				<input type="text" id="cosmetic-display" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
+				<input type="hidden" id="cosmetic-input" />
+				<div id="suggestions"></div>
+			</section>
 
-            <section>
-                <div class="two-column-layout">
-                    <!-- Left Column: Cosmetic Source -->
-                    <div class="column">
-                        <h4>Cosmetic Source</h4>
-                        <div class="source-options">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="source-item-shop" name="source">
-                                Item Shop
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="source-battle-pass" name="source">
-                                Battle Pass
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="source-fortnite-crew" name="source">
-                                Fortnite Crew
-                            </label>
-                        </div>
+			<section>
+				<div class="two-column-layout">
+					<!-- Left Column: Cosmetic Source -->
+					<div class="column">
+						<h4>Cosmetic Source</h4>
+						<div class="source-options">
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-item-shop" name="source">
+								Item Shop
+							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-battle-pass" name="source">
+								Battle Pass
+							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-fortnite-crew" name="source">
+								Fortnite Crew
+							</label>
+						</div>
 
-                        <!-- Item Shop Settings -->
-                        <div id="item-shop-settings" class="source-settings hidden">
-                            <h5>Item Shop Settings</h5>
-                            <div class="inline-group">
-                                <label for="shop-cost">V-Bucks Cost:</label>
-                                <input type="text" id="shop-cost" placeholder="1,200"" >
-                            </div>
-                            <div class="inline-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="include-appearances">
-                                    Include ItemShopAppearances
-                                </label>
-                            </div>
-                        </div>
+						<!-- Item Shop Settings -->
+						<div id="item-shop-settings" class="source-settings hidden">
+							<h5>Item Shop Settings</h5>
+							<div class="inline-group">
+								<label for="shop-cost">V-Bucks Cost:</label>
+								<input type="text" id="shop-cost" placeholder="1,200"" >
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="include-appearances">
+									Include ItemShopAppearances
+								</label>
+							</div>
+						</div>
 
-                        <!-- Battle Pass Settings -->
-                        <div id="battle-pass-settings" class="source-settings hidden">
-                            <h5>Battle Pass Settings</h5>
-                            <div class="inline-group">
-                                <label for="bp-season">Season:</label>
-                                <input type="text" id="bp-season" placeholder="C6S4" pattern="C[0-9]+S[0-9]+">
-                            </div>
-                            <div class="inline-group">
-                                <label for="bp-page">Page:</label>
-                                <input type="number" id="bp-page" placeholder="5" min="1" max="20">
-                            </div>
-                            <div class="inline-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="bp-bonus">
-                                    Bonus reward?
-                                </label>
-                            </div>
-                            <div class="inline-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="bp-free">
-                                    Free?
-                                </label>
-                            </div>
-                        </div>
+						<!-- Battle Pass Settings -->
+						<div id="battle-pass-settings" class="source-settings hidden">
+							<h5>Battle Pass Settings</h5>
+							<div class="inline-group">
+								<label for="bp-season">Season:</label>
+								<input type="text" id="bp-season" placeholder="C6S4" pattern="C[0-9]+S[0-9]+">
+							</div>
+							<div class="inline-group">
+								<label for="bp-page">Page:</label>
+								<input type="number" id="bp-page" placeholder="5" min="1" max="20">
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="bp-bonus">
+									Bonus reward?
+								</label>
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="bp-free">
+									Free?
+								</label>
+							</div>
+						</div>
 
-                        <!-- Fortnite Crew Settings -->
-                        <div id="fortnite-crew-settings" class="source-settings hidden">
-                            <h5>Fortnite Crew Settings</h5>
-                            <div class="inline-group">
-                                <label for="crew-month">Month:</label>
-                                <select id="crew-month">
-                                    <option value="">Select month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
-                                </select>
-                            </div>
-                            <div class="inline-group">
-                                <label for="crew-year">Year:</label>
-                                <input type="number" id="crew-year" placeholder="2025" min="2020" max="2030">
-                            </div>
-                        </div>
-                    </div>
+						<!-- Fortnite Crew Settings -->
+						<div id="fortnite-crew-settings" class="source-settings hidden">
+							<h5>Fortnite Crew Settings</h5>
+							<div class="inline-group">
+								<label for="crew-month">Month:</label>
+								<select id="crew-month">
+									<option value="">Select month</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
+								</select>
+							</div>
+							<div class="inline-group">
+								<label for="crew-year">Year:</label>
+								<input type="number" id="crew-year" placeholder="2025" min="2020" max="2030">
+							</div>
+						</div>
+					</div>
 
-                    <!-- Right Column: Release Status -->
-                    <div class="column">
-                        <h4>Release Status</h4>
-                        <div class="inline-group">
-                            <label for="released-switch">Released?</label>
-                            <div class="switch-container">
-                                <label class="switch">
-                                    <input type="checkbox" id="released-switch">
-                                    <span class="slider"></span>
-                                </label>
-                                <span id="released-label">No</span>
-                            </div>
-                        </div>
-                        
-                        <div class="inline-group released-fields" style="display: none;">
-                            <label for="release-date">Release date:</label>
-                            <input type="date" id="release-date" />
-                        </div>
-                        
-                        <div class="inline-group released-fields" style="display: none;">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="item-shop-history">
-                                Item Shop History link
-                            </label>
-                            <input type="number" id="shop-history-part" placeholder="Part" min="1" max="4" style="display: none; width: 80px;">
-                        </div>
+					<!-- Right Column: Release Status -->
+					<div class="column">
+						<h4>Release Status</h4>
+						<div class="inline-group">
+							<label for="released-switch">Released?</label>
+							<div class="switch-container">
+								<label class="switch">
+									<input type="checkbox" id="released-switch">
+									<span class="slider"></span>
+								</label>
+								<span id="released-label">No</span>
+							</div>
+						</div>
+						
+						<div class="inline-group released-fields" style="display: none;">
+							<label for="release-date">Release date:</label>
+							<input type="date" id="release-date" />
+						</div>
+						
+						<div class="inline-group released-fields" style="display: none;">
+							<label class="checkbox-label">
+								<input type="checkbox" id="item-shop-history">
+								Item Shop History link
+							</label>
+							<input type="number" id="shop-history-part" placeholder="Part" min="1" max="4" style="display: none; width: 80px;">
+						</div>
 
-                        <div class="inline-group">
-                            <label for="update-version">Update Version:</label>
-                            <input type="text" id="update-version" placeholder="36.30" pattern="[0-9]+\.[0-9]+" required>
-                        </div>
-                    </div>
-                </div>
-            </section>
+						<div class="inline-group">
+							<label for="update-version">Update Version:</label>
+							<input type="text" id="update-version" placeholder="36.30" pattern="[0-9]+\.[0-9]+" required>
+						</div>
+					</div>
+				</div>
+				
+				<div class="two-column-layout">
+					<!-- Left Column: Cosmetic Source -->
+					<div class="column">
+						<h4>Other</h4>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="collaboration" name="source">
+								Collaboration?
+							</label>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            <button class="sec-subm" id="generate-btn">Generate Page</button>
-            <div id="status" class="status hidden"></div>
-        </main>
-        
-        <aside>
-            <section>
-                <div class="title-box">
-                    <h3>Generated Page:</h3>
-                </div>
-                <textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
-                <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
-                <button class="sec-subm secondary" id="clear-btn">Clear</button>
-            </section>
-        </aside>
-    </div>
+			<button class="sec-subm" id="generate-btn">Generate Page</button>
+			<div id="status" class="status hidden"></div>
+		</main>
+		
+		<aside>
+			<section>
+				<div class="title-box">
+					<h3>Generated Page:</h3>
+				</div>
+				<textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
+				<button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+			</section>
+		</aside>
+	</div>
 </body>
 </html>

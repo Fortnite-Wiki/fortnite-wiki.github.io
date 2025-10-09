@@ -172,7 +172,7 @@ function extractSetName(tags, cosmeticSets) {
 
 function extractAdditionals(tags) {
 	const additional = [];
-	if (tags.includes("Cosmetics.EmoteType.Dance")) {
+	if (tags.includes("Cosmetics.UserFacingFlags.Emote.Dance")) {
 		additional.push("{{Dance Emote}}");
 	}
 	if (tags.includes("Cosmetics.UserFacingFlags.HasVariants") || 

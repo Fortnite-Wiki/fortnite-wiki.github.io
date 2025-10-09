@@ -17,6 +17,7 @@ const TYPE_MAP = {
     "AthenaPetCarrierItemDefinition": "Pet",
     "AthenaPetItemDefinition": "Pet",
     "AthenaToyItemDefinition": "Toy",
+    "CosmeticShoesItemDefinition": "Kicks",
 	"SparksBassItemDefinition": "Bass",
 	"SparksDrumItemDefinition": "Drums",
 	"SparksGuitarItemDefinition": "Guitar",

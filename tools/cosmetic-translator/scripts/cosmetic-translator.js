@@ -32,17 +32,37 @@ async function loadIndex() {
 }
 
 function updateSuggestions() {
-  const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
+  const input = document.getElementById("cosmetic-display").value.trim().toLowerCase();
   const sugDiv = document.getElementById("suggestions");
   sugDiv.innerHTML = "";
   if (!input) return;
+  
+	const scoredMatches = index
+	  .map(e => {
+		const name = e.name.toLowerCase();
+		const id = e.id.toLowerCase();
+		let score = 0;
 
-  const matches = index.filter(e => e.name.toLowerCase().includes(input) || e.id.toLowerCase().includes(input));
-  matches.slice(0, 10).forEach(e => {
+		if (name === input) score += 100;
+		else if (name.startsWith(input)) score += 75;
+		else if (name.includes(input)) score += 50;
+
+		if (id === input) score += 40;
+		else if (id.startsWith(input)) score += 25;
+		else if (id.includes(input)) score += 10;
+
+		return { entry: e, score };
+	  })
+	  .filter(item => item.score > 0)
+	  .sort((a, b) => b.score - a.score)
+	  .slice(0, 10);
+
+  scoredMatches.forEach(({ entry }) => {
     const div = document.createElement("div");
-    div.textContent = `${e.name} (${e.id})`;
+    div.textContent = `${entry.name} (${entry.id})`;
     div.onclick = () => { 
-      document.getElementById("cosmeticInput").value = e.id; 
+	  document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+	  document.getElementById("cosmetic-input").value = entry.id;
       sugDiv.innerHTML = ""; 
     };
     sugDiv.appendChild(div);
@@ -70,7 +90,7 @@ async function getPakChunkFolders() {
 }
 
 async function search() {
-  const input = document.getElementById("cosmeticInput").value.trim().toLowerCase();
+  const input = document.getElementById("cosmetic-input").value.trim().toLowerCase();
   const output = document.getElementById("output");
   output.value = "";
   if (!input) return;
@@ -195,8 +215,8 @@ async function copyToClipboard() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
   try {
-    document.getElementById("cosmeticInput").addEventListener("input", updateSuggestions);
-    document.getElementById("cosmeticInput").addEventListener("keypress", function(e) {
+    document.getElementById("cosmetic-display").addEventListener("input", updateSuggestions);
+    document.getElementById("cosmetic-display").addEventListener("keypress", function(e) {
       if (e.key === "Enter") {
         search();
       }

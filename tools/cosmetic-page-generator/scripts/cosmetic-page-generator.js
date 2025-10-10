@@ -141,6 +141,8 @@ function updateSuggestions() {
 	div.onclick = () => {
 	  document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 	  document.getElementById("cosmetic-input").value = entry.id;
+	  document.getElementById("cosmetic-input-name").value = entry.name;
+	  document.getElementById("shop-appearances").value = entry.name;
 	  sugDiv.innerHTML = "";
 	  autoDetectCosmeticSource(entry.id);
 	};
@@ -632,7 +634,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|release = ${release}`);
 	
 	if (settings.isItemShop && settings.includeAppearances) {
-		out.push("|appearances = ");
+		out.push(`|appearances = ${settings.shopAppearances}`);
 	}
 
 	out.push(`|ID = ${ID}`);
@@ -761,6 +763,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push(`{{LEGO Emote|${name}}}`);
 			out.push("");
 		}
+	}
+	
+	if (settings.isItemShop && settings.includeAppearances) {
+		out.push(`== [[Item Shop Appearances ==\n{{ItemShopAppearances\n|name = ${settings.shopAppearances}\n}}\n`);
 	}
 
 	if (cosmeticType === "Emoticon" && tags.includes("Cosmetics.UserFacingFlags.Emoticon.Animated") && props.SpriteSheet) {
@@ -908,6 +914,7 @@ async function generatePage() {
 			// Item Shop specific
 			shopCost: elements.shopCost.value,
 			includeAppearances: elements.includeAppearances.checked,
+			shopAppearances: elements.shopAppearances.value,
 			
 			// Battle Pass specific
 			bpSeason: elements.bpSeason.value,
@@ -969,6 +976,7 @@ async function initializeApp() {
 		itemShopSettings: document.getElementById('item-shop-settings'),
 		shopCost: document.getElementById('shop-cost'),
 		includeAppearances: document.getElementById('include-appearances'),
+		shopAppearances: document.getElementById('shop-appearances'),
 		
 		// Battle Pass settings
 		battlePassSettings: document.getElementById('battle-pass-settings'),
@@ -1123,6 +1131,22 @@ async function initializeApp() {
 	// Item Shop History part visibility
 	elements.itemShopHistory.addEventListener('change', () => {
 		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
+	});
+
+	// Item Shop Appearances visibility
+	const appearancesFields = document.querySelectorAll('.appearances-fields');
+	elements.includeAppearances.addEventListener('change', () => {
+		const appearancesChecked = elements.includeAppearances.checked;
+		if (appearancesChecked) {
+			appearancesFields.forEach(field => {
+				field.style.display = 'block';
+			});
+			elements.shopAppearances.value = document.getElementById("cosmetic-input-name").value.trim();
+		} else {
+			appearancesFields.forEach(field => {
+				field.style.display = 'none';
+			});
+		}
 	});
 
 	// Basic event listeners

@@ -33,6 +33,7 @@
 				<h3>Cosmetic Search</h3>
 				<input type="text" id="cosmetic-display" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
 				<input type="hidden" id="cosmetic-input" />
+				<input type="hidden" id="cosmetic-input-name" />
 				<div id="suggestions"></div>
 			</section>
 
@@ -61,13 +62,16 @@
 							<h5>Item Shop Settings</h5>
 							<div class="inline-group">
 								<label for="shop-cost">V-Bucks Cost:</label>
-								<input type="text" id="shop-cost" placeholder="1,200"" >
+								<input type="text" id="shop-cost" placeholder="1,200"/>
 							</div>
 							<div class="inline-group">
 								<label class="checkbox-label">
 									<input type="checkbox" id="include-appearances">
 									Include ItemShopAppearances
 								</label>
+							</div>
+							<div class="inline-group appearances-fields" style="display: none;">
+								<input type="text" id="shop-appearances" />
 							</div>
 						</div>
 

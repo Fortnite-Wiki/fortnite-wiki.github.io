@@ -26,6 +26,14 @@ const TYPE_MAP = {
 	"SparksAuraItemDefinition": "Aura"
 };
 
+const INSTRUMENTS_TYPE_MAP = {
+	"SparksBassItemDefinition": "Bass",
+	"SparksDrumItemDefinition": "Drums",
+	"SparksGuitarItemDefinition": "Guitar",
+	"SparksKeyboardItemDefinition": "Keytar",
+	"SparksMicItemDefinition": "Microphone"
+}
+
 const SERIES_CONVERSION = {
 	"ColumbusSeries": "Star Wars Series",
 	"CreatorCollabSeries": "Icon Series",
@@ -420,6 +428,7 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const props = data.Properties;
 	const ID = data.Name;
+	const type = data.Type;
 	const name = props.ItemName?.LocalizedString || "Unknown";
 	const description = props.ItemDescription?.SourceString || "";
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
@@ -431,6 +440,21 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	if (cosmeticType === "Shoes") {
 		cosmeticType = "Kicks";
+	}
+	
+	const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
+	let instrumentType;
+	if (isFestivalCosmetic && cosmeticType != "Aura") {
+		if (type in INSTRUMENTS_TYPE_MAP) {
+			instrumentType = INSTRUMENTS_TYPE_MAP[type]
+		} else {
+			instrumentType = ID.split("_").at(-1);
+			if (instrumentType == "Mic") {
+				instrumentType = "Microphone";
+			} else if (instrumentType == "DrumKit" || instrumentType == "DrumStick" || instrumentType == "Drum") {
+				instrumentType = "Drums";
+			}
+		}
 	}
 
 	let mainIcon = "";
@@ -463,6 +487,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	const out = [];
 	
+	if (isFestivalCosmetic && cosmeticType != "Aura") {
+		out.push(`{{DISPLAYTITLE:${name}}}`);
+		out.push(`{{Instrument Disambig|${name}|${instrumentType}}}`);
+	}
+	
 	if (settings.isCollaboration) {
 		out.push("{{Collaboration|Cosmetic}}");
 	}
@@ -474,11 +503,28 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
+	// maybe i should make an OR for "does the base instrument have shop assets"?
 	if (are_there_shop_assets(entryMeta) || itemshop) {
-		out.push("|image = <gallery>");
-		out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-		out.push(`${name} (Featured) - ${cosmeticType} - Fortnite.png|Featured`);
-		out.push("</gallery>");
+		if (isFestivalCosmetic && cosmeticType != "Aura") {
+			if (cosmeticType != instrumentType) {
+				if (instrumentType == "Drums") {
+					out.push(`|image = ${name} - Pickaxe - Fortnite Festival.png`);
+				} else {
+					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
+				}
+			} else {
+				out.push("|image = <gallery>");
+				out.push(`${name} - ${instrumentType} - Fortnite Festival.png|Icon`);
+				out.push(`${name} (Featured) - ${instrumentType} - Fortnite Festival.png|Featured`);
+				out.push("</gallery>");
+			}
+		} else {
+			out.push("|image = <gallery>");
+			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
+			out.push(`${name} (Featured) - ${cosmeticType} - Fortnite.png|Featured`);
+			out.push("</gallery>");
+		}
+		
 	} else {
 		if (cosmeticType === "Spray") {
 			out.push("|image = <gallery>");
@@ -486,12 +532,31 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push(`${name} (Decal) - ${cosmeticType} - Fortnite.png|Decal`);
 			out.push("</gallery>");
 		} else {
-			out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
+			if (isFestivalCosmetic && cosmeticType != "Aura") {
+				out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
+			} else {
+				out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
+			}
 		}
 	}
 	
 	out.push(`|type = ${cosmeticType}`);
 	out.push(`|rarity = ${rarity}`);
+	
+	if (isFestivalCosmetic && cosmeticType != "Aura") {
+		let bundledWithString = "|bundled_with = ";
+		if (instrumentType != cosmeticType) {
+			bundledWithString = bundledWithString + `[[${name} (${instrumentType})|${name}]] <br> `;
+			if (cosmeticType == "Back Bling") {
+				bundledWithString = bundledWithString + `[[${name} (Pickaxe)|${name}]]`;
+			} else if (cosmeticType == "Pickaxe") {
+				bundledWithString = bundledWithString + `[[${name} (Back Bling)|${name}]]`;
+			}
+		} else {
+			bundledWithString = bundledWithString + `[[${name} (Back Bling)|${name}]] <br> [[${name} (Pickaxe)|${name}]]`;
+		}
+		out.push(bundledWithString);
+	}
 
 	if (cosmeticType === "Outfit") {
 		out.push("|character model = ");

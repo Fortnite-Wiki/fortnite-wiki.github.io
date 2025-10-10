@@ -152,8 +152,16 @@ async function searchCosmetic(input) {
 		if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 			return { data: null, allData: null, entryMeta };
 		}
-		
-		return { data: cosmeticData[0], allData: cosmeticData, entryMeta };
+		let itemDefinitionData;
+		for (const dataEntry of cosmeticData) {
+			if (dataEntry.Type in TYPE_MAP) {
+				itemDefinitionData = dataEntry;
+			}
+		}
+		if (!itemDefinitionData) {
+			itemDefinitionData = cosmeticData[0];
+		}
+		return { data: itemDefinitionData, allData: cosmeticData, entryMeta };
 	} catch (error) {
 		console.warn(`Failed to load cosmetic data for ${entryMeta.id}:`, error);
 		return { data: null, allData: null, entryMeta };

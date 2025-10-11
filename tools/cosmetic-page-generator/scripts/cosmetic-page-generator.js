@@ -466,6 +466,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (cosmeticType === "Shoes") {
 		cosmeticType = "Kicks";
 	}
+	if (cosmeticType === "Vehicle Body") {
+		cosmeticType = "Car Body";
+	}
 	
 	const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
 	let instrumentType;

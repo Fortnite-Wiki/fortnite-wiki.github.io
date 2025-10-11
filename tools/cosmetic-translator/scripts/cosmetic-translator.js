@@ -73,7 +73,7 @@ async function getPakChunkFolders() {
   try {
     const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
     const data = await resp.json();
-    const folders = ["SparksCosmetics", "Fortnite_locchunk100"];
+    const folders = ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100"];
     if (data.dynamicKeys) {
       data.dynamicKeys.forEach(d => {
         const match = d.name.match(/^pakchunk(\d+)-/);
@@ -85,7 +85,7 @@ async function getPakChunkFolders() {
     }
     return folders;
   } catch {
-    return ["SparksCosmetics", "Fortnite_locchunk100"];
+    return ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100"];
   }
 }
 

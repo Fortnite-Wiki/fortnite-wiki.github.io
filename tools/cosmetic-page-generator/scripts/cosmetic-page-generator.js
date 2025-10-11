@@ -792,7 +792,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	
 	if (settings.isItemShop && settings.includeAppearances) {
-		out.push(`== [[Item Shop Appearances ==\n{{ItemShopAppearances\n|name = ${settings.shopAppearances}\n}}\n`);
+		out.push(`== [[Item Shop]] Appearances ==\n{{ItemShopAppearances\n|name = ${settings.shopAppearances}\n}}\n`);
 	}
 
 	if (cosmeticType === "Emoticon" && tags.includes("Cosmetics.UserFacingFlags.Emoticon.Animated") && props.SpriteSheet) {

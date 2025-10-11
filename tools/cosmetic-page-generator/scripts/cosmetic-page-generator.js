@@ -23,7 +23,12 @@ const TYPE_MAP = {
 	"SparksGuitarItemDefinition": "Guitar",
 	"SparksKeyboardItemDefinition": "Keytar",
 	"SparksMicItemDefinition": "Microphone",
-	"SparksAuraItemDefinition": "Aura"
+	"SparksAuraItemDefinition": "Aura",
+	"FortVehicleCosmeticsItemDefinition_Body": "Car Body",
+	"FortVehicleCosmeticsItemDefinition_Skin": "Decal",
+	"FortVehicleCosmeticsItemDefinition_Wheel": "Wheel",
+	"FortVehicleCosmeticsItemDefinition_DriftTrail": "Trail",
+	"FortVehicleCosmeticsItemDefinition_Booster": "Boost"
 };
 
 const INSTRUMENTS_TYPE_MAP = {
@@ -46,7 +51,25 @@ const SERIES_CONVERSION = {
 	"MarvelSeries": "Marvel Series",
 	"PlatformSeries": "Gaming Legends Series",
 	"ShadowSeries": "Shadow Series",
-	"SlurpSeries": "Slurp Series"
+	"SlurpSeries": "Slurp Series",
+	"Series_Adidas": "Adidas Series",
+	"Series_Alan_Walker": "Alan Walker Series",
+	"Series_BMW": "BMW Series",
+	"Series_Bugatti": "Bugatti Series",
+	"Series_Chevrolet": "Chevrolet Series",
+	"Series_DC": "DC Series",
+	"Series_Dodge": "Dodge Series",
+	"Series_Ferrari": "Ferrari Series",
+	"Series_Ford": "Ford Series",
+	"Series_Jeep": "Jeep Series",
+	"Series_Lamborghini": "Lamborghini Series",
+	"Series_McLaren": "McLaren Series",
+	"Series_Mercedes": "Mercedes Series",
+	"Series_Nissan": "Nissan Series",
+	"Series_Pontiac": "Pontiac Series",
+	"Series_Porsche": "Porsche Series",
+	"Series_RAM": "Ram Series",
+	"Series_Tesla": "Tesla Series"
 };
 
 let index = [];

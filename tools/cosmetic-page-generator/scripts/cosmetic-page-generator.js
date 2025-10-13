@@ -158,24 +158,36 @@ function updateSuggestions() {
 	  .sort((a, b) => b.score - a.score)
 	  .slice(0, 10);
 
-  scoredMatches.forEach(({ entry }) => {
-	const div = document.createElement("div");
-	div.textContent = `${entry.name} (${entry.id})`;
-	div.onclick = () => {
-	  document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
-	  document.getElementById("cosmetic-input").value = entry.id;
-	  document.getElementById("cosmetic-input-name").value = entry.name;
-	  document.getElementById("shop-appearances").value = entry.name;
-	  sugDiv.innerHTML = "";
-	  autoDetectCosmeticSource(entry.id);
-	  if (entry.path.startsWith("Racing")) {
-		  document.getElementById('rocket-league-field').style.display = 'block';
-	  } else {
-		  document.getElementById('rocket-league-field').style.display = 'none';
-	  }
-	};
-	sugDiv.appendChild(div);
-  });
+	scoredMatches.forEach(({ entry }) => {
+		const div = document.createElement("div");
+		div.textContent = `${entry.name} (${entry.id})`;
+		div.onclick = () => {
+			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+			document.getElementById("cosmetic-input").value = entry.id;
+			document.getElementById("cosmetic-input-name").value = entry.name;
+			document.getElementById("shop-appearances").value = entry.name;
+			sugDiv.innerHTML = "";
+			autoDetectCosmeticSource(entry.id);
+			if (entry.path.startsWith("Racing")) {
+					document.getElementById('rocket-league-field').style.display = 'block';
+					document.getElementById('rocket-league-cosmetic').checked = false;
+					document.getElementById('rocket-league-exclusive-field').style.display = 'none';
+			} else {
+					document.getElementById('rocket-league-field').style.display = 'none';
+			}
+			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
+			const displayTitleEl = document.getElementById('display-title');
+			if (entry.path.startsWith("Festival")) {
+					displayTitleEl.checked = true;
+					displayTitleEl.disabled = true;
+			} else {
+					// Ensure checkbox is enabled for non-Festival entries
+					displayTitleEl.checked = false;
+					displayTitleEl.disabled = false;
+			}
+		};
+		sugDiv.appendChild(div);
+	});
 }
 
 async function searchCosmetic(input) {
@@ -232,6 +244,16 @@ function extractAdditionals(tags) {
 		additional.push("{{Animated}}");
 	}
 	return additional.length > 0 ? additional.join(" ") : "";
+}
+
+function extractSubtype(tags) {
+	if (tags.includes("Vehicle.Archetype.SUV")) {
+		return "{{Cosmetic Subtypes|SUV}}"
+	}
+	if (tags.includes("Vehicle.Archetype.SportsCar")) {
+		return "{{Cosmetic Subtypes|Sports Car}}"
+	}
+	return "";
 }
 
 const SEASON_RELEASE_DATES = {
@@ -521,10 +543,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const isCrewProgressive = tags.includes("Cosmetics.CrewBling.Progressive");
 
 	const out = [];
-	
+
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
 		out.push(`{{DISPLAYTITLE:${name}}}`);
 		out.push(`{{Instrument Disambig|${name}|${instrumentType}}}`);
+	} else if (settings.displayTitle) {
+		out.push(`{{DISPLAYTITLE:${name}}}`);
 	}
 	
 	if (settings.isCollaboration) {
@@ -601,6 +625,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	
 	out.push(`|type = ${cosmeticType}`);
+	
+	const subtype = extractSubtype(tags);
+	if (subtype != "") {
+		out.push(`|subtype = ${subtype}`);
+	}
+	
 	out.push(`|rarity = ${rarity}`);
 	
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
@@ -958,6 +988,8 @@ async function generatePage() {
 
 		// Build settings object for the new interface
 		const settings = {
+			displayTitle: elements.displayTitle.checked,
+
 			updateVersion: elements.updateVersion.value.trim(),
 			unreleasedTemplate: !isReleased, // Automatically set based on released state
 			releaseDate: isReleased ? elements.releaseDate.value : "",
@@ -1055,6 +1087,9 @@ async function initializeApp() {
 		crewMonth: document.getElementById('crew-month'),
 		crewYear: document.getElementById('crew-year'),
 		
+		// Display title checkbox
+		displayTitle: document.getElementById('display-title'),
+		
 		// Collaboration checkbox
 		collaboration: document.getElementById('collaboration'),
 		
@@ -1119,6 +1154,21 @@ async function initializeApp() {
 			elements.sourceBattlePass.disabled = false;
 			elements.sourceFortniteCrew.disabled = false;
 		}
+	}
+
+	// Reset display-title when the cosmetic inputs change so the user isn't locked out
+	function resetDisplayTitleIfNeeded() {
+		if (!elements.displayTitle) return;
+		// Re-enable the checkbox so the user can change it after a new input
+		elements.displayTitle.disabled = false;
+	}
+
+	// Attach listeners to cosmetic inputs to reset display title state when they change
+	if (elements.cosmeticInput) {
+		elements.cosmeticInput.addEventListener('input', resetDisplayTitleIfNeeded);
+	}
+	if (elements.cosmeticDisplayInput) {
+		elements.cosmeticDisplayInput.addEventListener('input', resetDisplayTitleIfNeeded);
 	}
 
 	// Auto-fill update version for Battle Pass based on season

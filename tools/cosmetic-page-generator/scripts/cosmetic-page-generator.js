@@ -168,6 +168,11 @@ function updateSuggestions() {
 	  document.getElementById("shop-appearances").value = entry.name;
 	  sugDiv.innerHTML = "";
 	  autoDetectCosmeticSource(entry.id);
+	  if (entry.path.startsWith("Racing")) {
+		  document.getElementById('rocket-league-field').style.display = 'block';
+	  } else {
+		  document.getElementById('rocket-league-field').style.display = 'none';
+	  }
 	};
 	sugDiv.appendChild(div);
   });
@@ -484,6 +489,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 		}
 	}
+	
+	const isRacingCosmetic = entryMeta.path.startsWith("Racing");
 
 	let mainIcon = "";
 	let tags = [];
@@ -528,6 +535,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push("{{Unreleased|Cosmetic}}");
 	}
 	
+	if (settings.isRocketLeagueCosmetic) {
+		if (settings.isRocketLeagueExclusive) {
+			out.push("{{Rocket League Exclusive}}");
+		} else {
+			out.push("{{Rocket League Cosmetic}}");
+		}
+	}
+	
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
@@ -546,13 +561,24 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				out.push(`${name} (Featured) - ${instrumentType} - Fortnite Festival.png|Featured`);
 				out.push("</gallery>");
 			}
+		} else if (isRacingCosmetic) {
+			if (cosmeticType == "Wheel") {
+				out.push("|image = <gallery>");
+				out.push(`${name} - Wheels - Rocket Racing.png|Icon`);
+				out.push(`${name} (Featured) - Wheels - Rocket Racing.png|Featured`);
+				out.push("</gallery>");
+			} else {
+				out.push("|image = <gallery>");
+				out.push(`${name} - ${cosmeticType} - Rocket Racing.png|Icon`);
+				out.push(`${name} (Featured) - ${cosmeticType} - Rocket Racing.png|Featured`);
+				out.push("</gallery>");
+			}
 		} else {
 			out.push("|image = <gallery>");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
 			out.push(`${name} (Featured) - ${cosmeticType} - Fortnite.png|Featured`);
 			out.push("</gallery>");
 		}
-		
 	} else {
 		if (cosmeticType === "Spray") {
 			out.push("|image = <gallery>");
@@ -562,6 +588,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			if (isFestivalCosmetic && cosmeticType != "Aura") {
 				out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
+			} else if (isRacingCosmetic) {
+				if (cosmeticType === "Wheel") {
+					out.push(`|image = ${name} - Wheels - Rocket Racing.png`);
+				} else {
+					out.push(`|image = ${name} - ${cosmeticType} - Rocket Racing.png`);
+				}
 			} else {
 				out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
 			}
@@ -867,6 +899,9 @@ async function generatePage() {
 	const isFortniteCrew = elements.sourceFortniteCrew.checked;
 	
 	const isCollaboration = elements.collaboration.checked;
+	
+	const isRocketLeagueCosmetic = elements.isRocketLeagueCosmetic.checked;
+	const isRocketLeagueExclusive = elements.isRocketLeagueExclusive.checked;
 
 	if (!cosmeticInput) {
 		showStatus('Please enter a cosmetic ID or name', 'error');
@@ -936,6 +971,10 @@ async function generatePage() {
 			
 			// Collaboration
 			isCollaboration,
+			
+			// Racing
+			isRocketLeagueCosmetic,
+			isRocketLeagueExclusive,
 			
 			// Item Shop specific
 			shopCost: elements.shopCost.value,
@@ -1017,7 +1056,11 @@ async function initializeApp() {
 		crewYear: document.getElementById('crew-year'),
 		
 		// Collaboration checkbox
-		collaboration: document.getElementById('collaboration')
+		collaboration: document.getElementById('collaboration'),
+		
+		// Racing settings
+		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
+		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
 	};
 
 	// Setup source selection logic
@@ -1172,6 +1215,16 @@ async function initializeApp() {
 			appearancesFields.forEach(field => {
 				field.style.display = 'none';
 			});
+		}
+	});
+	
+	// Racing - Rocket League visibility
+	elements.isRocketLeagueCosmetic.addEventListener('change', () => {
+		const rocketLeagueChecked = elements.isRocketLeagueCosmetic.checked;
+		if (rocketLeagueChecked) {
+			document.getElementById('rocket-league-exclusive-field').style.display = 'block';
+		} else {
+			document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 		}
 	});
 

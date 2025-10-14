@@ -712,17 +712,26 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	// Article section
 	let article = `'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]] `;
+	
+	const obtainedOnPageCompletion =
+		(settings.isBattlePass && settings.bpPageCompletion) ||
+		(settings.isOGPass && settings.ogPageCompletion) ||
+		(settings.isMusicPass && settings.musicPageCompletion) ||
+		(settings.isLEGOPass && settings.legoPageCompletion);
+	
+	const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
+
 	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
 		article += `that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		article += `that can be obtained on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+		article += `that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-		article += `that can be obtained on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
+		article += `that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
 	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-		article += `that can be obtained on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
+		article += `that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
-		article += `that can be obtained on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
+		article += `that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
 	} else if (settings.isItemShop) {
 		const costFlag = settings.shopCost ? ` for {{V-Bucks|${settings.shopCost}}}` : "";
 		article += `that can be purchased in the [[Item Shop]]${costFlag}.`;
@@ -1008,15 +1017,19 @@ async function generatePage() {
 			bpSeason: elements.bpSeason.value,
 			bpPage: elements.bpPage.value,
 			bpBonus: elements.bpBonus.checked,
+			bpPageCompletion: elements.bpPageCompletion.value,
 			
 			// Metaverse pass specific
 			ogSeason: elements.ogSeason.value,
 			ogPage: elements.ogPage.value,
+			ogPageCompletion: elements.ogPageCompletion.value,
 			musicSeason: elements.musicSeason.value,
 			musicPage: elements.musicPage.value,
+			musicPageCompletion: elements.musicPageCompletion.value,
 			legoSeason: elements.legoSeason.value,
 			legoSeasonAbbr: elements.legoSeasonAbbr.value,
 			legoPage: elements.legoPage.value,
+			legoPageCompletion: elements.legoPageCompletion.value,
 			
 			// Free in any Pass (per pass)
 			passFreeBP: elements.passFreeBP && elements.passFreeBP.checked,
@@ -1088,6 +1101,7 @@ async function initializeApp() {
 		bpSeason: document.getElementById('bp-season'),
 		bpPage: document.getElementById('bp-page'),
 		bpBonus: document.getElementById('bp-bonus'),
+		bpPageCompletion: document.getElementById('bp-page-completion'),
 		
 		// Fortnite Crew settings
 		fortniteCrewSettings: document.getElementById('fortnite-crew-settings'),
@@ -1101,11 +1115,14 @@ async function initializeApp() {
 		
 		ogSeason: document.getElementById('og-season'),
 		ogPage: document.getElementById('og-page'),
+		ogPageCompletion: document.getElementById('og-page-completion'),
 		musicSeason: document.getElementById('music-season'),
 		musicPage: document.getElementById('music-page'),
+		musicPageCompletion: document.getElementById('music-page-completion'),
 		legoSeason: document.getElementById('lego-season'),
 		legoSeasonAbbr: document.getElementById('lego-season-abbr'),
 		legoPage: document.getElementById('lego-page'),
+		legoPageCompletion: document.getElementById('lego-page-completion'),
 		
 		// Free checkboxes for each pass
 		passFreeBP: document.getElementById('pass-free-bp'),

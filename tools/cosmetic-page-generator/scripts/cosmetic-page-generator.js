@@ -278,9 +278,9 @@ function parseBattlePassSeason(seasonInput) {
 function getFormattedReleaseDate(date = new Date()) {
 	const day = date.getDate();
 	const suffix = day >= 11 && day <= 13 ? 'th' : 
-				   day % 10 === 1 ? 'st' : 
-				   day % 10 === 2 ? 'nd' : 
-				   day % 10 === 3 ? 'rd' : 'th';
+					day % 10 === 1 ? 'st' : 
+					day % 10 === 2 ? 'nd' : 
+					day % 10 === 3 ? 'rd' : 'th';
 	
 	const month = date.toLocaleString('en-US', { month: 'long' });
 	return `${month} ${day}${suffix} ${date.getFullYear()}`;
@@ -602,17 +602,17 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
 		unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
-		const freeFlag = settings.passFree ? "|Free" : "";
+		const freeFlag = settings.passFreeBP ? "|Free" : "";
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
 		unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-		const freeFlag = settings.passFree ? "|Free" : "";
+		const freeFlag = settings.passFreeOG ? "|Free" : "";
 		unlocked = `Page ${settings.ogPage} <br> {{OGPass|${settings.ogSeason}${freeFlag}}}`;
 	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-		const freeFlag = settings.passFree ? "|Free" : "";
+		const freeFlag = settings.passFreeMusic ? "|Free" : "";
 		unlocked = `Page ${settings.musicPage} <br> {{MusicPass|${settings.musicSeason}${freeFlag}}}`;
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason && settings.legoSeasonAbbr) {
-		const freeFlag = settings.passFree ? "|Free" : "|";
+		const freeFlag = settings.passFreeLego ? "|Free" : "|";
 		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
 	} else if (settings.isItemShop) {
 		unlocked = "[[Item Shop]]";
@@ -621,7 +621,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	// Cost section
 	let cost = "";
-	if (settings.passFree) {
+	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
 		cost = "Free";
 	} else if (settings.isFortniteCrew || rarity === "Crew Series") {
 		cost = "$11.99 <br /> ({{Fortnite Crew}})";
@@ -824,7 +824,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push("[[Category:Unlockable Styles]]");
 	}
 
-	if (settings.passFree) {
+	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
 		out.push("[[Category:Free Cosmetics]]");
 	}
 
@@ -1018,8 +1018,11 @@ async function generatePage() {
 			legoSeasonAbbr: elements.legoSeasonAbbr.value,
 			legoPage: elements.legoPage.value,
 			
-			// Free in any Pass
-			passFree: elements.passFree.checked,
+			// Free in any Pass (per pass)
+			passFreeBP: elements.passFreeBP && elements.passFreeBP.checked,
+			passFreeOG: elements.passFreeOG && elements.passFreeOG.checked,
+			passFreeMusic: elements.passFreeMusic && elements.passFreeMusic.checked,
+			passFreeLego: elements.passFreeLego && elements.passFreeLego.checked,
 			
 			// Fortnite Crew specific
 			crewMonth: elements.crewMonth.value,
@@ -1104,8 +1107,11 @@ async function initializeApp() {
 		legoSeasonAbbr: document.getElementById('lego-season-abbr'),
 		legoPage: document.getElementById('lego-page'),
 		
-		// Free checkbox (any pass)
-		passFree: document.getElementById('pass-free'),
+		// Free checkboxes for each pass
+		passFreeBP: document.getElementById('pass-free-bp'),
+		passFreeOG: document.getElementById('pass-free-og'),
+		passFreeMusic: document.getElementById('pass-free-music'),
+		passFreeLego: document.getElementById('pass-free-lego'),
 		
 		// Display title checkbox
 		displayTitle: document.getElementById('display-title'),
@@ -1120,6 +1126,11 @@ async function initializeApp() {
 
 	// Setup source selection logic
 	function handleSourceSelection() {
+		// Reset all pass-free checkboxes to false when the source changes
+		if (elements.passFreeBP) elements.passFreeBP.checked = false;
+		if (elements.passFreeOG) elements.passFreeOG.checked = false;
+		if (elements.passFreeMusic) elements.passFreeMusic.checked = false;
+		if (elements.passFreeLego) elements.passFreeLego.checked = false;
 		const itemShopChecked = elements.sourceItemShop.checked;
 		const battlePassChecked = elements.sourceBattlePass.checked;
 		const fortniteCrewChecked = elements.sourceFortniteCrew.checked;

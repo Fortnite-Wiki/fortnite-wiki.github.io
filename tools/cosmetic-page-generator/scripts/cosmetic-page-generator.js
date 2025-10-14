@@ -177,11 +177,11 @@ function extractAdditionals(tags) {
 	return additional.length > 0 ? additional.join(" ") : "";
 }
 
-function extractSubtype(tags) {
-	if (tags.includes("Vehicle.Archetype.SUV")) {
+function extractSubtype(tags, cosmeticType) {
+	if (cosmeticType == "Car Body" && tags.includes("Vehicle.Archetype.SUV")) {
 		return "{{Cosmetic Subtypes|SUV}}"
 	}
-	if (tags.includes("Vehicle.Archetype.SportsCar")) {
+	if (cosmeticType == "Car Body" && tags.includes("Vehicle.Archetype.SportsCar")) {
 		return "{{Cosmetic Subtypes|Sports Car}}"
 	}
 	return "";
@@ -561,7 +561,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	out.push(`|type = ${cosmeticType}`);
 	
-	const subtype = extractSubtype(tags);
+	const subtype = extractSubtype(tags, cosmeticType);
 	if (subtype != "") {
 		out.push(`|subtype = ${subtype}`);
 	}

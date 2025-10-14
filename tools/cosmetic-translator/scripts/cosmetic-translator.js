@@ -1,4 +1,4 @@
-import { loadGzJson } from '../../../scripts/pageinfo.js';
+import { loadGzJson } from '../../../tools/jsondata.js';
 
 const DATA_BASE_PATH = '../../../data/';
 let index = [];

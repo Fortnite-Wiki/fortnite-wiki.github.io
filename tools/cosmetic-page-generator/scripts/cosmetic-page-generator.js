@@ -502,8 +502,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|name = ${name}`);
 	
 	// maybe i should make an OR for "does the base instrument have shop assets"?
-	if (are_there_shop_assets(entryMeta) || itemshop || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
-		if (isFestivalCosmetic && cosmeticType != "Aura") {
+	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
+		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
 					out.push(`|image = ${name} - Pickaxe - Fortnite.png`);
@@ -541,8 +541,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push(`${name} (Decal) - ${cosmeticType} - Fortnite.png|Decal`);
 			out.push("</gallery>");
 		} else {
-			if (isFestivalCosmetic && cosmeticType != "Aura") {
-				if (cosmeticType != instrumentType && instrumentType == "Drums") {
+			if (isFestivalCosmetic) {
+				if (cosmeticType == "Aura") {
+					out.push(`|image = ${name} - Aura - Fortnite Festival.png`);
+				} else if (cosmeticType != instrumentType && instrumentType == "Drums") {
 					out.push(`|image = ${name} - Pickaxe - Fortnite.png`);
 				} else {
 					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
@@ -718,6 +720,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		(settings.isOGPass && settings.ogPageCompletion) ||
 		(settings.isMusicPass && settings.musicPageCompletion) ||
 		(settings.isLEGOPass && settings.legoPageCompletion);
+	console.log(obtainedOnPageCompletion);
 	
 	const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
 
@@ -1059,19 +1062,19 @@ async function generatePage() {
 			bpSeason: elements.bpSeason.value,
 			bpPage: elements.bpPage.value,
 			bpBonus: elements.bpBonus.checked,
-			bpPageCompletion: elements.bpPageCompletion.value,
+			bpPageCompletion: elements.bpPageCompletion.checked,
 			
 			// Metaverse pass specific
 			ogSeason: elements.ogSeason.value,
 			ogPage: elements.ogPage.value,
-			ogPageCompletion: elements.ogPageCompletion.value,
+			ogPageCompletion: elements.ogPageCompletion.checked,
 			musicSeason: elements.musicSeason.value,
 			musicPage: elements.musicPage.value,
-			musicPageCompletion: elements.musicPageCompletion.value,
+			musicPageCompletion: elements.musicPageCompletion.checked,
 			legoSeason: elements.legoSeason.value,
 			legoSeasonAbbr: elements.legoSeasonAbbr.value,
 			legoPage: elements.legoPage.value,
-			legoPageCompletion: elements.legoPageCompletion.value,
+			legoPageCompletion: elements.legoPageCompletion.checked,
 			
 			// Free in any Pass (per pass)
 			passFreeBP: elements.passFreeBP && elements.passFreeBP.checked,

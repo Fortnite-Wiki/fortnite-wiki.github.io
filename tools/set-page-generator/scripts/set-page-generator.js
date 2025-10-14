@@ -178,6 +178,7 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	for (const obj of cosmetics) {
 		const props = obj.data?.Properties || obj.Properties || {};
 		const objType = obj.data?.Type || obj.Type;
+		const cosmeticType = TYPE_MAP[objType];
 		const name = props.ItemName?.SourceString || obj.name;
 		let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
 
@@ -198,27 +199,32 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival');
 		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing/');
 		let instrumentType = null;
-		if (isFestivalCosmetic && (TYPE_MAP[objType] !== 'Aura')) {
+		if (isFestivalCosmetic && (cosmeticType !== 'Aura')) {
 			// Use INSTRUMENTS_TYPE_MAP if possible
 			if (objType in INSTRUMENTS_TYPE_MAP) {
 				instrumentType = INSTRUMENTS_TYPE_MAP[objType];
 			} else {
 				// Fallback: parse from ID
-				const id = obj.data?.ID || obj.ID || '';
+				const id = obj.data?.Name || '';
 				instrumentType = id.split('_').at(-1);
+				console.log("RAW!" + name + ": " + instrumentType + " for " + id);
 				if (instrumentType === 'Mic') {
 					instrumentType = 'Microphone';
 				} else if (instrumentType === 'DrumKit' || instrumentType === 'DrumStick' || instrumentType === 'Drum') {
 					instrumentType = 'Drums';
 				}
+				if (instrumentType == "") {
+					instrumentType = null;
+				}
 			}
 		}
 
 		// Override for Drums (Pickaxe), Wheel (Wheels), etc.
-		let fileType = TYPE_MAP[objType] || objType;
+		let fileType = cosmeticType;
 		let isPickaxeOverride = false;
+		console.log(name + ": " + instrumentType);
 		if (isFestivalCosmetic && instrumentType) {
-			if (instrumentType === 'Drums') {
+			if (instrumentType === 'Drums' && cosmeticType != instrumentType) {
 				fileType = 'Pickaxe';
 				isPickaxeOverride = true;
 			} else {
@@ -232,9 +238,9 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		const linkTarget = hasDuplicate ? `${name} (${fileType})` : name;
 		const linkDisplay = name;
 
-		typeMap[TYPE_MAP[objType] || objType]?.push(`[[${linkTarget}|${linkDisplay}]]`);
+		typeMap[cosmeticType]?.push(`[[${linkTarget}|${linkDisplay}]]`);
 		flatIconList.push({ rarity, name, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
-		if (TYPE_MAP[objType] === 'Outfit') outfitCosmetics.push(props);
+		if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
 	}
 
 	// Rarity for infobox

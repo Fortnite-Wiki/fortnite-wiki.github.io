@@ -101,7 +101,7 @@ input[type="text"], input[type="number"], input[type="date"], select {
 }
 
 .two-column-layout h5 {
-  margin: 1rem 0 0.5rem 0;
+  margin: 0 0 0.5rem 0;
   color: #ccc;
   font-size: 1rem;
   font-weight: 500;
@@ -126,13 +126,15 @@ input[type="text"], input[type="number"], input[type="date"], select {
 /* Source options layout */
 .source-options {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin: 1rem 0;
-  flex-wrap: wrap;
 }
 
 .source-options .checkbox-label {
   margin: 0;
+  flex: 1 1 calc(33.333% - 2rem); /* 3 per row */
+  box-sizing: border-box;
 }
 
 /* Source settings sections */

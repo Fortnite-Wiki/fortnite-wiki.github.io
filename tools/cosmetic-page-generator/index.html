@@ -55,6 +55,18 @@
 								<input type="checkbox" id="source-fortnite-crew" name="source">
 								Fortnite Crew
 							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-og-pass" name="source">
+								OG Pass
+							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-music-pass" name="source">
+								Music Pass
+							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" id="source-lego-pass" name="source">
+								LEGO Pass
+							</label>
 						</div>
 
 						<!-- Item Shop Settings -->
@@ -86,15 +98,13 @@
 								<label for="bp-page">Page:</label>
 								<input type="number" id="bp-page" placeholder="5" min="1" max="20">
 							</div>
-							<div class="inline-group">
+							<div class="inline-group" style="gap: 2rem">
 								<label class="checkbox-label">
 									<input type="checkbox" id="bp-bonus">
 									Bonus reward?
 								</label>
-							</div>
-							<div class="inline-group">
 								<label class="checkbox-label">
-									<input type="checkbox" id="bp-free">
+									<input type="checkbox" id="pass-free">
 									Free?
 								</label>
 							</div>
@@ -126,8 +136,69 @@
 								<input type="number" id="crew-year" placeholder="2025" min="2020" max="2030">
 							</div>
 						</div>
-					</div>
 
+						<!-- OG Pass Settings -->
+						<div id="og-pass-settings" class="source-settings hidden">
+							<h5>OG Pass Settings</h5>
+							<div class="inline-group">
+								<label for="og-season">Season:</label>
+								<input type="text" id="og-season" placeholder="6" pattern="[0-9]+">
+							</div>
+							<div class="inline-group">
+								<label for="og-page">Page:</label>
+								<input type="number" id="og-page" placeholder="1" min="1" max="6">
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="pass-free">
+									Free?
+								</label>
+							</div>
+						</div>
+						
+						<!-- Music Pass Settings -->
+						<div id="music-pass-settings" class="source-settings hidden">
+							<h5>Music Pass Settings</h5>
+							<div class="inline-group">
+								<label for="music-season">Season:</label>
+								<input type="text" id="music-season" placeholder="11" pattern="[0-9]+">
+							</div>
+							<div class="inline-group">
+								<label for="music-page">Page:</label>
+								<input type="number" id="music-page" placeholder="1" min="1" max="4">
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="pass-free">
+									Free?
+								</label>
+							</div>
+						</div>
+						
+						<!-- LEGO Pass Settings -->
+						<div id="lego-pass-settings" class="source-settings hidden">
+							<h5>LEGO Pass Settings</h5>
+							<div class="inline-group">
+								<label for="lego-season">Season Name:</label>
+								<input type="text" id="lego-season" placeholder="Palm Paradise">
+							</div>
+							<div class="inline-group">
+								<label for="lego-season">Season Abbreviation:</label>
+								<input type="text" id="lego-season-abbr" placeholder="PP">
+							</div>
+							<div class="inline-group">
+								<label for="lego-page">Page:</label>
+								<input type="number" id="lego-page" placeholder="1" min="1" max="4">
+							</div>
+							<div class="inline-group">
+								<label class="checkbox-label">
+									<input type="checkbox" id="pass-free">
+									Free?
+								</label>
+							</div>
+						</div>
+					</div>
+					
 					<!-- Right Column: Release Status -->
 					<div class="column">
 						<h4>Release Status</h4>

@@ -502,7 +502,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|name = ${name}`);
 	
 	// maybe i should make an OR for "does the base instrument have shop assets"?
-	if (are_there_shop_assets(entryMeta) || itemshop || (cosmeticType == "Loading Screen" && settings.isBattlePass) {
+	if (are_there_shop_assets(entryMeta) || itemshop || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
 		if (isFestivalCosmetic && cosmeticType != "Aura") {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
@@ -740,8 +740,50 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else {
 		article += ".";
 	}
-	if (setName) {
+	
+	let seasonFirstReleasedFlag = "";
+	if (settings.releaseDate) {
+		const date = new Date(settings.releaseDate);
+		
+		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
+			.sort(([, dateA], [, dateB]) => dateA - dateB);
+		
+		// Find the matching season key
+		let matchedSeasonKey = null;
+		for (let i = 0; i < sortedSeasons.length; i++) {
+			const [currentKey, currentDate] = sortedSeasons[i];
+			const nextDate = sortedSeasons[i + 1]?.[1];
+
+			if (date >= currentDate && (!nextDate || date < nextDate)) {
+				matchedSeasonKey = currentKey;
+				break;
+			}
+		}
+		
+		if (matchedSeasonKey) {
+			if (matchedSeasonKey === 'C2R') {
+				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
+			} else if (matchedSeasonKey === 'C6MS1') {
+				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
+			} else {
+				const chapterMatch = matchedSeasonKey.match(/^C(\d+)/);
+				const seasonMatch = matchedSeasonKey.match(/S(\d+)/);
+				
+				if (chapterMatch && seasonMatch) {
+					const chapter = chapterMatch[1];
+					const season = seasonMatch[1];
+					seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+				}
+			}
+		}
+	}
+	
+	if (setName && seasonFirstReleasedFlag) {
+		article += ` ${name}${seasonFirstReleasedFlag} and is part of the [[:Category:${setName} Set|${setName} Set]].`;
+	} else if (setName) {
 		article += ` ${name} is part of the [[:Category:${setName} Set|${setName} Set]].`;
+	} else if (seasonFirstReleasedFlag) {
+		article += ` ${name}${seasonFirstReleasedFlag}.`;
 	}
 	out.push(article + "\n");
 

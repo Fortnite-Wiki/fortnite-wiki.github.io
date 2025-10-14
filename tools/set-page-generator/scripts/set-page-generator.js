@@ -1,0 +1,423 @@
+// MediaWiki API helpers for bundle info
+async function fetchCategoryMembers(categoryName) {
+	const API_ENDPOINT = "https://fortnite.fandom.com/api.php";
+	let members = [];
+	let cmcontinue = null;
+	while (true) {
+		const params = new URLSearchParams({
+			action: "query",
+			list: "categorymembers",
+			cmtitle: categoryName,
+			cmlimit: "max",
+			format: "json",
+			formatversion: "2",
+		});
+		if (cmcontinue) params.append("cmcontinue", cmcontinue);
+		const url = `${API_ENDPOINT}?origin=*&${params.toString()}`;
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+			const newMembers = (data.query?.categorymembers || []).map(m => m.title);
+			members = members.concat(newMembers);
+			cmcontinue = data.continue?.cmcontinue;
+			if (!cmcontinue) break;
+		} catch (e) {
+			console.warn("Error fetching category members:", e);
+			break;
+		}
+	}
+	return members;
+}
+
+async function fetchWikiPageWikitext(pageTitle) {
+	const API_ENDPOINT = "https://fortnite.fandom.com/api.php";
+	const params = new URLSearchParams({
+		action: "query",
+		prop: "revisions",
+		titles: pageTitle,
+		rvslots: "main",
+		rvprop: "content",
+		format: "json",
+		formatversion: "2",
+	});
+	const url = `${API_ENDPOINT}?origin=*&${params.toString()}`;
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+		const pages = data.query?.pages || [];
+		if (!pages.length || pages[0].missing) return null;
+		return pages[0].revisions[0].slots.main.content;
+	} catch (e) {
+		console.warn(`Error fetching wiki page '${pageTitle}':`, e);
+		return null;
+	}
+}
+
+function extractBundleCost(bundlePageText) {
+	const infoboxMatch = /{{Infobox Bundles([\s\S]*?)\n}}/m.exec(bundlePageText);
+	if (!infoboxMatch) return null;
+	const infoboxText = infoboxMatch[1];
+	const costMatch = /\|cost\s*=\s*({{V-Bucks\|\d{1,3}(?:,\d{3})*}})/.exec(infoboxText);
+	if (costMatch) return costMatch[1];
+	return null;
+}
+
+async function getFirstBundleFromCategory(categoryName) {
+	const members = await fetchCategoryMembers(categoryName);
+	for (const title of members) {
+		if (title.endsWith("Bundle")) {
+			const wikitext = await fetchWikiPageWikitext(title);
+			if (wikitext) {
+				const cost = extractBundleCost(wikitext);
+				if (cost) {
+					return { bundleName: title, bundleCost: cost };
+				} else {
+					console.log(`No cost found in bundle page '${title}'`);
+					return { bundleName: title, bundleCost: null };
+				}
+			} else {
+				console.log(`Failed to fetch wikitext for '${title}'`);
+				return { bundleName: title, bundleCost: null };
+			}
+		}
+	}
+	return { bundleName: null, bundleCost: null };
+}
+import { loadGzJson } from '../../../tools/jsondata.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION } from '../../../tools/utils.js';
+
+const DATA_BASE_PATH = '../../../data/';
+
+const TYPE_FIELD_MAP = {
+	'Outfit': 'outfits',
+	'Back Bling': 'back_bling',
+	'Pet': 'pets',
+	'Pickaxe': 'harvesting_tools',
+	'Glider': 'gliders',
+	'Contrail': 'contrails',
+	'Emote': 'emotes',
+	'Emoticon': 'emoticons',
+	'Spray': 'sprays',
+	'Toy': 'toys',
+	'Wrap': 'wraps',
+	'Loading Screen': 'loading_screens',
+	'Lobby Music': 'music',
+	'Kicks': 'kicks',
+	'Car Body': 'car_bodies',
+	'Decal': 'car_decals',
+	'Wheel': 'car_wheels',
+	'Trail': 'car_trails',
+	'Boost': 'car_boosts',
+	'Aura': 'auras',
+	'Guitar': 'guitars',
+	'Bass': 'bass',
+	'Drums': 'drums',
+	'Microphone': 'microphones',
+	'Keytar': 'keytars',
+	'Banner': 'banners'
+};
+
+let index = [];
+let cosmeticSets = {};
+
+async function loadData() {
+	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
+	cosmeticSets = await resp.json();
+}
+
+function updateSetSuggestions() {
+	const input = document.getElementById('set-display').value.trim().toLowerCase();
+	const sugDiv = document.getElementById('suggestions');
+	sugDiv.innerHTML = '';
+	if (!input) return;
+	const matches = Object.entries(cosmeticSets)
+		.filter(([id, name]) =>
+			id.toLowerCase().includes(input) || name.toLowerCase().includes(input)
+		)
+		.slice(0, 10);
+	matches.forEach(([id, name]) => {
+		const div = document.createElement('div');
+		div.textContent = `${name} (${id.replace('Cosmetics.Set.', '')})`;
+		div.onclick = () => {
+			document.getElementById('set-display').value = name;
+			document.getElementById('set-input').value = id.replace('Cosmetics.Set.', '');
+			document.getElementById('set-input-name').value = name;
+			sugDiv.innerHTML = '';
+		};
+		sugDiv.appendChild(div);
+	});
+}
+
+// Find all cosmetics in a set using setID field in index.json
+function findCosmeticsInSet(setId) {
+	return index.filter(e => e.setID === setId);
+}
+
+function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, options = {}) {
+    const infobox = [];
+    if (isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
+    infobox.push('{{Infobox Set');
+    infobox.push(`|title = ${setName}`);
+    infobox.push(`|image = ${setName} - Set - Fortnite.png`);
+
+    const typeMap = {};
+    Object.values(TYPE_MAP).forEach(type => { typeMap[type] = []; });
+
+    const outfitCosmetics = [];
+    const flatIconList = [];
+
+    for (const obj of cosmetics) {
+        const props = obj.data?.Properties || obj.Properties || {};
+        const objType = obj.data?.Type || obj.Type;
+        const name = props.ItemName?.SourceString || obj.name;
+        let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
+
+        // Handle series conversion
+        if (props.DataList) {
+            for (const entry of props.DataList) {
+                if (entry && typeof entry === 'object' && entry.Series) {
+                    const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+                    if (SERIES_CONVERSION[objectName]) {
+                        rarity = SERIES_CONVERSION[objectName];
+                    }
+                    break;
+                }
+            }
+        }
+
+        const cosmeticType = TYPE_MAP[objType];
+        if (!cosmeticType) continue;
+        typeMap[cosmeticType].push(`[[${name}]]`);
+        flatIconList.push([rarity, name, cosmeticType]);
+        if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
+    }
+
+	// Rarity for infobox
+	let rarity = '';
+	if (outfitCosmetics.length) {
+		rarity = (outfitCosmetics[0].Rarity || outfitCosmetics[0].data?.Properties?.Rarity || '').split('::').pop();
+		if (outfitCosmetics[0].DataList || outfitCosmetics[0].data?.Properties?.DataList) {
+			const dataList = outfitCosmetics[0].DataList || outfitCosmetics[0].data?.Properties?.DataList;
+			for (const entry of dataList) {
+				if (entry && typeof entry === 'object' && entry.Series) {
+					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+					if (SERIES_CONVERSION[objectName]) {
+						rarity = SERIES_CONVERSION[objectName];
+					}
+					break;
+				}
+			}
+		}
+	} else if (cosmetics.length) {
+		// Use the rarity of the first cosmetic in the table if no outfits
+		const first = cosmetics[0];
+		rarity = (first.data?.Properties?.Rarity || '').split('::').pop() || first.data?.Properties?.Rarity || '';
+		if (first.data?.Properties?.DataList) {
+			for (const entry of first.data.Properties.DataList) {
+				if (entry && typeof entry === 'object' && entry.Series) {
+					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+					if (SERIES_CONVERSION[objectName]) {
+						rarity = SERIES_CONVERSION[objectName];
+					}
+					break;
+				}
+			}
+		}
+	}
+	infobox.push(`|rarity = ${rarity}`);
+
+    for (const [type, field] of Object.entries(TYPE_FIELD_MAP)) {
+        if (typeMap[type] && typeMap[type].length) {
+            infobox.push(`|${field} = ${typeMap[type].join(' <br> ')}`);
+        }
+    }
+
+
+
+	// total_v-buck_price field
+	infobox.push(`|total_v-buck_price = ${options.totalVbucks || ''}`);
+
+	// bundle_v-buck_price field
+	infobox.push(`|bundle_v-buck_price = ${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`);
+
+	// bundles field (auto-filled)
+	if (options.bundleName) {
+		infobox.push(`|bundles = [[${options.bundleName}]]`);
+	}
+
+	infobox.push(`|ID = ${setId}`);
+	infobox.push('}}');
+
+    // Pronoun logic
+    let pronoun = 'their';
+    if (outfitCosmetics.length) {
+        const genderRaw = outfitCosmetics[0].Gender || '';
+        if (genderRaw.includes('Female')) pronoun = 'her';
+        else if (genderRaw.includes('Male')) pronoun = 'his';
+    }
+
+    const outfitNames = outfitCosmetics.map(props => props.ItemName?.SourceString).filter(Boolean);
+    let subject = 'various cosmetics';
+    if (outfitNames.length === 1) {
+        subject = `[[${outfitNames[0]}]] and ${pronoun} matching cosmetics`;
+    } else if (outfitNames.length > 1) {
+        subject = outfitNames.map(o => `[[${o}]]`).join(', ') + ' and their matching cosmetics';
+    }
+
+	let summary = `'''${setName}''' is a [[:Category:Sets|Set]] in [[Fortnite]] that consists of ${subject}.`;
+	if (seasonName && seasonName.trim()) {
+		summary += ` ${setName} was added in [[${seasonName}]].`;
+	}
+	summary += '\n';
+    
+    // Sort and chunk for table
+    const typeOrder = Object.fromEntries(Object.values(TYPE_MAP).map((t, i) => [t, i]));
+    flatIconList.sort((a, b) => (typeOrder[a[2]] ?? 999) - (typeOrder[b[2]] ?? 999));
+    
+    function chunk(arr, size) {
+        const out = [];
+        for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+        return out;
+    }
+
+    const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class=\"reward-table\"'];
+    for (const row of chunk(flatIconList, 3)) {
+        cosmeticsTable.push('|' + row.map(([rarity, name, type]) =>
+            `{{${rarity} Rarity|[[File:${name} - ${type} - Fortnite.png|130px|link=${name}]]}}`
+        ).join('\n|'));
+        cosmeticsTable.push('|-');
+        cosmeticsTable.push('!' + row.map(([, name]) => `[[${name}]]`).join('\n!'));
+        cosmeticsTable.push('|-');
+    }
+    if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
+    cosmeticsTable.push('|}', '</center>', '\n[[Category:Sets]]');
+
+    return [...infobox, summary, ...cosmeticsTable].join('\n');
+}
+
+async function handleGenerate() {
+	const setId = document.getElementById('set-input').value.trim();
+	const setName = document.getElementById('set-input-name').value.trim();
+	const seasonName = document.getElementById('season-input').value.trim();
+	const isUnreleased = document.getElementById('unreleased').checked;
+	const totalVbucksInput = document.getElementById('total-vbucks-input');
+	const bundleVbucksInput = document.getElementById('bundle-vbucks-input');
+	const bundleNameInput = document.getElementById('bundle-name-input');
+
+	showStatus('Finding cosmetics in set...', 'loading');
+	const setEntries = findCosmeticsInSet(setId);
+	if (!setEntries.length) {
+		showStatus('No cosmetics found in this set.', 'error');
+		return;
+	}
+	showStatus('Loading cosmetic data for set...', 'loading');
+	// Fetch full JSONs for each cosmetic in the set
+	const cosmetics = [];
+	for (const entryMeta of setEntries) {
+		try {
+			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entryMeta.path}`);
+			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
+				continue;
+			}
+			let itemDefinitionData;
+			for (const dataEntry of cosmeticData) {
+				if (dataEntry.Type in TYPE_MAP) {
+					itemDefinitionData = dataEntry;
+				}
+			}
+			if (!itemDefinitionData) {
+				itemDefinitionData = cosmeticData[0];
+			}
+			cosmetics.push({ data: itemDefinitionData, allData: cosmeticData, entryMeta });
+		} catch (error) {
+			console.warn(`Failed to load cosmetic data for ${entryMeta.id}:`, error);
+			continue;
+		}
+	}
+	if (!cosmetics.length) {
+		showStatus('No valid cosmetics found in this set.', 'error');
+		return;
+	}
+	showStatus('Generating set page...', 'loading');
+
+
+	// Fetch bundle info
+	const { bundleName, bundleCost } = await getFirstBundleFromCategory(`Category:${setName} Set`);
+
+	// Only auto-fill bundle fields if empty (let user override)
+	if (bundleNameInput && !bundleNameInput.value) bundleNameInput.value = bundleName || '';
+	if (bundleVbucksInput && !bundleVbucksInput.value) bundleVbucksInput.value = bundleCost ? stripVbucksTemplate(bundleCost) : '';
+
+	// Get total v-bucks price from input and wrap in template if needed
+	let totalVbucks = totalVbucksInput ? totalVbucksInput.value.trim() : '';
+	let bundleVbucks = bundleVbucksInput ? bundleVbucksInput.value.trim() : '';
+	const bundleNameField = bundleNameInput ? bundleNameInput.value.trim() : '';
+
+	totalVbucks = totalVbucks ? ensureVbucksTemplate(totalVbucks) : '';
+	bundleVbucks = bundleVbucks ? ensureVbucksTemplate(bundleVbucks) : '';
+
+	let page = generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, {
+		totalVbucks,
+		bundleVbucks,
+		bundleName: bundleNameField
+	});
+// Helper: wrap value in {{V-Bucks|...}} if not already
+function ensureVbucksTemplate(val) {
+	if (!val) return '';
+	if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
+	// Remove commas and spaces
+	const num = val.replace(/[^\d]/g, '');
+	return `{{V-Bucks|${num}}}`;
+}
+
+// Helper: remove {{V-Bucks|...}} and return just the number
+function stripVbucksTemplate(val) {
+	if (!val) return '';
+	const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
+	if (m) return m[1];
+	return val.replace(/[^\d]/g, '');
+}
+
+	document.getElementById('output').value = page;
+	document.getElementById('copy-btn').disabled = false;
+	showStatus('Page generated successfully!', 'success');
+	setTimeout(hideStatus, 2000);
+}
+
+function handleCopy() {
+	const text = document.getElementById('output').value;
+	navigator.clipboard.writeText(text);
+}
+
+function handleClear() {
+	document.getElementById('output').value = '';
+	document.getElementById('copy-btn').disabled = true;
+}
+
+function showStatus(message, type = 'loading') {
+	const status = document.getElementById('status');
+	status.textContent = message;
+	status.className = 'status ' + type;
+	status.classList.remove('hidden');
+}
+
+function hideStatus() {
+	const status = document.getElementById('status');
+	status.textContent = '';
+	status.className = 'status hidden';
+}
+
+async function initializeApp() {
+	await loadData();
+	document.getElementById('set-display').addEventListener('input', updateSetSuggestions);
+	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
+	document.getElementById('copy-btn').addEventListener('click', handleCopy);
+	document.getElementById('clear-btn').addEventListener('click', handleClear);
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+	initializeApp();
+}

@@ -16,6 +16,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'set-page-generator',
+        thumbnail: 'set-page-generator',
+        name: 'Cosmetic Set Page Generator',
+        version: 'v0.0',
+        description: 'Generates cosmetic set pages.',
+        isSiteTool: true,
+    },
+    {
         id: 'jam-track-generator',
         thumbnail: 'jam-track-generator',
         name: 'Jam Track Generator',

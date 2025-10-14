@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Set Page Generator</title>
+
+	<script src="./scripts/set-page-generator.js" type="module"></script>
+	<script src="/scripts/pageinfo.js" type="module"></script>
+
+	<link rel="stylesheet" href="./styles/styles.css" />
+	<link rel="icon" href="/files/images/return-icon.png" />
+</head>
+
+<body>
+	<header>
+		<a href="/index.html" id="return-main">
+			<span>
+				<img src="/files/images/return-icon.png" alt="back" />
+			</span>
+		</a>
+		<img src="/files/images/tool-icons/set-page-generator.png" alt="logo" />
+		<span>
+			<h1 class="name">Set Page Generator</h1>
+			<span class="version"></span>
+		</span>
+	</header>
+
+	<div id="wrapper">
+		<main>
+			<section>
+				<h3>Set Search</h3>
+				<input type="text" id="set-display" placeholder="Enter set ID or Name" autocomplete="off" />
+				<input type="hidden" id="set-input" />
+				<input type="hidden" id="set-input-name" />
+				<div id="suggestions"></div>
+			</section>
+
+			<section>
+				<div class="two-column-layout">
+					<div class="column">
+						<h4>Options</h4>
+						<div class="inline-group">
+							<label for="season-input" style="padding-right: 1rem">Season it released in:</label>
+							<input type="text" id="season-input" placeholder="e.g. Chapter 6: Season 4" autocomplete="off" />
+						</div>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="unreleased">
+								Unreleased?
+							</label>
+						</div>
+						<div class="inline-group">
+							<label for="total-vbucks-input" style="padding-right: 1rem">Total V-Bucks Price:</label>
+							<input type="text" id="total-vbucks-input" placeholder="e.g. 2000" autocomplete="off" />
+						</div>
+						<div class="inline-group">
+							<label for="bundle-vbucks-input" style="padding-right: 1rem">Bundle V-Bucks Price:</label>
+							<input type="text" id="bundle-vbucks-input" placeholder="Auto-filled if found" autocomplete="off" />
+						</div>
+						<div class="inline-group">
+							<label for="bundle-name-input" style="padding-right: 1rem">Bundle Name:</label>
+							<input type="text" id="bundle-name-input" placeholder="Auto-filled if found" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<button class="sec-subm" id="generate-btn">Generate Page</button>
+			<div id="status" class="status hidden"></div>
+		</main>
+    
+		<aside>
+			<section>
+				<div class="title-box">
+					<h3>Generated Page:</h3>
+				</div>
+				<textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
+				<button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+			</section>
+		</aside>
+	</div>
+</body>
+</html>

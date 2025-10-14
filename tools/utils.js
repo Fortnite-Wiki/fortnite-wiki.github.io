@@ -1,0 +1,71 @@
+// utils.js - shared utility constants and functions for generators
+
+export const TYPE_MAP = {
+	"AthenaCharacterItemDefinition": "Outfit",
+	"AthenaBackpackItemDefinition": "Back Bling",
+	"AthenaPickaxeItemDefinition": "Pickaxe",
+	"AthenaDanceItemDefinition": "Emote",
+	"AthenaGliderItemDefinition": "Glider",
+	"AthenaItemWrapDefinition": "Wrap",
+	"AthenaLoadingScreenItemDefinition": "Loading Screen",
+	"AthenaMusicPackItemDefinition": "Lobby Music",
+	"AthenaSkyDiveContrailItemDefinition": "Contrail",
+	"AthenaSprayItemDefinition": "Spray",
+	"AthenaEmojiItemDefinition": "Emoticon",
+	"AthenaPetCarrierItemDefinition": "Pet",
+	"AthenaPetItemDefinition": "Pet",
+	"AthenaToyItemDefinition": "Toy",
+	"CosmeticShoesItemDefinition": "Kicks",
+	"SparksBassItemDefinition": "Bass",
+	"SparksDrumItemDefinition": "Drums",
+	"SparksGuitarItemDefinition": "Guitar",
+	"SparksKeyboardItemDefinition": "Keytar",
+	"SparksMicItemDefinition": "Microphone",
+	"SparksAuraItemDefinition": "Aura",
+	"FortVehicleCosmeticsItemDefinition_Body": "Car Body",
+	"FortVehicleCosmeticsItemDefinition_Skin": "Decal",
+	"FortVehicleCosmeticsItemDefinition_Wheel": "Wheel",
+	"FortVehicleCosmeticsItemDefinition_DriftTrail": "Trail",
+	"FortVehicleCosmeticsItemDefinition_Booster": "Boost"
+};
+
+export const INSTRUMENTS_TYPE_MAP = {
+	"SparksBassItemDefinition": "Bass",
+	"SparksDrumItemDefinition": "Drums",
+	"SparksGuitarItemDefinition": "Guitar",
+	"SparksKeyboardItemDefinition": "Keytar",
+	"SparksMicItemDefinition": "Microphone"
+};
+
+export const SERIES_CONVERSION = {
+	"ColumbusSeries": "Star Wars Series",
+	"CreatorCollabSeries": "Icon Series",
+	"CrewSeries": "Crew Series",
+	"CUBESeries": "Dark Series",
+	"DCUSeries": "DC Series",
+	"FrozenSeries": "Frozen Series",
+	"KittySeries": "PUMA Series",
+	"LavaSeries": "Lava Series",
+	"MarvelSeries": "Marvel Series",
+	"PlatformSeries": "Gaming Legends Series",
+	"ShadowSeries": "Shadow Series",
+	"SlurpSeries": "Slurp Series",
+	"Series_Adidas": "Adidas Series",
+	"Series_Alan_Walker": "Alan Walker Series",
+	"Series_BMW": "BMW Series",
+	"Series_Bugatti": "Bugatti Series",
+	"Series_Chevrolet": "Chevrolet Series",
+	"Series_DC": "DC Series",
+	"Series_Dodge": "Dodge Series",
+	"Series_Ferrari": "Ferrari Series",
+	"Series_Ford": "Ford Series",
+	"Series_Jeep": "Jeep Series",
+	"Series_Lamborghini": "Lamborghini Series",
+	"Series_McLaren": "McLaren Series",
+	"Series_Mercedes": "Mercedes Series",
+	"Series_Nissan": "Nissan Series",
+	"Series_Pontiac": "Pontiac Series",
+	"Series_Porsche": "Porsche Series",
+	"Series_RAM": "Ram Series",
+	"Series_Tesla": "Tesla Series"
+};

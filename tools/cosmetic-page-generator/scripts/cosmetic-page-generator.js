@@ -502,7 +502,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|name = ${name}`);
 	
 	// maybe i should make an OR for "does the base instrument have shop assets"?
-	if (are_there_shop_assets(entryMeta) || itemshop) {
+	if (are_there_shop_assets(entryMeta) || itemshop || (cosmeticType == "Loading Screen" && settings.isBattlePass) {
 		if (isFestivalCosmetic && cosmeticType != "Aura") {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {

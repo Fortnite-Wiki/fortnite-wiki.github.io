@@ -164,34 +164,78 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
     const typeMap = {};
     Object.values(TYPE_MAP).forEach(type => { typeMap[type] = []; });
 
-    const outfitCosmetics = [];
-    const flatIconList = [];
+	const outfitCosmetics = [];
+	const flatIconList = [];
 
-    for (const obj of cosmetics) {
-        const props = obj.data?.Properties || obj.Properties || {};
-        const objType = obj.data?.Type || obj.Type;
-        const name = props.ItemName?.SourceString || obj.name;
-        let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
+	// Find duplicate names in this set
+	const nameCounts = {};
+	for (const obj of cosmetics) {
+		const props = obj.data?.Properties || obj.Properties || {};
+		const name = props.ItemName?.SourceString || obj.name;
+		nameCounts[name] = (nameCounts[name] || 0) + 1;
+	}
 
-        // Handle series conversion
-        if (props.DataList) {
-            for (const entry of props.DataList) {
-                if (entry && typeof entry === 'object' && entry.Series) {
-                    const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
-                    if (SERIES_CONVERSION[objectName]) {
-                        rarity = SERIES_CONVERSION[objectName];
-                    }
-                    break;
-                }
-            }
-        }
+	for (const obj of cosmetics) {
+		const props = obj.data?.Properties || obj.Properties || {};
+		const objType = obj.data?.Type || obj.Type;
+		const name = props.ItemName?.SourceString || obj.name;
+		let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
 
-        const cosmeticType = TYPE_MAP[objType];
-        if (!cosmeticType) continue;
-        typeMap[cosmeticType].push(`[[${name}]]`);
-        flatIconList.push([rarity, name, cosmeticType]);
-        if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
-    }
+		// Handle series conversion
+		if (props.DataList) {
+			for (const entry of props.DataList) {
+				if (entry && typeof entry === 'object' && entry.Series) {
+					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+					if (SERIES_CONVERSION[objectName]) {
+						rarity = SERIES_CONVERSION[objectName];
+					}
+					break;
+				}
+			}
+		}
+
+		// Determine instrumentType for Festival using new strategy
+		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival');
+		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing/');
+		let instrumentType = null;
+		if (isFestivalCosmetic && (TYPE_MAP[objType] !== 'Aura')) {
+			// Use INSTRUMENTS_TYPE_MAP if possible
+			if (objType in INSTRUMENTS_TYPE_MAP) {
+				instrumentType = INSTRUMENTS_TYPE_MAP[objType];
+			} else {
+				// Fallback: parse from ID
+				const id = obj.data?.ID || obj.ID || '';
+				instrumentType = id.split('_').at(-1);
+				if (instrumentType === 'Mic') {
+					instrumentType = 'Microphone';
+				} else if (instrumentType === 'DrumKit' || instrumentType === 'DrumStick' || instrumentType === 'Drum') {
+					instrumentType = 'Drums';
+				}
+			}
+		}
+
+		// Override for Drums (Pickaxe), Wheel (Wheels), etc.
+		let fileType = TYPE_MAP[objType] || objType;
+		let isPickaxeOverride = false;
+		if (isFestivalCosmetic && instrumentType) {
+			if (instrumentType === 'Drums') {
+				fileType = 'Pickaxe';
+				isPickaxeOverride = true;
+			} else {
+				fileType = instrumentType;
+			}
+		}
+		if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
+
+		// For duplicate name handling
+		const hasDuplicate = nameCounts[name] > 1;
+		const linkTarget = hasDuplicate ? `${name} (${fileType})` : name;
+		const linkDisplay = name;
+
+		typeMap[TYPE_MAP[objType] || objType]?.push(`[[${linkTarget}|${linkDisplay}]]`);
+		flatIconList.push({ rarity, name, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
+		if (TYPE_MAP[objType] === 'Outfit') outfitCosmetics.push(props);
+	}
 
 	// Rarity for infobox
 	let rarity = '';
@@ -227,11 +271,16 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	}
 	infobox.push(`|rarity = ${rarity}`);
 
-    for (const [type, field] of Object.entries(TYPE_FIELD_MAP)) {
-        if (typeMap[type] && typeMap[type].length) {
-            infobox.push(`|${field} = ${typeMap[type].join(' <br> ')}`);
-        }
-    }
+	for (const [type, field] of Object.entries(TYPE_FIELD_MAP)) {
+		// Find all flatIconList entries for this type
+		const entries = flatIconList.filter(e => TYPE_MAP[type] ? e.fileType === TYPE_FIELD_MAP[type].replace('_', ' ') : false || e.fileType === type);
+		if (entries.length) {
+			const links = entries.map(({ name, linkTarget, linkDisplay }) => {
+				return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
+			});
+			infobox.push(`|${field} = ${links.join(' <br> ')}`);
+		}
+	}
 
 
 
@@ -271,27 +320,38 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	}
 	summary += '\n';
     
-    // Sort and chunk for table
-    const typeOrder = Object.fromEntries(Object.values(TYPE_MAP).map((t, i) => [t, i]));
-    flatIconList.sort((a, b) => (typeOrder[a[2]] ?? 999) - (typeOrder[b[2]] ?? 999));
-    
-    function chunk(arr, size) {
-        const out = [];
-        for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-        return out;
-    }
+	// Sort and chunk for table
+	const typeOrder = Object.fromEntries(Object.values(TYPE_MAP).map((t, i) => [t, i]));
+	flatIconList.sort((a, b) => (typeOrder[a.fileType] ?? 999) - (typeOrder[b.fileType] ?? 999));
 
-    const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class=\"reward-table\"'];
-    for (const row of chunk(flatIconList, 3)) {
-        cosmeticsTable.push('|' + row.map(([rarity, name, type]) =>
-            `{{${rarity} Rarity|[[File:${name} - ${type} - Fortnite.png|130px|link=${name}]]}}`
-        ).join('\n|'));
-        cosmeticsTable.push('|-');
-        cosmeticsTable.push('!' + row.map(([, name]) => `[[${name}]]`).join('\n!'));
-        cosmeticsTable.push('|-');
-    }
-    if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
-    cosmeticsTable.push('|}', '</center>', '\n[[Category:Sets]]');
+	function chunk(arr, size) {
+		const out = [];
+		for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+		return out;
+	}
+
+	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
+	for (const row of chunk(flatIconList, 3)) {
+		cosmeticsTable.push('|' + row.map(({ rarity, name, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay }) => {
+			let ending = 'Fortnite.png';
+			if (fileType === 'Pickaxe' || fileType === 'Back Bling') {
+				ending = 'Fortnite.png';
+			} else if (isFestivalCosmetic && !isPickaxeOverride) {
+				ending = 'Fortnite Festival.png';
+			} else if (isRacingCosmetic) {
+				ending = 'Rocket Racing.png';
+			}
+			return `{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`;
+		}).join('\n|'));
+		cosmeticsTable.push('|-');
+		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay }) => {
+			// Only use [[NAME (TYPE)|NAME]] if there are duplicates, else just [[NAME]]
+			return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
+		}).join('\n!'));
+		cosmeticsTable.push('|-');
+	}
+	if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
+	cosmeticsTable.push('|}', '</center>', '\n[[Category:Sets]]');
 
     return [...infobox, summary, ...cosmeticsTable].join('\n');
 }

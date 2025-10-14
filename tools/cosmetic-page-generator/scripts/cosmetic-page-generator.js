@@ -506,7 +506,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (isFestivalCosmetic && cosmeticType != "Aura") {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
-					out.push(`|image = ${name} - Pickaxe - Fortnite Festival.png`);
+					out.push(`|image = ${name} - Pickaxe - Fortnite.png`);
 				} else {
 					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
 				}
@@ -542,7 +542,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push("</gallery>");
 		} else {
 			if (isFestivalCosmetic && cosmeticType != "Aura") {
-				out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
+				if (cosmeticType != instrumentType && instrumentType == "Drums") {
+					out.push(`|image = ${name} - Pickaxe - Fortnite.png`);
+				} else {
+					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
+				}
 			} else if (isRacingCosmetic) {
 				if (cosmeticType === "Wheel") {
 					out.push(`|image = ${name} - Wheels - Rocket Racing.png`);

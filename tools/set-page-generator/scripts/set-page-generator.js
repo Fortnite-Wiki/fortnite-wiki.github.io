@@ -167,7 +167,7 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	const outfitCosmetics = [];
 	const flatIconList = [];
 
-	// Find duplicate names in this set
+	// Count every usage of each cosmetic name
 	const nameCounts = {};
 	for (const obj of cosmetics) {
 		const props = obj.data?.Properties || obj.Properties || {};
@@ -182,7 +182,6 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		const name = props.ItemName?.SourceString || obj.name;
 		let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
 
-		// Handle series conversion
 		if (props.DataList) {
 			for (const entry of props.DataList) {
 				if (entry && typeof entry === 'object' && entry.Series) {
@@ -195,9 +194,9 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 			}
 		}
 
-		// Determine instrumentType for Festival using new strategy
 		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival');
-		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing/');
+		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing');
+		
 		let instrumentType = null;
 		if (isFestivalCosmetic && (cosmeticType !== 'Aura')) {
 			// Use INSTRUMENTS_TYPE_MAP if possible
@@ -207,7 +206,6 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 				// Fallback: parse from ID
 				const id = obj.data?.Name || '';
 				instrumentType = id.split('_').at(-1);
-				console.log("RAW!" + name + ": " + instrumentType + " for " + id);
 				if (instrumentType === 'Mic') {
 					instrumentType = 'Microphone';
 				} else if (instrumentType === 'DrumKit' || instrumentType === 'DrumStick' || instrumentType === 'Drum') {
@@ -219,10 +217,8 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 			}
 		}
 
-		// Override for Drums (Pickaxe), Wheel (Wheels), etc.
 		let fileType = cosmeticType;
 		let isPickaxeOverride = false;
-		console.log(name + ": " + instrumentType);
 		if (isFestivalCosmetic && instrumentType) {
 			if (instrumentType === 'Drums' && cosmeticType != instrumentType) {
 				fileType = 'Pickaxe';
@@ -233,13 +229,13 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		}
 		if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
 
-		// For duplicate name handling
+		// Use cosmetic type in page links if more than one cosmetic with same name
 		const hasDuplicate = nameCounts[name] > 1;
-		const linkTarget = hasDuplicate ? `${name} (${fileType})` : name;
+		const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
 		const linkDisplay = name;
 
 		typeMap[cosmeticType]?.push(`[[${linkTarget}|${linkDisplay}]]`);
-		flatIconList.push({ rarity, name, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
+		flatIconList.push({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
 		if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
 	}
 
@@ -279,7 +275,7 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 
 	for (const [type, field] of Object.entries(TYPE_FIELD_MAP)) {
 		// Find all flatIconList entries for this type
-		const entries = flatIconList.filter(e => TYPE_MAP[type] ? e.fileType === TYPE_FIELD_MAP[type].replace('_', ' ') : false || e.fileType === type);
+		const entries = flatIconList.filter(e => TYPE_MAP[type] ? e.cosmeticType === TYPE_FIELD_MAP[type].replace('_', ' ') : false || e.cosmeticType === type);
 		if (entries.length) {
 			const links = entries.map(({ name, linkTarget, linkDisplay }) => {
 				return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
@@ -288,15 +284,10 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		}
 	}
 
-
-
-	// total_v-buck_price field
 	infobox.push(`|total_v-buck_price = ${options.totalVbucks || ''}`);
 
-	// bundle_v-buck_price field
 	infobox.push(`|bundle_v-buck_price = ${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`);
 
-	// bundles field (auto-filled)
 	if (options.bundleName) {
 		infobox.push(`|bundles = [[${options.bundleName}]]`);
 	}
@@ -304,7 +295,6 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	infobox.push(`|ID = ${setId}`);
 	infobox.push('}}');
 
-    // Pronoun logic
     let pronoun = 'their';
     if (outfitCosmetics.length) {
         const genderRaw = outfitCosmetics[0].Gender || '';
@@ -326,9 +316,13 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	}
 	summary += '\n';
     
-	// Sort and chunk for table
-	const typeOrder = Object.fromEntries(Object.values(TYPE_MAP).map((t, i) => [t, i]));
-	flatIconList.sort((a, b) => (typeOrder[a.fileType] ?? 999) - (typeOrder[b.fileType] ?? 999));
+	// Group cosmetics by TYPE_FIELD_MAP order
+	const typeOrderList = Object.keys(TYPE_FIELD_MAP).map(type => TYPE_MAP[type] || type);
+	const grouped = [];
+	for (const type of typeOrderList) {
+		const group = flatIconList.filter(c => c.cosmeticType === type);
+		if (group.length) grouped.push(...group);
+	}
 
 	function chunk(arr, size) {
 		const out = [];
@@ -337,8 +331,8 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	}
 
 	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
-	for (const row of chunk(flatIconList, 3)) {
-		cosmeticsTable.push('|' + row.map(({ rarity, name, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay }) => {
+	for (const row of chunk(grouped, 3)) {
+		cosmeticsTable.push('|' + row.map(({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay }) => {
 			let ending = 'Fortnite.png';
 			if (fileType === 'Pickaxe' || fileType === 'Back Bling') {
 				ending = 'Fortnite.png';
@@ -428,22 +422,23 @@ async function handleGenerate() {
 		bundleVbucks,
 		bundleName: bundleNameField
 	});
-// Helper: wrap value in {{V-Bucks|...}} if not already
-function ensureVbucksTemplate(val) {
-	if (!val) return '';
-	if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
-	// Remove commas and spaces
-	const num = val.replace(/[^\d]/g, '');
-	return `{{V-Bucks|${num}}}`;
-}
+	
+	// Helper: wrap value in {{V-Bucks|...}} if not already
+	function ensureVbucksTemplate(val) {
+		if (!val) return '';
+		if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
+		// Remove commas and spaces
+		const num = val.replace(/[^\d]/g, '');
+		return `{{V-Bucks|${num}}}`;
+	}
 
-// Helper: remove {{V-Bucks|...}} and return just the number
-function stripVbucksTemplate(val) {
-	if (!val) return '';
-	const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
-	if (m) return m[1];
-	return val.replace(/[^\d]/g, '');
-}
+	// Helper: remove {{V-Bucks|...}} and return just the number
+	function stripVbucksTemplate(val) {
+		if (!val) return '';
+		const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
+		if (m) return m[1];
+		return val.replace(/[^\d]/g, '');
+	}
 
 	document.getElementById('output').value = page;
 	document.getElementById('copy-btn').disabled = false;
@@ -451,9 +446,17 @@ function stripVbucksTemplate(val) {
 	setTimeout(hideStatus, 2000);
 }
 
-function handleCopy() {
-	const text = document.getElementById('output').value;
-	navigator.clipboard.writeText(text);
+async function copyToClipboard() {
+	try {
+		const content = document.getElementById('output').value;
+		await navigator.clipboard.writeText(content);
+		showStatus('Copied to clipboard!', 'success');
+		setTimeout(hideStatus, 2000);
+	} catch (error) {
+		console.error('Failed to copy to clipboard:', error);
+		showStatus('Failed to copy to clipboard', 'error');
+		setTimeout(hideStatus, 3000);
+	}
 }
 
 function handleClear() {
@@ -478,7 +481,7 @@ async function initializeApp() {
 	await loadData();
 	document.getElementById('set-display').addEventListener('input', updateSetSuggestions);
 	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
-	document.getElementById('copy-btn').addEventListener('click', handleCopy);
+	document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
 	document.getElementById('clear-btn').addEventListener('click', handleClear);
 }
 

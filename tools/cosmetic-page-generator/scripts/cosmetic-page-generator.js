@@ -6,7 +6,7 @@ const DATA_BASE_PATH = '../../../data/';
 let index = [];
 let cosmeticSets = {};
 let elements = {};
-let isCrewAutoDetected = false; // Track if Crew was auto-detected
+let isCrewAutoDetected = false;
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -34,13 +34,10 @@ async function autoDetectCosmeticSource(input) {
 						 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 			
 			// Check for series conversion
-			let series = null;
-			for (const entry of props.DataList || []) {
-				if (typeof entry === 'object' && entry !== null && entry.Series) {
-					series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
-					rarity = SERIES_CONVERSION[series] || rarity;
-					break;
-				}
+			const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
+			if (seriesEntry) {
+				let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
+				rarity = SERIES_CONVERSION[series] || rarity;
 			}
 			
 			// Auto-tick Fortnite Crew if Crew Series
@@ -124,24 +121,14 @@ function updateSuggestions() {
 async function searchCosmetic(input) {
 	const entryMeta = index.find(e => e.id.toLowerCase() === input.toLowerCase() || e.name.toLowerCase() === input.toLowerCase());
 	
-	if (!entryMeta) {
-		return { data: null, allData: null, entryMeta: null };
-	}
+	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	
 	try {
 		const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entryMeta.path}`);
 		if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 			return { data: null, allData: null, entryMeta };
 		}
-		let itemDefinitionData;
-		for (const dataEntry of cosmeticData) {
-			if (dataEntry.Type in TYPE_MAP) {
-				itemDefinitionData = dataEntry;
-			}
-		}
-		if (!itemDefinitionData) {
-			itemDefinitionData = cosmeticData[0];
-		}
+		let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
 		return { data: itemDefinitionData, allData: cosmeticData, entryMeta };
 	} catch (error) {
 		console.warn(`Failed to load cosmetic data for ${entryMeta.id}:`, error);
@@ -151,39 +138,42 @@ async function searchCosmetic(input) {
 
 
 function extractSetName(tags, cosmeticSets) {
-	for (const tag of tags) {
-		if (tag.startsWith("Cosmetics.Set.")) {
-			return cosmeticSets[tag] || "";
-		}
-	}
-	return "";
+	const setTag = tags.find(tag => tag.startsWith("Cosmetics.Set."));
+	return setTag ? cosmeticSets[setTag] || "" : "";
 }
 
 function extractAdditionals(tags) {
-	const additional = [];
-	if (tags.includes("Cosmetics.UserFacingFlags.Emote.Dance")) {
-		additional.push("{{Dance Emote}}");
-	}
-	if (tags.includes("Cosmetics.UserFacingFlags.HasVariants") || 
-		tags.includes("Cosmetics.UserFacingFlags.HasUpgradeQuests")) {
-		additional.push("{{Selectable Styles}}");
-	}
-	if (tags.includes("Cosmetics.UserFacingFlags.Reactive")) {
-		additional.push("{{Reactive}}");
-	}
-	if (tags.includes("Cosmetics.UserFacingFlags.Emoticon.Animated")) {
-		additional.push("{{Animated}}");
-	}
-	return additional.length > 0 ? additional.join(" ") : "";
+	const flagMap = [
+		["Cosmetics.UserFacingFlags.Emote.Dance", "{{Dance Emote}}"],
+		[["Cosmetics.UserFacingFlags.HasVariants", "Cosmetics.UserFacingFlags.HasUpgradeQuests"], "{{Selectable Styles}}"],
+		["Cosmetics.UserFacingFlags.Reactive", "{{Reactive}}"],
+		["Cosmetics.UserFacingFlags.Emoticon.Animated", "{{Animated}}"]
+	];
+	
+	return flagMap.reduce((acc, [keys, label]) => {
+		const match = Array.isArray(keys) ? keys.some(k => tags.includes(k)) : tags.includes(keys);
+		if (match) acc.push(label);
+		return acc;
+	}, []).join(" ");
 }
 
 function extractSubtype(tags, cosmeticType) {
-	if (cosmeticType == "Car Body" && tags.includes("Vehicle.Archetype.SUV")) {
-		return "{{Cosmetic Subtypes|SUV}}"
+	const subtypeMap = {
+		"Car Body": {
+			"Vehicle.Archetype.SUV": "SUV",
+			"Vehicle.Archetype.SportsCar": "Sports Car"
+		},
+	};
+	
+	const typeSubtypes = subtypeMap[cosmeticType];
+	if (!typeSubtypes) return "";
+	
+	for (const [flag, label] of Object.entries(typeSubtypes)) {
+		if (tags.includes(flag)) {
+			return `{{Cosmetic Subtypes|${label}}}`;
+		}
 	}
-	if (cosmeticType == "Car Body" && tags.includes("Vehicle.Archetype.SportsCar")) {
-		return "{{Cosmetic Subtypes|Sports Car}}"
-	}
+	
 	return "";
 }
 
@@ -405,6 +395,71 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 			null));
 
 	return ["== Selectable Styles ==\n" + styleTable.join("\n"), featured, Object.fromEntries(variantChannels)];
+}
+
+async function generateDecalsTable(name, tags) {
+	// Find tags that start with VehicleCosmetics.Body
+	const bodyTags = (tags || []).filter(t => typeof t === 'string' && t.startsWith('VehicleCosmetics.Body'));
+	if (bodyTags.length === 0) return;
+	const matchingTags = new Set(bodyTags);
+	
+	// Search index for entries that have a carBodyTag field equal to any of the matchingTags
+	const matchedIndexEntries = index.filter(e => {
+		if (!e?.carBodyTag) return false;
+		return Array.isArray(e.carBodyTag)
+			? e.carBodyTag.some(tag => matchingTags.has(tag))
+			: matchingTags.has(e.carBodyTag);
+	});
+	
+	const decalRows = [];
+	let currentIcons = [];
+	let currentNames = [];
+	
+	for (const mi of matchedIndexEntries) {
+		try {
+			const json = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${mi.path}`);
+			const itemDef = Array.isArray(json)
+				? json.find(d => d.Type in TYPE_MAP) || json[0]
+				: json;
+			
+			const localized = itemDef?.Properties?.ItemName?.LocalizedString;
+			const rarity = itemDef?.Properties?.Rarity?.value || "Common";
+			const name = localized || mi.name || mi.id;
+			const fileName = `${name} - Decal - Rocket Racing.png`;
+			
+			currentIcons.push(`{{${rarity} Rarity|[[File:${fileName}|130px|link=${name}]]}}`);
+			currentNames.push(`{{Style Name|[[${name}]]}}`);
+			
+			if (currentIcons.length === 5) {
+				decalRows.push(`|${currentIcons.join("\n|")}\n|-\n!${currentNames.join("\n!")}`);
+				currentIcons = [];
+				currentNames = [];
+			}
+		} catch (err) {
+			console.warn(`Failed to add decal, ${mi.id || mi.path}:`, err);
+		}
+	}
+	
+	// Push any remaining decals
+	if (currentIcons.length > 0) {
+		decalRows.push(`|${currentIcons.join("\n|")}\n|-\n!${currentNames.join("\n!")}`);
+	}
+	
+	if (decalRows.length > 0) {
+		const decalSection = [
+			"== Decals [[File:Decal - Icon - Fortnite.png|30px|link=Decals]] ==",
+			`The following decals are available for ${name}:`,
+			"<center>",
+			"{|",
+			...decalRows,
+			"|}",
+			"</center>"
+		].join("\n");
+		
+		return decalSection + "\n";
+	}
+	
+	return "";
 }
 
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
@@ -651,7 +706,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	// Release section
 	let release = "";
 	if (settings.releaseDate) {
-		
 		// using this instead of simply
 		// const date = new Date(settings.releaseDate);
 		// because of timezones affecting the entered date
@@ -837,6 +891,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else if (settings.battlePassMode) {
 			out.push("=== How To Unlock? ===\n");
 		}
+	}
+	
+	// Decals section for Car Bodies
+	if (isRacingCosmetic && cosmeticType === "Car Body") {
+		const decalsTable = await generateDecalsTable(name, tags);
+		out.push(decalsTable);
 	}
 
 	// LEGO and Bean Style Templates (for Outfits only)

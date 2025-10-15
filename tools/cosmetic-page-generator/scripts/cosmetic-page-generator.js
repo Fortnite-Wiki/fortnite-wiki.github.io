@@ -355,8 +355,7 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 				variantChannels.set(channelName, []);
 			}
 			variantChannels.get(channelName).push(formattedVariantName);
-			console.log(previewImage);
-			if (previewImage !== mainIcon) {
+			if (previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
 				const dash = channelsWithDash.includes(channelName) ? " -" : "";
 				const imageFilename = (channelName === "Style" ? 
 					`${name} (${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
@@ -387,7 +386,7 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 			for (const v of chunk) {
 				const previewImage = previewImages[`${channel},${v}`] || "";
 				const dash = channelsWithDash.includes(channel) ? " -" : "";
-				const imageFile = (previewImage === mainIcon ? 
+				const imageFile = ((previewImage == mainIcon.icon || previewImage == mainIcon.large) ? 
 					`${name} - ${cosmeticType} - Fortnite.png` : 
 					(channel === "Style" ? 
 						`${name} (${v}) - ${cosmeticType} - Fortnite.png` : 
@@ -448,16 +447,17 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	const isRacingCosmetic = entryMeta.path.startsWith("Racing");
 
-	let mainIcon = "";
+	let mainIcon = { large: "", icon: "" };
 	let tags = [];
 	let series = null;
 	
 	for (const entry of props.DataList || []) {
 		if (typeof entry === 'object' && entry !== null) {
 			if (entry.LargeIcon?.AssetPathName) {
-				mainIcon = entry.LargeIcon.AssetPathName;
-			} else if (!mainIcon && entry.Icon?.AssetPathName) {
-				mainIcon = entry.Icon.AssetPathName;
+				mainIcon.large = entry.LargeIcon.AssetPathName;
+			}
+			if (entry.Icon?.AssetPathName) {
+				mainIcon.icon = entry.Icon.AssetPathName;
 			}
 			if (entry.Tags) {
 				tags = entry.Tags;
@@ -468,7 +468,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 		}
 	}
-	console.log(mainIcon);
 
 	const setName = extractSetName(tags, cosmeticSets);
 	const itemshop = tags.some(tag => tag.includes("ItemShop"));
@@ -729,7 +728,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		(settings.isOGPass && settings.ogPageCompletion) ||
 		(settings.isMusicPass && settings.musicPageCompletion) ||
 		(settings.isLEGOPass && settings.legoPageCompletion);
-	console.log(obtainedOnPageCompletion);
 	
 	const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
 

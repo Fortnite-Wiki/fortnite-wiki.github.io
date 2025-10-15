@@ -652,7 +652,13 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	// Release section
 	let release = "";
 	if (settings.releaseDate) {
-		const date = new Date(settings.releaseDate);
+		
+		// using this instead of simply
+		// const date = new Date(settings.releaseDate);
+		// because of timezones affecting the entered date
+		const [year, month, day] = settings.releaseDate.split('-').map(Number);
+		const date = new Date(year, month - 1, day); // month is 0-indexed
+		
 		if (settings.itemShopHistory) {
 			const historyDate = getFormattedReleaseDate(date);
 			const partLink = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";

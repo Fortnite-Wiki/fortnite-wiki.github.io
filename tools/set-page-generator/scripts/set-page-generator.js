@@ -140,7 +140,7 @@ function updateSetSuggestions() {
 		const div = document.createElement('div');
 		div.textContent = `${name} (${id.replace('Cosmetics.Set.', '')})`;
 		div.onclick = () => {
-			document.getElementById('set-display').value = name;
+			document.getElementById('set-display').value = `${name} (${id.replace('Cosmetics.Set.', '')})`;
 			document.getElementById('set-input').value = id.replace('Cosmetics.Set.', '');
 			document.getElementById('set-input-name').value = name;
 			sugDiv.innerHTML = '';

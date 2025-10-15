@@ -442,6 +442,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 		}
 	}
+	if (instrumentType == null || instrumentType == "") {
+		document.getElementById('display-title').disabled = false;
+	}
 	
 	const isRacingCosmetic = entryMeta.path.startsWith("Racing");
 
@@ -475,7 +478,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	const out = [];
 
-	if (isFestivalCosmetic && cosmeticType != "Aura") {
+	if (isFestivalCosmetic && instrumentType && cosmeticType != "Aura") {
 		out.push(`{{DISPLAYTITLE:${name}}}`);
 		out.push(`{{Instrument Disambig|${name}|${instrumentType}}}`);
 	} else if (settings.displayTitle) {

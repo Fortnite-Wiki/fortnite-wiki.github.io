@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Wiki Character Generator</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin:18px; line-height:1.35; }
+    fieldset { margin-bottom:14px; padding:10px; border:1px solid #ccc; }
+    legend { font-weight:bold; }
+    .entry { display:flex; gap:8px; align-items:center; margin:6px 0; }
+    .entry input[type="text"]{ flex:1; padding:6px; }
+    .entry label { font-size:0.9em; display:flex; gap:6px; align-items:center; }
+    .smallbtn{ padding:6px 8px; font-size:0.9em; margin-top:6px; }
+    textarea { width:100%; box-sizing:border-box; padding:6px; }
+    #output { width:100%; box-sizing:border-box; padding:6px; font-family:monospace; white-space:pre-wrap; }
+    .muted { color:#555; font-size:0.9em; }
+    .inline { display:inline-flex; gap:6px; align-items:center; margin-right:8px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .role-row { display:flex; gap:8px; align-items:center; margin-bottom:6px; }
+    select, input[type="text"] { padding:6px; }
+    .tiny { font-size:0.85em; padding:4px 6px; }
+  </style>
+</head>
+<body>
+  <h1>Wiki Character Generator</h1>
+
+  <!-- BASIC -->
+  <fieldset>
+    <legend>Basic</legend>
+    <div class="entry"><label>Name:</label><input id="charName" type="text" placeholder="Character name"></div>
+    <div class="entry"><label><input id="speculation" type="checkbox"> Add Speculation template</label></div>
+    <div class="entry"><label>Image filename:</label><input id="image" type="text" placeholder="e.g. Midas.png"></div>
+    <div class="entry"><label>Quotation:</label><input id="quotation" type="text" placeholder="Optional"></div>
+
+    <div class="entry">
+      <label>Rarity:</label>
+      <select id="rarity">
+        <option value=""></option>
+        <option>Common</option><option>Uncommon</option><option>Rare</option><option>Epic</option>
+        <option>Legendary</option><option>Mythic</option><option>Exotic</option><option>Transcendent</option>
+        <option>Frozen Series</option><option>Lava Series</option><option>Shadow Series</option><option>Dark Series</option>
+        <option>Slurp Series</option><option>Marvel Series</option><option>DC Series</option><option>Star Wars Series</option>
+        <option>Gaming Legends Series</option><option>Crew Series</option>
+      </select>
+    </div>
+
+    <div class="entry">
+      <label>Alignment:</label>
+      <select id="alignment">
+        <option value=""></option>
+        <option>Lawful Good</option><option>Neutral Good</option><option>Chaotic Good</option>
+        <option>Lawful Neutral</option><option>True Neutral</option><option>Chaotic Neutral</option>
+        <option>Lawful Evil</option><option>Neutral Evil</option><option>Chaotic Evil</option><option>Pure Evil</option>
+      </select>
+    </div>
+
+    <div class="entry">
+      <label>Debut:</label>
+      Chapter
+      <select id="chapterSelect" onchange="updateSeasons()">
+         <option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+         <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+      </select>
+      Season
+      <select id="seasonSelect"></select>
+    </div>
+  </fieldset>
+
+  <!-- TYPES: now with Current & Former -->
+  <fieldset>
+    <legend>Types / Species (Current)</legend>
+    <div id="typesContainer"></div>
+    <button type="button" class="smallbtn" onclick="addEntry('typesContainer',{wikilink:true})">+ Add Type (current)</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Types / Species (Former)</legend>
+    <div id="typesFormerContainer"></div>
+    <div class="muted">You can add a reason for former types (optional).</div>
+    <button type="button" class="smallbtn" onclick="addEntry('typesFormerContainer',{wikilink:true, allowReason:true})">+ Add Type (former)</button>
+  </fieldset>
+
+  <!-- REALITIES -->
+  <fieldset>
+    <legend>Realities</legend>
+    <div class="muted">Current realities (top). Former realities go in the "Former realities" section — you can optionally add a reason for former realities. Only the ID of the reality is necessary ex. 783</div>
+    <p class="muted">Current realities:</p>
+    <div id="realCurrContainer"></div>
+    <button class="smallbtn" onclick="addEntry('realCurrContainer',{allowBrackets:true})">+ Add Reality (current)</button>
+
+    <p class="muted">Former realities (each can include a reason):</p>
+    <div id="realFormerContainer"></div>
+    <button class="smallbtn" onclick="addEntry('realFormerContainer',{allowBrackets:true, allowReason:true})">+ Add Reality (former)</button>
+  </fieldset>
+
+  <!-- FACTIONS / AFFILIATIONS / FAMILY / OCCUPATIONS -->
+  <fieldset>
+    <legend>Factions & Affiliations</legend>
+
+    <p class="muted">Factions (current):</p>
+    <div id="factionsContainer"></div>
+    <button class="smallbtn" onclick="addEntry('factionsContainer',{wikilink:true})">+ Add Faction</button>
+
+    <p class="muted">Factions (former):</p>
+    <div id="factionsFormerContainer"></div>
+    <button class="smallbtn" onclick="addEntry('factionsFormerContainer',{wikilink:true, allowReason:true})">+ Add Faction (former)</button>
+
+    <hr>
+
+    <p class="muted">Affiliations (current):</p>
+    <div id="affContainer"></div>
+    <button class="smallbtn" onclick="addEntry('affContainer',{wikilink:true})">+ Add Affiliation</button>
+
+    <p class="muted">Affiliations (former):</p>
+    <div id="affFormerContainer"></div>
+    <button class="smallbtn" onclick="addEntry('affFormerContainer',{wikilink:true, allowReason:true})">+ Add Affiliation (former)</button>
+
+    <hr>
+
+    <p class="muted">Family (multiple):</p>
+    <div id="familyContainer"></div>
+    <button class="smallbtn" onclick="addEntry('familyContainer',{wikilink:true})">+ Add Family member</button>
+
+    <p class="muted">Occupations:</p>
+    <div id="occupationsContainer"></div>
+    <button class="smallbtn" onclick="addEntry('occupationsContainer',{wikilink:false})">+ Add Occupation</button>
+  </fieldset>
+
+  <!-- ALIASES -->
+  <fieldset>
+    <legend>Aliases (Titles / Nicknames / Aliases)</legend>
+    <div id="titlesContainer"></div>
+    <button class="smallbtn" onclick="addEntry('titlesContainer',{wikilink:true})">+ Add Title</button>
+    <div id="nicknamesContainer"></div>
+    <button class="smallbtn" onclick="addEntry('nicknamesContainer',{wikilink:true})">+ Add Nickname</button>
+    <div id="aliasesContainer"></div>
+    <button class="smallbtn" onclick="addEntry('aliasesContainer',{wikilink:true})">+ Add Alias</button>
+  </fieldset>
+
+  <!-- NARRATIVE CONFIG -->
+  <fieldset>
+    <legend>Narrative (after infobox & quotation)</legend>
+
+    <div class="entry">
+      <label>Include narrative text?</label>
+      <select id="narrativeInclude" onchange="toggleNarrativeMode()">
+        <option value="no">No</option>
+        <option value="custom">Yes — Custom text</option>
+        <option value="guided">Yes — Guided (form-based)</option>
+      </select>
+    </div>
+
+    <!-- custom text area -->
+    <div id="narrativeCustom" style="display:none; margin-top:8px;">
+      <label>Custom narrative text (exact):</label>
+      <textarea id="narrativeCustomText" rows="3" placeholder="Write the exact narrative paragraph here..."></textarea>
+    </div>
+
+    <!-- guided UI -->
+    <div id="narrativeGuided" style="display:none; margin-top:8px;">
+      <div class="entry">
+        <label>Use name in intro?</label>
+        <input type="checkbox" id="useNameInIntro" checked>
+        <label style="margin-left:12px">is / was</label>
+        <select id="isWas">
+          <option>is</option><option>was</option>
+        </select>
+        <label style="margin-left:8px">a</label>
+        <input id="guidedRoleText" type="text" placeholder="short descriptor (e.g. criminal of legendary fame)" style="flex:1;">
+      </div>
+
+      <div class="entry">
+        <label>Pronoun:</label>
+        <select id="pronoun">
+          <option value="He">He</option><option value="She">She</option><option value="They">They</option>
+        </select>
+
+        <label style="margin-left:12px">is a</label>
+        <select id="magnitude">
+          <option>minor</option><option>supporting</option><option>major</option><option>central</option><option>main</option><option>overarching</option>
+        </select>
+
+        <select id="roleType">
+          <option>character</option><option>protagonist</option><option>antagonist</option>
+        </select>
+
+        <label style="margin-left:8px">in</label>
+        <select id="universe">
+          <option>[[Fortnite]]</option><option>[[Fortnite: Battle Royale]]</option>
+        </select>
+      </div>
+
+      <p class="muted">Add one or more seasonal role sentences (they will be joined with commas):</p>
+      <div id="roleRows"></div>
+      <button class="smallbtn" type="button" onclick="addRoleRow()">+ Add seasonal role</button>
+      <div class="muted" style="margin-top:6px;">Each seasonal role is like: "<i>the main antagonist of Chapter 2: Season 1</i>" — choose magnitude, type, chapter & season.</div>
+    </div>
+  </fieldset>
+
+  <!-- SECTIONS -->
+  <fieldset>
+    <legend>Overview / Personality / Appearance</legend>
+    <label>Overview</label><textarea id="overview" rows="3" placeholder="TBA"></textarea>
+    <label>Personality</label><textarea id="personality" rows="3" placeholder="TBA"></textarea>
+    <label>Appearance</label><textarea id="appearance" rows="3" placeholder="TBA"></textarea>
+  </fieldset>
+
+  <div style="margin-bottom:12px;">
+    <button id="generateBtn" class="smallbtn">Generate Wiki Code</button>
+    <button id="downloadBtn" class="smallbtn">Download .txt</button>
+  </div>
+
+  <h3>Generated wiki code</h3>
+  <textarea id="output" rows="20" readonly></textarea>
+
+<script>
+/* ---------- helpers & init ---------- */
+
+function addEntry(containerId, opts = {wikilink:false, allowReason:false, allowBrackets:false}) {
+  const container = document.getElementById(containerId);
+  const div = document.createElement('div');
+  div.className = 'entry';
+
+  const txt = document.createElement('input');
+  txt.type = 'text';
+  txt.placeholder = 'Text...';
+  div.appendChild(txt);
+
+  // If caller asked for "wikilink option", add a per-entry [[link]] checkbox
+  if (opts.wikilink) {
+    const linkLab = document.createElement('label');
+    linkLab.style.marginLeft = '6px';
+    linkLab.innerHTML = '<input type="checkbox" class="useLinkChk" checked> [[link]]';
+    div.appendChild(linkLab);
+  }
+
+  if (opts.allowBrackets) {
+    const brLab = document.createElement('label');
+    brLab.style.marginLeft = '6px';
+    brLab.innerHTML = '<input type="checkbox" class="bracketsChk"> Brackets';
+    div.appendChild(brLab);
+  }
+
+  if (opts.allowReason) {
+    const reason = document.createElement('input');
+    reason.type = 'text';
+    reason.placeholder = 'Reason (optional)';
+    reason.style.width = '220px';
+    reason.style.marginLeft = '6px';
+    reason.className = 'reasonInput';
+    div.appendChild(reason);
+  }
+
+  // store wikilink preference on div as fallback (needed for compatibility)
+  div.dataset.wikilink = opts.wikilink ? '1' : '0';
+
+  // remove button
+  const rem = document.createElement('button');
+  rem.type = 'button'; rem.className = 'smallbtn'; rem.textContent = 'Remove';
+  rem.onclick = () => div.remove();
+  div.appendChild(rem);
+
+  container.appendChild(div);
+  return div;
+}
+
+function collectEntries(containerId) {
+  const container = document.getElementById(containerId);
+  const out = [];
+  if (!container) return out;
+  container.querySelectorAll('.entry').forEach(div => {
+    const txt = div.querySelector('input[type="text"]');
+    if (!txt) return;
+    const val = txt.value.trim();
+    if (!val) return;
+    const bracketsChk = div.querySelector('.bracketsChk');
+    const reasonInput = div.querySelector('.reasonInput');
+    const useLinkChk = div.querySelector('.useLinkChk');
+    out.push({
+      text: val,
+      brackets: bracketsChk ? bracketsChk.checked : false,
+      reason: reasonInput ? reasonInput.value.trim() : '',
+      wikilink: useLinkChk ? useLinkChk.checked : (div.dataset.wikilink === '1')
+    });
+  });
+  return out;
+}
+
+/* ---------- init empty entries similar to screenshot ---------- */
+addEntry('typesContainer', {wikilink:true});
+addEntry('typesFormerContainer', {wikilink:true, allowReason:true});
+addEntry('realCurrContainer', {allowBrackets:true});
+addEntry('realFormerContainer', {allowBrackets:true, allowReason:true});
+addEntry('factionsContainer', {wikilink:true});
+addEntry('factionsFormerContainer', {wikilink:true, allowReason:true});
+addEntry('affContainer', {wikilink:true});
+addEntry('affFormerContainer', {wikilink:true, allowReason:true});
+addEntry('familyContainer', {wikilink:true});
+addEntry('occupationsContainer', {});
+addEntry('titlesContainer', {wikilink:true});
+addEntry('nicknamesContainer', {wikilink:true});
+addEntry('aliasesContainer', {wikilink:true});
+
+/* ---------- seasons logic ---------- */
+const seasonsByChapter = {
+  1: ["Season 1","Season 2","Season 3","Season 4","Season 5","Season 6","Season 7","Season 8","Season 9","Season X"],
+  2: ["Season 1","Season 2","Season 3","Season 4","Season 5","Season 6","Season 7","Season 8"],
+  3: ["Season 1","Season 2","Season 3","Season 4"],
+  4: ["Season 1","Season 2","Season 3","Season 4","Season OG"],
+  5: ["Season 1","Season 2","Season 3","Season 4","Season Remix"],
+  6: ["Season 1","Season 2","Mini-Season 1","Season 3","Season 4"]
+};
+function updateSeasons(){
+  const chap = document.getElementById('chapterSelect').value;
+  const sel = document.getElementById('seasonSelect');
+  sel.innerHTML = '';
+  if (!chap) return;
+  seasonsByChapter[chap].forEach(s => {
+    const opt = document.createElement('option'); opt.value = s; opt.textContent = s; sel.appendChild(opt);
+  });
+}
+
+/* ---------- narrative guided: add role row ---------- */
+function addRoleRow(data = null) {
+  const container = document.getElementById('roleRows');
+  const div = document.createElement('div');
+  div.className = 'role-row';
+
+  const magnitude = document.createElement('select');
+  ["minor","supporting","major","central","main","overarching"].forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; magnitude.appendChild(o); });
+
+  const roleType = document.createElement('select');
+  ["character","protagonist","antagonist"].forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; roleType.appendChild(o); });
+
+  const chap = document.createElement('select'); chap.innerHTML = '<option value=""></option>'; 
+  [1,2,3,4,5,6].forEach(c=> { const o=document.createElement('option'); o.value=c; o.textContent='Chapter '+c; chap.appendChild(o); });
+
+  const season = document.createElement('select');
+
+  chap.onchange = function(){
+    season.innerHTML = '';
+    const val = chap.value;
+    if (!val) return;
+    seasonsByChapter[val].forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; season.appendChild(o); });
+  };
+
+  const remove = document.createElement('button'); remove.type='button'; remove.className='smallbtn'; remove.textContent='Remove'; remove.onclick = ()=> div.remove();
+
+  div.appendChild(magnitude);
+  div.appendChild(roleType);
+  div.appendChild(chap);
+  div.appendChild(season);
+  div.appendChild(remove);
+  container.appendChild(div);
+
+  // if providing preset
+  if (data) {
+    magnitude.value = data.magnitude || magnitude.value;
+    roleType.value = data.roleType || roleType.value;
+    if (data.chapter) { chap.value = data.chapter; chap.onchange(); if (data.season) season.value = data.season; }
+  }
+}
+
+/* ---------- narrative mode toggle ---------- */
+function toggleNarrativeMode() {
+  const mode = document.getElementById('narrativeInclude').value;
+  document.getElementById('narrativeCustom').style.display = (mode==='custom') ? 'block' : 'none';
+  document.getElementById('narrativeGuided').style.display = (mode==='guided') ? 'block' : 'none';
+}
+
+/* ---------- pyodide load ---------- */
+let pyodide = null;
+(async () => {
+  pyodide = await loadPyodide();
+  console.log('Pyodide loaded');
+})();
+
+/* ---------- generate ---------- */
+async function generate() {
+  if (!pyodide) { alert('Pyodide not ready yet — wait a moment.'); return; }
+
+  // collect data
+  const data = {
+    name: document.getElementById('charName').value.trim(),
+    speculation: document.getElementById('speculation').checked,
+    image: document.getElementById('image').value.trim(),
+    quotation: document.getElementById('quotation').value.trim(),
+    rarity: document.getElementById('rarity').value,
+    alignment: document.getElementById('alignment').value,
+    chapter: document.getElementById('chapterSelect').value,
+    season: document.getElementById('seasonSelect').value,
+    types_current: collectEntries('typesContainer'),
+    types_former: collectEntries('typesFormerContainer'),
+    real_current: collectEntries('realCurrContainer'),
+    real_former: collectEntries('realFormerContainer'),
+    factions_current: collectEntries('factionsContainer'),
+    factions_former: collectEntries('factionsFormerContainer'),
+    aff_current: collectEntries('affContainer'),
+    aff_former: collectEntries('affFormerContainer'),
+    family: collectEntries('familyContainer'),
+    occupations: collectEntries('occupationsContainer'),
+    titles: collectEntries('titlesContainer'),
+    nicknames: collectEntries('nicknamesContainer'),
+    aliases: collectEntries('aliasesContainer'),
+    narrativeMode: document.getElementById('narrativeInclude').value,
+    narrativeCustomText: document.getElementById('narrativeCustomText') ? document.getElementById('narrativeCustomText').value.trim() : '',
+    guided: {
+      useNameInIntro: document.getElementById('useNameInIntro') ? document.getElementById('useNameInIntro').checked : false,
+      isWas: document.getElementById('isWas') ? document.getElementById('isWas').value : 'is',
+      guidedRoleText: document.getElementById('guidedRoleText') ? document.getElementById('guidedRoleText').value.trim() : '',
+      pronoun: document.getElementById('pronoun') ? document.getElementById('pronoun').value : 'He',
+      magnitude: document.getElementById('magnitude') ? document.getElementById('magnitude').value : 'major',
+      roleType: document.getElementById('roleType') ? document.getElementById('roleType').value : 'character',
+      universe: document.getElementById('universe') ? document.getElementById('universe').value : '[[Fortnite: Battle Royale]]',
+      roles: [] // to be filled from rows
+    },
+    desc: document.getElementById('desc') ? document.getElementById('desc').value.trim() : '',
+    rolesFree: document.getElementById('roles') ? document.getElementById('roles').value.trim() : '',
+    overview: document.getElementById('overview').value.trim(),
+    personality: document.getElementById('personality').value.trim(),
+    appearance: document.getElementById('appearance').value.trim()
+  };
+
+  // collect guided role rows
+  document.querySelectorAll('#roleRows .role-row').forEach(div => {
+    const sel = div.querySelectorAll('select');
+    if (!sel || sel.length < 4) return;
+    const magnitude = sel[0].value;
+    const roleType = sel[1].value;
+    const chapter = sel[2].value;
+    const season = sel[3].value;
+    if (chapter && season) data.guided.roles.push({magnitude, roleType, chapter, season});
+  });
+
+  // pass to pyodide
+  try {
+    const jsonStr = JSON.stringify(data);
+    pyodide.globals.set('json_data', jsonStr);
+
+    const pythonCode = `
+import json
+d = json.loads(json_data)
+
+def make_reality_line(item):
+    txt = item.get('text','').strip()
+    if not txt: return None
+    if item.get('brackets'):
+        return "*[[Reality: " + txt + "|" + txt + "]]"
+    else:
+        return "*" + txt
+
+def make_reality_former_line(item):
+    txt = item.get('text','').strip()
+    if not txt: return None
+    if item.get('brackets'):
+        base = "*[[Reality: " + txt + "|" + txt + "]]"
+    else:
+        base = "*" + txt
+    reason = item.get('reason','').strip()
+    if reason:
+        base += " <small>(" + reason + ")</small>"
+    return base
+
+def aliases_scrollbox(titles, nicks, aliases):
+    parts = []
+    # Titles (respect per-entry wikilink flag)
+    if any(t.get('text','').strip() for t in titles):
+        parts.append("'''Titles:'''<hr>")
+        for t in titles:
+            txt = t.get('text','').strip()
+            if not txt: 
+                continue
+            ent = "[[" + txt + "]]" if t.get('wikilink') else txt
+            reason = t.get('reason','').strip()
+            if reason:
+                ent = ent + " <small>(" + reason + ")</small>"
+            parts.append("*" + ent)
+
+    # Nicknames (respect per-entry wikilink flag)
+    if any(n.get('text','').strip() for n in nicks):
+        parts.append("'''Nicknames: '''<hr>")
+        for n in nicks:
+            txt = n.get('text','').strip()
+            if not txt: 
+                continue
+            ent = "[[" + txt + "]]" if n.get('wikilink') else txt
+            parts.append("*" + ent)
+
+    # Aliases (respect per-entry wikilink flag)
+    if any(a.get('text','').strip() for a in aliases):
+        parts.append("'''Aliases :'''<hr>")
+        for a in aliases:
+            txt = a.get('text','').strip()
+            if not txt: 
+                continue
+            ent = "[[" + txt + "]]" if a.get('wikilink') else txt
+            parts.append("*" + ent)
+
+    if not parts: 
+        return ""
+    # build scrollbox text using real newlines
+    return "{{HistoryScrollbox|height=200px|padding=0.2em|text=\\n" + "\\n".join(parts) + "\\n}}"
+
+wiki = []
+
+# Speculation
+if d.get('speculation'):
+    wiki.append("{{Speculation|Section}}")
+
+# Infobox start
+wiki.append("{{Infobox Lore Characters")
+if d.get('name'): wiki.append("|title=" + d['name'])
+if d.get('image'): wiki.append("|image=" + d['image'])
+if d.get('rarity'): wiki.append("|rarity=" + d['rarity'])
+
+# types: current then Former
+tlines = []
+for it in d.get('types_current',[]):
+    txt = it.get('text','').strip()
+    if not txt: continue
+    if it.get('wikilink'):
+        tlines.append("*[[" + txt + "]]")
+    else:
+        tlines.append("*" + txt)
+# add current if any
+if tlines:
+    wiki.append("|type=")
+    wiki.append("\\n".join(tlines))
+# add Former types if any
+if d.get('types_former'):
+    flines = []
+    # if no current we still create the type block and include Former header
+    if not tlines:
+        wiki.append("|type=")
+    flines.append("'''Former:'''<hr>")
+    for it in d.get('types_former',[]):
+        txt = it.get('text','').strip()
+        if not txt: continue
+        if it.get('wikilink'):
+            line = "*[[" + txt + "]]"
+        else:
+            line = "*" + txt
+        reason = it.get('reason','').strip()
+        if reason:
+            line += " <small>(" + reason + ")</small>"
+        flines.append(line)
+    # append former lines to wiki (after the current entries)
+    wiki.append("\\n".join(flines))
+
+# debut
+chap = d.get('chapter','')
+season = d.get('season','')
+if chap and season:
+    if chap == "1":
+        wiki.append("|debut=[[" + season + "]]")
+    else:
+        wiki.append("|debut=[[Chapter " + chap + ": " + season + "]]")
+
+# reality
+rlines = []
+if d.get('real_current'):
+    for it in d['real_current']:
+        line = make_reality_line(it)
+        if line: rlines.append(line)
+if d.get('real_former'):
+    rlines.append("'''Former:'''<hr>")
+    for it in d['real_former']:
+        line = make_reality_former_line(it)
+        if line: rlines.append(line)
+if rlines:
+    wiki.append("|reality=")
+    wiki.append("\\n".join(rlines))
+
+# factions
+f_lines = []
+for it in d.get('factions_current',[]):
+    t = it.get('text','').strip()
+    if not t: continue
+    if it.get('wikilink'):
+        f_lines.append("*[[" + t + "]]")
+    else:
+        f_lines.append("*" + t)
+if d.get('factions_former'):
+    f_lines.append("'''Former:'''<hr>")
+    for it in d.get('factions_former',[]):
+        t = it.get('text','').strip()
+        if not t: continue
+        if it.get('wikilink'):
+            line = "*[[" + t + "]]"
+        else:
+            line = "*" + t
+        reason = it.get('reason','').strip()
+        if reason: line += " <small>(" + reason + ")</small>"
+        f_lines.append(line)
+if f_lines:
+    wiki.append("|faction=")
+    wiki.append("\\n".join(f_lines))
+
+# affiliation
+aff_lines = []
+for it in d.get('aff_current',[]):
+    t = it.get('text','').strip()
+    if not t: continue
+    if it.get('wikilink'):
+        aff_lines.append("*[[" + t + "]]")
+    else:
+        aff_lines.append("*" + t)
+if d.get('aff_former'):
+    aff_lines.append("'''Former:'''<hr>")
+    for it in d.get('aff_former',[]):
+        t = it.get('text','').strip()
+        if not t: continue
+        if it.get('wikilink'):
+            line = "*[[" + t + "]]"
+        else:
+            line = "*" + t
+        reason = it.get('reason','').strip()
+        if reason: line += " <small>(" + reason + ")</small>"
+        aff_lines.append(line)
+if aff_lines:
+    wiki.append("|affiliation=")
+    wiki.append("\\n".join(aff_lines))
+
+# family
+if d.get('family'):
+    fam = []
+    for it in d.get('family',[]):
+        t = it.get('text','').strip()
+        if not t: continue
+        if it.get('wikilink'):
+            fam.append("*[[" + t + "]]")
+        else:
+            fam.append("*" + t)
+    if fam: wiki.append("|family=" + "\\n".join(fam))
+
+# occupation
+if d.get('occupations'):
+    occ = []
+    for it in d.get('occupations',[]):
+        txt = it.get('text','').strip()
+        if txt: occ.append("*" + txt)
+    if occ: wiki.append("|occupation=" + "\\n".join(occ))
+
+# aliases scrollbox
+abox = aliases_scrollbox(d.get('titles',[]), d.get('nicknames',[]), d.get('aliases',[]))
+if abox: wiki.append("|aliases=" + abox)
+
+# alignment
+if d.get('alignment'): wiki.append("|alignment=" + d.get('alignment'))
+
+wiki.append("}}")  # end infobox
+
+# quotation
+if d.get('quotation'):
+    wiki.append("{{Quotation|" + d.get('quotation') + "|" + (d.get('name') or '') + "}}")
+
+# Narrative block
+if d.get('narrativeMode') == 'custom' and d.get('narrativeCustomText'):
+    wiki.append(d.get('narrativeCustomText'))
+elif d.get('narrativeMode') == 'guided':
+    # intro sentence (with debut appended) + blank line, then role sentence on one line
+    name = d.get('name','').strip()
+    guided = d.get('guided',{})
+    # build debut text from infobox debut selection
+    debut_txt = ""
+    chap = d.get('chapter','')
+    season = d.get('season','')
+    if chap and season:
+        if chap == "1":
+            debut_txt = " that was first introduced during [[" + season + "]]"
+        else:
+            debut_txt = " that was first introduced during [[Chapter " + chap + ": " + season + "]]"
+
+    if guided.get('useNameInIntro') and name:
+        iswas = guided.get('isWas','is')
+        desc = guided.get('guidedRoleText','').strip()
+        if desc:
+            wiki.append("'''[[" + name + "]]''' " + iswas + " " + desc + debut_txt + ".")
+        else:
+            wiki.append("'''[[" + name + "]]''' " + iswas + " a character" + debut_txt + ".")
+    elif d.get('desc'):
+        wiki.append(d.get('desc'))
+
+    # blank line as requested
+    wiki.append("")
+
+    # pronoun + general role line (single sentence, with serving as inline)
+    pron = guided.get('pronoun','He')
+    magnitude = guided.get('magnitude','major')
+    rtype = guided.get('roleType','character')
+    universe = guided.get('universe','[[Fortnite: Battle Royale]]')
+    role_line = pron + " is a " + magnitude + " " + rtype + " in " + universe
+    seasonal = []
+    for role in guided.get('roles',[]):
+        mag = role.get('magnitude','major')
+        rtp = role.get('roleType','antagonist')
+        chap = role.get('chapter'); sea = role.get('season')
+        if chap and sea:
+            if chap == '1':
+                seasonal.append("the " + mag + " " + rtp + " of [[" + sea + "]]")
+            else:
+                seasonal.append("the " + mag + " " + rtp + " of [[Chapter " + chap + ": " + sea + "]]")
+    if seasonal:
+        role_line += ", serving as " + (", ".join(seasonal)) + "."
+    else:
+        role_line += "."
+    wiki.append(role_line)
+
+elif d.get('narrativeMode') == 'no':
+    pass
+else:
+    if d.get('desc'):
+        wiki.append(d.get('desc'))
+    if d.get('rolesFree'):
+        wiki.append(d.get('rolesFree'))
+
+# Sections
+for sec in ['overview','personality','appearance']:
+    val = d.get(sec,'').strip() or "TBA"
+    wiki.append("==" + sec.capitalize() + "==")
+    wiki.append(val)
+
+"\\n".join(wiki)
+`;
+
+    const result = await pyodide.runPythonAsync(pythonCode);
+    document.getElementById('output').value = result;
+
+  } catch (err) {
+    console.error("Generation error:", err);
+    document.getElementById('output').value = "Error during generation. See console for details:\\n" + (err && err.toString ? err.toString() : String(err));
+  }
+}
+
+/* ---------- bind generate + download ---------- */
+document.getElementById('generateBtn').addEventListener('click', generate);
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  const txt = document.getElementById('output').value;
+  if (!txt) { alert("Nothing to download — generate first."); return; }
+  const blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'wiki_character.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+});
+
+/* ---------- initial helper UI: add one role row by default ---------- */
+addRoleRow();
+
+</script>
+</body>
+</html>

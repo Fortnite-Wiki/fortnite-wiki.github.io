@@ -32,6 +32,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'lore-character-generator',
+        thumbnails: ['lore-character-generator-1', 'lore-character-generator-2'],
+        name: 'Lore Character Generator',
+        version: 'v1.0',
+        description: 'Generates lore character sections/pages.',
+        isSiteTool: true,
+    },
+    {
         link: 'https://fmodel.app/',
         thumbnail: 'fmodel',
         name: 'FModel',

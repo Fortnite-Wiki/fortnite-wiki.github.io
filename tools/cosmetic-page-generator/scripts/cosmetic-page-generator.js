@@ -146,8 +146,12 @@ function extractAdditionals(tags) {
 	const flagMap = [
 		["Cosmetics.UserFacingFlags.Emote.Dance", "{{Dance Emote}}"],
 		[["Cosmetics.UserFacingFlags.HasVariants", "Cosmetics.UserFacingFlags.HasUpgradeQuests"], "{{Selectable Styles}}"],
+		[["Cosmetics.UserFacingFlags.Emoticon.Animated", "Cosmetics.UserFacingFlags.Wrap.Animated"], "{{Animated}}"],
 		["Cosmetics.UserFacingFlags.Reactive", "{{Reactive}}"],
-		["Cosmetics.UserFacingFlags.Emoticon.Animated", "{{Animated}}"]
+		["Cosmetics.UserFacingFlags.TOD", "{{Reactive|Time}}"],
+		["Cosmetics.UserFacingFlags.Music", "{{Reactive|Music}}"],
+		["Cosmetics.UserFacingFlags.Elimination", "{{Reactive|Elim}}"],
+		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"]
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {

@@ -935,6 +935,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (settings.isItemShop && settings.includeAppearances) {
 		out.push(`== [[Item Shop]] Appearances ==\n{{ItemShopAppearances\n|name = ${settings.shopAppearances}\n}}\n`);
 	}
+	
+	if (isFestivalCosmetic && cosmeticType == "Back Bling") {
+		out.push(`== Trivia ==\n* ${name} will come off the player's back when equipped with the [[${name} (Pickaxe)|${name}]] [[Pickaxe]].\n`);
+	}
 
 	if (cosmeticType === "Emoticon" && tags.includes("Cosmetics.UserFacingFlags.Emoticon.Animated") && props.SpriteSheet) {
 		out.push(`== Gallery ==\n<tabber>\n|-|Other=\n=== Other ===\n<gallery>\n${name} (Sheet) - ${cosmeticType} - Fortnite.png|Sprite Sheet\n</gallery>\n</tabber>\n`);
@@ -952,7 +956,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
 		out.push("[[Category:Free Cosmetics]]");
 	}
-
+	
+	if (isFestivalCosmetic && (cosmeticType != instrumentType)) {
+		out.push("[[Category:Compatible Cosmetics]]");
+	}
+	
 	return out.join("\n");
 }
 

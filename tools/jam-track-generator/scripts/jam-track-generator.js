@@ -1,4 +1,4 @@
-import { loadGzJson } from '../../../scripts/pageinfo.js';
+import { loadGzJson } from '../../../tools/jsondata.js';
 
 // Global variables
 let jamTracksData = null;

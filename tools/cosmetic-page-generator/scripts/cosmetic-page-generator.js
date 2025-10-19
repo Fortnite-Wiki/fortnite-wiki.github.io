@@ -66,10 +66,16 @@ function updateSuggestions() {
   // Safety check to ensure index is loaded and is an array
   if (!Array.isArray(index) || index.length === 0) return;
 
-	const scoredMatches = index
+	// Exclude bundle entries and entries missing name/id
+	const candidateIndex = index.filter(e => {
+		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+		return e.name && e.id;
+	});
+
+	const scoredMatches = candidateIndex
 	  .map(e => {
-		const name = e.name.toLowerCase();
-		const id = e.id.toLowerCase();
+		const name = (e.name || '').toLowerCase();
+		const id = (e.id || '').toLowerCase();
 		let score = 0;
 
 		if (name === input) score += 100;

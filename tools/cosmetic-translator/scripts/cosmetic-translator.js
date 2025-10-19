@@ -36,26 +36,32 @@ function updateSuggestions() {
   const sugDiv = document.getElementById("suggestions");
   sugDiv.innerHTML = "";
   if (!input) return;
-  
-	const scoredMatches = index
-	  .map(e => {
-		const name = e.name.toLowerCase();
-		const id = e.id.toLowerCase();
-		let score = 0;
 
-		if (name === input) score += 100;
-		else if (name.startsWith(input)) score += 75;
-		else if (name.includes(input)) score += 50;
+  const scoredMatches = (Array.isArray(index) ? index : [])
+    .filter(e => {
+      // exclude bundle-like entries
+      if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+      // require name and id for suggestion matching
+      return e.name && e.id;
+    })
+    .map(e => {
+      const name = (e.name || '').toLowerCase();
+      const id = (e.id || '').toLowerCase();
+      let score = 0;
 
-		if (id === input) score += 40;
-		else if (id.startsWith(input)) score += 25;
-		else if (id.includes(input)) score += 10;
+      if (name === input) score += 100;
+      else if (name.startsWith(input)) score += 75;
+      else if (name.includes(input)) score += 50;
 
-		return { entry: e, score };
-	  })
-	  .filter(item => item.score > 0)
-	  .sort((a, b) => b.score - a.score)
-	  .slice(0, 10);
+      if (id === input) score += 40;
+      else if (id.startsWith(input)) score += 25;
+      else if (id.includes(input)) score += 10;
+
+      return { entry: e, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
 
   scoredMatches.forEach(({ entry }) => {
     const div = document.createElement("div");

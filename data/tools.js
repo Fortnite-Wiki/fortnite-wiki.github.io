@@ -24,6 +24,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'bundle-page-generator',
+        thumbnail: 'bundle-page-generator',
+        name: 'Bundle Page Generator',
+        version: 'v0.0',
+        description: 'Generates Item Shop Bundle and Limited Time Offer pages.',
+        isSiteTool: true,
+    },
+    {
         id: 'jam-track-generator',
         thumbnail: 'jam-track-generator',
         name: 'Jam Track Generator',

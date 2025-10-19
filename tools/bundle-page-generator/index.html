@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Bundle Page Generator</title>
+
+	<script src="./scripts/bundle-page-generator.js" type="module"></script>
+	<script src="/scripts/pageinfo.js" type="module"></script>
+
+	<link rel="stylesheet" href="./styles/styles.css" />
+	<style>
+		#cosmetics-section { margin-top: 8px; }
+		#cosmetics-controls { margin-bottom: 6px; }
+		#cosmetics-controls button { padding: 0.25rem 0.5rem; }
+		#cosmetics-list.scrollbox { max-height: 400px; overflow-y: auto; padding: 8px; }
+		.cosmetic-entry { position: relative; }
+		.cosmetic-entry input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
+		.cosmetic-entry .suggestions { position: relative; margin-top: 4px; max-height: 160px; overflow-y: auto; }
+		.cosmetic-entry .suggestions div { padding: 6px; cursor: pointer; }
+	</style>
+	<link rel="icon" href="/files/images/return-icon.png" />
+</head>
+
+<body>
+	<header>
+		<a href="/index.html" id="return-main">
+			<span>
+				<img src="/files/images/return-icon.png" alt="back" />
+			</span>
+		</a>
+		<img src="/files/images/tool-icons/bundle-page-generator.png" alt="logo" />
+		<span>
+			<h1 class="name">Bundle Page Generator</h1>
+			<span class="version"></span>
+		</span>
+	</header>
+
+	<div id="wrapper">
+		<main>
+			<section>
+				<h3>Bundle Search</h3>
+				<input type="text" id="bundle-display" placeholder="Enter bundle ID or Name" autocomplete="off" />
+				<input type="hidden" id="bundle-input" />
+				<input type="hidden" id="bundle-input-name" />
+				<div id="suggestions"></div>
+			</section>
+			
+			<section>
+				<h4>Cosmetics</h4>
+				<div id="cosmetics-section">
+					<div id="cosmetics-controls">
+						<button id="add-cosmetic" class="sec-subm">add</button>
+						<button id="remove-cosmetic" class="sec-subm secondary">remove</button>
+					</div>
+					<div id="cosmetics-list" class="scrollbox">
+						<!-- Cosmetic entries appended here -->
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="two-column-layout">
+					<div class="column">
+						<h4>Options</h4>
+					</div>
+				</div>
+			</section>
+
+			<button class="sec-subm" id="generate-btn">Generate Page</button>
+			<div id="status" class="status hidden"></div>
+		</main>
+    
+		<aside>
+			<section>
+				<div class="title-box">
+					<h3>Generated Page:</h3>
+				</div>
+				<textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
+				<button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+			</section>
+		</aside>
+	</div>
+</body>
+</html>

@@ -143,9 +143,43 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 		};
 		sugDiv.appendChild(div);
 	});
+}
+
+async function getBundleData(bundleID, bundleName) {
+	const entryMeta = index.find(e =>
+		(e.bundle_id && e.bundle_id.toLowerCase() === bundleID.toLowerCase()) ||
+		(e.bundle_name && e.bundle_name.toLowerCase() === bundleName.toLowerCase())
+	);
+
+	if (!entryMeta) return { da: null, dav2: null };
+
+	let da = null;
+	let dav2 = null;
+
+	// Load DA if path exists
+	if (entryMeta.da_path && typeof entryMeta.da_path === 'string' && entryMeta.da_path.trim()) {
+		try {
+			da = await loadGzJson(`${DATA_BASE_PATH}${entryMeta.da_path}`);
+		} catch (err) {
+			console.warn(`Failed to load DA for bundle ${bundleID || bundleName}:`, err);
+			da = null;
+		}
 	}
 
-function generateBundlePage(bundleID, bundleName) {
+	// Load DAv2 if path exists
+	if (entryMeta.dav2_path && typeof entryMeta.dav2_path === 'string' && entryMeta.dav2_path.trim()) {
+		try {
+			dav2 = await loadGzJson(`${DATA_BASE_PATH}${entryMeta.dav2_path}`);
+		} catch (err) {
+			console.warn(`Failed to load DAv2 for bundle ${bundleID || bundleName}:`, err);
+			dav2 = null;
+		}
+	}
+
+	return { da, dav2 };
+}
+
+function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, settings) {
 	const infobox = [];
 	// if (isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
@@ -168,9 +202,95 @@ async function handleGenerate() {
 	const bundleID = document.getElementById('bundle-input').value.trim();
 	const bundleName = document.getElementById('bundle-input-name').value.trim();
 
-	showStatus('Generating bundle page...', 'loading');
+	showStatus('Loading the data for the input cosmetics...', 'loading');
+	const cosmetics = [];
+	for (const e of cosmeticsEntries) {
+		const hiddenId = (e.hiddenId && e.hiddenId.value || '').trim();
+		const hiddenName = (e.hiddenName && e.hiddenName.value || '').trim();
+		let entryMeta = index.find(it => (it.id && it.id.toLowerCase() === hiddenId.toLowerCase()) || (it.name && it.name.toLowerCase() === hiddenName.toLowerCase()));
+		if (entryMeta) {
+			try {
+				const path = entryMeta.path;
+				if (!path) continue;
+				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${path}`);
+				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) continue;
+				let itemDefinitionData = cosmeticData.find(d => d.type in TYPE_MAP) || cosmeticData[0];
+				if (!itemDefinitionData) continue;
 
-	let page = generateBundlePage(bundleID, bundleName);
+				const props = itemDefinitionData.Properties || {};
+				const ID = itemDefinitionData.Name;
+				const type = itemDefinitionData.Type;
+				const name = props.ItemName?.LocalizedString;
+				let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
+					props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
+				
+				let cosmeticType = props.ItemShortDescription?.SourceString;
+				if (!cosmeticType) {
+					cosmeticType = TYPE_MAP[data.Type] || "";
+				}
+				if (cosmeticType === "Shoes") {
+					cosmeticType = "Kicks";
+				}
+				if (cosmeticType === "Vehicle Body") {
+					cosmeticType = "Car Body";
+				}
+
+				const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
+				let instrumentType;
+				if (isFestivalCosmetic && cosmeticType != "Aura") {
+					if (type in INSTRUMENTS_TYPE_MAP) {
+						instrumentType = INSTRUMENTS_TYPE_MAP[type]
+					} else {
+						instrumentType = ID.split("_").at(-1);
+						if (instrumentType == "Mic") {
+							instrumentType = "Microphone";
+						} else if (instrumentType == "DrumKit" || instrumentType == "DrumStick" || instrumentType == "Drum") {
+							instrumentType = "Drums";
+						}
+					}
+				}
+
+				const isRacingCosmetic = entryMeta.path.startsWith("Racing");
+
+				let tags = [];
+				for (const entry of props.DataList || []) {
+					if (typeof entry === 'object' && entry !== null) {
+						if (entry.Tags) {
+							tags = entry.Tags;
+						}
+						if (entry.Series) {
+							let series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
+							rarity = SERIES_CONVERSION[series] || rarity;
+						}
+					}
+				}
+
+				const setTag = tags.find(tag => tag.startsWith("Cosmetics.Set."));
+				const setName = cosmeticSets[setTag] || "";
+
+				cosmetics.push({
+					name,
+					rarity,
+					cosmeticType,
+					setName,
+					isFestivalCosmetic,
+					instrumentType,
+					isRacingCosmetic
+				});
+
+			} catch (error) {
+				console.warn(`Failed to load cosmetic data for ${hiddenId} / ${hiddenName}:`, error);
+			}
+		}
+	}
+
+	showStatus('Loading the DA and DAv2 data...', 'loading');
+	const { da, dav2 } = await getBundleData(bundleID, bundleName);
+
+	const settings = {};
+
+	showStatus('Generating bundle page...', 'loading');
+	let page = generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, settings);
 	
 	// Helper: wrap value in {{V-Bucks|...}} if not already
 	function ensureVbucksTemplate(val) {

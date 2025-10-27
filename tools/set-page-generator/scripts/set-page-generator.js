@@ -119,11 +119,14 @@ const TYPE_FIELD_MAP = {
 
 let index = [];
 let cosmeticSets = {};
+let cosmeticSetLocalizations = {};
 
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
 	cosmeticSets = await resp.json();
+	const resp2 = await fetch(DATA_BASE_PATH + 'CosmeticSetLocalizations.json');
+	cosmeticSetLocalizations = await resp2.json();
 }
 
 function updateSetSuggestions() {
@@ -154,7 +157,43 @@ function findCosmeticsInSet(setId) {
 	return index.filter(e => e.setID === setId);
 }
 
-function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, options = {}) {
+async function fetchTranslations(translationKey) {
+	let output = [];
+	let translations = [];
+
+	const localizationFolder = "Fortnite_locchunk20";
+	try {
+		const metaPath = `${DATA_BASE_PATH}localization/${localizationFolder}/${localizationFolder}.json`;
+		const meta = await loadGzJson(metaPath);
+		const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
+
+		for (const lang of compiledLangs) {
+			const alreadyHasTranslation = translations[lang] !== undefined;
+
+			if (alreadyHasTranslation) continue;
+			
+			const locPath = `${DATA_BASE_PATH}localization/${localizationFolder}/${lang}/${localizationFolder}.json`;
+			try {
+				const loc = await loadGzJson(locPath);
+
+				const translationText = loc["CosmeticSets"]?.[translationKey];
+				if (translationText) translations[lang] = translationText;
+			} catch {}
+		}
+	} catch {}
+
+
+    for (const [lang, translation] of Object.entries(translations)) {
+      if (lang === "en") continue; // Skip English as it's already added as |name
+      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
+      const translation = translations[lang] || "";
+      output.push(`|${langKey} = ${translation}`);
+    }
+
+	return output;
+}
+
+async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, options = {}) {
     const infobox = [];
     if (isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
     infobox.push('{{Infobox Set');
@@ -289,6 +328,12 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 	}
 
 	infobox.push(`|ID = ${setId}`);
+
+	// Translations
+	const translationKey = cosmeticSetLocalizations["Cosmetics.Set." + setId] || '';
+	const translations = await fetchTranslations(translationKey);
+	infobox.push(...translations);
+
 	infobox.push('}}');
 
     let pronoun = 'their';
@@ -354,6 +399,16 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 
 async function handleGenerate() {
 	const setId = document.getElementById('set-input').value.trim();
+
+	const translationsOnly = document.getElementById('translations-only').checked;
+	if (translationsOnly) {
+		const translationKey = cosmeticSetLocalizations["Cosmetics.Set." + setId] || '';
+		const translations = await fetchTranslations(translationKey);
+		document.getElementById('output').value = translations.join('\n');
+		document.getElementById('copy-btn').disabled = false;
+		return;
+	}
+
 	const setName = document.getElementById('set-input-name').value.trim();
 	const seasonName = document.getElementById('season-input').value.trim();
 	const isUnreleased = document.getElementById('unreleased').checked;
@@ -413,7 +468,7 @@ async function handleGenerate() {
 	totalVbucks = totalVbucks ? ensureVbucksTemplate(totalVbucks) : '';
 	bundleVbucks = bundleVbucks ? ensureVbucksTemplate(bundleVbucks) : '';
 
-	let page = generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, {
+	let page = await generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, {
 		totalVbucks,
 		bundleVbucks,
 		bundleName: bundleNameField

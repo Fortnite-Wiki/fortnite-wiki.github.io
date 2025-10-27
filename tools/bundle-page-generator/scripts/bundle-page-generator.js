@@ -289,7 +289,7 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	if (!settings.isReleased) {
 		summary = summary + ' that is currently unreleased.';
 	} else if (settings.vbucksCost != "") {
-		summary = summary + `that can be purchased in the [[Item Shop]] for ${vbucksCost}.`;
+		summary = summary + `that can be purchased in the [[Item Shop]] for ${settings.vbucksCost}.`;
 	} else {
 		summary = summary + '.';
 	}

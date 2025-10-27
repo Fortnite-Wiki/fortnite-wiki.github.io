@@ -24,120 +24,30 @@ input[type="text"], input[type="number"], input[type="date"], select {
 #bundle-display {
   width: 100% !important;
 }
-
-textarea {
-  width: 100%;
-  height: 55rem;
-  max-height: 55rem;
-  padding: 1rem;
-  border: 1px solid var(--col-acc);
-  border-radius: 4px;
-  background-color: var(--col-bg3);
-  color: white;
-  font-family: "Fira Mono", monospace;
-  font-size: 0.9rem;
-  resize: vertical;
-}
-
-section {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--col-bg2);
-  border-radius: 8px;
-  border: 1px solid var(--col-acc);
-}
-
-section h3 {
-  margin: 0 0 1rem 0;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-section p {
-  margin: 0 0 1rem 0;
-  color: #ccc;
-  font-size: 0.9rem;
-}
-
-.sec-subm {
-  background-color: var(--hover-color);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-}
-
-.sec-subm:hover:not(:disabled) {
-  background-color: #e6b800;
-}
-
-.sec-subm:disabled {
-  background-color: #666;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.sec-subm.secondary {
-  background-color: #666;
-}
-
-.sec-subm.secondary:hover:not(:disabled) {
-  background-color: #777;
-}
-
-#suggestions {
-  max-height: 250px;
-  overflow-y: auto;
-  background-color: var(--col-bg3);
-}
-
-#suggestions div {
-  padding: 0.75rem;
-  cursor: pointer;
-  color: white;
-  border-bottom: 1px solid var(--col-acc);
-}
-
-#suggestions div:last-child {
-  border-bottom: none;
-}
-
-#suggestions div:hover {
-  background-color: var(--col-acc);
-}
-
-/* Status indicator */
-.status {
+/* Two-column layout (tool-specific) */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   margin-top: 1rem;
-  padding: 0.75rem;
-  border-radius: 4px;
+}
+
+.two-column-layout .column {
+  min-width: 0;
+}
+
+.two-column-layout h4 {
+  margin: 0 0 1rem 0;
+  color: white;
+  font-size: 1.1rem;
   font-weight: 500;
-  text-align: center;
+  border-bottom: 1px solid var(--col-acc);
+  padding-bottom: 0.5rem;
 }
 
-.status.hidden {
-  display: none;
-}
-
-.status.loading {
-  background: #1a4d66;
-  color: #7dd3fc;
-  border: 1px solid #0369a1;
-}
-
-.status.success {
-  background: #14532d;
-  color: #86efac;
-  border: 1px solid #16a34a;
-}
-
-.status.error {
-  background: #7f1d1d;
-  color: #fca5a5;
-  border: 1px solid #dc2626;
+.two-column-layout h5 {
+  margin: 0 0 0.5rem 0;
+  color: #ccc;
+  font-size: 1rem;
+  font-weight: 500;
 }

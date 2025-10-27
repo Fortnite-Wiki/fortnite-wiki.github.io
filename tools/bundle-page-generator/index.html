@@ -61,9 +61,74 @@
 			</section>
 
 			<section>
-				<div class="two-column-layout">
+				<div class="two-column-layout" style="margin-top: 0rem">
 					<div class="column">
-						<h4>Options</h4>
+						<h4>Bundle settings</h4>
+						<div class="inline-group">
+							<label for="vbucks-cost">V-Bucks Cost:</label>
+							<input type="text" id="vbucks-cost" placeholder="1,200"/>
+						</div>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="include-appearances">
+								Include ItemShopAppearances
+							</label>
+						</div>
+						<div class="inline-group appearances-fields" style="display: none;">
+							<input type="text" id="shop-appearances" />
+						</div>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="collaboration" name="source">
+								Collaboration?
+							</label>
+						</div>
+					</div>
+					<div class="column">
+						<h4>Release status</h4>
+						<div class="inline-group">
+							<label for="released-switch">Released?</label>
+							<div class="switch-container">
+								<label class="switch">
+									<input type="checkbox" id="released-switch">
+									<span class="slider"></span>
+								</label>
+								<span id="released-label">No</span>
+							</div>
+						</div>
+						
+						<div class="inline-group released-fields" style="display: none;">
+							<label for="release-date">Release date:</label>
+							<input type="date" id="release-date" />
+						</div>
+						
+						<div class="inline-group released-fields" style="display: none;">
+							<label class="checkbox-label">
+								<input type="checkbox" id="item-shop-history">
+								Item Shop History link
+							</label>
+							<input type="number" id="shop-history-part" placeholder="Part" min="1" max="4" style="display: none; width: 80px;">
+						</div>
+
+						<div class="inline-group">
+							<label for="update-version">Update Version:</label>
+							<input type="text" id="update-version" placeholder="37.50" pattern="[0-9]+\.[0-9]+" required>
+						</div>
+					</div>
+					<div class="column">
+						<h4>Other</h4>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="force-title-case">
+								Force bundle name to be title case?
+							</label>
+						</div>
+						<div class="inline-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="display-title" name="source">
+								<b>Add display title?</b>
+							</label>
+						</div>
 					</div>
 				</div>
 			</section>

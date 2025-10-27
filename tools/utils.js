@@ -69,3 +69,19 @@ export const SERIES_CONVERSION = {
 	"Series_RAM": "Ram Series",
 	"Series_Tesla": "Tesla Series"
 };
+
+export function articleFor(word) {
+	if (word === "") return "";
+	return word[0].toLowerCase().match(/[aeiou]/) ? "an" : "a";
+}
+
+export function getFormattedReleaseDate(date = new Date()) {
+	const day = date.getDate();
+	const suffix = day >= 11 && day <= 13 ? 'th' : 
+					day % 10 === 1 ? 'st' : 
+					day % 10 === 2 ? 'nd' : 
+					day % 10 === 3 ? 'rd' : 'th';
+	
+	const month = date.toLocaleString('en-US', { month: 'long' });
+	return `${month} ${day}${suffix} ${date.getFullYear()}`;
+}

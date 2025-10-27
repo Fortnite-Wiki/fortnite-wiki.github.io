@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -273,21 +273,6 @@ function parseBattlePassSeason(seasonInput) {
 		return { chapter: match[1], season: match[2] };
 	}
 	return null;
-}
-
-function getFormattedReleaseDate(date = new Date()) {
-	const day = date.getDate();
-	const suffix = day >= 11 && day <= 13 ? 'th' : 
-					day % 10 === 1 ? 'st' : 
-					day % 10 === 2 ? 'nd' : 
-					day % 10 === 3 ? 'rd' : 'th';
-	
-	const month = date.toLocaleString('en-US', { month: 'long' });
-	return `${month} ${day}${suffix} ${date.getFullYear()}`;
-}
-
-function articleFor(word) {
-	return word[0].toLowerCase().match(/[aeiou]/) ? "an" : "a";
 }
 
 function are_there_shop_assets(entryMeta) {

@@ -161,9 +161,6 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
     infobox.push(`|title = ${setName}`);
     infobox.push(`|image = ${setName} - Set - Fortnite.png`);
 
-    const typeMap = {};
-    Object.values(TYPE_MAP).forEach(type => { typeMap[type] = []; });
-
 	const outfitCosmetics = [];
 	const flatIconList = [];
 
@@ -234,7 +231,6 @@ function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, op
 		const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
 		const linkDisplay = name;
 
-		typeMap[cosmeticType]?.push(`[[${linkTarget}|${linkDisplay}]]`);
 		flatIconList.push({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
 		if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
 	}

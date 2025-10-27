@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -7,10 +7,29 @@ let index = [];
 let cosmeticSets = {};
 let cosmeticsEntries = [];
 
+let elements = {};
+
+let currentBundleName = '';
+
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
 	cosmeticSets = await resp.json();
+}
+
+function forceTitleCase(str) {
+	if (typeof str !== 'string') return str;
+	return str.toLowerCase().replace(/\b\w/g, function(ch, offset, full) {
+		// If the character is immediately preceded by an apostrophe and is a solitary possessive 's',
+		// keep it lowercase. Otherwise capitalize.
+		if (offset > 0 && full[offset - 1] === "'") {
+			const nextChar = full[offset + 1];
+			if (ch === 's' && (!nextChar || /[^a-zA-Z]/.test(nextChar))) {
+				return ch; // keep 's' lowercase in possessives
+			}
+		}
+		return ch.toUpperCase();
+	});
 }
 
 function updateBundleSuggestions() {
@@ -52,6 +71,10 @@ function updateBundleSuggestions() {
 			document.getElementById('bundle-display').value = `${entry.bundle_name} (${entry.bundle_id})`;
 			document.getElementById('bundle-input').value = entry.bundle_id;
 			document.getElementById('bundle-input-name').value = entry.bundle_name;
+			currentBundleName = entry.bundle_name;
+			if (elements.includeAppearances && elements.includeAppearances.checked) {
+				elements.shopAppearances.value = entry.bundle_name;
+			}
 			sugDiv.innerHTML = '';
 		};
 		sugDiv.appendChild(div);
@@ -179,35 +202,169 @@ async function getBundleData(bundleID, bundleName) {
 	return { da, dav2 };
 }
 
-function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, settings) {
+function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
 	const infobox = [];
-	// if (isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
+	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
+	if (settings.collaboration) infobox.push('{{Collaboration|Cosmetic}}');
+	if (!settings.isReleased) infobox.push('{{Unreleased|Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
 	infobox.push(`|name = ${bundleName}`);
-	infobox.push(`|image = `);
+	let imageParameter = '';
+	if (!usePlaceholderImage && imageProductTagCounts && Object.keys(imageProductTagCounts).length > 0) {
+		imageParameter = Object.entries(imageProductTagCounts).flatMap(([tag, count]) => {
+			const entries = [];
+			const tagLabelMap = {
+				'Product.Juno': 'LEGO',
+			};
+			const label = tagLabelMap[tag] || tag;
+
+			if (tag in tagLabelMap) {
+				if (count >= 1) entries.push(`${bundleName} (${label}) - Item Shop Bundle - Fortnite.png`);
+				for (let i = 2; i <= count; i++) {
+					entries.push(`${bundleName} (${label} - ${String(i).padStart(2, '0')}) - Item Shop Bundle - Fortnite.png`);
+				}
+			} else {
+				if (count >= 1) entries.push(`${bundleName} - Item Shop Bundle - Fortnite.png`);
+				for (let i = 2; i <= count; i++) {
+					entries.push(`${bundleName} (${String(i).padStart(2, '0')}) - Item Shop Bundle - Fortnite.png`);
+				}
+			}
+
+			return entries;
+		}).join('\n');
+		if (imageParameter.includes('\n')) {
+			imageParameter = `<gallery>\n${imageParameter}\n</gallery>`;
+		}
+	}
+	infobox.push(`|image = ${usePlaceholderImage ? 'Placeholder (Featured - New) - Item Shop Bundle - Fortnite.png' : imageParameter}`);
+
+	let rarity = cosmetics[0]?.rarity || "";
+	infobox.push(`|rarities = ${rarity}`);
 	
+	const links = cosmetics.map(({ name, linkTarget, linkDisplay }) => {
+		return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
+	});
+	infobox.push(`|cosmetics = ${links.join(' <br> ')}`);
+
+	if (settings.vbucksCost != "") {
+		infobox.push(`|cost = ${settings.vbucksCost}`);
+	} else {
+		infobox.push(`|cost = `);
+	}
+
+	if (settings.updateVersion != "") {
+		infobox.push(`|added_in = [[Update v${settings.updateVersion}]]`);
+	} else {
+		infobox.push("|added_in = ");
+	}
+
+	let release = "";
+	if (settings.releaseDate) {
+		// using this instead of simply
+		// const date = new Date(settings.releaseDate);
+		// because of timezones affecting the entered date
+		const [year, month, day] = settings.releaseDate.split('-').map(Number);
+		const date = new Date(year, month - 1, day); // month is 0-indexed
+
+		if (settings.itemShopHistory) {
+			const historyDate = getFormattedReleaseDate(date);
+			const partLink = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";
+			const partText = settings.shopHistoryPart ? `<br/><small><small>Part ${settings.shopHistoryPart}</small></small>` : "";
+			release = `[[Item Shop History/${historyDate}${partLink}|${historyDate}${partText}]]`;
+		} else {
+			release = getFormattedReleaseDate(date);
+		}
+	}
+	infobox.push(`|release_date = ${release}`);
+
+	if (settings.includeAppearances) {
+		infobox.push(`|appearances = ${settings.shopAppearances}`);
+	}
+	
+	infobox.push(`|ID = ${bundleID}`);
+
 	infobox.push('}}');
 	
-	let summary = "";
-	
-	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
-	cosmeticsTable.push('|}', '</center>');
-	
-	const categories = [];
+	let summary = `'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
+	if (!settings.isReleased) {
+		summary = summary + ' that is currently unreleased.';
+	} else if (settings.vbucksCost != "") {
+		summary = summary + `that can be purchased in the [[Item Shop]] for ${vbucksCost}.`;
+	} else {
+		summary = summary + '.';
+	}
+	summary = summary + "\n";
 
-	return [...infobox, summary, ...cosmeticsTable, ...categories].join('\n');
+	function chunk(arr, size) {
+		const out = [];
+		for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+		return out;
+	}
+
+	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
+	for (const row of chunk(cosmetics, 3)) {
+		cosmeticsTable.push('|' + row.map(({ name, rarity, cosmeticType, fileType, setName, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, linkTarget, linkDisplay }) => {
+			let ending = 'Fortnite.png';
+			if (fileType == 'Pickaxe' || fileType == 'Back Bling') {
+				ending = 'Fortnite.png';
+			} else if (isFestivalCosmetic && !isPickaxeOverride) {
+				ending = 'Fortnite Festival.png';
+			} else if (isRacingCosmetic) {
+				ending = 'Rocket Racing.png';
+			}
+			return `{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`;
+		}).join('\n|'));
+		cosmeticsTable.push('|-');
+		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay }) => {
+			// Only use [[NAME (TYPE)|NAME]] if there are duplicates, else just [[NAME]]
+			return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
+		}).join('\n!'));
+		cosmeticsTable.push('|-');
+	}
+	if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
+	cosmeticsTable.push('|}', '</center>', '');
+
+	const appearancesSection = [];
+	if (settings.includeAppearances) {
+		appearancesSection.push('== [[Item Shop]] Appearances ==', '{{ItemShopAppearances');
+		appearancesSection.push(`|name = ${settings.shopAppearances}`);
+		if (settings.shopAppearances != bundleName) {
+			appearancesSection.push(`|name2 = ${bundleName}`);
+		}
+		appearancesSection.push('}}', '');
+	}
+	
+	const categories = ["[[Category:Item Shop Bundles]]"];
+
+	try {
+		const setNames = Array.from(new Set(cosmetics.map(c => c.setName).filter(s => s && s.trim())));
+		for (const s of setNames) {
+			categories.push(`[[Category:${s} Set]]`);
+		}
+	} catch (e) {
+		console.warn('Failed to add set categories:', e);
+	}
+
+	return [...infobox, summary, ...cosmeticsTable, ...appearancesSection, ...categories].join('\n');
 }
 
 async function handleGenerate() {
-	const bundleID = document.getElementById('bundle-input').value.trim();
+	let bundleID = document.getElementById('bundle-input').value.trim();
 	const bundleName = document.getElementById('bundle-input-name').value.trim();
 
 	showStatus('Loading the data for the input cosmetics...', 'loading');
+
+	const nameCounts = {};
+	for (const e of cosmeticsEntries) {
+		const hiddenName = (e.hiddenName && e.hiddenName.value || '').trim();
+		nameCounts[hiddenName] = (nameCounts[hiddenName] || 0) + 1;
+	}
+
 	const cosmetics = [];
 	for (const e of cosmeticsEntries) {
 		const hiddenId = (e.hiddenId && e.hiddenId.value || '').trim();
 		const hiddenName = (e.hiddenName && e.hiddenName.value || '').trim();
-		let entryMeta = index.find(it => (it.id && it.id.toLowerCase() === hiddenId.toLowerCase()) || (it.name && it.name.toLowerCase() === hiddenName.toLowerCase()));
+		let entryMeta = index.find(it => it.id && it.id.toLowerCase() === hiddenId.toLowerCase());
 		if (entryMeta) {
 			try {
 				const path = entryMeta.path;
@@ -268,14 +425,33 @@ async function handleGenerate() {
 				const setTag = tags.find(tag => tag.startsWith("Cosmetics.Set."));
 				const setName = cosmeticSets[setTag] || "";
 
+				let fileType = cosmeticType;
+				let isPickaxeOverride = false;
+				if (isFestivalCosmetic && instrumentType) {
+					if (instrumentType === 'Drums' && cosmeticType != instrumentType) {
+						fileType = 'Pickaxe';
+						isPickaxeOverride = true;
+					} else {
+						fileType = instrumentType;
+					}
+				}
+				if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
+
+				const hasDuplicate = nameCounts[name] > 1;
+				const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
+				const linkDisplay = name;
+
 				cosmetics.push({
 					name,
 					rarity,
 					cosmeticType,
+					fileType,
 					setName,
 					isFestivalCosmetic,
-					instrumentType,
-					isRacingCosmetic
+					isPickaxeOverride,
+					isRacingCosmetic,
+					linkTarget,
+					linkDisplay
 				});
 
 			} catch (error) {
@@ -283,14 +459,73 @@ async function handleGenerate() {
 			}
 		}
 	}
+	
+	cosmetics.sort((a, b) => {
+		const typeOrder = [
+			'Outfit', 'Back Bling', 'Pet', 'Pickaxe', 'Glider', 'Contrail',
+			'Emote', 'Emoticon', 'Spray', 'Toy', 'Wrap', 'Loading Screen',
+			'Lobby Music', 'Kicks', 'Car Body', 'Decal', 'Wheel', 'Trail',
+			'Boost', 'Aura', 'Guitar', 'Bass', 'Drums', 'Microphone',
+			'Keytar', 'Jam Track', 'Banner Icon', 'Banner'
+		];
+		const aIndex = typeOrder.indexOf(a.cosmeticType);
+		const bIndex = typeOrder.indexOf(b.cosmeticType);
+		return (aIndex === -1 ? Infinity : aIndex) - (bIndex === -1 ? Infinity : bIndex);
+	});
 
 	showStatus('Loading the DA and DAv2 data...', 'loading');
 	const { da, dav2 } = await getBundleData(bundleID, bundleName);
 
-	const settings = {};
+	let imageProductTagCounts = { 'Product.BR': 0, 'Product.Juno': 0, 'Product.DelMar': 0 };
+	let usePlaceholderImage = false;
+
+	if (dav2 && Array.isArray(dav2)) {
+		for (const entry of dav2) {
+			const presentations = entry?.Properties?.ContextualPresentations;
+			if (!Array.isArray(presentations)) continue;
+
+			for (const pres of presentations) {
+				const tag = pres?.ProductTag?.TagName;
+				if (imageProductTagCounts.hasOwnProperty(tag)) {
+					imageProductTagCounts[tag]++;
+				}
+				const renderImage = pres?.RenderImage?.AssetPathName;
+				if (renderImage == '/OfferCatalog/Art/A_Shop_Tiles_Textures/T_UI_PlaceholderCube.T_UI_PlaceholderCube') {
+					usePlaceholderImage = true;
+					break;
+				}
+			}
+			if (usePlaceholderImage) {
+				break;
+			}
+		}
+	}
+
+	if (da && Array.isArray(da)) {
+		bundleID = da[0]?.Name.replace('DA_Featured_', '') || bundleID;
+	}
+
+	const settings = {
+		vbucksCost: ensureVbucksTemplate(elements.vbucksCost.value.trim()),
+		includeAppearances: elements.includeAppearances.checked,
+		shopAppearances: elements.shopAppearances.value.trim(),
+		collaboration: elements.collaboration.checked,
+		displayTitle: elements.displayTitle.checked,
+		isReleased: elements.releasedSwitch.checked,
+		releaseDate: elements.releaseDate.value.trim(),
+		itemShopHistory: elements.itemShopHistory.checked,
+		shopHistoryPart: elements.shopHistoryPart.value.trim(),
+		updateVersion: elements.updateVersion.value.trim(),
+	};
 
 	showStatus('Generating bundle page...', 'loading');
-	let page = generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, settings);
+	// Apply force-title-case option if enabled
+	let outBundleName = bundleName;
+	if (elements.forceTitleCase && elements.forceTitleCase.checked) {
+		outBundleName = forceTitleCase(bundleName);
+		currentBundleName = outBundleName;
+	}
+	let page = generateBundlePage(bundleID, outBundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings);
 	
 	// Helper: wrap value in {{V-Bucks|...}} if not already
 	function ensureVbucksTemplate(val) {
@@ -299,14 +534,6 @@ async function handleGenerate() {
 		// Remove commas and spaces
 		const num = val.replace(/[^\d]/g, '');
 		return `{{V-Bucks|${num}}}`;
-	}
-
-	// Helper: remove {{V-Bucks|...}} and return just the number
-	function stripVbucksTemplate(val) {
-		if (!val) return '';
-		const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
-		if (m) return m[1];
-		return val.replace(/[^\d]/g, '');
 	}
 
 	document.getElementById('output').value = page;
@@ -347,6 +574,26 @@ function hideStatus() {
 }
 
 async function initializeApp() {
+	elements = {
+		// Bundle settings
+		vbucksCost: document.getElementById('vbucks-cost'),
+		includeAppearances: document.getElementById('include-appearances'),
+		shopAppearances: document.getElementById('shop-appearances'),
+		collaboration: document.getElementById('collaboration'),
+
+		// Release status settings
+		releasedSwitch: document.getElementById('released-switch'),
+		releasedLabel: document.getElementById('released-label'),
+		releaseDate: document.getElementById('release-date'),
+		itemShopHistory: document.getElementById('item-shop-history'),
+		shopHistoryPart: document.getElementById('shop-history-part'),
+		updateVersion: document.getElementById('update-version'),
+
+		// Other settings
+		displayTitle: document.getElementById('display-title'),
+		forceTitleCase: document.getElementById('force-title-case'),
+	};
+
 	await loadData();
 	document.getElementById('bundle-display').addEventListener('input', updateBundleSuggestions);
 	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
@@ -357,6 +604,65 @@ async function initializeApp() {
 	document.getElementById('remove-cosmetic').addEventListener('click', (e) => { e.preventDefault(); removeCosmeticEntry(); });
 	
 	createCosmeticEntry();
+
+	function handleReleasedSwitch() {
+		const isReleased = elements.releasedSwitch.checked;
+		const releasedFields = document.querySelectorAll('.released-fields');
+		
+		elements.releasedLabel.textContent = isReleased ? 'Yes' : 'No';
+		
+		if (isReleased) {
+			releasedFields.forEach(field => {
+				field.style.display = 'flex';
+			});
+		} else {
+			releasedFields.forEach(field => {
+				field.style.display = 'none';
+			});
+			
+			elements.releaseDate.value = '';
+			elements.itemShopHistory.checked = false;
+			elements.shopHistoryPart.value = '';
+		}
+		
+		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
+	}
+
+	elements.releasedSwitch.addEventListener('change', handleReleasedSwitch);
+
+	// Toggle shop history part visibility when the checkbox changes
+	elements.itemShopHistory.addEventListener('change', () => {
+		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
+	});
+
+	// Item Shop Appearances visibility
+	const appearancesFields = document.querySelectorAll('.appearances-fields');
+	elements.includeAppearances.addEventListener('change', () => {
+		const appearancesChecked = elements.includeAppearances.checked;
+		if (appearancesChecked) {
+			appearancesFields.forEach(field => {
+				field.style.display = 'block';
+			});
+			elements.shopAppearances.value = currentBundleName;
+		} else {
+			appearancesFields.forEach(field => {
+				field.style.display = 'none';
+			});
+		}
+	});
+
+	elements.forceTitleCase.addEventListener('change', () => {
+		if (elements.shopAppearances != "") {
+			if (elements.forceTitleCase.checked) {
+				const currentName = elements.shopAppearances.value;
+				elements.shopAppearances.value = forceTitleCase(currentName);
+				currentBundleName = elements.shopAppearances.value;
+			} else {
+				elements.shopAppearances.value = document.getElementById("bundle-input-name").value.trim();
+				currentBundleName = elements.shopAppearances.value;
+			}
+		}
+	});
 }
 
 if (document.readyState === 'loading') {

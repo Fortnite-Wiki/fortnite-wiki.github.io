@@ -176,7 +176,7 @@ async function fetchTranslations(translationKey) {
 			try {
 				const loc = await loadGzJson(locPath);
 
-				const translationText = loc["CosmeticSets"]?.[translationKey];
+				const translationText = loc["CosmeticSets"]?.[translationKey] || loc[""]?.[translationKey];
 				if (translationText) translations[lang] = translationText;
 			} catch {}
 		}

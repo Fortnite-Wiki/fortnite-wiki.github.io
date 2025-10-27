@@ -1245,7 +1245,7 @@ function createBundleEntry() {
 	wrapper.appendChild(suggestions);
 
 	list.appendChild(wrapper);
-	bundlesEntries.push({bundleID, bundleName, bundleCost, forceTitleCase});
+	bundlesEntries.push({bundleID, bundleName, bundleCost, forceTitleCase, wrapper});
 	input.focus();
 }
 

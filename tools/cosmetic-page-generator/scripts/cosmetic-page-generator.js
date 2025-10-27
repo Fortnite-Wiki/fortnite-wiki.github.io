@@ -849,7 +849,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	let styleSection = "";
 	let featured = null;
 	let variantChannels = {};
-	if (hasVariants || hasUnlockableVariants) {
+	if (hasVariants || hasUnlockableVariants || isCrewProgressive) {
 		[styleSection, featured, variantChannels] = generateStyleSection(
 			allData.filter(entry => typeof entry === 'object' && entry !== null && "Type" in entry && !("DataList" in entry)),
 			name,

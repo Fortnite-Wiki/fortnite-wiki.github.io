@@ -169,6 +169,94 @@ function extractAdditionals(tags) {
 	}, []).join(" ");
 }
 
+async function extractPickaxeSubtype(weapon_definition) {
+	const subTypeGabMap = {
+		"Classic": [
+			"GAB_Melee_ImpactCombo_Athena"
+		],
+		"Dual-Wield": [
+			"GAB_Melee_DualWield_ImpactCombo_Athena",
+			"GAB_Melee_DualWield_OrderGuardMale_ImpactCombo_Athena",
+			"GAB_Melee_DualWield_CyberArmorFemale_ImpactCombo_Athena",
+			"GAB_Melee_SteamPower_Fists_ImpactCombo_Athena"
+		],
+		"Spinner": [
+			"GAB_Melee_Galileo_Ferry_ImpactCombo_Athena"
+		],
+		"Single-Hand": [
+			"GAB_Melee_Ethereal_ImpactCombo_Athena",
+			"GAB_Melee_CandyAppleSour_ImpactCombo_Athena",
+			"GAB_Melee_Journey_ImpactCombo_Athena",
+			"GAB_Melee_DualParadoxGold_ImpactCombo_Athena",
+			"GAB_Melee_Troops_ImpactCombo_Athena"
+		],
+		"Fist": [
+			"GAB_Melee_DualWield_Fists_ImpactCombo_Athena"
+		],
+		"Switching": [
+			"GAB_Melee_Sythe_ImpactCombo_Athena"
+		],
+		"Claw": [
+			"GAB_Melee_DualWield_Claw_ImpactCombo_Athena"
+		],
+		"Sword": [
+			"GAB_Melee_BRsword_ImpactCombo_Athena",
+			"GAB_Melee_CeremonialGuard_ImpactCombo_Athena"
+		],
+		"Dual Flail": [
+			"GAB_Melee_DualWield_Embers_ImpactCombo",
+			"GAB_Melee_DualWield_AncientGladiator_ImpactCombo"
+		],
+		"Bat": [
+			"GAB_Melee_BaseBallBat_ImpactCombo_Athena"
+		],
+		"Single-Wield": [
+			"GAB_Melee_CyberArmorFemale_ImpactCombo_Athena",
+			"GAB_Melee_MindPinch_ImpactCombo_Athena"
+		],
+		"Spear": [
+			"GAB_Melee_Lance_ImpactCombo_Athena"
+		],
+		"Staff": [
+			"GAB_Melee_StaffAlt_ImpactCombo_Athena",
+			"GAB_Melee_CirrusVine_ImpactCombo_Athena",
+			"GAB_Melee_DualParadox_ImpactCombo_Athena"
+		],
+		"Flail": [
+			"GAB_Melee_FruitCake_ImpactCombo_Athena",
+			"GAB_Melee_HighMotion_ImpactCombo_Athena",
+			"GAB_Melee_JoyfulGrin_ImpactCombo_Athena"
+		],
+		"Dual Spinner": [
+			"GAB_Melee_DualWield_NitroFlow_ImpactCombo_Athena",
+			"GAB_Melee_DualWield_PowerfulDozen_ImpactCombo_Athena",
+			"GAB_Melee_KnightCat_ImpactCombo_Athena"
+		]
+	}
+	
+	function get_subtype_from_GAB(gab) {
+		for (const [subtype, gabList] of Object.entries(subTypeGabMap)) {
+			if (gabList.includes(gab)) {
+				return subtype;
+			}
+		}
+		return "";
+	}
+
+	const data = await loadGzJson(`${DATA_BASE_PATH}/${weapon_definition}`);
+	if (!data || !Array.isArray(data)) return "";
+
+	const props = data[0].Properties;
+	const pfa = props?.PrimaryFireAbility;
+	if (!pfa) return "";
+	const gab_asset_path = pfa?.AssetPathName;
+	const gab = gab_asset_path ? gab_asset_path.split('/').pop().split('.')[0] : "";
+
+	console.log(gab);
+
+	return get_subtype_from_GAB(gab) ? `{{Cosmetic Subtypes|${get_subtype_from_GAB(gab)}}}` : "";
+}
+
 function extractSubtype(tags, cosmeticType) {
 	const subtypeMap = {
 		"Car Body": {
@@ -577,7 +665,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	out.push(`|type = ${cosmeticType}`);
 	
-	const subtype = extractSubtype(tags, cosmeticType);
+	let subtype = ""
+	if (cosmeticType == "Pickaxe" && entryMeta.weaponDefinition) {
+		subtype = await extractPickaxeSubtype(entryMeta.weaponDefinition);
+	} else {
+		subtype = extractSubtype(tags, cosmeticType);
+	}
 	if (subtype != "") {
 		out.push(`|subtype = ${subtype}`);
 	}

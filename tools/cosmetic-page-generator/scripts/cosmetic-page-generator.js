@@ -45,8 +45,7 @@ async function autoDetectCosmeticSource(input) {
 			// Auto-tick Fortnite Crew if Crew Series
 			if (rarity === "Crew Series") {
 				elements.sourceFortniteCrew.checked = true;
-				isCrewAutoDetected = true; // Mark as auto-detected
-				// Trigger the change event to update UI
+				isCrewAutoDetected = true;
 				elements.sourceFortniteCrew.dispatchEvent(new Event('change'));
 			} else {
 				// Reset auto-detection flag if not Crew Series
@@ -65,7 +64,6 @@ function updateSuggestions() {
   sugDiv.innerHTML = "";
   if (!input) return;
 
-  // Safety check to ensure index is loaded and is an array
   if (!Array.isArray(index) || index.length === 0) return;
 
 	// Exclude bundle entries and entries missing name/id
@@ -113,7 +111,7 @@ function updateSuggestions() {
 			}
 			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
-			if (entry.path.startsWith("Festival")) {
+			if (entry.path.startsWith("Festival") && !entry.id.startsWith("EID_")) {
 					displayTitleEl.checked = true;
 					displayTitleEl.disabled = true;
 			} else {
@@ -159,7 +157,8 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.TOD", "{{Reactive|Time}}"],
 		["Cosmetics.UserFacingFlags.Music", "{{Reactive|Music}}"],
 		["Cosmetics.UserFacingFlags.Elimination", "{{Reactive|Elim}}"],
-		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"]
+		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"],
+		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"]
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {
@@ -512,7 +511,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const ID = data.Name;
 	const type = data.Type;
 	const name = props.ItemName?.LocalizedString || "Unknown";
-	const description = props.ItemDescription?.SourceString || "";
+	const description = props.ItemDescription?.SourceString.trim() || "";
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 				 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 	
@@ -527,7 +526,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		cosmeticType = "Car Body";
 	}
 	
-	const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
+	const isFestivalCosmetic = entryMeta.path.startsWith("Festival") && type != "AthenaDanceItemDefinition";
 	let instrumentType;
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
 		if (type in INSTRUMENTS_TYPE_MAP) {
@@ -1042,7 +1041,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	
 	if (settings.isItemShop && settings.includeAppearances) {
-		out.push(`== [[Item Shop]] Appearances ==\n{{ItemShopAppearances\n|name = ${settings.shopAppearances}\n}}\n`);
+		const appearancesSection = [];
+		appearancesSection.push("== [[Item Shop]] Appearances ==", "{{ItemShopAppearances", `|name = ${settings.shopAppearances}`);
+		if (settings.shopAppearances != name) {
+			appearancesSection.push(`|name2 = ${name}`);
+		}
+		appearancesSection.push("}}");
+
+		out.push(appearancesSection.join('\n') + "\n");
 	}
 	
 	if (isFestivalCosmetic && cosmeticType == "Back Bling") {

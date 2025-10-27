@@ -285,7 +285,8 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 
 	infobox.push('}}');
 	
-	let summary = `'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
+	let theFlag = bundleName.toLowerCase().startsWith('the ') ? '' : 'The ';
+	let summary = `${theFlag}'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
 	if (!settings.isReleased) {
 		summary = summary + ' that is currently unreleased.';
 	} else if (settings.vbucksCost != "") {
@@ -335,14 +336,8 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	}
 	
 	const categories = ["[[Category:Item Shop Bundles]]"];
-
-	try {
-		const setNames = Array.from(new Set(cosmetics.map(c => c.setName).filter(s => s && s.trim())));
-		for (const s of setNames) {
-			categories.push(`[[Category:${s} Set]]`);
-		}
-	} catch (e) {
-		console.warn('Failed to add set categories:', e);
+	if (cosmetics[0]?.setName) {
+		categories.push(`[[Category:${cosmetics[0].setName} Set]]`);
 	}
 
 	return [...infobox, summary, ...cosmeticsTable, ...appearancesSection, ...categories].join('\n');

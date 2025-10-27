@@ -425,7 +425,8 @@ async function handleGenerate() {
 		if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
 		// Remove commas and spaces
 		const num = val.replace(/[^\d]/g, '');
-		return `{{V-Bucks|${num}}}`;
+		const formatted = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		return `{{V-Bucks|${formatted}}}`;
 	}
 
 	// Helper: remove {{V-Bucks|...}} and return just the number

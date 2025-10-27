@@ -289,7 +289,7 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	if (!settings.isReleased) {
 		summary = summary + ' that is currently unreleased.';
 	} else if (settings.vbucksCost != "") {
-		summary = summary + `that can be purchased in the [[Item Shop]] for ${settings.vbucksCost}.`;
+		summary = summary + ` that can be purchased in the [[Item Shop]] for ${settings.vbucksCost}.`;
 	} else {
 		summary = summary + '.';
 	}
@@ -533,7 +533,8 @@ async function handleGenerate() {
 		if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
 		// Remove commas and spaces
 		const num = val.replace(/[^\d]/g, '');
-		return `{{V-Bucks|${num}}}`;
+		const formatted = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		return `{{V-Bucks|${formatted}}}`;
 	}
 
 	document.getElementById('output').value = page;

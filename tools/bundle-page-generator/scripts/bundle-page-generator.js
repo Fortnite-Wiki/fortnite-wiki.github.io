@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -294,6 +294,56 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	} else {
 		summary = summary + '.';
 	}
+
+	let seasonFirstReleasedFlag = "";
+	if (settings.releaseDate) {
+		// using this instead of simply
+		// const date = new Date(settings.releaseDate);
+		// because of timezones affecting the entered date
+		const [year, month, day] = settings.releaseDate.split('-').map(Number);
+		const date = new Date(year, month - 1, day); // month is 0-indexed
+		
+		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
+			.sort(([, dateA], [, dateB]) => dateA - dateB);
+		
+		// Find the matching season key
+		let matchedSeasonKey = null;
+		for (let i = 0; i < sortedSeasons.length; i++) {
+			const [currentKey, currentDate] = sortedSeasons[i];
+			const nextDate = sortedSeasons[i + 1]?.[1];
+
+			if (date >= currentDate && (!nextDate || date < nextDate)) {
+				matchedSeasonKey = currentKey;
+				break;
+			}
+		}
+		
+		if (matchedSeasonKey) {
+			if (matchedSeasonKey === 'C2R') {
+				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
+			} else if (matchedSeasonKey === 'C6MS1') {
+				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
+			} else {
+				const chapterMatch = matchedSeasonKey.match(/^C(\d+)/);
+				const seasonMatch = matchedSeasonKey.match(/S(\d+)/);
+				
+				if (chapterMatch && seasonMatch) {
+					const chapter = chapterMatch[1];
+					const season = seasonMatch[1];
+					seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+				}
+			}
+		}
+	}
+	
+	if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag} and contains cosmetics from the [[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
+	} else if (cosmetics[0]?.setName) {
+		summary += ` ${theFlag}${bundleName} contains cosmetics from the [[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
+	} else if (seasonFirstReleasedFlag) {
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag}.`;
+	}
+
 	summary = summary + "\n";
 
 	function chunk(arr, size) {

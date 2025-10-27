@@ -402,10 +402,13 @@ async function handleGenerate() {
 
 	const translationsOnly = document.getElementById('translations-only').checked;
 	if (translationsOnly) {
+		showStatus('Fetching translations...', 'loading');
 		const translationKey = cosmeticSetLocalizations["Cosmetics.Set." + setId] || '';
 		const translations = await fetchTranslations(translationKey);
 		document.getElementById('output').value = translations.join('\n');
 		document.getElementById('copy-btn').disabled = false;
+		showStatus('Translations fetched successfully!', 'success');
+		setTimeout(hideStatus, 2000);
 		return;
 	}
 

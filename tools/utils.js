@@ -115,6 +115,21 @@ export function articleFor(word) {
 	return word[0].toLowerCase().match(/[aeiou]/) ? "an" : "a";
 }
 
+export function forceTitleCase(str) {
+	if (typeof str !== 'string') return str;
+	return str.toLowerCase().replace(/\b\w/g, function(ch, offset, full) {
+		// If the character is immediately preceded by an apostrophe and is a solitary possessive 's',
+		// keep it lowercase. Otherwise capitalize.
+		if (offset > 0 && full[offset - 1] === "'") {
+			const nextChar = full[offset + 1];
+			if (ch === 's' && (!nextChar || /[^a-zA-Z]/.test(nextChar))) {
+				return ch; // keep 's' lowercase in possessives
+			}
+		}
+		return ch.toUpperCase();
+	});
+}
+
 export function getFormattedReleaseDate(date = new Date()) {
 	const day = date.getDate();
 	const suffix = day >= 11 && day <= 13 ? 'th' : 
@@ -124,4 +139,22 @@ export function getFormattedReleaseDate(date = new Date()) {
 	
 	const month = date.toLocaleString('en-US', { month: 'long' });
 	return `${month} ${day}${suffix} ${date.getFullYear()}`;
+}
+
+// Helper: wrap value in {{V-Bucks|...}} if not already
+export function ensureVbucksTemplate(val) {
+	if (!val) return '';
+	if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
+	// Remove commas and spaces
+	const num = val.replace(/[^\d]/g, '');
+	const formatted = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	return `{{V-Bucks|${formatted}}}`;
+}
+
+// Helper: remove {{V-Bucks|...}} and return just the number
+export function stripVbucksTemplate(val) {
+	if (!val) return '';
+	const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
+	if (m) return m[1];
+	return val.replace(/[^\d]/g, '');
 }

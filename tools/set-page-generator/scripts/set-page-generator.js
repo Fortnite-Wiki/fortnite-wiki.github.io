@@ -84,7 +84,7 @@ async function getFirstBundleFromCategory(categoryName) {
 	return { bundleName: null, bundleCost: null };
 }
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, stripVbucksTemplate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -418,24 +418,6 @@ async function handleGenerate() {
 		bundleVbucks,
 		bundleName: bundleNameField
 	});
-	
-	// Helper: wrap value in {{V-Bucks|...}} if not already
-	function ensureVbucksTemplate(val) {
-		if (!val) return '';
-		if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
-		// Remove commas and spaces
-		const num = val.replace(/[^\d]/g, '');
-		const formatted = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-		return `{{V-Bucks|${formatted}}}`;
-	}
-
-	// Helper: remove {{V-Bucks|...}} and return just the number
-	function stripVbucksTemplate(val) {
-		if (!val) return '';
-		const m = val.match(/\{\{\s*V-Bucks\s*\|(\d{1,6}(?:,\d{3})*)\s*}}/);
-		if (m) return m[1];
-		return val.replace(/[^\d]/g, '');
-	}
 
 	document.getElementById('output').value = page;
 	document.getElementById('copy-btn').disabled = false;

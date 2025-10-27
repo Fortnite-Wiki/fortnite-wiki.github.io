@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -15,21 +15,6 @@ async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
 	cosmeticSets = await resp.json();
-}
-
-function forceTitleCase(str) {
-	if (typeof str !== 'string') return str;
-	return str.toLowerCase().replace(/\b\w/g, function(ch, offset, full) {
-		// If the character is immediately preceded by an apostrophe and is a solitary possessive 's',
-		// keep it lowercase. Otherwise capitalize.
-		if (offset > 0 && full[offset - 1] === "'") {
-			const nextChar = full[offset + 1];
-			if (ch === 's' && (!nextChar || /[^a-zA-Z]/.test(nextChar))) {
-				return ch; // keep 's' lowercase in possessives
-			}
-		}
-		return ch.toUpperCase();
-	});
 }
 
 function updateBundleSuggestions() {
@@ -571,16 +556,6 @@ async function handleGenerate() {
 		currentBundleName = outBundleName;
 	}
 	let page = generateBundlePage(bundleID, outBundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings);
-	
-	// Helper: wrap value in {{V-Bucks|...}} if not already
-	function ensureVbucksTemplate(val) {
-		if (!val) return '';
-		if (/^\s*{{\s*V-Bucks\s*\|/.test(val)) return val;
-		// Remove commas and spaces
-		const num = val.replace(/[^\d]/g, '');
-		const formatted = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-		return `{{V-Bucks|${formatted}}}`;
-	}
 
 	document.getElementById('output').value = page;
 	document.getElementById('copy-btn').disabled = false;

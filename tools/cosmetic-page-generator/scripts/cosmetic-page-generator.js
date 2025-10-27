@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, getFormattedReleaseDate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -7,6 +7,8 @@ let index = [];
 let cosmeticSets = {};
 let elements = {};
 let isCrewAutoDetected = false;
+
+let bundlesEntries = [];
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -628,8 +630,21 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason && settings.legoSeasonAbbr) {
 		const freeFlag = settings.passFreeLego ? "|Free" : "|";
 		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
-	} else if (settings.isItemShop) {
+	} else if (settings.isItemShop && settings.shopCost) {
 		unlocked = "[[Item Shop]]";
+	}
+	if (settings.isItemShop && bundlesEntries.length > 0) {
+		const bundleNames = bundlesEntries
+			.map(be => {
+				if (!be.bundleName || !be.bundleName.value) return null;
+				const rawName = be.bundleName.value.trim();
+				const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+				return `[[${name}]]`;
+			})
+			.filter(bn => bn !== null);
+		if (bundleNames.length > 0) {
+			unlocked = unlocked ? unlocked + " <br> " + bundleNames.join(" <br> ") : bundleNames.join(" <br> ");
+		}
 	}
 	out.push(`|unlocked = ${unlocked}`);
 
@@ -648,8 +663,25 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoSeason && settings.legoSeasonAbbr) {
 		cost = `{{V-Bucks|1,400}} <br> ({{LEGOPass|${settings.legoSeason}||${settings.legoSeasonAbbr}}})`;
 	} else if (settings.isItemShop && settings.shopCost) {
-		cost = `{{V-Bucks|${settings.shopCost}}}`;
+		cost = ensureVbucksTemplate(settings.shopCost);
 	}
+	
+	if (settings.isItemShop && bundlesEntries.length > 0) {
+		const bundleCosts = bundlesEntries
+			.map(be => {
+				if (be.bundleName.value && be.bundleCost.value) {
+					const rawName = be.bundleName.value.trim();
+					const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+					return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${name}]])</small>`;
+				}
+				return null;
+			})
+			.filter(bc => bc !== null);
+		if (bundleCosts.length > 0) {
+			cost = cost ? cost + " <br > " + bundleCosts.join(" <br> ") : bundleCosts.join(" <br> ");
+		}
+	}
+
 	out.push(`|cost = ${cost}`);
 	
 	if (settings.updateVersion != "") {
@@ -752,8 +784,29 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
 		article += `that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
 	} else if (settings.isItemShop) {
-		const costFlag = settings.shopCost ? ` for {{V-Bucks|${settings.shopCost}}}` : "";
-		article += `that can be purchased in the [[Item Shop]]${costFlag}.`;
+		let bundles = "";
+		if (bundlesEntries.length > 0) {
+			const bundlesToAdd = bundlesEntries
+				.map(be => {
+					if (be.bundleName.value && be.bundleCost.value) {
+						const rawName = be.bundleName.value.trim();
+						const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+						const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
+						const i = bundlesEntries.indexOf(be);
+						const previousHas = i > 0 && bundlesEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
+						const orFlag = (settings.shopCost || previousHas) ? " or " : "";
+						return `${orFlag}with ${theFlag}[[${name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
+					}
+					return null;
+				})
+				.filter(bc => bc !== null);
+			if (bundlesToAdd.length > 0) {
+				bundles = bundlesToAdd.join("");
+			}
+		}
+
+		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]] for ${ensureVbucksTemplate(settings.shopCost)}` : "";
+		article += `that can be purchased ${itemShopFlag}${bundles}.`;
 	} else if (settings.unreleasedTemplate) {
 		article += "that is currently unreleased.";
 	} else {
@@ -1142,6 +1195,110 @@ async function generatePage() {
 	}
 }
 
+// Create a new bundle entry DOM and hook up suggestion behavior
+function createBundleEntry() {
+	const list = document.getElementById('bundles-list');
+	if (!list) return;
+
+	const wrapper = document.createElement('div');
+	wrapper.className = 'bundle-entry';
+
+	const input = document.createElement('input');
+	input.type = 'text';
+	input.placeholder = 'enter bundle ID or Name';
+	input.className = 'bundle-display';
+
+	const bundleCost = document.createElement('input');
+	bundleCost.type = 'number';
+	bundleCost.placeholder = 'V-Bucks cost';
+	bundleCost.className = 'vbucks-cost';
+	bundleCost.style.width = '150px';
+
+	const titleCaseLabel = document.createElement('label');
+	titleCaseLabel.textContent = 'Force title case? ';
+	titleCaseLabel.htmlFor = 'force-title-case';
+
+	const forceTitleCase = document.createElement('input');
+	forceTitleCase.type = 'checkbox';
+	forceTitleCase.className = 'force-title-case';
+	forceTitleCase.title = 'Force Title Case';
+
+	const bundleID = document.createElement('input');
+	bundleID.type = 'hidden';
+	bundleID.className = 'bundle-input';
+
+	const bundleName = document.createElement('input');
+	bundleName.type = 'hidden';
+	bundleName.className = 'bundle-input-name';
+
+	const suggestions = document.createElement('div');
+	suggestions.className = 'suggestions';
+
+	input.addEventListener('input', () => updateBundleSuggestions(input, bundleID, bundleName, suggestions));
+
+	wrapper.appendChild(input);
+	wrapper.appendChild(bundleCost);
+	wrapper.appendChild(titleCaseLabel);
+	wrapper.appendChild(forceTitleCase);
+	wrapper.appendChild(bundleID);
+	wrapper.appendChild(bundleName);
+	wrapper.appendChild(suggestions);
+
+	list.appendChild(wrapper);
+	bundlesEntries.push({bundleID, bundleName, bundleCost, forceTitleCase});
+	input.focus();
+}
+
+function removeBundleEntry() {
+	if (bundlesEntries.length === 0) return;
+	const entry = bundlesEntries.pop();
+	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
+}
+
+function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) {
+	const input = displayEl.value.trim().toLowerCase();
+	sugDiv.innerHTML = '';
+	if (!input) return;
+
+	if (!Array.isArray(index) || index.length === 0) return;
+
+	const scoredMatches = index
+		.filter(e => {
+			if (typeof e.id === 'string' || typeof e.name === 'string') return false;
+			return e.bundle_name && e.bundle_id;
+		})
+		.map(e => {
+			const bundle_name = (e.bundle_name || '').toLowerCase();
+			const bundle_id = (e.bundle_id || '').toLowerCase();
+			let score = 0;
+
+			if (bundle_name === input) score += 100;
+			else if (bundle_name.startsWith(input)) score += 75;
+			else if (bundle_name.includes(input)) score += 50;
+
+			if (bundle_id === input) score += 40;
+			else if (bundle_id.startsWith(input)) score += 25;
+			else if (bundle_id.includes(input)) score += 10;
+
+			return { entry: e, score };
+		})
+		.filter(item => item.score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
+
+	scoredMatches.forEach(({ entry }) => {
+		const div = document.createElement('div');
+		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
+		div.onclick = () => {
+			displayEl.value = `${entry.bundle_name} (${entry.bundle_id})`;
+			hiddenIdEl.value = entry.bundle_id;
+			hiddenNameEl.value = entry.bundle_name;
+			sugDiv.innerHTML = '';
+		};
+		sugDiv.appendChild(div);
+	});
+}
+
 async function initializeApp() {
 	elements = {
 		// Basic elements
@@ -1219,6 +1376,9 @@ async function initializeApp() {
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
 	};
+
+	document.getElementById('add-bundle').addEventListener('click', (e) => { e.preventDefault(); createBundleEntry(); });
+	document.getElementById('remove-bundle').addEventListener('click', (e) => { e.preventDefault(); removeBundleEntry(); });
 
 	// Setup source selection logic
 	function handleSourceSelection() {

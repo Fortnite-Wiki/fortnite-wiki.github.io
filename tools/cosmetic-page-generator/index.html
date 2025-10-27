@@ -10,6 +10,11 @@
 	<script src="/scripts/pageinfo.js" type="module"></script>
 
 	<link rel="stylesheet" href="./styles/styles.css" />
+	<style>
+		.bundle-entry input[type="text"], input[type="number"] { margin-right: 0.5rem; padding: 6px; box-sizing: border-box; }
+		.bundle-entry .suggestions { position: relative; margin-top: 4px; max-height: 160px; overflow-y: auto; }
+		.bundle-entry .suggestions div { padding: 6px; cursor: pointer; }
+	</style>
 	<link rel="icon" href="/files/images/return-icon.png" />
 </head>
 
@@ -75,7 +80,20 @@
 							<div class="inline-group">
 								<label for="shop-cost">V-Bucks Cost:</label>
 								<input type="text" id="shop-cost" placeholder="1,200"/>
+								<p style="margin: 0rem !important"><small><small>(Leave blank if cannot be purchased directly)</small></small></p>
 							</div>
+							<hr>
+							<div id="bundles-box">
+								<h5>Bundles it's contained in:</h5>
+								<div id="bundles-controls">
+									<button id="add-bundle" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
+									<button id="remove-bundle" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
+								</div>
+								<div id="bundles-list" class="scrollbox">
+									<!-- Bundle entries appended here -->
+								</div>
+							</div>
+							<hr>
 							<div class="inline-group">
 								<label class="checkbox-label">
 									<input type="checkbox" id="include-appearances">

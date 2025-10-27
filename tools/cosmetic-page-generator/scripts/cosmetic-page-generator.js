@@ -806,7 +806,15 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]] for ${ensureVbucksTemplate(settings.shopCost)}` : "";
-		article += `that can be purchased ${itemShopFlag}${bundles}.`;
+		if (itemShopFlag || bundles) {
+			article += `that can be purchased ${itemShopFlag}${bundles}.`;
+		} else {
+			if (settings.unreleasedTemplate) {
+				article += "that is currently unreleased";;
+			}
+			article += ".";
+			
+		}
 	} else if (settings.unreleasedTemplate) {
 		article += "that is currently unreleased.";
 	} else {

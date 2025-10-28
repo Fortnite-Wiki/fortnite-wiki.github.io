@@ -108,16 +108,31 @@ function updateSuggestions() {
 
 			autoDetectCosmeticSource(entry.id);
 
+			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entry.path}`);
+			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
+				return { data: null, allData: null, entry };
+			}
+			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString || TYPE_MAP[itemDefinitionData.Type] || "";
+
+			const isFestivalCosmetic = entry.path.startsWith("Festival") && itemDefinitionData.Type != "AthenaDanceItemDefinition";
+			let instrumentType;
+			if (isFestivalCosmetic && cosmeticType != "Aura") {
+				if (itemDefinitionData.Type in INSTRUMENTS_TYPE_MAP) {
+					instrumentType = INSTRUMENTS_TYPE_MAP[itemDefinitionData.Type];
+				} else {
+					instrumentType = ID.split("_").at(-1);
+					if (instrumentType == "Mic") {
+						instrumentType = "Microphone";
+					} else if (instrumentType == "DrumKit" || instrumentType == "DrumStick" || instrumentType == "Drum") {
+						instrumentType = "Drums";
+					}
+				}
+			}
+
 			if (entry.path.startsWith("Racing")) {
 
 				createBundleEntry();
-
-				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entry.path}`);
-				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
-					return { data: null, allData: null, entryMeta };
-				}
-				let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
-				let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString || TYPE_MAP[itemDefinitionData.Type] || "";
 
 				const bundleName = `${entry.name} ${cosmeticType}`;
 
@@ -148,13 +163,15 @@ function updateSuggestions() {
 			}
 			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
-			if (entry.path.startsWith("Festival") && !entry.id.startsWith("EID_")) {
-					displayTitleEl.checked = true;
+			if (isFestivalCosmetic) {
+				displayTitleEl.checked = true;
+				if (instrumentType != null && instrumentType != "") {
 					displayTitleEl.disabled = true;
+				}
 			} else {
-					// Ensure checkbox is enabled for non-Festival entries
-					displayTitleEl.checked = false;
-					displayTitleEl.disabled = false;
+				// Ensure checkbox is enabled for non-Festival entries
+				displayTitleEl.checked = false;
+				displayTitleEl.disabled = false;
 			}
 		};
 		sugDiv.appendChild(div);
@@ -576,9 +593,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				instrumentType = "Drums";
 			}
 		}
-	}
-	if (instrumentType == null || instrumentType == "") {
-		document.getElementById('display-title').disabled = false;
 	}
 	
 	const isRacingCosmetic = entryMeta.path.startsWith("Racing");

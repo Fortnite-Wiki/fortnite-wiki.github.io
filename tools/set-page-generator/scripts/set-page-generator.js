@@ -147,6 +147,10 @@ function updateSetSuggestions() {
 			document.getElementById('set-input').value = id.replace('Cosmetics.Set.', '');
 			document.getElementById('set-input-name').value = name;
 			sugDiv.innerHTML = '';
+
+			// findBannersInSet and prevent page generation
+			// status message + section appear asking to enter names for each banner
+			// and allow tweaking of filename used
 		};
 		sugDiv.appendChild(div);
 	});
@@ -154,7 +158,7 @@ function updateSetSuggestions() {
 
 // Find all cosmetics in a set using setID field in index.json
 function findCosmeticsInSet(setId) {
-	return index.filter(e => e.setID === setId);
+	return index.filter(e => e.setID === setId && !(e.banner_id || e.banner_icon));
 }
 
 async function fetchTranslations(translationKey) {

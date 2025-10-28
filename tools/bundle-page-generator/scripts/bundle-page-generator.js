@@ -5,7 +5,10 @@ const DATA_BASE_PATH = '../../../data/';
 
 let index = [];
 let cosmeticSets = {};
+
 let cosmeticsEntries = [];
+let jamTracksEntries = [];
+let bannersEntries = [];
 
 let elements = {};
 
@@ -117,6 +120,7 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 
 	const candidateIndex = index.filter(e => {
 		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+		if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
 		return e.name && e.id;
 	});
 
@@ -148,6 +152,151 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 			hiddenIdEl.value = entry.id;
 			hiddenNameEl.value = entry.name;
 			sugDiv.innerHTML = '';
+		};
+		sugDiv.appendChild(div);
+	});
+}
+
+function createJamTrackEntry() {
+	const list = document.getElementById('jam-tracks-list');
+	if (!list) return;
+
+	const wrapper = document.createElement('div');
+	wrapper.className = 'jam-track-entry';
+
+	const input = document.createElement('input');
+	input.type = 'text';
+	input.placeholder = 'enter jam track ID or Name';
+	input.className = 'jam-track-display';
+
+	const hiddenId = document.createElement('input');
+	hiddenId.type = 'hidden';
+	hiddenId.className = 'jam-track-input';
+
+	const hiddenName = document.createElement('input');
+	hiddenName.type = 'hidden';
+	hiddenName.className = 'jam-track-input-name';
+
+	const suggestions = document.createElement('div');
+	suggestions.className = 'suggestions';
+
+	input.addEventListener('input', () => updateJamTrackSuggestions(input, hiddenId, hiddenName, suggestions));
+
+	wrapper.appendChild(input);
+	wrapper.appendChild(hiddenId);
+	wrapper.appendChild(hiddenName);
+	wrapper.appendChild(suggestions);
+	list.appendChild(wrapper);
+	jamTracksEntries.push({wrapper, input, hiddenId, hiddenName, suggestions});
+	input.focus();
+}
+
+function removeJamTrackEntry() {
+	if (jamTracksEntries.length === 0) return;
+	const entry = jamTracksEntries.pop();
+	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
+}
+
+function updateJamTrackSuggestions() {
+
+}
+
+function createBannerEntry() {
+	const list = document.getElementById('banners-list');
+	if (!list) return;
+
+	const wrapper = document.createElement('div');
+	wrapper.className = 'banner-entry';
+
+	const innerWrapper = document.createElement('div');
+	innerWrapper.style.display = 'flex';
+	innerWrapper.style.justifyContent = 'center';
+	innerWrapper.style.alignItems = 'center';
+	innerWrapper.style.gap = '1rem';
+
+	const id_input = document.createElement('input');
+	id_input.type = 'text';
+	id_input.placeholder = 'banner ID';
+	id_input.className = 'banner-id';
+	id_input.style.width = '25%';
+
+	const name_input = document.createElement('input');
+	name_input.type = 'text';
+	name_input.placeholder = 'display name';
+	name_input.className = 'banner-display-name';
+	name_input.style.width = '25%';
+	name_input.disabled = true;
+
+	const file_input = document.createElement('input');
+	file_input.type = 'text';
+	file_input.placeholder = 'file';
+	file_input.className = 'banner-file';
+	file_input.style.width = '40%';
+	file_input.disabled = true;
+
+	const suggestions = document.createElement('div');
+	suggestions.className = 'suggestions';
+
+	id_input.addEventListener('input', () => updateBannerSuggestions(id_input, file_input, name_input, suggestions));
+
+	innerWrapper.appendChild(id_input);
+	innerWrapper.appendChild(name_input);
+	innerWrapper.appendChild(file_input);
+	wrapper.appendChild(innerWrapper);
+	wrapper.appendChild(suggestions);
+	list.appendChild(wrapper);
+	bannersEntries.push({wrapper, id_input, name_input, file_input, suggestions});
+	id_input.focus();
+}
+
+function removeBannerEntry() {
+	if (bannersEntries.length === 0) return;
+	const entry = bannersEntries.pop();
+	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
+}
+
+function updateBannerSuggestions(idField, fileField, nameField, sugDiv) {
+	const idInput = idField.value.trim().toLowerCase();
+	const fileInput = fileField.value.trim().toLowerCase();
+	sugDiv.innerHTML = '';
+	if (!idInput) return;
+
+	if (!Array.isArray(index) || index.length === 0) return;
+
+	const candidateIndex = index.filter(e => {
+		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+		if (typeof e.id === 'string' || typeof e.name === 'string') return false;
+		return e.banner_id && e.banner_icon;
+	});
+
+	const scoredMatches = candidateIndex
+		.map(e => {
+			const banner_id = (e.banner_id || '').toLowerCase();
+			const banner_icon = (e.banner_icon || '').toLowerCase();
+			let score = 0;
+			if (banner_id === idInput) score += 100;
+			else if (banner_id.startsWith(idInput)) score += 75;
+			else if (banner_id.includes(idInput)) score += 50;
+			if (banner_icon === idInput) score += 40;
+			else if (banner_icon.startsWith(idInput)) score += 25;
+			else if (banner_icon.includes(idInput)) score += 10;
+			return { entry: e, score };
+		})
+		.filter(item => item.score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
+
+	scoredMatches.forEach(({ entry }) => {
+		const div = document.createElement('div');
+		div.textContent = entry.banner_id;
+		div.onclick = () => {
+			idField.value = entry.banner_id;
+			fileField.value = entry.banner_icon;
+			sugDiv.innerHTML = '';
+
+			idField.disabled = true;
+			nameField.disabled = false;
+			fileField.disabled = false;
 		};
 		sugDiv.appendChild(div);
 	});
@@ -623,7 +772,13 @@ async function initializeApp() {
 
 	document.getElementById('add-cosmetic').addEventListener('click', (e) => { e.preventDefault(); createCosmeticEntry(); });
 	document.getElementById('remove-cosmetic').addEventListener('click', (e) => { e.preventDefault(); removeCosmeticEntry(); });
-	
+
+	document.getElementById('add-jam-track').addEventListener('click', (e) => { e.preventDefault(); createJamTrackEntry(); });
+	document.getElementById('remove-jam-track').addEventListener('click', (e) => { e.preventDefault(); removeJamTrackEntry(); });
+
+	document.getElementById('add-banner').addEventListener('click', (e) => { e.preventDefault(); createBannerEntry(); });
+	document.getElementById('remove-banner').addEventListener('click', (e) => { e.preventDefault(); removeBannerEntry(); });
+
 	createCosmeticEntry();
 
 	function handleReleasedSwitch() {

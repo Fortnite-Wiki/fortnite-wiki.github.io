@@ -39,9 +39,8 @@ function updateSuggestions() {
 
   const scoredMatches = (Array.isArray(index) ? index : [])
     .filter(e => {
-      // exclude bundle-like entries
       if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
-      // require name and id for suggestion matching
+      if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
       return e.name && e.id;
     })
     .map(e => {

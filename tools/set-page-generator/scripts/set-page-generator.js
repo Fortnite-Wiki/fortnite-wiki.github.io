@@ -230,7 +230,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 			}
 		}
 
-		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival');
+		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival') && objType != "AthenaDanceItemDefinition";
 		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing');
 		
 		let instrumentType = null;

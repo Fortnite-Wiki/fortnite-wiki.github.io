@@ -95,19 +95,56 @@ function updateSuggestions() {
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement("div");
 		div.textContent = `${entry.name} (${entry.id})`;
-		div.onclick = () => {
+		div.onclick = async () => {
+			while (bundlesEntries.length != 0) {
+				removeBundleEntry();
+			}
+
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 			document.getElementById("cosmetic-input").value = entry.id;
 			document.getElementById("cosmetic-input-name").value = entry.name;
 			document.getElementById("shop-appearances").value = entry.name;
 			sugDiv.innerHTML = "";
+
 			autoDetectCosmeticSource(entry.id);
+
 			if (entry.path.startsWith("Racing")) {
-					document.getElementById('rocket-league-field').style.display = 'block';
-					document.getElementById('rocket-league-cosmetic').checked = false;
-					document.getElementById('rocket-league-exclusive-field').style.display = 'none';
+
+				createBundleEntry();
+
+				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entry.path}`);
+				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
+					return { data: null, allData: null, entryMeta };
+				}
+				let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+				let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString || TYPE_MAP[itemDefinitionData.Type] || "";
+
+				const bundleName = `${entry.name} ${cosmeticType}`;
+
+				// Use the last created bundle-entry wrapper and query its fields (avoids off-by-one ID access and null getElementById)
+				const bundleEntries = document.querySelectorAll('#bundles-list .bundle-entry');
+				const lastWrapper = bundleEntries[bundleEntries.length - 1];
+				const displayEl = lastWrapper ? lastWrapper.querySelector('.bundle-display') : null;
+				const inputEl = lastWrapper ? lastWrapper.querySelector('.bundle-input') : null;
+				const nameEl = lastWrapper ? lastWrapper.querySelector('.bundle-input-name') : null;
+
+				// Check for existing index entry
+				const matchingBundleEntry = index.find(e =>
+					(e.bundle_name === bundleName || e.bundle_name === `${bundleName}s`)
+				);
+				if (matchingBundleEntry) {
+					if (inputEl) inputEl.value = matchingBundleEntry.bundle_id;
+					if (nameEl) nameEl.value = matchingBundleEntry.bundle_name;
+					if (displayEl) displayEl.value = `${matchingBundleEntry.bundle_name} (${matchingBundleEntry.bundle_id})`;
+				} else {
+					removeBundleEntry();
+				}
+
+				document.getElementById('rocket-league-field').style.display = 'block';
+				document.getElementById('rocket-league-cosmetic').checked = false;
+				document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 			} else {
-					document.getElementById('rocket-league-field').style.display = 'none';
+				document.getElementById('rocket-league-field').style.display = 'none';
 			}
 			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
@@ -722,7 +759,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason && settings.legoSeasonAbbr) {
 		const freeFlag = settings.passFreeLego ? "|Free" : "|";
 		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
-	} else if (settings.isItemShop && settings.shopCost) {
+	} else if (settings.isItemShop && (settings.shopCost || bundlesEntries.length == 0)) {
 		unlocked = "[[Item Shop]]";
 	}
 	if (settings.isItemShop && bundlesEntries.length > 0) {
@@ -1314,6 +1351,7 @@ function createBundleEntry() {
 	input.type = 'text';
 	input.placeholder = 'enter bundle ID or Name';
 	input.className = 'bundle-display';
+	input.id = `bundle-display-${bundlesEntries.length + 1}`;
 
 	const bundleCost = document.createElement('input');
 	bundleCost.type = 'number';
@@ -1333,10 +1371,12 @@ function createBundleEntry() {
 	const bundleID = document.createElement('input');
 	bundleID.type = 'hidden';
 	bundleID.className = 'bundle-input';
+	bundleID.id = `bundle-id-${bundlesEntries.length + 1}`;
 
 	const bundleName = document.createElement('input');
 	bundleName.type = 'hidden';
 	bundleName.className = 'bundle-input-name';
+	bundleName.id = `bundle-name-${bundlesEntries.length + 1}`;
 
 	const suggestions = document.createElement('div');
 	suggestions.className = 'suggestions';

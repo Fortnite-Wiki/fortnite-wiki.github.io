@@ -5,6 +5,7 @@ const DATA_BASE_PATH = '../../../data/';
 
 let index = [];
 let cosmeticSets = {};
+let jamTracksData = null;
 
 let cosmeticsEntries = [];
 let jamTracksEntries = [];
@@ -24,6 +25,8 @@ async function loadJamTracksData() {
     try {
         console.log('Loading jam tracks data from API...');
         
+        // Use CORS proxy to bypass CORS Policy restrictions
+        const apiUrl = 'https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game/spark-tracks';
         const corsProxyUrl = 'https://corsproxy.io/?';
         const proxiedUrl = corsProxyUrl + encodeURIComponent(apiUrl);
         
@@ -31,6 +34,12 @@ async function loadJamTracksData() {
         
         if (!response.ok) {
             throw new Error(`CORS proxy request failed: ${response.status} ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        
+        console.log('Jam tracks data loaded successfully from API via CORS proxy');
+        const trackCount = Object.values(data).filter(t => t.track).length;
         console.log(`Loaded ${trackCount} tracks`);
 
         return data;

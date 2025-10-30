@@ -20,6 +20,25 @@ async function loadData() {
 	cosmeticSets = await resp.json();
 }
 
+async function loadJamTracksData() {
+    try {
+        console.log('Loading jam tracks data from API...');
+        
+        const corsProxyUrl = 'https://corsproxy.io/?';
+        const proxiedUrl = corsProxyUrl + encodeURIComponent(apiUrl);
+        
+        const response = await fetch(proxiedUrl);
+        
+        if (!response.ok) {
+            throw new Error(`CORS proxy request failed: ${response.status} ${response.statusText}`);
+        console.log(`Loaded ${trackCount} tracks`);
+
+        return data;
+    } catch (error) {
+        console.error('Error loading jam tracks data from API: ', error);
+    }
+}
+
 function updateBundleSuggestions() {
 	const input = document.getElementById('bundle-display').value.trim().toLowerCase();
 	const sugDiv = document.getElementById('suggestions');
@@ -166,28 +185,18 @@ function createJamTrackEntry() {
 
 	const input = document.createElement('input');
 	input.type = 'text';
-	input.placeholder = 'enter jam track ID or Name';
-	input.className = 'jam-track-display';
-
-	const hiddenId = document.createElement('input');
-	hiddenId.type = 'hidden';
-	hiddenId.className = 'jam-track-input';
-
-	const hiddenName = document.createElement('input');
-	hiddenName.type = 'hidden';
-	hiddenName.className = 'jam-track-input-name';
+	input.placeholder = 'enter jam track name';
+	input.className = 'jam-track-input';
 
 	const suggestions = document.createElement('div');
 	suggestions.className = 'suggestions';
 
-	input.addEventListener('input', () => updateJamTrackSuggestions(input, hiddenId, hiddenName, suggestions));
+	input.addEventListener('input', () => updateJamTrackSuggestions(input, suggestions));
 
 	wrapper.appendChild(input);
-	wrapper.appendChild(hiddenId);
-	wrapper.appendChild(hiddenName);
 	wrapper.appendChild(suggestions);
 	list.appendChild(wrapper);
-	jamTracksEntries.push({wrapper, input, hiddenId, hiddenName, suggestions});
+	jamTracksEntries.push({wrapper, input, suggestions});
 	input.focus();
 }
 
@@ -197,8 +206,32 @@ function removeJamTrackEntry() {
 	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
 }
 
-function updateJamTrackSuggestions() {
+function updateJamTrackSuggestions(displayField, suggestionsDiv) {
+	const query = (displayField.value || '').trim().toLowerCase();
+	suggestionsDiv.innerHTML = '';
+	if (!query || !jamTracksData) return;
 
+	const matches = [];
+	for (const [key, trackData] of Object.entries(jamTracksData)) {
+		if (key.startsWith('_') || !trackData || !trackData.track) continue;
+
+		const track = trackData.track;
+		const title = track.tt || key;
+
+		if (title.toLowerCase().includes(query) || key.toLowerCase().includes(query)) {
+			matches.push({ key, title });
+		}
+	}
+
+	matches.slice(0, 5).forEach(match => {
+		const div = document.createElement('div');
+		div.textContent = match.title;
+		div.addEventListener('click', () => {
+			displayField.value = match.title;
+			suggestionsDiv.innerHTML = '';
+		});
+		suggestionsDiv.appendChild(div);
+	});
 }
 
 function createBannerEntry() {
@@ -291,7 +324,7 @@ function updateBannerSuggestions(idField, fileField, nameField, sugDiv) {
 		div.textContent = entry.banner_id;
 		div.onclick = () => {
 			idField.value = entry.banner_id;
-			fileField.value = entry.banner_icon;
+			fileField.value = entry.banner_icon.replaceAll('_', ' ') + ".png";
 			sugDiv.innerHTML = '';
 
 			idField.disabled = true;
@@ -488,7 +521,15 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 
 	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
 	for (const row of chunk(cosmetics, 3)) {
-		cosmeticsTable.push('|' + row.map(({ name, rarity, cosmeticType, fileType, setName, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, linkTarget, linkDisplay }) => {
+		cosmeticsTable.push('|' + row.map(({ name, rarity, cosmeticType, fileType, setName, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, linkTarget, linkDisplay, isJamTrack, jamTrackTitle, isBanner, bannerFile }) => {
+			if (isJamTrack) {
+				return `{{Jam Icon|${jamTrackTitle}|120px}}`;
+			}
+
+			if (isBanner) {
+				return `[[File:${bannerFile}|130px|link=Banner Icons]]`;
+			}
+
 			let ending = 'Fortnite.png';
 			if (fileType == 'Pickaxe' || fileType == 'Back Bling') {
 				ending = 'Fortnite.png';
@@ -638,7 +679,42 @@ async function handleGenerate() {
 			}
 		}
 	}
-	
+
+	for (const jt of jamTracksEntries) {
+		const title = (jt.input && jt.input.value || '').trim();
+		if (!title) continue;
+		cosmetics.push({
+			name: title,
+			rarity: '',
+			cosmeticType: 'Jam Track',
+			fileType: 'Jam Track',
+			isJamTrack: true,
+			jamTrackTitle: title,
+			linkTarget: title,
+			linkDisplay: title
+		});
+	}
+
+	for (const b of bannersEntries) {
+		const bannerName = (b.name_input && b.name_input.value || '').trim();
+		const bannerFile = (b.file_input && b.file_input.value || '').trim();
+		if (!bannerFile) continue;
+		if (!bannerName) {
+			showStatus(`${b.id_input.value} is missing a display name. Please fill it in.`, 'error');
+			return;
+		}
+		cosmetics.push({
+			name: bannerName || bannerFile,
+			rarity: '',
+			cosmeticType: 'Banner',
+			fileType: 'Banner',
+			isBanner: true,
+			bannerFile: bannerFile,
+			linkTarget: 'Banner Icons',
+			linkDisplay: bannerName
+		});
+	}
+
 	cosmetics.sort((a, b) => {
 		const typeOrder = [
 			'Outfit', 'Back Bling', 'Pet', 'Pickaxe', 'Glider', 'Contrail',
@@ -765,6 +841,8 @@ async function initializeApp() {
 	};
 
 	await loadData();
+	jamTracksData = await loadJamTracksData();
+
 	document.getElementById('bundle-display').addEventListener('input', updateBundleSuggestions);
 	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
 	document.getElementById('copy-btn').addEventListener('click', copyToClipboard);

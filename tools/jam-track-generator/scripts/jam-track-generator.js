@@ -138,7 +138,6 @@ function setupSearch() {
         
         matches.slice(0, 5).forEach(match => {
             const suggestion = document.createElement('div');
-            suggestion.className = 'suggestion-item';
             suggestion.textContent = match.title;
             suggestion.addEventListener('click', () => {
                 input.value = match.title;

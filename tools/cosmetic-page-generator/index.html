@@ -15,6 +15,16 @@
 		.bundle-entry input[type="text"], input[type="number"] { margin-right: 0.5rem; padding: 6px; box-sizing: border-box; }
 		.bundle-entry .suggestions { position: relative; margin-top: 4px; max-height: 160px; overflow-y: auto; }
 		.bundle-entry .suggestions div { padding: 6px; cursor: pointer; }
+
+		.featured-characters-controls { margin-bottom: 6px; }
+		.featured-characters-controls button { padding: 0.25rem 0.5rem; }
+
+		#featured-characters-list.scrollbox { max-height: 300px; overflow-y: auto; padding: 0px 8px; }
+
+		.featured-character-entry { position: relative; }
+		.featured-character-entry input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
+		.featured-character-entry .suggestions { position: relative; margin-top: 4px; max-height: 120px; overflow-y: auto; }
+		.featured-character-entry .suggestions div { padding: 6px; cursor: pointer; }
 	</style>
 	<link rel="icon" href="/files/images/return-icon.png" />
 </head>
@@ -35,7 +45,7 @@
 
 	<div id="wrapper">
 		<main>
-			<section>
+			<section id="cosmetic-search-section">
 				<h3>Cosmetic Search</h3>
 				<input type="text" id="cosmetic-display" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
 				<input type="hidden" id="cosmetic-input" />

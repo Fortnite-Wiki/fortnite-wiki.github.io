@@ -9,6 +9,7 @@ let elements = {};
 let isCrewAutoDetected = false;
 
 let bundlesEntries = [];
+let featuredCharactersEntries = [];
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -129,6 +130,10 @@ function updateSuggestions() {
 						instrumentType = "Drums";
 					}
 				}
+			}
+
+			if (cosmeticType == "Loading Screen") {
+				createFeaturedCharactersSection();
 			}
 
 			if (entry.path.startsWith("Racing")) {
@@ -1063,6 +1068,56 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(decalsTable);
 	}
 
+	// Featured Characters table (for Loading Screens only)
+	if (cosmeticType === "Loading Screen" && featuredCharactersEntries.length > 0) {
+		let featuredCharactersSection = ["== Featured Characters ==", "{|class=\"reward-table\""];
+
+		let currentIcons = [];
+		let currentNames = [];
+		for (const fcEntry of featuredCharactersEntries) {
+			const fcName = fcEntry.wrapper.querySelector('.character-name');
+			const fcFile = fcEntry.wrapper.querySelector('.character-file');
+
+			if (!fcFile || !fcFile.value || !fcName || !fcName.value) continue;
+
+			const file = fcFile.value.trim();
+			currentIcons.push(`|{{Style Background|${file}}}`);
+
+			const pageTitle = fcFile.dataset.pageTitle || (fcName ? fcName.value : '').trim();
+			const displayName = (fcName && fcName.value) ? fcName.value.trim() : (pageTitle || '').trim();
+			
+			if (pageTitle !== displayName) {
+				currentNames.push(`![[${pageTitle}|${displayName}]]`);
+			} else {
+				currentNames.push(`![[${displayName}]]`);
+			}
+
+			if (currentIcons.length === 3) {
+				featuredCharactersSection.push(currentIcons.join("\n"));
+				featuredCharactersSection.push("|-");
+				featuredCharactersSection.push(currentNames.join("\n"));
+				featuredCharactersSection.push("|-");
+				currentIcons = [];
+				currentNames = [];
+			}
+
+		}
+
+		// Push any remaining featured characters
+		if (currentIcons.length > 0) {
+			featuredCharactersSection.push(currentIcons.join("\n"));
+			featuredCharactersSection.push("|-");
+			featuredCharactersSection.push(currentNames.join("\n"));
+		} else {
+			featuredCharactersSection.pop(); // Remove last "|-"
+		}
+
+		featuredCharactersSection.push("|}");
+
+		out.push(featuredCharactersSection.join("\n") + "\n");
+
+	}
+
 	// LEGO and Bean Style Templates (for Outfits only)
 	if (cosmeticType === "Outfit") {
 		const hasLegoStyleFlag = hasLegoStyle(entryMeta);
@@ -1459,6 +1514,263 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) {
 		};
 		sugDiv.appendChild(div);
 	});
+}
+
+function createFeaturedCharactersSection() {
+	const section = document.createElement('section');
+	section.id = 'featured-characters-config';
+	section.innerHTML = '<h4>Featured Characters</h4>';
+
+	const controlsWrapper = document.createElement('div');
+	controlsWrapper.className = 'featured-characters-controls';
+
+	const addCharacterBtn = document.createElement('button');
+	addCharacterBtn.id = 'add-featured-character';
+	addCharacterBtn.className = 'sec-subm';
+	addCharacterBtn.textContent = 'add';
+
+	addCharacterBtn.onclick = () => { addFeaturedCharacterEntry(false); };
+
+	const addMysteryCharacterBtn = document.createElement('button');
+	addMysteryCharacterBtn.id = 'add-mystery-featured-character';
+	addMysteryCharacterBtn.className = 'sec-subm';
+	addMysteryCharacterBtn.textContent = 'add mystery';
+
+	addMysteryCharacterBtn.onclick = () => { addFeaturedCharacterEntry(true); };
+
+	const removeCharacterBtn = document.createElement('button');
+	removeCharacterBtn.id = 'remove-featured-character';
+	removeCharacterBtn.className = 'sec-subm secondary';
+	removeCharacterBtn.textContent = 'remove';
+
+	removeCharacterBtn.onclick = () => { removeFeaturedCharacterEntry(); };
+
+	controlsWrapper.appendChild(addCharacterBtn);
+	controlsWrapper.appendChild(addMysteryCharacterBtn);
+	controlsWrapper.appendChild(removeCharacterBtn);
+
+	const listWrapper = document.createElement('div');
+	listWrapper.id = 'featured-characters-list';
+	listWrapper.className = 'scrollbox';
+
+	section.appendChild(controlsWrapper);
+	section.appendChild(listWrapper);
+
+	const searchSection = document.getElementById('cosmetic-search-section');
+	searchSection.parentNode.insertBefore(section, searchSection.nextSibling);
+}
+
+function addFeaturedCharacterEntry(mystery = false) {
+	const list = document.getElementById('featured-characters-list');
+	if (!list) return;
+
+	const wrapper = document.createElement('div');
+	wrapper.className = 'featured-character-entry';
+
+	const input = document.createElement('input');
+	if (!mystery) {
+		input.type = 'text';
+		input.placeholder = 'enter featured character name';
+		input.className = 'featured-character-input';
+
+		const suggestions = document.createElement('div');
+		suggestions.className = 'suggestions';
+
+		input.addEventListener('input', () => updateFeaturedCharacterSuggestions(input, suggestions));
+
+		wrapper.appendChild(input);
+		wrapper.appendChild(suggestions);
+	}
+
+	const detailsWrapper = document.createElement('div');
+	detailsWrapper.className = 'featured-character-details';
+	detailsWrapper.style.display = 'flex';
+	detailsWrapper.style.justifyContent = 'center';
+	detailsWrapper.style.alignItems = 'center';
+	detailsWrapper.style.gap = '1rem';
+	detailsWrapper.style.display = mystery ? 'flex' : 'none';
+
+	const character_name = document.createElement('input');
+	character_name.type = 'text';
+	character_name.className = 'character-name';
+	if (!mystery) character_name.placeholder = 'character name';
+	if (mystery) character_name.value = "Unknown";
+	character_name.style.width = mystery ? '15%' : '30%';
+	character_name.style.textAlign = 'center';
+	character_name.disabled = true;
+
+	const character_file = document.createElement('input');
+	character_file.type = 'text';
+	character_file.className = 'character-file';
+	if (!mystery) character_file.placeholder = 'file name';
+	if (mystery) character_file.value = "??? - Mystery Reward - Fortnite.png";
+	character_file.style.width = '60%';
+	character_file.style.textAlign = 'center';
+	character_file.disabled = true;
+
+	detailsWrapper.appendChild(character_name);
+	detailsWrapper.appendChild(character_file);
+
+	wrapper.appendChild(detailsWrapper);
+	list.appendChild(wrapper);
+
+	if (mystery) {
+		featuredCharactersEntries.push({
+			wrapper,
+			character_name: character_name, character_file: character_file
+		});
+	} else {
+		featuredCharactersEntries.push({
+			wrapper,
+			input: input,
+			character_name: character_name, character_file: character_file,
+			suggestions: suggestions
+		});
+	}
+}
+
+function removeFeaturedCharacterEntry() {
+	const list = document.getElementById('featured-characters-list');
+	if (!list || list.children.length === 0) return;
+	list.removeChild(list.lastChild);
+}
+
+function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
+	const input = inputEl.value.trim().toLowerCase();
+	sugDiv.innerHTML = '';
+	if (!input) return;
+	
+	if (!Array.isArray(index) || index.length === 0) return;
+
+	const candidateIndex = index.filter(e => {
+		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+		if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
+		if (!e.id.startsWith('Character_') && !e.id.startsWith('CID_')) return false;
+		return e.name && e.id;
+	});
+
+	const scoredMatches = candidateIndex
+	  .map(e => {
+		const name = (e.name || '').toLowerCase();
+		const id = (e.id || '').toLowerCase();
+		let score = 0;
+
+		if (name === input) score += 100;
+		else if (name.startsWith(input)) score += 75;
+		else if (name.includes(input)) score += 50;
+
+		if (id === input) score += 40;
+		else if (id.startsWith(input)) score += 25;
+		else if (id.includes(input)) score += 10;
+
+		return { entry: e, score };
+	  })
+	  .filter(item => item.score > 0)
+	  .sort((a, b) => b.score - a.score)
+	  .slice(0, 10);
+	
+	scoredMatches.forEach(({ entry }) => {
+		const div = document.createElement('div');
+		div.textContent = `${entry.name} (${entry.id})`;
+		div.onclick = async () => {
+			sugDiv.innerHTML = '';
+
+			inputEl.style.display = 'none';
+			const detailsWrapper = inputEl.parentNode.querySelector('.featured-character-details');
+			detailsWrapper.style.display = 'flex';
+
+			const character_name = detailsWrapper.querySelector('.character-name');
+			const character_file = detailsWrapper.querySelector('.character-file');
+
+			character_name.value = entry.name;
+			// While we attempt to resolve the best image filename, show a placeholder
+			character_file.value = 'Resolving image...';
+
+			try {
+				const res = await getMostUpToDateImage(entry.name);
+				character_file.value = res.file;
+				character_file.dataset.pageTitle = res.pageTitle || entry.name;
+			} catch (err) {
+				console.warn('Failed to resolve best image for', entry.name, err);
+				character_file.value = `${entry.name} - Outfit - Fortnite.png`;
+				character_file.dataset.pageTitle = entry.name;
+			}
+		};
+		sugDiv.appendChild(div);
+	});
+}
+
+/**
+ * Query the Fandom MediaWiki API for images on a page title.
+ * Returns an array of filenames (without the leading "File:").
+ */
+async function fetchWikiImageFiles(title) {
+	try {
+		const endpoint = 'https://fortnite.fandom.com/api.php';
+		const params = new URLSearchParams({
+			action: 'query',
+			prop: 'images',
+			titles: title,
+			format: 'json',
+			imlimit: 'max',
+			origin: '*'
+		});
+		const url = `${endpoint}?${params.toString()}`;
+		const resp = await fetch(url);
+		if (!resp.ok) return [];
+		const json = await resp.json();
+		const pages = json.query && json.query.pages ? json.query.pages : {};
+		const files = [];
+		for (const pid of Object.keys(pages)) {
+			const p = pages[pid];
+			if (p && p.images) {
+				for (const im of p.images) {
+					if (im && im.title && im.title.startsWith('File:')) {
+						files.push(im.title.replace(/^File:/, ''));
+					}
+				}
+			}
+		}
+		return files;
+	} catch (err) {
+		console.warn('fetchWikiImageFiles error', err);
+		return [];
+	}
+}
+
+/**
+ * Given a character name, attempt to pick the most up-to-date image filename.
+ * Strategy:
+ *  - Try page titled "{name} (Outfit)" first, then "{name}".
+ *  - Prefer filenames containing a version token like "(v30.00)" with the highest numeric version.
+ *  - Fallback to "{name} - Outfit - Fortnite.png".
+ */
+async function getMostUpToDateImage(name) {
+	const tryTitles = [`${name} (Outfit)`, name];
+	for (const t of tryTitles) {
+		const files = await fetchWikiImageFiles(t);
+		if (!files || files.length === 0) continue;
+
+		// Find versioned files like "Peely (v30.00) - Outfit - Fortnite.png"
+		const versionRegex = /\(v(\d+)(?:\.(\d+))?\)/i;
+		let bestVersion = -1;
+		let bestFile = null;
+		for (const f of files) {
+			const m = f.match(versionRegex);
+			if (m && f.startsWith(name) && f.includes('- Outfit - Fortnite.png')) {
+				const major = parseInt(m[1] || '0', 10);
+				const minor = parseInt(m[2] || '0', 10);
+				const numeric = major * 1000 + minor; // simple ordering
+				if (numeric > bestVersion) {
+					bestVersion = numeric;
+					bestFile = f;
+				}
+			}
+		}
+		if (bestFile) return { file: bestFile, pageTitle: t };
+	}
+
+	return { file: `${name} - Outfit - Fortnite.png`, pageTitle: name };
 }
 
 async function initializeApp() {

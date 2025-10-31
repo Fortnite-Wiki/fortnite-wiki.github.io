@@ -98,7 +98,7 @@ function updateBundleSuggestions() {
 }
 
 // Create a new cosmetic entry DOM and hook up suggestion behavior
-function createCosmeticEntry() {
+function createCosmeticEntry(focus = true) {
 	const list = document.getElementById('cosmetics-list');
 	if (!list) return;
 
@@ -130,7 +130,7 @@ function createCosmeticEntry() {
 
 	list.appendChild(wrapper);
 	cosmeticsEntries.push({wrapper, input, hiddenId, hiddenName, suggestions});
-	input.focus();
+	if (focus) input.focus();
 }
 
 function removeCosmeticEntry() {
@@ -866,7 +866,7 @@ async function initializeApp() {
 	document.getElementById('add-banner').addEventListener('click', (e) => { e.preventDefault(); createBannerEntry(); });
 	document.getElementById('remove-banner').addEventListener('click', (e) => { e.preventDefault(); removeBannerEntry(); });
 
-	createCosmeticEntry();
+	createCosmeticEntry(false);
 
 	function handleReleasedSwitch() {
 		const isReleased = elements.releasedSwitch.checked;

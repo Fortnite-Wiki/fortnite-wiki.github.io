@@ -69,6 +69,7 @@ function updateSuggestions() {
 	// Exclude bundle entries and entries missing name/id
 	const candidateIndex = index.filter(e => {
 		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
+		if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
 		return e.name && e.id;
 	});
 
@@ -108,7 +109,7 @@ function updateSuggestions() {
 
 			autoDetectCosmeticSource(entry.id);
 
-			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entry.path}`);
+			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
 			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 				return { data: null, allData: null, entry };
 			}
@@ -184,7 +185,7 @@ async function searchCosmetic(input) {
 	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	
 	try {
-		const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${entryMeta.path}`);
+		const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entryMeta.path}`);
 		if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 			return { data: null, allData: null, entryMeta };
 		}
@@ -296,7 +297,7 @@ async function extractPickaxeSubtype(weapon_definition) {
 		return "";
 	}
 
-	const data = await loadGzJson(`${DATA_BASE_PATH}/${weapon_definition}`);
+	const data = await loadGzJson(`${DATA_BASE_PATH}${weapon_definition}`);
 	if (!data || !Array.isArray(data)) return "";
 
 	const props = data[0].Properties;
@@ -515,7 +516,7 @@ async function generateDecalsTable(name, tags) {
 	
 	for (const mi of matchedIndexEntries) {
 		try {
-			const json = await loadGzJson(`${DATA_BASE_PATH}/cosmetics/${mi.path}`);
+			const json = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${mi.path}`);
 			const itemDef = Array.isArray(json)
 				? json.find(d => d.Type in TYPE_MAP) || json[0]
 				: json;

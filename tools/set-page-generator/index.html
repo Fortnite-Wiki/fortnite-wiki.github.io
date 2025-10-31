@@ -10,6 +10,9 @@
 	<script src="/scripts/pageinfo.js" type="module"></script>
 
 	<link rel="stylesheet" href="./styles/styles.css" />
+	<style>
+		#banner-config button { padding: 0.25rem 0.5rem; }
+	</style>
 	<link rel="icon" href="/files/images/return-icon.png" />
 </head>
 
@@ -29,47 +32,46 @@
 
 	<div id="wrapper">
 		<main>
-			<section>
+			<section id="set-search-section">
 				<h3>Set Search</h3>
 				<input type="text" id="set-display" placeholder="Enter set ID or Name" autocomplete="off" />
 				<input type="hidden" id="set-input" />
 				<input type="hidden" id="set-input-name" />
 				<div id="suggestions"></div>
+				<div id="banner-status" class="status hidden"></div>
 			</section>
 
 			<section>
-				<div class="two-column-layout" style="margin-top: 0rem !important">
-					<div class="column">
-						<h4>Options</h4>
-						<div class="inline-group">
-							<label for="season-input" style="padding-right: 1rem">Season it was added in:</label>
-							<input type="text" id="season-input" placeholder="e.g. Chapter 6: Season 4" autocomplete="off" />
-						</div>
-						<div class="inline-group">
-							<label class="checkbox-label">
-								<input type="checkbox" id="unreleased">
-								Unreleased?
-							</label>
-						</div>
-						<div class="inline-group">
-							<label for="total-vbucks-input" style="padding-right: 1rem">Total V-Bucks Price:</label>
-							<input type="text" id="total-vbucks-input" placeholder="e.g. 2000" autocomplete="off" />
-						</div>
-						<div class="inline-group">
-							<label for="bundle-vbucks-input" style="padding-right: 1rem">Bundle V-Bucks Price:</label>
-							<input type="text" id="bundle-vbucks-input" placeholder="Auto-filled if found" autocomplete="off" />
-						</div>
-						<div class="inline-group">
-							<label for="bundle-name-input" style="padding-right: 1rem">Bundle Name:</label>
-							<input type="text" id="bundle-name-input" placeholder="Auto-filled if found" autocomplete="off" />
-						</div>
-						<hr /><br />
-						<div class="inline-group">
-							<label class="checkbox-label">
-								<input type="checkbox" id="translations-only">
-								<b>Output only translation parameters</b>
-							</label>
-						</div>
+				<div class="column">
+					<h4>Options</h4>
+					<div class="inline-group">
+						<label for="season-input" style="padding-right: 1rem">Season it was added in:</label>
+						<input type="text" id="season-input" placeholder="e.g. Chapter 6: Season 4" autocomplete="off" />
+					</div>
+					<div class="inline-group">
+						<label class="checkbox-label">
+							<input type="checkbox" id="unreleased">
+							Unreleased?
+						</label>
+					</div>
+					<div class="inline-group">
+						<label for="total-vbucks-input" style="padding-right: 1rem">Total V-Bucks Price:</label>
+						<input type="text" id="total-vbucks-input" placeholder="e.g. 2000" autocomplete="off" />
+					</div>
+					<div class="inline-group">
+						<label for="bundle-vbucks-input" style="padding-right: 1rem">Bundle V-Bucks Price:</label>
+						<input type="text" id="bundle-vbucks-input" placeholder="Auto-filled if found" autocomplete="off" />
+					</div>
+					<div class="inline-group">
+						<label for="bundle-name-input" style="padding-right: 1rem">Bundle Name:</label>
+						<input type="text" id="bundle-name-input" placeholder="Auto-filled if found" autocomplete="off" />
+					</div>
+					<hr /><br />
+					<div class="inline-group">
+						<label class="checkbox-label">
+							<input type="checkbox" id="translations-only">
+							<b>Output only translation parameters</b>
+						</label>
 					</div>
 				</div>
 			</section>

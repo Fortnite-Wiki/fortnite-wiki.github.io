@@ -12,13 +12,27 @@
 	<link rel="stylesheet" href="./styles/styles.css" />
 	<style>
 		#cosmetics-section { margin-top: 8px; }
-		#cosmetics-controls { margin-bottom: 6px; }
-		#cosmetics-controls button { padding: 0.25rem 0.5rem; }
-		#cosmetics-list.scrollbox { max-height: 400px; overflow-y: auto; padding: 8px; }
+		#button-controls { margin-bottom: 6px; }
+		#button-controls button { padding: 0.25rem 0.5rem; }
+
+		#cosmetics-list.scrollbox { max-height: 400px; overflow-y: auto; padding: 0px 8px; }
+		#jam-tracks-list.scrollbox { max-height: 200px; overflow-y: auto; padding: 0px 8px; }
+		#banners-list.scrollbox { max-height: 200px; overflow-y: auto; padding: 0px 8px; }
+
 		.cosmetic-entry { position: relative; }
 		.cosmetic-entry input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
 		.cosmetic-entry .suggestions { position: relative; margin-top: 4px; max-height: 160px; overflow-y: auto; }
 		.cosmetic-entry .suggestions div { padding: 6px; cursor: pointer; }
+
+		.jam-track-entry { position: relative; }
+		.jam-track-entry input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
+		.jam-track-entry .suggestions { position: relative; margin-top: 4px; max-height: 120px; overflow-y: auto; }
+		.jam-track-entry .suggestions div { padding: 6px; cursor: pointer; }
+
+		.banner-entry { position: relative; }
+		.banner-entry input[type="text"] { padding: 6px; box-sizing: border-box; }
+		.banner-entry .suggestions { position: relative; margin-top: 4px; max-height: 120px; overflow-y: auto; }
+		.banner-entry .suggestions div { padding: 6px; cursor: pointer; }
 	</style>
 	<link rel="icon" href="/files/images/return-icon.png" />
 </head>
@@ -50,12 +64,26 @@
 			<section>
 				<h4>Cosmetics</h4>
 				<div id="cosmetics-section">
-					<div id="cosmetics-controls">
+					<div id="button-controls">
 						<button id="add-cosmetic" class="sec-subm">add</button>
 						<button id="remove-cosmetic" class="sec-subm secondary">remove</button>
 					</div>
 					<div id="cosmetics-list" class="scrollbox">
 						<!-- Cosmetic entries appended here -->
+					</div>
+					<div id="button-controls">
+						<button id="add-jam-track" class="sec-subm">add jam track</button>
+						<button id="remove-jam-track" class="sec-subm secondary">remove jam track</button>
+					</div>
+					<div id="jam-tracks-list" class="scrollbox">
+						<!-- Jam track entries appended here -->
+					</div>
+					<div id="button-controls">
+						<button id="add-banner" class="sec-subm">add banner</button>
+						<button id="remove-banner" class="sec-subm secondary">remove banner</button>
+					</div>
+					<div id="banners-list" class="scrollbox">
+						<!-- Banner entries appended here -->
 					</div>
 				</div>
 			</section>

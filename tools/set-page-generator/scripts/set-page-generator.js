@@ -147,6 +147,141 @@ function updateSetSuggestions() {
 			document.getElementById('set-input').value = id.replace('Cosmetics.Set.', '');
 			document.getElementById('set-input-name').value = name;
 			sugDiv.innerHTML = '';
+
+			// Check for banners in this set and prompt for names if found
+			(async () => {
+				const setIdShort = id.replace('Cosmetics.Set.', '');
+				const banners = index.filter(e => e.setID === setIdShort && (e.banner_id || e.banner_icon));
+
+				// remove any previous banner UI
+				const existing = document.getElementById('banner-config');
+				if (existing) existing.remove();
+
+				if (!banners.length) return; // nothing to do
+
+				// disable generation until saved
+				const generateBtn = document.getElementById('generate-btn');
+				if (generateBtn) generateBtn.disabled = true;
+
+				// create banner configuration UI
+				const container = document.createElement('div');
+				container.id = 'banner-config';
+				container.className = 'banner-config';
+				container.style.margin = '0rem 0.25rem';
+				const header = document.createElement('div');
+				header.style.margin = '8px 0px 16px 0px';
+				header.innerHTML = '<strong>Banners detected in this set</strong> — please enter display names and tweak filenames below before generating the page.';
+				container.appendChild(header);
+
+				banners.forEach((entry, idx) => {
+					const idLabel = document.createElement('div');
+					idLabel.textContent = entry.banner_id + ":";
+					idLabel.style.fontWeight = 'bold';
+					container.appendChild(idLabel);
+
+					const row = document.createElement('div');
+					row.className = 'banner-row';
+					row.style.margin = '6px 0';
+					row.style.display = 'flex';
+					row.style.gap = '1rem';
+					row.style.alignItems = 'center';
+					row.style.justifyContent = 'center';
+
+					const nameInput = document.createElement('input');
+					nameInput.type = 'text';
+					nameInput.placeholder = 'Display name';
+					nameInput.id = `banner-name-${idx}`;
+					nameInput.style.width = '30%';
+					row.appendChild(nameInput);
+
+					const fileInput = document.createElement('input');
+					fileInput.type = 'text';
+					fileInput.value = entry.banner_icon.replaceAll('_', ' ') + ".png";
+					fileInput.id = `banner-filename-${idx}`;
+					fileInput.style.width = '50%';
+					row.appendChild(fileInput);
+
+					container.appendChild(row);
+				});
+
+				const controls = document.createElement('div');
+				controls.style.marginTop = '8px';
+				controls.style.display = 'flex';
+				controls.style.gap = '8px';
+				const saveBtn = document.createElement('button');
+				saveBtn.type = 'button';
+				saveBtn.className = 'sec-subm';
+				saveBtn.textContent = 'Save banner names';
+				saveBtn.onclick = () => {
+					// validate inputs first: do not accept empty display names or filenames
+					let firstEmptyIndex = -1;
+					for (let idx = 0; idx < banners.length; idx++) {
+						const displayEl = document.getElementById(`banner-name-${idx}`);
+						const fileEl = document.getElementById(`banner-filename-${idx}`);
+						const displayVal = displayEl ? displayEl.value.trim() : '';
+						const fileVal = fileEl ? fileEl.value.trim() : '';
+						if (!displayVal || !fileVal) {
+							firstEmptyIndex = idx;
+							break;
+						}
+					}
+					if (firstEmptyIndex !== -1) {
+						// focus the first empty field and show an error
+						const focusEl = document.getElementById(`banner-name-${firstEmptyIndex}`) || document.getElementById(`banner-filename-${firstEmptyIndex}`);
+						if (focusEl) focusEl.focus();
+						showBannerStatus('Please fill out all banner display names and filenames before saving.', 'error');
+						setTimeout(hideBannerStatus, 4000);
+						return;
+					}
+
+					// collect overrides into a global map for later use
+					window.bannerOverrides = window.bannerOverrides || {};
+					banners.forEach((entry, idx) => {
+						const key = entry.banner_id;
+						const display = document.getElementById(`banner-name-${idx}`).value.trim();
+						const filename = document.getElementById(`banner-filename-${idx}`).value.trim();
+						window.bannerOverrides[key] = { display, filename };
+					});
+					// re-enable generation
+					if (generateBtn) generateBtn.disabled = false;
+					showStatus('Banner names saved — you can now generate the page', 'success');
+					hideBannerStatus();
+					setTimeout(hideStatus, 2000);
+					container.remove();
+				};
+				controls.appendChild(saveBtn);
+
+				const cancelBtn = document.createElement('button');
+				cancelBtn.type = 'button';
+				cancelBtn.className = 'sec-subm secondary'
+				cancelBtn.textContent = 'Cancel';
+				cancelBtn.onclick = () => {
+					if (generateBtn) generateBtn.disabled = false;
+					container.remove();
+					document.getElementById('set-display').value = '';
+					showBannerStatus('Banner configuration cancelled, and hence the searched set was cleared.', 'loading');
+					setTimeout(hideBannerStatus, 1200);
+					hideStatus();
+				};
+				controls.appendChild(cancelBtn);
+
+				container.appendChild(controls);
+
+				const parent = document.getElementById('set-search-section');
+				const bannerStatus = document.getElementById('banner-status');
+				// Insert before banner-status when possible, otherwise fall back to appending
+				if (parent && bannerStatus && parent.contains(bannerStatus)) {
+					parent.insertBefore(container, bannerStatus);
+				} else if (bannerStatus && bannerStatus.parentNode) {
+					bannerStatus.parentNode.insertBefore(container, bannerStatus);
+				} else if (parent) {
+					parent.appendChild(container);
+				} else {
+					document.body.appendChild(container);
+				}
+
+				showStatus('This set contains banners. Please fill out banner display names and filenames before generating the page.', 'warning');
+			})();
 		};
 		sugDiv.appendChild(div);
 	});
@@ -154,7 +289,7 @@ function updateSetSuggestions() {
 
 // Find all cosmetics in a set using setID field in index.json
 function findCosmeticsInSet(setId) {
-	return index.filter(e => e.setID === setId);
+	return index.filter(e => e.setID === setId && !(e.banner_id || e.banner_icon));
 }
 
 async function fetchTranslations(translationKey) {
@@ -274,6 +409,28 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
 	}
 
+	const bannerEntries = index.filter(e => e.setID === setId && (e.banner_id || e.banner_icon));
+	if (bannerEntries.length) {
+		bannerEntries.forEach((bEntry, idx) => {
+			const key = bEntry.banner_id;
+			const override = window.bannerOverrides && window.bannerOverrides[key] ? window.bannerOverrides[key] : {};
+			const displayName = override.display;
+			const filename = override.filename;
+			flatIconList.push({
+				rarity: '',
+				name: filename,
+				cosmeticType: 'Banner',
+				fileType: 'Banner',
+				isFestivalCosmetic: false,
+				isRacingCosmetic: false,
+				isPickaxeOverride: false,
+				linkTarget: 'Banner Icons',
+				linkDisplay: displayName,
+				bannerFile: filename
+			});
+		});
+	}
+
 	// Rarity for infobox
 	let rarity = '';
 	if (outfitCosmetics.length) {
@@ -373,7 +530,11 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 
 	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
 	for (const row of chunk(grouped, 3)) {
-		cosmeticsTable.push('|' + row.map(({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay }) => {
+		cosmeticsTable.push('|' + row.map(({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay, bannerFile }) => {
+			// Banners: show the provided file and link to Banner Icons
+			if (cosmeticType === 'Banner') {
+				return `[[File:${bannerFile}|130px|link=Banner Icons]]`;
+			}
 			let ending = 'Fortnite.png';
 			if (fileType === 'Pickaxe' || fileType === 'Back Bling') {
 				ending = 'Fortnite.png';
@@ -385,7 +546,11 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 			return `{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`;
 		}).join('\n|'));
 		cosmeticsTable.push('|-');
-		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay }) => {
+		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay, cosmeticType }) => {
+			// Banners: always link to Banner Icons with the display name
+			if (cosmeticType === 'Banner') {
+				return `[[Banner Icons|${linkDisplay}]]`;
+			}
 			// Only use [[NAME (TYPE)|NAME]] if there are duplicates, else just [[NAME]]
 			return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
 		}).join('\n!'));
@@ -499,6 +664,19 @@ async function copyToClipboard() {
 function handleClear() {
 	document.getElementById('output').value = '';
 	document.getElementById('copy-btn').disabled = true;
+}
+
+function showBannerStatus(message, type = 'loading') {
+	const status = document.getElementById('banner-status');
+	status.textContent = message;
+	status.className = 'status ' + type;
+	status.classList.remove('hidden');
+}
+
+function hideBannerStatus() {
+	const status = document.getElementById('banner-status');
+	status.textContent = '';
+	status.className = 'status hidden';
 }
 
 function showStatus(message, type = 'loading') {

@@ -157,10 +157,14 @@ function updateSetSuggestions() {
 				const existing = document.getElementById('banner-config');
 				if (existing) existing.remove();
 
-				if (!banners.length) return; // nothing to do
+				const generateBtn = document.getElementById('generate-btn');
+				if (!banners.length) {
+					hideStatus();
+					if (generateBtn) generateBtn.disabled = false;
+					return;
+				}; // nothing to do
 
 				// disable generation until saved
-				const generateBtn = document.getElementById('generate-btn');
 				if (generateBtn) generateBtn.disabled = true;
 
 				// create banner configuration UI

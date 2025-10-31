@@ -481,7 +481,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		}
 	}
 
-	infobox.push(`|total_v-buck_price = ${options.totalVbucks || ''}`);
+	infobox.push(`|total_v-buck_price = ${options.totalVbucks || ''} <br> {{SetIcon|Item Shop}}`);
 
 	infobox.push(`|bundle_v-buck_price = ${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`);
 

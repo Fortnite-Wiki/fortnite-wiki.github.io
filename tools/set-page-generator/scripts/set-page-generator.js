@@ -328,9 +328,10 @@ async function fetchTranslations(translationKey) {
 	return output;
 }
 
-async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, options = {}) {
+async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, isCollaboration, options = {}) {
     const infobox = [];
     if (isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
+	if (isCollaboration) infobox.push('{{Collaboration|Cosmetic}}');
     infobox.push('{{Infobox Set');
     infobox.push(`|title = ${setName}`);
     infobox.push(`|image = ${setName} - Set - Fortnite.png`);
@@ -580,6 +581,7 @@ async function handleGenerate() {
 	const setName = document.getElementById('set-input-name').value.trim();
 	const seasonName = document.getElementById('season-input').value.trim();
 	const isUnreleased = document.getElementById('unreleased').checked;
+	const isCollaboration = document.getElementById('collaboration').checked;
 	const totalVbucksInput = document.getElementById('total-vbucks-input');
 	const bundleVbucksInput = document.getElementById('bundle-vbucks-input');
 	const bundleNameInput = document.getElementById('bundle-name-input');
@@ -636,7 +638,7 @@ async function handleGenerate() {
 	totalVbucks = totalVbucks ? ensureVbucksTemplate(totalVbucks) : '';
 	bundleVbucks = bundleVbucks ? ensureVbucksTemplate(bundleVbucks) : '';
 
-	let page = await generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, {
+	let page = await generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, isCollaboration, {
 		totalVbucks,
 		bundleVbucks,
 		bundleName: bundleNameField

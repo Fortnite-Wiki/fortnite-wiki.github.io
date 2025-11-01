@@ -219,7 +219,8 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.Music", "{{Reactive|Music}}"],
 		["Cosmetics.UserFacingFlags.Elimination", "{{Reactive|Elim}}"],
 		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"],
-		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"]
+		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"],
+		["Cosmetics.UserFacingFlags.Emote.Group", "{{Group Emote}}"],
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {

@@ -39,7 +39,7 @@ export const SEASON_RELEASE_DATES = {
     'C6MS2': new Date(2025, 10, 1), // November 1, 2025
 };
 
-const SEASON_UPDATE_VERSIONS = {
+export const SEASON_UPDATE_VERSIONS = {
     'C1S1': '1.8',
     'C1S2': '1.11',
     'C1S3': '3.00',

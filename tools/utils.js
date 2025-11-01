@@ -26,7 +26,8 @@ export const TYPE_MAP = {
 	"FortVehicleCosmeticsItemDefinition_Skin": "Decal",
 	"FortVehicleCosmeticsItemDefinition_Wheel": "Wheel",
 	"FortVehicleCosmeticsItemDefinition_DriftTrail": "Trail",
-	"FortVehicleCosmeticsItemDefinition_Booster": "Boost"
+	"FortVehicleCosmeticsItemDefinition_Booster": "Boost",
+	"CosmeticCompanionItemDefinition": "Companion"
 };
 
 export const INSTRUMENTS_TYPE_MAP = {

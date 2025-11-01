@@ -1,5 +1,6 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, SEASON_RELEASE_DATES, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
+import { SEASON_RELEASE_DATES, SEASON_UPDATE_VERSIONS } from '../../../data/datesAndVersions.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -335,46 +336,6 @@ function extractSubtype(tags, cosmeticType) {
 	
 	return "";
 }
-
-const SEASON_UPDATE_VERSIONS = {
-	'C1S1': '1.8',
-	'C1S2': '1.11',
-	'C1S3': '3.00',
-	'C1S4': '4.00',
-	'C1S5': '5.00',
-	'C1S6': '6.00',
-	'C1S7': '7.00',
-	'C1S8': '8.00',
-	'C1S9': '9.00',
-	'C1S10': '10.00',
-	'C2S1': '11.00',
-	'C2S2': '12.00',
-	'C2S3': '13.00',
-	'C2S4': '14.00',
-	'C2S5': '15.00',
-	'C2S6': '16.00',
-	'C2S7': '17.00',
-	'C2S8': '18.00',
-	'C3S1': '19.00',
-	'C3S2': '20.00',
-	'C3S3': '21.00',
-	'C3S4': '22.00',
-	'C4S1': '23.00',
-	'C4S2': '24.00',
-	'C4S3': '25.00',
-	'C4S4': '26.00',
-	'C4SOG': '27.00',
-	'C5S1': '28.00',
-	'C5S2': '29.00',
-	'C5S3': '30.00',
-	'C5S4': '31.00',
-	'C2R': '32.00',
-	'C6S1': '33.00',
-	'C6S2': '34.00',
-	'C6MS1': '35.00',
-	'C6S3': '36.00',
-	'C6S4': '37.00',
-};
 
 function parseBattlePassSeason(seasonInput) {
 	const match = seasonInput.toUpperCase().match(/^C(\d+)S(\d+)$/);

@@ -109,6 +109,14 @@ function updateSuggestions() {
 			document.getElementById("shop-appearances").value = entry.name;
 			sugDiv.innerHTML = "";
 
+			if (entry.companionEmote) {
+				document.getElementById('rocket-league-field').style.display = 'none';
+				const displayTitleEl = document.getElementById('display-title');
+				displayTitleEl.checked = false;
+				displayTitleEl.disabled = false;
+				return;
+			}
+			
 			autoDetectCosmeticSource(entry.id);
 
 			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
@@ -191,6 +199,9 @@ async function searchCosmetic(input) {
 	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	
 	try {
+		if (!entryMeta.path) {
+			return { data: null, allData: null, entryMeta };
+		}
 		const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entryMeta.path}`);
 		if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 			return { data: null, allData: null, entryMeta };
@@ -528,7 +539,40 @@ async function generateDecalsTable(name, tags) {
 	return "";
 }
 
+function generateCompanionEmotePage(ID, name, rarity, settings) {
+	const out = [];
+
+	if (settings.displayTitle) {
+		out.push(`{{DISPLAYTITLE:${name}}}`);
+	}
+	if (settings.isCollaboration) {
+		out.push("{{Collaboration|Cosmetic}}");
+	}
+	if (settings.unreleasedTemplate && !settings.isFortniteCrew) {
+		out.push("{{Unreleased|Cosmetic}}");
+	}
+
+	out.push("{{Infobox Cosmetics");
+	out.push(`|name = ${name}`);
+	out.push(`|image = ${name} - Sidekick Emote - Fortnite.png`);
+	out.push(`|rarity = ${rarity}`);
+	out.push("|type = Sidekick Emote");
+	out.push(`|ID = ${ID}`);
+	out.push("}}");
+	out.push(`'''${name}''' is a {{Sidekick Emote}} in [[Fortnite]].`);
+
+	return out.join("\n");
+}
+
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
+	if (!entryMeta.path && entryMeta.companionEmote) {
+		const ID = entryMeta.id;
+		const name = entryMeta.name;
+		const rarity = entryMeta.rarity;
+
+		return generateCompanionEmotePage(ID, name, rarity, settings);
+	}
+
 	const props = data.Properties;
 	const ID = data.Name;
 	const type = data.Type;
@@ -539,7 +583,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	let cosmeticType = props.ItemShortDescription?.SourceString;
 	if (!cosmeticType) {
-		cosmeticType = TYPE_MAP[data.Type] || "";
+		cosmeticType = TYPE_MAP[type] || "";
 	}
 	if (cosmeticType === "Shoes") {
 		cosmeticType = "Kicks";
@@ -551,7 +595,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		cosmeticType = "Car Body";
 	}
 	
-	const isFestivalCosmetic = entryMeta.path.startsWith("Festival") && type != "AthenaDanceItemDefinition";
+	const isFestivalCosmetic = entryMeta.path && entryMeta.path.startsWith("Festival") && type != "AthenaDanceItemDefinition";
 	let instrumentType;
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
 		if (type in INSTRUMENTS_TYPE_MAP) {
@@ -566,7 +610,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 	}
 	
-	const isRacingCosmetic = entryMeta.path.startsWith("Racing");
+	const isRacingCosmetic = entryMeta.path && entryMeta.path.startsWith("Racing");
 
 	let mainIcon = { large: "", icon: "" };
 	let tags = [];
@@ -876,7 +920,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`}}{{Quotation|${description}}}`);
 
 	// Article section
-	let article = `'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]] `;
+	let article = `'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
 	
 	const obtainedOnPageCompletion =
 		(settings.isBattlePass && settings.bpPageCompletion) ||
@@ -887,16 +931,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
 
 	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
-		article += `that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
+		article += ` that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		article += `that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+		article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-		article += `that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
+		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
 	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-		article += `that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
+		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
-		article += `that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
+		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
 	} else if (settings.isItemShop) {
 		let bundles = "";
 		if (bundlesEntries.length > 0) {
@@ -921,16 +965,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]] for ${ensureVbucksTemplate(settings.shopCost)}` : "";
 		if (itemShopFlag || bundles) {
-			article += `that can be purchased ${itemShopFlag}${bundles}.`;
+			article += ` that can be purchased ${itemShopFlag}${bundles}.`;
 		} else {
 			if (settings.unreleasedTemplate) {
-				article += "that is currently unreleased";;
+				article += " that is currently unreleased";;
 			}
 			article += ".";
 			
 		}
 	} else if (settings.unreleasedTemplate) {
-		article += "that is currently unreleased.";
+		article += " that is currently unreleased.";
 	} else {
 		article += ".";
 	}
@@ -963,6 +1007,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
 			} else if (matchedSeasonKey === 'C6MS1') {
 				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
+			} else if (matchedSeasonKey === 'C6MS2') {
+				seasonFirstReleasedFlag = " was first released in [[Chapter 6: Mini Season 2]]";
 			} else {
 				const chapterMatch = matchedSeasonKey.match(/^C(\d+)/);
 				const seasonMatch = matchedSeasonKey.match(/S(\d+)/);
@@ -1215,14 +1261,6 @@ async function generatePage() {
 		return;
 	}
 
-	// Source selection validation for released cosmetics only
-	if (isReleased) {
-		if (!isItemShop && !isBattlePass && !isFortniteCrew && !isOGPass && !isMusicPass && !isLEGOPass) {
-			showStatus('Please select a cosmetic source (Item Shop, Battle Pass, or Fortnite Crew)', 'error');
-			return;
-		}
-	}
-
 	// Source-specific validation
 	if (isBattlePass) {
 		const seasonInput = elements.bpSeason.value.trim();
@@ -1288,8 +1326,10 @@ async function generatePage() {
 		const { data, allData, entryMeta } = result;
 
 		if (!data) {
-			showStatus('Cosmetic not found', 'error');
-			return;
+			if (!entryMeta.companionEmote) {
+				showStatus('Cosmetic not found', 'error');
+				return;
+			}
 		}
 
 		showStatus('Generating page...', 'loading');

@@ -544,6 +544,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (cosmeticType === "Shoes") {
 		cosmeticType = "Kicks";
 	}
+	if (cosmeticType === "Companion") {
+		cosmeticType = "Sidekick";
+	}
 	if (cosmeticType === "Vehicle Body") {
 		cosmeticType = "Car Body";
 	}

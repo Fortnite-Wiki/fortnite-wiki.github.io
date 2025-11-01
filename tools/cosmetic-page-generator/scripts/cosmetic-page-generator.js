@@ -194,7 +194,7 @@ function updateSuggestions() {
 }
 
 async function searchCosmetic(input) {
-	const entryMeta = index.find(e => e.id.toLowerCase() === input.toLowerCase() || e.name.toLowerCase() === input.toLowerCase());
+	const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input.toLowerCase() || e.name && e.name.toLowerCase() === input.toLowerCase());
 	
 	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	

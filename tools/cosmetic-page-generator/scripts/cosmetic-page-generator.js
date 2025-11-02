@@ -350,9 +350,9 @@ function extractSubtype(tags, cosmeticType) {
 }
 
 function parseBattlePassSeason(seasonInput) {
-	const match = seasonInput.toUpperCase().match(/^C(\d+)S(\d+)$/);
+	const match = seasonInput.toUpperCase().match(/^C(\d+)(M)?S(\d+)$/);
 	if (match) {
-		return { chapter: match[1], season: match[2] };
+		return { chapter: match[1], season: match[3], mini: !!match[2] };
 	}
 	return null;
 }
@@ -500,7 +500,7 @@ async function generateDecalsTable(name, tags) {
 				: json;
 			
 			const localized = itemDef?.Properties?.ItemName?.LocalizedString;
-			const rarity = itemDef?.Properties?.Rarity?.value || "Common";
+			const rarity = itemDef?.Properties?.Rarity?.value || "Uncommon";
 			const name = localized || mi.name || mi.id;
 			const fileName = `${name} - Decal - Rocket Racing.png`;
 			
@@ -778,7 +778,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const freeFlag = settings.passFreeBP ? "|Free" : "";
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
+		unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
 		const freeFlag = settings.passFreeOG ? "|Free" : "";
 		unlocked = `Page ${settings.ogPage} <br> {{OGPass|${settings.ogSeason}${freeFlag}}}`;
@@ -813,7 +814,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isFortniteCrew || rarity === "Crew Series") {
 		cost = "$11.99 <br /> ({{Fortnite Crew}})";
 	} else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-		cost = `{{V-Bucks|1,000}} <br> ({{BattlePass|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
+		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
+		cost = `{{V-Bucks|1,000}} <br> ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
 	} else if (settings.isOGPass && settings.ogSeason) {
 		cost = `{{V-Bucks|1,000}} <br> ({{OGPass|${settings.ogSeason}}})`;
 	} else if (settings.isMusicPass && settings.musicSeason) {
@@ -934,7 +936,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		article += ` that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+		const miniSeasonFlag = settings.isMiniSeason ? "Mini " : "";
+		article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
 		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
 	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
@@ -1003,6 +1006,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 		
 		if (matchedSeasonKey) {
+			matchedSeasonKey = 'C6MS3';
 			if (matchedSeasonKey === 'C2R') {
 				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
 			} else if (matchedSeasonKey === 'C6MS1') {
@@ -1010,13 +1014,17 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			} else if (matchedSeasonKey === 'C6MS2') {
 				seasonFirstReleasedFlag = " was first released in [[Chapter 6: Mini Season 2]]";
 			} else {
-				const chapterMatch = matchedSeasonKey.match(/^C(\d+)/);
-				const seasonMatch = matchedSeasonKey.match(/S(\d+)/);
-				
-				if (chapterMatch && seasonMatch) {
-					const chapter = chapterMatch[1];
-					const season = seasonMatch[1];
-					seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
+				const chapter = keyMatch[1];
+				const mini = keyMatch[2];
+				const season = keyMatch[3];
+
+				if (chapter && season) {
+					if (mini) {
+						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Mini Season ${season}]]`;
+					} else {
+						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+					}
 				}
 			}
 		}
@@ -1365,7 +1373,6 @@ async function generatePage() {
 			shopAppearances: elements.shopAppearances.value,
 			
 			// Battle Pass specific
-			bpSeason: elements.bpSeason.value,
 			bpPage: elements.bpPage.value,
 			bpBonus: elements.bpBonus.checked,
 			bpPageCompletion: elements.bpPageCompletion.checked,
@@ -1394,11 +1401,12 @@ async function generatePage() {
 		};
 
 		// Add parsed battle pass data if applicable
-		if (isBattlePass && settings.bpSeason) {
-			const seasonData = parseBattlePassSeason(settings.bpSeason.trim());
+		if (isBattlePass && elements.bpSeason.value) {
+			const seasonData = parseBattlePassSeason(elements.bpSeason.value.trim());
 			if (seasonData) {
 				settings.bpChapter = seasonData.chapter;
 				settings.bpSeasonNum = seasonData.season;
+				settings.isMiniSeason = seasonData.mini;
 			}
 		}
 

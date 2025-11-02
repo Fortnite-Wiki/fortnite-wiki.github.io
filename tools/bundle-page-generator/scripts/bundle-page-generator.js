@@ -388,11 +388,12 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	infobox.push(`|name = ${bundleName}`);
 	let imageParameter = '';
 	if (!usePlaceholderImage && imageProductTagCounts && Object.keys(imageProductTagCounts).length > 0) {
-		imageParameter = Object.entries(imageProductTagCounts).flatMap(([tag, count]) => {
+		const tagLabelMap = {
+			'Product.Juno': 'LEGO',
+		};
+
+		const tempEntries = Object.entries(imageProductTagCounts).flatMap(([tag, count]) => {
 			const entries = [];
-			const tagLabelMap = {
-				'Product.Juno': 'LEGO',
-			};
 			const label = tagLabelMap[tag] || tag;
 
 			if (tag in tagLabelMap) {
@@ -408,9 +409,14 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 			}
 
 			return entries;
-		}).join('\n');
-		if (imageParameter.includes('\n')) {
-			imageParameter = `<gallery>\n${imageParameter}\n</gallery>`;
+		});
+
+		if (tempEntries.length > 1) {
+			// Add increasing numeric caption (|1, |2, ...) after each image in the gallery
+			const numbered = tempEntries.map((filename, idx) => `${filename}|${idx + 1}`);
+			imageParameter = `<gallery>\n${numbered.join('\n')}\n</gallery>`;
+		} else if (tempEntries.length === 1) {
+			imageParameter = tempEntries[0];
 		}
 	}
 	infobox.push(`|image = ${usePlaceholderImage ? 'Placeholder (Featured - New) - Item Shop Bundle - Fortnite.png' : imageParameter}`);

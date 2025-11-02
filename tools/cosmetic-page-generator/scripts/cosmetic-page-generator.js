@@ -1,6 +1,11 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
-import { SEASON_RELEASE_DATES, SEASON_UPDATE_VERSIONS } from '../../../data/datesAndVersions.js';
+import {
+	SEASON_RELEASE_DATES, SEASON_UPDATE_VERSIONS,
+	OG_SEASON_RELEASE_DATES, OG_SEASON_UPDATE_VERSIONS,
+	FESTIVAL_SEASON_RELEASE_DATES, FESTIVAL_SEASON_UPDATE_VERSIONS,
+	LEGO_SEASON_RELEASE_DATES, LEGO_SEASON_UPDATE_VERSIONS
+} from '../../../data/datesAndVersions.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -124,7 +129,7 @@ function updateSuggestions() {
 				return { data: null, allData: null, entry };
 			}
 			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
-			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString || TYPE_MAP[itemDefinitionData.Type] || "";
+			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
 
 			const isFestivalCosmetic = entry.path.startsWith("Festival") && itemDefinitionData.Type != "AthenaDanceItemDefinition";
 			let instrumentType;
@@ -578,8 +583,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const description = props.ItemDescription?.SourceString.trim() || "";
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 				 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
-	
-	let cosmeticType = props.ItemShortDescription?.SourceString;
+
+	let cosmeticType = props.ItemShortDescription?.SourceString.trim();
 	if (!cosmeticType) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
@@ -591,6 +596,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	if (cosmeticType === "Vehicle Body") {
 		cosmeticType = "Car Body";
+	}
+	if (cosmeticType === "Drift Trail") {
+		cosmeticType = "Trail";
 	}
 	
 	const isFestivalCosmetic = entryMeta.path && entryMeta.path.startsWith("Festival") && type != "AthenaDanceItemDefinition";
@@ -878,6 +886,31 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (seasonReleaseDate) {
 			release = getFormattedReleaseDate(seasonReleaseDate);
 		} else {
+			release = getFormattedReleaseDate();
+		}
+	} else if (settings.isOGPass && settings.ogSeason) {
+		const ogReleaseDate = OG_SEASON_RELEASE_DATES[settings.ogSeason];
+		if (ogReleaseDate) {
+			release = getFormattedReleaseDate(ogReleaseDate);
+		} else {
+			release = getFormattedReleaseDate();
+		}
+	}
+	else if (settings.isMusicPass && settings.musicSeason) {
+		const musicReleaseDate = FESTIVAL_SEASON_RELEASE_DATES[settings.musicSeason];
+		if (musicReleaseDate) {
+			release = getFormattedReleaseDate(musicReleaseDate);
+		}
+		else {
+			release = getFormattedReleaseDate();
+		}
+	}
+	else if (settings.isLEGOPass && settings.legoSeason) {
+		const legoReleaseDate = LEGO_SEASON_RELEASE_DATES[settings.legoSeason];
+		if (legoReleaseDate) {
+			release = getFormattedReleaseDate(legoReleaseDate);
+		}
+		else {
 			release = getFormattedReleaseDate();
 		}
 	}
@@ -1445,6 +1478,14 @@ function createBundleEntry() {
 	input.placeholder = 'enter bundle ID or Name';
 	input.className = 'bundle-display';
 	input.id = `bundle-display-${bundlesEntries.length + 1}`;
+	input.style = "display: block; margin-left: auto; margin-right: auto;";
+
+	const optionsWrapper = document.createElement('div');
+	optionsWrapper.style.display = 'flex';
+	optionsWrapper.style.justifyContent = 'center';
+	optionsWrapper.style.alignItems = 'center';
+	optionsWrapper.style.gap = '1rem';
+	optionsWrapper.style.display = 'none';
 
 	const bundleCost = document.createElement('input');
 	bundleCost.type = 'text';
@@ -1476,12 +1517,13 @@ function createBundleEntry() {
 	const suggestions = document.createElement('div');
 	suggestions.className = 'suggestions';
 
-	input.addEventListener('input', () => updateBundleSuggestions(input, bundleID, bundleName, suggestions));
+	input.addEventListener('input', () => updateBundleSuggestions(input, bundleID, bundleName, optionsWrapper, suggestions));
 
 	wrapper.appendChild(input);
-	wrapper.appendChild(bundleCost);
-	wrapper.appendChild(titleCaseLabel);
-	wrapper.appendChild(forceTitleCase);
+	optionsWrapper.appendChild(bundleCost);
+	optionsWrapper.appendChild(titleCaseLabel);
+	optionsWrapper.appendChild(forceTitleCase);
+	wrapper.appendChild(optionsWrapper);
 	wrapper.appendChild(bundleID);
 	wrapper.appendChild(bundleName);
 	wrapper.appendChild(suggestions);
@@ -1497,7 +1539,7 @@ function removeBundleEntry() {
 	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
 }
 
-function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) {
+function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWrapper, sugDiv) {
 	const input = displayEl.value.trim().toLowerCase();
 	sugDiv.innerHTML = '';
 	if (!input) return;
@@ -1533,6 +1575,7 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) {
 		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
 		div.onclick = () => {
 			displayEl.value = `${entry.bundle_name} (${entry.bundle_id})`;
+			optionsWrapper.style.display = 'flex';
 			hiddenIdEl.value = entry.bundle_id;
 			hiddenNameEl.value = entry.bundle_name;
 			sugDiv.innerHTML = '';
@@ -1993,17 +2036,40 @@ async function initializeApp() {
 		elements.cosmeticDisplayInput.addEventListener('input', resetDisplayTitleIfNeeded);
 	}
 
-	// Auto-fill update version for Battle Pass based on season
-	function autoFillBattlePassVersion() {
-		const seasonInput = elements.bpSeason.value.trim().toUpperCase();
-		
-		if (seasonInput && elements.sourceBattlePass.checked) {
-			const updateVersion = SEASON_UPDATE_VERSIONS[seasonInput];
-			if (updateVersion) {
-				elements.updateVersion.value = updateVersion;
-			}
+	// Auto-fill update version for Battle Pass / OG / Festival / LEGO based on season
+	function autoFillPassVersion() {
+		const bpChecked = elements.sourceBattlePass.checked;
+		const ogChecked = elements.sourceOGPass.checked;
+		const musicChecked = elements.sourceMusicPass.checked;
+		const legoChecked = elements.sourceLEGOPass.checked;
+
+		let updateVersion = "";
+
+		if (bpChecked) {
+			const seasonInput = elements.bpSeason.value.trim().toUpperCase();
+			if (seasonInput) updateVersion = SEASON_UPDATE_VERSIONS[seasonInput] || "";
+		} else if (ogChecked) {
+			const seasonInput = elements.ogSeason.value.trim();
+			if (seasonInput) updateVersion = OG_SEASON_UPDATE_VERSIONS[seasonInput] || "";
+		} else if (musicChecked) {
+			const seasonInput = elements.musicSeason.value.trim();
+			if (seasonInput) updateVersion = FESTIVAL_SEASON_UPDATE_VERSIONS[seasonInput] || "";
+		} else if (legoChecked) {
+			const seasonInput = elements.legoSeason.value.trim();
+			if (seasonInput) updateVersion = LEGO_SEASON_UPDATE_VERSIONS[seasonInput] || "";
+		}
+
+		if (updateVersion) {
+			elements.updateVersion.value = updateVersion;
+		} else {
+			elements.updateVersion.value = "";
 		}
 	}
+
+	// Also listen for changes to the other season inputs
+	if (elements.ogSeason) elements.ogSeason.addEventListener('input', autoFillPassVersion);
+	if (elements.musicSeason) elements.musicSeason.addEventListener('input', autoFillPassVersion);
+	if (elements.legoSeason) elements.legoSeason.addEventListener('input', autoFillPassVersion);
 
 	// Handle Fortnite Crew checkbox with auto-detection protection
 	function handleFortniteCrewClick(e) {
@@ -2073,7 +2139,7 @@ async function initializeApp() {
 	elements.sourceLEGOPass.addEventListener('change', handleSourceSelection);
 
 	// Battle Pass season auto-fill event listener
-	elements.bpSeason.addEventListener('input', autoFillBattlePassVersion);
+	elements.bpSeason.addEventListener('input', autoFillPassVersion);
 
 	// Item Shop History part visibility
 	elements.itemShopHistory.addEventListener('change', () => {

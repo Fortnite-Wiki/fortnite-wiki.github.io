@@ -79,3 +79,71 @@ export const SEASON_UPDATE_VERSIONS = {
     'C6S4': '37.00',
     'C6MS2': '38.00',
 };
+
+export const OG_SEASON_RELEASE_DATES = {
+    1: new Date(2024, 11, 6), // December 6, 2024
+    2: new Date(2025, 0, 31), // January 31, 2025
+    3: new Date(2025, 2, 25), // March 25, 2025
+    4: new Date(2025, 5, 7), // June 7, 2025
+    5: new Date(2025, 7, 7), // August 7, 2025
+    6: new Date(2025, 9, 2) // October 2, 2025
+};
+
+export const OG_SEASON_UPDATE_VERSIONS = {
+    1: '33.00',
+    2: '33.30',
+    3: '34.20',
+    4: '36.00',
+    5: '37.00',
+    6: '37.40'
+};
+
+export const FESTIVAL_SEASON_RELEASE_DATES = {
+    1: new Date(2023, 11, 9), // December 9, 2023
+    2: new Date(2024, 1, 22), // February 22, 2024
+    3: new Date(2024, 3, 23), // April 23, 2024
+    4: new Date(2024, 5, 13), // June 13, 2024
+    5: new Date(2024, 7, 16), // August 16, 2024
+    6: new Date(2024, 10, 2), // November 2, 2024
+    7: new Date(2025, 0, 14), // January 14, 2025
+    8: new Date(2025, 3, 8), // April 8, 2025
+    9: new Date(2025, 5, 18), // June 18, 2025
+    10: new Date(2025, 7, 26), // August 26, 2025
+    11: new Date(2025, 9, 9) // October 9, 2025
+};
+
+export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
+    1: '28.00',
+    2: '28.30',
+    3: '29.30',
+    4: '30.10',
+    5: '31.00',
+    6: '32.00',
+    7: '33.20',
+    8: '34.30',
+    9: '36.10',
+    10: '37.10',
+    11: '37.50'
+};
+
+export const LEGO_SEASON_RELEASE_DATES = {
+    "Rebel Adventure": new Date(2024, 4, 3), // May 3, 2024
+    "Tropical Treasures": new Date(2024, 8, 17), // September 17, 2024
+    "Brick or Treat": new Date(2024, 9, 12), // October 12, 2024
+    "Chill & Thrill": new Date(2024, 11, 10), // December 10, 2024
+    "Goldrush Gallery": new Date(2025, 2, 11), // March 11, 2025
+    "First Order": new Date(2025, 4, 2), // May 2, 2025
+    "Supernova Academy": new Date(2025, 5, 7), // June 7, 2025
+    "Palm Paradise": new Date(2025, 7, 7) // August 7, 2025
+};
+
+export const LEGO_SEASON_UPDATE_VERSIONS = {
+    "Rebel Adventure": '29.40',
+    "Tropical Treasures": '31.20',
+    "Brick or Treat": '31.40',
+    "Chill & Thrill": '33.10',
+    "Goldrush Gallery": '34.10',
+    "First Order": '35.00',
+    "Supernova Academy": '36.00',
+    "Palm Paradise": '37.00'
+};

@@ -1009,7 +1009,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 		
 		if (matchedSeasonKey) {
-			matchedSeasonKey = 'C6MS3';
 			if (matchedSeasonKey === 'C2R') {
 				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
 			} else if (matchedSeasonKey === 'C6MS1') {
@@ -1175,7 +1174,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (settings.shopAppearances != name) {
 			appearancesSection.push(`|name2 = ${name}`);
 		}
-		if (bundlesEntries.length == 1) {
+		if (bundlesEntries.length == 1 && settings.shopCost == "" ) {
 			const be = bundlesEntries[0];
 			if (be.bundleName && be.bundleName.value) {
 				const rawName = be.bundleName.value.trim();

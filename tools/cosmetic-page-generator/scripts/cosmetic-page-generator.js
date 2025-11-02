@@ -324,8 +324,6 @@ async function extractPickaxeSubtype(weapon_definition) {
 	const gab_asset_path = pfa?.AssetPathName;
 	const gab = gab_asset_path ? gab_asset_path.split('/').pop().split('.')[0] : "";
 
-	console.log(gab);
-
 	return get_subtype_from_GAB(gab) ? `{{Cosmetic Subtypes|${get_subtype_from_GAB(gab)}}}` : "";
 }
 
@@ -1172,6 +1170,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (settings.shopAppearances != name) {
 			appearancesSection.push(`|name2 = ${name}`);
 		}
+		if (bundlesEntries.length == 1) {
+			const be = bundlesEntries[0];
+			if (be.bundleName && be.bundleName.value) {
+				const rawName = be.bundleName.value.trim();
+				const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+				appearancesSection.push(`|bundled_with = ${bundleName}`);
+			}
+		}
 		appearancesSection.push("}}");
 
 		out.push(appearancesSection.join('\n') + "\n");
@@ -1437,7 +1443,9 @@ function createBundleEntry() {
 	input.id = `bundle-display-${bundlesEntries.length + 1}`;
 
 	const bundleCost = document.createElement('input');
-	bundleCost.type = 'number';
+	bundleCost.type = 'text';
+	bundleCost.inputMode = 'numeric';
+	bundleCost.pattern = '^[0-9,]+$';
 	bundleCost.placeholder = 'V-Bucks cost';
 	bundleCost.className = 'vbucks-cost';
 	bundleCost.style.width = '150px';

@@ -873,7 +873,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
 		release = `[[Item Shop History/${settings.crewMonth} 1st ${settings.crewYear}|${settings.crewMonth} 1st ${settings.crewYear}]]`;
 	} else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-		const seasonKey = `C${settings.bpChapter}S${settings.bpSeasonNum}`;
+		const seasonKey = `C${settings.bpChapter}${settings.isMiniSeason ? 'M' : ''}S${settings.bpSeasonNum}`;
 		const seasonReleaseDate = SEASON_RELEASE_DATES[seasonKey];
 		if (seasonReleaseDate) {
 			release = getFormattedReleaseDate(seasonReleaseDate);

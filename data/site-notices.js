@@ -20,7 +20,7 @@ export default [
         collapsible: true,
         dismissible: false,
         summaryText: 'Latest update to this site: <span class="latest-update-summary" style="font-weight: bold;">Unknown</span>',
-        bodyHtml: '<p><strong>Note:</strong> Cosmetics added in new updates or decrypted using new AES keys will not appear in generators unless a staff member manually updates this site\'s data.</p>\n<p><em>Latest update was: <span class="latest-update-full" style="font-weight: bold;">Unknown</span></em></p>',
+        bodyHtml: '<p><strong>Note:</strong> Cosmetics added in new updates or decrypted using new AES keys will not appear in generators unless a staff member manually updates this site\'s data.</p>\n<p>Message <b>@mtonline</b> or <b>@lld_jo</b> on Discord to request an update.</p>\n<p><em>Latest update was: <span class="latest-update-full" style="font-weight: bold;">Unknown</span></em></p>',
         paths: ['/'],
         excludePaths: ['/tools/jam-track-generator/', '/tools/lore-character-generator/']
     },

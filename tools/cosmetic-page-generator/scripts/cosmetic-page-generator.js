@@ -230,7 +230,7 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.Emote.Dance", "{{Dance Emote}}"],
 		[["Cosmetics.UserFacingFlags.HasVariants", "Cosmetics.UserFacingFlags.HasUpgradeQuests"], "{{Selectable Styles}}"],
 		[["Cosmetics.UserFacingFlags.Emoticon.Animated", "Cosmetics.UserFacingFlags.Wrap.Animated"], "{{Animated}}"],
-		["Cosmetics.UserFacingFlags.Reactive", "{{Reactive}}"],
+		[["Cosmetics.UserFacingFlags.Reactive", "Cosmetics.UserFacingFlags.Reactive.WeaponFire"], "{{Reactive}}"],
 		["Cosmetics.UserFacingFlags.TOD", "{{Reactive|Time}}"],
 		["Cosmetics.UserFacingFlags.Music", "{{Reactive|Music}}"],
 		["Cosmetics.UserFacingFlags.Elimination", "{{Reactive|Elim}}"],

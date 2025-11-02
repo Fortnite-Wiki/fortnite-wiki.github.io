@@ -28,7 +28,7 @@ export default [
         thumbnail: 'bundle-page-generator',
         name: 'Bundle Page Generator',
         version: 'v0.0',
-        description: 'Generates Item Shop Bundle and Limited Time Offer pages.',
+        description: 'Generates Item Shop Bundle pages.',
         isSiteTool: true,
     },
     {

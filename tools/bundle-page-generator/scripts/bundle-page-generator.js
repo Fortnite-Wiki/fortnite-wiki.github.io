@@ -500,14 +500,20 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
 			} else if (matchedSeasonKey === 'C6MS1') {
 				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
+			} else if (matchedSeasonKey === 'C6MS2') {
+				seasonFirstReleasedFlag = " was first released in [[Chapter 6: Mini Season 2]]";
 			} else {
-				const chapterMatch = matchedSeasonKey.match(/^C(\d+)/);
-				const seasonMatch = matchedSeasonKey.match(/S(\d+)/);
+				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
+				const chapter = keyMatch[1];
+				const mini = keyMatch[2];
+				const season = keyMatch[3];
 				
 				if (chapterMatch && seasonMatch) {
-					const chapter = chapterMatch[1];
-					const season = seasonMatch[1];
-					seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+					if (mini) {
+						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Mini Season ${season}]]`;
+					} else {
+						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+					}
 				}
 			}
 		}

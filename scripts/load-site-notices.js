@@ -17,12 +17,7 @@ import noticesConfig from '../data/site-notices.js';
         }
     }
 
-    function shouldShowOnThisPage(target) {
-        if (!target) return false;
-
-        const paths = target.paths;
-        const exclude = target.excludePaths;
-        if (!paths || !paths.length) return true;
+    function shouldShowOnThisPage(paths, exclude) {
         const pathname = window.location.pathname || '/';
         // if excludePaths is provided and the current pathname starts with any excluded prefix, hide
         if (exclude && exclude.length) {
@@ -121,87 +116,67 @@ import noticesConfig from '../data/site-notices.js';
 
         // for each configured notice, decide whether to inject
         noticesConfig.forEach((n) => {
-            // check targets; if any target matches the page and selector exists, inject into that selector's after header position
-            const targets = n.targets || [ { selector: 'header' } ];
-            targets.forEach(target => {
-                if (!shouldShowOnThisPage(target)) return;
+            const paths = n.paths || ['/'];
+            const excludePaths = n.excludePaths || [];
 
-                // locate insertion point: element matching selector
-                const insertAfter = document.querySelector(target.selector || 'header');
-                if (!insertAfter) return;
+            if (!shouldShowOnThisPage(paths, excludePaths)) return;
 
-                // decide storage keys and states
-                const id = n.id;
-                let dismissed = false;
-                try { dismissed = localStorage.getItem(storageKey(id, 'dismissed')) === '1'; } catch (e) {}
-                if (dismissed) return; // don't inject dismissed notices
+            // decide storage keys and states
+            const id = n.id;
+            let dismissed = false;
+            try { dismissed = localStorage.getItem(storageKey(id, 'dismissed')) === '1'; } catch (e) {}
+            if (dismissed) return; // don't inject dismissed notices
 
-                // create notice element and set collapsed state from storage
-                const el = createNoticeElement(n);
-                const collapsed = (() => { try { return localStorage.getItem(storageKey(id, 'collapsed')) === '1'; } catch (e) { return false; } })();
-                if (collapsed) el.classList.add('collapsed');
+            // create notice element and set collapsed state from storage
+            const el = createNoticeElement(n);
+            const collapsed = (() => { try { return localStorage.getItem(storageKey(id, 'collapsed')) === '1'; } catch (e) { return false; } })();
+            if (collapsed) el.classList.add('collapsed');
 
-                // insert after the specified element (if multiple notices target same selector, append to container instead)
-                if (insertAfter && insertAfter.parentNode) {
-                    // insert into a shared container right after header (to avoid many small elements breaking layout)
-                    let shared = insertAfter.nextElementSibling;
-                    if (!shared || shared.id !== 'site-notices-container') {
-                        // ensure our container is next sibling
-                        insertAfter.insertAdjacentElement('afterend', container);
-                        shared = container;
-                    }
-                    shared.appendChild(el);
-                } else {
-                    container.appendChild(el);
+            // always append into the shared container
+            container.appendChild(el);
+
+            // populate latest update spans if fetched
+            if (latestTxt) {
+                const sum = el.querySelector('.latest-update-summary');
+                const full = el.querySelector('.latest-update-full');
+                if (sum) sum.textContent = latestTxt;
+                if (full) full.textContent = latestTxt;
+            }
+
+            // wire up collapse behavior for this notice
+            if (n.collapsible) {
+                const header = el.querySelector('.notice-header');
+                const toggle = el.querySelector('.notice-toggle');
+                const fullToggle = el.querySelector('.notice-toggle-full');
+
+                let isCollapsed = collapsed;
+                const toggleFn = (ev) => {
+                    isCollapsed = !isCollapsed;
+                    try { localStorage.setItem(storageKey(id, 'collapsed'), isCollapsed ? '1' : '0'); } catch (e) {}
+                    applyNoticeCollapseState(el, isCollapsed);
+                };
+
+                if (header) {
+                    header.addEventListener('click', toggleFn);
+                    header.addEventListener('keydown', (ev) => {
+                        if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') { ev.preventDefault(); toggleFn(); }
+                    });
                 }
+                if (fullToggle) fullToggle.addEventListener('click', (ev) => { ev.stopPropagation(); toggleFn(); });
+            }
 
-                // populate latest update spans if fetched
-                if (latestTxt) {
-                    const sum = el.querySelector('.latest-update-summary');
-                    const full = el.querySelector('.latest-update-full');
-                    if (sum) sum.textContent = latestTxt;
-                    if (full) full.textContent = latestTxt;
+            // wire up dismiss behavior
+            if (n.dismissible) {
+                const dismissBtn = el.querySelector('.notice-dismiss');
+                if (dismissBtn) {
+                    dismissBtn.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        try { localStorage.setItem(storageKey(id, 'dismissed'), '1'); } catch (e) {}
+                        applyDismissedState(el, true);
+                    });
                 }
-
-                // wire up collapse behavior for this notice
-                if (n.collapsible) {
-                    const header = el.querySelector('.notice-header');
-                    const body = el.querySelector('.notice-body');
-                    const toggle = el.querySelector('.notice-toggle');
-                    const fullToggle = el.querySelector('.notice-toggle-full');
-
-                    let isCollapsed = collapsed;
-                    const toggleFn = (ev) => {
-                        isCollapsed = !isCollapsed;
-                        try { localStorage.setItem(storageKey(id, 'collapsed'), isCollapsed ? '1' : '0'); } catch (e) {}
-                        applyNoticeCollapseState(el, isCollapsed);
-                    };
-
-                    if (header) {
-                        header.addEventListener('click', toggleFn);
-                        header.addEventListener('keydown', (ev) => {
-                            if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') { ev.preventDefault(); toggleFn(); }
-                        });
-                    }
-                    if (fullToggle) fullToggle.addEventListener('click', (ev) => { ev.stopPropagation(); toggleFn(); });
-                }
-
-                // wire up dismiss behavior
-                if (n.dismissible) {
-                    const dismissBtn = el.querySelector('.notice-dismiss');
-                    if (dismissBtn) {
-                        dismissBtn.addEventListener('click', (ev) => {
-                            ev.stopPropagation();
-                            try { localStorage.setItem(storageKey(id, 'dismissed'), '1'); } catch (e) {}
-                            applyDismissedState(el, true);
-                        });
-                    }
-                }
-            });
+            }
         });
-
-        // mark container visible (in case we set aria-hidden on server-side placeholder)
-        container.removeAttribute('aria-hidden');
     }
 
     // utilities reused from earlier

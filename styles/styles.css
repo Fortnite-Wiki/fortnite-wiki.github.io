@@ -72,12 +72,11 @@ header .logo .version {
 }
 
 header nav {
-    display: flex;
-    justify-content: stretch;
     margin-left: auto;
-    padding-left: 4rem;
-    width: 100%;
+    width: 25%;
     height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 header nav a {
@@ -99,10 +98,6 @@ header nav a:hover,
 header nav a:focus {
     box-shadow: 0 0 10px 0 #fff1;
     background: #fff1;
-}
-
-header .hamburger {
-    display: none;
 }
 
 /*  
@@ -154,9 +149,9 @@ main {
     }
 }
 
-@media screen and (width <= 730px) {
+@media screen and (width <= 400px) {
     header .logo .name {
-        display: none;
+        font-size: 1rem;
     }
 
     header .logo .name-short {
@@ -166,65 +161,6 @@ main {
 
 @media screen and (width <= 600px) {
     header nav {
-        position: absolute;
-        top: 0;
-        right: -55%;
-        flex-direction: column;
-        transition: right 0.4s ease;
-        margin-left: 3rem;
-        background: #0005;
-        width: 55%;
-        height: max-content;
-    }
-
-    header nav.active {
-        right: 0;
-    }
-
-    header nav a {
-        justify-content: flex-start;
-        margin: 0.5rem 3rem 0.5rem 0.5rem;
-        padding: 0.3rem;
-        height: 2.5rem;
-    }
-
-    header .hamburger {
-        display: block;
-        display: flex;
-        position: absolute;
-        top: 0;
-        right: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        margin: 0.5rem;
-        width: 2.6rem;
-        height: 2.6rem;
-    }
-
-    header .hamburger span {
-        transition:
-            all 0.2s ease,
-            opacity 0.1s ease;
-        margin: 0.4rem 0;
-        border-top: 1px solid white;
-        width: 2.6rem;
-    }
-
-    .hamburger.active span:nth-of-type(1) {
-        position: relative;
-        top: 13px;
-        transform: rotate(45deg);
-    }
-
-    .hamburger.active span:nth-of-type(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-of-type(3) {
-        position: relative;
-        top: -13px;
-        transform: rotate(-45deg);
+        display: none;
     }
 }

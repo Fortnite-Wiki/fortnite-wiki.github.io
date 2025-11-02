@@ -72,6 +72,7 @@ import noticesConfig from '../data/site-notices.js';
 
             const body = document.createElement('div');
             body.className = 'notice-body';
+
             // add full toggle inside body for expanded placement
             const fullToggle = document.createElement('button');
             fullToggle.className = 'notice-toggle-full';
@@ -91,6 +92,7 @@ import noticesConfig from '../data/site-notices.js';
             const body = document.createElement('div');
             body.className = 'notice-body';
             body.innerHTML = n.bodyHtml || '';
+            body.style.marginRight = '2rem'; // make room for dismiss button if present
             root.appendChild(body);
         }
 
@@ -129,11 +131,34 @@ import noticesConfig from '../data/site-notices.js';
 
             // create notice element and set collapsed state from storage
             const el = createNoticeElement(n);
-            const collapsed = (() => { try { return localStorage.getItem(storageKey(id, 'collapsed')) === '1'; } catch (e) { return false; } })();
-            if (collapsed) el.classList.add('collapsed');
 
-            // always append into the shared container
-            container.appendChild(el);
+            let collapsed = false;
+            if (n.force_collapsed) {
+                el.classList.add('collapsed');
+                localStorage.setItem(storageKey(id, 'collapsed'), '1');
+                collapsed = true;
+            } else {
+                collapsed = (() => { try { return localStorage.getItem(storageKey(id, 'collapsed')) === '1'; } catch (e) { return false; } })();
+                if (collapsed) el.classList.add('collapsed');
+            }
+
+            // insert into header if this is the special 'update-info' notice and header exists,
+            // otherwise append into the shared container
+            if (id === 'update-info' && headerEl && window.screen.width >= 600) {
+                const container2 = document.createElement('div');
+                container2.className = 'site-notices';
+
+                if (headerEl.querySelector('nav')) {
+                    // insert into nav if present, else just header
+                    // also change to be appended before anything else
+                    headerEl.querySelector('nav').insertBefore(container2, headerEl.querySelector('nav').firstChild);
+                } else {
+                    headerEl.appendChild(container2);
+                }
+                container2.appendChild(el);
+            } else {
+                container.appendChild(el);
+            }
 
             // populate latest update spans if fetched
             if (latestTxt) {

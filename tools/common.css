@@ -10,7 +10,8 @@ header {
     background: var(--col-bg3);
     padding: 0.3rem 0;
     width: 100%;
-    height: 5.5rem;
+    min-height: 5.5rem;
+    height: auto;
 }
 
 header > span {
@@ -20,16 +21,6 @@ header > span {
 header img {
     margin-right: 1.5rem;
     width: 4rem;
-}
-
-header .switch-mode {
-    margin-right: 0.5rem;
-    margin-left: auto;
-}
-
-header .switch-mode img {
-    margin: 0 1.5rem;
-    padding: 0.3rem;
 }
 
 header .name {
@@ -160,7 +151,6 @@ aside {
 }
 
 @media screen and (width <= 630px) {
-    /*
     main {
         flex-direction: column;
         margin-top: 2rem;
@@ -178,17 +168,13 @@ aside {
     header .version {
         font-size: 0.8rem;
     }
-    */
-    header .switch-mode {
-        display: none;
-    }
 
     #return-main {
         padding: 0.3rem 0.8rem;
     }
 }
 
-/*
+
 @media screen and (max-width: 380px) {
     header .name {
         font-size: 1rem;
@@ -197,7 +183,7 @@ aside {
         font-size: 0.6rem;
     }
 }
-*/
+
 
 /*
   Shared tool styles (moved from individual tool styles to avoid duplication)

@@ -699,6 +699,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push(`${name} (Featured) - ${cosmeticType} - Fortnite.png|Featured`);
 			out.push("</gallery>");
 		}
+	} else if (cosmeticType == "Outfit" && settings.isBattlePass) {
+		out.push("|image = <gallery>");
+		out.push(`${name} - Outfit - Fortnite.png|Icon`);
+		out.push(`${name} (Battle Pass) - Outfit - Fortnite.png|Featured`);
+		out.push("</gallery>");
 	} else {
 		if (cosmeticType === "Spray") {
 			out.push("|image = <gallery>");

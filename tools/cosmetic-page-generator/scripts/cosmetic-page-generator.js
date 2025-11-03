@@ -1159,7 +1159,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			if (!fcFile || !fcFile.value || !fcName || !fcName.value) continue;
 
 			const file = fcFile.value.trim();
-			currentIcons.push(`|{{Style Background|${file}}}`);
+			currentIcons.push(`|{{Style Background|${file}|link=${pageTitle}}}`);
 
 			const pageTitle = fcFile.dataset.pageTitle || (fcName ? fcName.value : '').trim();
 			const displayName = (fcName && fcName.value) ? fcName.value.trim() : (pageTitle || '').trim();
@@ -1734,10 +1734,16 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	
 	if (!Array.isArray(index) || index.length === 0) return;
 
+	// Only want Outfits, Back Blings, Gliders and Sidekicks
 	const candidateIndex = index.filter(e => {
 		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
 		if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
-		if (!e.id.startsWith('Character_') && !e.id.startsWith('CID_')) return false;
+		if (
+			!e.id.startsWith('Character_') && !e.id.startsWith('CID_') &&
+			!e.id.startsWith('Backpack_') && !e.id.startsWith('BID_') &&
+			!e.id.startsWith('Glider_') &&
+			!e.id.startsWith('Companion_')
+		) return false;
 		return e.name && e.id;
 	});
 

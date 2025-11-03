@@ -1159,10 +1159,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			if (!fcFile || !fcFile.value || !fcName || !fcName.value) continue;
 
 			const file = fcFile.value.trim();
-			currentIcons.push(`|{{Style Background|${file}|link=${pageTitle}}}`);
-
 			const pageTitle = fcFile.dataset.pageTitle || (fcName ? fcName.value : '').trim();
 			const displayName = (fcName && fcName.value) ? fcName.value.trim() : (pageTitle || '').trim();
+
+			currentIcons.push(`|{{Style Background|${file}|link=${pageTitle}}}`);
 			
 			if (pageTitle !== displayName) {
 				currentNames.push(`![[${pageTitle}|${displayName}]]`);
@@ -1781,16 +1781,26 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 			const character_file = detailsWrapper.querySelector('.character-file');
 
 			character_name.value = entry.name;
-			// While we attempt to resolve the best image filename, show a placeholder
 			character_file.value = 'Resolving image...';
 
+			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
+			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) return;
+			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+
+			const ID = itemDefinitionData.Name;
+			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
+
+			if (cosmeticType === "Companion") {
+				cosmeticType = "Sidekick";
+			}
+
 			try {
-				const res = await getMostUpToDateImage(entry.name);
+				const res = await getMostUpToDateImage(entry.name, cosmeticType);
 				character_file.value = res.file;
 				character_file.dataset.pageTitle = res.pageTitle || entry.name;
 			} catch (err) {
 				console.warn('Failed to resolve best image for', entry.name, err);
-				character_file.value = `${entry.name} - Outfit - Fortnite.png`;
+				character_file.value = `${entry.name} - ${cosmeticType} - Fortnite.png`;
 				character_file.dataset.pageTitle = entry.name;
 			}
 		};
@@ -1843,8 +1853,8 @@ async function fetchWikiImageFiles(title) {
  *  - Prefer filenames containing a version token like "(v30.00)" with the highest numeric version.
  *  - Fallback to "{name} - Outfit - Fortnite.png".
  */
-async function getMostUpToDateImage(name) {
-	const tryTitles = [`${name} (Outfit)`, name];
+async function getMostUpToDateImage(name, cosmeticType) {
+	const tryTitles = [`${name} (${cosmeticType})`, name];
 	for (const t of tryTitles) {
 		const files = await fetchWikiImageFiles(t);
 		if (!files || files.length === 0) continue;
@@ -1855,7 +1865,7 @@ async function getMostUpToDateImage(name) {
 		let bestFile = null;
 		for (const f of files) {
 			const m = f.match(versionRegex);
-			if (m && f.startsWith(name) && f.includes('- Outfit - Fortnite.png')) {
+			if (m && f.startsWith(name) && f.includes(`- ${cosmeticType} - Fortnite.png`)) {
 				const major = parseInt(m[1] || '0', 10);
 				const minor = parseInt(m[2] || '0', 10);
 				const numeric = major * 1000 + minor; // simple ordering
@@ -1868,7 +1878,7 @@ async function getMostUpToDateImage(name) {
 		if (bestFile) return { file: bestFile, pageTitle: t };
 	}
 
-	return { file: `${name} - Outfit - Fortnite.png`, pageTitle: name };
+	return { file: `${name} - ${cosmeticType} - Fortnite.png`, pageTitle: name };
 }
 
 async function initializeApp() {

@@ -55,19 +55,13 @@ COMPANIONS_DIR = os.path.join(
     r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items"
 )
 
-COMPANION_REACTIONS_DIR = os.path.join(
-    BASE_DIR,
-    r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items\ReactFX"
-)
-
 COSMETICS_DIRS = [
     BR_COSMETICS_DIR,
     OLD_BR_COSMETICS_DIR,
     KICKS_DIR,
     FESTIVAL_COSMETICS_DIR,
     RACING_COSMETICS_DIR,
-    COMPANIONS_DIR,
-    COMPANION_REACTIONS_DIR
+    COMPANIONS_DIR
 ]
 
 LOC_DIRECTORY = os.path.join(

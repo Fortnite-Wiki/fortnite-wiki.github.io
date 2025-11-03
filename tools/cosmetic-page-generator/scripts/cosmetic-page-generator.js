@@ -286,7 +286,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 			"GAB_Melee_DualWield_AncientGladiator_ImpactCombo"
 		],
 		"Bat": [
-			"GAB_Melee_BaseBallBat_ImpactCombo_Athena"
+			"GAB_Melee_BaseBallBat_ImpactCombo_Athena",
+			"GAB_Melee_BaseBallBat_Alt_ImpactCombo_Athena"
 		],
 		"Single-Wield": [
 			"GAB_Melee_CyberArmorFemale_ImpactCombo_Athena",
@@ -411,6 +412,28 @@ async function hasLegoFeatured(entryMeta) {
 	}
 }
 
+const VARIANT_TYPES = [
+    "FortCosmeticAdditivePoseVariant",
+    "FortCosmeticContextualAnimSceneEmoteVariant",
+    "FortCosmeticItemDefRedirectVariant",
+    "FortCosmeticMaterialVariant",
+    "FortCosmeticMorphTargetVariant",
+    "FortCosmeticTextVariant",
+    "FortCosmeticRichColorVariant",
+    "FortCosmeticCharacterPartVariant",
+    "FortCosmeticMaterialParameterSetVariant",
+    "FortCosmeticParticleVariant",
+    "FortCosmeticLoadoutTagDrivenVariant",
+    "FortCosmeticProfileLoadoutVariant",
+    "FortCosmeticGameplayTagVariant",
+    "FortCosmeticRankedVariant",
+    "FortCosmeticProfileBannerVariant",
+    "FortCosmeticFloatSliderVariant",
+    "FortCosmeticPropertyVariant",
+    "FortCosmeticNumericalVariant",
+    "FortCosmeticMeshVariant"
+];
+
 function chunkList(lst, size) {
 	return Array.from({ length: Math.ceil(lst.length / size) }, (_, i) => lst.slice(i * size, i * size + size));
 }
@@ -452,7 +475,7 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 				const imageFilename = (channelName === "Style" ? 
 					`${name} (${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
 					`${name} (${channelName}${dash} ${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png`);
-				featuredFiles.add(imageFilename);
+				featuredFiles.add(imageFilename); // check DAv2 before adding to featuredFiles?
 			}
 		}
 	}
@@ -493,7 +516,7 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 	const featured = (featuredFiles.size === 1 ? 
 		Array.from(featuredFiles).pop() : 
 		(featuredFiles.size > 0 ? 
-			["<gallery>", ...Array.from(featuredFiles).sort(), "</gallery>"].join("\n") : 
+			["<gallery>", ...Array.from(featuredFiles).sort().map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
 			null));
 
 	return ["== Selectable Styles ==\n" + styleTable.join("\n"), featured, Object.fromEntries(variantChannels)];
@@ -668,6 +691,19 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const hasUnlockableVariants = tags.includes("Cosmetics.UserFacingFlags.HasUpgradeQuests");
 	const isCrewProgressive = tags.includes("Cosmetics.CrewBling.Progressive");
 
+	let styleSection = "";
+	let featured = null;
+	let variantChannels = {};
+	if (hasVariants || hasUnlockableVariants || isCrewProgressive) {
+		const variantData = Array.isArray(allData)
+			? allData.filter(entry =>
+					entry && typeof entry === 'object' && 'Type' in entry && VARIANT_TYPES.includes(entry.Type)
+				)
+			: [];
+
+		[styleSection, featured, variantChannels] = generateStyleSection(variantData, name, cosmeticType, mainIcon);
+	}
+
 	const out = [];
 
 	if (isFestivalCosmetic && instrumentType && cosmeticType != "Aura") {
@@ -696,8 +732,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	// maybe i should make an OR for "does the base instrument have shop assets"?
-	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
+	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
@@ -942,6 +977,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`|appearances = ${settings.shopAppearances}`);
 	}
 
+	if (featured) {
+		out.push(`|featured = ${featured}`);
+	}
+
 	out.push(`|ID = ${ID}`);
 
 	// LEGO and Bean style support
@@ -1097,18 +1136,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		article += ` ${name}${seasonFirstReleasedFlag}.`;
 	}
 	out.push(article + "\n");
-
-	let styleSection = "";
-	let featured = null;
-	let variantChannels = {};
-	if (hasVariants || hasUnlockableVariants || isCrewProgressive) {
-		[styleSection, featured, variantChannels] = generateStyleSection(
-			allData.filter(entry => typeof entry === 'object' && entry !== null && "Type" in entry && !("DataList" in entry)),
-			name,
-			cosmeticType,
-			mainIcon
-		);
-	}
 
 	if (styleSection) {
 		out.push(styleSection + "\n");

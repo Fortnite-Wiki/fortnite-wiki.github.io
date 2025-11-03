@@ -125,10 +125,10 @@ function updateSuggestions() {
 			autoDetectCosmeticSource(entry.id);
 
 			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
-			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
-				return { data: null, allData: null, entry };
-			}
+			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) return;
 			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+
+			const ID = itemDefinitionData.Name;
 			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
 
 			const isFestivalCosmetic = entry.path.startsWith("Festival") && itemDefinitionData.Type != "AthenaDanceItemDefinition";
@@ -278,7 +278,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 		],
 		"Sword": [
 			"GAB_Melee_BRsword_ImpactCombo_Athena",
-			"GAB_Melee_CeremonialGuard_ImpactCombo_Athena"
+			"GAB_Melee_CeremonialGuard_ImpactCombo_Athena",
+			"GAB_Melee_YogaPatio_ImpactCombo_Athena"
 		],
 		"Dual Flail": [
 			"GAB_Melee_DualWield_Embers_ImpactCombo",
@@ -323,13 +324,34 @@ async function extractPickaxeSubtype(weapon_definition) {
 	const data = await loadGzJson(`${DATA_BASE_PATH}${weapon_definition}`);
 	if (!data || !Array.isArray(data)) return "";
 
-	const props = data[0].Properties;
-	const pfa = props?.PrimaryFireAbility;
-	if (!pfa) return "";
-	const gab_asset_path = pfa?.AssetPathName;
-	const gab = gab_asset_path ? gab_asset_path.split('/').pop().split('.')[0] : "";
+	const primaryFireSubtypes = new Set();
+	const inStateSubtypes = new Set();
 
-	return get_subtype_from_GAB(gab) ? `{{Cosmetic Subtypes|${get_subtype_from_GAB(gab)}}}` : "";
+	for (const entry of data) {
+		const props = entry?.Properties;
+		if (!props) continue;
+
+		if (entry.Type == "FortWeaponAdditionalData_SingleWieldState" && !props?.AssociatedTagVariant) continue;
+
+		const collectFrom = (obj, subtypeSet) => {
+			if (!obj || !obj.AssetPathName) return;
+			const assetPath = obj.AssetPathName;
+			const gab = assetPath.split('/').pop().split('.')[0];
+			const subtype = get_subtype_from_GAB(gab);
+			if (subtype) subtypeSet.add(subtype);
+		};
+
+		collectFrom(props.PrimaryFireAbility, primaryFireSubtypes);
+		collectFrom(props.PrimaryFireAbility_InState, inStateSubtypes);
+	}
+
+	const combinedSubtypes = [
+		...primaryFireSubtypes,
+		...inStateSubtypes
+	];
+	if (combinedSubtypes.length === 0) return "";
+
+	return `${combinedSubtypes.map(item => `{{Cosmetic Subtypes|${item}}}`).join(' ')}`;
 }
 
 function extractSubtype(tags, cosmeticType) {

@@ -158,6 +158,9 @@ def load_json(filepath):
     except:
         return None
 
+def is_valid_json(data):
+    return data and isinstance(data, list) and data[0]
+
 def normalize_path(path, base_remove):
     rel_path = os.path.relpath(path, base_remove).replace("\\", "/")
     return rel_path
@@ -174,9 +177,6 @@ def build_index(dirs):
 
     def should_skip_subdir(subdir):
         return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Templates" ))
-
-    def is_valid_json(data):
-        return data and isinstance(data, list) and data[0]
 
     def get_entry(data):
         return next((item for item in data if item.get("Type") in VALID_TYPES), None)
@@ -535,11 +535,45 @@ def build_banner_index(index):
                         index.append(banner_entry)
     return index
 
+def build_companion_style_index():
+    output = []
+    for file in os.listdir(COMPANION_VARIANT_TOKENS_DIR):
+        if not file.endswith('.json'):
+            continue
+        
+        path = os.path.join(COMPANION_VARIANT_TOKENS_DIR, file)
+        data = load_json(path)
+        if not is_valid_json(data):
+            continue
+
+        entry = {}
+        for check_entry in data:
+            if check_entry.get("Type") == "FortVariantTokenType":
+                entry = check_entry
+
+        props = entry.get("Properties", {})
+
+        variantID = entry.get("Name")
+        variantChannelTag = props.get("VariantChannelTag").get("TagName")
+        variantNameTag = props.get("VariantNameTag").get("TagName")
+
+        itemShortDescription = props.get("ItemShortDescription").get("LocalizedString")
+
+        if itemShortDescription == "Style":
+            output.append({
+                "ID": variantID,
+                "channelTag": variantChannelTag,
+                "nameTag": variantNameTag
+            })
+
+    return output
+
 index = build_index(COSMETICS_DIRS)
 jido_map = build_jido_map(FIGURE_COSMETICS_DIR)
 bean_map = build_bean_map(DT_BEAN_MAP_FILE, NEW_BEANSTALK_DEF_DIR)
 sets_map = build_sets_map(SETS_JSON_FILE)
 localized_sets_map = build_localized_sets_map(SETS_JSON_FILE)
+companion_style_index = build_companion_style_index()
 
 display_assets_files = {}
 for root, _, files in os.walk(DISPLAY_ASSETS_DIR):
@@ -581,6 +615,11 @@ with open("CosmeticSetLocalizations.json", 'w', encoding='utf-8') as f:
     json.dump(localized_sets_map, f, indent=2, ensure_ascii=False)
 
 print(f"CosmeticSetLocalizations.json created with {len(localized_sets_map)} sets.")
+
+with open("CompanionStyleVariantTokens.json", 'w', encoding='utf-8') as f:
+    json.dump(companion_style_index, f, indent=2, ensure_ascii=False)
+
+print(f"CompanionStyleVariantTokens.json created with {len(companion_style_index)} VTIDs.")
 
 def copy_and_gzip(src_root, dest_root, label):
     count = 0

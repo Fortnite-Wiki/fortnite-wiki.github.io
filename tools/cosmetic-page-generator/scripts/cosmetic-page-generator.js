@@ -10,6 +10,7 @@ import {
 const DATA_BASE_PATH = '../../../data/';
 
 let index = [];
+let companionVTIDs = [];
 let cosmeticSets = {};
 let elements = {};
 let isCrewAutoDetected = false;
@@ -19,6 +20,11 @@ let featuredCharactersEntries = [];
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+}
+
+async function loadCompanionVTIDs() {
+	const resp = await fetch(DATA_BASE_PATH + 'CompanionStyleVariantTokens.json');
+	companionVTIDs = await resp.json();
 }
 
 async function loadCosmeticSets() {
@@ -228,7 +234,7 @@ function extractSetName(tags, cosmeticSets) {
 function extractAdditionals(tags) {
 	const flagMap = [
 		["Cosmetics.UserFacingFlags.Emote.Dance", "{{Dance Emote}}"],
-		[["Cosmetics.UserFacingFlags.HasVariants", "Cosmetics.UserFacingFlags.HasUpgradeQuests"], "{{Selectable Styles}}"],
+		[["Cosmetics.UserFacingFlags.HasVariants", "Cosmetics.UserFacingFlags.HasUpgradeQuests", "Cosmetics.ItemRequiresLockIn"], "{{Selectable Styles}}"],
 		[["Cosmetics.UserFacingFlags.Emoticon.Animated", "Cosmetics.UserFacingFlags.Wrap.Animated"], "{{Animated}}"],
 		[["Cosmetics.UserFacingFlags.Reactive", "Cosmetics.UserFacingFlags.Reactive.WeaponFire"], "{{Reactive}}"],
 		["Cosmetics.UserFacingFlags.TOD", "{{Reactive|Time}}"],
@@ -237,6 +243,7 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"],
 		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"],
 		["Cosmetics.UserFacingFlags.Emote.Group", "{{Group Emote}}"],
+		["Cosmetics.ItemRequiresLockIn", "{{Forged}}"]
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {
@@ -387,6 +394,30 @@ function are_there_shop_assets(entryMeta) {
 	return entryMeta && entryMeta.dav2;
 }
 
+async function getNumBRDav2Assets(entryMeta) {
+	if (entryMeta && entryMeta.dav2) {
+		const dav2Path = `${DATA_BASE_PATH}${entryMeta.dav2}`;
+		return loadGzJson(dav2Path).then(dav2Data => {
+			let count = 0;
+			if (Array.isArray(dav2Data)) {
+				for (const entry of dav2Data) {
+					const presentations = entry?.Properties?.ContextualPresentations;
+					for (const pres of presentations) {
+						const tag = pres?.ProductTag.TagName;
+						if (tag == 'Product.BR') {
+							count++;
+						}
+					}
+				}
+			}
+			return count;
+		}).catch(error => {
+			console.warn(`Failed to load DAv2 data for ${entryMeta.id}:`, error);
+			return 0;
+		});
+	}
+}
+
 function hasLegoStyle(entryMeta) {
 	return entryMeta && entryMeta.jido;
 }
@@ -412,70 +443,84 @@ async function hasLegoFeatured(entryMeta) {
 	}
 }
 
-const VARIANT_TYPES = [
-    "FortCosmeticAdditivePoseVariant",
+const IGNORE_VARIANT_TYPES = [
     "FortCosmeticContextualAnimSceneEmoteVariant",
-    "FortCosmeticItemDefRedirectVariant",
-    "FortCosmeticMaterialVariant",
-    "FortCosmeticMorphTargetVariant",
-    "FortCosmeticTextVariant",
-    "FortCosmeticRichColorVariant",
-    "FortCosmeticCharacterPartVariant",
-    "FortCosmeticMaterialParameterSetVariant",
-    "FortCosmeticParticleVariant",
-    "FortCosmeticLoadoutTagDrivenVariant",
-    "FortCosmeticProfileLoadoutVariant",
-    "FortCosmeticGameplayTagVariant",
-    "FortCosmeticRankedVariant",
-    "FortCosmeticProfileBannerVariant",
-    "FortCosmeticFloatSliderVariant",
-    "FortCosmeticPropertyVariant",
-    "FortCosmeticNumericalVariant",
-    "FortCosmeticMeshVariant"
+	"FortCosmeticItemDefRedirectVariant",
+	"FortCosmeticTextVariant"
 ];
+
+const VARIANT_OPTION_FIELDS = [
+	"ParticleOptions",
+	"PartOptions",
+	"MaterialOptions",
+	"MeshOptions",
+	"GenericTagOptions",
+	"AdditivePoseOptions",
+	"MorphTargetOptions"
+]
 
 function chunkList(lst, size) {
 	return Array.from({ length: Math.ceil(lst.length / size) }, (_, i) => lst.slice(i * size, i * size + size));
 }
 
-let channelsWithDash = ["Shading"];
-
-function generateStyleSection(data, name, cosmeticType, mainIcon) {
+// This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
+function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets) {
 	const variantChannels = new Map();
+	const immutableChannels = new Set();
 	const previewImages = {};
 	const featuredFiles = new Set();
+	const filenameTagMap = {}; // image filename -> { channelTag, nameTag }
+	const optionTagsMap = {}; // `${channel},${variant}` -> { channelTag, nameTag }
 
 	for (const variant of data) {
 		if (typeof variant !== 'object' || !variant.Properties) {
 			continue;
 		}
 		const props = variant.Properties;
-		const channelName = (props.VariantChannelName?.SourceString || "").charAt(0).toUpperCase() + (props.VariantChannelName?.SourceString || "").slice(1);
+		const channelName = forceTitleCase(props.VariantChannelName?.SourceString || "");
 		if (!channelName) {
+			console.log("Skipping variant with no channel name:", variant);
 			continue;
 		}
-		const options = props.PartOptions || props.MaterialOptions || props.ParticleOptions || [];
+		const immutable = (props.VariantChannelTag?.TagName || "").startsWith("Cosmetics.Variant.Channel.Immutable.");
+		if (immutable) immutableChannels.add(channelName);
+
+		const optionField = VARIANT_OPTION_FIELDS.find(field => Array.isArray(props[field]) && props[field].length > 0);
+		if (!optionField) {
+			console.log("Skipping variant with no valid options field:", variant);
+			continue;
+		}
+		const options = props[optionField] || [];
 		for (const option of options) {
 			if (typeof option !== 'object') {
 				continue;
 			}
-			const variantName = option.VariantName?.SourceString || "";
+			const variantName = forceTitleCase(option.VariantName?.SourceString || "");
 			if (!variantName) {
+				console.log("Skipping option with no variant name:", option);
 				continue;
 			}
 			const formattedVariantName = variantName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 			const previewImage = option.PreviewImage?.AssetPathName || "";
 			previewImages[`${channelName},${formattedVariantName}`] = previewImage;
+			optionTagsMap[`${channelName},${formattedVariantName}`] = {
+				channelTag: props.VariantChannelTag?.TagName || "",
+				nameTag: option.CustomizationVariantTag?.TagName || ""
+			};
 			if (!variantChannels.has(channelName)) {
 				variantChannels.set(channelName, []);
 			}
 			variantChannels.get(channelName).push(formattedVariantName);
+			if (previewImage === "") {
+				continue;
+			}
 			if (previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
-				const dash = channelsWithDash.includes(channelName) ? " -" : "";
 				const imageFilename = (channelName === "Style" ? 
 					`${name} (${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
-					`${name} (${channelName}${dash} ${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png`);
-				featuredFiles.add(imageFilename); // check DAv2 before adding to featuredFiles?
+					`${name} (${channelName} - ${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png`);
+				if (outputFeatured) {
+					featuredFiles.add(imageFilename);
+				}
 			}
 		}
 	}
@@ -484,42 +529,79 @@ function generateStyleSection(data, name, cosmeticType, mainIcon) {
 		return ["", null, {}];
 	}
 
-	const styleTable = ["<center>", "{| class=\"reward-table\""];
-	let notYet = true;
-	for (const [channel, variants] of variantChannels) {
-		const chunks = chunkList(variants, 3);
-		const colspan = variants.length > 2 ? 3 : variants.length;
-		if (!notYet) {
-			styleTable.push("|-");
-		}
-		notYet = false;
-		styleTable.push(`|colspan="${colspan}"|{{Style Header|${channel}}}`);
-		for (const chunk of chunks) {
-			styleTable.push("|-");
-			styleTable.push(...chunk.map(v => `!{{Style Name|${v}}}`));
-			styleTable.push("|-");
-			for (const v of chunk) {
-				const previewImage = previewImages[`${channel},${v}`] || "";
-				const dash = channelsWithDash.includes(channel) ? " -" : "";
-				const imageFile = ((previewImage == mainIcon.icon || previewImage == mainIcon.large) ? 
-					`${name} - ${cosmeticType} - Fortnite.png` : 
-					(channel === "Style" ? 
-						`${name} (${v}) - ${cosmeticType} - Fortnite.png` : 
-						`${name} (${channel}${dash} ${v}) - ${cosmeticType} - Fortnite.png`));
-				styleTable.push(`|{{Style Background|${imageFile}}}`);
+	// Helper to build a table for a given list of [channel, variants] entries
+	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate) {
+		const table = [`{| class=\"${addClassToUse} reward-table\"`];
+		let first = true;
+		for (const [channel, variants] of entries) {
+			const chunks = chunkList(variants, 3);
+			const colspan = variants.length > 2 ? 3 : variants.length;
+			if (!first) table.push("|-");
+			first = false;
+			table.push(`|colspan="${colspan}"|{{${headerTemplate}|${channel}}}`);
+			for (const chunk of chunks) {
+				table.push("|-");
+				table.push(...chunk.map(v => `!${v}`));
+				table.push("|-");
+				for (const v of chunk) {
+					const previewImage = previewImages[`${channel},${v}`] || "";
+					if (previewImage === "") {
+						table.push(`|{{${backgroundTemplate}|Empty (v31.40) - Icon - Fortnite.png}}`);
+						continue;
+					}
+					const imageFile = ((previewImage == mainIcon.icon || previewImage == mainIcon.large) ? 
+						`${name} - ${cosmeticType} - Fortnite.png` : 
+						(channel === "Style" ? 
+							`${name} (${v}) - ${cosmeticType} - Fortnite.png` : 
+							`${name} (${channel} - ${v}) - ${cosmeticType} - Fortnite.png`));
+					// associate non-featured filenames with their variant tags
+					if (previewImage !== mainIcon.icon && previewImage !== mainIcon.large) {
+						const tags = optionTagsMap[`${channel},${v}`] || { channelTag: "", nameTag: "" };
+						filenameTagMap[imageFile] = { channelTag: tags.channelTag, nameTag: tags.nameTag };
+					}
+					table.push(`|{{${backgroundTemplate}|${imageFile}}}`);
+				}
 			}
 		}
+		table.push("|}");
+		return table.join("\n");
 	}
-	styleTable.push("|}");
-	styleTable.push("</center>");
 
-	const featured = (featuredFiles.size === 1 ? 
-		Array.from(featuredFiles).pop() : 
-		(featuredFiles.size > 0 ? 
-			["<gallery>", ...Array.from(featuredFiles).sort().map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
-			null));
+	// Split channels into immutable and normal groups
+	const immutableEntries = [];
+	const normalEntries = [];
+	for (const [channel, variants] of variantChannels) {
+		if (immutableChannels.has(channel)) immutableEntries.push([channel, variants]);
+		else normalEntries.push([channel, variants]);
+	}
 
-	return ["== Selectable Styles ==\n" + styleTable.join("\n"), featured, Object.fromEntries(variantChannels)];
+	let styleSectionBody = "";
+	if (immutableEntries.length > 0 && normalEntries.length > 0) {
+		styleSectionBody += "{{Scrollbox Clear|BoxHeight=700|Content=\n<tabber>\n";
+		// Two separate tables: immutable first, then normal
+		styleSectionBody += "|-|Appearance=\n" + buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style') + "\n\n";
+		styleSectionBody += "|-|Styles=\n" + buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
+		styleSectionBody += "\n</tabber>\n}}";
+	} else if (immutableEntries.length > 0) {
+		// Only immutable channels
+		styleSectionBody = buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style');
+	} else {
+		// Only normal channels
+		styleSectionBody = buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
+	}
+
+	let featured = null;
+	if (featuredFiles.size === numBRDav2Assets - 1) {
+		featured = (featuredFiles.size === 1 ? 
+			Array.from(featuredFiles).pop() : 
+			(featuredFiles.size > 0 ? 
+				["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
+				null));
+	}
+
+	const sectionHeader = cosmeticType == "Sidekick" ? "Appearance Options" : "Selectable Styles";
+
+	return [`== ${sectionHeader} ==\n` + styleSectionBody, featured, Object.fromEntries(variantChannels), filenameTagMap];
 }
 
 async function generateDecalsTable(name, tags) {
@@ -587,6 +669,89 @@ async function generateDecalsTable(name, tags) {
 	return "";
 }
 
+async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap = {}) {
+	if (!Array.isArray(ProgressionRewards) || ProgressionRewards.length === 0) return "";
+
+	const rewardRows = [];
+
+	for (const reward of ProgressionRewards) {
+		const rewardID = reward?.PrimaryAssetName;
+
+		if (!rewardID) continue;
+
+		if (rewardID.startsWith("VTID_Companion_")) {
+			const companionStyle = companionVTIDs.find(v => (v.ID || v.VariantTokenID) === rewardID);
+			if (companionStyle) {
+				// Try to find a matching image filename that was produced by generateStyleSection
+				const matchFile = Object.keys(filenameTagMap || {}).find(fn => {
+					const tags = filenameTagMap[fn] || {};
+					return tags.channelTag === companionStyle.channelTag && tags.nameTag === companionStyle.nameTag;
+				});
+				if (matchFile) {
+					rewardRows.push(`|{{C5 Locker Tile|${matchFile}|link=}}`);
+					continue;
+				}
+			}
+			console.warn(`Could not resolve companion VTID ${rewardID} to a style image`);
+			continue;
+		} else {
+			const entryMeta = index.find(
+				e => e.banner_id && e.banner_id.toLowerCase() === rewardID.toLowerCase() ||
+				e.id && e.id.toLowerCase() === rewardID.toLowerCase()
+			);
+			if (!entryMeta) {
+				console.log(`Skipping missing reward cosmetic: ${rewardID}`);
+				continue;
+			}
+
+			let fileName = "";
+			let rewardName = "";
+
+			if (entryMeta.path) {
+				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entryMeta.path}`);
+				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
+					continue;
+				}
+				let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+
+				const props = itemDefinitionData.Properties;
+				const ID = itemDefinitionData.Name;
+				const type = itemDefinitionData.Type;
+				rewardName = props.ItemName?.LocalizedString || "Unknown";
+				let cosmeticType = props.ItemShortDescription?.SourceString.trim();
+				if (!cosmeticType) {
+					cosmeticType = TYPE_MAP[type] || "";
+				}
+
+				fileName = `${rewardName} - ${cosmeticType} - Fortnite.png`;
+			} else if (entryMeta.companionEmote) {
+				rewardName = entryMeta.name;
+				fileName = `${rewardName} - Sidekick Emote - Fortnite.png`;
+			} else if (entryMeta.banner_icon) {
+				fileName = entryMeta.banner_icon + '.png';
+				rewardName = "Banner Icons";
+			} else {
+				continue;
+			}
+
+			rewardRows.push(`|{{C5 Locker Tile|${fileName}|link=${rewardName}}}`);
+		}
+	}
+
+	if (rewardRows.length === 0) return "";
+
+	const section = [
+		"== Unlockable Rewards ==",
+		"{{SidekickLocked}}",
+		"{|",
+		...rewardRows,
+		"|}",
+		"{{SidekickNotification}}"
+	].join("\n");
+
+	return section + "\n";
+}
+
 function generateCompanionEmotePage(ID, name, rarity, settings) {
 	const out = [];
 
@@ -624,7 +789,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const props = data.Properties;
 	const ID = data.Name;
 	const type = data.Type;
-	const name = props.ItemName?.LocalizedString || "Unknown";
+	const name = props.ItemName?.LocalizedString.trim() || "Unknown";
 	const description = props.ItemDescription?.SourceString.trim() || "";
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 				 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
@@ -687,21 +852,48 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	const setName = extractSetName(tags, cosmeticSets);
 	const itemshop = tags.some(tag => tag.includes("ItemShop"));
-	const hasVariants = tags.includes("Cosmetics.UserFacingFlags.HasVariants");
 	const hasUnlockableVariants = tags.includes("Cosmetics.UserFacingFlags.HasUpgradeQuests");
 	const isCrewProgressive = tags.includes("Cosmetics.CrewBling.Progressive");
 
 	let styleSection = "";
 	let featured = null;
 	let variantChannels = {};
-	if (hasVariants || hasUnlockableVariants || isCrewProgressive) {
-		const variantData = Array.isArray(allData)
-			? allData.filter(entry =>
-					entry && typeof entry === 'object' && 'Type' in entry && VARIANT_TYPES.includes(entry.Type)
-				)
-			: [];
+	let filenameTagMap = {};
 
-		[styleSection, featured, variantChannels] = generateStyleSection(variantData, name, cosmeticType, mainIcon);
+	if (props.ItemVariants) {
+		const variantData = [];
+		for (const iv of props.ItemVariants) {
+			if (!iv) continue;
+			const entryNumber = Number(iv.ObjectPath.split('.').pop());
+			if (!entryNumber) continue;
+
+			if (!allData[entryNumber]) continue;
+			const candidate = allData[entryNumber];
+			if (candidate && typeof candidate === 'object' && 'Type' in candidate && !IGNORE_VARIANT_TYPES.includes(candidate.Type)) {
+				variantData.push(candidate);
+			}
+		}
+
+		if (variantData.length > 0) {
+			[styleSection, featured, variantChannels, filenameTagMap] = generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta), await getNumBRDav2Assets(entryMeta));
+		}
+	}
+
+	if (!featured && are_there_shop_assets(entryMeta)) {
+		const leftToDo = await getNumBRDav2Assets(entryMeta) - 1;
+		if (leftToDo > 0) {
+			const featuredFiles = [];
+			for (let i = 2; i <= leftToDo + 1; i++)
+				featuredFiles.push(`${name} (${String(i).padStart(2, '0')} - Featured) - ${cosmeticType} - Fortnite.png`);
+
+			if (featuredFiles.length > 0) {
+				featured = (featuredFiles.length === 1 ? 
+					Array.from(featuredFiles).pop() : 
+					(featuredFiles.length > 0 ? 
+						["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
+						null));
+			}
+		}
 	}
 
 	const out = [];
@@ -831,8 +1023,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	
 	const additional = extractAdditionals(tags);
+	const isCompanionWithEmote = (cosmeticType === "Sidekick" && index.some(e => e?.companion_id === ID));
 	if (additional) {
-		out.push(`|additional = ${additional}`);
+		out.push(`|additional = ${additional}${isCompanionWithEmote ? ' {{Built-In}}' : ''}`);
 	}
 
 	if (setName) {
@@ -1165,6 +1358,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else if (settings.battlePassMode) {
 			out.push("=== How To Unlock? ===\n");
 		}
+	}
+
+	// Unlockable Rewards section for Sidekicks
+	if (cosmeticType === "Sidekick" && props.ProgressionRewards) {
+		const rewardsSection = await generateSidekickRewardsSection(props.ProgressionRewards, filenameTagMap);
+		out.push(rewardsSection + "\n");
 	}
 	
 	// Decals section for Car Bodies
@@ -2254,6 +2453,7 @@ async function initializeApp() {
 		showStatus('Loading cosmetic data...', 'loading');
 		
 		await loadIndex();
+		await loadCompanionVTIDs();
 		await loadCosmeticSets();
 
 		// Initialize released switch to default state (unreleased)

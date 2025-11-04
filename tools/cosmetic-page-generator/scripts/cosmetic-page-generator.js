@@ -477,7 +477,9 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 			continue;
 		}
 		const props = variant.Properties;
-		const channelName = forceTitleCase(props.VariantChannelName?.SourceString || "");
+		const rawChannelName = props.VariantChannelName?.SourceString.trim() || "";
+		const channelName = (rawChannelName == rawChannelName.toUpperCase()) ? forceTitleCase(rawChannelName) :
+			((/[a-z]/.test(rawChannelName.slice(1))) && (/[A-Z]/.test(rawChannelName.slice(1)))) ? rawChannelName : forceTitleCase(rawChannelName);
 		if (!channelName) {
 			console.log("Skipping variant with no channel name:", variant);
 			continue;
@@ -495,7 +497,9 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 			if (typeof option !== 'object') {
 				continue;
 			}
-			const variantName = forceTitleCase(option.VariantName?.SourceString || "");
+			const rawVariantName = option.VariantName?.SourceString || "";
+			const variantName = (rawVariantName == rawVariantName.toUpperCase()) ? forceTitleCase(rawVariantName) :
+				((/[a-z]/.test(rawVariantName.slice(1))) && (/[A-Z]/.test(rawVariantName.slice(1)))) ? rawVariantName : forceTitleCase(rawVariantName);
 			if (!variantName) {
 				console.log("Skipping option with no variant name:", option);
 				continue;

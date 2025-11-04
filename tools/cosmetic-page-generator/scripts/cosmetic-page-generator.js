@@ -186,6 +186,8 @@ function updateSuggestions() {
 				document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 			} else {
 				document.getElementById('rocket-league-field').style.display = 'none';
+				document.getElementById('rocket-league-cosmetic').checked = false;
+				document.getElementByID('rocket-league-exclusive').checked = false;
 			}
 			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
@@ -753,7 +755,7 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 		"{{SidekickNotification}}"
 	].join("\n");
 
-	return section + "\n";
+	return section;
 }
 
 function generateCompanionEmotePage(ID, name, rarity, settings) {

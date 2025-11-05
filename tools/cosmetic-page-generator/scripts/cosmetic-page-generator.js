@@ -113,6 +113,8 @@ function updateSuggestions() {
 			while (bundlesEntries.length != 0) {
 				removeBundleEntry();
 			}
+			var ftChrsSection = document.getElementById("featured-characters-config");
+			ftChrsSection?.parentNode.removeChild(ftChrsSection);
 
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 			document.getElementById("cosmetic-input").value = entry.id;
@@ -187,7 +189,7 @@ function updateSuggestions() {
 			} else {
 				document.getElementById('rocket-league-field').style.display = 'none';
 				document.getElementById('rocket-league-cosmetic').checked = false;
-				document.getElementByID('rocket-league-exclusive').checked = false;
+				document.getElementById('rocket-league-exclusive').checked = false;
 			}
 			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
@@ -930,7 +932,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
+	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {

@@ -235,7 +235,6 @@ function generateWikiText(track) {
     wikiText += '|cost = \n';
     wikiText += '|release = \n';
     wikiText += `|appearances = ${appearances}\n`;
-    wikiText += `|preview = [[File:${track.title} (Preview) - Jam Track - Fortnite Festival.ogg]]\n`;
     wikiText += `|ID = ${templateId}\n`;
     wikiText += '}}\n';
     

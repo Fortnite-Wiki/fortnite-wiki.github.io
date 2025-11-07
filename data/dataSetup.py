@@ -154,7 +154,7 @@ VALID_TYPES = [
     "FortVehicleCosmeticsItemDefinition_Booster",
     "CosmeticCompanionItemDefinition",
     "CosmeticCompanionReactFXItemDefinition",
-    "FortVariantTokenType" # for companion emotes
+    "FortVariantTokenType", # for companion emotes
 ]
 
 def load_json(filepath):
@@ -705,7 +705,13 @@ if os.path.exists(RACING_LOC_DIRECTORY):
 
 # Move and compress Companion ColorSwatches
 if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
-    target_path = os.path.join(os.path.join(os.path.dirname(__file__), "cosmetics", "Companions"), "ColorSwatches")
+    target_path = os.path.join(
+        os.path.dirname(__file__),
+        "cosmetics",
+        "Companions",
+        "ColorSwatches"
+    )
+    
     if os.path.exists(target_path):
         shutil.rmtree(target_path)
     shutil.copytree(COMPANION_COLOR_SWATCHES_DIR, target_path)
@@ -714,9 +720,14 @@ if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
     for root, _, files in os.walk(target_path):
         for file in files:
             src_path = os.path.join(root, file)
+            if os.path.basename(root) == "ColorSwatches":
+                parent_dir = os.path.dirname(root)
+                dest_path = os.path.join(parent_dir, file + '.gz')
+            else:
+                dest_path = src_path + '.gz'
+            
             if not file.endswith('.gz'):
                 if file.startswith('CS_'):
-                    dest_path = src_path + '.gz'
                     with open(src_path, "rb") as f_in:
                         raw = f_in.read()
                         compressed = gzip.compress(raw, mtime=0)
@@ -724,6 +735,13 @@ if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
                             f_out.write(compressed)
                             count += 1
                 os.remove(src_path)
+
+        # If this directory is named "ColorSwatches" and is now empty, remove it
+        if os.path.basename(root) == "ColorSwatches":
+            try:
+                os.rmdir(root)  # only removes if empty
+            except OSError:
+                pass  # ignore if not empty for some reason
 
     print(f"Moved and compressed {count} ColorSwatches from COMPANION_COLOR_SWATCHES_DIR")
 

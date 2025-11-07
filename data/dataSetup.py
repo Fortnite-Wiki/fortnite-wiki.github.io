@@ -119,12 +119,6 @@ COMPANION_VARIANT_TOKENS_DIR = os.path.join(
     r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items\CosmeticVariantTokens"
 )
 
-# this directory does contain a lot more else - so be careful!
-COMPANION_COLOR_SWATCHES_DIR = os.path.join(
-    BASE_DIR,
-    r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Quadruped"
-)
-
 VALID_TYPES = [
     "AthenaCharacterItemDefinition",
     "AthenaBackpackItemDefinition",
@@ -703,8 +697,17 @@ if os.path.exists(RACING_LOC_DIRECTORY):
     
     print(f"Moved and compressed {count} Racing localization JSON files from RACING_LOC_DIRECTORY")
 
+
 # Move and compress Companion ColorSwatches
-if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
+
+## these directories does contain a lot more else - so be careful!
+COMPANION_COLOR_SWATCHES_DIRS = [
+    os.path.join(BASE_DIR, r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Biped"),
+    os.path.join(BASE_DIR, r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Quadruped"),
+    os.path.join(BASE_DIR, r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Other")
+]
+def move_and_compress_colorswatches(src_dirs):
+    count = 0
     target_path = os.path.join(
         os.path.dirname(__file__),
         "cosmetics",
@@ -714,36 +717,51 @@ if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
     
     if os.path.exists(target_path):
         shutil.rmtree(target_path)
-    shutil.copytree(COMPANION_COLOR_SWATCHES_DIR, target_path)
+    os.makedirs(target_path, exist_ok=True)
 
-    count = 0
+    for src_root in src_dirs:
+        if not os.path.exists(src_root):
+            continue
+        
+        for root, dirs, files in os.walk(src_root):
+            if os.path.basename(root) != "ColorSwatches":
+                continue
+            
+            rel_path = os.path.relpath(root, src_root)
+            # get path *above* the ColorSwatches folder
+            parent_rel = os.path.dirname(rel_path)
+            
+            dest_dir = os.path.join(target_path, parent_rel)
+            os.makedirs(dest_dir, exist_ok=True)
+
+            for subroot, _, subfiles in os.walk(root):
+                inner_rel = os.path.relpath(subroot, root)
+                dest_subdir = os.path.join(dest_dir, inner_rel)
+                os.makedirs(dest_subdir, exist_ok=True)
+
+                for file in subfiles:
+                    src_file = os.path.join(subroot, file)
+                    dest_file = os.path.join(dest_subdir, file)
+                    shutil.copy2(src_file, dest_file)
+
     for root, _, files in os.walk(target_path):
         for file in files:
             src_path = os.path.join(root, file)
-            if os.path.basename(root) == "ColorSwatches":
-                parent_dir = os.path.dirname(root)
-                dest_path = os.path.join(parent_dir, file + '.gz')
-            else:
-                dest_path = src_path + '.gz'
-            
-            if not file.endswith('.gz'):
-                if file.startswith('CS_'):
-                    with open(src_path, "rb") as f_in:
-                        raw = f_in.read()
-                        compressed = gzip.compress(raw, mtime=0)
-                        with open(dest_path, "wb") as f_out:
-                            f_out.write(compressed)
-                            count += 1
-                os.remove(src_path)
+            if not file.endswith('.json') or not file.startswith('CS_'):
+                continue
 
-        # If this directory is named "ColorSwatches" and is now empty, remove it
-        if os.path.basename(root) == "ColorSwatches":
-            try:
-                os.rmdir(root)  # only removes if empty
-            except OSError:
-                pass  # ignore if not empty for some reason
+            dest_path = src_path + '.gz'
+            with open(src_path, "rb") as f_in:
+                raw = f_in.read()
+                compressed = gzip.compress(raw, mtime=0)
+                with open(dest_path, "wb") as f_out:
+                    f_out.write(compressed)
+                    count += 1
+            os.remove(src_path)
 
-    print(f"Moved and compressed {count} ColorSwatches from COMPANION_COLOR_SWATCHES_DIR")
+    print(f"Moved and compressed {count} ColorSwatches for Companions")
+
+move_and_compress_colorswatches(COMPANION_COLOR_SWATCHES_DIRS)
 
 copy_and_gzip(BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics")
 copy_and_gzip(OLD_BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics (old FortniteGame/Content/Athena/Items/Cosmetics folder)")

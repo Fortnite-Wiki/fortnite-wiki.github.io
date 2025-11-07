@@ -542,16 +542,23 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	}
 
 	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
-	for (const row of chunk(cosmetics, 3)) {
-		cosmeticsTable.push('|' + row.map(({ name, rarity, cosmeticType, fileType, setName, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, linkTarget, linkDisplay, isJamTrack, jamTrackTitle, isBanner, bannerFile }) => {
-			if (isJamTrack) {
-				return `{{Jam Icon|${jamTrackTitle}|120px}}`;
-			}
 
-			if (isBanner) {
-				return `[[File:${bannerFile}|130px|link=Banner Icons]]`;
-			}
+	const imageCells = [];
+	const nameCells = [];
 
+	for (const item of cosmetics) {
+		const { name, rarity, cosmeticType, fileType, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, hasLEGOStyle, linkTarget, linkDisplay, isJamTrack, jamTrackTitle, isBanner, bannerFile } = item;
+
+		const pushCell = (imageMarkup) => {
+			imageCells.push(imageMarkup);
+			nameCells.push((linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`);
+		};
+
+		if (isJamTrack) {
+			pushCell(`{{Jam Icon|${jamTrackTitle}|120px}}`);
+		} else if (isBanner) {
+			pushCell(`[[File:${bannerFile}|130px|link=Banner Icons]]`);
+		} else {
 			let ending = 'Fortnite.png';
 			if (fileType == 'Pickaxe' || fileType == 'Back Bling') {
 				ending = 'Fortnite.png';
@@ -560,15 +567,27 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 			} else if (isRacingCosmetic) {
 				ending = 'Rocket Racing.png';
 			}
-			return `{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`;
-		}).join('\n|'));
+
+			pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`);
+
+			if (cosmeticType == "Outfit" && hasLEGOStyle) {
+				pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - LEGO Fortnite.png|130px|link=${linkTarget}]]}}`);
+			}
+		}
+	}
+
+	const imageRows = chunk(imageCells, 3);
+	const nameRows = chunk(nameCells, 3);
+
+	for (let i = 0; i < imageRows.length; i++) {
+		const row = imageRows[i];
+		cosmeticsTable.push('|' + row.join('\n|'));
 		cosmeticsTable.push('|-');
-		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay }) => {
-			// Only use [[NAME (TYPE)|NAME]] if there are duplicates, else just [[NAME]]
-			return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
-		}).join('\n!'));
+		const namesRow = nameRows[i] || [];
+		cosmeticsTable.push('!' + namesRow.join('\n!'));
 		cosmeticsTable.push('|-');
 	}
+
 	if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
 	cosmeticsTable.push('|}', '</center>', '');
 
@@ -679,6 +698,11 @@ async function handleGenerate() {
 				}
 				if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
 
+				let hasLEGOStyle = false;
+				if (entryMeta.jido) {
+					hasLEGOStyle = true;
+				}
+
 				const hasDuplicate = nameCounts[name] > 1;
 				const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
 				const linkDisplay = name;
@@ -692,6 +716,7 @@ async function handleGenerate() {
 					isFestivalCosmetic,
 					isPickaxeOverride,
 					isRacingCosmetic,
+					hasLEGOStyle,
 					linkTarget,
 					linkDisplay
 				});

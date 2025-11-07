@@ -459,6 +459,7 @@ const VARIANT_OPTION_FIELDS = [
 	"MaterialOptions",
 	"MeshOptions",
 	"GenericTagOptions",
+	"GenericPropertyOptions",
 	"AdditivePoseOptions",
 	"MorphTargetOptions"
 ]
@@ -468,10 +469,12 @@ function chunkList(lst, size) {
 }
 
 // This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
-function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets) {
+async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets) {
 	const variantChannels = new Map();
 	const immutableChannels = new Set();
-	const previewImages = {};
+	const styleImages = {};
+	const colorHexMap = {};
+	const colorDisplayNameMap = {};
 	const featuredFiles = new Set();
 	const filenameTagMap = {}; // image filename -> { channelTag, nameTag }
 	const optionTagsMap = {}; // `${channel},${variant}` -> { channelTag, nameTag }
@@ -491,6 +494,53 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 		const immutable = (props.VariantChannelTag?.TagName || "").startsWith("Cosmetics.Variant.Channel.Immutable.");
 		if (immutable) immutableChannels.add(channelName);
 
+		if (variant.Type == "FortCosmeticRichColorVariant") {
+			const richColorVar = props.InlineVariant?.RichColorVar;
+			if (!richColorVar) continue;
+
+			const defaultColor = richColorVar.DefaultStartingColor.Hex || "";
+
+			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
+			colorSwatchPath = DATA_BASE_PATH + colorSwatchPath.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/').replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/') + '.json';
+
+			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
+				console.warn("Failed to load color swatch data:", err);
+				return null;
+			});
+			if (!colorSwatchData) continue;
+
+			const colorPairs = colorSwatchData[0].Properties.ColorPairs;
+			if (!Array.isArray(colorPairs) || colorPairs.length === 0) {
+				console.log("Skipping color swatch with no color pairs:", colorSwatchData);
+				continue;
+			}
+
+			if (!variantChannels.has(channelName)) {
+				variantChannels.set(channelName, []);
+			}
+			for (let i = 0; i < colorPairs.length; i++) {
+				const pair = colorPairs[i];
+				if (!pair) continue;
+
+				const colorHex = (pair.ColorValue && pair.ColorValue.Hex) ? pair.ColorValue.Hex.toLowerCase() : null;
+
+				let displayName = null;
+				if (pair.ColorDisplayName) {
+					displayName = pair.ColorDisplayName.LocalizedString || null;
+				}
+
+				const variantKey = colorHex || `color_${i}`;
+
+				variantChannels.get(channelName).push(variantKey);
+
+				styleImages[`${channelName},${variantKey}`] = ""; // no style image for color variants
+
+				colorHexMap[`${channelName},${variantKey}`] = colorHex;
+				colorDisplayNameMap[`${channelName},${variantKey}`] = displayName;
+			}
+			continue;
+		}
+
 		const optionField = VARIANT_OPTION_FIELDS.find(field => Array.isArray(props[field]) && props[field].length > 0);
 		if (!optionField) {
 			console.log("Skipping variant with no valid options field:", variant);
@@ -508,27 +558,30 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 				console.log("Skipping option with no variant name:", option);
 				continue;
 			}
-			const formattedVariantName = variantName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
 			const previewImage = option.PreviewImage?.AssetPathName || "";
-			previewImages[`${channelName},${formattedVariantName}`] = previewImage;
-			optionTagsMap[`${channelName},${formattedVariantName}`] = {
+			if (previewImage === "") continue;
+			optionTagsMap[`${channelName},${variantName}`] = {
 				channelTag: props.VariantChannelTag?.TagName || "",
 				nameTag: option.CustomizationVariantTag?.TagName || ""
 			};
 			if (!variantChannels.has(channelName)) {
 				variantChannels.set(channelName, []);
 			}
-			variantChannels.get(channelName).push(formattedVariantName);
-			if (previewImage === "") {
-				continue;
-			}
+			variantChannels.get(channelName).push(variantName);
 			if (previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
-				const imageFilename = (channelName === "Style" ? 
-					`${name} (${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
-					`${name} (${channelName} - ${formattedVariantName} - Featured) - ${cosmeticType} - Fortnite.png`);
-				if (outputFeatured) {
-					featuredFiles.add(imageFilename);
+				let imageFilename = "";
+				if (props.VariantChannelTag?.TagName === "Cosmetics.Variant.Channel.Vehicle.Painted") {
+					imageFilename = variantName == "None" ? "X - Outfit - Fortnite.png" : `${variantName} - Painted Style - Rocket Racing.png`;
+				} else {
+					imageFilename = (channelName === "Style" ? 
+					`${name} (${variantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
+					`${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`);
+					if (outputFeatured) {
+						featuredFiles.add(imageFilename);
+					}
 				}
+				styleImages[`${channelName},${variantName}`] = imageFilename;
 			}
 		}
 	}
@@ -538,40 +591,65 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 	}
 
 	// Helper to build a table for a given list of [channel, variants] entries
-	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate) {
-		const table = [`{| class=\"${addClassToUse} reward-table\"`];
+	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate, replacePipes = false) {
+		const pipe = replacePipes ? "{{!}}" : "|";
+
+		const table = [`{${pipe} class=\"${addClassToUse} reward-table\"`];
 		let first = true;
 		for (const [channel, variants] of entries) {
 			const chunks = chunkList(variants, 3);
 			const colspan = variants.length > 2 ? 3 : variants.length;
-			if (!first) table.push("|-");
+			if (!first) table.push(`${pipe}-`);
 			first = false;
-			table.push(`|colspan="${colspan}"|{{${headerTemplate}|${channel}}}`);
+			table.push(`${pipe}colspan="${colspan}"${pipe}{{${headerTemplate}|${channel}}}`);
+
+			// Determine if any variants have a display name
+			const channelHasAnyNames = variants.some(v => {
+				const k = `${channel},${v}`;
+				// if this variant is a color (we recorded a hex), only count it if a display name exists
+				if (k in colorHexMap) return !!colorDisplayNameMap[k];
+				// non-color variants always have names
+				return true;
+			});
+
 			for (const chunk of chunks) {
-				table.push("|-");
-				table.push(...chunk.map(v => `!${v}`));
-				table.push("|-");
+				table.push(`${pipe}-`);
+
+				if (channelHasAnyNames) {
+					table.push(...chunk.map(v => {
+						const k = `${channel},${v}`;
+						if (k in colorHexMap) {
+							const dn = colorDisplayNameMap[k];
+							return `!${dn ? dn : ''}`; // blank cell if no display name for this specific color
+						}
+						return `!${v}`;
+					}));
+					table.push(`${pipe}-`);
+				}
 				for (const v of chunk) {
-					const previewImage = previewImages[`${channel},${v}`] || "";
-					if (previewImage === "") {
-						table.push(`|{{${backgroundTemplate}|Empty (v31.40) - Icon - Fortnite.png}}`);
+					const key = `${channel},${v}`;
+
+					if (key in colorHexMap) {
+						const hexVal = (colorHexMap[key] || '').replace(/^#/, '').toLowerCase();
+						if (!hexVal) {
+							table.push(`${pipe}{{${backgroundTemplate}|X - Outfit - Fortnite.png}}`);
+						} else {
+							table.push(`${pipe}{{Color|${hexVal}}}`);
+						}
 						continue;
 					}
-					const imageFile = ((previewImage == mainIcon.icon || previewImage == mainIcon.large) ? 
-						`${name} - ${cosmeticType} - Fortnite.png` : 
-						(channel === "Style" ? 
-							`${name} (${v}) - ${cosmeticType} - Fortnite.png` : 
-							`${name} (${channel} - ${v}) - ${cosmeticType} - Fortnite.png`));
+
+					const imageFile = styleImages[key];
 					// associate non-featured filenames with their variant tags
-					if (previewImage !== mainIcon.icon && previewImage !== mainIcon.large) {
+					if (imageFile !== mainIcon.icon && imageFile !== mainIcon.large) {
 						const tags = optionTagsMap[`${channel},${v}`] || { channelTag: "", nameTag: "" };
 						filenameTagMap[imageFile] = { channelTag: tags.channelTag, nameTag: tags.nameTag };
 					}
-					table.push(`|{{${backgroundTemplate}|${imageFile}}}`);
+					table.push(`${pipe}{{${backgroundTemplate}|${imageFile}}}`);
 				}
 			}
 		}
-		table.push("|}");
+		table.push(`${pipe}}`);
 		return table.join("\n");
 	}
 
@@ -595,7 +673,13 @@ function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured
 		styleSectionBody = buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style');
 	} else {
 		// Only normal channels
-		styleSectionBody = buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
+		if (cosmeticType == "Car Body") {
+			styleSectionBody = "{{Scrollbox Clear|BoxHeight=700|Content=\n";
+			styleSectionBody += buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background', true);
+			styleSectionBody += "\n}}";
+		} else {
+			styleSectionBody = buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
+		}
 	}
 
 	let featured = null;
@@ -646,7 +730,7 @@ async function generateDecalsTable(name, tags) {
 			currentNames.push(`{{Style Name|[[${name}]]}}`);
 			
 			if (currentIcons.length === 5) {
-				decalRows.push(`|${currentIcons.join("\n|")}\n|-\n!${currentNames.join("\n!")}`);
+				decalRows.push(`|${currentIcons.join("\n|")}\n|-\n!${currentNames.join("\n!")}\n|-`);
 				currentIcons = [];
 				currentNames = [];
 			}
@@ -871,9 +955,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (props.ItemVariants) {
 		const variantData = [];
 		for (const iv of props.ItemVariants) {
-			if (!iv) continue;
 			const entryNumber = Number(iv.ObjectPath.split('.').pop());
-			if (!entryNumber) continue;
 
 			if (!allData[entryNumber]) continue;
 			const candidate = allData[entryNumber];
@@ -883,7 +965,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		if (variantData.length > 0) {
-			[styleSection, featured, variantChannels, filenameTagMap] = generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta), await getNumBRDav2Assets(entryMeta));
+			[styleSection, featured, variantChannels, filenameTagMap] = await generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta), await getNumBRDav2Assets(entryMeta));
 		}
 	}
 

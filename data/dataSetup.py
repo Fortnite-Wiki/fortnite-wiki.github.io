@@ -119,6 +119,12 @@ COMPANION_VARIANT_TOKENS_DIR = os.path.join(
     r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items\CosmeticVariantTokens"
 )
 
+# this directory does contain a lot more else - so be careful!
+COMPANION_COLOR_SWATCHES_DIR = os.path.join(
+    BASE_DIR,
+    r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Quadruped"
+)
+
 VALID_TYPES = [
     "AthenaCharacterItemDefinition",
     "AthenaBackpackItemDefinition",
@@ -176,7 +182,7 @@ def build_index(dirs):
     index = []
 
     def should_skip_subdir(subdir):
-        return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Templates" ))
+        return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Templates", "Prototype"))
 
     def get_entry(data):
         return next((item for item in data if item.get("Type") in VALID_TYPES), None)
@@ -624,7 +630,7 @@ print(f"CompanionStyleVariantTokens.json created with {len(companion_style_index
 def copy_and_gzip(src_root, dest_root, label):
     count = 0
     for subdir, _, files in os.walk(src_root):
-        if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or "Templates" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir:
+        if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or "Templates" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
             continue
         rel = os.path.relpath(subdir, src_root)
 
@@ -651,13 +657,14 @@ def copy_and_gzip(src_root, dest_root, label):
             count += 1
     print(f"{count} JSON files compressed and saved as .gz in {label}")
 
-# Move SPARKS_LOC_DIRECTORY into LOC_DIRECTORY before compression
+# Move and compress SPARKS_LOC_DIRECTORY
 if os.path.exists(SPARKS_LOC_DIRECTORY):
     target_path = os.path.join(os.path.join(os.path.dirname(__file__), "localization"), "SparksCosmetics")
     if os.path.exists(target_path):
         shutil.rmtree(target_path)
     shutil.copytree(SPARKS_LOC_DIRECTORY, target_path)
 
+    count = 0
     for root, _, files in os.walk(target_path):
         for file in files:
             src_path = os.path.join(root, file)
@@ -668,17 +675,19 @@ if os.path.exists(SPARKS_LOC_DIRECTORY):
                     compressed = gzip.compress(raw, mtime=0)
                     with open(dest_path, "wb") as f_out:
                         f_out.write(compressed)
+                        count += 1
                 os.remove(src_path)
     
-    print(f"Moved and compressed Sparks localization JSON files from SPARKS_LOC_DIRECTORY")
+    print(f"Moved and compressed {count} Sparks localization JSON files from SPARKS_LOC_DIRECTORY")
 
-# Move RACING_LOC_DIRECTORY into LOC_DIRECTORY before compression
+# Move and compress RACING_LOC_DIRECTORY
 if os.path.exists(RACING_LOC_DIRECTORY):
     target_path = os.path.join(os.path.join(os.path.dirname(__file__), "localization"), "VehicleCosmetics")
     if os.path.exists(target_path):
         shutil.rmtree(target_path)
     shutil.copytree(RACING_LOC_DIRECTORY, target_path)
 
+    count = 0
     for root, _, files in os.walk(target_path):
         for file in files:
             src_path = os.path.join(root, file)
@@ -689,10 +698,34 @@ if os.path.exists(RACING_LOC_DIRECTORY):
                     compressed = gzip.compress(raw, mtime=0)
                     with open(dest_path, "wb") as f_out:
                         f_out.write(compressed)
+                        count += 1
                 os.remove(src_path)
     
-    print(f"Moved and compressed Racing localization JSON files from RACING_LOC_DIRECTORY")
+    print(f"Moved and compressed {count} Racing localization JSON files from RACING_LOC_DIRECTORY")
 
+# Move and compress Companion ColorSwatches
+if os.path.exists(COMPANION_COLOR_SWATCHES_DIR):
+    target_path = os.path.join(os.path.join(os.path.dirname(__file__), "cosmetics", "Companions"), "ColorSwatches")
+    if os.path.exists(target_path):
+        shutil.rmtree(target_path)
+    shutil.copytree(COMPANION_COLOR_SWATCHES_DIR, target_path)
+
+    count = 0
+    for root, _, files in os.walk(target_path):
+        for file in files:
+            src_path = os.path.join(root, file)
+            if not file.endswith('.gz'):
+                if file.startswith('CS_'):
+                    dest_path = src_path + '.gz'
+                    with open(src_path, "rb") as f_in:
+                        raw = f_in.read()
+                        compressed = gzip.compress(raw, mtime=0)
+                        with open(dest_path, "wb") as f_out:
+                            f_out.write(compressed)
+                            count += 1
+                os.remove(src_path)
+
+    print(f"Moved and compressed {count} ColorSwatches from COMPANION_COLOR_SWATCHES_DIR")
 
 copy_and_gzip(BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics")
 copy_and_gzip(OLD_BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics (old FortniteGame/Content/Athena/Items/Cosmetics folder)")

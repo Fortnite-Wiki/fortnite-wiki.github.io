@@ -574,11 +574,14 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				if (props.VariantChannelTag?.TagName === "Cosmetics.Variant.Channel.Vehicle.Painted") {
 					imageFilename = variantName == "None" ? "X - Outfit - Fortnite.png" : `${variantName} - Painted Style - Rocket Racing.png`;
 				} else {
-					imageFilename = (channelName === "Style" ? 
+					imageFilename = (channelName === "Style") ? 
+					`${name} (${variantName}) - ${cosmeticType} - Fortnite.png` : 
+					`${name} (${channelName} - ${variantName}) - ${cosmeticType} - Fortnite.png`;
+					const featuredFilename = (channelName === "Style") ? 
 					`${name} (${variantName} - Featured) - ${cosmeticType} - Fortnite.png` : 
-					`${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`);
+					`${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`;
 					if (outputFeatured) {
-						featuredFiles.add(imageFilename);
+						featuredFiles.add(featuredFilename);
 					}
 				}
 				styleImages[`${channelName},${variantName}`] = imageFilename;
@@ -639,9 +642,10 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 						continue;
 					}
 
-					const imageFile = styleImages[key];
+					let imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
 					// associate non-featured filenames with their variant tags
 					if (imageFile !== mainIcon.icon && imageFile !== mainIcon.large) {
+						imageFile = styleImages[key];
 						const tags = optionTagsMap[`${channel},${v}`] || { channelTag: "", nameTag: "" };
 						filenameTagMap[imageFile] = { channelTag: tags.channelTag, nameTag: tags.nameTag };
 					}

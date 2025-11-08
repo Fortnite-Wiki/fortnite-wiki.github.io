@@ -560,7 +560,6 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			}
 
 			const previewImage = option.PreviewImage?.AssetPathName || "";
-			if (previewImage === "") continue;
 			optionTagsMap[`${channelName},${variantName}`] = {
 				channelTag: props.VariantChannelTag?.TagName || "",
 				nameTag: option.CustomizationVariantTag?.TagName || ""
@@ -569,8 +568,9 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				variantChannels.set(channelName, []);
 			}
 			variantChannels.get(channelName).push(variantName);
-			if (previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
-				let imageFilename = "";
+
+			let imageFilename = "";
+			if (previewImage !== "" && previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
 				if (props.VariantChannelTag?.TagName === "Cosmetics.Variant.Channel.Vehicle.Painted") {
 					imageFilename = variantName == "None" ? "X - Outfit - Fortnite.png" : `${variantName} - Painted Style - Rocket Racing.png`;
 				} else {
@@ -584,8 +584,10 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 						featuredFiles.add(featuredFilename);
 					}
 				}
-				styleImages[`${channelName},${variantName}`] = imageFilename;
+			} else if (previewImage === "") {
+				imageFilename = "Empty (v31.40) - Icon - Fortnite.png";
 			}
+			styleImages[`${channelName},${variantName}`] = imageFilename;
 		}
 	}
 

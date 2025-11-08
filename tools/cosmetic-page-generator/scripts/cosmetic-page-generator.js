@@ -541,6 +541,47 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			continue;
 		}
 
+		if (variant.Type == "FortCosmeticMaterialParameterSetVariant") {
+			const inlineVariant = props.InlineVariant;
+			if (!inlineVariant) continue;
+
+			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
+
+			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/MaterialParameterSets\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+
+			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
+				console.warn("Failed to load material parameters data:", err);
+				return null;
+			});
+			if (!materialParamsData) continue;
+
+			const materialChoices = materialParamsData[0].Properties.Choices;
+			if (!Array.isArray(materialChoices) || materialChoices.length === 0) {
+				console.log("Skipping material parameters with no choices:", materialParamsData);
+				continue;
+			}
+
+			if (!variantChannels.has(channelName)) {
+				variantChannels.set(channelName, []);
+			}
+			for (const choice of materialChoices) {
+				if (!choice) continue;
+
+				const colorHex = choice.UITileDisplayData.Color.Hex || null;
+				if (!colorHex) continue;
+
+				const variantName = choice.DisplayName?.LocalizedString || "";
+				variantChannels.get(channelName).push(variantName);
+
+				styleImages[`${channelName},${variantName}`] = ""; // no style image for material parameter variants
+
+				colorHexMap[`${channelName},${variantName}`] = colorHex;
+				colorDisplayNameMap[`${channelName},${variantName}`] = variantName;
+			}
+			continue;
+		}
+
 		const optionField = VARIANT_OPTION_FIELDS.find(field => Array.isArray(props[field]) && props[field].length > 0);
 		if (!optionField) {
 			console.log("Skipping variant with no valid options field:", variant);

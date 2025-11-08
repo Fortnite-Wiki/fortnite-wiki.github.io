@@ -1544,6 +1544,64 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			out.push("");
 		}
 	}
+
+	// Renders section
+	if (settings.hasRenders) {
+		const channels = variantChannels || {};
+		const channelKeys = Object.keys(channels);
+		let columns = [];
+
+		if (channelKeys.length === 1) {
+			// Use the variants from the single channel
+			columns = Array.isArray(channels[channelKeys[0]]) ? channels[channelKeys[0]].slice() : [];
+			if (!columns.includes(name)) {
+				columns.unshift(name);
+			}
+		} else {
+			columns = [name];
+		}
+
+		if (hasLegoStyle(entryMeta) && cosmeticType === "Outfit") {
+			columns.push('LEGO');
+		}
+
+		const chunks = chunkList(columns, 3);
+
+		const rendersSection = [];
+		rendersSection.push('== Render ==');
+		rendersSection.push('<center>');
+		rendersSection.push('{|');
+
+		const colspanFlag = columns.length == 1 ? '' : `colspan="${columns.length > 3 ? 3 : columns.length}|"`;
+		rendersSection.push(`!${colspanFlag}{{Style Header|Render}}`);
+		rendersSection.push('|-');
+
+		for (let i = 0; i < chunks.length; i++) {
+			const chunk = chunks[i];
+
+			rendersSection.push(chunk.map(c => `!{{Style Name|${c === 'LEGO' ? 'LEGO' : c}}}`).join('\n'));
+			rendersSection.push('|-');
+
+			rendersSection.push(chunk.map(c => {
+				let filename = '';
+				if (c === 'LEGO') {
+					filename = `${name} (Render) - ${cosmeticType} - LEGO Fortnite.webm`;
+				} else if (c === name) {
+					filename = `${name} (Render) - ${cosmeticType} - Fortnite.webm`;
+				} else {
+					filename = `${name} (${c} - Render) - ${cosmeticType} - Fortnite.webm`;
+				}
+				return `|[[File:${filename}]]`;
+			}).join('\n'));
+			if (i < chunks.length - 1) rs.push('|-');
+		}
+
+		rendersSection.push('|}');
+		rendersSection.push('{{RenderNotification}}');
+		rendersSection.push('</center>');
+
+		out.push(rendersSection.join('\n') + '\n');
+	}
 	
 	if (settings.isItemShop && settings.includeAppearances) {
 		const appearancesSection = [];
@@ -1562,6 +1620,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		appearancesSection.push("}}");
 
 		out.push(appearancesSection.join('\n') + "\n");
+	}
+
+	// Remixes table
+	if (settings.remixOf) {
+		out.push(`{{Remixes|${settings.remixOf}}}` + "\n");
 	}
 	
 	if (isFestivalCosmetic && cosmeticType == "Back Bling") {
@@ -1749,6 +1812,12 @@ async function generatePage() {
 			
 			// Collaboration
 			isCollaboration,
+
+			// Renders
+			hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
+
+			// Remixes
+			remixOf: elements.remixOf ? elements.remixOf.value.trim() : "",
 			
 			// Racing
 			isRocketLeagueCosmetic,
@@ -2277,6 +2346,10 @@ async function initializeApp() {
 		// Racing settings
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
+
+		// Renders / remix
+		hasRenders: document.getElementById('has-renders'),
+		remixOf: document.getElementById('remix-of'),
 	};
 
 	document.getElementById('add-bundle').addEventListener('click', (e) => { e.preventDefault(); createBundleEntry(); });

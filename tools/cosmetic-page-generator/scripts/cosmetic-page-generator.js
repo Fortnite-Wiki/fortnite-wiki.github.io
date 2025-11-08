@@ -1615,7 +1615,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		rendersSection.push('<center>');
 		rendersSection.push('{|');
 
-		const colspanFlag = columns.length == 1 ? '' : `colspan="${columns.length > 3 ? 3 : columns.length}|"`;
+		const colspanFlag = columns.length == 1 ? '' : `colspan="${columns.length > 3 ? 3 : columns.length}"|`;
 		rendersSection.push(`!${colspanFlag}{{Style Header|Render}}`);
 		rendersSection.push('|-');
 

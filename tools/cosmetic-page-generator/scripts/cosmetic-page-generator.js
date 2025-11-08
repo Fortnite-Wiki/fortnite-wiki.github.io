@@ -1187,6 +1187,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason && settings.legoSeasonAbbr) {
 		const freeFlag = settings.passFreeLego ? "|Free" : "|";
 		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
+	} else if (settings.isQuestReward) {
+		unlocked = `[[${settings.questName}]]`;
 	} else if (settings.isItemShop && (settings.shopCost || bundlesEntries.length == 0)) {
 		unlocked = "[[Item Shop]]";
 	}
@@ -1403,6 +1405,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			article += ".";
 			
 		}
+	} else if (settings.isQuestReward && settings.questName) {
+		article += ` that can be obtained as a reward from [[${settings.questName}]].`;
 	} else if (settings.unreleasedTemplate) {
 		article += " that is currently unreleased.";
 	} else {
@@ -1431,14 +1435,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				break;
 			}
 		}
+
+		const firstTextFlag = !settings.isQuestReward || settings.questFirstReleasedText ? 'first ' : '';
 		
 		if (matchedSeasonKey) {
 			if (matchedSeasonKey === 'C2R') {
-				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
+				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter 2 Remix]]`;
 			} else if (matchedSeasonKey === 'C6MS1') {
-				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
+				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Galactic Battle]]`;
 			} else if (matchedSeasonKey === 'C6MS2') {
-				seasonFirstReleasedFlag = " was first released in [[Chapter 6: Mini Season 2]]";
+				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter 6: Mini Season 2]]`;
 			} else {
 				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
 				const chapter = keyMatch[1];
@@ -1447,9 +1453,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 				if (chapter && season) {
 					if (mini) {
-						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Mini Season ${season}]]`;
+						seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter ${chapter}: Mini Season ${season}]]`;
 					} else {
-						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
+						seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter ${chapter}: Season ${season}]]`;
 					}
 				}
 			}
@@ -1751,6 +1757,7 @@ async function generatePage() {
 	const isOGPass = elements.sourceOGPass.checked;
 	const isMusicPass = elements.sourceMusicPass.checked;
 	const isLEGOPass = elements.sourceLEGOPass.checked;
+	const isQuestReward = elements.sourceQuestReward.checked;
 	
 	const isCollaboration = elements.collaboration.checked;
 	
@@ -1819,6 +1826,14 @@ async function generatePage() {
 		}
 	}
 
+	if (isQuestReward) {
+		const questNameInput = elements.questName.value.trim();
+		if (!questNameInput) {
+			showStatus('Please enter the name of the quests that grant this cosmetic', 'error');
+			return;
+		}
+	}
+
 	try {
 		showStatus('Searching for cosmetic...', 'loading');
 		
@@ -1852,6 +1867,11 @@ async function generatePage() {
 			isOGPass,
 			isMusicPass,
 			isLEGOPass,
+
+			// Quest reward
+			isQuestReward: isQuestReward,
+			questName: elements.questName ? elements.questName.value.trim() : "",
+			questFirstReleasedText: elements.questFirstReleasedText ? elements.questFirstReleasedText.checked : false,
 			
 			// Collaboration
 			isCollaboration,
@@ -2339,6 +2359,7 @@ async function initializeApp() {
 		sourceOGPass: document.getElementById('source-og-pass'),
 		sourceMusicPass: document.getElementById('source-music-pass'),
 		sourceLEGOPass: document.getElementById('source-lego-pass'),
+		sourceQuestReward: document.getElementById('source-quest-reward'),
 		
 		// Item Shop settings
 		itemShopSettings: document.getElementById('item-shop-settings'),
@@ -2379,6 +2400,11 @@ async function initializeApp() {
 		passFreeOG: document.getElementById('pass-free-og'),
 		passFreeMusic: document.getElementById('pass-free-music'),
 		passFreeLego: document.getElementById('pass-free-lego'),
+
+		// Quest Reward settings
+		questRewardSettings: document.getElementById('quest-reward-settings'),
+		questName: document.getElementById('quest-name'),
+		questFirstReleasedText: document.getElementById('quest-first-released'),
 		
 		// Display title checkbox
 		displayTitle: document.getElementById('display-title'),
@@ -2405,12 +2431,14 @@ async function initializeApp() {
 		if (elements.passFreeOG) elements.passFreeOG.checked = false;
 		if (elements.passFreeMusic) elements.passFreeMusic.checked = false;
 		if (elements.passFreeLego) elements.passFreeLego.checked = false;
+
 		const itemShopChecked = elements.sourceItemShop.checked;
 		const battlePassChecked = elements.sourceBattlePass.checked;
 		const fortniteCrewChecked = elements.sourceFortniteCrew.checked;
 		const ogPassChecked = elements.sourceOGPass.checked;
 		const musicPassChecked = elements.sourceMusicPass.checked;
 		const legoPassChecked = elements.sourceLEGOPass.checked;
+		const questRewardChecked = elements.sourceQuestReward.checked;
 		
 		// Show/hide settings based on selection
 		elements.itemShopSettings.classList.toggle('hidden', !itemShopChecked);
@@ -2419,7 +2447,8 @@ async function initializeApp() {
 		elements.ogPassSettings.classList.toggle('hidden', !ogPassChecked);
 		elements.musicPassSettings.classList.toggle('hidden', !musicPassChecked);
 		elements.legoPassSettings.classList.toggle('hidden', !legoPassChecked);
-		
+		elements.questRewardSettings.classList.toggle('hidden', !questRewardChecked);
+
 		// Hide/show released fields based on source selection
 		const releasedFields = document.querySelectorAll('.released-fields');
 		if (battlePassChecked || fortniteCrewChecked) {
@@ -2456,36 +2485,50 @@ async function initializeApp() {
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
 		} else if (battlePassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
 		} else if (itemShopChecked) {
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
 		} else if (ogPassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
 		} else if (musicPassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
 			elements.sourceOGPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
 		} else if (legoPassChecked) {
+			console.log('lego pass checked');
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
+		} else if (questRewardChecked) {
+			elements.sourceItemShop.disabled = true;
+			elements.sourceBattlePass.disabled = true;
+			elements.sourceFortniteCrew.disabled = true;
+			elements.sourceOGPass.disabled = true;
+			elements.sourceMusicPass.disabled = true;
+			elements.sourceLEGOPass.disabled = true;
 		} else {
 			// Re-enable all if none selected
 			elements.sourceItemShop.disabled = false;
@@ -2494,6 +2537,7 @@ async function initializeApp() {
 			elements.sourceOGPass.disabled = false;
 			elements.sourceMusicPass.disabled = false;
 			elements.sourceLEGOPass.disabled = false;
+			elements.sourceQuestReward.disabled = false;
 		}
 	}
 
@@ -2613,6 +2657,7 @@ async function initializeApp() {
 	elements.sourceOGPass.addEventListener('change', handleSourceSelection);
 	elements.sourceMusicPass.addEventListener('change', handleSourceSelection);
 	elements.sourceLEGOPass.addEventListener('change', handleSourceSelection);
+	elements.sourceQuestReward.addEventListener('change', handleSourceSelection);
 
 	// Battle Pass season auto-fill event listener
 	elements.bpSeason.addEventListener('input', autoFillPassVersion);

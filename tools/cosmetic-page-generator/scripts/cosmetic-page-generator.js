@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
 import {
 	SEASON_RELEASE_DATES, SEASON_UPDATE_VERSIONS,
 	OG_SEASON_RELEASE_DATES, OG_SEASON_UPDATE_VERSIONS,
@@ -2258,79 +2258,6 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 		};
 		sugDiv.appendChild(div);
 	});
-}
-
-/**
- * Query the Fandom MediaWiki API for images on a page title.
- * Returns an array of filenames (without the leading "File:").
- */
-async function fetchWikiImageFiles(title) {
-	try {
-		const endpoint = 'https://fortnite.fandom.com/api.php';
-		const params = new URLSearchParams({
-			action: 'query',
-			prop: 'images',
-			titles: title,
-			format: 'json',
-			imlimit: 'max',
-			origin: '*'
-		});
-		const url = `${endpoint}?${params.toString()}`;
-		const resp = await fetch(url);
-		if (!resp.ok) return [];
-		const json = await resp.json();
-		const pages = json.query && json.query.pages ? json.query.pages : {};
-		const files = [];
-		for (const pid of Object.keys(pages)) {
-			const p = pages[pid];
-			if (p && p.images) {
-				for (const im of p.images) {
-					if (im && im.title && im.title.startsWith('File:')) {
-						files.push(im.title.replace(/^File:/, ''));
-					}
-				}
-			}
-		}
-		return files;
-	} catch (err) {
-		console.warn('fetchWikiImageFiles error', err);
-		return [];
-	}
-}
-
-/**
- * Given a character name, attempt to pick the most up-to-date image filename.
- * Strategy:
- *  - Try page titled "{name} (Outfit)" first, then "{name}".
- *  - Prefer filenames containing a version token like "(v30.00)" with the highest numeric version.
- *  - Fallback to "{name} - Outfit - Fortnite.png".
- */
-async function getMostUpToDateImage(name, cosmeticType) {
-	const tryTitles = [`${name} (${cosmeticType})`, name];
-	for (const t of tryTitles) {
-		const files = await fetchWikiImageFiles(t);
-		if (!files || files.length === 0) continue;
-
-		// Find versioned files like "Peely (v30.00) - Outfit - Fortnite.png"
-		const versionRegex = /\(v(\d+)(?:\.(\d+))?\)/i;
-		let bestVersion = -1;
-		let bestFile = null;
-		for (const f of files) {
-			const m = f.match(versionRegex);
-			if (m && f.startsWith(name) && f.includes(`- ${cosmeticType} - Fortnite.png`)) {
-				const major = parseInt(m[1] || '0', 10);
-				const minor = parseInt(m[2] || '0', 10);
-				const numeric = major * 1000 + minor; // simple ordering
-				if (numeric > bestVersion) {
-					bestVersion = numeric;
-					bestFile = f;
-				}
-			}
-		}
-		if (bestFile) return { file: bestFile, pageTitle: t };
-	}
-
-	return { file: `${name} - ${cosmeticType} - Fortnite.png`, pageTitle: name };
 }
 
 async function initializeApp() {

@@ -40,6 +40,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'character-interactions-generator',
+        thumbnail: 'character-interactions-generator',
+        name: 'Character Interactions Generator',
+        version: 'v1.0',
+        description: 'Takes a \'NPCLibrary_Conversation_\' JSON in as input and generates character interactions.',
+        isSiteTool: true,
+    },
+    {
         id: 'lore-character-generator',
         thumbnails: ['lore-character-generator-1', 'lore-character-generator-2'],
         name: 'Lore Character Generator',

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Interactions Generator</title>
+
+    <script src="./scripts/character-interactions-generator.js" type="module"></script>
+    <script src="/scripts/pageinfo.js" type="module"></script>
+    <script src="/scripts/load-site-notices.js" type="module"></script>
+
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
+</head>
+
+<body>
+    <header>
+        <a href="/index.html" id="return-main">
+            <span>
+                <img src="/files/images/return-icon.png" alt="back" />
+            </span>
+        </a>
+        <img src="https://static.wikia.nocookie.net/fortnite/images/d/dc/Schematic_-_Icon_-_Save_the_World.png" alt="logo" />
+        <span style="margin-right: 1rem">
+            <h1 class="name">Character Interactions Generator</h1>
+            <span class="version"></span>
+        </span>
+    </header>
+
+    <section style="padding: 0.5rem 0.5rem 0.5rem 1.5rem">
+        <label for="character-name" style="display:block; margin-top:8px;">Character name (used for icon):</label>
+        <input type="text" id="character-name" placeholder="Bart Simpson" style="width:260px; padding:6px; margin-bottom:8px;" />
+    </section>
+
+    <section id="upload-section">
+        <h3>Upload JSON</h3>
+        <div id="drop-area" class="drop-area">
+            <p>Drag & drop a 'NPCLibrary_Conversation' JSON file here</p>
+            <input type="file" id="file-input" accept="application/json" />
+        </div>
+    </section>
+
+    <section id="preview-section">
+        <h3>Parsed Output</h3>
+        <div id="summary" class="summary"></div>
+        <textarea id="output" readonly placeholder="Output will appear here..." ></textarea>
+        <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+        <button id="regenerate-btn" class="sec-subm">Regenerate</button>    
+        <button id="clear-btn" class="sec-subm secondary">Clear</button>
+    </section>
+
+    <div id="status" class="status hidden" style="margin: 0rem 5rem 0rem 5rem;"></div>
+
+</body>
+</html>

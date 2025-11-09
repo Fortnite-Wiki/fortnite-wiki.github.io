@@ -69,6 +69,11 @@ async function generateMarkup() {
         return;
     }
 
+    if (!Array.isArray(lastJson)) {
+        setStatus('Invalid JSON structure: expected an array at the root.', 'error');
+        return;
+    }
+
     const speech = lastJson.find(o => o.Type === 'Speech_C');
     if (!speech) { setStatus('Could not find a Speech_C node in the JSON.', 'error'); return; }
 

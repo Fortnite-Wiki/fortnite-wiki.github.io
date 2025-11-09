@@ -632,7 +632,7 @@ async function handleGenerate() {
 				if (!path) continue;
 				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${path}`);
 				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) continue;
-				let itemDefinitionData = cosmeticData.find(d => d.type in TYPE_MAP) || cosmeticData[0];
+				let itemDefinitionData = cosmeticData.find(d => d.Type in TYPE_MAP) || cosmeticData[0];
 				if (!itemDefinitionData) continue;
 
 				const props = itemDefinitionData.Properties || {};
@@ -644,7 +644,7 @@ async function handleGenerate() {
 				
 				let cosmeticType = props.ItemShortDescription?.SourceString;
 				if (!cosmeticType) {
-					cosmeticType = TYPE_MAP[data.Type] || "";
+					cosmeticType = TYPE_MAP[itemDefinitionData.Type] || "";
 				}
 				if (cosmeticType === "Shoes") {
 					cosmeticType = "Kicks";

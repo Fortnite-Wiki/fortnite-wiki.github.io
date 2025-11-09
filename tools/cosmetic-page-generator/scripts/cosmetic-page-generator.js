@@ -13,7 +13,9 @@ let index = [];
 let companionVTIDs = [];
 let cosmeticSets = {};
 let elements = {};
+
 let isCrewAutoDetected = false;
+let itIsADecal = false;
 
 let bundlesEntries = [];
 let featuredCharactersEntries = [];
@@ -110,11 +112,17 @@ function updateSuggestions() {
 		const div = document.createElement("div");
 		div.textContent = `${entry.name} (${entry.id})`;
 		div.onclick = async () => {
+			itIsADecal = false;
+			document.getElementById('car-name').value = "";
+
 			while (bundlesEntries.length != 0) {
 				removeBundleEntry();
 			}
 			var ftChrsSection = document.getElementById("featured-characters-config");
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
+			while (featuredCharactersEntries.length != 0) {
+				removeFeaturedCharacterEntry();
+			}
 
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 			document.getElementById("cosmetic-input").value = entry.id;
@@ -156,6 +164,15 @@ function updateSuggestions() {
 
 			if (cosmeticType == "Loading Screen") {
 				createFeaturedCharactersSection();
+			}
+
+			if (cosmeticType == "Decal") {
+				itIsADecal = true;
+				if (elements.hasRenders.checked) {
+					document.getElementById('car-name-field').style.display = 'block';
+				}
+			} else {
+				document.getElementById('car-name-field').style.display = 'none';
 			}
 
 			if (entry.path.startsWith("Racing")) {
@@ -1600,7 +1617,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		const channelKeys = Object.keys(channels);
 		let columns = [];
 
-		if (channelKeys.length === 1) {
+		if (channelKeys.length === 1 && channelKeys[0] != "Decal Color") {
 			// Use the variants from the single channel
 			columns = Array.isArray(channels[channelKeys[0]]) ? channels[channelKeys[0]].slice() : [];
 			if (!columns.includes(name)) {
@@ -1633,16 +1650,18 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 			rendersSection.push(chunk.map(c => {
 				let filename = '';
+				let fileEnding = isRacingCosmetic ? 'Rocket Racing' : (isFestivalCosmetic ? 'Fortnite Festival' : 'Fortnite');
+				let carNameFlag = settings.carName ? `${settings.carName} - ` : '';
 				if (c === 'LEGO') {
 					filename = `${name} (Render) - ${cosmeticType} - LEGO Fortnite.webm`;
 				} else if (c === name) {
-					filename = `${name} (Render) - ${cosmeticType} - Fortnite.webm`;
+					filename = `${name} (${carNameFlag}Render) - ${cosmeticType} - ${fileEnding}.webm`;
 				} else {
-					filename = `${name} (${c} - Render) - ${cosmeticType} - Fortnite.webm`;
+					filename = `${name} (${c} - Render) - ${cosmeticType} - ${fileEnding}.webm`;
 				}
 				return `|[[File:${filename}]]`;
 			}).join('\n'));
-			if (i < chunks.length - 1) rs.push('|-');
+			if (i < chunks.length - 1) rendersSection.push('|-');
 		}
 
 		rendersSection.push('|}');
@@ -1878,6 +1897,7 @@ async function generatePage() {
 
 			// Renders
 			hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
+			carName: elements.carName ? elements.carName.value.trim() : "",
 
 			// Remixes
 			remixOf: elements.remixOf ? elements.remixOf.value.trim() : "",
@@ -2175,8 +2195,8 @@ function addFeaturedCharacterEntry(mystery = false) {
 
 function removeFeaturedCharacterEntry() {
 	const list = document.getElementById('featured-characters-list');
-	if (!list || list.children.length === 0) return;
-	list.removeChild(list.lastChild);
+	const entry = featuredCharactersEntries.pop();
+	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
 }
 
 function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
@@ -2255,6 +2275,48 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 				character_file.value = `${entry.name} - ${cosmeticType} - Fortnite.png`;
 				character_file.dataset.pageTitle = entry.name;
 			}
+		};
+		sugDiv.appendChild(div);
+	});
+}
+
+function updateCarNameSuggestions(displayEl, sugDiv) {
+	const input = displayEl.value.trim().toLowerCase();
+	sugDiv.innerHTML = '';
+	if (!input) return;
+
+	if (!Array.isArray(index) || index.length === 0) return;
+
+	const scoredMatches = index
+		.filter(e => {
+			if (typeof e.bundle_name === 'string' || typeof e.bundle_name === 'string') return false;
+			return e.name && e.id && e.id.startsWith('CarBody_');
+		})
+		.map(e => {
+			const name = (e.name || '').toLowerCase();
+			const id = (e.id || '').toLowerCase();
+			let score = 0;
+
+			if (name === input) score += 100;
+			else if (name.startsWith(input)) score += 75;
+			else if (name.includes(input)) score += 50;
+
+			if (id === input) score += 40;
+			else if (id.startsWith(input)) score += 25;
+			else if (id.includes(input)) score += 10;
+
+			return { entry: e, score };
+		})
+		.filter(item => item.score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
+
+	scoredMatches.forEach(({ entry }) => {
+		const div = document.createElement('div');
+		div.textContent = `${entry.name} (${entry.id})`;
+		div.onclick = () => {
+			displayEl.value = entry.name;
+			sugDiv.innerHTML = '';
 		};
 		sugDiv.appendChild(div);
 	});
@@ -2345,6 +2407,7 @@ async function initializeApp() {
 
 		// Renders / remix
 		hasRenders: document.getElementById('has-renders'),
+		carName: document.getElementById('car-name'),
 		remixOf: document.getElementById('remix-of'),
 	};
 
@@ -2618,6 +2681,21 @@ async function initializeApp() {
 		} else {
 			document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 		}
+	});
+
+	// Renders (Decals only) - Car Name visibility
+	elements.hasRenders.addEventListener('change', () => {
+		const hasRendersChecked = elements.hasRenders.checked;
+		if (hasRendersChecked && itIsADecal) {
+			document.getElementById('car-name-field').style.display = 'block';
+		} else {
+			document.getElementById('car-name-field').style.display = 'none';
+		}
+	});
+	/// + event listener for suggestions
+	elements.carName.addEventListener('input', () => {
+		const sugDiv = document.getElementById('car-name-suggestions');
+		updateCarNameSuggestions(elements.carName, sugDiv);
 	});
 
 	// Basic event listeners

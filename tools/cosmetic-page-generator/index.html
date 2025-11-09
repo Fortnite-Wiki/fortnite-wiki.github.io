@@ -320,12 +320,15 @@
 								Collaboration?
 							</label>
 						</div>
-						<div class=""inline-grup">
-							<label class="checkbox-label">
-								<input type="checkbox" id="has-renders" name="source">
-								Has renders?
-							</label>
-						</div>
+						<label class="checkbox-label">
+							<input type="checkbox" id="has-renders" name="source">
+							Has renders?
+						</label>
+						<label class="checkbox-label" for="car-name" style="margin-left: 2rem; display: none" id="car-name-field">
+							Car Name
+							<input type="text" id="car-name" name="source" style="padding: 0.25rem !important; width: 12rem">
+							<div class="suggestions" id="car-name-suggestions"></div>
+						</label>
 						<div class="inline-group">
 							<label for="remix-of">Is a remix of:</label>
 							<input type="text" id="remix-of" style="padding: 0.25rem !important">

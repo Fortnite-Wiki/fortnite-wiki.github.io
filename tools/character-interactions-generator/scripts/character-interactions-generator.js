@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { getMostUpToDateImage } from '../../../tools/utils.js';
+import { SERIES_CONVERSION, getMostUpToDateImage } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -109,7 +109,14 @@ async function generateMarkup() {
         try {
             const data = await loadGzJson(DATA_BASE_PATH + 'cosmetics/' + entry.path);
             const props = data?.[0]?.Properties || {};
-            let rarity = (props.Rarity || entry.rarity || '').split('::').pop() || 'Common';
+            let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
+                         props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
+            // Check for series conversion
+            const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
+            if (seriesEntry) {
+                let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
+                rarity = SERIES_CONVERSION[series] || rarity;
+            }
             const displayName = entry.name || (props?.ItemName?.Key || key);
             return { name: displayName, rarity };
         } catch (e) {
@@ -142,21 +149,32 @@ async function generateMarkup() {
 
             const allowed = reqEntry?.Properties?.AllowedCIDs || [];
             if (allowed.length === 0) {
-                specialLines.push(buildCharacterInteraction({ title: 'Outfit Reaction', dialogue: messageText, icon: icon, rarity: "Common" }));
+                specialLines.push(buildCharacterInteraction({ title: 'Outfit Reaction', dialogue: messageText, icon: icon }));
             } else {
                 for (const a of allowed) {
                     const assetPath = a.AssetPathName || a;
                     const cos = await resolveCosmeticForAsset(assetPath);
                     const desc = `'''Wearing [[${cos.name}]]'''`;
-                    const fileName = await getMostUpToDateImage(cos.name, 'Outfit') || `${cos.name} - Outfit - Fortnite.png`;
+                    let fileResult = null;
+                    try {
+                        fileResult = await getMostUpToDateImage(cos.name, 'Outfit');
+                    } catch (e) {
+                        fileResult = null;
+                    }
+                    let fileName = '';
+                    if (fileResult) {
+                        fileName = fileResult.file || `${cos.name} - Outfit - Fortnite.png`;
+                    } else {
+                        fileName = `${cos.name} - Outfit - Fortnite.png`;
+                    }
                     const interaction = `{{${cos.rarity} Rarity|[[File:${fileName}|85px|center]]}}`;
-                    specialLines.push(buildCharacterInteraction({ title: 'Outfit Reaction', dialogue: messageText, desc, interaction, icon: icon, rarity: "Common" }));
+                    specialLines.push(buildCharacterInteraction({ title: 'Outfit Reaction', dialogue: messageText, desc, interaction, icon: icon }));
                 }
             }
         } else if (/FortControllerRequirement_IsFirstEverConversationWithNPC/.test(reqObjName)) {
-            specialLines.push(buildCharacterInteraction({ title: 'First Encounter', dialogue: messageText, icon: icon, rarity: "Common" }));
+            specialLines.push(buildCharacterInteraction({ title: 'First Encounter', dialogue: messageText, icon: icon }));
         } else {
-            defaultLines.push(buildCharacterInteraction({ title: cn, dialogue: messageText, icon: icon, rarity: "Common" }));
+            defaultLines.push(buildCharacterInteraction({ title: cn, dialogue: messageText, icon: icon }));
         }
     }
 

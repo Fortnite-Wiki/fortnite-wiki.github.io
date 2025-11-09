@@ -90,7 +90,7 @@ async function getPakChunkFolders() {
     }
     return folders;
   } catch {
-    return ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30"];
+    return ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30", "Fortnite_locchunk32", "Fortnite_locchunk20"];
   }
 }
 

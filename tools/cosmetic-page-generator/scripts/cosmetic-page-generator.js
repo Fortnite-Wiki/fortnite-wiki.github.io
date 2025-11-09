@@ -1617,7 +1617,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		const channelKeys = Object.keys(channels);
 		let columns = [];
 
-		if (channelKeys.length === 1 && channelKeys[0] != "Decal Color") {
+		if (channelKeys.length === 1 && !isRacingCosmetic) {
 			// Use the variants from the single channel
 			columns = Array.isArray(channels[channelKeys[0]]) ? channels[channelKeys[0]].slice() : [];
 			if (!columns.includes(name)) {

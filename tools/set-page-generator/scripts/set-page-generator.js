@@ -300,7 +300,7 @@ async function fetchTranslations(translationKey) {
 	let output = [];
 	let translations = [];
 
-	const localizationFolder = "Fortnite_locchunk20";
+	const localizationFolder = "Fortnite";
 	try {
 		const metaPath = `${DATA_BASE_PATH}localization/${localizationFolder}/${localizationFolder}.json`;
 		const meta = await loadGzJson(metaPath);

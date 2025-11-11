@@ -644,8 +644,12 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				}
 			} else if (previewImage === "") {
 				imageFilename = "Empty (v31.40) - Icon - Fortnite.png";
+			} else {
+
 			}
-			styleImages[`${channelName},${variantName}`] = imageFilename;
+			if (imageFilename !== "") {
+				styleImages[`${channelName},${variantName}`] = imageFilename;
+			}
 		}
 	}
 
@@ -705,7 +709,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 					let imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
 					// associate non-featured filenames with their variant tags
 					if (imageFile !== mainIcon.icon && imageFile !== mainIcon.large) {
-						imageFile = styleImages[key];
+						imageFile = styleImages[key] ? styleImages[key] : imageFile;
 						const tags = optionTagsMap[`${channel},${v}`] || { channelTag: "", nameTag: "" };
 						filenameTagMap[imageFile] = { channelTag: tags.channelTag, nameTag: tags.nameTag };
 					}

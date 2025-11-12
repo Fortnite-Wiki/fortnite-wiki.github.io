@@ -372,6 +372,8 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 			}
 		}
 
+		const carBodyName = (cosmeticType == "Decal" && obj.entryMeta?.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == obj.entryMeta?.carBodyTag)?.name;
+
 		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival') && objType != "AthenaDanceItemDefinition";
 		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing');
 		
@@ -407,9 +409,8 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		}
 		if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
 
-		// Use cosmetic type in page links if more than one cosmetic with same name
 		const hasDuplicate = nameCounts[name] > 1;
-		const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
+		const linkTarget = hasDuplicate ? `${name} (${carBodyName || cosmeticType})` : (carBodyName ? `${name} (${carBodyName})` : name);
 		const linkDisplay = name;
 
 		flatIconList.push({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
@@ -540,7 +541,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		cosmeticsTable.push('|' + row.map(({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay, bannerFile }) => {
 			// Banners: show the provided file and link to Banner Icons
 			if (cosmeticType === 'Banner') {
-				return `[[File:${bannerFile}|130px|link=Banner Icons]]`;
+				return `{{Uncommon Rarity|[[File:${bannerFile}|130px|link=${linkTarget}]]}}`;
 			}
 			let ending = 'Fortnite.png';
 			if (fileType === 'Pickaxe' || fileType === 'Back Bling') {
@@ -554,10 +555,6 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		}).join('\n|'));
 		cosmeticsTable.push('|-');
 		cosmeticsTable.push('!' + row.map(({ name, linkTarget, linkDisplay, cosmeticType }) => {
-			// Banners: always link to Banner Icons with the display name
-			if (cosmeticType === 'Banner') {
-				return `[[Banner Icons|${linkDisplay}]]`;
-			}
 			// Only use [[NAME (TYPE)|NAME]] if there are duplicates, else just [[NAME]]
 			return (linkTarget !== name) ? `[[${linkTarget}|${linkDisplay}]]` : `[[${name}]]`;
 		}).join('\n!'));

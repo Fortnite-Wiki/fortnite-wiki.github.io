@@ -653,6 +653,8 @@ async function handleGenerate() {
 					cosmeticType = "Car Body";
 				}
 
+				const carBodyName = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag)?.name;
+
 				const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
 				let instrumentType;
 				if (isFestivalCosmetic && cosmeticType != "Aura") {
@@ -704,7 +706,7 @@ async function handleGenerate() {
 				}
 
 				const hasDuplicate = nameCounts[name] > 1;
-				const linkTarget = hasDuplicate ? `${name} (${cosmeticType})` : name;
+				const linkTarget = hasDuplicate ? `${name} (${carBodyName || cosmeticType})` : (carBodyName ? `${name} (${carBodyName})` : name);
 				const linkDisplay = name;
 
 				cosmetics.push({

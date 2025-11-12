@@ -15,7 +15,6 @@ let cosmeticSets = {};
 let elements = {};
 
 let isCrewAutoDetected = false;
-let itIsADecal = false;
 
 let bundlesEntries = [];
 let featuredCharactersEntries = [];
@@ -112,9 +111,6 @@ function updateSuggestions() {
 		const div = document.createElement("div");
 		div.textContent = `${entry.name} (${entry.id})`;
 		div.onclick = async () => {
-			itIsADecal = false;
-			document.getElementById('car-name').value = "";
-
 			while (bundlesEntries.length != 0) {
 				removeBundleEntry();
 			}
@@ -164,15 +160,6 @@ function updateSuggestions() {
 
 			if (cosmeticType == "Loading Screen") {
 				createFeaturedCharactersSection();
-			}
-
-			if (cosmeticType == "Decal") {
-				itIsADecal = true;
-				if (elements.hasRenders.checked) {
-					document.getElementById('car-name-field').style.display = 'block';
-				}
-			} else {
-				document.getElementById('car-name-field').style.display = 'none';
 			}
 
 			if (entry.path.startsWith("Racing")) {
@@ -629,7 +616,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 
 			let imageFilename = "";
 			if (previewImage !== "" && previewImage !== mainIcon.large && previewImage !== mainIcon.icon) {
-				if (props.VariantChannelTag?.TagName === "Cosmetics.Variant.Channel.Vehicle.Painted") {
+				if (props.VariantChannelTag?.TagName.startsWith("Cosmetics.Variant.Channel.Vehicle.Painted")) {
 					imageFilename = variantName == "None" ? "X - Outfit - Fortnite.png" : `${variantName} - Painted Style - Rocket Racing.png`;
 				} else {
 					imageFilename = (channelName === "Style") ? 
@@ -644,8 +631,6 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				}
 			} else if (previewImage === "") {
 				imageFilename = "Empty (v31.40) - Icon - Fortnite.png";
-			} else {
-
 			}
 			if (imageFilename !== "") {
 				styleImages[`${channelName},${variantName}`] = imageFilename;
@@ -658,10 +643,10 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 	}
 
 	// Helper to build a table for a given list of [channel, variants] entries
-	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate, replacePipes = false) {
+	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate, replacePipes = false, noClasses = false) {
 		const pipe = replacePipes ? "{{!}}" : "|";
 
-		const table = [`{${pipe} class=\"${addClassToUse} reward-table\"`];
+		const table = [`{${pipe}${noClasses ? '' : ` class=\"${addClassToUse} reward-table\"`}`];
 		let first = true;
 		for (const [channel, variants] of entries) {
 			const chunks = chunkList(variants, 3);
@@ -743,7 +728,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 		// Only normal channels
 		if (cosmeticType == "Car Body") {
 			styleSectionBody = "{{Scrollbox Clear|BoxHeight=700|Content=\n";
-			styleSectionBody += buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background', true);
+			styleSectionBody += buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background', true, true);
 			styleSectionBody += "\n}}";
 		} else {
 			styleSectionBody = buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
@@ -766,17 +751,18 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 
 async function generateDecalsTable(name, tags) {
 	// Find tags that start with VehicleCosmetics.Body
-	const bodyTags = (tags || []).filter(t => typeof t === 'string' && t.startsWith('VehicleCosmetics.Body'));
+	const bodyTags = (tags || []).filter(t => typeof t === 'string' && t.toLowerCase().startsWith('vehiclecosmetics.body'));
 	if (bodyTags.length === 0) return;
 	const matchingTags = new Set(bodyTags);
 	
 	// Search index for entries that have a carBodyTag field equal to any of the matchingTags
 	const matchedIndexEntries = index.filter(e => {
+		if (e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_"))) return false; // Exclude car bodies themselves
 		if (!e?.carBodyTag) return false;
-		return Array.isArray(e.carBodyTag)
-			? e.carBodyTag.some(tag => matchingTags.has(tag))
-			: matchingTags.has(e.carBodyTag);
+		return matchingTags.has(e.carBodyTag);
 	});
+
+	const carBodyName = index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && matchingTags.has(e.carBodyTag))?.name;
 	
 	const decalRows = [];
 	let currentIcons = [];
@@ -794,8 +780,8 @@ async function generateDecalsTable(name, tags) {
 			const name = localized || mi.name || mi.id;
 			const fileName = `${name} - Decal - Rocket Racing.png`;
 			
-			currentIcons.push(`{{${rarity} Rarity|[[File:${fileName}|130px|link=${name}]]}}`);
-			currentNames.push(`{{Style Name|[[${name}]]}}`);
+			currentIcons.push(`{{${rarity} Rarity|[[File:${fileName}|130px|link=${name} (${carBodyName})]]}}`);
+			currentNames.push(`{{Style Name|[[${name} (${carBodyName})|${name}]]}}`);
 			
 			if (currentIcons.length === 5) {
 				decalRows.push(`|${currentIcons.join("\n|")}\n|-\n!${currentNames.join("\n!")}\n|-`);
@@ -930,6 +916,8 @@ function generateCompanionEmotePage(ID, name, rarity, settings) {
 	out.push(`|image = ${name} - Sidekick Emote - Fortnite.png`);
 	out.push(`|rarity = ${rarity}`);
 	out.push("|type = Sidekick Emote");
+	out.push("|type = Emote");
+	out.push("|additional = {{Built-In}}")
 	out.push(`|ID = ${ID}`);
 	out.push("}}");
 	out.push(`'''${name}''' is a {{Sidekick Emote}} in [[Fortnite]].`);
@@ -964,7 +952,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (cosmeticType === "Companion") {
 		cosmeticType = "Sidekick";
 	}
-	if (cosmeticType === "Vehicle Body") {
+	if (cosmeticType === "Vehicle Body" || cosmeticType === "Body") {
 		cosmeticType = "Car Body";
 	}
 	if (cosmeticType === "Drift Trail") {
@@ -1082,7 +1070,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass)) {
+	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass) || cosmeticType == "Car Body") {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
@@ -1655,13 +1643,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			rendersSection.push(chunk.map(c => {
 				let filename = '';
 				let fileEnding = isRacingCosmetic ? 'Rocket Racing' : (isFestivalCosmetic ? 'Fortnite Festival' : 'Fortnite');
-				let carNameFlag = settings.carName ? `${settings.carName} - ` : '';
+
+				const carBodyName = cosmeticType == "Decal" && entryMeta.carBodyTag && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.startsWith("body_")) && entryMeta.carBodyTag == e.carBodyTag)?.name;
+				let carNameFlag = carBodyName ? `${carBodyName} - ` : '';
+
 				if (c === 'LEGO') {
-					filename = `${name} (Render) - ${cosmeticType} - LEGO Fortnite.webm`;
+					filename = `${name} (Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - LEGO Fortnite.webm`;
 				} else if (c === name) {
-					filename = `${name} (${carNameFlag}Render) - ${cosmeticType} - ${fileEnding}.webm`;
+					filename = `${name} (${carNameFlag}Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - ${fileEnding}.webm`;
 				} else {
-					filename = `${name} (${c} - Render) - ${cosmeticType} - ${fileEnding}.webm`;
+					filename = `${name} (${c} - Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - ${fileEnding}.webm`;
 				}
 				return `|[[File:${filename}]]`;
 			}).join('\n'));
@@ -1686,7 +1677,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			if (be.bundleName && be.bundleName.value) {
 				const rawName = be.bundleName.value.trim();
 				const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-				appearancesSection.push(`|bundled_with = ${bundleName}`);
+				const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
+				appearancesSection.push(`|bundled_with = ${theFlag}[[${bundleName}]]`);
 			}
 		}
 		appearancesSection.push("}}");
@@ -1901,7 +1893,6 @@ async function generatePage() {
 
 			// Renders
 			hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
-			carName: elements.carName ? elements.carName.value.trim() : "",
 
 			// Remixes
 			remixOf: elements.remixOf ? elements.remixOf.value.trim() : "",
@@ -2284,48 +2275,6 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	});
 }
 
-function updateCarNameSuggestions(displayEl, sugDiv) {
-	const input = displayEl.value.trim().toLowerCase();
-	sugDiv.innerHTML = '';
-	if (!input) return;
-
-	if (!Array.isArray(index) || index.length === 0) return;
-
-	const scoredMatches = index
-		.filter(e => {
-			if (typeof e.bundle_name === 'string' || typeof e.bundle_name === 'string') return false;
-			return e.name && e.id && e.id.startsWith('CarBody_');
-		})
-		.map(e => {
-			const name = (e.name || '').toLowerCase();
-			const id = (e.id || '').toLowerCase();
-			let score = 0;
-
-			if (name === input) score += 100;
-			else if (name.startsWith(input)) score += 75;
-			else if (name.includes(input)) score += 50;
-
-			if (id === input) score += 40;
-			else if (id.startsWith(input)) score += 25;
-			else if (id.includes(input)) score += 10;
-
-			return { entry: e, score };
-		})
-		.filter(item => item.score > 0)
-		.sort((a, b) => b.score - a.score)
-		.slice(0, 10);
-
-	scoredMatches.forEach(({ entry }) => {
-		const div = document.createElement('div');
-		div.textContent = `${entry.name} (${entry.id})`;
-		div.onclick = () => {
-			displayEl.value = entry.name;
-			sugDiv.innerHTML = '';
-		};
-		sugDiv.appendChild(div);
-	});
-}
-
 async function initializeApp() {
 	elements = {
 		// Basic elements
@@ -2411,7 +2360,6 @@ async function initializeApp() {
 
 		// Renders / remix
 		hasRenders: document.getElementById('has-renders'),
-		carName: document.getElementById('car-name'),
 		remixOf: document.getElementById('remix-of'),
 	};
 
@@ -2509,7 +2457,6 @@ async function initializeApp() {
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
 		} else if (legoPassChecked) {
-			console.log('lego pass checked');
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
@@ -2685,21 +2632,6 @@ async function initializeApp() {
 		} else {
 			document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 		}
-	});
-
-	// Renders (Decals only) - Car Name visibility
-	elements.hasRenders.addEventListener('change', () => {
-		const hasRendersChecked = elements.hasRenders.checked;
-		if (hasRendersChecked && itIsADecal) {
-			document.getElementById('car-name-field').style.display = 'block';
-		} else {
-			document.getElementById('car-name-field').style.display = 'none';
-		}
-	});
-	/// + event listener for suggestions
-	elements.carName.addEventListener('input', () => {
-		const sugDiv = document.getElementById('car-name-suggestions');
-		updateCarNameSuggestions(elements.carName, sugDiv);
 	});
 
 	// Basic event listeners

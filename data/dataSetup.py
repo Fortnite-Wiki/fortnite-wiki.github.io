@@ -184,12 +184,16 @@ def build_index(dirs):
     def get_car_body_tag(props):
         restrictions = props.get("RestrictionDefinitions", [])
         if not restrictions:
-            return None
-        tag_dict = restrictions[0].get("RequiredTagQuery", {}).get("TagDictionary", [])
-        if len(tag_dict) > 1:
-            print(f"{entry.get('Name')} has two cars in its restriction tagDictionary???")
-            return None
-        return tag_dict[0].get("TagName") if tag_dict else None
+            for item in props.get("DataList", []):
+                for tag in item.get("Tags", []):
+                    if tag.lower().startswith("vehiclecosmetics.body."):
+                        return tag
+        else:
+            tag_dict = restrictions[0].get("RequiredTagQuery", {}).get("TagDictionary", [])
+            if len(tag_dict) > 1:
+                print(f"{entry.get('Name')} has two cars in its restriction tagDictionary???")
+                return None
+            return tag_dict[0].get("TagName") if tag_dict else None
 
     def get_weapon_definition(entry):
         if entry.get("Type") != "AthenaPickaxeItemDefinition":

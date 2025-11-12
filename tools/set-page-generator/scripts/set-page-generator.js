@@ -410,7 +410,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
 
 		const hasDuplicate = nameCounts[name] > 1;
-		const linkTarget = hasDuplicate ? `${name} (${carBodyName || cosmeticType})` : (carBodyName ? `${name} (${carBodyName})` : name);
+		const linkTarget = hasDuplicate ? `${name} (${carBodyName || (cosmeticType == "Wheel" ? "Wheels" : cosmeticType)})` : (carBodyName ? `${name} (${carBodyName})` : name);
 		const linkDisplay = name;
 
 		flatIconList.push({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });

@@ -552,7 +552,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
 			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/MaterialParameterSets\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/(?:MaterialParameterSets|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
 
 			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
 				console.warn("Failed to load material parameters data:", err);
@@ -643,10 +643,10 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 	}
 
 	// Helper to build a table for a given list of [channel, variants] entries
-	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate, replacePipes = false, noClasses = false) {
+	function buildTable(entries, headerTemplate, addClassToUse, backgroundTemplate, replacePipes = false, noClasses = false, secondClassToUse = null) {
 		const pipe = replacePipes ? "{{!}}" : "|";
 
-		const table = [`{${pipe}${noClasses ? '' : ` class=\"${addClassToUse} reward-table\"`}`];
+		const table = [`{${pipe}${noClasses ? '' : ` class=\"${addClassToUse} reward-table${secondClassToUse ? ` ${secondClassToUse}` : ''}\"`}`];
 		let first = true;
 		for (const [channel, variants] of entries) {
 			const chunks = chunkList(variants, 3);
@@ -718,12 +718,12 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 	if (immutableEntries.length > 0 && normalEntries.length > 0) {
 		styleSectionBody += "{{Scrollbox Clear|BoxHeight=700|Content=\n<tabber>\n";
 		// Two separate tables: immutable first, then normal
-		styleSectionBody += "|-|Appearance=\n" + buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style') + "\n\n";
+		styleSectionBody += "|-|Appearance=\n" + buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style', false, false, 'radius-50') + "\n\n";
 		styleSectionBody += "|-|Styles=\n" + buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');
 		styleSectionBody += "\n</tabber>\n}}";
 	} else if (immutableEntries.length > 0) {
 		// Only immutable channels
-		styleSectionBody = buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style');
+		styleSectionBody = buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style', false, false, 'radius-50');
 	} else {
 		// Only normal channels
 		if (cosmeticType == "Car Body" || cosmeticType == "Decal") {
@@ -1517,7 +1517,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	// Unlockable Rewards section for Sidekicks
 	if (cosmeticType === "Sidekick" && props.ProgressionRewards) {
 		const rewardsSection = await generateSidekickRewardsSection(props.ProgressionRewards, filenameTagMap);
-		out.push(rewardsSection + "\n");
+		if (rewardsSection)
+			out.push(rewardsSection + "\n");
 	}
 	
 	// Decals section for Car Bodies

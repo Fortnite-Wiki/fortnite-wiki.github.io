@@ -730,6 +730,10 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
         
         for root, dirs, files in os.walk(src_root):
             folder_name = os.path.basename(root)
+            # treat "MPS" as MaterialParameterSets
+            if folder_name == "MPS":
+                folder_name = "MaterialParameterSets"
+
             if folder_name not in ("ColorSwatches", "MaterialParameterSets"):
                 continue
             

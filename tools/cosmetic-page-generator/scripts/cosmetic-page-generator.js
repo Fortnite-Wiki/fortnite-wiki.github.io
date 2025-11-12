@@ -726,9 +726,11 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 		styleSectionBody = buildTable(immutableEntries, 'New Style Header', 'new-style', 'Sidekick Style');
 	} else {
 		// Only normal channels
-		if (cosmeticType == "Car Body") {
+		if (cosmeticType == "Car Body" || cosmeticType == "Decal") {
 			styleSectionBody = "{{Scrollbox Clear|BoxHeight=700|Content=\n";
-			styleSectionBody += buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background', true, true);
+			styleSectionBody += "<center>\n";
+			styleSectionBody += buildTable(normalEntries, 'Style Header', '', 'Style Background', true, true);
+			styleSectionBody += "\n</center>";
 			styleSectionBody += "\n}}";
 		} else {
 			styleSectionBody = buildTable(normalEntries, 'Style Header', 'style-text', 'Style Background');

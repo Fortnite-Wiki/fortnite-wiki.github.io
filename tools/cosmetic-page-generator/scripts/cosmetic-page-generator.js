@@ -488,7 +488,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			continue;
 		}
 		const props = variant.Properties;
-		const rawChannelName = props.VariantChannelName?.SourceString.trim() || "";
+		const rawChannelName = props.VariantChannelName?.LocalizedString.trim() || "";
 		const channelName = (rawChannelName == rawChannelName.toUpperCase()) ? forceTitleCase(rawChannelName) :
 			((/[a-z]/.test(rawChannelName.slice(1))) && (/[A-Z]/.test(rawChannelName.slice(1)))) ? rawChannelName : forceTitleCase(rawChannelName);
 		if (!channelName) {
@@ -596,7 +596,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			if (typeof option !== 'object') {
 				continue;
 			}
-			const rawVariantName = option.VariantName?.SourceString || "";
+			const rawVariantName = option.VariantName?.LocalizedString || "";
 			const variantName = (rawVariantName == rawVariantName.toUpperCase()) ? forceTitleCase(rawVariantName) :
 				((/[a-z]/.test(rawVariantName.slice(1))) && (/[A-Z]/.test(rawVariantName.slice(1)))) ? rawVariantName : forceTitleCase(rawVariantName);
 			if (!variantName) {
@@ -940,7 +940,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const ID = data.Name;
 	const type = data.Type;
 	const name = props.ItemName?.LocalizedString.trim() || "Unknown";
-	const description = props.ItemDescription?.SourceString.trim() || "";
+	const description = props.ItemDescription?.LocalizedString.trim() || "";
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 				 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 

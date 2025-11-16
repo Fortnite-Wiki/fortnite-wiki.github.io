@@ -1,4 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
+import { TYPE_MAP } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 let index = [];
@@ -110,7 +111,9 @@ async function search() {
 
   try {
     const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
-    const item = data[0]?.Properties;
+    
+    const itemDefData = data.find(dataEntry => dataEntry.Type in TYPE_MAP) || data[0];
+    const item = itemDefData?.Properties || {};
     const nameKey = item?.ItemName?.Key;
     const descriptionKey = item?.ItemDescription?.Key;
 	

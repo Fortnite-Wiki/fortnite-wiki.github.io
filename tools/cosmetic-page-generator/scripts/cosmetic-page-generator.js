@@ -1241,6 +1241,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			cost = ensureVbucksTemplate(settings.shopCost);
 		}
+	} else if (settings.isQuestReward && settings.questCost) {
+		cost = settings.questCost;
 	}
 	
 	if (settings.isItemShop && bundlesEntries.length > 0) {
@@ -1909,6 +1911,7 @@ async function generatePage() {
 			// Quest reward
 			isQuestReward: isQuestReward,
 			questName: elements.questName ? elements.questName.value.trim() : "",
+			questCost: elements.questCost ? elements.questCost.value.trim() : "",
 			questFirstReleasedText: elements.questFirstReleasedText ? elements.questFirstReleasedText.checked : false,
 			
 			// Collaboration
@@ -2369,6 +2372,7 @@ async function initializeApp() {
 		// Quest Reward settings
 		questRewardSettings: document.getElementById('quest-reward-settings'),
 		questName: document.getElementById('quest-name'),
+		questCost: document.getElementById('quest-cost'),
 		questFirstReleasedText: document.getElementById('quest-first-released'),
 		
 		// Display title checkbox

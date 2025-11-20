@@ -1180,7 +1180,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`|set = [[:Category:${setName} Set|${setName}]]`);
 	}
 
-	// Unlocked section
+	// Unlocked parameter
 	let unlocked = "";
 	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
 		unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
@@ -1218,7 +1218,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	out.push(`|unlocked = ${unlocked}`);
 
-	// Cost section
+	// Cost parameter
 	let cost = "";
 	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
 		cost = "Free";
@@ -1234,7 +1234,13 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isLEGOPass && settings.legoSeason && settings.legoSeasonAbbr) {
 		cost = `{{V-Bucks|1,400}} <br> ({{LEGOPass|${settings.legoSeason}||${settings.legoSeasonAbbr}}})`;
 	} else if (settings.isItemShop && settings.shopCost) {
-		cost = ensureVbucksTemplate(settings.shopCost);
+		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
+			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
+		) {
+			cost = ensureVbucksTemplate(settings.shopCost) + ` <small>([[${name} (${instrumentType})|${name}]])</small>`;
+		} else {
+			cost = ensureVbucksTemplate(settings.shopCost);
+		}
 	}
 	
 	if (settings.isItemShop && bundlesEntries.length > 0) {
@@ -1249,7 +1255,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			})
 			.filter(bc => bc !== null);
 		if (bundleCosts.length > 0) {
-			cost = cost ? cost + " <br > " + bundleCosts.join(" <br> ") : bundleCosts.join(" <br> ");
+			cost = cost ? cost + " <br> " + bundleCosts.join(" <br> ") : bundleCosts.join(" <br> ");
 		}
 	}
 
@@ -1406,7 +1412,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 		}
 
-		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]] for ${ensureVbucksTemplate(settings.shopCost)}` : "";
+		let bundledWithFlag = "";
+		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
+			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
+		) {
+			bundledWithFlag = ` with [[${name} (${instrumentType})|${name}]]`;
+		}
+
+		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]]${bundledWithFlag} for ${ensureVbucksTemplate(settings.shopCost)}` : "";
 		if (itemShopFlag || bundles) {
 			article += ` that can be purchased ${itemShopFlag}${bundles}.`;
 		} else {
@@ -1675,13 +1688,19 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (settings.shopAppearances != name) {
 			appearancesSection.push(`|name2 = ${name}`);
 		}
-		if (bundlesEntries.length == 1 && settings.shopCost == "" ) {
-			const be = bundlesEntries[0];
-			if (be.bundleName && be.bundleName.value) {
-				const rawName = be.bundleName.value.trim();
-				const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-				const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
-				appearancesSection.push(`|bundled_with = ${theFlag}[[${bundleName}]]`);
+		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
+			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
+		) {
+			appearancesSection.push(`|bundled_with = [[${name} (${instrumentType})|${name}]]`);
+		} else {
+			if (bundlesEntries.length == 1 && settings.shopCost == "" ) {
+				const be = bundlesEntries[0];
+				if (be.bundleName && be.bundleName.value) {
+					const rawName = be.bundleName.value.trim();
+					const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+					const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
+					appearancesSection.push(`|bundled_with = ${theFlag}[[${bundleName}]]`);
+				}
 			}
 		}
 		appearancesSection.push("}}");

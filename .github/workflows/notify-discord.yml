@@ -1,0 +1,25 @@
+name: "Notify discord on data update"
+
+on:
+  push:
+    paths:
+      - 'data/latest-data-update.txt'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read update text
+        id: read
+        run: |
+          CONTENT=$(cat data/latest-data-update.txt)
+          echo "content=$CONTENT" >> $GITHUB_OUTPUT
+
+      - name: Send to Discord
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json"
+            -d "{\"content\": \"**https://fortnite-wiki.github.io data has been updated for**:\n${{ steps.read.outputs.content }}\" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"

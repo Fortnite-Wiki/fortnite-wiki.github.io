@@ -1689,9 +1689,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(appearancesSection.join('\n') + "\n");
 	}
 
-	// Remixes table
+	// Remixes template
 	if (settings.remixOf) {
-		out.push(`{{Remixes|${settings.remixOf}}}` + "\n");
+		const typeFlag = cosmeticType != "Outfit" ? `|${cosmeticType}` : "";
+		out.push(`{{Remixes|${settings.remixOf}${typeFlag}}}` + "\n");
 	}
 	
 	if (isFestivalCosmetic && cosmeticType == "Back Bling") {

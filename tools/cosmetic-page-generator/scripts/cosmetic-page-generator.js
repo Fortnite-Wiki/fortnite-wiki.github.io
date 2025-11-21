@@ -1678,11 +1678,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				let carNameFlag = carBodyName ? `${carBodyName} - ` : '';
 
 				if (c === 'LEGO') {
-					filename = `${name} (Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - LEGO Fortnite.webm`;
+					filename = `${name} (Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - LEGO Fortnite.webm`;
 				} else if (c === name) {
-					filename = `${name} (${carNameFlag}Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - ${fileEnding}.webm`;
+					filename = `${name} (${carNameFlag}Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
 				} else {
-					filename = `${name} (${c} - Render) - ${cosmeticType == "Wheel" ? "Wheel" : cosmeticType} - ${fileEnding}.webm`;
+					filename = `${name} (${c} - Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
 				}
 				return `|[[File:${filename}]]`;
 			}).join('\n'));

@@ -706,7 +706,7 @@ async function handleGenerate() {
 				}
 
 				const hasDuplicate = nameCounts[name] > 1;
-				const linkTarget = hasDuplicate ? `${name} (${carBodyName || cosmeticType})` : (carBodyName ? `${name} (${carBodyName})` : name);
+				const linkTarget = hasDuplicate ? `${name} (${carBodyName || (cosmeticType == "Wheel" ? "Wheels" : cosmeticType)})` : (carBodyName ? `${name} (${carBodyName})` : name);
 				const linkDisplay = name;
 
 				cosmetics.push({

@@ -776,11 +776,23 @@ async function generateDecalsTable(name, tags) {
 			const itemDef = Array.isArray(json)
 				? json.find(d => d.Type in TYPE_MAP) || json[0]
 				: json;
+			const props = itemDef?.Properties || {};
 			
-			const localized = itemDef?.Properties?.ItemName?.LocalizedString;
-			const rarity = itemDef?.Properties?.Rarity?.value || "Uncommon";
+			const localized = props.ItemName?.LocalizedString;
+			let rarity = props.Rarity?.value || "Uncommon";
 			const name = localized || mi.name || mi.id;
 			const fileName = `${name} - Decal - Rocket Racing.png`;
+
+			let series = null;
+			
+			for (const entry of props.DataList || []) {
+				if (typeof entry === 'object' && entry !== null) {
+					if (entry.Series) {
+						series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
+						rarity = SERIES_CONVERSION[series] || rarity;
+					}
+				}
+			}
 			
 			currentIcons.push(`{{${rarity} Rarity|[[File:${fileName}|130px|link=${name} (${carBodyName})]]}}`);
 			currentNames.push(`{{Style Name|[[${name} (${carBodyName})|${name}]]}}`);

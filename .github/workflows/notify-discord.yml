@@ -20,6 +20,6 @@ jobs:
       - name: Send to Discord
         run: |
           curl -X POST \
-            -H "Content-Type: application/json"
+            -H "Content-Type: application/json" \
             -d "{\"content\": \"**https://fortnite-wiki.github.io data has been updated for**:\n${{ steps.read.outputs.content }}\" \
             "${{ secrets.DISCORD_WEBHOOK_URL }}"

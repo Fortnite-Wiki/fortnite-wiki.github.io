@@ -649,8 +649,14 @@ async function handleGenerate() {
 				if (cosmeticType === "Shoes") {
 					cosmeticType = "Kicks";
 				}
-				if (cosmeticType === "Vehicle Body") {
+				if (cosmeticType === "Companion") {
+					cosmeticType = "Sidekick";
+				}
+				if (cosmeticType === "Vehicle Body" || cosmeticType === "Body") {
 					cosmeticType = "Car Body";
+				}
+				if (cosmeticType === "Drift Trail") {
+					cosmeticType = "Trail";
 				}
 
 				const carBodyName = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag)?.name;

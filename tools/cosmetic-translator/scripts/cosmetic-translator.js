@@ -110,14 +110,28 @@ async function search() {
   output.value = "Getting translations...";
 
   try {
-    const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
-    
-    const itemDefData = data.find(dataEntry => dataEntry.Type in TYPE_MAP) || data[0];
-    const item = itemDefData?.Properties || {};
-    const nameKey = item?.ItemName?.Key;
-    const descriptionKey = item?.ItemDescription?.Key;
+    let nameKey = null;
+    let descriptionKey = null;
+
+    if (entryMeta.path) {
+      const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
+      
+      const itemDefData = data.find(dataEntry => dataEntry.Type in TYPE_MAP) || data[0];
+      const item = itemDefData?.Properties || {};
+      nameKey = item?.ItemName?.Key;
+      descriptionKey = item?.ItemDescription?.Key;
+    } else {
+      nameKey = entryMeta.itemNameKey || null;
+      descriptionKey = entryMeta.itemDescriptionKey || null;
+    }
 	
-    const folders = await getPakChunkFolders();
+    let folders = null;
+    if (nameKey || descriptionKey) {
+      folders = await getPakChunkFolders();
+    } else {
+      output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
+      return;
+    }
     const nameTranslations = {};
     const descriptionTranslations = {};
 
@@ -128,7 +142,7 @@ async function search() {
         const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
 
         for (const lang of compiledLangs) {
-          const alreadyHasName = nameTranslations[lang] !== undefined;
+          const alreadyHasName = nameKey ? nameTranslations[lang] !== undefined : true;
           const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
 
           if (alreadyHasName && alreadyHasDesc) continue;
@@ -137,7 +151,7 @@ async function search() {
           try {
             const loc = await loadGzJson(locPath);
 
-            if (!alreadyHasName) {
+            if (nameKey && !alreadyHasName) {
               const nameText = loc[""]?.[nameKey];
               if (nameText) nameTranslations[lang] = nameText;
             }
@@ -154,17 +168,22 @@ async function search() {
     // Build the Cosmetic Translations output
     let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
     
-    const nameEn = nameTranslations["en"] || "";
-    if (nameEn) lines.push(`|name = ${nameEn}`);
-    
-    for (const [lang, translation] of Object.entries(nameTranslations)) {
-      if (lang === "en") continue; // Skip English as it's already added as |name
-      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-      const translation = nameTranslations[lang] || "";
-      lines.push(`|name-${langKey} = ${translation}`);
+    if (nameKey) {
+      const nameEn = nameTranslations["en"] || "";
+      if (nameEn) lines.push(`|name = ${nameEn}`);
+      
+      for (const [lang, translation] of Object.entries(nameTranslations)) {
+        if (lang === "en") continue; // Skip English as it's already added as |name
+        const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
+        const translation = nameTranslations[lang] || "";
+        lines.push(`|name-${langKey} = ${translation}`);
+      }
+      
+      if (descriptionKey) {
+        lines.push("");
+      }
     }
-    
-    lines.push("");
+
     
     if (descriptionKey) {
       const descEn = descriptionTranslations["en"];
@@ -173,7 +192,7 @@ async function search() {
       for (const [lang, translation] of Object.entries(descriptionTranslations)) {
         if (lang === "en") continue; // Skip English as it's already added as |desc
         const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-		lines.push(`|desc-${langKey} = ${translation}`);
+        lines.push(`|desc-${langKey} = ${translation}`);
       }
     }
     

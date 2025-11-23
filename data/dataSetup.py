@@ -255,10 +255,12 @@ def build_index(dirs):
             if related_companion == this_companion:
                 variantTag = props.get("VariantNameTag").get("TagName")
                 variantID = entry.get("Name")
+                itemNameKey = props.get("ItemName").get("Key")
                 
                 found_variant_emotes.append({
                     "variantTag": variantTag,
-                    "variantID": variantID
+                    "variantID": variantID,
+                    "itemNameKey": itemNameKey
                 })
 
         matched = []
@@ -267,7 +269,8 @@ def build_index(dirs):
                 if emote["variantTag"] == variant["variantTag"]:
                     matched.append({
                         "emoteName": emote["emoteName"],
-                        "variantID": variant["variantID"]
+                        "variantID": variant["variantID"],
+                        "itemNameKey": variant["itemNameKey"]
                     })
 
         return matched
@@ -341,6 +344,7 @@ def build_index(dirs):
                         companion_emote_index = {
                             "id": companion_emote["variantID"],
                             "name": companion_emote["emoteName"],
+                            "itemNameKey": companion_emote["itemNameKey"],
                             "companion_id": cosmetic_id,
                             "companionEmote": True
                         }

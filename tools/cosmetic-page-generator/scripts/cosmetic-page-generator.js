@@ -251,7 +251,8 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.Damage", "{{Reactive|Damage}}"],
 		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"],
 		["Cosmetics.UserFacingFlags.Emote.Group", "{{Group Emote}}"],
-		["Cosmetics.ItemRequiresLockIn", "{{Forged}}"]
+		["Cosmetics.ItemRequiresLockIn", "{{Forged}}"],
+		["Cosmetics.UserFacingFlags.BuiltInEmote", "{{Built-In}}"]
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {

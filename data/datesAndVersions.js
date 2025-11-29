@@ -112,6 +112,7 @@ export const FESTIVAL_SEASON_RELEASE_DATES = {
     9: new Date(2025, 5, 18), // June 18, 2025
     10: new Date(2025, 7, 26), // August 26, 2025
     11: new Date(2025, 9, 9) // October 9, 2025
+    12: new Date(2025, 10, 29) // November 29, 2025
 };
 
 export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
@@ -125,7 +126,8 @@ export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
     8: '34.30',
     9: '36.10',
     10: '37.10',
-    11: '37.50'
+    11: '37.50',
+    12: '39.00'
 };
 
 export const LEGO_SEASON_RELEASE_DATES = {

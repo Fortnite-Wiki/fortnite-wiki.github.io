@@ -37,7 +37,7 @@ export const SEASON_RELEASE_DATES = {
     'C6S3': new Date(2025, 5, 7), // June 7, 2025
     'C6S4': new Date(2025, 7, 7), // August 7, 2025
     'C6MS2': new Date(2025, 10, 1), // November 1, 2025
-    'C7S1': new Date(2025, 10, 29), // November 29, 2025
+    'C7S1': new Date(2025, 10, 29) // November 29, 2025
 };
 
 export const SEASON_UPDATE_VERSIONS = {
@@ -79,7 +79,7 @@ export const SEASON_UPDATE_VERSIONS = {
     'C6S3': '36.00',
     'C6S4': '37.00',
     'C6MS2': '38.00',
-    'C7S1': '39.00',
+    'C7S1': '39.00'
 };
 
 export const OG_SEASON_RELEASE_DATES = {
@@ -111,7 +111,7 @@ export const FESTIVAL_SEASON_RELEASE_DATES = {
     8: new Date(2025, 3, 8), // April 8, 2025
     9: new Date(2025, 5, 18), // June 18, 2025
     10: new Date(2025, 7, 26), // August 26, 2025
-    11: new Date(2025, 9, 9) // October 9, 2025
+    11: new Date(2025, 9, 9), // October 9, 2025
     12: new Date(2025, 10, 29) // November 29, 2025
 };
 

@@ -507,6 +507,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 
 			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
 			colorSwatchPath = DATA_BASE_PATH + colorSwatchPath.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/').replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/') + '.json';
+			colorSwatchPath = colorSwatchPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/'); // fallback fix
 
 			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
 				console.warn("Failed to load color swatch data:", err);
@@ -553,7 +554,8 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
 			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/(?:MaterialParameterSets|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/'); // fallback fix
 
 			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
 				console.warn("Failed to load material parameters data:", err);

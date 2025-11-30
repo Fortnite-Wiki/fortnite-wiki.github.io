@@ -158,7 +158,7 @@ function updateSuggestions() {
 				}
 			}
 
-			if (cosmeticType == "Loading Screen") {
+			if (cosmeticType == "Loading Screen" || cosmeticType == "Spray" || cosmeticType == "Emoticon") {
 				createFeaturedCharactersSection();
 			}
 
@@ -963,6 +963,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (!cosmeticType) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
+	if (cosmeticType === "Character") {
+		cosmeticType = "Outfit";
+	}
 	if (cosmeticType === "Shoes") {
 		cosmeticType = "Kicks";
 	}
@@ -1573,7 +1576,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 
 	// Featured Characters table (for Loading Screens only)
-	if (cosmeticType === "Loading Screen" && featuredCharactersEntries.length > 0) {
+	if ((cosmeticType === "Loading Screen" || cosmeticType === "Spray" || cosmeticType === "Emoticon") && featuredCharactersEntries.length > 0) {
 		let featuredCharactersSection = ["== Featured Characters ==", "{|class=\"reward-table\""];
 
 		let currentIcons = [];
@@ -1588,9 +1591,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			const pageTitle = fcFile.dataset.pageTitle || (fcName ? fcName.value : '').trim();
 			const displayName = (fcName && fcName.value) ? fcName.value.trim() : (pageTitle || '').trim();
 
-			currentIcons.push(`|{{Style Background|${file}|link=${pageTitle}}}`);
+			if (pageTitle === "Unknown") {
+				currentIcons.push(`|{{Style Background|${file}}}`);
+			} else {
+				currentIcons.push(`|{{Style Background|${file}|link=${pageTitle}}}`);
+			}
 			
-			if (pageTitle !== displayName) {
+			
+			if (pageTitle === "Unknown") {
+				currentNames.push("!Unknown");
+			} else if (pageTitle !== displayName) {
 				currentNames.push(`![[${pageTitle}|${displayName}]]`);
 			} else {
 				currentNames.push(`![[${displayName}]]`);

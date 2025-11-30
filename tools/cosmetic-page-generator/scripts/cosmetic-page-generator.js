@@ -1200,12 +1200,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const freeFlag = settings.passFreeBP ? "|Free" : "";
-		const bonusFlag = settings.bpBonus && !(settings.battlePassMode === 'non-linear') ? "Bonus Rewards " : "";
+		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
 		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
 		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
 			const rawName = settings.bpNonLinearSetName.trim();
 			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-			unlocked = `${bonusFlag}Page ${settings.bpPage} <br> ${possessive} Set <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+			unlocked = `Page ${settings.bpPage} <br> ${possessive} ${bonusFlag}Set <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
 		} else {
 			unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
 		}
@@ -1408,7 +1408,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
 			const rawName = settings.bpNonLinearSetName.trim();
 			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-			article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of ${possessive} Set in the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]]`;
+			article += ` that can be obtained${pageCompletionFlag} on Page ${settings.bpPage} of ${possessive} ${bonusFlag}Set in the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]]`;
 			if (settings.bpNonLinearLevel) {
 				article += `, which can only be unlocked after reaching Level ${settings.bpNonLinearLevel}`;
 			}
@@ -1846,12 +1846,10 @@ async function generatePage() {
 		const modeLinear = elements.bpModeLinear && elements.bpModeLinear.checked;
 		const modeNonLinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
 
-		// If Bonus Rewards is NOT checked, require explicit choice of Linear or Non-Linear
-		if (!(elements.bpBonus && elements.bpBonus.checked)) {
-			if (!modeLinear && !modeNonLinear) {
-				showStatus('Please choose Battle Pass mode: Linear or Non-Linear', 'error');
-				return;
-			}
+		// require explicit choice of Linear or Non-Linear
+		if (!modeLinear && !modeNonLinear) {
+			showStatus('Please choose Battle Pass mode: Linear or Non-Linear', 'error');
+			return;
 		}
 
 		if (!seasonInput || !pageInput) {
@@ -2690,31 +2688,32 @@ async function initializeApp() {
 	// Battle Pass season auto-fill event listener
 	elements.bpSeason.addEventListener('input', autoFillPassVersion);
 
-	// Hide/show BP mode group when Bonus Rewards toggles
-	if (elements.bpBonus) elements.bpBonus.addEventListener('change', handleBPModeChange);
-
 	// Handle Battle Pass mode changes (Linear / Non-Linear)
 	function handleBPModeChange() {
-		// If Bonus Rewards is checked, hide the BP mode controls and clear any Non-Linear inputs
-		const bpModeGroup = document.getElementById('bp-mode-group');
-		const nonLinearFields = document.getElementById('bp-nonlinear-fields');
 		const bpBonusChecked = elements.bpBonus && elements.bpBonus.checked;
-		if (bpModeGroup) bpModeGroup.style.display = bpBonusChecked ? 'none' : '';
 		if (bpBonusChecked) {
-			// Clear and hide Non-Linear fields immediately so they don't persist
-			if (nonLinearFields) nonLinearFields.style.display = 'none';
-			if (elements.bpModeLinear) elements.bpModeLinear.checked = false;
-			if (elements.bpModeNonLinear) elements.bpModeNonLinear.checked = false;
-			if (elements.bpNonLinearSetName) elements.bpNonLinearSetName.value = '';
-			if (elements.bpNonLinearLevel) elements.bpNonLinearLevel.value = '';
-			// Ensure page max is restored
-			if (elements.bpPage) elements.bpPage.max = 20;
-			return;
+			if (elements.bpNonLinearLevel) {
+				const lvl = elements.bpNonLinearLevel;
+				lvl.disabled = true;
+				lvl.value = '';
+				lvl.style.display = 'none';
+				const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
+				if (lbl) lbl.style.display = 'none';
+			}
+		} else {
+			if (elements.bpNonLinearLevel) {
+				const lvl = elements.bpNonLinearLevel;
+				lvl.disabled = false;
+				lvl.style.display = '';
+				const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
+				if (lbl) lbl.style.display = '';
+			}
 		}
 
-		// Normal flow when Bonus is not checked
 		const linear = elements.bpModeLinear && elements.bpModeLinear.checked;
 		const nonlinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
+
+		const nonLinearFields = document.getElementById('bp-nonlinear-fields');
 		// Show non-linear specific fields only when Non-Linear is selected
 		if (nonLinearFields) nonLinearFields.style.display = nonlinear ? 'flex' : 'none';
 
@@ -2731,6 +2730,7 @@ async function initializeApp() {
 
 	if (elements.bpModeLinear) elements.bpModeLinear.addEventListener('change', handleBPModeChange);
 	if (elements.bpModeNonLinear) elements.bpModeNonLinear.addEventListener('change', handleBPModeChange);
+	if (elements.bpBonus) elements.bpBonus.addEventListener('change', handleBPModeChange);
 
 	// Ensure bpPage cannot be set above allowed max by keyboard input
 	if (elements.bpPage) elements.bpPage.addEventListener('input', () => {

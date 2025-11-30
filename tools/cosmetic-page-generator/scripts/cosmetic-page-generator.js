@@ -1018,7 +1018,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const setName = extractSetName(tags, cosmeticSets);
 	const itemshop = tags.some(tag => tag.includes("ItemShop"));
 	const hasUnlockableVariants = tags.includes("Cosmetics.UserFacingFlags.HasUpgradeQuests");
-	const isCrewProgressive = tags.includes("Cosmetics.CrewBling.Progressive");
+	//const isCrewProgressive = tags.includes("Cosmetics.CrewBling.Progressive");
 
 	let styleSection = "";
 	let featured = null;
@@ -1531,7 +1531,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	if (styleSection) {
 		out.push(styleSection + "\n");
-		if (isCrewProgressive) {
+		if (settings.isFortniteCrew) {
 			let legacyStyles = [];
 			for (const [channel, variants] of Object.entries(variantChannels)) {
 				if (channel.toLowerCase() === "style") {
@@ -1629,7 +1629,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		
 		if (hasLegoStyleFlag) {
 			const hasLegoFeaturedRender = await hasLegoFeatured(entryMeta);
-			if (isCrewProgressive || !hasLegoFeaturedRender) {
+			if (!hasLegoFeaturedRender) {
 				out.push(`{{LEGO Style|${name}|featured=n}}`);
 			} else {
 				out.push(`{{LEGO Style|${name}}}`);

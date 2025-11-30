@@ -1186,9 +1186,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	
 	const additional = extractAdditionals(tags);
-	const isCompanionWithEmote = (cosmeticType === "Sidekick" && index.some(e => e?.companion_id === ID));
 	if (additional) {
-		out.push(`|additional = ${additional}${isCompanionWithEmote ? ' {{Built-In}}' : ''}`);
+		out.push(`|additional = ${additional}`);
 	}
 
 	if (setName) {
@@ -1201,9 +1200,15 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const freeFlag = settings.passFreeBP ? "|Free" : "";
-		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
+		const bonusFlag = settings.bpBonus && !(settings.battlePassMode === 'non-linear') ? "Bonus Rewards " : "";
 		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-		unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
+			const rawName = settings.bpNonLinearSetName.trim();
+			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
+			unlocked = `${bonusFlag}Page ${settings.bpPage} <br> ${possessive} Set <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+		} else {
+			unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+		}
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
 		const freeFlag = settings.passFreeOG ? "|Free" : "";
 		unlocked = `Page ${settings.ogPage} <br> {{OGPass|${settings.ogSeason}${freeFlag}}}`;
@@ -1400,7 +1405,17 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
 		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
 		const miniSeasonFlag = settings.isMiniSeason ? "Mini " : "";
-		article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
+			const rawName = settings.bpNonLinearSetName.trim();
+			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
+			article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of ${possessive} Set in the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]]`;
+			if (settings.bpNonLinearLevel) {
+				article += `, which can only be unlocked after reaching Level ${settings.bpNonLinearLevel}`;
+			}
+			article += ".";
+		} else {
+			article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+		}
 	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
 		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
 	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
@@ -1828,15 +1843,38 @@ async function generatePage() {
 	if (isBattlePass) {
 		const seasonInput = elements.bpSeason.value.trim();
 		const pageInput = elements.bpPage.value.trim();
-		
+		const modeLinear = elements.bpModeLinear && elements.bpModeLinear.checked;
+		const modeNonLinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
+
+		// If Bonus Rewards is NOT checked, require explicit choice of Linear or Non-Linear
+		if (!(elements.bpBonus && elements.bpBonus.checked)) {
+			if (!modeLinear && !modeNonLinear) {
+				showStatus('Please choose Battle Pass mode: Linear or Non-Linear', 'error');
+				return;
+			}
+		}
+
 		if (!seasonInput || !pageInput) {
 			showStatus('Please fill in Battle Pass season and page', 'error');
 			return;
 		}
-		
+
 		if (!parseBattlePassSeason(seasonInput)) {
 			showStatus('Invalid season format. Use format like C6S4', 'error');
 			return;
+		}
+
+		if (modeNonLinear) {
+			const p = Number(pageInput);
+			if (isNaN(p) || p < 1 || p > 2) {
+				showStatus('For Non-Linear mode the page must be 1 or 2', 'error');
+				return;
+			}
+			const setName = elements.bpNonLinearSetName.value.trim();
+			if (!setName) {
+				showStatus('Please enter the outfit set name for Non-Linear mode', 'error');
+				return;
+			}
 		}
 	}
 
@@ -1949,6 +1987,9 @@ async function generatePage() {
 			
 			// Battle Pass specific
 			bpPage: elements.bpPage.value,
+			battlePassMode: (elements.bpModeNonLinear && elements.bpModeNonLinear.checked) ? 'non-linear' : ((elements.bpModeLinear && elements.bpModeLinear.checked) ? 'linear' : ''),
+			bpNonLinearSetName: elements.bpNonLinearSetName ? elements.bpNonLinearSetName.value.trim() : "",
+			bpNonLinearLevel: elements.bpNonLinearLevel ? elements.bpNonLinearLevel.value.trim() : "",
 			bpBonus: elements.bpBonus.checked,
 			bpPageCompletion: elements.bpPageCompletion.checked,
 			
@@ -2354,6 +2395,10 @@ async function initializeApp() {
 		battlePassSettings: document.getElementById('battle-pass-settings'),
 		bpSeason: document.getElementById('bp-season'),
 		bpPage: document.getElementById('bp-page'),
+		bpModeLinear: document.getElementById('bp-mode-linear'),
+		bpModeNonLinear: document.getElementById('bp-mode-nonlinear'),
+		bpNonLinearSetName: document.getElementById('bp-nonlinear-set'),
+		bpNonLinearLevel: document.getElementById('bp-nonlinear-level'),
 		bpBonus: document.getElementById('bp-bonus'),
 		bpPageCompletion: document.getElementById('bp-page-completion'),
 		
@@ -2645,6 +2690,55 @@ async function initializeApp() {
 	// Battle Pass season auto-fill event listener
 	elements.bpSeason.addEventListener('input', autoFillPassVersion);
 
+	// Hide/show BP mode group when Bonus Rewards toggles
+	if (elements.bpBonus) elements.bpBonus.addEventListener('change', handleBPModeChange);
+
+	// Handle Battle Pass mode changes (Linear / Non-Linear)
+	function handleBPModeChange() {
+		// If Bonus Rewards is checked, hide the BP mode controls and clear any Non-Linear inputs
+		const bpModeGroup = document.getElementById('bp-mode-group');
+		const nonLinearFields = document.getElementById('bp-nonlinear-fields');
+		const bpBonusChecked = elements.bpBonus && elements.bpBonus.checked;
+		if (bpModeGroup) bpModeGroup.style.display = bpBonusChecked ? 'none' : '';
+		if (bpBonusChecked) {
+			// Clear and hide Non-Linear fields immediately so they don't persist
+			if (nonLinearFields) nonLinearFields.style.display = 'none';
+			if (elements.bpModeLinear) elements.bpModeLinear.checked = false;
+			if (elements.bpModeNonLinear) elements.bpModeNonLinear.checked = false;
+			if (elements.bpNonLinearSetName) elements.bpNonLinearSetName.value = '';
+			if (elements.bpNonLinearLevel) elements.bpNonLinearLevel.value = '';
+			// Ensure page max is restored
+			if (elements.bpPage) elements.bpPage.max = 20;
+			return;
+		}
+
+		// Normal flow when Bonus is not checked
+		const linear = elements.bpModeLinear && elements.bpModeLinear.checked;
+		const nonlinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
+		// Show non-linear specific fields only when Non-Linear is selected
+		if (nonLinearFields) nonLinearFields.style.display = nonlinear ? 'flex' : 'none';
+
+		// If Non-Linear, clamp bpPage max to 2, otherwise allow up to 20
+		if (elements.bpPage) {
+			if (nonlinear) {
+				elements.bpPage.max = 2;
+				if (Number(elements.bpPage.value) > 2) elements.bpPage.value = '';
+			} else {
+				elements.bpPage.max = 20;
+			}
+		}
+	}
+
+	if (elements.bpModeLinear) elements.bpModeLinear.addEventListener('change', handleBPModeChange);
+	if (elements.bpModeNonLinear) elements.bpModeNonLinear.addEventListener('change', handleBPModeChange);
+
+	// Ensure bpPage cannot be set above allowed max by keyboard input
+	if (elements.bpPage) elements.bpPage.addEventListener('input', () => {
+		const max = Number(elements.bpPage.max || 20);
+		const val = Number(elements.bpPage.value || 0);
+		if (val > max) elements.bpPage.value = String(max);
+	});
+
 	// Item Shop History part visibility
 	elements.itemShopHistory.addEventListener('change', () => {
 		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
@@ -2686,6 +2780,8 @@ async function initializeApp() {
 	});
 
 	elements.cosmeticDisplayInput.addEventListener('input', updateSuggestions);
+
+	handleBPModeChange();
 
 	try {
 		showStatus('Loading cosmetic data...', 'loading');

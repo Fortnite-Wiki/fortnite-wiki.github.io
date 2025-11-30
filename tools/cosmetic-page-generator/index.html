@@ -129,11 +129,7 @@
 								<label for="bp-season">Season:</label>
 								<input type="text" id="bp-season" placeholder="C6S4" pattern="C[0-9]+S[0-9]+">
 							</div>
-							<div class="inline-group">
-								<label for="bp-page">Page:</label>
-								<input type="number" id="bp-page" placeholder="5" min="1" max="20">
-							</div>
-							<div class="inline-group" style="gap: 2rem">
+							<div class="inline-group" id="bp-bonus-group" style="margin-bottom:0.5rem;">
 								<label class="checkbox-label">
 									<input type="checkbox" id="bp-bonus">
 									Bonus reward?
@@ -143,6 +139,23 @@
 									Free?
 								</label>
 							</div>
+							<div class="inline-group" id="bp-mode-group">
+								<label>Battle Pass Type:</label>
+								<label class="checkbox-label"><input type="radio" name="bp-mode" id="bp-mode-linear" value="linear"> Linear</label>
+								<label class="checkbox-label"><input type="radio" name="bp-mode" id="bp-mode-nonlinear" value="non-linear"> Non-Linear</label>
+							</div>
+							<div class="inline-group">
+								<label for="bp-page">Page:</label>
+								<input type="number" id="bp-page" placeholder="5" min="1" max="20">
+							</div>
+							<!-- Non-Linear specific fields -->
+							<div class="inline-group" id="bp-nonlinear-fields" style="display: none; gap: 1rem; flex-wrap:wrap;">
+								<label for="bp-nonlinear-set">Outfit Set Name:</label>
+								<input type="text" id="bp-nonlinear-set" placeholder="Enter outfit set name" />
+								<label for="bp-nonlinear-level">Set Unlock Level (if applicable):</label>
+								<input type="number" id="bp-nonlinear-level" placeholder="e.g. 25" min="1" style="width:80px;" />
+							</div>
+
 							<div class="inline-group">
 								<label class="checkbox-label">
 									<input type="checkbox" id="bp-page-completion">

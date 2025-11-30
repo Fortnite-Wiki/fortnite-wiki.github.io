@@ -1087,7 +1087,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	if (are_there_shop_assets(entryMeta) || (itemshop && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass) || cosmeticType == "Car Body") {
+	if (are_there_shop_assets(entryMeta) || (itemshop && !settings.isBattlePass && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass) || cosmeticType == "Car Body") {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {

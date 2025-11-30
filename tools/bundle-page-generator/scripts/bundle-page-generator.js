@@ -514,7 +514,7 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 				const mini = keyMatch[2];
 				const season = keyMatch[3];
 				
-				if (chapterMatch && seasonMatch) {
+				if (chapter && season) {
 					if (mini) {
 						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Mini Season ${season}]]`;
 					} else {

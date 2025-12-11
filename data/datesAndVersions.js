@@ -88,7 +88,8 @@ export const OG_SEASON_RELEASE_DATES = {
     3: new Date(2025, 2, 25), // March 25, 2025
     4: new Date(2025, 5, 7), // June 7, 2025
     5: new Date(2025, 7, 7), // August 7, 2025
-    6: new Date(2025, 9, 2) // October 2, 2025
+    6: new Date(2025, 9, 2), // October 2, 2025
+    7: new Date(2025, 11, 11) // December 11, 2025
 };
 
 export const OG_SEASON_UPDATE_VERSIONS = {
@@ -97,7 +98,8 @@ export const OG_SEASON_UPDATE_VERSIONS = {
     3: '34.20',
     4: '36.00',
     5: '37.00',
-    6: '37.40'
+    6: '37.40',
+    7: '39.10'
 };
 
 export const FESTIVAL_SEASON_RELEASE_DATES = {
@@ -138,7 +140,8 @@ export const LEGO_SEASON_RELEASE_DATES = {
     "Goldrush Gallery": new Date(2025, 2, 11), // March 11, 2025
     "First Order": new Date(2025, 4, 2), // May 2, 2025
     "Supernova Academy": new Date(2025, 5, 7), // June 7, 2025
-    "Palm Paradise": new Date(2025, 7, 7) // August 7, 2025
+    "Palm Paradise": new Date(2025, 7, 7), // August 7, 2025
+    "Ninjago": new Date(2025, 11, 11)
 };
 
 export const LEGO_SEASON_UPDATE_VERSIONS = {
@@ -149,5 +152,6 @@ export const LEGO_SEASON_UPDATE_VERSIONS = {
     "Goldrush Gallery": '34.10',
     "First Order": '35.00',
     "Supernova Academy": '36.00',
-    "Palm Paradise": '37.00'
+    "Palm Paradise": '37.00',
+    "Ninjago": '39.10'
 };

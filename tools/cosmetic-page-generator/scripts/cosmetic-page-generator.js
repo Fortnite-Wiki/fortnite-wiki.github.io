@@ -580,6 +580,12 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				const variantName = choice.DisplayName?.LocalizedString || "";
 				variantChannels.get(channelName).variants.push(variantName);
 
+				if (cosmeticType == "Sidekick") {
+					if (channelName.toLowerCase() == "eyes") {
+						variantChannels.get(channelName).icon = 'Eyes Appearance - Sidekick - Fortnite.png';
+					}
+				}
+
 				styleImages[`${channelName},${variantName}`] = ""; // no style image for material parameter variants
 
 				colorHexMap[`${channelName},${variantName}`] = colorHex;
@@ -657,8 +663,6 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			if (cosmeticType == "Sidekick") {
 				if (props.VariantChannelTag?.TagName == "Cosmetics.Variant.Channel.Outfit") {
 					variantChannels.get(channelName).icon = 'Style - Sidekick - Fortnite.png';
-				} else if (channelName.toLowerCase() == "eyes") {
-					variantChannels.get(channelName).icon = 'Eyes Appearance - Sidekick - Fortnite.png';
 				} else if (props.VariantChannelTag?.TagName == "Cosmetics.Variant.Channel.Immutable.Pattern" || channelName.toLowerCase() == "pattern") {
 					variantChannels.get(channelName).icon = 'Pattern Appearance - Sidekick - Fortnite.png';
 				}

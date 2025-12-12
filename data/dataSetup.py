@@ -454,7 +454,7 @@ def build_bundle_index(index):
             dav2_files[dfile.lower()] = rel
 
     seen_bundle_ids = set()
-    bundle_re = re.compile(r"DA_(?:Character_([^\/]*)|Featured?_([^\/]+?)_Bundle)", re.IGNORECASE)
+    bundle_re = re.compile(r"DA_(?:Character_([^/\n]+)|([^/\n]+)_Character|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
 
     for root, _, files in os.walk(BUNDLE_DISPLAY_ASSETS_DIR):
         for file in files:
@@ -476,7 +476,7 @@ def build_bundle_index(index):
                 if not m:
                     continue
 
-                bundle_id = m.group(1) or m.group(2)
+                bundle_id = m.group(1) or m.group(2) or m.group(3)
                 if not bundle_id or bundle_id in seen_bundle_ids:
                     continue
                 seen_bundle_ids.add(bundle_id)
@@ -490,7 +490,8 @@ def build_bundle_index(index):
                     f"DAv2_Bundle_Featured_{bundle_id}.json",
                     f"DAv2_Featured_Bundle_{bundle_id}.json",
                     f"DAv2_Bundle_{bundle_id}.json",
-                    f"DAv2_Character_{bundle_id}.json"
+                    f"DAv2_Character_{bundle_id}.json",
+                    f"DAv2_{bundle_id}_Character.json"
                 ]
                 for cand in candidates:
                     cand_lower = cand.lower()

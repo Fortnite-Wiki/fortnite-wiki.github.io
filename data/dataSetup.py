@@ -119,6 +119,11 @@ COMPANION_VARIANT_TOKENS_DIR = os.path.join(
     r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items\CosmeticVariantTokens"
 )
 
+COMPANION_FILTER_SET_DIR = os.path.join(
+    BASE_DIR,
+    r"Plugins/GameFeatures/CosmeticCompanions/Content/Data/VariantFilterSet"
+)
+
 VALID_TYPES = [
     "AthenaCharacterItemDefinition",
     "AthenaBackpackItemDefinition",
@@ -784,6 +789,7 @@ copy_and_gzip(DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DAv2"
 copy_and_gzip(BUNDLE_DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DA"), "DA (Bundle)")
 copy_and_gzip(WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons")
 copy_and_gzip(BANNER_ICONS_DIR, os.path.join(os.path.dirname(__file__), "banners"), "banners")
+copy_and_gzip(COMPANION_FILTER_SET_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions", "FilterSets"), "cosmetics/Companions/FilterSets")
 print(f"Completed in {time.time() - t0:.2f}s")
 
 input("\nPress Enter to exit...")

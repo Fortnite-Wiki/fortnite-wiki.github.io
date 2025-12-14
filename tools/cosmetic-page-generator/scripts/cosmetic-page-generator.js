@@ -19,6 +19,8 @@ let isCrewAutoDetected = false;
 let bundlesEntries = [];
 let featuredCharactersEntries = [];
 
+const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;
+
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 }
@@ -472,7 +474,7 @@ function chunkList(lst, size) {
 }
 
 // This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
-async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets) {
+async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets, filterSetPath, inOwnCharacterBundle) {
 	const variantChannels = new Map();
 	const immutableChannels = new Set();
 	const styleImages = {};
@@ -680,7 +682,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				} else {
 					const chIsStyle = channelName === "Style";
 					imageFilename = chIsStyle ? `${name} (${variantName}) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}) - ${cosmeticType} - Fortnite.png`;
-					const featuredFilename = chIsStyle ? `${name} (${variantName} - Featured) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`;
+					const featuredFilename = chIsStyle ? `${name} (${variantName}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`;
 					if (outputFeatured) {
 						featuredFiles.add(featuredFilename);
 					}
@@ -1023,6 +1025,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		return generateCompanionEmotePage(ID, name, rarity, settings);
 	}
 
+	let inOwnCharacterBundle = false;
+	for (const bundleEntry of bundlesEntries) {
+		if (characterBundlePattern.test(bundleEntry.bundleID.value)) {
+			inOwnCharacterBundle = true;
+			break;
+		}
+	}
+
 	const props = data.Properties;
 	const ID = data.Name;
 	const type = data.Type;
@@ -1071,6 +1081,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	let mainIcon = { large: "", icon: "" };
 	let tags = [];
 	let series = null;
+	let filterSetPath = "";
 	
 	for (const entry of props.DataList || []) {
 		if (typeof entry === 'object' && entry !== null) {
@@ -1086,6 +1097,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			if (entry.Series) {
 				series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
 				rarity = SERIES_CONVERSION[series] || rarity;
+			}
+			if (entry.SharedFilterSet) {
+				filterSetPath = entry.SharedFilterSet.AssetPathName.split('.')[0].replace('/CosmeticCompanions/Data/VariantFilterSet/', 'cosmetics/Companions/VariantFilterSets/');
 			}
 		}
 	}
@@ -1114,7 +1128,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		if (variantData.length > 0) {
-			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta), await getNumBRDav2Assets(entryMeta));
+			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta), await getNumBRDav2Assets(entryMeta), filterSetPath, inOwnCharacterBundle);
 		}
 	}
 
@@ -1123,7 +1137,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (leftToDo > 0) {
 			const featuredFiles = [];
 			for (let i = 2; i <= leftToDo + 1; i++)
-				featuredFiles.push(`${name} (${String(i).padStart(2, '0')} - Featured) - ${cosmeticType} - Fortnite.png`);
+				featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
 
 			if (featuredFiles.length > 0) {
 				featured = (featuredFiles.length === 1 ? 
@@ -1192,7 +1206,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			out.push("|image = <gallery>");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-			out.push(`${name} (Featured) - ${cosmeticType} - Fortnite.png|Featured`);
+			out.push(`${name}${inOwnCharacterBundle ? '' : ' (Featured)'} - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
 			out.push("</gallery>");
 		}
 	} else if (cosmeticType == "Outfit" && settings.isBattlePass) {
@@ -1305,7 +1319,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				if (!be.bundleName || !be.bundleName.value) return null;
 				const rawName = be.bundleName.value.trim();
 				const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-				return `[[${name}]]`;
+				const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+				return addItemShopBundleTag ? `[[${name} (Item Shop Bundle)|${name}]]` : `[[${name}]]`;
 			})
 			.filter(bn => bn !== null);
 		if (bundleNames.length > 0) {
@@ -1347,7 +1362,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				if (be.bundleName.value && be.bundleCost.value) {
 					const rawName = be.bundleName.value.trim();
 					const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-					return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${name}]])</small>`;
+					const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+					return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
 				}
 				return null;
 			})
@@ -1506,11 +1522,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 					if (be.bundleName.value && be.bundleCost.value) {
 						const rawName = be.bundleName.value.trim();
 						const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-						const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
+						const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+						const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
 						const i = bundlesEntries.indexOf(be);
 						const previousHas = i > 0 && bundlesEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
 						const orFlag = (settings.shopCost || previousHas) ? " or " : "";
-						return `${orFlag}with ${theFlag}[[${name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
+						return `${orFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
 					}
 					return null;
 				})
@@ -1824,8 +1841,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				if (be.bundleName && be.bundleName.value) {
 					const rawName = be.bundleName.value.trim();
 					const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-					const theFlag = rawName.toLowerCase().startsWith("the ") ? "" : "the ";
-					appearancesSection.push(`|bundled_with = ${theFlag}[[${bundleName}]]`);
+					const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+					const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+					appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
 				}
 			}
 		}

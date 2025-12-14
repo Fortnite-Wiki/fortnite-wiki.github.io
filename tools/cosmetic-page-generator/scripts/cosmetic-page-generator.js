@@ -682,7 +682,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 				} else {
 					const chIsStyle = channelName === "Style";
 					imageFilename = chIsStyle ? `${name} (${variantName}) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}) - ${cosmeticType} - Fortnite.png`;
-					const featuredFilename = chIsStyle ? `${name} (${variantName}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`;
+					const featuredFilename = chIsStyle ? `${name} (${variantName}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`;
 					if (outputFeatured) {
 						featuredFiles.add(featuredFilename);
 					}
@@ -1137,7 +1137,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (leftToDo > 0) {
 			const featuredFiles = [];
 			for (let i = 2; i <= leftToDo + 1; i++)
-				featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle ? '' : ' - Featured'}) - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
+				featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
 
 			if (featuredFiles.length > 0) {
 				featured = (featuredFiles.length === 1 ? 
@@ -1206,7 +1206,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			out.push("|image = <gallery>");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-			out.push(`${name}${inOwnCharacterBundle ? '' : ' (Featured)'} - ${inOwnCharacterBundle ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
+			out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
 			out.push("</gallery>");
 		}
 	} else if (cosmeticType == "Outfit" && settings.isBattlePass) {

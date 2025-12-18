@@ -787,7 +787,154 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
 
     print(f"Moved and compressed {count} ColorSwatches/MaterialParameterSets for Companions")
 
+def move_and_compress_lego():
+    jbp_count = 0
+    prop_count = 0
+    juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
+    target_decor = os.path.join(os.path.dirname(__file__), "LEGO", "Decor Bundles")
+    target_props = os.path.join(os.path.dirname(__file__), "LEGO", "Prop_CraftingFormulas")
+
+    for target in (target_decor, target_props):
+        if os.path.exists(target):
+            shutil.rmtree(target)
+        os.makedirs(target, exist_ok=True)
+
+    if os.path.exists(juno_root):
+        for root, _, files in os.walk(juno_root):
+            for file in files:
+                if not file.endswith(".json"):
+                    continue
+
+                if file.startswith("JBPID_"):
+                    src_path = os.path.join(root, file)
+                    dest_path = os.path.join(target_decor, file + ".gz")
+                    with open(src_path, "rb") as f_in:
+                        raw = f_in.read()
+                        compressed = gzip.compress(raw, mtime=0)
+                        with open(dest_path, "wb") as f_out:
+                            f_out.write(compressed)
+                    jbp_count += 1
+                    continue
+
+                if file.endswith("Prop_CraftingFormulas.json") or file.endswith("Props_CraftingFormulas.json"):
+                    src_path = os.path.join(root, file)
+                    dest_path = os.path.join(target_props, file + ".gz")
+                    with open(src_path, "rb") as f_in:
+                        raw = f_in.read()
+                        compressed = gzip.compress(raw, mtime=0)
+                        with open(dest_path, "wb") as f_out:
+                            f_out.write(compressed)
+                    prop_count += 1
+
+    print(f"Moved and compressed {jbp_count} JBPID JSON files to LEGO/Decor Bundles")
+    print(f"Moved and compressed {prop_count} Prop(?:s)?_CraftingFormulas JSON files to LEGO/Prop_CraftingFormulas")
+
+
+def build_jbpid_index():
+    juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
+    out_dir = os.path.join(os.path.dirname(__file__), "LEGO")
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "jbpid_index.json")
+
+    entries = []
+
+    if os.path.exists(juno_root):
+        for root, _, files in os.walk(juno_root):
+            for file in files:
+                if not (file.endswith(".json") and file.startswith("JBPID_")):
+                    continue
+
+                data = load_json(os.path.join(root, file))
+                if not data or not isinstance(data, list):
+                    continue
+
+                entry = next((e for e in data if e.get("Type") == "JunoBuildingPropAccountItemDefinition"), None)
+                if not entry:
+                    entry = data[0] if isinstance(data[0], dict) else None
+                if not entry:
+                    continue
+
+                props = entry.get("Properties", {})
+                jbp_id = entry.get("Name")
+                name = props.get("ItemName", {}).get("LocalizedString")
+
+                tag = ""
+                for dl in props.get("DataList", []):
+                    if isinstance(dl, dict) and isinstance(dl.get("Tags"), list) and dl.get("Tags"):
+                        tag = dl.get("Tags")[0]
+                        break
+
+                if jbp_id and name:
+                    entries.append({"id": jbp_id, "name": name, "tag": tag})
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(entries, f, indent=2, ensure_ascii=False)
+
+    print(f"jbpid_index.json created with {len(entries)} entries in LEGO/")
+
+
+def build_prop_index():
+    juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
+    out_dir = os.path.join(os.path.dirname(__file__), "LEGO")
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "prop_index.json")
+
+    entries = []
+
+    if os.path.exists(juno_root):
+        for root, _, files in os.walk(juno_root):
+            for file in files:
+                if not (file.endswith("Prop_CraftingFormulas.json") or file.endswith("Props_CraftingFormulas.json")):
+                    continue
+
+                data = load_json(os.path.join(root, file))
+                if not data or not isinstance(data, list):
+                    continue
+
+                table = next((e for e in data if isinstance(e, dict) and e.get("Type") == "DataTable"), None)
+                if not table:
+                    table = data[0] if isinstance(data[0], dict) else None
+                if not table:
+                    continue
+
+                rows = table.get("Rows", {}) or {}
+                for row_id, row in rows.items():
+                    if not isinstance(row, dict):
+                        continue
+
+                    name = row.get("DisplayName", {}).get("LocalizedString") or row.get("DisplayName", {}).get("CultureInvariantString")
+                    attribute_tags = row.get("AttributeTags", []) or []
+
+                    reqs = []
+                    req_map = {}
+                    for ing in row.get("RequiredIngredients", []) or []:
+                        if not isinstance(ing, dict):
+                            continue
+                        tags = ing.get("IngredientTags", []) or []
+                        count = ing.get("Count")
+                        if tags and count is not None:
+                            reqs.append({"tag": tags[0], "count": count})
+                            req_map[tags[0]] = count
+
+                    if row_id and name:
+                        entries.append({
+                            "id": row_id,
+                            "name": name,
+                            "attributeTags": attribute_tags,
+                            "requiredIngredients": req_map
+                        })
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(entries, f, indent=2, ensure_ascii=False)
+
+    print(f"prop_index.json created with {len(entries)} entries in LEGO/")
+
 move_and_compress_companion_colors_and_materials(COMPANION_COLORS_AND_MATERIALS_DIRS)
+
+move_and_compress_lego()
+
+build_jbpid_index()
+build_prop_index()
 
 copy_and_gzip(BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics")
 copy_and_gzip(OLD_BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics (old FortniteGame/Content/Athena/Items/Cosmetics folder)")

@@ -69,7 +69,8 @@ export const SERIES_CONVERSION = {
 	"Series_Pontiac": "Pontiac Series",
 	"Series_Porsche": "Porsche Series",
 	"Series_RAM": "Ram Series",
-	"Series_Tesla": "Tesla Series"
+	"Series_Tesla": "Tesla Series",
+	"Series_AstonMartin": "Aston Martin Series"
 };
 
 export function articleFor(word) {

@@ -448,6 +448,8 @@ def build_localized_sets_map(sets_file):
             mapping[set_id] = localization_key
     return mapping
 
+
+bundle_re = re.compile(r"DA_(?:(Character_([^/\n]+))|(([^/\n]+)_Character)|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
 def build_bundle_index(index):
     # Build a quick lookup of DAv2 display asset files
     dav2_files = {}
@@ -459,7 +461,6 @@ def build_bundle_index(index):
             dav2_files[dfile.lower()] = rel
 
     seen_bundle_ids = set()
-    bundle_re = re.compile(r"DA_(?:(Character_[^/\n]+)|([^/\n]+_Character)|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
 
     for root, _, files in os.walk(BUNDLE_DISPLAY_ASSETS_DIR):
         for file in files:
@@ -483,9 +484,10 @@ def build_bundle_index(index):
 
                 bundle_id = (
                     (f"DA_{m.group(1)}" if m.group(1) else None)
-                    or (f"DA_{m.group(2)}" if m.group(2) else None)
-                    or m.group(3)
+                    or (f"DA_{m.group(3)}" if m.group(3) else None)
+                    or m.group(5)
                 )
+                character_part = m.group(2) or m.group(4)
                 if not bundle_id or bundle_id in seen_bundle_ids:
                     continue
                 seen_bundle_ids.add(bundle_id)
@@ -499,8 +501,8 @@ def build_bundle_index(index):
                     f"DAv2_Bundle_Featured_{bundle_id}.json",
                     f"DAv2_Featured_Bundle_{bundle_id}.json",
                     f"DAv2_Bundle_{bundle_id}.json",
-                    f"DAv2_Character_{bundle_id}.json",
-                    f"DAv2_{bundle_id}_Character.json"
+                    f"DAv2_Character_{character_part}.json",
+                    f"DAv2_{character_part}_Character.json"
                 ]
                 for cand in candidates:
                     cand_lower = cand.lower()
@@ -640,7 +642,7 @@ with open("CompanionStyleVariantTokens.json", 'w', encoding='utf-8') as f:
 
 print(f"CompanionStyleVariantTokens.json created with {len(companion_style_index)} VTIDs.")
 
-def copy_and_gzip(src_root, dest_root, label):
+def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
     count = 0
     for subdir, _, files in os.walk(src_root):
         if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or "Templates" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
@@ -659,6 +661,11 @@ def copy_and_gzip(src_root, dest_root, label):
         for file in files:
             if not file.endswith(".json"):
                 continue
+            # Apply filename pattern filter if provided
+            if filename_pattern:
+                filename_no_ext = os.path.splitext(file)[0]
+                if not filename_pattern.search(filename_no_ext):
+                    continue
             src_path = os.path.join(subdir, file)
             dest_path = os.path.join(dest_dir, file + ".gz")
             if not (config.get("ignore_same_gz", False) and os.path.exists(dest_path)):
@@ -790,7 +797,7 @@ copy_and_gzip(RACING_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cos
 copy_and_gzip(COMPANIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions"), "cosmetics/Companions")
 copy_and_gzip(LOC_DIRECTORY, os.path.join(os.path.dirname(__file__), "localization"), "localization")
 copy_and_gzip(DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DAv2"), "DAv2")
-copy_and_gzip(BUNDLE_DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DA"), "DA (Bundle)")
+copy_and_gzip(BUNDLE_DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DA"), "DA (Bundle)", bundle_re)
 copy_and_gzip(WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons")
 copy_and_gzip(BANNER_ICONS_DIR, os.path.join(os.path.dirname(__file__), "banners"), "banners")
 copy_and_gzip(COMPANION_FILTER_SET_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions", "VariantFilterSets"), "cosmetics/Companions/VariantFilterSets")

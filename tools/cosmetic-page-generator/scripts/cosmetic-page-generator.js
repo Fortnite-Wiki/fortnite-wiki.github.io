@@ -254,7 +254,8 @@ function extractAdditionals(tags) {
 		["Cosmetics.UserFacingFlags.Emote.Traversal", "{{Traversal}}"],
 		["Cosmetics.UserFacingFlags.Emote.Group", "{{Group Emote}}"],
 		["Cosmetics.ItemRequiresLockIn", "{{Forged}}"],
-		["Cosmetics.UserFacingFlags.BuiltInEmote", "{{Built-In}}"]
+		["Cosmetics.UserFacingFlags.BuiltInEmote", "{{Built-In}}"],
+		["Cosmetics.UserFacingFlags.Transform", "{{Transformation}}"]
 	];
 	
 	return flagMap.reduce((acc, [keys, label]) => {

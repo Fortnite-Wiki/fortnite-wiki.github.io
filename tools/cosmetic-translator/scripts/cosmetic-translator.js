@@ -8,7 +8,7 @@ let index = [];
 const flagThumbnails = ["flag-en", "flag-ar", "flag-de", "flag-es", "flag-fr", "flag-it", "flag-ja", "flag-ko", "flag-pl", "flag-pt-BR", "flag-ru", "flag-tr"];
 let currentFlagIndex = -1;
 
-function initializeFlagCycling() {
+function initialiseFlagCycling() {
   const headerFlag = document.getElementById("header-flag");
   if (headerFlag && flagThumbnails.length > 0) {
     // Set initial random flag
@@ -239,7 +239,7 @@ async function copyToClipboard() {
   }
 }
 
-// Initialize when DOM is loaded
+// Initialise when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
   try {
     document.getElementById("cosmetic-display").addEventListener("input", updateSuggestions);
@@ -251,8 +251,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById("translate-btn").addEventListener("click", search);
     document.getElementById("copy-btn").addEventListener("click", copyToClipboard);
     loadIndex();
-    initializeFlagCycling();
+    initialiseFlagCycling();
   } catch (error) {
-    console.error('Failed to initialize cosmetic translator:', error);
+    console.error('Failed to initialise cosmetic translator:', error);
   }
 });

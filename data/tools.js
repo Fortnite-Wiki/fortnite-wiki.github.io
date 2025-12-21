@@ -40,6 +40,14 @@ export default [
         isSiteTool: true,
     },
     {
+        id: 'decor-bundle-generator',
+        thumbnail: 'decor-bundle-generator',
+        name: 'Decor Bundle Generator',
+        version: 'v0.0',
+        description: 'Generates LEGO decor bundle pages.',
+        isSiteTool: true,
+    },
+    {
         id: 'character-interactions-generator',
         thumbnail: 'character-interactions-generator',
         name: 'Character Interactions Generator',

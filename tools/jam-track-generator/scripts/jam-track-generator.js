@@ -95,7 +95,7 @@ function cleanSpotifyLink(url) {
     }
 }
 
-// Initialize the application
+// Initialise the application
 async function init() {
     jamTracksData = await loadJamTracksData();
     setupEventHandlers();
@@ -332,5 +332,5 @@ function clearOutput() {
     currentTrackData = null;
 }
 
-// Initialize when DOM is loaded
+// Initialise when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);

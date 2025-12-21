@@ -2555,7 +2555,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	});
 }
 
-async function initializeApp() {
+async function initialiseApp() {
 	elements = {
 		// Basic elements
 		cosmeticInput: document.getElementById('cosmetic-input'),
@@ -2990,21 +2990,20 @@ async function initializeApp() {
 		await loadCompanionVTIDs();
 		await loadCosmeticSets();
 
-		// Initialize released switch to default state (unreleased)
+		// Initialise released switch to default state (unreleased)
 		handleReleasedSwitch();
 
 		hideStatus();
-		console.log('Cosmetic Page Generator initialized successfully');
-
+		console.log('Cosmetic Page Generator initialised successfully');
 	} catch (error) {
-		console.error('Initialization error:', error);
+		console.error('Initialisation error:', error);
 		showStatus('Failed to load cosmetic data. Please refresh the page.', 'error');
 	}
 }
 
-// Initialize when DOM is loaded
+// Initialise when DOM is loaded
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initializeApp);
+	document.addEventListener('DOMContentLoaded', initialiseApp);
 } else {
-	initializeApp();
+	initialiseApp();
 }

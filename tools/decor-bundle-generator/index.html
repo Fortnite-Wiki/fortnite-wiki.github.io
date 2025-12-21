@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Decor Bundle Generator</title>
+
+        <script src="./scripts/decor-bundle-generator.js" type="module"></script>
+        <script src="/scripts/pageinfo.js" type="module"></script>
+        <script src="/scripts/load-site-notices.js" type="module"></script>
+
+        <link rel="stylesheet" href="./styles/styles.css" />
+        <link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
+    </head>
+
+    <body>
+        <header>
+            <a href="/index.html" id="return-main">
+                <span>
+                    <img src="/files/images/return-icon.png" alt="back" />
+                </span>
+            </a>
+            <img src="/files/images/tool-icons/decor-bundle-generator.png" alt="logo" />
+            <span style="margin-right: 1rem">
+                <h1 class="name">Decor Bundle Generator</h1>
+                <span class="version"></span>
+            </span>
+        </header>
+
+        <div id="wrapper">
+            <main>
+                <section id="bundle-search-section">
+                    <h3>Decor Bundle Search</h3>
+                    <input type="text" id="bundle-display" placeholder="Enter decor bundle ID or Name" autocomplete="off" />
+                    <input type="hidden" id="bundle-input" />
+                    <input type="hidden" id="bundle-input-name" />
+                    <div id="suggestions"></div>
+                </section>
+
+            </main>
+
+            <aside>
+                <section>
+                    <div class="title-box">
+                        <h3>Generated Page:</h3>
+                    </div>
+                    <textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
+                    <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+                    <button class="sec-subm secondary" id="clear-btn">Clear</button>
+                </section>
+            </aside>
+        </div>
+    </body>
+</html>

@@ -874,7 +874,7 @@ function hideStatus() {
 	status.className = 'status hidden';
 }
 
-async function initializeApp() {
+async function initialiseApp() {
 	elements = {
 		// Bundle settings
 		vbucksCost: document.getElementById('vbucks-cost'),
@@ -975,7 +975,7 @@ async function initializeApp() {
 }
 
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initializeApp);
+	document.addEventListener('DOMContentLoaded', initialiseApp);
 } else {
-	initializeApp();
+	initialiseApp();
 }

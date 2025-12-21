@@ -697,7 +697,7 @@ function hideStatus() {
 	status.className = 'status hidden';
 }
 
-async function initializeApp() {
+async function initialiseApp() {
 	await loadData();
 	document.getElementById('set-display').addEventListener('input', updateSetSuggestions);
 	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
@@ -706,7 +706,7 @@ async function initializeApp() {
 }
 
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initializeApp);
+	document.addEventListener('DOMContentLoaded', initialiseApp);
 } else {
-	initializeApp();
+	initialiseApp();
 }

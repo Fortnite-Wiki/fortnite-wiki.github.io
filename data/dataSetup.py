@@ -929,7 +929,7 @@ def build_prop_indexes():
 
     print(f"jbid_index.json created with {len(entries)} entries in LEGO/")
 
-    filtered_entries = [e for e in entries if any(tag.startswith("Juno.AccountItems.Unlock.BuildingProp.") for tag in e.get("attributeTags", []))]
+    filtered_entries = [e for e in entries if any(tag.lower().startswith("juno.accountitems.unlock.buildingprop.") for tag in e.get("attributeTags", []))]
     out_path_filtered = os.path.join(out_dir, "buildingprop_index.json")
     with open(out_path_filtered, "w", encoding="utf-8") as f:
         json.dump(filtered_entries, f, indent=2, ensure_ascii=False)

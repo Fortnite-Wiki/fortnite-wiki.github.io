@@ -4,10 +4,21 @@ const DATA_BASE_PATH = '../../../data/';
 
 let jbpidIndex = [];
 let elements = {};
+let buildingPropIndex = [];
 
 async function loadJBPIDIndex() {
 	const resp = await fetch(DATA_BASE_PATH + 'LEGO/jbpid_index.json');
 	jbpidIndex = await resp.json();
+}
+
+async function loadBuildingPropIndex() {
+	try {
+		const resp = await fetch(DATA_BASE_PATH + 'LEGO/buildingprop_index.json');
+		buildingPropIndex = await resp.json();
+	} catch (e) {
+		console.error('Failed to load buildingprop_index.json', e);
+		buildingPropIndex = [];
+	}
 }
 
 function updateSuggestions() {
@@ -56,15 +67,106 @@ function updateSuggestions() {
 	});
 }
 
+function showStatus(message, type = 'info') {
+	if (elements.status) {
+		elements.status.textContent = message;
+		elements.status.className = `status ${type}`;
+		elements.status.classList.remove('hidden');
+	}
+}
+
+function hideStatus() {
+	if (elements.status) {
+		elements.status.classList.add('hidden');
+	}
+}
+
+function displayOutput(content) {
+	if (elements.output) {
+		elements.output.value = content;
+		elements.copyBtn.disabled = false;
+	}
+}
+
+function clearOutput() {
+	if (elements.output) {
+		elements.output.value = "";
+		elements.copyBtn.disabled = true;
+	}
+}
+
+async function copyToClipboard() {
+	try {
+		const content = elements.output.value;
+		await navigator.clipboard.writeText(content);
+		showStatus('Copied to clipboard!', 'success');
+		setTimeout(hideStatus, 2000);
+	} catch (error) {
+		console.error('Failed to copy to clipboard:', error);
+		showStatus('Failed to copy to clipboard', 'error');
+		setTimeout(hideStatus, 3000);
+	}
+}
+
+async function generatePage() {
+	const bundleInput = elements.bundleDisplay.value.trim();
+	const bundleId = elements.bundleInput.value.trim();
+	const bundleName = elements.bundleInputName.value.trim();
+
+	if (!bundleId) {
+		showStatus('Please enter a valid decor bundle name or ID.', 'error');
+		return;
+	}
+
+	const entry = jbpidIndex.find(e => (e.id || '').toLowerCase() === bundleId.toLowerCase() || (e.name || '').toLowerCase() === bundleInput.toLowerCase());
+
+	const tag = entry.tag;
+	const matches = buildingPropIndex.filter(p => Array.isArray(p.attributeTags) && p.attributeTags.includes(tag));
+	matches.sort((a, b) => a.name.localeCompare(b.name));
+	
+	function getCategoryLabel(attributeTags) {
+		return attributeTags.find(t => t.startsWith('Juno.BuildingMenu.Category')).split('.').pop();
+	}
+
+	const infoboxItems = matches.map(m => {
+		return `[[LEGO Fortnite:${getCategoryLabel(m.attributeTags)}|${m.name}]]`;
+	}).join(' <br> ');
+
+	let itemsGrid = '';
+	if (matches.length > 0) {
+		const cols = 3;
+		for (let i = 0; i < matches.length; i++) {
+			const m = matches[i];
+			const cat = getCategoryLabel(m.attributeTags);
+			const imageName = `${m.name} - ${cat.replace(/s$/, '')} - LEGO Fortnite.png`;
+			const linkTarget = `LEGO Fortnite:${cat}`;
+			const cell = `|{{LEGO Background|image=${imageName}|size=130px|link=${linkTarget}}} <br> {{Style Name|[[${linkTarget}|${m.name}]]}}`;
+			itemsGrid += cell + '\n';
+			if ((i + 1) % cols === 0 && i !== matches.length - 1) itemsGrid += '|-\n';
+		}
+	}
+
+	const imageFile = `${entry.name} - Decor Bundle - LEGO Fortnite.png`;
+
+	const wiki = `{{DISPLAYTITLE:${entry.name}}}\n{{Infobox LEGO Kits\n|image=${imageFile}\n|type=Decor Bundle\n|items=${infoboxItems}\n|ID=${entry.id}\n}}\n'''${entry.name}''' is a [[LEGO Fortnite:Decor Bundles|Decor Bundle]] in [[LEGO Fortnite]].\n\n== Items ==\n{| align="center" style="text-align:center;" cellpadding="2" cellspacing="10"\n${itemsGrid}|}\n`;
+
+	displayOutput(wiki);
+	showStatus('Page generated — copy output to clipboard when ready.', 'success');
+	setTimeout(hideStatus, 2500);
+}
+
 async function initialiseApp() {
 	elements.bundleDisplay = document.getElementById("bundle-display");
 	elements.bundleInput = document.getElementById("bundle-input");
 	elements.bundleInputName = document.getElementById("bundle-input-name");
 	elements.output = document.getElementById("output");
 	elements.copyBtn = document.getElementById("copy-btn");
+	elements.generateBtn = document.getElementById("generate-btn");
 	elements.clearBtn = document.getElementById("clear-btn");
+	elements.status = document.getElementById("status");
 
 	await loadJBPIDIndex();
+	await loadBuildingPropIndex();
 
 	if (elements.bundleDisplay) {
 		elements.bundleDisplay.addEventListener("input", updateSuggestions);
@@ -73,34 +175,10 @@ async function initialiseApp() {
 		elements.copyBtn.addEventListener("click", copyToClipboard);
 	}
 	if (elements.clearBtn) {
-		elements.clearBtn.addEventListener("click", () => {
-			if (elements.output) {
-				elements.output.value = "";
-			}
-			if (elements.copyBtn) {
-				elements.copyBtn.disabled = true;
-			}
-		});
+		elements.clearBtn.addEventListener("click", clearOutput);
 	}
-}
-
-function displayOutput(content) {
-	if (elements.output) {
-		elements.output.value = content;
-		if (elements.copyBtn) {
-			elements.copyBtn.disabled = false;
-		}
-	}
-}
-
-async function copyToClipboard() {
-	try {
-		if (elements.output) {
-			await navigator.clipboard.writeText(elements.output.value);
-			alert("Copied to clipboard!");
-		}
-	} catch (error) {
-		console.error("Failed to copy:", error);
+	if (elements.generateBtn) {
+		elements.generateBtn.addEventListener("click", generatePage);
 	}
 }
 

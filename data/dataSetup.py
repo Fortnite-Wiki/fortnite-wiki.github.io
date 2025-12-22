@@ -792,7 +792,7 @@ def move_and_compress_lego():
     prop_count = 0
     juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
     target_decor = os.path.join(os.path.dirname(__file__), "LEGO", "Decor Bundles")
-    target_props = os.path.join(os.path.dirname(__file__), "LEGO", "Prop_CraftingFormulas")
+    target_props = os.path.join(os.path.dirname(__file__), "LEGO", "CraftingFormulas")
 
     for target in (target_decor, target_props):
         if os.path.exists(target):
@@ -816,7 +816,7 @@ def move_and_compress_lego():
                     jbp_count += 1
                     continue
 
-                if file.endswith("Prop_CraftingFormulas.json") or file.endswith("Props_CraftingFormulas.json"):
+                if "_CraftingFormulas.json" in file:
                     src_path = os.path.join(root, file)
                     dest_path = os.path.join(target_props, file + ".gz")
                     with open(src_path, "rb") as f_in:
@@ -827,7 +827,7 @@ def move_and_compress_lego():
                     prop_count += 1
 
     print(f"Moved and compressed {jbp_count} JBPID JSON files to LEGO/Decor Bundles")
-    print(f"Moved and compressed {prop_count} Prop(?:s)?_CraftingFormulas JSON files to LEGO/Prop_CraftingFormulas")
+    print(f"Moved and compressed {prop_count} _CraftingFormulas JSON files to LEGO/CraftingFormulas")
 
 
 def build_jbpid_index():
@@ -873,18 +873,18 @@ def build_jbpid_index():
     print(f"jbpid_index.json created with {len(entries)} entries in LEGO/")
 
 
-def build_prop_index():
+def build_prop_indexes():
     juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
     out_dir = os.path.join(os.path.dirname(__file__), "LEGO")
     os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, "prop_index.json")
+    out_path = os.path.join(out_dir, "jbid_index.json")
 
     entries = []
 
     if os.path.exists(juno_root):
         for root, _, files in os.walk(juno_root):
             for file in files:
-                if not (file.endswith("Prop_CraftingFormulas.json") or file.endswith("Props_CraftingFormulas.json")):
+                if not ("_CraftingFormulas.json" in file):
                     continue
 
                 data = load_json(os.path.join(root, file))
@@ -927,14 +927,21 @@ def build_prop_index():
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(entries, f, indent=2, ensure_ascii=False)
 
-    print(f"prop_index.json created with {len(entries)} entries in LEGO/")
+    print(f"jbid_index.json created with {len(entries)} entries in LEGO/")
 
-move_and_compress_companion_colors_and_materials(COMPANION_COLORS_AND_MATERIALS_DIRS)
+    filtered_entries = [e for e in entries if any(tag.startswith("Juno.AccountItems.Unlock.BuildingProp.") for tag in e.get("attributeTags", []))]
+    out_path_filtered = os.path.join(out_dir, "buildingprop_index.json")
+    with open(out_path_filtered, "w", encoding="utf-8") as f:
+        json.dump(filtered_entries, f, indent=2, ensure_ascii=False)
+    
+    print(f"buildingprop_index.json created with {len(filtered_entries)} entries in LEGO/")
 
 move_and_compress_lego()
 
 build_jbpid_index()
-build_prop_index()
+build_prop_indexes()
+
+move_and_compress_companion_colors_and_materials(COMPANION_COLORS_AND_MATERIALS_DIRS)
 
 copy_and_gzip(BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics")
 copy_and_gzip(OLD_BR_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics"), "cosmetics (old FortniteGame/Content/Athena/Items/Cosmetics folder)")

@@ -1597,7 +1597,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 						const i = bundlesEntries.indexOf(be);
 						const previousHas = i > 0 && bundlesEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
 						const orFlag = (settings.shopCost || previousHas) ? " or " : "";
-						const itemShopFlag = (!settings.shopCost && !previousHas && orFlag == "") ? " in the [[Item Shop]] " : "";
+						const itemShopFlag = (!settings.shopCost && !previousHas && orFlag == "") ? "in the [[Item Shop]] " : "";
 						return `${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
 					}
 					return null;

@@ -77,7 +77,7 @@ function updateSuggestions() {
 
 async function getPakChunkFolders() {
   try {
-    const resp = await fetch("https://fortnitecentral.genxgames.gg/api/v1/aes");
+    const resp = await fetch("https://api.fortniteapi.com/v1/aes");
     const data = await resp.json();
     const folders = ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30", "Fortnite_locchunk32", "Fortnite_locchunk20"];
     if (data.dynamicKeys) {
@@ -89,6 +89,7 @@ async function getPakChunkFolders() {
         }
       });
     }
+    console.log("Fetching translations from the following folders:", folders);
     return folders;
   } catch {
     return ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30", "Fortnite_locchunk32", "Fortnite_locchunk20"];

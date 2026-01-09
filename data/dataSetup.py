@@ -181,7 +181,7 @@ def build_index(dirs):
     index = []
 
     def should_skip_subdir(subdir):
-        return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Templates", "Prototype"))
+        return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Prototype"))
 
     def get_entry(data):
         return next((item for item in data if item.get("Type") in VALID_TYPES), None)
@@ -645,7 +645,7 @@ print(f"CompanionStyleVariantTokens.json created with {len(companion_style_index
 def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
     count = 0
     for subdir, _, files in os.walk(src_root):
-        if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or "Templates" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
+        if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
             continue
         rel = os.path.relpath(subdir, src_root)
 

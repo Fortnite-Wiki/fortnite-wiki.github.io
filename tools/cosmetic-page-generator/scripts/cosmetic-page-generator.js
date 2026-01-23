@@ -1131,6 +1131,28 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 	}
 
+	// For pickaxes, if no mainIcon is defined, try to get it from the weapon definition
+	if (cosmeticType == "Pickaxe" && (mainIcon.large === "" || mainIcon.icon === "")) {
+		const weaponDefData = await loadGzJson(`${DATA_BASE_PATH}${entryMeta.weaponDefinition}`);
+		if (!weaponDefData || !Array.isArray(weaponDefData)) return "";
+		for (const entry of weaponDefData) {
+			const props = entry?.Properties;
+			if (!props) continue;
+
+			for (const item of props.DataList || []) {
+				if (typeof item === 'object' && item !== null) {
+					if (item.LargeIcon?.AssetPathName) {
+						mainIcon.large = item.LargeIcon.AssetPathName;
+					}
+					if (item.Icon?.AssetPathName) {
+						mainIcon.icon = item.Icon.AssetPathName;
+					}
+				}
+			}
+		}
+	}
+
+
 	if (filterSetPath) {
 		try {
 			const filterJson = await loadGzJson(`${DATA_BASE_PATH}${filterSetPath}.json`);
@@ -1835,6 +1857,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			const ch = channelKeys[0];
 			const chInfo = channels[ch];
 			columns = Array.isArray(chInfo) ? chInfo.slice() : ((chInfo && Array.isArray(chInfo.variants)) ? chInfo.variants.slice() : []);
+
 			if (variantMatchesMain) {
 				columns = columns.filter(v => {
 					const key = `${ch},${v}`;
@@ -1853,6 +1876,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			columns.push('LEGO');
 		}
 
+		const channelPrefix = channelKeys.length === 1 && channelKeys[0].toLowerCase() !== "style" ? `${channelKeys[0]} - ` : '';
+
 		const chunks = chunkList(columns, 3);
 
 		const rendersSection = [];
@@ -1867,7 +1892,13 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		for (let i = 0; i < chunks.length; i++) {
 			const chunk = chunks[i];
 
-			rendersSection.push(chunk.map(c => `!{{Style Name|${c === 'LEGO' ? 'LEGO' : c}}}`).join('\n'));
+			rendersSection.push(chunk.map(c => {
+				let styleName = c;
+				if (c !== 'LEGO' && c !== name && variantMatchesMain && !variantMatchesMain[`${channelKeys[0]},${c}`]) {
+					styleName = `${channelPrefix}${c}`;
+				}
+				return `!{{Style Name|${styleName}}}`;
+			}).join('\n'));
 			rendersSection.push('|-');
 
 			rendersSection.push(chunk.map(c => {
@@ -1882,7 +1913,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				} else if (c === name) {
 					filename = `${name} (${carNameFlag}Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
 				} else {
-					filename = `${name} (${c} - Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
+					filename = `${name} (${channelPrefix}${c} - Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
 				}
 				return `|[[File:${filename}]]`;
 			}).join('\n'));

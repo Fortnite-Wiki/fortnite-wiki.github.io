@@ -166,25 +166,25 @@ function updateSuggestions() {
 
 			if (entry.path.startsWith("Racing")) {
 
-				createBundleEntry();
+				const bundleEntryWrapper = createBundleEntry();
 
 				const bundleName = `${entry.name} ${cosmeticType}`;
 
-				// Use the last created bundle-entry wrapper and query its fields (avoids off-by-one ID access and null getElementById)
-				const bundleEntries = document.querySelectorAll('#bundles-list .bundle-entry');
-				const lastWrapper = bundleEntries[bundleEntries.length - 1];
-				const displayEl = lastWrapper ? lastWrapper.querySelector('.bundle-display') : null;
-				const inputEl = lastWrapper ? lastWrapper.querySelector('.bundle-input') : null;
-				const nameEl = lastWrapper ? lastWrapper.querySelector('.bundle-input-name') : null;
 
 				// Check for existing index entry
 				const matchingBundleEntry = index.find(e =>
 					(e.bundle_name === bundleName || e.bundle_name === `${bundleName}s`)
 				);
 				if (matchingBundleEntry) {
+					const displayEl = bundleEntryWrapper.querySelector('.bundle-display');
+					const inputEl = bundleEntryWrapper.querySelector('.bundle-input');
+					const nameEl = bundleEntryWrapper.querySelector('.bundle-input-name');
+					const optionsWrapper = bundleEntryWrapper.querySelector('.bundle-options');
+					
 					if (inputEl) inputEl.value = matchingBundleEntry.bundle_id;
 					if (nameEl) nameEl.value = matchingBundleEntry.bundle_name;
 					if (displayEl) displayEl.value = `${matchingBundleEntry.bundle_name} (${matchingBundleEntry.bundle_id})`;
+					optionsWrapper.style.display = 'flex';
 				} else {
 					removeBundleEntry();
 				}
@@ -1907,7 +1907,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		) {
 			appearancesSection.push(`|bundled_with = [[${name} (${instrumentType})|${name}]]`);
 		} else {
-			if (bundlesEntries.length == 1 && settings.shopCost == "" ) {
+			if (bundlesEntries.length == 1 && settings.shopCost == "") {
 				const be = bundlesEntries[0];
 				if (be.bundleName && be.bundleName.value) {
 					const rawName = be.bundleName.value.trim();
@@ -1920,12 +1920,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				for (const be of bundlesEntries) {
 					if (characterBundlePattern.test(be.bundleID.value)) {
 						if (be.bundleName && be.bundleName.value) {
-							const rawName = be.bundleName.value.trim();
-							const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-							const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-							const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
-							appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
-							break;
+							if (be.bundleName.value.trim().toLowerCase() === name.toLowerCase() || settings.shopCost == "") {
+								const rawName = be.bundleName.value.trim();
+								const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+								const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+								const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+								appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
+								break;
+							}
 						}
 					}
 				}
@@ -2252,6 +2254,7 @@ function createBundleEntry() {
 	input.style = "display: block; margin-left: auto; margin-right: auto;";
 
 	const optionsWrapper = document.createElement('div');
+	optionsWrapper.className = 'bundle-options';
 	optionsWrapper.style.display = 'flex';
 	optionsWrapper.style.justifyContent = 'center';
 	optionsWrapper.style.alignItems = 'center';
@@ -2302,6 +2305,8 @@ function createBundleEntry() {
 	list.appendChild(wrapper);
 	bundlesEntries.push({bundleID, bundleName, bundleCost, forceTitleCase, wrapper});
 	input.focus();
+
+	return wrapper;
 }
 
 function removeBundleEntry() {

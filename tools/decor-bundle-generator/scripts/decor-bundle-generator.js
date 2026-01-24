@@ -148,9 +148,29 @@ async function generatePage() {
 
 	const imageFile = `${entry.name} - Decor Bundle - LEGO Fortnite.png`;
 
-	const wiki = `{{DISPLAYTITLE:${entry.name}}}\n{{Infobox LEGO Kits\n|image=${imageFile}\n|type=Decor Bundle\n|items=${infoboxItems}\n|ID=${entry.id}\n}}\n'''${entry.name}''' is a [[LEGO Fortnite:Decor Bundles|Decor Bundle]] in [[LEGO Fortnite]].\n\n== Items ==\n{| align="center" style="text-align:center;" cellpadding="2" cellspacing="10"\n${itemsGrid}|}\n`;
+	const itemsSection = [
+		'== Items ==',
+		`{| align="center" style="text-align:center;" cellpadding="2" cellspacing="10"`,
+		itemsGrid + `|}`,
+	].join('\n');
 
-	displayOutput(wiki);
+	let output = [];
+
+	output.push(`{{DISPLAYTITLE:${entry.name}}}`);
+	output.push(`{{Infobox LEGO Kits`);
+	output.push(`|image = ${imageFile}`);
+	output.push(`|type = Decor Bundle`);
+	output.push(`|items = ${infoboxItems}`);
+
+	output.push(`|ID = ${entry.id}`);
+	output.push(`}}`);
+	output.push(`'''${entry.name}''' is a [[LEGO Fortnite:Decor Bundles|Decor Bundle]] in [[LEGO Fortnite]].`);
+	output.push('');
+	output.push(itemsSection)
+
+	output = output.join('\n')
+
+	displayOutput(output);
 	showStatus('Page generated — copy output to clipboard when ready.', 'success');
 	setTimeout(hideStatus, 2500);
 }

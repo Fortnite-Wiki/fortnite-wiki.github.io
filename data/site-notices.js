@@ -25,5 +25,14 @@ export default [
         bodyHtml: '<p><strong>Note:</strong> Cosmetics added in new updates or decrypted using new AES keys will not appear in generators unless a staff member manually updates this site\'s data.</p>\n<p>Message <b>@mtonline</b> or <b>@lld_jo</b> on Discord to request an update.</p>\n<p><em>Latest update was: <span class="latest-update-full" style="font-weight: bold;">Unknown</span></em></p>',
         paths: ['/'],
         excludePaths: ['/tools/jam-track-generator/', '/tools/lore-character-generator/', '/tools/character-interactions-generator/'],
+    },
+    {
+        id: 'decor-bundle-namespace',
+        type: 'danger',
+        collapsible: false,
+        dismissible: true,
+        summaryText: '',
+        bodyHtml: '<p><strong>Important:</strong> Decor Bundle pages should be created only in the <b>LEGO Fortnite</b> namespace.</p>',
+        paths: ['/tools/decor-bundle-generator/'],
     }
 ];

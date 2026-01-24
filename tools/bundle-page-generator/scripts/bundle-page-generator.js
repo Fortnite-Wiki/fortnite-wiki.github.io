@@ -138,6 +138,17 @@ function removeCosmeticEntry() {
 	if (cosmeticsEntries.length === 0) return;
 	const entry = cosmeticsEntries.pop();
 	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
+
+	// Hide "Add Rocket League Cosmetic template?" if no Racing cosmetics remain
+	const hasRacingCosmetic = cosmeticsEntries.some(e => {
+		const hiddenIDValue = e.hiddenId.value || '';
+		const entryMeta = index.find(it => it.id && it.id.toLowerCase() === hiddenIDValue.toLowerCase());
+		return entryMeta && entryMeta.path && entryMeta.path.startsWith('Racing');
+	});
+	if (!hasRacingCosmetic) {
+		document.getElementById('rocket-league-field').style.display = 'none';
+		document.getElementById('rocket-league-cosmetic').checked = false;
+	}
 }
 
 function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) {
@@ -181,6 +192,11 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 			hiddenIdEl.value = entry.id;
 			hiddenNameEl.value = entry.name;
 			sugDiv.innerHTML = '';
+
+			if (entry.path.startsWith("Racing")) {
+				document.getElementById('rocket-league-field').style.display = 'block';
+				document.getElementById('rocket-league-cosmetic').checked = false;
+			}
 		};
 		sugDiv.appendChild(div);
 	});
@@ -384,6 +400,7 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
 	if (settings.collaboration) infobox.push('{{Collaboration|Cosmetic}}');
 	if (!settings.isReleased) infobox.push('{{Unreleased|Cosmetic}}');
+	if (settings.isRocketLeagueCosmetic) infobox.push('{{Rocket League Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
 	infobox.push(`|name = ${bundleName}`);
 	let imageParameter = '';
@@ -822,6 +839,7 @@ async function handleGenerate() {
 		includeAppearances: elements.includeAppearances.checked,
 		shopAppearances: elements.shopAppearances.value.trim(),
 		collaboration: elements.collaboration.checked,
+		isRocketLeagueCosmetic: elements.rocketLeagueCosmetic.checked,
 		displayTitle: elements.displayTitle.checked,
 		isReleased: elements.releasedSwitch.checked,
 		releaseDate: elements.releaseDate.value.trim(),
@@ -883,7 +901,7 @@ async function initialiseApp() {
 		includeAppearances: document.getElementById('include-appearances'),
 		shopAppearances: document.getElementById('shop-appearances'),
 		collaboration: document.getElementById('collaboration'),
-
+		rocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		// Release status settings
 		releasedSwitch: document.getElementById('released-switch'),
 		releasedLabel: document.getElementById('released-label'),

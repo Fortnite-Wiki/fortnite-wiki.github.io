@@ -475,7 +475,7 @@ function chunkList(lst, size) {
 }
 
 // This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
-async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFeatured, numBRDav2Assets, channelIconMap) {
+async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, outputFeatured, numBRDav2Assets, channelIconMap) {
 	const variantChannels = new Map();
 	const immutableChannels = new Set();
 	const styleImages = {};
@@ -509,7 +509,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 
 			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
 			colorSwatchPath = DATA_BASE_PATH + colorSwatchPath.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/').replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/') + '.json';
-			colorSwatchPath = colorSwatchPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/'); // fallback fix
+			colorSwatchPath = colorSwatchPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/'); // fallback fix
 
 			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
 				console.warn("Failed to load color swatch data:", err);
@@ -562,7 +562,7 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
 			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
 			materialParamsPath = materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/'); // fallback fix
 
 			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
@@ -683,9 +683,23 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 					imageFilename = variantName == "None" ? "X - Outfit - Fortnite.png" : `${variantName} - Painted Style - Rocket Racing.png`;
 				} else {
 					const chIsStyle = channelName === "Style";
-					imageFilename = chIsStyle ? `${name} (${variantName}) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}) - ${cosmeticType} - Fortnite.png`;
-					const featuredFilename = chIsStyle ? `${name} (${variantName} - Featured) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`;
-					if (outputFeatured) {
+					let featuredFilename;
+					if (isFestivalCosmetic) {
+						if (cosmeticType != instrumentType) {
+							if (instrumentType == "Drums") {
+								imageFilename = chIsStyle ? `${name} (${variantName}) - Pickaxe - Fortnite.png` : `${name} (${channelName} - ${variantName}) - Pickaxe - Fortnite.png`;
+							} else {
+								imageFilename = chIsStyle ? `${name} (${variantName}) - ${instrumentType} - Fortnite Festival.png` : `${name} (${channelName} - ${variantName}) - ${instrumentType} - Fortnite Festival.png`;
+							}
+						} else {
+							imageFilename = chIsStyle ? `${name} (${variantName}) - ${instrumentType} - Fortnite Festival.png` : `${name} (${channelName} - ${variantName}) - ${instrumentType} - Fortnite Festival.png`;
+							featuredFilename = chIsStyle ? `${name} (${variantName} - Featured) - ${instrumentType} - Fortnite Festival.png` : `${name} (${channelName} - ${variantName} - Featured) - ${instrumentType} - Fortnite Festival.png`;
+						}
+					} else {
+						imageFilename = chIsStyle ? `${name} (${variantName}) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName}) - ${cosmeticType} - Fortnite.png`;
+						featuredFilename = chIsStyle ? `${name} (${variantName} - Featured) - ${cosmeticType} - Fortnite.png` : `${name} (${channelName} - ${variantName} - Featured) - ${cosmeticType} - Fortnite.png`;
+					}
+					if (outputFeatured && featuredFilename && !featuredFiles.has(featuredFilename)) {
 						featuredFiles.add(featuredFilename);
 					}
 				}
@@ -776,8 +790,23 @@ async function generateStyleSection(data, name, cosmeticType, mainIcon, outputFe
 						}
 						continue;
 					}
-
-					let imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
+					
+					let imageFile = "";
+					if (isFestivalCosmetic) {
+						if (cosmeticType != instrumentType) {
+							if (instrumentType == "Drums") {
+								imageFile = `${name} - Pickaxe - Fortnite.png`;
+							} else {
+								imageFile = `${name} - ${instrumentType} - Fortnite Festival.png`;
+							}
+						} else {
+							imageFile = `${name} - ${instrumentType} - Fortnite Festival.png`;
+						}
+					} else if (isRacingCosmetic) {
+						imageFile = `${name} - ${cosmeticType} - Rocket Racing.png`;
+					} else {
+						imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
+					}
 					// associate non-featured filenames with their variant tags
 					if (imageFile !== mainIcon.icon && imageFile !== mainIcon.large) {
 						imageFile = styleImages[key] ? styleImages[key] : imageFile;
@@ -1220,7 +1249,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		if (variantData.length > 0) {
-			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, mainIcon, are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
+			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
 		}
 	}
 

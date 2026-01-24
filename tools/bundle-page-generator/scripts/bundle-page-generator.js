@@ -526,9 +526,11 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 	}
 	
 	if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
-		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag} and contains cosmetics from the [[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
+		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag} and contains cosmetics from ${theSetFlag}[[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
 	} else if (cosmetics[0]?.setName) {
-		summary += ` ${theFlag}${bundleName} contains cosmetics from the [[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
+		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
+		summary += ` ${theFlag}${bundleName} contains cosmetics from ${theSetFlag}[[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
 	} else if (seasonFirstReleasedFlag) {
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag}.`;
 	}

@@ -806,8 +806,6 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 						} else {
 							imageFile = `${name} - ${instrumentType} - Fortnite Festival.png`;
 						}
-					} else if (isRacingCosmetic) {
-						imageFile = `${name} - ${cosmeticType} - Rocket Racing.png`;
 					} else {
 						imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
 					}

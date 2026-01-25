@@ -189,10 +189,14 @@ function updateSuggestions() {
 					removeBundleEntry();
 				}
 
+				document.getElementById('rocket-pass-field').style.display = 'block';
 				document.getElementById('rocket-league-field').style.display = 'block';
 				document.getElementById('rocket-league-cosmetic').checked = false;
 				document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 			} else {
+				document.getElementById('rocket-pass-field').style.display = 'none';
+				document.getElementById('source-rocket-pass').checked = false;
+				handleSourceSelection(); // needed since manually changing checked doesn't trigger
 				document.getElementById('rocket-league-field').style.display = 'none';
 				document.getElementById('rocket-league-cosmetic').checked = false;
 				document.getElementById('rocket-league-exclusive').checked = false;
@@ -802,8 +806,6 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 						} else {
 							imageFile = `${name} - ${instrumentType} - Fortnite Festival.png`;
 						}
-					} else if (isRacingCosmetic) {
-						imageFile = `${name} - ${cosmeticType} - Rocket Racing.png`;
 					} else {
 						imageFile = `${name} - ${cosmeticType} - Fortnite.png`;
 					}
@@ -1431,6 +1433,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
 	} else if (settings.isQuestReward) {
 		unlocked = `[[${settings.questName}]]`;
+	} else if (settings.isRocketPass) {
+		unlocked = `Level ${settings.rocketPassLevel} <br> {{RocketPass|${settings.rocketPassSeason}}}`;
 	} else if (settings.isItemShop && (settings.shopCost || bundlesEntries.length == 0)) {
 		unlocked = "[[Item Shop]]";
 	}
@@ -1475,6 +1479,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 	} else if (settings.isQuestReward && settings.questCost) {
 		cost = settings.questCost;
+	} else if (settings.isRocketPass) {
+		cost = `{{RLCredits|1,000}} <br> ({{RocketPass|${settings.rocketPassSeason}}})`;
 	}
 	
 	if (settings.isItemShop && bundlesEntries.length > 0) {
@@ -1635,6 +1641,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
 	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
 		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
+	} else if (settings.isRocketPass && settings.rocketPassLevel && settings.rocketPassSeason) {
+		article += ` can be unlocked by reaching Level ${settings.rocketPassLevel} of the [[w:c:rocketleague:Season ${settings.rocketPassSeason}#Rocket_Pass|Season ${settings.rocketPassSeason} Rocket Pass]].`;
 	} else if (settings.isItemShop) {
 		let bundles = "";
 		if (bundlesEntries.length > 0) {
@@ -2032,6 +2040,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (isFestivalCosmetic && (cosmeticType != instrumentType)) {
 		out.push("[[Category:Compatible Cosmetics]]");
 	}
+
+	if (settings.isRocketPass && settings.rocketPassSeason) {
+		out.push(`[[Category:Rocket Pass ${settings.rocketPassSeason}]]`);
+	}
 	
 	return out.join("\n");
 }
@@ -2090,6 +2102,7 @@ async function generatePage() {
 	const isMusicPass = elements.sourceMusicPass.checked;
 	const isLEGOPass = elements.sourceLEGOPass.checked;
 	const isQuestReward = elements.sourceQuestReward.checked;
+	const isRocketPass = elements.sourceRocketPass.checked;
 	
 	const isCollaboration = elements.collaboration.checked;
 	
@@ -2187,6 +2200,16 @@ async function generatePage() {
 		}
 	}
 
+	if (isRocketPass) {
+		const rocketPassSeasonInput = elements.rocketPassSeason.value.trim();
+		const rocketPassLevelInput = elements.rocketPassLevel.value.trim();
+
+		if (!rocketPassSeasonInput || !rocketPassLevelInput) {
+			showStatus('Please fill in Rocket Pass season and level', 'error');
+			return;
+		}
+	}
+
 	try {
 		showStatus('Searching for cosmetic...', 'loading');
 		
@@ -2226,6 +2249,11 @@ async function generatePage() {
 			questName: elements.questName ? elements.questName.value.trim() : "",
 			questCost: elements.questCost ? elements.questCost.value.trim() : "",
 			questFirstReleasedText: elements.questFirstReleasedText ? elements.questFirstReleasedText.checked : false,
+
+			// Rocket Pass
+			isRocketPass: isRocketPass,
+			rocketPassSeason: elements.rocketPassSeason ? elements.rocketPassSeason.value.trim() : "",
+			rocketPassLevel: elements.rocketPassLevel ? elements.rocketPassLevel.value.trim() : "",
 			
 			// Collaboration
 			isCollaboration,
@@ -2647,6 +2675,7 @@ async function initialiseApp() {
 		sourceMusicPass: document.getElementById('source-music-pass'),
 		sourceLEGOPass: document.getElementById('source-lego-pass'),
 		sourceQuestReward: document.getElementById('source-quest-reward'),
+		sourceRocketPass: document.getElementById('source-rocket-pass'),
 		
 		// Item Shop settings
 		itemShopSettings: document.getElementById('item-shop-settings'),
@@ -2697,6 +2726,11 @@ async function initialiseApp() {
 		questName: document.getElementById('quest-name'),
 		questCost: document.getElementById('quest-cost'),
 		questFirstReleasedText: document.getElementById('quest-first-released'),
+
+		// Rocket Pass settings
+		rocketPassSettings: document.getElementById('rocket-pass-settings'),
+		rocketPassSeason: document.getElementById('rocket-season'),
+		rocketPassLevel: document.getElementById('rocket-level'),
 		
 		// Display title checkbox
 		displayTitle: document.getElementById('display-title'),
@@ -2731,6 +2765,7 @@ async function initialiseApp() {
 		const musicPassChecked = elements.sourceMusicPass.checked;
 		const legoPassChecked = elements.sourceLEGOPass.checked;
 		const questRewardChecked = elements.sourceQuestReward.checked;
+		const rocketPassChecked = elements.sourceRocketPass.checked;
 		
 		// Show/hide settings based on selection
 		elements.itemShopSettings.classList.toggle('hidden', !itemShopChecked);
@@ -2740,11 +2775,12 @@ async function initialiseApp() {
 		elements.musicPassSettings.classList.toggle('hidden', !musicPassChecked);
 		elements.legoPassSettings.classList.toggle('hidden', !legoPassChecked);
 		elements.questRewardSettings.classList.toggle('hidden', !questRewardChecked);
+		elements.rocketPassSettings.classList.toggle('hidden', !rocketPassChecked);
 
 		// Hide/show released fields based on source selection
 		const releasedFields = document.querySelectorAll('.released-fields');
-		if (battlePassChecked || fortniteCrewChecked) {
-			// Hide all released fields for Battle Pass and Fortnite Crew
+		if (battlePassChecked || fortniteCrewChecked || ogPassChecked || musicPassChecked || legoPassChecked) {
+			// Hide all released fields for things we can auto fill
 			releasedFields.forEach(field => {
 				field.style.display = 'none';
 			});
@@ -2758,6 +2794,9 @@ async function initialiseApp() {
 			elements.releasedSwitch.checked = true;
 			elements.releasedSwitch.disabled = true;
 			elements.releasedLabel.textContent = 'Yes';
+		} else if (rocketPassChecked) {
+			document.getElementById('item-shop-history-field').style.display = 'none';
+			document.getElementById('item-shop-history').checked = false;
 		} else {
 			// Re-enable released switch for Item Shop
 			elements.releasedSwitch.disabled = false;
@@ -2778,6 +2817,7 @@ async function initialiseApp() {
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (battlePassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
@@ -2785,6 +2825,7 @@ async function initialiseApp() {
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (itemShopChecked) {
 			elements.sourceBattlePass.disabled = true;
 			elements.sourceFortniteCrew.disabled = true;
@@ -2792,6 +2833,7 @@ async function initialiseApp() {
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (ogPassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
@@ -2799,6 +2841,7 @@ async function initialiseApp() {
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (musicPassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
@@ -2806,6 +2849,7 @@ async function initialiseApp() {
 			elements.sourceOGPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (legoPassChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
@@ -2813,6 +2857,7 @@ async function initialiseApp() {
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceQuestReward.disabled = true;
+			elements.sourceRocketPass.disabled = true;
 		} else if (questRewardChecked) {
 			elements.sourceItemShop.disabled = true;
 			elements.sourceBattlePass.disabled = true;
@@ -2820,6 +2865,22 @@ async function initialiseApp() {
 			elements.sourceOGPass.disabled = true;
 			elements.sourceMusicPass.disabled = true;
 			elements.sourceLEGOPass.disabled = true;
+			elements.sourceRocketPass.disabled = true;
+		} else if (rocketPassChecked) {
+			elements.sourceItemShop.disabled = true;
+			elements.sourceBattlePass.disabled = true;
+			elements.sourceFortniteCrew.disabled = true;
+			elements.sourceOGPass.disabled = true;
+			elements.sourceMusicPass.disabled = true;
+			elements.sourceLEGOPass.disabled = true;
+			elements.sourceQuestReward.disabled = true;
+
+			document.getElementById('rocket-league-cosmetic').checked = true;
+			document.getElementById('rocket-league-exclusive').checked = true;
+			document.getElementById('rocket-league-cosmetic').dispatchEvent(new Event('change'));
+			document.getElementById('rocket-league-exclusive').dispatchEvent(new Event('change'));
+			document.getElementById('rocket-league-cosmetic').disabled = true;
+			document.getElementById('rocket-league-exclusive').disabled = true;
 		} else {
 			// Re-enable all if none selected
 			elements.sourceItemShop.disabled = false;
@@ -2829,6 +2890,14 @@ async function initialiseApp() {
 			elements.sourceMusicPass.disabled = false;
 			elements.sourceLEGOPass.disabled = false;
 			elements.sourceQuestReward.disabled = false;
+			elements.sourceRocketPass.disabled = false;
+		}
+
+		if (!rocketPassChecked) {
+			document.getElementById('rocket-league-cosmetic').disabled = false;
+			document.getElementById('rocket-league-exclusive').disabled = false;
+			document.getElementById('rocket-league-cosmetic').checked = false;
+			document.getElementById('rocket-league-exclusive').checked = false;
 		}
 	}
 
@@ -2908,6 +2977,7 @@ async function initialiseApp() {
 		const ogPassChecked = elements.sourceOGPass.checked;
 		const musicPassChecked = elements.sourceMusicPass.checked;
 		const legoPassChecked = elements.sourceLEGOPass.checked;
+		const rocketPassChecked = elements.sourceRocketPass.checked;
 		
 		// Update label
 		elements.releasedLabel.textContent = isReleased ? 'Yes' : 'No';
@@ -2916,7 +2986,9 @@ async function initialiseApp() {
 			// Show released fields only if not a Pass or Crew
 			if (!battlePassChecked && !fortniteCrewChecked && !ogPassChecked && !musicPassChecked && !legoPassChecked) {
 				releasedFields.forEach(field => {
-					field.style.display = 'flex';
+					if (!rocketPassChecked || field.id != 'item-shop-history-field') {
+						field.style.display = 'flex';
+					}
 				});
 			}
 		} else {
@@ -2949,6 +3021,7 @@ async function initialiseApp() {
 	elements.sourceMusicPass.addEventListener('change', handleSourceSelection);
 	elements.sourceLEGOPass.addEventListener('change', handleSourceSelection);
 	elements.sourceQuestReward.addEventListener('change', handleSourceSelection);
+	elements.sourceRocketPass.addEventListener('change', handleSourceSelection);
 
 	// Battle Pass season auto-fill event listener
 	elements.bpSeason.addEventListener('input', autoFillPassVersion);

@@ -89,6 +89,10 @@
 								<input type="checkbox" id="source-quest-reward" name="source">
 								Quest Reward
 							</label>
+							<label class="checkbox-label" id="rocket-pass-field" style="display: none">
+								<input type="checkbox" id="source-rocket-pass" name="source">
+								Rocket Pass
+							</label>
 						</div>
 
 						<!-- Item Shop Settings -->
@@ -281,6 +285,19 @@
 								Was FIRST released?
 							</label>
 						</div>
+
+						<!-- Rocket Pass Settings -->
+						<div id="rocket-pass-settings" class="source-settings hidden">
+							<h5>Rocket Pass Settings</h5>
+							<div class="inline-group">
+								<label for="rocket-season">Season:</label>
+								<input type="text" id="rocket-season" placeholder="6" pattern="[0-9]+">
+							</div>
+							<div class="inline-group">
+								<label for="rocket-level">Level:</label>
+								<input type="number" id="rocket-level" placeholder="1" min="1" max="100">
+							</div>
+						</div>
 					</div>
 					
 					<!-- Right Column: Release Status -->
@@ -302,7 +319,7 @@
 							<input type="date" id="release-date" />
 						</div>
 						
-						<div class="inline-group released-fields" style="display: none;">
+						<div class="inline-group released-fields" id="item-shop-history-field" style="display: none;">
 							<label class="checkbox-label">
 								<input type="checkbox" id="item-shop-history">
 								Item Shop History link

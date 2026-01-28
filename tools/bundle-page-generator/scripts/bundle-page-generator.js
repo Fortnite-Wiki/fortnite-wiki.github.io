@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
 import { SEASON_RELEASE_DATES } from '../../../data/datesAndVersions.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -24,28 +24,21 @@ async function loadData() {
 
 async function loadJamTracksData() {
     try {
-        console.log('Loading jam tracks data from API...');
-        
-        // Use CORS proxy to bypass CORS Policy restrictions
-        const apiUrl = 'https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game/spark-tracks';
-        const corsProxyUrl = 'https://corsproxy.io/?';
-        const proxiedUrl = corsProxyUrl + encodeURIComponent(apiUrl);
-        
-        const response = await fetch(proxiedUrl);
-        
-        if (!response.ok) {
-            throw new Error(`CORS proxy request failed: ${response.status} ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        
-        console.log('Jam tracks data loaded successfully from API via CORS proxy');
-        const trackCount = Object.values(data).filter(t => t.track).length;
+        console.log('Loading jam tracks data from Fortnite-Wiki-Bot repo...');
+
+		const tracks = await fetch("https://fortnite-wiki-bot-repo.mtonline.workers.dev/data/spark-tracks/tracks.json").then(res => res.json());
+		const overrides =  await fetch("https://fortnite-wiki-bot-repo.mtonline.workers.dev/data/spark-tracks/track_overrides.json").then(res => res.json());
+
+		for (const track in overrides) {
+			tracks[track] = overrides[track];
+		}
+
+        const trackCount = Object.values(tracks).length;
         console.log(`Loaded ${trackCount} tracks`);
 
-        return data;
+        return tracks;
     } catch (error) {
-        console.error('Error loading jam tracks data from API: ', error);
+        console.error('Error loading jam tracks data from Fortnite-Wiki-Bot repo: ', error);
     }
 }
 
@@ -238,22 +231,22 @@ function updateJamTrackSuggestions(displayField, suggestionsDiv) {
 	if (!query || !jamTracksData) return;
 
 	const matches = [];
-	for (const [key, trackData] of Object.entries(jamTracksData)) {
-		if (key.startsWith('_') || !trackData || !trackData.track) continue;
+	for (const track in jamTracksData) {
+		const id = track;
+		const name = jamTracksData[track];
 
-		const track = trackData.track;
-		const title = track.tt || key;
-
-		if (title.toLowerCase().includes(query) || key.toLowerCase().includes(query)) {
-			matches.push({ key, title });
+		if (name.toLowerCase().includes(query) || id.toLowerCase().includes(query)) {
+			matches.push({ id, name });
 		}
+
+		console.log(matches)
 	}
 
 	matches.slice(0, 5).forEach(match => {
 		const div = document.createElement('div');
-		div.textContent = match.title;
+		div.textContent = match.name;
 		div.addEventListener('click', () => {
-			displayField.value = match.title;
+			displayField.value = match.name;
 			suggestionsDiv.innerHTML = '';
 		});
 		suggestionsDiv.appendChild(div);
@@ -395,7 +388,7 @@ async function getBundleData(bundleID, bundleName) {
 	return { da, dav2 };
 }
 
-function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
+async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
 	const infobox = [];
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
 	if (settings.collaboration) infobox.push('{{Collaboration|Cosmetic}}');
@@ -590,7 +583,8 @@ function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProd
 			pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`);
 
 			if (cosmeticType == "Outfit" && hasLEGOStyle) {
-				pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - LEGO Fortnite.png|130px|link=${linkTarget}]]}}`);
+				const res = await getMostUpToDateImage(name, cosmeticType, true);
+				pushCell(`{{${rarity} Rarity|[[File:${res.file}|130px|link=${linkTarget}]]}}`);
 			}
 		}
 	}
@@ -855,7 +849,7 @@ async function handleGenerate() {
 		outBundleName = forceTitleCase(bundleName);
 		currentBundleName = outBundleName;
 	}
-	let page = generateBundlePage(bundleID, outBundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings);
+	let page = await generateBundlePage(bundleID, outBundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings);
 
 	document.getElementById('output').value = page;
 	document.getElementById('copy-btn').disabled = false;

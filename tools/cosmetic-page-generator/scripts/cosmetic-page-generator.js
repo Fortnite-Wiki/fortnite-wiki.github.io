@@ -1,25 +1,35 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
-import {
-	SEASON_RELEASE_DATES, SEASON_UPDATE_VERSIONS,
-	OG_SEASON_RELEASE_DATES, OG_SEASON_UPDATE_VERSIONS,
-	FESTIVAL_SEASON_RELEASE_DATES, FESTIVAL_SEASON_UPDATE_VERSIONS,
-	LEGO_SEASON_RELEASE_DATES, LEGO_SEASON_UPDATE_VERSIONS
-} from '../../../data/datesAndVersions.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists } from '../../../tools/utils.js';
+import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
+import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
+import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
+import { initFormBehaviors } from '../../../tools/form-behaviors.js';
 
 const DATA_BASE_PATH = '../../../data/';
+
+const CATEGORIES_FOR_SELECTION = [
+	'Cel-Shaded Cosmetics',
+	'Free Cosmetics',
+	'Tournament Cosmetics',
+	'Compatible Cosmetics',
+	'Transformative Cosmetics',
+	'Winter Cosmetics',
+];
 
 let index = [];
 let companionVTIDs = [];
 let cosmeticSets = {};
+let jamTrackNames = [];
+
 let elements = {};
 
 let isCrewAutoDetected = false;
 
-let bundlesEntries = [];
 let featuredCharactersEntries = [];
+let selectedCategories = [];
+let addCompatibleCosmeticsCategory = false;
 
-const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;
+let pageTitle = '';
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -35,52 +45,18 @@ async function loadCosmeticSets() {
 	cosmeticSets = await resp.json();
 }
 
-async function autoDetectCosmeticSource(input) {
-	if (!input.trim()) {
-		// Reset auto-detection flag when input is cleared
-		isCrewAutoDetected = false;
-		return;
-	}
-	
-	try {
-		const result = await searchCosmetic(input);
-		const { data } = result;
-		
-		if (data) {
-			const props = data.Properties;
-			let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
-						 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
-			
-			// Check for series conversion
-			const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
-			if (seriesEntry) {
-				let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
-				rarity = SERIES_CONVERSION[series] || rarity;
-			}
-			
-			// Auto-tick Fortnite Crew if Crew Series
-			if (rarity === "Crew Series") {
-				elements.sourceFortniteCrew.checked = true;
-				isCrewAutoDetected = true;
-				elements.sourceFortniteCrew.dispatchEvent(new Event('change'));
-			} else {
-				// Reset auto-detection flag if not Crew Series
-				isCrewAutoDetected = false;
-			}
-		}
-	} catch (error) {
-		console.warn('Auto-detection failed:', error);
-		isCrewAutoDetected = false;
-	}
+async function loadJamTrackNames() {
+	const jamTrackData = await fetch("https://fortnite-wiki-bot-repo.mtonline.workers.dev/data/spark-tracks/tracks.json").then(res => res.json());
+	jamTrackNames = Object.values(jamTrackData);
 }
 
 function updateSuggestions() {
-  const input = document.getElementById("cosmetic-display").value.trim().toLowerCase();
-  const sugDiv = document.getElementById("suggestions");
-  sugDiv.innerHTML = "";
-  if (!input) return;
+	const input = document.getElementById("cosmetic-display").value.trim().toLowerCase();
+	const sugDiv = document.getElementById("suggestions");
+	sugDiv.innerHTML = "";
+	if (!input) return;
 
-  if (!Array.isArray(index) || index.length === 0) return;
+	if (!Array.isArray(index) || index.length === 0) return;
 
 	// Exclude bundle entries and entries missing name/id
 	const candidateIndex = index.filter(e => {
@@ -90,7 +66,7 @@ function updateSuggestions() {
 	});
 
 	const scoredMatches = candidateIndex
-	  .map(e => {
+		.map(e => {
 		const name = (e.name || '').toLowerCase();
 		const id = (e.id || '').toLowerCase();
 		let score = 0;
@@ -104,23 +80,22 @@ function updateSuggestions() {
 		else if (id.includes(input)) score += 10;
 
 		return { entry: e, score };
-	  })
-	  .filter(item => item.score > 0)
-	  .sort((a, b) => b.score - a.score)
-	  .slice(0, 10);
+		})
+		.filter(item => item.score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
 
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement("div");
 		div.textContent = `${entry.name} (${entry.id})`;
 		div.onclick = async () => {
-			while (bundlesEntries.length != 0) {
-				removeBundleEntry();
-			}
+			elements.displayTitle.disabled = false;
+
+			const bundles = getBundleEntries();
+			bundles.forEach(() => removeBundleEntry());
 			var ftChrsSection = document.getElementById("featured-characters-config");
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
-			while (featuredCharactersEntries.length != 0) {
-				removeFeaturedCharacterEntry();
-			}
+			featuredCharactersEntries.forEach(() => removeFeaturedCharacterEntry());
 
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 			document.getElementById("cosmetic-input").value = entry.id;
@@ -128,15 +103,18 @@ function updateSuggestions() {
 			document.getElementById("shop-appearances").value = entry.name;
 			sugDiv.innerHTML = "";
 
+
 			if (entry.companionEmote) {
 				document.getElementById('rocket-league-field').style.display = 'none';
 				const displayTitleEl = document.getElementById('display-title');
 				displayTitleEl.checked = false;
 				displayTitleEl.disabled = false;
+				await updateWikiPageButton(entry.name, 'Emote');
+
+				elements.sourceQuestReward.checked = true;
+				elements.sourceQuestReward.dispatchEvent(new Event('change'));
 				return;
 			}
-			
-			autoDetectCosmeticSource(entry.id);
 
 			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
 			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) return;
@@ -145,20 +123,41 @@ function updateSuggestions() {
 			const ID = itemDefinitionData.Name;
 			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
 
+			await updateWikiPageButton(entry.name, cosmeticType);
+
+			const props = itemDefinitionData.Properties || {};
+			let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
+						 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
+			
+			const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
+			if (seriesEntry) {
+				let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
+				rarity = SERIES_CONVERSION[series] || rarity;
+			}
+			
+			// Auto-tick Fortnite Crew if Crew Series
+			if (rarity === "Crew Series") {
+				elements.sourceFortniteCrew.checked = true;
+				elements.sourceFortniteCrew.disabled = true;
+				isCrewAutoDetected = true;
+				elements.sourceFortniteCrew.dispatchEvent(new Event('change'));
+			} else {
+				// Reset auto-detection flag if not Crew Series
+				isCrewAutoDetected = false;
+			}
+
 			const isFestivalCosmetic = entry.path.startsWith("Festival") && itemDefinitionData.Type != "AthenaDanceItemDefinition";
 			let instrumentType;
 			if (isFestivalCosmetic && cosmeticType != "Aura") {
-				if (itemDefinitionData.Type in INSTRUMENTS_TYPE_MAP) {
-					instrumentType = INSTRUMENTS_TYPE_MAP[itemDefinitionData.Type];
-				} else {
-					instrumentType = ID.split("_").at(-1);
-					if (instrumentType == "Mic") {
-						instrumentType = "Microphone";
-					} else if (instrumentType == "DrumKit" || instrumentType == "DrumStick" || instrumentType == "Drum") {
-						instrumentType = "Drums";
-					}
-				}
+				instrumentType = INSTRUMENTS_TYPE_MAP[itemDefinitionData.Type] || ID.split("_").at(-1);
+				// Normalize instrument type names
+				const drumTypes = ["DrumKit", "DrumStick", "Drum"];
+				if (instrumentType === "Mic") instrumentType = "Microphone";
+				else if (drumTypes.includes(instrumentType)) instrumentType = "Drums";
 			}
+
+			addCompatibleCosmeticsCategory = isFestivalCosmetic && (cosmeticType != instrumentType);
+			updateDropdownOptions();
 
 			if (cosmeticType == "Loading Screen" || cosmeticType == "Spray" || cosmeticType == "Emoticon") {
 				createFeaturedCharactersSection();
@@ -398,14 +397,6 @@ function extractSubtype(tags, cosmeticType) {
 	return "";
 }
 
-function parseBattlePassSeason(seasonInput) {
-	const match = seasonInput.toUpperCase().match(/^C(\d+)(M)?S(\d+)$/);
-	if (match) {
-		return { chapter: match[1], season: match[3], mini: !!match[2] };
-	}
-	return null;
-}
-
 function are_there_shop_assets(entryMeta) {
 	return entryMeta && entryMeta.dav2;
 }
@@ -418,11 +409,9 @@ async function getNumBRDav2Assets(entryMeta) {
 			if (Array.isArray(dav2Data)) {
 				for (const entry of dav2Data) {
 					const presentations = entry?.Properties?.ContextualPresentations;
+					if (!presentations) continue;
 					for (const pres of presentations) {
-						const tag = pres?.ProductTag.TagName;
-						if (tag == 'Product.BR') {
-							count++;
-						}
+						if (pres?.ProductTag?.TagName === 'Product.BR') count++;
 					}
 				}
 			}
@@ -435,24 +424,22 @@ async function getNumBRDav2Assets(entryMeta) {
 }
 
 function hasLegoStyle(entryMeta) {
-	return entryMeta && entryMeta.jido;
+	return entryMeta?.jido;
 }
 
 function hasBeanStyle(entryMeta) {
-	return entryMeta && entryMeta.beanid;
+	return entryMeta?.beanid;
 }
 
 async function hasLegoFeatured(entryMeta) {
 	try {
-		if (!entryMeta || !entryMeta.dav2) {
-			return false;
-		}
+		if (!entryMeta?.dav2) return false;
 		const displayAssetData = await loadGzJson(`${DATA_BASE_PATH}${entryMeta.dav2}`);
 		return displayAssetData.some(entry =>
 			entry.Properties?.ContextualPresentations?.some(p =>
 			p.ProductTag?.TagName === "Product.Juno"
 		)
-	  );
+		);
 	} catch (error) {
 		console.warn(`Failed to load DAv2 data for ${entryMeta.id}:`, error);
 		return false;
@@ -708,7 +695,31 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 					}
 				}
 			} else if (previewImage === "") {
-				imageFilename = "Empty (v31.40) - Icon - Fortnite.png";
+				
+				// TODO: Investigate ColorA and ColorB handling, MaterialsToAlter -> WingBath(round)
+				// for now, just use ColorA in VariantMaterialParams
+				
+				let colorHex = null;
+				
+				const variantMaterialParams = option.VariantMaterialParams || [];
+				for (const param of variantMaterialParams) {
+					const colorParams = param.ColorParams || [];
+					if (colorParams.length > 0) {
+						const colorAParam = colorParams.find(cp => cp.ParamName === "ColorA");
+						if (colorAParam?.Value?.Hex) {
+							colorHex = colorAParam.Value.Hex.toLowerCase();
+							break;
+						}
+					}
+				}
+
+				if (colorHex) {
+					imageFilename = ""; // no style image for color variants
+					colorHexMap[`${channelName},${variantName}`] = colorHex;
+					colorDisplayNameMap[`${channelName},${variantName}`] = variantName;
+				} else {
+					imageFilename = "Empty (v31.40) - Icon - Fortnite.png";
+				}
 			}
 			if (imageFilename !== "") {
 				styleImages[`${channelName},${variantName}`] = imageFilename;
@@ -870,11 +881,11 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 
 	let featured = null;
 	if (featuredFiles.size === numBRDav2Assets - 1) {
-		featured = (featuredFiles.size === 1 ? 
-			Array.from(featuredFiles).pop() : 
-			(featuredFiles.size > 0 ? 
-				["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
-				null));
+		if (featuredFiles.size === 1) {
+			featured = Array.from(featuredFiles)[0];
+		} else if (featuredFiles.size > 0) {
+			featured = ["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n");
+		}
 	}
 
 	const sectionHeader = cosmeticType == "Sidekick" ? "Appearance Options" : "Selectable Styles";
@@ -1043,8 +1054,30 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 	return section;
 }
 
-function generateCompanionEmotePage(ID, name, rarity, settings) {
+async function generateCompanionEmotePage(entryMeta, settings) {
 	const out = [];
+
+	const name = entryMeta.name;
+	const id = entryMeta.id;
+
+	const result = await searchCosmetic(entryMeta.companion_id);
+	const { data, allData, companionEntryMeta } = result;
+	const props = data.Properties;
+
+	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
+				props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
+	let series = null;
+
+	for (const entry of props.DataList || []) {
+		if (typeof entry === 'object' && entry !== null) {
+			if (entry.Series) {
+				series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
+				rarity = SERIES_CONVERSION[series] || rarity;
+			}
+		}
+	}
+
+	const companionName = props.ItemName?.LocalizedString.trim();
 
 	if (settings.displayTitle) {
 		out.push(`{{DISPLAYTITLE:${name}}}`);
@@ -1052,7 +1085,7 @@ function generateCompanionEmotePage(ID, name, rarity, settings) {
 	if (settings.isCollaboration) {
 		out.push("{{Collaboration|Cosmetic}}");
 	}
-	if (settings.unreleasedTemplate && !settings.isFortniteCrew) {
+	if (settings.isUnreleased && !settings.isFortniteCrew) {
 		out.push("{{Unreleased|Cosmetic}}");
 	}
 
@@ -1060,27 +1093,44 @@ function generateCompanionEmotePage(ID, name, rarity, settings) {
 	out.push(`|name = ${name}`);
 	out.push(`|image = ${name} - Sidekick Emote - Fortnite.png`);
 	out.push(`|rarity = ${rarity}`);
-	out.push("|type = Sidekick Emote");
 	out.push("|type = Emote");
 	out.push("|additional = {{Built-In}}")
-	out.push(`|ID = ${ID}`);
+	out.push(`|unlocked = [[${companionName}'s Rewards}]]`);
+	out.push(`|cost = ${settings.questCost} <br> <small>([[${companionName}]])</small>`);
+	out.push(`|release = ${generateReleaseParameter(settings)}`);
+	if (settings.updateVersion != "") {
+		out.push(`|added_in = [[Update v${settings.updateVersion}]]`);
+	} else {
+		out.push("|added_in = ");
+	}
+	out.push(`|ID = ${id}`);
+	out.push("|LEGOUse = y");
+	out.push("|LEGOID = n");
+	out.push("|BallisticUse = n");
 	out.push("}}");
-	out.push(`'''${name}''' is a {{Sidekick Emote}} in [[Fortnite]].`);
+	out.push(`'''${name}''' is ${articleFor(rarity)} ${rarity} {{Emote}} in [[Fortnite]] that can be obtained as a reward from [[${companionName}'s Rewards]]. ${getSeasonReleased(settings.releaseDate, settings)}`);
+
+	out.push(`\n${name} is [[${companionName}]]'s [[Built-In Cosmetics|Built-In Emote]] and can only be used while using it.`);
+
+	out.push(`\n{{LEGO Emote|${name}}}`);
+
+	out.push("");
+
+	out.push("[[Category:Built-In Emotes]]");
+	out.push("[[Category:Sidekick Emotes]]");
 
 	return out.join("\n");
 }
 
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (!entryMeta.path && entryMeta.companionEmote) {
-		const ID = entryMeta.id;
-		const name = entryMeta.name;
-		const rarity = entryMeta.rarity;
-
-		return generateCompanionEmotePage(ID, name, rarity, settings);
+		return await generateCompanionEmotePage(entryMeta, settings);
 	}
 
+	const bundleEntries = getBundleEntries();
+
 	let inOwnCharacterBundle = false;
-	for (const bundleEntry of bundlesEntries) {
+	for (const bundleEntry of bundleEntries) {
 		if (characterBundlePattern.test(bundleEntry.bundleID.value)) {
 			inOwnCharacterBundle = true;
 			break;
@@ -1116,6 +1166,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 	if (cosmeticType === "Turbo") {
 		cosmeticType = "Boost";
+	}
+
+	let usePlural = false;
+	if (cosmeticType == 'Wheels' || cosmeticType == 'Kicks') {
+		usePlural = true;
 	}
 	
 	const isFestivalCosmetic = entryMeta.path && entryMeta.path.startsWith("Festival") && type != "AthenaDanceItemDefinition";
@@ -1263,11 +1318,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
 
 			if (featuredFiles.length > 0) {
-				featured = (featuredFiles.length === 1 ? 
-					Array.from(featuredFiles).pop() : 
-					(featuredFiles.length > 0 ? 
-						["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n") : 
-						null));
+				if (featuredFiles.length === 1) {
+					featured = featuredFiles[0];
+				} else {
+					featured = ["<gallery>", ...featuredFiles.map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n");
+				}
 			}
 		}
 	}
@@ -1285,7 +1340,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push("{{Collaboration|Cosmetic}}");
 	}
 	
-	if (settings.unreleasedTemplate && !settings.isFortniteCrew) {
+	if (settings.isUnreleased && !settings.isFortniteCrew) {
 		out.push("{{Unreleased|Cosmetic}}");
 	}
 	
@@ -1400,107 +1455,20 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	const additional = extractAdditionals(tags);
 	if (additional) {
+		if (!additional.includes("Selectable Styles") && props.ItemVariants) {
+			additional = "{{Selectable Styles}} " + additional;
+		}
 		out.push(`|additional = ${additional}`);
+	} else if (props.ItemVariants) {
+		out.push("|additional = {{Selectable Styles}}");
 	}
 
 	if (setName) {
 		out.push(`|set = [[:Category:${setName} Set|${setName}]]`);
 	}
 
-	// Unlocked parameter
-	let unlocked = "";
-	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
-		unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
-	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
-		const freeFlag = settings.passFreeBP ? "|Free" : "";
-		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
-			const rawName = settings.bpNonLinearSetName.trim();
-			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-			unlocked = `Page ${settings.bpPage} <br> ${possessive} ${bonusFlag}Set <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
-		} else {
-			unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
-		}
-	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-		const freeFlag = settings.passFreeOG ? "|Free" : "";
-		unlocked = `Page ${settings.ogPage} <br> {{OGPass|${settings.ogSeason}${freeFlag}}}`;
-	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-		const freeFlag = settings.passFreeMusic ? "|Free" : "";
-		unlocked = `Page ${settings.musicPage} <br> {{MusicPass|${settings.musicSeason}${freeFlag}}}`;
-	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason && settings.legoSeasonAbbr) {
-		const freeFlag = settings.passFreeLego ? "|Free" : "|";
-		unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${settings.legoSeasonAbbr}}}`;
-	} else if (settings.isQuestReward) {
-		unlocked = `[[${settings.questName}]]`;
-	} else if (settings.isRocketPass) {
-		unlocked = `Level ${settings.rocketPassLevel} <br> {{RocketPass|${settings.rocketPassSeason}}}`;
-	} else if (settings.isItemShop && (settings.shopCost || bundlesEntries.length == 0)) {
-		unlocked = "[[Item Shop]]";
-	}
-	if (settings.isItemShop && bundlesEntries.length > 0) {
-		const bundleNames = bundlesEntries
-			.map(be => {
-				if (!be.bundleName || !be.bundleName.value) return null;
-				const rawName = be.bundleName.value.trim();
-				const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-				const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-				return addItemShopBundleTag ? `[[${name} (Item Shop Bundle)|${name}]]` : `[[${name}]]`;
-			})
-			.filter(bn => bn !== null);
-		if (bundleNames.length > 0) {
-			unlocked = unlocked ? unlocked + " <br> " + bundleNames.join(" <br> ") : bundleNames.join(" <br> ");
-		}
-	}
-	out.push(`|unlocked = ${unlocked}`);
-
-	// Cost parameter
-	let cost = "";
-	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
-		cost = "Free";
-	} else if (settings.isFortniteCrew || rarity === "Crew Series") {
-		cost = "$11.99 <br /> ({{Fortnite Crew}})";
-	} else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-		const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-		cost = `{{V-Bucks|1,000}} <br> ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
-	} else if (settings.isOGPass && settings.ogSeason) {
-		cost = `{{V-Bucks|1,000}} <br> ({{OGPass|${settings.ogSeason}}})`;
-	} else if (settings.isMusicPass && settings.musicSeason) {
-		cost = `{{V-Bucks|1,400}} <br> ({{MusicPass|${settings.musicSeason}}})`;
-	} else if (settings.isLEGOPass && settings.legoSeason && settings.legoSeasonAbbr) {
-		cost = `{{V-Bucks|1,400}} <br> ({{LEGOPass|${settings.legoSeason}||${settings.legoSeasonAbbr}}})`;
-	} else if (settings.isItemShop && settings.shopCost) {
-		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
-			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
-		) {
-			cost = ensureVbucksTemplate(settings.shopCost) + ` <small>([[${name} (${instrumentType})|${name}]])</small>`;
-		} else {
-			cost = ensureVbucksTemplate(settings.shopCost);
-		}
-	} else if (settings.isQuestReward && settings.questCost) {
-		cost = settings.questCost;
-	} else if (settings.isRocketPass) {
-		cost = `{{RLCredits|1,000}} <br> ({{RocketPass|${settings.rocketPassSeason}}})`;
-	}
-	
-	if (settings.isItemShop && bundlesEntries.length > 0) {
-		const bundleCosts = bundlesEntries
-			.map(be => {
-				if (be.bundleName.value && be.bundleCost.value) {
-					const rawName = be.bundleName.value.trim();
-					const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-					const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-					return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
-				}
-				return null;
-			})
-			.filter(bc => bc !== null);
-		if (bundleCosts.length > 0) {
-			cost = cost ? cost + " <br> " + bundleCosts.join(" <br> ") : bundleCosts.join(" <br> ");
-		}
-	}
-
-	out.push(`|cost = ${cost}`);
+	out.push(`|unlocked = ${generateUnlockedParameter(settings, bundleEntries)}`);
+	out.push(`|cost = ${generateCostParameter(settings, bundleEntries, isFestivalCosmetic, name, rarity, cosmeticType, instrumentType)}`);
 	
 	if (settings.updateVersion != "") {
 		out.push(`|added_in = [[Update v${settings.updateVersion}]]`);
@@ -1508,60 +1476,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push("|added_in = ");
 	}
 
-	// Release section
-	let release = "";
-	if (settings.releaseDate) {
-		// using this instead of simply
-		// const date = new Date(settings.releaseDate);
-		// because of timezones affecting the entered date
-		const [year, month, day] = settings.releaseDate.split('-').map(Number);
-		const date = new Date(year, month - 1, day); // month is 0-indexed
-		
-		if (settings.itemShopHistory) {
-			const historyDate = getFormattedReleaseDate(date);
-			const partLink = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";
-			const partText = settings.shopHistoryPart ? `<br/><small><small>Part ${settings.shopHistoryPart}</small></small>` : "";
-			release = `[[Item Shop History/${historyDate}${partLink}|${historyDate}${partText}]]`;
-		} else {
-			release = getFormattedReleaseDate(date);
-		}
-	} else if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
-		release = `[[Item Shop History/${settings.crewMonth} 1st ${settings.crewYear}|${settings.crewMonth} 1st ${settings.crewYear}]]`;
-	} else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-		const seasonKey = `C${settings.bpChapter}${settings.isMiniSeason ? 'M' : ''}S${settings.bpSeasonNum}`;
-		const seasonReleaseDate = SEASON_RELEASE_DATES[seasonKey];
-		if (seasonReleaseDate) {
-			release = getFormattedReleaseDate(seasonReleaseDate);
-		} else {
-			release = getFormattedReleaseDate();
-		}
-	} else if (settings.isOGPass && settings.ogSeason) {
-		const ogReleaseDate = OG_SEASON_RELEASE_DATES[settings.ogSeason];
-		if (ogReleaseDate) {
-			release = getFormattedReleaseDate(ogReleaseDate);
-		} else {
-			release = getFormattedReleaseDate();
-		}
-	}
-	else if (settings.isMusicPass && settings.musicSeason) {
-		const musicReleaseDate = FESTIVAL_SEASON_RELEASE_DATES[settings.musicSeason];
-		if (musicReleaseDate) {
-			release = getFormattedReleaseDate(musicReleaseDate);
-		}
-		else {
-			release = getFormattedReleaseDate();
-		}
-	}
-	else if (settings.isLEGOPass && settings.legoSeason) {
-		const legoReleaseDate = LEGO_SEASON_RELEASE_DATES[settings.legoSeason];
-		if (legoReleaseDate) {
-			release = getFormattedReleaseDate(legoReleaseDate);
-		}
-		else {
-			release = getFormattedReleaseDate();
-		}
-	}
-	out.push(`|release = ${release}`);
+	out.push(`|release = ${generateReleaseParameter(settings)}`);
 	
 	if (settings.isItemShop && settings.includeAppearances) {
 		out.push(`|appearances = ${settings.shopAppearances}`);
@@ -1609,137 +1524,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`}}{{Quotation|${description}}}`);
 
 	// Article section
-	let article = `'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
+	let article = `'''${name}''' ${usePlural ? 'are' : 'is' + articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
 	
-	const obtainedOnPageCompletion =
-		(settings.isBattlePass && settings.bpPageCompletion) ||
-		(settings.isOGPass && settings.ogPageCompletion) ||
-		(settings.isMusicPass && settings.musicPageCompletion) ||
-		(settings.isLEGOPass && settings.legoPageCompletion);
+	article += generateArticleIntro(settings, bundleEntries, name, cosmeticType, isFestivalCosmetic, instrumentType, usePlural);
 	
-	const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
-
-	if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
-		article += ` that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
-	} else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
-		const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-		const miniSeasonFlag = settings.isMiniSeason ? "Mini " : "";
-		if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
-			const rawName = settings.bpNonLinearSetName.trim();
-			const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-			article += ` that can be obtained${pageCompletionFlag} on Page ${settings.bpPage} of ${possessive} ${bonusFlag}Set in the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]]`;
-			if (settings.bpNonLinearLevel) {
-				article += `, which can only be unlocked after reaching Level ${settings.bpNonLinearLevel}`;
-			}
-			article += ".";
-		} else {
-			article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
-		}
-	} else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
-	} else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
-	} else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
-		article += ` that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
-	} else if (settings.isRocketPass && settings.rocketPassLevel && settings.rocketPassSeason) {
-		article += ` can be unlocked by reaching Level ${settings.rocketPassLevel} of the [[w:c:rocketleague:Season ${settings.rocketPassSeason}#Rocket_Pass|Season ${settings.rocketPassSeason} Rocket Pass]].`;
-	} else if (settings.isItemShop) {
-		let bundles = "";
-		if (bundlesEntries.length > 0) {
-			const bundlesToAdd = bundlesEntries
-				.map(be => {
-					if (be.bundleName.value && be.bundleCost.value) {
-						const rawName = be.bundleName.value.trim();
-						const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-						const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-						const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
-						const i = bundlesEntries.indexOf(be);
-						const previousHas = i > 0 && bundlesEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
-						const orFlag = (settings.shopCost || previousHas) ? " or " : "";
-						const itemShopFlag = (!settings.shopCost && !previousHas && orFlag == "") ? "in the [[Item Shop]] " : "";
-						return `${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
-					}
-					return null;
-				})
-				.filter(bc => bc !== null);
-			if (bundlesToAdd.length > 0) {
-				bundles = bundlesToAdd.join("");
-			}
-		}
-
-		let bundledWithFlag = "";
-		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
-			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
-		) {
-			bundledWithFlag = ` with [[${name} (${instrumentType})|${name}]]`;
-		}
-
-		const itemShopFlag = settings.shopCost ? `in the [[Item Shop]]${bundledWithFlag} for ${ensureVbucksTemplate(settings.shopCost)}` : "";
-		if (itemShopFlag || bundles) {
-			article += ` that can be purchased ${itemShopFlag}${bundles}.`;
-		} else {
-			if (settings.unreleasedTemplate) {
-				article += " that is currently unreleased";;
-			}
-			article += ".";
-			
-		}
-	} else if (settings.isQuestReward && settings.questName) {
-		article += ` that can be obtained as a reward from [[${settings.questName}]].`;
-	} else if (settings.unreleasedTemplate) {
-		article += " that is currently unreleased.";
-	} else {
-		article += ".";
-	}
-	
-	let seasonFirstReleasedFlag = "";
-	if (settings.releaseDate) {
-		// using this instead of simply
-		// const date = new Date(settings.releaseDate);
-		// because of timezones affecting the entered date
-		const [year, month, day] = settings.releaseDate.split('-').map(Number);
-		const date = new Date(year, month - 1, day); // month is 0-indexed
-		
-		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
-			.sort(([, dateA], [, dateB]) => dateA - dateB);
-		
-		// Find the matching season key
-		let matchedSeasonKey = null;
-		for (let i = 0; i < sortedSeasons.length; i++) {
-			const [currentKey, currentDate] = sortedSeasons[i];
-			const nextDate = sortedSeasons[i + 1]?.[1];
-
-			if (date >= currentDate && (!nextDate || date < nextDate)) {
-				matchedSeasonKey = currentKey;
-				break;
-			}
-		}
-
-		const firstTextFlag = !settings.isQuestReward || settings.questFirstReleasedText ? 'first ' : '';
-		
-		if (matchedSeasonKey) {
-			if (matchedSeasonKey === 'C2R') {
-				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter 2 Remix]]`;
-			} else if (matchedSeasonKey === 'C6MS1') {
-				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Galactic Battle]]`;
-			} else if (matchedSeasonKey === 'C6MS2') {
-				seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter 6: Mini Season 2]]`;
-			} else {
-				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
-				const chapter = keyMatch[1];
-				const mini = keyMatch[2];
-				const season = keyMatch[3];
-
-				if (chapter && season) {
-					if (mini) {
-						seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter ${chapter}: Mini Season ${season}]]`;
-					} else {
-						seasonFirstReleasedFlag = ` was ${firstTextFlag}released in [[Chapter ${chapter}: Season ${season}]]`;
-					}
-				}
-			}
-		}
-	}
+	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings, usePlural);
 	
 	if (setName && seasonFirstReleasedFlag) {
 		const theFlag = setName.toLowerCase().startsWith("the ") ? "" : "the ";
@@ -1975,8 +1764,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		) {
 			appearancesSection.push(`|bundled_with = [[${name} (${instrumentType})|${name}]]`);
 		} else {
-			if (bundlesEntries.length == 1 && settings.shopCost == "") {
-				const be = bundlesEntries[0];
+			if (bundleEntries.length == 1 && settings.shopCost == "") {
+				const be = bundleEntries[0];
 				if (be.bundleName && be.bundleName.value) {
 					const rawName = be.bundleName.value.trim();
 					const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
@@ -1985,7 +1774,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 					appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
 				}
 			} else if (inOwnCharacterBundle) {
-				for (const be of bundlesEntries) {
+				for (const be of bundleEntries) {
 					if (characterBundlePattern.test(be.bundleID.value)) {
 						if (be.bundleName && be.bundleName.value) {
 							if (be.bundleName.value.trim().toLowerCase() === name.toLowerCase() || settings.shopCost == "") {
@@ -2021,29 +1810,44 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 
 	// Categories
+	const addedCategories = new Set(); // Track categories that have been added
+	
 	if (setName) {
 		out.push(`[[Category:${setName} Set]]`);
+		addedCategories.add(`${setName} Set`);
 	}
 
 	if (settings.remixOf) {
 		out.push(`[[Category:Remixed Cosmetics]]`);
+		addedCategories.add('Remixed Cosmetics');
 	}
 
 	if (hasUnlockableVariants) {
 		out.push("[[Category:Unlockable Styles]]");
+		addedCategories.add('Unlockable Styles');
 	}
 
-	if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLego)) {
+	if (settings.isFree) {
 		out.push("[[Category:Free Cosmetics]]");
+		addedCategories.add('Free Cosmetics');
 	}
 	
 	if (isFestivalCosmetic && (cosmeticType != instrumentType)) {
 		out.push("[[Category:Compatible Cosmetics]]");
+		addedCategories.add('Compatible Cosmetics');
 	}
 
 	if (settings.isRocketPass && settings.rocketPassSeason) {
 		out.push(`[[Category:Rocket Pass ${settings.rocketPassSeason}]]`);
+		addedCategories.add(`Rocket Pass ${settings.rocketPassSeason}`);
 	}
+	
+	// Add additional selected categories (avoid duplicates)
+	selectedCategories.forEach(category => {
+		if (!addedCategories.has(category)) {
+			out.push(`[[Category:${category}]]`);
+		}
+	});
 	
 	return out.join("\n");
 }
@@ -2073,6 +1877,8 @@ function clearOutput() {
 	if (elements.output) {
 		elements.output.value = "";
 		elements.copyBtn.disabled = true;
+		elements.wikiPageBtn.disabled = true;
+		elements.wikiPageBtn.textContent = 'Create page';
 	}
 }
 
@@ -2089,23 +1895,73 @@ async function copyToClipboard() {
 	}
 }
 
+async function determinePageTitle(cosmeticName, cosmeticType) {
+	const duplicates = index.filter(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
+	const jamTrackExists = jamTrackNames.filter(name => name.toLowerCase() === cosmeticName.toLowerCase()).length > 0;
+
+	const typedPageTitle = `${cosmeticName} (${cosmeticType})`;
+	
+	// If duplicates exist, default to typed page title
+	if (duplicates.length > 1 || jamTrackExists) {
+		return typedPageTitle;
+	}
+	
+	// Prefer base name if it exists
+	const baseExists = await pageExists(cosmeticName);
+	if (baseExists) {
+		return cosmeticName;
+	}
+	// Check if typed page exists
+	const typedExists = await pageExists(typedPageTitle);
+	if (typedExists) {
+		return typedPageTitle;
+	}
+	// Neither exists, default to creating with base name
+	return cosmeticName;
+}
+
+async function openWikiPage() {
+	const exists = await pageExists(pageTitle)
+
+	const wikiUrl = `https://fortnite.fandom.com/wiki/${encodeURIComponent(pageTitle)}`;
+	const finalUrl = exists ? `${wikiUrl}?action=edit` : wikiUrl;
+	
+	window.open(finalUrl, '_blank');
+	showStatus(`${exists ? 'Edit' : 'Create'} page opened in new tab`, 'success');
+	setTimeout(hideStatus, 2000);
+}
+
+async function updateWikiPageButton(cosmeticName, cosmeticType) {
+	const cosmetic = index.find(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
+	pageTitle = await determinePageTitle(cosmeticName, cosmeticType);
+	
+	if (!cosmetic) {
+		elements.wikiPageBtn.disabled = true;
+		elements.wikiPageBtn.textContent = 'Create page';
+		return;
+	}
+	
+	elements.wikiPageBtn.disabled = false;
+	elements.wikiPageBtn.textContent = await pageExists(pageTitle) ? 'Edit page' : 'Create page';
+}
+
 async function generatePage() {
 	const cosmeticInput = elements.cosmeticInput.value.trim();
 	const cosmeticDisplayInput = elements.cosmeticDisplayInput.value.trim();
-	const isReleased = elements.releasedSwitch.checked;
-	
-	// Get source selection
-	const isItemShop = elements.sourceItemShop.checked;
-	const isBattlePass = elements.sourceBattlePass.checked;
-	const isFortniteCrew = elements.sourceFortniteCrew.checked;
-	const isOGPass = elements.sourceOGPass.checked;
-	const isMusicPass = elements.sourceMusicPass.checked;
-	const isLEGOPass = elements.sourceLEGOPass.checked;
-	const isQuestReward = elements.sourceQuestReward.checked;
-	const isRocketPass = elements.sourceRocketPass.checked;
-	
+
+	let settings = {
+		...getSourceReleaseSettings(elements),
+		displayTitle: elements.displayTitle.checked,
+		updateVersion: elements.updateVersion.value.trim(),
+		isCollaboration: isCollaboration,
+		hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
+		remixOf: elements.remixOf ? elements.remixOf.value.trim() : '',
+		isRocketLeagueCosmetic: isRocketLeagueCosmetic,
+		isRocketLeagueExclusive: isRocketLeagueExclusive
+	}
+
 	const isCollaboration = elements.collaboration.checked;
-	
+
 	const isRocketLeagueCosmetic = elements.isRocketLeagueCosmetic.checked;
 	const isRocketLeagueExclusive = elements.isRocketLeagueExclusive.checked;
 
@@ -2114,100 +1970,10 @@ async function generatePage() {
 		return;
 	}
 
-	// Source-specific validation
-	if (isBattlePass) {
-		const seasonInput = elements.bpSeason.value.trim();
-		const pageInput = elements.bpPage.value.trim();
-		const modeLinear = elements.bpModeLinear && elements.bpModeLinear.checked;
-		const modeNonLinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
-
-		// require explicit choice of Linear or Non-Linear
-		if (!modeLinear && !modeNonLinear) {
-			showStatus('Please choose Battle Pass mode: Linear or Non-Linear', 'error');
-			return;
-		}
-
-		if (!seasonInput || !pageInput) {
-			showStatus('Please fill in Battle Pass season and page', 'error');
-			return;
-		}
-
-		if (!parseBattlePassSeason(seasonInput)) {
-			showStatus('Invalid season format. Use format like C6S4', 'error');
-			return;
-		}
-
-		if (modeNonLinear) {
-			const p = Number(pageInput);
-			if (isNaN(p) || p < 1 || p > 2) {
-				showStatus('For Non-Linear mode the page must be 1 or 2', 'error');
-				return;
-			}
-			const setName = elements.bpNonLinearSetName.value.trim();
-			if (!setName) {
-				showStatus('Please enter the outfit set name for Non-Linear mode', 'error');
-				return;
-			}
-		}
-	}
-
-	if (isFortniteCrew) {
-		const month = elements.crewMonth.value;
-		const year = elements.crewYear.value;
-		
-		if (!month || !year) {
-			showStatus('Please select crew month and year', 'error');
-			return;
-		}
-	}
-	
-	if (isOGPass) {
-		const seasonInput = elements.ogSeason.value.trim();
-		const pageInput = elements.ogPage.value.trim();
-		
-		if (!seasonInput || !pageInput) {
-			showStatus('Please fill in OG Pass season and page', 'error');
-			return;
-		}
-	}
-	
-	if (isMusicPass) {
-		const seasonInput = elements.musicSeason.value.trim();
-		const pageInput = elements.musicPage.value.trim();
-		
-		if (!seasonInput || !pageInput) {
-			showStatus('Please fill in Music Pass season and page', 'error');
-			return;
-		}
-	}
-	
-	if (isLEGOPass) {
-		const seasonInput = elements.legoSeason.value.trim();
-		const seasonAbbrInput = elements.legoSeasonAbbr.value.trim();
-		const pageInput = elements.legoPage.value.trim();
-		
-		if (!seasonInput || !seasonAbbrInput || !pageInput) {
-			showStatus('Please fill in LEGO Pass season, abbreviation and page', 'error');
-			return;
-		}
-	}
-
-	if (isQuestReward) {
-		const questNameInput = elements.questName.value.trim();
-		if (!questNameInput) {
-			showStatus('Please enter the name of the quests that grant this cosmetic', 'error');
-			return;
-		}
-	}
-
-	if (isRocketPass) {
-		const rocketPassSeasonInput = elements.rocketPassSeason.value.trim();
-		const rocketPassLevelInput = elements.rocketPassLevel.value.trim();
-
-		if (!rocketPassSeasonInput || !rocketPassLevelInput) {
-			showStatus('Please fill in Rocket Pass season and level', 'error');
-			return;
-		}
+	const validationError = validateSourceSettings(settings, elements);
+	if (validationError) {
+		showStatus(validationError, 'error');
+		return;
 	}
 
 	try {
@@ -2226,94 +1992,6 @@ async function generatePage() {
 
 		showStatus('Generating page...', 'loading');
 
-		// Build settings object for the new interface
-		const settings = {
-			displayTitle: elements.displayTitle.checked,
-
-			updateVersion: elements.updateVersion.value.trim(),
-			unreleasedTemplate: !isReleased, // Automatically set based on released state
-			releaseDate: isReleased ? elements.releaseDate.value : "",
-			itemShopHistory: isReleased ? elements.itemShopHistory.checked : false,
-			shopHistoryPart: isReleased ? elements.shopHistoryPart.value : "",
-			
-			// Source settings
-			isItemShop,
-			isBattlePass,
-			isFortniteCrew,
-			isOGPass,
-			isMusicPass,
-			isLEGOPass,
-
-			// Quest reward
-			isQuestReward: isQuestReward,
-			questName: elements.questName ? elements.questName.value.trim() : "",
-			questCost: elements.questCost ? elements.questCost.value.trim() : "",
-			questFirstReleasedText: elements.questFirstReleasedText ? elements.questFirstReleasedText.checked : false,
-
-			// Rocket Pass
-			isRocketPass: isRocketPass,
-			rocketPassSeason: elements.rocketPassSeason ? elements.rocketPassSeason.value.trim() : "",
-			rocketPassLevel: elements.rocketPassLevel ? elements.rocketPassLevel.value.trim() : "",
-			
-			// Collaboration
-			isCollaboration,
-
-			// Renders
-			hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
-
-			// Remixes
-			remixOf: elements.remixOf ? elements.remixOf.value.trim() : "",
-			
-			// Racing
-			isRocketLeagueCosmetic,
-			isRocketLeagueExclusive,
-			
-			// Item Shop specific
-			shopCost: elements.shopCost.value,
-			includeAppearances: elements.includeAppearances.checked,
-			shopAppearances: elements.shopAppearances.value,
-			
-			// Battle Pass specific
-			bpPage: elements.bpPage.value,
-			battlePassMode: (elements.bpModeNonLinear && elements.bpModeNonLinear.checked) ? 'non-linear' : ((elements.bpModeLinear && elements.bpModeLinear.checked) ? 'linear' : ''),
-			bpNonLinearSetName: elements.bpNonLinearSetName ? elements.bpNonLinearSetName.value.trim() : "",
-			bpNonLinearLevel: elements.bpNonLinearLevel ? elements.bpNonLinearLevel.value.trim() : "",
-			bpBonus: elements.bpBonus.checked,
-			bpPageCompletion: elements.bpPageCompletion.checked,
-			
-			// Metaverse pass specific
-			ogSeason: elements.ogSeason.value,
-			ogPage: elements.ogPage.value,
-			ogPageCompletion: elements.ogPageCompletion.checked,
-			musicSeason: elements.musicSeason.value,
-			musicPage: elements.musicPage.value,
-			musicPageCompletion: elements.musicPageCompletion.checked,
-			legoSeason: elements.legoSeason.value,
-			legoSeasonAbbr: elements.legoSeasonAbbr.value,
-			legoPage: elements.legoPage.value,
-			legoPageCompletion: elements.legoPageCompletion.checked,
-			
-			// Free in any Pass (per pass)
-			passFreeBP: elements.passFreeBP && elements.passFreeBP.checked,
-			passFreeOG: elements.passFreeOG && elements.passFreeOG.checked,
-			passFreeMusic: elements.passFreeMusic && elements.passFreeMusic.checked,
-			passFreeLego: elements.passFreeLego && elements.passFreeLego.checked,
-			
-			// Fortnite Crew specific
-			crewMonth: elements.crewMonth.value,
-			crewYear: elements.crewYear.value
-		};
-
-		// Add parsed battle pass data if applicable
-		if (isBattlePass && elements.bpSeason.value) {
-			const seasonData = parseBattlePassSeason(elements.bpSeason.value.trim());
-			if (seasonData) {
-				settings.bpChapter = seasonData.chapter;
-				settings.bpSeasonNum = seasonData.season;
-				settings.isMiniSeason = seasonData.mini;
-			}
-		}
-
 		const pageContent = await generateCosmeticPage(data, allData, settings, entryMeta);
 		
 		displayOutput(pageContent);
@@ -2324,128 +2002,6 @@ async function generatePage() {
 		console.error('Error generating page:', error);
 		showStatus('Error generating page: ' + error.message, 'error');
 	}
-}
-
-// Create a new bundle entry DOM and hook up suggestion behavior
-function createBundleEntry() {
-	const list = document.getElementById('bundles-list');
-	if (!list) return;
-
-	const wrapper = document.createElement('div');
-	wrapper.className = 'bundle-entry';
-
-	const input = document.createElement('input');
-	input.type = 'text';
-	input.placeholder = 'enter bundle ID or Name';
-	input.className = 'bundle-display';
-	input.id = `bundle-display-${bundlesEntries.length + 1}`;
-	input.style = "display: block; margin-left: auto; margin-right: auto;";
-
-	const optionsWrapper = document.createElement('div');
-	optionsWrapper.className = 'bundle-options';
-	optionsWrapper.style.display = 'flex';
-	optionsWrapper.style.justifyContent = 'center';
-	optionsWrapper.style.alignItems = 'center';
-	optionsWrapper.style.gap = '1rem';
-	optionsWrapper.style.display = 'none';
-
-	const bundleCost = document.createElement('input');
-	bundleCost.type = 'text';
-	bundleCost.inputMode = 'numeric';
-	bundleCost.pattern = '^[0-9,]+$';
-	bundleCost.placeholder = 'V-Bucks cost';
-	bundleCost.className = 'vbucks-cost';
-	bundleCost.style.width = '150px';
-
-	const titleCaseLabel = document.createElement('label');
-	titleCaseLabel.textContent = 'Force title case? ';
-	titleCaseLabel.htmlFor = 'force-title-case';
-
-	const forceTitleCase = document.createElement('input');
-	forceTitleCase.type = 'checkbox';
-	forceTitleCase.className = 'force-title-case';
-	forceTitleCase.title = 'Force Title Case';
-
-	const bundleID = document.createElement('input');
-	bundleID.type = 'hidden';
-	bundleID.className = 'bundle-input';
-	bundleID.id = `bundle-id-${bundlesEntries.length + 1}`;
-
-	const bundleName = document.createElement('input');
-	bundleName.type = 'hidden';
-	bundleName.className = 'bundle-input-name';
-	bundleName.id = `bundle-name-${bundlesEntries.length + 1}`;
-
-	const suggestions = document.createElement('div');
-	suggestions.className = 'suggestions';
-
-	input.addEventListener('input', () => updateBundleSuggestions(input, bundleID, bundleName, optionsWrapper, suggestions));
-
-	wrapper.appendChild(input);
-	optionsWrapper.appendChild(bundleCost);
-	optionsWrapper.appendChild(titleCaseLabel);
-	optionsWrapper.appendChild(forceTitleCase);
-	wrapper.appendChild(optionsWrapper);
-	wrapper.appendChild(bundleID);
-	wrapper.appendChild(bundleName);
-	wrapper.appendChild(suggestions);
-
-	list.appendChild(wrapper);
-	bundlesEntries.push({bundleID, bundleName, bundleCost, forceTitleCase, wrapper});
-	input.focus();
-
-	return wrapper;
-}
-
-function removeBundleEntry() {
-	if (bundlesEntries.length === 0) return;
-	const entry = bundlesEntries.pop();
-	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
-}
-
-function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWrapper, sugDiv) {
-	const input = displayEl.value.trim().toLowerCase();
-	sugDiv.innerHTML = '';
-	if (!input) return;
-
-	if (!Array.isArray(index) || index.length === 0) return;
-
-	const scoredMatches = index
-		.filter(e => {
-			if (typeof e.id === 'string' || typeof e.name === 'string') return false;
-			return e.bundle_name && e.bundle_id;
-		})
-		.map(e => {
-			const bundle_name = (e.bundle_name || '').toLowerCase();
-			const bundle_id = (e.bundle_id || '').toLowerCase();
-			let score = 0;
-
-			if (bundle_name === input) score += 100;
-			else if (bundle_name.startsWith(input)) score += 75;
-			else if (bundle_name.includes(input)) score += 50;
-
-			if (bundle_id === input) score += 40;
-			else if (bundle_id.startsWith(input)) score += 25;
-			else if (bundle_id.includes(input)) score += 10;
-
-			return { entry: e, score };
-		})
-		.filter(item => item.score > 0)
-		.sort((a, b) => b.score - a.score)
-		.slice(0, 10);
-
-	scoredMatches.forEach(({ entry }) => {
-		const div = document.createElement('div');
-		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
-		div.onclick = () => {
-			displayEl.value = `${entry.bundle_name} (${entry.bundle_id})`;
-			optionsWrapper.style.display = 'flex';
-			hiddenIdEl.value = entry.bundle_id;
-			hiddenNameEl.value = entry.bundle_name;
-			sugDiv.innerHTML = '';
-		};
-		sugDiv.appendChild(div);
-	});
 }
 
 function createFeaturedCharactersSection() {
@@ -2588,7 +2144,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	});
 
 	const scoredMatches = candidateIndex
-	  .map(e => {
+		.map(e => {
 		const name = (e.name || '').toLowerCase();
 		const id = (e.id || '').toLowerCase();
 		let score = 0;
@@ -2602,10 +2158,10 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 		else if (id.includes(input)) score += 10;
 
 		return { entry: e, score };
-	  })
-	  .filter(item => item.score > 0)
-	  .sort((a, b) => b.score - a.score)
-	  .slice(0, 10);
+		})
+		.filter(item => item.score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, 10);
 	
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
@@ -2648,308 +2204,153 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	});
 }
 
+function renderSelectedCategories() {
+	const container = document.getElementById('selected-categories');
+	container.innerHTML = '';
+	
+	selectedCategories.forEach(category => {
+		const badge = document.createElement('div');
+		badge.className = 'category-badge';
+		badge.innerHTML = `
+			<span style="cursor: pointer;" data-category="${category}">${category}</span>
+			<span class="remove-category" data-category="${category}">✕</span>
+		`;
+		badge.querySelector('span:first-child').addEventListener('click', () => {
+			window.open(`https://fortnite.fandom.com/wiki/Category:${category}`, '_blank');
+		});
+		container.appendChild(badge);
+	});
+	
+	container.querySelectorAll('.remove-category').forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			const category = e.target.getAttribute('data-category');
+			removeCategory(category);
+		});
+	});
+	
+	updateDropdownOptions();
+}
+
+function updateDropdownOptions() {
+	const dropdown = document.getElementById('categories-dropdown');
+	if (!dropdown) return;
+	
+	const options = dropdown.querySelectorAll('option:not([value=""])');
+	options.forEach(option => {
+		const value = option.value;
+		const isSelected = selectedCategories.includes(value);
+		const willAutoGenerate = willCategoryAutoGenerate(value);
+		if (willAutoGenerate && isSelected) {
+			removeCategory(value);
+		}
+		option.style.display = (isSelected || willAutoGenerate) ? 'none' : 'block';
+	});
+}
+
+function willCategoryAutoGenerate(categoryName) {
+	if (categoryName === 'Free Cosmetics') {
+		return (elements.sourceBattlePass?.checked && elements.passFreeBP?.checked) ||
+					 (elements.sourceOGPass?.checked && elements.passFreeOG?.checked) ||
+					 (elements.sourceMusicPass?.checked && elements.passFreeMusic?.checked) ||
+					 (elements.sourceLEGOPass?.checked && elements.passFreeLEGO?.checked);
+	}
+
+	if (categoryName === 'Compatible Cosmetics') {
+		return addCompatibleCosmeticsCategory;
+	}
+	
+	return false;
+}
+
+function populateCategoriesDropdown() {
+	const dropdown = document.getElementById('categories-dropdown');
+	if (!dropdown) return;
+	
+	const allOptions = dropdown.querySelectorAll('option');
+	allOptions.forEach(option => {
+		if (option.value !== '') {
+			option.remove();
+		}
+	});
+	
+	CATEGORIES_FOR_SELECTION.forEach(category => {
+		const option = document.createElement('option');
+		option.value = category;
+		option.textContent = category;
+		dropdown.appendChild(option);
+	});
+}
+
+function addCategory(category) {
+	if (category && !selectedCategories.includes(category)) {
+		selectedCategories.push(category);
+		renderSelectedCategories();
+	}
+}
+
+function removeCategory(category) {
+	const index = selectedCategories.indexOf(category);
+	if (index > -1) {
+		selectedCategories.splice(index, 1);
+		renderSelectedCategories();
+	}
+}
+
+// Setup source selection logic
+function handleSourceSelection() {
+	// Reset all pass-free checkboxes to false when the source changes
+	if (elements.passFreeBP) elements.passFreeBP.checked = false;
+	if (elements.passFreeOG) elements.passFreeOG.checked = false;
+	if (elements.passFreeMusic) elements.passFreeMusic.checked = false;
+	if (elements.passFreeLEGO) elements.passFreeLEGO.checked = false;
+
+	const rocketPassChecked = elements.sourceRocketPass.checked;
+
+	if (rocketPassChecked) {
+		document.getElementById('rocket-league-cosmetic').checked = true;
+		document.getElementById('rocket-league-exclusive').checked = true;
+		document.getElementById('rocket-league-cosmetic').dispatchEvent(new Event('change'));
+		document.getElementById('rocket-league-exclusive').dispatchEvent(new Event('change'));
+		document.getElementById('rocket-league-cosmetic').disabled = true;
+		document.getElementById('rocket-league-exclusive').disabled = true;
+	}
+
+	if (!rocketPassChecked) {
+		document.getElementById('rocket-league-cosmetic').disabled = false;
+		document.getElementById('rocket-league-exclusive').disabled = false;
+		document.getElementById('rocket-league-cosmetic').checked = false;
+		document.getElementById('rocket-league-exclusive').checked = false;
+	}
+}
+
 async function initialiseApp() {
 	elements = {
-		// Basic elements
 		cosmeticInput: document.getElementById('cosmetic-input'),
+		cosmeticInputName: document.getElementById('cosmetic-input-name'),
 		cosmeticDisplayInput: document.getElementById('cosmetic-display'),
 		generateBtn: document.getElementById('generate-btn'),
+		wikiPageBtn: document.getElementById('wiki-page-btn'),
 		copyBtn: document.getElementById('copy-btn'),
 		clearBtn: document.getElementById('clear-btn'),
 		status: document.getElementById('status'),
 		output: document.getElementById('output'),
-		
-		// Release status elements
-		releasedSwitch: document.getElementById('released-switch'),
-		releasedLabel: document.getElementById('released-label'),
-		releaseDate: document.getElementById('release-date'),
-		itemShopHistory: document.getElementById('item-shop-history'),
-		shopHistoryPart: document.getElementById('shop-history-part'),
 		updateVersion: document.getElementById('update-version'),
 		
-		// Source checkboxes
-		sourceItemShop: document.getElementById('source-item-shop'),
-		sourceBattlePass: document.getElementById('source-battle-pass'),
-		sourceFortniteCrew: document.getElementById('source-fortnite-crew'),
-		sourceOGPass: document.getElementById('source-og-pass'),
-		sourceMusicPass: document.getElementById('source-music-pass'),
-		sourceLEGOPass: document.getElementById('source-lego-pass'),
-		sourceQuestReward: document.getElementById('source-quest-reward'),
-		sourceRocketPass: document.getElementById('source-rocket-pass'),
-		
-		// Item Shop settings
-		itemShopSettings: document.getElementById('item-shop-settings'),
-		shopCost: document.getElementById('shop-cost'),
-		includeAppearances: document.getElementById('include-appearances'),
-		shopAppearances: document.getElementById('shop-appearances'),
-		
-		// Battle Pass settings
-		battlePassSettings: document.getElementById('battle-pass-settings'),
-		bpSeason: document.getElementById('bp-season'),
-		bpPage: document.getElementById('bp-page'),
-		bpModeLinear: document.getElementById('bp-mode-linear'),
-		bpModeNonLinear: document.getElementById('bp-mode-nonlinear'),
-		bpNonLinearSetName: document.getElementById('bp-nonlinear-set'),
-		bpNonLinearLevel: document.getElementById('bp-nonlinear-level'),
-		bpBonus: document.getElementById('bp-bonus'),
-		bpPageCompletion: document.getElementById('bp-page-completion'),
-		
-		// Fortnite Crew settings
-		fortniteCrewSettings: document.getElementById('fortnite-crew-settings'),
-		crewMonth: document.getElementById('crew-month'),
-		crewYear: document.getElementById('crew-year'),
-		
-		// Metaverse pass settings
-		ogPassSettings: document.getElementById('og-pass-settings'),
-		musicPassSettings: document.getElementById('music-pass-settings'),
-		legoPassSettings: document.getElementById('lego-pass-settings'),
-		
-		ogSeason: document.getElementById('og-season'),
-		ogPage: document.getElementById('og-page'),
-		ogPageCompletion: document.getElementById('og-page-completion'),
-		musicSeason: document.getElementById('music-season'),
-		musicPage: document.getElementById('music-page'),
-		musicPageCompletion: document.getElementById('music-page-completion'),
-		legoSeason: document.getElementById('lego-season'),
-		legoSeasonAbbr: document.getElementById('lego-season-abbr'),
-		legoPage: document.getElementById('lego-page'),
-		legoPageCompletion: document.getElementById('lego-page-completion'),
-		
-		// Free checkboxes for each pass
-		passFreeBP: document.getElementById('pass-free-bp'),
-		passFreeOG: document.getElementById('pass-free-og'),
-		passFreeMusic: document.getElementById('pass-free-music'),
-		passFreeLego: document.getElementById('pass-free-lego'),
-
-		// Quest Reward settings
-		questRewardSettings: document.getElementById('quest-reward-settings'),
-		questName: document.getElementById('quest-name'),
-		questCost: document.getElementById('quest-cost'),
-		questFirstReleasedText: document.getElementById('quest-first-released'),
-
-		// Rocket Pass settings
-		rocketPassSettings: document.getElementById('rocket-pass-settings'),
-		rocketPassSeason: document.getElementById('rocket-season'),
-		rocketPassLevel: document.getElementById('rocket-level'),
-		
-		// Display title checkbox
 		displayTitle: document.getElementById('display-title'),
-		
-		// Collaboration checkbox
 		collaboration: document.getElementById('collaboration'),
-		
-		// Racing settings
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
-
-		// Renders / remix
 		hasRenders: document.getElementById('has-renders'),
 		remixOf: document.getElementById('remix-of'),
+		categoriesDropdown: document.getElementById('categories-dropdown'),
 	};
 
-	document.getElementById('add-bundle').addEventListener('click', (e) => { e.preventDefault(); createBundleEntry(); });
-	document.getElementById('remove-bundle').addEventListener('click', (e) => { e.preventDefault(); removeBundleEntry(); });
-
-	// Setup source selection logic
-	function handleSourceSelection() {
-		// Reset all pass-free checkboxes to false when the source changes
-		if (elements.passFreeBP) elements.passFreeBP.checked = false;
-		if (elements.passFreeOG) elements.passFreeOG.checked = false;
-		if (elements.passFreeMusic) elements.passFreeMusic.checked = false;
-		if (elements.passFreeLego) elements.passFreeLego.checked = false;
-
-		const itemShopChecked = elements.sourceItemShop.checked;
-		const battlePassChecked = elements.sourceBattlePass.checked;
-		const fortniteCrewChecked = elements.sourceFortniteCrew.checked;
-		const ogPassChecked = elements.sourceOGPass.checked;
-		const musicPassChecked = elements.sourceMusicPass.checked;
-		const legoPassChecked = elements.sourceLEGOPass.checked;
-		const questRewardChecked = elements.sourceQuestReward.checked;
-		const rocketPassChecked = elements.sourceRocketPass.checked;
-		
-		// Show/hide settings based on selection
-		elements.itemShopSettings.classList.toggle('hidden', !itemShopChecked);
-		elements.battlePassSettings.classList.toggle('hidden', !battlePassChecked);
-		elements.fortniteCrewSettings.classList.toggle('hidden', !fortniteCrewChecked);
-		elements.ogPassSettings.classList.toggle('hidden', !ogPassChecked);
-		elements.musicPassSettings.classList.toggle('hidden', !musicPassChecked);
-		elements.legoPassSettings.classList.toggle('hidden', !legoPassChecked);
-		elements.questRewardSettings.classList.toggle('hidden', !questRewardChecked);
-		elements.rocketPassSettings.classList.toggle('hidden', !rocketPassChecked);
-
-		// Hide/show released fields based on source selection
-		const releasedFields = document.querySelectorAll('.released-fields');
-		if (battlePassChecked || fortniteCrewChecked || ogPassChecked || musicPassChecked || legoPassChecked) {
-			// Hide all released fields for things we can auto fill
-			releasedFields.forEach(field => {
-				field.style.display = 'none';
-			});
-			
-			// Clear release field values
-			elements.releaseDate.value = '';
-			elements.itemShopHistory.checked = false;
-			elements.shopHistoryPart.value = '';
-			
-			// Force released switch to "Yes" and disable it
-			elements.releasedSwitch.checked = true;
-			elements.releasedSwitch.disabled = true;
-			elements.releasedLabel.textContent = 'Yes';
-		} else if (rocketPassChecked) {
-			document.getElementById('item-shop-history-field').style.display = 'none';
-			document.getElementById('item-shop-history').checked = false;
-		} else {
-			// Re-enable released switch for Item Shop
-			elements.releasedSwitch.disabled = false;
-			
-			// Show released fields if switch is on
-			if (elements.releasedSwitch.checked) {
-				releasedFields.forEach(field => {
-					field.style.display = 'flex';
-				});
-			}
-		}
-		
-		// Disable mutual exclusivity logic
-		if (fortniteCrewChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (battlePassChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (itemShopChecked) {
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (ogPassChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (musicPassChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (legoPassChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (questRewardChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceRocketPass.disabled = true;
-		} else if (rocketPassChecked) {
-			elements.sourceItemShop.disabled = true;
-			elements.sourceBattlePass.disabled = true;
-			elements.sourceFortniteCrew.disabled = true;
-			elements.sourceOGPass.disabled = true;
-			elements.sourceMusicPass.disabled = true;
-			elements.sourceLEGOPass.disabled = true;
-			elements.sourceQuestReward.disabled = true;
-
-			document.getElementById('rocket-league-cosmetic').checked = true;
-			document.getElementById('rocket-league-exclusive').checked = true;
-			document.getElementById('rocket-league-cosmetic').dispatchEvent(new Event('change'));
-			document.getElementById('rocket-league-exclusive').dispatchEvent(new Event('change'));
-			document.getElementById('rocket-league-cosmetic').disabled = true;
-			document.getElementById('rocket-league-exclusive').disabled = true;
-		} else {
-			// Re-enable all if none selected
-			elements.sourceItemShop.disabled = false;
-			elements.sourceBattlePass.disabled = false;
-			elements.sourceFortniteCrew.disabled = false;
-			elements.sourceOGPass.disabled = false;
-			elements.sourceMusicPass.disabled = false;
-			elements.sourceLEGOPass.disabled = false;
-			elements.sourceQuestReward.disabled = false;
-			elements.sourceRocketPass.disabled = false;
-		}
-
-		if (!rocketPassChecked) {
-			document.getElementById('rocket-league-cosmetic').disabled = false;
-			document.getElementById('rocket-league-exclusive').disabled = false;
-			document.getElementById('rocket-league-cosmetic').checked = false;
-			document.getElementById('rocket-league-exclusive').checked = false;
-		}
-	}
-
-	// Reset display-title when the cosmetic inputs change so the user isn't locked out
-	function resetDisplayTitleIfNeeded() {
-		if (!elements.displayTitle) return;
-		// Re-enable the checkbox so the user can change it after a new input
-		elements.displayTitle.disabled = false;
-	}
-
-	// Attach listeners to cosmetic inputs to reset display title state when they change
-	if (elements.cosmeticInput) {
-		elements.cosmeticInput.addEventListener('input', resetDisplayTitleIfNeeded);
-	}
-	if (elements.cosmeticDisplayInput) {
-		elements.cosmeticDisplayInput.addEventListener('input', resetDisplayTitleIfNeeded);
-	}
-
-	// Auto-fill update version for Battle Pass / OG / Festival / LEGO based on season
-	function autoFillPassVersion() {
-		const bpChecked = elements.sourceBattlePass.checked;
-		const ogChecked = elements.sourceOGPass.checked;
-		const musicChecked = elements.sourceMusicPass.checked;
-		const legoChecked = elements.sourceLEGOPass.checked;
-
-		let updateVersion = "";
-
-		if (bpChecked) {
-			const seasonInput = elements.bpSeason.value.trim().toUpperCase();
-			if (seasonInput) updateVersion = SEASON_UPDATE_VERSIONS[seasonInput] || "";
-		} else if (ogChecked) {
-			const seasonInput = elements.ogSeason.value.trim();
-			if (seasonInput) updateVersion = OG_SEASON_UPDATE_VERSIONS[seasonInput] || "";
-		} else if (musicChecked) {
-			const seasonInput = elements.musicSeason.value.trim();
-			if (seasonInput) updateVersion = FESTIVAL_SEASON_UPDATE_VERSIONS[seasonInput] || "";
-		} else if (legoChecked) {
-			const seasonInput = elements.legoSeason.value.trim();
-			if (seasonInput) updateVersion = LEGO_SEASON_UPDATE_VERSIONS[seasonInput] || "";
-		}
-
-		if (updateVersion) {
-			elements.updateVersion.value = updateVersion;
-		} else {
-			elements.updateVersion.value = "";
-		}
-	}
-
-	// Also listen for changes to the other season inputs
-	if (elements.ogSeason) elements.ogSeason.addEventListener('input', autoFillPassVersion);
-	if (elements.musicSeason) elements.musicSeason.addEventListener('input', autoFillPassVersion);
-	if (elements.legoSeason) elements.legoSeason.addEventListener('input', autoFillPassVersion);
+	initSourceReleaseControls({
+		sources: ['itemShop', 'battlePass', 'fortniteCrew', 'ogPass', 'musicPass', 'legoPass', 'questReward', 'rocketPass'],
+		autoReleaseSources: ['battlePass', 'fortniteCrew', 'ogPass', 'musicPass', 'legoPass'],
+		hideItemShopHistorySources: ['rocketPass'],
+		onSourceChange: handleSourceSelection
+	}, elements);
 
 	// Handle Fortnite Crew checkbox with auto-detection protection
 	function handleFortniteCrewClick(e) {
@@ -2968,135 +2369,30 @@ async function initialiseApp() {
 		handleSourceSelection();
 	}
 
-	// Handle Released switch functionality
-	function handleReleasedSwitch() {
-		const isReleased = elements.releasedSwitch.checked;
-		const releasedFields = document.querySelectorAll('.released-fields');
-		const battlePassChecked = elements.sourceBattlePass.checked;
-		const fortniteCrewChecked = elements.sourceFortniteCrew.checked;
-		const ogPassChecked = elements.sourceOGPass.checked;
-		const musicPassChecked = elements.sourceMusicPass.checked;
-		const legoPassChecked = elements.sourceLEGOPass.checked;
-		const rocketPassChecked = elements.sourceRocketPass.checked;
+	// Initialize shared form behaviors
+	initFormBehaviors(elements);
+
+	function setupRocketLeagueToggle() {
+		if (!elements.isRocketLeagueCosmetic) return;
 		
-		// Update label
-		elements.releasedLabel.textContent = isReleased ? 'Yes' : 'No';
-		
-		if (isReleased) {
-			// Show released fields only if not a Pass or Crew
-			if (!battlePassChecked && !fortniteCrewChecked && !ogPassChecked && !musicPassChecked && !legoPassChecked) {
-				releasedFields.forEach(field => {
-					if (!rocketPassChecked || field.id != 'item-shop-history-field') {
-						field.style.display = 'flex';
-					}
-				});
+		elements.isRocketLeagueCosmetic.addEventListener('change', () => {
+			const rocketLeagueChecked = elements.isRocketLeagueCosmetic.checked;
+			const exclusiveField = document.getElementById('rocket-league-exclusive-field');
+			if (exclusiveField) {
+				exclusiveField.style.display = rocketLeagueChecked ? 'block' : 'none';
 			}
-		} else {
-			// Hide released fields (only for Item Shop)
-			if (!battlePassChecked && !fortniteCrewChecked && !ogPassChecked && !musicPassChecked && !legoPassChecked) {
-				releasedFields.forEach(field => {
-					field.style.display = 'none';
-				});
-				
-				// Clear released field values (but keep updateVersion)
-				elements.releaseDate.value = '';
-				elements.itemShopHistory.checked = false;
-				elements.shopHistoryPart.value = '';
-			}
-		}
-		
-		// Trigger shop history part visibility update
-		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
+		});
 	}
+	setupRocketLeagueToggle();
 
-	// Event listeners for released switch
-	elements.releasedSwitch.addEventListener('change', handleReleasedSwitch);
-
-	// Event listeners for source selection
-	elements.sourceItemShop.addEventListener('change', handleSourceSelection);
-	elements.sourceBattlePass.addEventListener('change', handleSourceSelection);
-	elements.sourceFortniteCrew.addEventListener('change', handleSourceSelection);
+	// Additional event listener for Fortnite Crew auto-detection
 	elements.sourceFortniteCrew.addEventListener('click', handleFortniteCrewClick);
-	elements.sourceOGPass.addEventListener('change', handleSourceSelection);
-	elements.sourceMusicPass.addEventListener('change', handleSourceSelection);
-	elements.sourceLEGOPass.addEventListener('change', handleSourceSelection);
-	elements.sourceQuestReward.addEventListener('change', handleSourceSelection);
-	elements.sourceRocketPass.addEventListener('change', handleSourceSelection);
 
-	// Battle Pass season auto-fill event listener
-	elements.bpSeason.addEventListener('input', autoFillPassVersion);
-
-	// Handle Battle Pass mode changes (Linear / Non-Linear)
-	function handleBPModeChange() {
-		const bpBonusChecked = elements.bpBonus && elements.bpBonus.checked;
-		if (bpBonusChecked) {
-			if (elements.bpNonLinearLevel) {
-				const lvl = elements.bpNonLinearLevel;
-				lvl.disabled = true;
-				lvl.value = '';
-				lvl.style.display = 'none';
-				const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
-				if (lbl) lbl.style.display = 'none';
-			}
-		} else {
-			if (elements.bpNonLinearLevel) {
-				const lvl = elements.bpNonLinearLevel;
-				lvl.disabled = false;
-				lvl.style.display = '';
-				const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
-				if (lbl) lbl.style.display = '';
-			}
-		}
-
-		const linear = elements.bpModeLinear && elements.bpModeLinear.checked;
-		const nonlinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
-
-		const nonLinearFields = document.getElementById('bp-nonlinear-fields');
-		// Show non-linear specific fields only when Non-Linear is selected
-		if (nonLinearFields) nonLinearFields.style.display = nonlinear ? 'flex' : 'none';
-
-		// If Non-Linear, clamp bpPage max to 2, otherwise allow up to 20
-		if (elements.bpPage) {
-			if (nonlinear) {
-				elements.bpPage.max = 2;
-				if (Number(elements.bpPage.value) > 2) elements.bpPage.value = '';
-			} else {
-				elements.bpPage.max = 20;
-			}
-		}
-	}
-
-	if (elements.bpModeLinear) elements.bpModeLinear.addEventListener('change', handleBPModeChange);
-	if (elements.bpModeNonLinear) elements.bpModeNonLinear.addEventListener('change', handleBPModeChange);
-	if (elements.bpBonus) elements.bpBonus.addEventListener('change', handleBPModeChange);
-
-	// Ensure bpPage cannot be set above allowed max by keyboard input
-	if (elements.bpPage) elements.bpPage.addEventListener('input', () => {
-		const max = Number(elements.bpPage.max || 20);
-		const val = Number(elements.bpPage.value || 0);
-		if (val > max) elements.bpPage.value = String(max);
-	});
-
-	// Item Shop History part visibility
-	elements.itemShopHistory.addEventListener('change', () => {
-		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
-	});
-
-	// Item Shop Appearances visibility
-	const appearancesFields = document.querySelectorAll('.appearances-fields');
-	elements.includeAppearances.addEventListener('change', () => {
-		const appearancesChecked = elements.includeAppearances.checked;
-		if (appearancesChecked) {
-			appearancesFields.forEach(field => {
-				field.style.display = 'block';
-			});
-			elements.shopAppearances.value = document.getElementById("cosmetic-input-name").value.trim();
-		} else {
-			appearancesFields.forEach(field => {
-				field.style.display = 'none';
-			});
-		}
-	});
+	// Event listeners for categories dropdown option updates
+	if (elements.passFreeBP) elements.passFreeBP.addEventListener('change', updateDropdownOptions);
+	if (elements.passFreeOG) elements.passFreeOG.addEventListener('change', updateDropdownOptions);
+	if (elements.passFreeMusic) elements.passFreeMusic.addEventListener('change', updateDropdownOptions);
+	if (elements.passFreeLEGO) elements.passFreeLEGO.addEventListener('change', updateDropdownOptions);
 	
 	// Racing - Rocket League visibility
 	elements.isRocketLeagueCosmetic.addEventListener('change', () => {
@@ -3107,9 +2403,19 @@ async function initialiseApp() {
 			document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 		}
 	});
+	
+	// Additional Categories dropdown
+	elements.categoriesDropdown.addEventListener('change', (e) => {
+		const selectedValue = e.target.value;
+		if (selectedValue) {
+			addCategory(selectedValue);
+			e.target.value = ''; // Reset dropdown to default
+		}
+	});
 
 	// Basic event listeners
 	elements.generateBtn.addEventListener('click', generatePage);
+	elements.wikiPageBtn.addEventListener('click', openWikiPage);
 	elements.copyBtn.addEventListener('click', copyToClipboard);
 	elements.clearBtn.addEventListener('click', clearOutput);
 
@@ -3119,17 +2425,15 @@ async function initialiseApp() {
 
 	elements.cosmeticDisplayInput.addEventListener('input', updateSuggestions);
 
-	handleBPModeChange();
+	populateCategoriesDropdown();
 
 	try {
 		showStatus('Loading cosmetic data...', 'loading');
 		
 		await loadIndex();
+		await loadJamTrackNames();
 		await loadCompanionVTIDs();
 		await loadCosmeticSets();
-
-		// Initialise released switch to default state (unreleased)
-		handleReleasedSwitch();
 
 		hideStatus();
 		console.log('Cosmetic Page Generator initialised successfully');
@@ -3137,11 +2441,33 @@ async function initialiseApp() {
 		console.error('Initialisation error:', error);
 		showStatus('Failed to load cosmetic data. Please refresh the page.', 'error');
 	}
+
+	// Initialize shared bundle controls
+	initBundleControls(index);
+	setupBundleControls();
 }
 
-// Initialise when DOM is loaded
+// Wait for source controls to be ready, then initialize
+function waitForSourceControls() {
+	return new Promise((resolve) => {
+		const container = document.getElementById('source-release-container');
+		if (container && container.children.length > 0) {
+			resolve();
+		} else {
+			document.addEventListener('sourceControlsReady', resolve, { once: true });
+		}
+	});
+}
+
+// Initialise when DOM is loaded AND source controls are ready
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initialiseApp);
+	document.addEventListener('DOMContentLoaded', async () => {
+		await waitForSourceControls();
+		initialiseApp();
+	});
 } else {
-	initialiseApp();
+	(async () => {
+		await waitForSourceControls();
+		initialiseApp();
+	})();
 }

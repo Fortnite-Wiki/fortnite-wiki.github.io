@@ -132,6 +132,18 @@ export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
     12: '39.00'
 };
 
+export const LEGO_SEASON_NAMES = [
+    "Rebel Adventure",
+    "Tropical Treasures",
+    "Brick or Treat",
+    "Chill & Thrill",
+    "Goldrush Gallery",
+    "First Order",
+    "Supernova Academy",
+    "Palm Paradise",
+    "Ninjago"
+];
+
 export const LEGO_SEASON_RELEASE_DATES = {
     "Rebel Adventure": new Date(2024, 4, 3), // May 3, 2024
     "Tropical Treasures": new Date(2024, 8, 17), // September 17, 2024
@@ -141,7 +153,7 @@ export const LEGO_SEASON_RELEASE_DATES = {
     "First Order": new Date(2025, 4, 2), // May 2, 2025
     "Supernova Academy": new Date(2025, 5, 7), // June 7, 2025
     "Palm Paradise": new Date(2025, 7, 7), // August 7, 2025
-    "Ninjago": new Date(2025, 11, 11)
+    "Ninjago": new Date(2025, 11, 11) // December 11, 2025
 };
 
 export const LEGO_SEASON_UPDATE_VERSIONS = {

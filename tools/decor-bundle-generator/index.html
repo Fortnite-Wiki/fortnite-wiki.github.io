@@ -6,6 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Decor Bundle Generator</title>
 
+        <script type="module">
+          import { generateSourceReleaseHTML } from '../source-settings-templates.js';
+          
+          window.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('source-release-container');
+            if (container) {
+            const sources = ['legoPass', 'itemShop', 'questReward'];
+              container.innerHTML = generateSourceReleaseHTML(sources);
+              
+              document.dispatchEvent(new CustomEvent('sourceControlsReady'));
+            }
+          }, { once: true });
+        </script>
+        
         <script src="./scripts/decor-bundle-generator.js" type="module"></script>
         <script src="/scripts/pageinfo.js" type="module"></script>
         <script src="/scripts/load-site-notices.js" type="module"></script>
@@ -38,6 +52,29 @@
                     <div id="suggestions"></div>
                 </section>
 
+                <section id="source-release-container">
+                    <!-- Source and release controls will be injected here -->
+                </section>
+
+                <section>
+                    <div class="two-column-layout">
+                        <div class="column">
+                            <h4>Other</h4>
+                            <div class="inline-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="collaboration">
+                                    Collaboration?
+                                </label>
+                            </div>
+                            <div class="inline-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="render">
+                                    Has render?
+                                </label>
+                            </div>
+                        </div>
+                </section>
+
                 <button class="sec-subm" id="generate-btn">Generate Page</button>
                 <div id="status" class="status hidden"></div>
             </main>
@@ -50,6 +87,8 @@
                     <textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
                     <button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
                     <button class="sec-subm secondary" id="clear-btn">Clear</button>
+                    <br>
+                    <button class="sec-subm" id="wiki-page-btn" disabled>Create page</button>
                 </section>
             </aside>
         </div>

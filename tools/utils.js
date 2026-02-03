@@ -1,5 +1,7 @@
 // utils.js - shared utility constants and functions for generators
 
+import { SEASON_RELEASE_DATES } from '/data/datesAndVersions.js';
+
 export const TYPE_MAP = {
 	"AthenaCharacterItemDefinition": "Outfit",
 	"AthenaBackpackItemDefinition": "Back Bling",
@@ -73,6 +75,8 @@ export const SERIES_CONVERSION = {
 	"Series_AstonMartin": "Aston Martin Series"
 };
 
+export const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;
+
 export function articleFor(word) {
 	if (word === "") return "";
 	return word[0].toLowerCase().match(/[aeiou]/) ? "an" : "a";
@@ -93,7 +97,27 @@ export function forceTitleCase(str) {
 	});
 }
 
-export function getFormattedReleaseDate(date = new Date()) {
+export function abbreviate(str) {
+   let words = str.split(/\s+/);
+   let abbreviation = '';
+   for (let i = 0; i < words.length; i++) {
+     abbreviation += words[i][0];
+   }
+   return abbreviation;
+}
+
+export function standardiseDateString(date) {
+	if (date instanceof Date) return date;
+	// using this instead of simply
+	// const date = new Date(settings.releaseDate);
+	// because of timezones affecting the entered date
+	const [year, month, day] = date.split('-').map(Number);
+	return new Date(year, month - 1, day); // month is 0-indexed
+}
+
+export function getFormattedReleaseDate(date) {
+	date = standardiseDateString(date);
+
 	const day = date.getDate();
 	const suffix = day >= 11 && day <= 13 ? 'th' : 
 					day % 10 === 1 ? 'st' : 
@@ -102,6 +126,64 @@ export function getFormattedReleaseDate(date = new Date()) {
 	
 	const month = date.toLocaleString('en-US', { month: 'long' });
 	return `${month} ${day}${suffix} ${date.getFullYear()}`;
+}
+
+export function getItemShopHistoryDate(date, settings = {}) {
+	if (!settings.releaseDate) return '';
+
+	const formattedDate = getFormattedReleaseDate(date);
+	if (settings.shopHistoryPart) {
+		return `[[Item Shop History/${formattedDate} - Part ${settings.shopHistoryPart}|${formattedDate}<br/><small><small>Part ${settings.shopHistoryPart}</small></small>]]`;
+	} else {
+		return `[[Item Shop History/${formattedDate}|${formattedDate}]]`;
+	}
+}
+
+export function getSeasonReleased(releaseDate, settings, usePlural = false) {
+	if (releaseDate) {
+		releaseDate = standardiseDateString(releaseDate);
+		
+		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
+			.sort(([, dateA], [, dateB]) => dateA - dateB);
+		
+		// Find the matching season key
+		let matchedSeasonKey = null;
+		for (let i = 0; i < sortedSeasons.length; i++) {
+			const [currentKey, currentDate] = sortedSeasons[i];
+			const nextDate = sortedSeasons[i + 1]?.[1];
+
+			if (releaseDate >= currentDate && (!nextDate || releaseDate < nextDate)) {
+				matchedSeasonKey = currentKey;
+				break;
+			}
+		}
+
+		const firstTextFlag = !settings.isQuestReward || settings.questFirstReleasedText ? 'first ' : '';
+		
+		if (matchedSeasonKey) {
+			if (matchedSeasonKey === 'C2R') {
+				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Chapter 2 Remix]]`;
+			} else if (matchedSeasonKey === 'C6MS1') {
+				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Galactic Battle]]`;
+			} else if (matchedSeasonKey === 'C6MS2') {
+				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Chapter 6: Mini Season 2]]`;
+			} else {
+				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
+				const chapter = keyMatch[1];
+				const mini = keyMatch[2];
+				const season = keyMatch[3];
+
+				if (chapter && season) {
+					if (mini) {
+						return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Chapter ${chapter}: Mini Season ${season}]]`;
+					} else {
+						return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Chapter ${chapter}: Season ${season}]]`;
+					}
+				}
+			}
+		}
+	}
+	return '';
 }
 
 // Helper: wrap value in {{V-Bucks|...}} if not already
@@ -122,7 +204,41 @@ export function stripVbucksTemplate(val) {
 	return val.replace(/[^\d]/g, '');
 }
 
+/**
+ * Check if a page exists on the Fortnite wiki.
+ * Returns true if the page exists, false otherwise.
+ */
+export async function pageExists(title) {
+	try {
+		const endpoint = 'https://fortnite.fandom.com/api.php';
+		const params = new URLSearchParams({
+			action: 'query',
+			titles: title,
+			format: 'json',
+			origin: '*'
+		});
 
+		const url = `${endpoint}?${params.toString()}`;
+		const resp = await fetch(url);
+
+		if (!resp.ok) return false;
+
+		const json = await resp.json();
+		const pages = json.query && json.query.pages ? json.query.pages : {};
+
+		for (const pid of Object.keys(pages)) {
+			const p = pages[pid];
+			// If the page has a "missing" property, it doesn't exist
+			if (p && !(p.missing == "")) {
+				return true;
+			}
+		}
+		return false;
+	} catch (err) {
+		console.warn('pageExists error', err);
+		return false;
+	}
+}
 
 /**
  * Query the Fandom MediaWiki API for images on a page title.

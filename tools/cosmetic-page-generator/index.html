@@ -6,18 +6,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cosmetic Page Generator</title>
 
+	<script type="module">
+		import { generateSourceReleaseHTML } from '/tools/source-settings-templates.js';
+		
+		window.addEventListener('DOMContentLoaded', () => {
+			const container = document.getElementById('source-release-container');
+			if (container) {
+				const sources = ['itemShop', 'battlePass', 'fortniteCrew', 'ogPass', 'musicPass', 'legoPass', 'questReward', 'rocketPass'];
+				container.innerHTML = generateSourceReleaseHTML(sources);
+
+				document.dispatchEvent(new CustomEvent('sourceControlsReady'));
+			}
+		}, { once: true });
+	</script>
+	
 	<script src="./scripts/cosmetic-page-generator.js" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
 	<link rel="stylesheet" href="./styles/styles.css" />
 	<style>
-		#bundles-list.scrollbox { max-height: 350px; overflow-y: auto; padding: 8px; }
-		.bundle-entry input[type="text"], input[type="number"] { margin-right: 0.5rem; padding: 6px; box-sizing: border-box; }
-		.bundle-entry input[type="text"].bundle-display { width: 80%; }
-		.bundle-entry .suggestions { position: relative; margin-top: 4px; max-height: 160px; overflow-y: auto; }
-		.bundle-entry .suggestions div { padding: 6px; cursor: pointer; }
-
 		.featured-characters-controls { margin-bottom: 6px; }
 		.featured-characters-controls button { padding: 0.25rem 0.5rem; }
 
@@ -27,6 +35,14 @@
 		.featured-character-entry input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
 		.featured-character-entry .suggestions { position: relative; margin-top: 4px; max-height: 120px; overflow-y: auto; }
 		.featured-character-entry .suggestions div { padding: 6px; cursor: pointer; }
+
+		/* Categories section styling */
+		#categories-dropdown { padding: 6px; width: 100%; max-width: 300px; margin-bottom: 0.5rem; }
+		#selected-categories { display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 40px; padding: 0.5rem; background: rgba(0,0,0,0.2); border-radius: 4px; }
+		.category-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #2a2a2a; color: #fff; padding: 0.4rem 0.6rem; border-radius: 4px; font-size: 0.9rem; }
+		.category-badge .remove-category { cursor: pointer; font-weight: bold; opacity: 0.7; transition: opacity 0.2s; }
+		.category-badge .remove-category:hover { opacity: 1; }
+		#selected-categories:empty::before { content: 'No categories selected'; color: #888; font-style: italic; }
 	</style>
 	<link rel="icon" href="https://static.wikia.nocookie.net/fortnite/images/4/4a/Site-favicon.ico" />
 </head>
@@ -55,286 +71,12 @@
 				<div id="suggestions"></div>
 			</section>
 
-			<section>
-				<div class="two-column-layout">
-					<!-- Left Column: Cosmetic Source -->
-					<div class="column">
-						<h4>Cosmetic Source</h4>
-						<div class="source-options">
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-item-shop" name="source">
-								Item Shop
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-battle-pass" name="source">
-								Battle Pass
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-fortnite-crew" name="source">
-								Fortnite Crew
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-og-pass" name="source">
-								OG Pass
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-music-pass" name="source">
-								Music Pass
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-lego-pass" name="source">
-								LEGO Pass
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" id="source-quest-reward" name="source">
-								Quest Reward
-							</label>
-							<label class="checkbox-label" id="rocket-pass-field" style="display: none">
-								<input type="checkbox" id="source-rocket-pass" name="source">
-								Rocket Pass
-							</label>
-						</div>
+		<section id="source-release-container">
+			<!-- Source and release controls will be injected here -->
+		</section>
 
-						<!-- Item Shop Settings -->
-						<div id="item-shop-settings" class="source-settings hidden">
-							<h5>Item Shop Settings</h5>
-							<div class="inline-group">
-								<label for="shop-cost">V-Bucks Cost:</label>
-								<input type="text" id="shop-cost" placeholder="1,200"/>
-								<p style="margin: 0rem !important"><small><small>(Leave blank if cannot be purchased directly)</small></small></p>
-							</div>
-							<hr>
-							<div id="bundles-box">
-								<h5>Bundles it's contained in:</h5>
-								<div id="bundles-controls">
-									<button id="add-bundle" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
-									<button id="remove-bundle" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
-								</div>
-								<div id="bundles-list" class="scrollbox">
-									<!-- Bundle entries appended here -->
-								</div>
-							</div>
-							<hr>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="include-appearances">
-									Include ItemShopAppearances
-								</label>
-							</div>
-							<div class="inline-group appearances-fields" style="display: none;">
-								<input type="text" id="shop-appearances" />
-							</div>
-						</div>
-
-						<!-- Battle Pass Settings -->
-						<div id="battle-pass-settings" class="source-settings hidden">
-							<h5>Battle Pass Settings</h5>
-							<div class="inline-group">
-								<label for="bp-season">Season:</label>
-								<input type="text" id="bp-season" placeholder="C6S4" pattern="C[0-9]+S[0-9]+">
-							</div>
-							<div class="inline-group" id="bp-mode-group">
-								<label>Battle Pass Type:</label>
-								<label class="checkbox-label"><input type="radio" name="bp-mode" id="bp-mode-linear" value="linear"> Linear</label>
-								<label class="checkbox-label"><input type="radio" name="bp-mode" id="bp-mode-nonlinear" value="non-linear"> Non-Linear</label>
-							</div>
-							<div class="inline-group">
-								<label for="bp-page">Page:</label>
-								<input type="number" id="bp-page" placeholder="5" min="1" max="20">
-							</div>
-							<!-- Non-Linear specific fields -->
-							<div class="inline-group" id="bp-nonlinear-fields" style="display: none; gap: 1rem; flex-wrap:wrap;">
-								<label for="bp-nonlinear-set">Outfit Set Name:</label>
-								<input type="text" id="bp-nonlinear-set" placeholder="Enter outfit set name" />
-								<label for="bp-nonlinear-level">Set Unlock Level (if applicable):</label>
-								<input type="number" id="bp-nonlinear-level" placeholder="e.g. 25" min="1" style="width:80px;" />
-							</div>
-							<div class="inline-group" id="bp-bonus-group" style="margin-bottom:0.5rem;">
-								<label class="checkbox-label">
-									<input type="checkbox" id="bp-bonus">
-									Bonus reward?
-								</label>
-								<label class="checkbox-label">
-									<input type="checkbox" id="pass-free-bp">
-									Free?
-								</label>
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="bp-page-completion">
-									Obtained on page completion?
-								</label>
-							</div>
-						</div>
-
-						<!-- Fortnite Crew Settings -->
-						<div id="fortnite-crew-settings" class="source-settings hidden">
-							<h5>Fortnite Crew Settings</h5>
-							<div class="inline-group">
-								<label for="crew-month">Month:</label>
-								<select id="crew-month">
-									<option value="">Select month</option>
-									<option value="January">January</option>
-									<option value="February">February</option>
-									<option value="March">March</option>
-									<option value="April">April</option>
-									<option value="May">May</option>
-									<option value="June">June</option>
-									<option value="July">July</option>
-									<option value="August">August</option>
-									<option value="September">September</option>
-									<option value="October">October</option>
-									<option value="November">November</option>
-									<option value="December">December</option>
-								</select>
-							</div>
-							<div class="inline-group">
-								<label for="crew-year">Year:</label>
-								<input type="number" id="crew-year" placeholder="2025" min="2020" max="2030">
-							</div>
-						</div>
-
-						<!-- OG Pass Settings -->
-						<div id="og-pass-settings" class="source-settings hidden">
-							<h5>OG Pass Settings</h5>
-							<div class="inline-group">
-								<label for="og-season">Season:</label>
-								<input type="text" id="og-season" placeholder="6" pattern="[0-9]+">
-							</div>
-							<div class="inline-group">
-								<label for="og-page">Page:</label>
-								<input type="number" id="og-page" placeholder="1" min="1" max="6">
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="pass-free-og">
-									Free?
-								</label>
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="og-page-completion">
-									Obtained on page completion?
-								</label>
-							</div>
-						</div>
-						
-						<!-- Music Pass Settings -->
-						<div id="music-pass-settings" class="source-settings hidden">
-							<h5>Music Pass Settings</h5>
-							<div class="inline-group">
-								<label for="music-season">Season:</label>
-								<input type="text" id="music-season" placeholder="11" pattern="[0-9]+">
-							</div>
-							<div class="inline-group">
-								<label for="music-page">Page:</label>
-								<input type="number" id="music-page" placeholder="1" min="1" max="4">
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="pass-free-music">
-									Free?
-								</label>
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="music-page-completion">
-									Obtained on page completion?
-								</label>
-							</div>
-						</div>
-						
-						<!-- LEGO Pass Settings -->
-						<div id="lego-pass-settings" class="source-settings hidden">
-							<h5>LEGO Pass Settings</h5>
-							<div class="inline-group">
-								<label for="lego-season">Season Name:</label>
-								<input type="text" id="lego-season" placeholder="Palm Paradise">
-							</div>
-							<div class="inline-group">
-								<label for="lego-season">Season Abbreviation:</label>
-								<input type="text" id="lego-season-abbr" placeholder="PP">
-							</div>
-							<div class="inline-group">
-								<label for="lego-page">Page:</label>
-								<input type="number" id="lego-page" placeholder="1" min="1" max="4">
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="pass-free-lego">
-									Free?
-								</label>
-							</div>
-							<div class="inline-group">
-								<label class="checkbox-label">
-									<input type="checkbox" id="lego-page-completion">
-									Obtained on page completion?
-								</label>
-							</div>
-						</div>
-
-						<!-- Quest Reward Settings -->
-						<div id="quest-reward-settings" class="source-settings hidden">
-							<h5>Quest Reward Settings</h5>
-							<div class="inline-group">
-								<input type="text" id="quest-name" placeholder="Enter quests name"  />
-								<input type="text" id="quest-cost" placeholder="Enter cost to use" />
-							</div>
-							<label class="checkbox-label">
-								<input type="checkbox" id="quest-first-released" checked>
-								Was FIRST released?
-							</label>
-						</div>
-
-						<!-- Rocket Pass Settings -->
-						<div id="rocket-pass-settings" class="source-settings hidden">
-							<h5>Rocket Pass Settings</h5>
-							<div class="inline-group">
-								<label for="rocket-season">Season:</label>
-								<input type="text" id="rocket-season" placeholder="6" pattern="[0-9]+">
-							</div>
-							<div class="inline-group">
-								<label for="rocket-level">Level:</label>
-								<input type="number" id="rocket-level" placeholder="1" min="1" max="100">
-							</div>
-						</div>
-					</div>
-					
-					<!-- Right Column: Release Status -->
-					<div class="column">
-						<h4>Release Status</h4>
-						<div class="inline-group">
-							<label for="released-switch">Released?</label>
-							<div class="switch-container">
-								<label class="switch">
-									<input type="checkbox" id="released-switch">
-									<span class="slider"></span>
-								</label>
-								<span id="released-label">No</span>
-							</div>
-						</div>
-						
-						<div class="inline-group released-fields" style="display: none;">
-							<label for="release-date">Release date:</label>
-							<input type="date" id="release-date" />
-						</div>
-						
-						<div class="inline-group released-fields" id="item-shop-history-field" style="display: none;">
-							<label class="checkbox-label">
-								<input type="checkbox" id="item-shop-history">
-								Item Shop History link
-							</label>
-							<input type="number" id="shop-history-part" placeholder="Part" min="1" max="4" style="display: none; width: 80px;">
-						</div>
-
-						<div class="inline-group">
-							<label for="update-version">Update Version:</label>
-							<input type="text" id="update-version" placeholder="36.30" pattern="[0-9]+\.[0-9]+" required>
-						</div>
-					</div>
-				</div>
-				
-				<div class="two-column-layout">
+		<section>
+			<div class="two-column-layout">
 					<div class="column">
 						<h4>Other</h4>
 						<div class="inline-group">
@@ -367,6 +109,15 @@
 								Exclusive?
 							</label>
 						</div>
+
+					</div>
+
+					<div class="column">
+						<h4>Categories</h4>
+						<select id="categories-dropdown">
+							<option value="">Select a category to add...</option>
+						</select>
+						<div id="selected-categories"></div>
 					</div>
 				</div>
 			</section>
@@ -383,6 +134,8 @@
 				<textarea id="output" readonly placeholder="Generated MediaWiki page content will appear here..."></textarea>
 				<button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
 				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+				<br>
+				<button class="sec-subm" id="wiki-page-btn" disabled>Create page</button>
 			</section>
 		</aside>
 	</div>

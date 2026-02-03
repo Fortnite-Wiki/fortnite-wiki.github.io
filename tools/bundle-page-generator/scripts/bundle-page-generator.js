@@ -1,6 +1,6 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
-import { SEASON_RELEASE_DATES } from '../../../data/datesAndVersions.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
+import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -50,9 +50,8 @@ function updateBundleSuggestions() {
 
 	const scoredMatches = (Array.isArray(index) ? index : [])
 		.filter(e => {
-			// exclude NON bundle-like entries
+			// exclude NON bundle-like entries: bundles won't have 'id' or 'name' fields
 			if (typeof e.id === 'string' || typeof e.name === 'string') return false;
-			// require bundle_name and bundle_id for suggestion matching
 			return e.bundle_name && e.bundle_id;
 		})
 		.map(e => {
@@ -392,7 +391,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	const infobox = [];
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
 	if (settings.collaboration) infobox.push('{{Collaboration|Cosmetic}}');
-	if (!settings.isReleased) infobox.push('{{Unreleased|Cosmetic}}');
+	if (settings.isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
 	if (settings.isRocketLeagueCosmetic) infobox.push('{{Rocket League Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
 	infobox.push(`|name = ${bundleName}`);
@@ -453,19 +452,10 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	let release = "";
 	if (settings.releaseDate) {
-		// using this instead of simply
-		// const date = new Date(settings.releaseDate);
-		// because of timezones affecting the entered date
-		const [year, month, day] = settings.releaseDate.split('-').map(Number);
-		const date = new Date(year, month - 1, day); // month is 0-indexed
-
 		if (settings.itemShopHistory) {
-			const historyDate = getFormattedReleaseDate(date);
-			const partLink = settings.shopHistoryPart ? ` - Part ${settings.shopHistoryPart}` : "";
-			const partText = settings.shopHistoryPart ? `<br/><small><small>Part ${settings.shopHistoryPart}</small></small>` : "";
-			release = `[[Item Shop History/${historyDate}${partLink}|${historyDate}${partText}]]`;
+			release = getItemShopHistoryDate(settings.releaseDate, settings);
 		} else {
-			release = getFormattedReleaseDate(date);
+			release = getFormattedReleaseDate(settings.releaseDate);
 		}
 	}
 	infobox.push(`|release_date = ${release}`);
@@ -480,7 +470,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	
 	let theFlag = bundleName.toLowerCase().startsWith('the ') ? '' : 'The ';
 	let summary = `${theFlag}'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
-	if (!settings.isReleased) {
+	if (settings.isUnreleased) {
 		summary = summary + ' that is currently unreleased.';
 	} else if (settings.vbucksCost != "") {
 		summary = summary + ` that can be purchased in the [[Item Shop]] for ${settings.vbucksCost}.`;
@@ -488,52 +478,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 		summary = summary + '.';
 	}
 
-	let seasonFirstReleasedFlag = "";
-	if (settings.releaseDate) {
-		// using this instead of simply
-		// const date = new Date(settings.releaseDate);
-		// because of timezones affecting the entered date
-		const [year, month, day] = settings.releaseDate.split('-').map(Number);
-		const date = new Date(year, month - 1, day); // month is 0-indexed
-		
-		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
-			.sort(([, dateA], [, dateB]) => dateA - dateB);
-		
-		// Find the matching season key
-		let matchedSeasonKey = null;
-		for (let i = 0; i < sortedSeasons.length; i++) {
-			const [currentKey, currentDate] = sortedSeasons[i];
-			const nextDate = sortedSeasons[i + 1]?.[1];
-
-			if (date >= currentDate && (!nextDate || date < nextDate)) {
-				matchedSeasonKey = currentKey;
-				break;
-			}
-		}
-		
-		if (matchedSeasonKey) {
-			if (matchedSeasonKey === 'C2R') {
-				seasonFirstReleasedFlag = " was first released in [[Chapter 2 Remix]]";
-			} else if (matchedSeasonKey === 'C6MS1') {
-				seasonFirstReleasedFlag = " was first released in [[Galactic Battle]]";
-			} else if (matchedSeasonKey === 'C6MS2') {
-				seasonFirstReleasedFlag = " was first released in [[Chapter 6: Mini Season 2]]";
-			} else {
-				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);
-				const chapter = keyMatch[1];
-				const mini = keyMatch[2];
-				const season = keyMatch[3];
-				
-				if (chapter && season) {
-					if (mini) {
-						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Mini Season ${season}]]`;
-					} else {
-						seasonFirstReleasedFlag = ` was first released in [[Chapter ${chapter}: Season ${season}]]`;
-					}
-				}
-			}
-		}
-	}
+	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
 	if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
 		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
@@ -829,16 +774,13 @@ async function handleGenerate() {
 	}
 
 	const settings = {
+		...getSourceReleaseSettings(elements),
 		vbucksCost: ensureVbucksTemplate(elements.vbucksCost.value.trim()),
 		includeAppearances: elements.includeAppearances.checked,
 		shopAppearances: elements.shopAppearances.value.trim(),
 		collaboration: elements.collaboration.checked,
 		isRocketLeagueCosmetic: elements.rocketLeagueCosmetic.checked,
 		displayTitle: elements.displayTitle.checked,
-		isReleased: elements.releasedSwitch.checked,
-		releaseDate: elements.releaseDate.value.trim(),
-		itemShopHistory: elements.itemShopHistory.checked,
-		shopHistoryPart: elements.shopHistoryPart.value.trim(),
 		updateVersion: elements.updateVersion.value.trim(),
 	};
 
@@ -890,24 +832,20 @@ function hideStatus() {
 
 async function initialiseApp() {
 	elements = {
-		// Bundle settings
 		vbucksCost: document.getElementById('vbucks-cost'),
 		includeAppearances: document.getElementById('include-appearances'),
 		shopAppearances: document.getElementById('shop-appearances'),
 		collaboration: document.getElementById('collaboration'),
 		rocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
-		// Release status settings
-		releasedSwitch: document.getElementById('released-switch'),
-		releasedLabel: document.getElementById('released-label'),
-		releaseDate: document.getElementById('release-date'),
-		itemShopHistory: document.getElementById('item-shop-history'),
-		shopHistoryPart: document.getElementById('shop-history-part'),
-		updateVersion: document.getElementById('update-version'),
-
-		// Other settings
 		displayTitle: document.getElementById('display-title'),
 		forceTitleCase: document.getElementById('force-title-case'),
+		updateVersion: document.getElementById('update-version'),
 	};
+
+	// Initialize source/release controls and augment elements object
+	initSourceReleaseControls({
+		sources: [] // Bundle generator doesn't use source checkboxes
+	}, elements);
 
 	await loadData();
 	jamTracksData = await loadJamTracksData();
@@ -928,52 +866,6 @@ async function initialiseApp() {
 
 	createCosmeticEntry(false);
 
-	function handleReleasedSwitch() {
-		const isReleased = elements.releasedSwitch.checked;
-		const releasedFields = document.querySelectorAll('.released-fields');
-		
-		elements.releasedLabel.textContent = isReleased ? 'Yes' : 'No';
-		
-		if (isReleased) {
-			releasedFields.forEach(field => {
-				field.style.display = 'flex';
-			});
-		} else {
-			releasedFields.forEach(field => {
-				field.style.display = 'none';
-			});
-			
-			elements.releaseDate.value = '';
-			elements.itemShopHistory.checked = false;
-			elements.shopHistoryPart.value = '';
-		}
-		
-		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
-	}
-
-	elements.releasedSwitch.addEventListener('change', handleReleasedSwitch);
-
-	// Toggle shop history part visibility when the checkbox changes
-	elements.itemShopHistory.addEventListener('change', () => {
-		elements.shopHistoryPart.style.display = elements.itemShopHistory.checked ? 'inline-block' : 'none';
-	});
-
-	// Item Shop Appearances visibility
-	const appearancesFields = document.querySelectorAll('.appearances-fields');
-	elements.includeAppearances.addEventListener('change', () => {
-		const appearancesChecked = elements.includeAppearances.checked;
-		if (appearancesChecked) {
-			appearancesFields.forEach(field => {
-				field.style.display = 'block';
-			});
-			elements.shopAppearances.value = currentBundleName;
-		} else {
-			appearancesFields.forEach(field => {
-				field.style.display = 'none';
-			});
-		}
-	});
-
 	elements.forceTitleCase.addEventListener('change', () => {
 		if (elements.shopAppearances != "") {
 			if (elements.forceTitleCase.checked) {
@@ -988,8 +880,20 @@ async function initialiseApp() {
 	});
 }
 
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initialiseApp);
-} else {
-	initialiseApp();
+// Wait for release controls to be ready, then initialize
+function waitForReleaseControls() {
+	return new Promise((resolve) => {
+		const container = document.getElementById('release-container');
+		if (container && container.children.length > 0) {
+			resolve();
+		} else {
+			document.addEventListener('releaseControlsReady', resolve, { once: true });
+		}
+	});
 }
+
+// Initialise when DOM is loaded AND release controls are ready
+document.addEventListener('DOMContentLoaded', async () => {
+	await waitForReleaseControls();
+	initialiseApp();
+});

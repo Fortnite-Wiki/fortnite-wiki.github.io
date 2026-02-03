@@ -268,7 +268,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
         sentenceText = sentenceText.trim();
 
 		if (overdriveLine && sentenceText.length > 0) {
-			sentenceText = `<span class="overdrive-gradient">${sentenceText}</span>`;
+			sentenceText = `{{OverdriveLyric|${sentenceText}}}`;
 		}
 
 		sentenceText += '<br>';

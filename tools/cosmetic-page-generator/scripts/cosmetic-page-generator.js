@@ -1524,7 +1524,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`}}{{Quotation|${description}}}`);
 
 	// Article section
-	let article = `'''${name}''' ${usePlural ? 'are' : 'is' + articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
+	let article = `'''${name}''' ${usePlural ? 'are' : 'is ' + articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
 	
 	article += generateArticleIntro(settings, bundleEntries, name, cosmeticType, isFestivalCosmetic, instrumentType, usePlural);
 	

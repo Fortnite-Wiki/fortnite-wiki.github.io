@@ -23,7 +23,7 @@ async function loadJamTracksData() {
 		
 		// Use CORS proxy to bypass CORS Policy restrictions
 		const apiUrl = 'https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game/spark-tracks';
-		const corsProxyUrl = 'https://corsproxy.io/?';
+		const corsProxyUrl = 'https://cors-proxy.mtonline.workers.dev/?url=';
 		const proxiedUrl = corsProxyUrl + encodeURIComponent(apiUrl);
 		
 		const response = await fetch(proxiedUrl);

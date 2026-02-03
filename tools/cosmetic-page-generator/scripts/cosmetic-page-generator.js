@@ -1953,17 +1953,12 @@ async function generatePage() {
 		...getSourceReleaseSettings(elements),
 		displayTitle: elements.displayTitle.checked,
 		updateVersion: elements.updateVersion.value.trim(),
-		isCollaboration: isCollaboration,
+		isCollaboration: elements.collaboration.checked,
 		hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
 		remixOf: elements.remixOf ? elements.remixOf.value.trim() : '',
-		isRocketLeagueCosmetic: isRocketLeagueCosmetic,
-		isRocketLeagueExclusive: isRocketLeagueExclusive
+		isRocketLeagueCosmetic: elements.isRocketLeagueCosmetic.checked,
+		isRocketLeagueExclusive: elements.isRocketLeagueExclusive.checked
 	}
-
-	const isCollaboration = elements.collaboration.checked;
-
-	const isRocketLeagueCosmetic = elements.isRocketLeagueCosmetic.checked;
-	const isRocketLeagueExclusive = elements.isRocketLeagueExclusive.checked;
 
 	if (!cosmeticInput) {
 		showStatus('Please enter a cosmetic ID or name', 'error');

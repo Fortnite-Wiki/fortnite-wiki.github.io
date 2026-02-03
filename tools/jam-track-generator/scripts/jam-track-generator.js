@@ -455,7 +455,7 @@ function generateWikiText(track, lyricSentences = [], settings) {
 	wikiText += `|release = ${generateReleaseParameter(settings)}\n`;
 
 	if (settings.ageRestricted) {
-		wikiText += '|age_restricted = y\n';
+		wikiText += '|age-restricted = y\n';
 	}
 	if (settings.isItemShop && settings.includeAppearances) {
 		wikiText += `|appearances = ${settings.shopAppearances}\n`;

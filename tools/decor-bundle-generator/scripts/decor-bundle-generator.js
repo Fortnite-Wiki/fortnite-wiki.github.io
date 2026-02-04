@@ -272,9 +272,14 @@ function generateDecorBundleWikiText(entry, matches, settings) {
 
 	output.push(`|ID = ${entry.id}`);
 	output.push(`}}`);
-	output.push(`'''${entry.name}''' is a [[LEGO Fortnite:Decor Bundles|Decor Bundle]] in [[LEGO Fortnite]]` + generateArticleIntro(settings, bundleEntries));
+
+	let intro = `'''${entry.name}''' is a [[LEGO Fortnite:Decor Bundles|Decor Bundle]] in [[LEGO Fortnite]]` + generateArticleIntro(settings, bundleEntries);
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
+	if (seasonFirstReleasedFlag) {
+		intro += ` ${entry.name}${seasonFirstReleasedFlag}.`;
+	}
+	output.push(intro);
 
 	output.push('');
 	output.push(itemsSection);

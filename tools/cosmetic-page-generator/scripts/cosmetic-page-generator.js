@@ -1532,10 +1532,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	if (setName && seasonFirstReleasedFlag) {
 		const theFlag = setName.toLowerCase().startsWith("the ") ? "" : "the ";
-		article += ` ${name}${seasonFirstReleasedFlag} and is part of ${theFlag}[[:Category:${setName} Set|${setName} Set]].`;
+		article += ` ${name}${seasonFirstReleasedFlag} and ${usePlural ? 'are' : 'is'} part of ${theFlag}[[:Category:${setName} Set|${setName} Set]].`;
 	} else if (setName) {
 		const theFlag = setName.toLowerCase().startsWith("the ") ? "" : "the ";
-		article += ` ${name} is part of ${theFlag}[[:Category:${setName} Set|${setName} Set]].`;
+		article += ` ${name} ${usePlural ? 'are' : 'is'} part of ${theFlag}[[:Category:${setName} Set|${setName} Set]].`;
 	} else if (seasonFirstReleasedFlag) {
 		article += ` ${name}${seasonFirstReleasedFlag}.`;
 	}

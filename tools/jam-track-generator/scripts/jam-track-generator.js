@@ -495,7 +495,7 @@ function generateWikiText(track, lyricSentences = [], settings) {
 		wikiText += '{{Scrollbox Clear\n';
 		wikiText += '|BoxHeight = 450\n';
 		wikiText += `|Content = '''${track.title} - ${track.artist}'''\n<br>`;
-		wikiText += lyricSentences.join('\n') + '\n';
+		wikiText += lyricSentences.join('\n') + '\n<br>\n';
 		wikiText += '}}\n\n';
 	}
 	

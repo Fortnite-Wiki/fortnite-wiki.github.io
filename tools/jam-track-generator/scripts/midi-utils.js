@@ -220,6 +220,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 	for (const phrase of phrases) {
 		let sentenceText = '';
 		let overdriveLine = false;
+		let isSpecialLine = false;
 		for (let i = 0; i < phrase.notes.length; i++) {
 			const note = phrase.notes[i];
 			if (!note.text) continue;
@@ -231,6 +232,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 
                 let specialText = noteText.replace('SPECIAL-', '').replace('[', '').replace(']', '');
                 specialText = EVENT_MAP[specialText];
+				isSpecialLine = true;
 
                 if (specialText === 'Verse') {
                     sentenceText += `'''[${specialText} ${++verseCount}]'''`;
@@ -265,7 +267,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 		}
 
         sentenceText = sentenceText.trim();
-		if (overdriveLine && sentenceText.length > 0) {
+		if (overdriveLine && !isSpecialLine && sentenceText.length > 0) {
 			sentenceText = `{{OverdriveLyric|${sentenceText}}}`;
 		}
 

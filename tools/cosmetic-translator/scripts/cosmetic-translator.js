@@ -100,6 +100,15 @@ async function search() {
   const input = document.getElementById("cosmetic-input").value.trim().toLowerCase();
   const output = document.getElementById("output");
   output.value = "";
+  
+  // Check if manual keys are provided
+  const manualNameKey = document.getElementById("manual-name-key").value.trim();
+  const manualDescKey = document.getElementById("manual-desc-key").value.trim();
+  if (manualNameKey || manualDescKey) {
+    await translateKeys(manualNameKey || null, manualDescKey || null);
+    return;
+  }
+  
   if (!input) return;
 
   const entryMeta = index.find(e => e.id.toLowerCase() === input || e.name.toLowerCase() === input);
@@ -126,91 +135,97 @@ async function search() {
       descriptionKey = entryMeta.itemDescriptionKey || null;
     }
 	
-    let folders = null;
-    if (nameKey || descriptionKey) {
-      folders = await getPakChunkFolders();
-    } else {
-      output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
-      return;
-    }
-    const nameTranslations = {};
-    const descriptionTranslations = {};
-
-    for (const folder of folders) {
-      try {
-        const metaPath = `../../data/localization/${folder}/${folder}.json`;
-        const meta = await loadGzJson(metaPath);
-        const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
-
-        for (const lang of compiledLangs) {
-          const alreadyHasName = nameKey ? nameTranslations[lang] !== undefined : true;
-          const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
-
-          if (alreadyHasName && alreadyHasDesc) continue;
-
-          const locPath = `../../data/localization/${folder}/${lang}/${folder}.json`;
-          try {
-            const loc = await loadGzJson(locPath);
-
-            if (nameKey && !alreadyHasName) {
-              const nameText = loc[""]?.[nameKey];
-              if (nameText) nameTranslations[lang] = nameText;
-            }
-
-            if (descriptionKey && !alreadyHasDesc) {
-              const descText = loc[""]?.[descriptionKey];
-              if (descText) descriptionTranslations[lang] = descText;
-            }
-          } catch {}
-        }
-      } catch {}
-    }
-
-    // Build the Cosmetic Translations output
-    let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
-    
-    if (nameKey) {
-      const nameEn = nameTranslations["en"] || "";
-      if (nameEn) lines.push(`|name = ${nameEn}`);
-      
-      for (const [lang, translation] of Object.entries(nameTranslations)) {
-        if (lang === "en") continue; // Skip English as it's already added as |name
-        const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-        const translation = nameTranslations[lang] || "";
-        lines.push(`|name-${langKey} = ${translation}`);
-      }
-      
-      if (descriptionKey) {
-        lines.push("");
-      }
-    }
-
-    
-    if (descriptionKey) {
-      const descEn = descriptionTranslations["en"];
-      if (descEn) lines.push(`|desc = ${descEn}`);
-      
-      for (const [lang, translation] of Object.entries(descriptionTranslations)) {
-        if (lang === "en") continue; // Skip English as it's already added as |desc
-        const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-        lines.push(`|desc-${langKey} = ${translation}`);
-      }
-    }
-    
-    lines.push("}}");
-    output.value = lines.join("\n");
-    
-    // Enable copy button
-    const copyBtn = document.getElementById("copy-btn");
-    copyBtn.disabled = false;
-
+    await translateKeys(nameKey, descriptionKey);
   } catch (e) {
     console.error(e);
     output.value = "Error loading cosmetic data or localization.";
   }
 }
 
-// Copy to clipboard function
+async function translateKeys(nameKey, descriptionKey) {
+  const output = document.getElementById("output");
+  
+  let folders = null;
+  if (nameKey || descriptionKey) {
+    output.value = "Getting translations...";
+    folders = await getPakChunkFolders();
+  } else {
+    output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
+    return;
+  }
+  
+  const nameTranslations = {};
+  const descriptionTranslations = {};
+
+  for (const folder of folders) {
+    try {
+      const metaPath = `../../data/localization/${folder}/${folder}.json`;
+      const meta = await loadGzJson(metaPath);
+      const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
+
+      for (const lang of compiledLangs) {
+        const alreadyHasName = nameKey ? nameTranslations[lang] !== undefined : true;
+        const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
+
+        if (alreadyHasName && alreadyHasDesc) continue;
+
+        const locPath = `../../data/localization/${folder}/${lang}/${folder}.json`;
+        try {
+          const loc = await loadGzJson(locPath);
+
+          if (nameKey && !alreadyHasName) {
+            const nameText = loc[""]?.[nameKey];
+            if (nameText) nameTranslations[lang] = nameText;
+          }
+
+          if (descriptionKey && !alreadyHasDesc) {
+            const descText = loc[""]?.[descriptionKey];
+            if (descText) descriptionTranslations[lang] = descText;
+          }
+        } catch {}
+      }
+    } catch {}
+  }
+
+  // Build the Cosmetic Translations output
+  let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
+  
+  if (nameKey) {
+    const nameEn = nameTranslations["en"] || "";
+    if (nameEn) lines.push(`|name = ${nameEn}`);
+    
+    for (const [lang, translation] of Object.entries(nameTranslations)) {
+      if (lang === "en") continue; // Skip English as it's already added as |name
+      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
+      const translation = nameTranslations[lang] || "";
+      lines.push(`|name-${langKey} = ${translation}`);
+    }
+    
+    if (descriptionKey) {
+      lines.push("");
+    }
+  }
+
+  
+  if (descriptionKey) {
+    const descEn = descriptionTranslations["en"];
+    if (descEn) lines.push(`|desc = ${descEn}`);
+    
+    for (const [lang, translation] of Object.entries(descriptionTranslations)) {
+      if (lang === "en") continue; // Skip English as it's already added as |desc
+      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
+      lines.push(`|desc-${langKey} = ${translation}`);
+    }
+  }
+  
+  lines.push("}}");
+  output.value = lines.join("\n");
+  
+  // Enable copy button
+  const copyBtn = document.getElementById("copy-btn");
+  copyBtn.disabled = false;
+}
+
 async function copyToClipboard() {
   const output = document.getElementById("output");
   const copyBtn = document.getElementById("copy-btn");

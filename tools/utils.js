@@ -1,6 +1,6 @@
 // utils.js - shared utility constants and functions for generators
 
-import { SEASON_RELEASE_DATES } from '/data/datesAndVersions.js';
+import { SEASON_RELEASE_DATES, OG_SEASON_RELEASE_DATES, FESTIVAL_SEASON_RELEASE_DATES, LEGO_SEASON_RELEASE_DATES } from '/data/datesAndVersions.js';
 
 export const TYPE_MAP = {
 	"AthenaCharacterItemDefinition": "Outfit",
@@ -140,8 +140,20 @@ export function getItemShopHistoryDate(date, settings = {}) {
 }
 
 export function getSeasonReleased(releaseDate, settings, usePlural = false) {
+	if (releaseDate == "") {
+		if (settings.isOGPass && settings.ogSeason) {
+			releaseDate = OG_SEASON_RELEASE_DATES[settings.ogSeason];
+		} else if (settings.isMusicPass && settings.musicSeason) {
+			releaseDate = FESTIVAL_SEASON_RELEASE_DATES[settings.musicSeason];
+		} else if (settings.isLEGOPass && settings.legoSeason) {
+			releaseDate = LEGO_SEASON_RELEASE_DATES[settings.legoSeason];
+		} else if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
+			releaseDate = new Date(settings.crewYear, settings.crewMonth - 1, 1);
+		}
+	}
+
 	if (releaseDate) {
-		releaseDate = standardiseDateString(releaseDate);
+		if (releaseDate instanceof Date === false) releaseDate = standardiseDateString(releaseDate);
 		
 		const sortedSeasons = Object.entries(SEASON_RELEASE_DATES)
 			.sort(([, dateA], [, dateB]) => dateA - dateB);

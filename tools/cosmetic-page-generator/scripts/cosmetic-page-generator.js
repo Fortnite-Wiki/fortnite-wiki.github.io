@@ -1987,6 +1987,8 @@ async function generatePage() {
 
 		showStatus('Generating page...', 'loading');
 
+		console.log('Generating page with data:', { data, allData, settings, entryMeta });
+
 		const pageContent = await generateCosmeticPage(data, allData, settings, entryMeta);
 		
 		displayOutput(pageContent);

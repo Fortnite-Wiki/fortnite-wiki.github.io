@@ -102,8 +102,6 @@ async function updateWikiPageButtonDecor() {
 	
 	const pageTitle = `LEGO Fortnite:${bundleName}`;
 	const shouldEdit = await pageExists(pageTitle);
-
-	console.log('updateWikiPageButtonDecor:', { pageTitle, shouldEdit });
 	
 	elements.wikiPageBtn.disabled = false;
 	elements.wikiPageBtn.textContent = shouldEdit ? 'Edit page' : 'Create page';

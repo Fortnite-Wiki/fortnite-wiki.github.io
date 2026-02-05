@@ -67,7 +67,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         cost = "Free";
     
     } else if (settings.isFortniteCrew || rarity === "Crew Series") {
-        cost = "$11.99 <br /> ({{Fortnite Crew}})";
+        cost = "$11.99 <br> ({{Fortnite Crew}})";
     
     } else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
         const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
@@ -82,7 +82,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     } else if (settings.isLEGOPass && settings.legoSeason) {
         cost = `{{V-Bucks|1,400}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
     
-    } else if (settings.isItemShop && settings.shopCost) {
+    } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
             && (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
         ) {
@@ -99,7 +99,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     }
     
 
-    if (settings.isItemShop && bundleEntries.length > 0) {
+    if (settings.isItemShop && !settings.isUnreleased && bundleEntries.length > 0) {
         const bundleCosts = bundleEntries
             .map(be => {
                 if (be.bundleName.value && be.bundleCost.value) {
@@ -221,11 +221,19 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
                         const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
                         const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
                         const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+
                         const i = bundleEntries.indexOf(be);
                         const previousHas = i > 0 && bundleEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
-                        const orFlag = (settings.shopCost || previousHas) ? " or " : "";
-                        const itemShopFlag = (!settings.shopCost && !previousHas && orFlag == "") ? "in the [[Item Shop]] " : "";
-                        return `${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
+                        const first = i == 0;
+                        const last = i == bundleEntries.length - 1;
+
+                        const canBePurchasedDirectly = settings.shopCost && settings.shopCost.trim() !== "";
+
+                        const commaFlag = bundleEntries.length > 1 && !first || canBePurchasedDirectly ? ", " : "";
+                        const orFlag = (previousHas || canBePurchasedDirectly) && last ? `or ` : "";
+                        const itemShopFlag = (!canBePurchasedDirectly && !previousHas) ? "in the [[Item Shop]] " : "";
+
+                        return `${commaFlag}${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
                     }
                     return null;
                 })

@@ -92,10 +92,10 @@ function updateSuggestions() {
 			elements.displayTitle.disabled = false;
 
 			const bundles = getBundleEntries();
-			bundles.forEach(() => removeBundleEntry());
+			while (bundles.length != 0) removeBundleEntry();
 			var ftChrsSection = document.getElementById("featured-characters-config");
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
-			featuredCharactersEntries.forEach(() => removeFeaturedCharacterEntry());
+			while (featuredCharactersEntries.length != 0) removeFeaturedCharacterEntry();
 
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
 			document.getElementById("cosmetic-input").value = entry.id;
@@ -1095,7 +1095,7 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	out.push(`|rarity = ${rarity}`);
 	out.push("|type = Emote");
 	out.push("|additional = {{Built-In}}")
-	out.push(`|unlocked = [[${companionName}'s Rewards}]]`);
+	out.push(`|unlocked = [[${companionName}'s Rewards]]`);
 	out.push(`|cost = ${settings.questCost} <br> <small>([[${companionName}]])</small>`);
 	out.push(`|release = ${generateReleaseParameter(settings)}`);
 	if (settings.updateVersion != "") {
@@ -1108,7 +1108,7 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	out.push("|LEGOID = n");
 	out.push("|BallisticUse = n");
 	out.push("}}");
-	out.push(`'''${name}''' is ${articleFor(rarity)} ${rarity} {{Emote}} in [[Fortnite]] that can be obtained as a reward from [[${companionName}'s Rewards]]. ${getSeasonReleased(settings.releaseDate, settings)}`);
+	out.push(`'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[Emote]] in [[Fortnite]] that can be obtained as a reward from [[${companionName}'s Rewards]]. ${getSeasonReleased(settings.releaseDate, settings)}`);
 
 	out.push(`\n${name} is [[${companionName}]]'s [[Built-In Cosmetics|Built-In Emote]] and can only be used while using it.`);
 
@@ -1453,13 +1453,13 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push("|body model = {{Body Models|}}");
 	}
 	
-	const additional = extractAdditionals(tags);
+	let additional = extractAdditionals(tags);
 	if (additional) {
-		if (!additional.includes("Selectable Styles") && props.ItemVariants) {
+		if (!additional.includes("Selectable Styles") && (isRacingCosmetic && props.ItemVariants)) {
 			additional = "{{Selectable Styles}} " + additional;
 		}
 		out.push(`|additional = ${additional}`);
-	} else if (props.ItemVariants) {
+	} else if (isRacingCosmetic && props.ItemVariants) {
 		out.push("|additional = {{Selectable Styles}}");
 	}
 

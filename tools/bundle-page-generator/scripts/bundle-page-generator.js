@@ -150,10 +150,20 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 
 	if (!Array.isArray(index) || index.length === 0) return;
 
+	const selectedIds = new Set(
+		cosmeticsEntries
+			.map(e => (e.hiddenId && e.hiddenId.value || '').trim().toLowerCase())
+			.filter(id => id) // Filter out empty strings
+	);
+
 	const candidateIndex = index.filter(e => {
 		if (typeof e.bundle_id === 'string' || typeof e.bundle_name === 'string') return false;
 		if (typeof e.banner_id === 'string' || typeof e.banner_icon === 'string') return false;
-		return e.name && e.id;
+		if (!e.name || !e.id) return false;
+
+		// Exclude already selected cosmetics
+		if (selectedIds.has(e.id.toLowerCase())) return false;
+		return true;
 	});
 
 	const scoredMatches = candidateIndex
@@ -237,8 +247,6 @@ function updateJamTrackSuggestions(displayField, suggestionsDiv) {
 		if (name.toLowerCase().includes(query) || id.toLowerCase().includes(query)) {
 			matches.push({ id, name });
 		}
-
-		console.log(matches)
 	}
 
 	matches.slice(0, 5).forEach(match => {
@@ -731,7 +739,7 @@ async function handleGenerate() {
 	cosmetics.sort((a, b) => {
 		const typeOrder = [
 			'Outfit', 'Back Bling', 'Pet', 'Pickaxe', 'Glider', 'Contrail',
-			'Emote', 'Emoticon', 'Spray', 'Toy', 'Wrap', 'Loading Screen',
+			'Emote', 'Emoticon', 'Spray', 'Toy', 'Wrap', 'Sidekick', 'Loading Screen',
 			'Lobby Music', 'Kicks', 'Car Body', 'Decal', 'Wheel', 'Trail',
 			'Boost', 'Aura', 'Guitar', 'Bass', 'Drums', 'Microphone',
 			'Keytar', 'Jam Track', 'Banner Icon', 'Banner'

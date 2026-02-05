@@ -133,7 +133,7 @@ export function getItemShopHistoryDate(date, settings = {}) {
 
 	const formattedDate = getFormattedReleaseDate(date);
 	if (settings.shopHistoryPart) {
-		return `[[Item Shop History/${formattedDate} - Part ${settings.shopHistoryPart}|${formattedDate}<br/><small><small>Part ${settings.shopHistoryPart}</small></small>]]`;
+		return `[[Item Shop History/${formattedDate} - Part ${settings.shopHistoryPart}|${formattedDate}<br><small><small>Part ${settings.shopHistoryPart}</small></small>]]`;
 	} else {
 		return `[[Item Shop History/${formattedDate}|${formattedDate}]]`;
 	}

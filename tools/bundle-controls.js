@@ -93,10 +93,21 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWra
 
 	if (!Array.isArray(dataIndex) || dataIndex.length === 0) return;
 
+	const selectedIds = new Set(
+		bundlesEntries
+			.map(e => (e.bundleID && e.bundleID.value || '').trim().toLowerCase())
+			.filter(id => id) // Filter out empty strings
+	);
+
 	const scoredMatches = dataIndex
 		.filter(e => {
 			if (typeof e.id === 'string' || typeof e.name === 'string') return false;
-			return e.bundle_name && e.bundle_id;
+			if (!e.bundle_name || !e.bundle_id) return false;
+
+			// Exclude already selected bundles
+			if (selectedIds.has(e.bundle_id.toLowerCase())) return false;
+			
+			return true;
 		})
 		.map(e => {
 			const bundle_name = (e.bundle_name || '').toLowerCase();

@@ -438,6 +438,9 @@ function generateWikiText(track, lyricSentences = [], settings) {
 	
 	// Infobox
 	wikiText += '{{Infobox Jam Tracks\n';
+	if (settings.displayTitle) {
+		wikiText += `|name = ${track.title}\n`;
+	}
 	wikiText += `|image = ${album !== 'Fortnite' && album || track.title} - Jam Track - Fortnite Festival.jpg\n`;
 	wikiText += `|artist = ${artist}\n`;
 	wikiText += `|year = ${track.year}\n`;

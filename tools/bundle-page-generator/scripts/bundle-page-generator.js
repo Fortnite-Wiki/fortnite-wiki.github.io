@@ -866,6 +866,22 @@ async function initialiseApp() {
 
 	createCosmeticEntry(false);
 
+	// Item Shop Appearances visibility
+	const appearancesFields = document.querySelectorAll('.appearances-fields');
+	elements.includeAppearances.addEventListener('change', () => {
+		const appearancesChecked = elements.includeAppearances.checked;
+		if (appearancesChecked) {
+			appearancesFields.forEach(field => {
+				field.style.display = 'block';
+			});
+			elements.shopAppearances.value = currentBundleName;
+		} else {
+			appearancesFields.forEach(field => {
+				field.style.display = 'none';
+			});
+		}
+	});
+
 	elements.forceTitleCase.addEventListener('change', () => {
 		if (elements.shopAppearances != "") {
 			if (elements.forceTitleCase.checked) {

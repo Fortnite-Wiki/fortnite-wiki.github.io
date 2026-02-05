@@ -37,23 +37,23 @@ export function generateUnlockedParameter(settings, bundleEntries = []) {
     } else if (settings.isRocketPass) {
         unlocked = `Level ${settings.rocketPassLevel} <br> {{RocketPass|${settings.rocketPassSeason}}}`;
     
-    } else if (settings.isItemShop && (settings.shopCost || bundleEntries.length == 0)) {
-        unlocked = "[[Item Shop]]";
-    }
-
-
-    if (settings.isItemShop && bundleEntries.length > 0) {
-        const bundleNames = bundleEntries
-            .map(be => {
-                if (!be.bundleName || !be.bundleName.value) return null;
-                const rawName = be.bundleName.value.trim();
-                const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-                const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-                return addItemShopBundleTag ? `[[${name} (Item Shop Bundle)|${name}]]` : `[[${name}]]`;
-            })
-            .filter(bn => bn !== null);
-        if (bundleNames.length > 0) {
-            unlocked = unlocked ? unlocked + " <br> " + bundleNames.join(" <br> ") : bundleNames.join(" <br> ");
+    } else if (settings.isItemShop && !settings.isUnreleased) {
+        if (settings.shopCost || bundleEntries.length == 0) {
+            unlocked = "[[Item Shop]]";
+        }
+        if (bundleEntries.length > 0) {
+            const bundleNames = bundleEntries
+                .map(be => {
+                    if (!be.bundleName || !be.bundleName.value) return null;
+                    const rawName = be.bundleName.value.trim();
+                    const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+                    const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+                    return addItemShopBundleTag ? `[[${name} (Item Shop Bundle)|${name}]]` : `[[${name}]]`;
+                })
+                .filter(bn => bn !== null);
+            if (bundleNames.length > 0) {
+                unlocked = unlocked ? unlocked + " <br> " + bundleNames.join(" <br> ") : bundleNames.join(" <br> ");
+            }
         }
     }
 
@@ -208,6 +208,9 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
     } else if (settings.isRocketPass && settings.rocketPassLevel && settings.rocketPassSeason) {
         article += ` can be unlocked by reaching Level ${settings.rocketPassLevel} of the [[w:c:rocketleague:Season ${settings.rocketPassSeason}#Rocket_Pass|Season ${settings.rocketPassSeason} Rocket Pass]].`;
     
+    } else if (settings.isUnreleased) {
+        article += ` that ${usePlural ? 'are' : 'is'} currently unreleased.`;
+    
     } else if (settings.isItemShop) {
         let bundles = "";
         if (bundleEntries.length > 0) {
@@ -243,16 +246,12 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
         if (itemShopFlag || bundles) {
             article += ` that can be purchased ${itemShopFlag}${bundles}.`;
         } else {
-            if (settings.isUnreleased) {
-                article += ` that ${usePlural ? 'are' : 'is'} currently unreleased.`;
-            }
             article += ".";
-            
         }
+    
     } else if (settings.isQuestReward && settings.questName) {
         article += ` that can be obtained as a reward from [[${settings.questName}]].`;
-    } else if (settings.isUnreleased) {
-        article += ` that ${usePlural ? 'are' : 'is'} currently unreleased.`;
+    
     } else {
         article += ".";
     }

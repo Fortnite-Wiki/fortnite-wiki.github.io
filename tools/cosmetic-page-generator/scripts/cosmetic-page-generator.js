@@ -1449,8 +1449,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 
 	if (cosmeticType === "Outfit") {
-		out.push("|character model = ");
-		out.push("|body model = ");
+		out.push("|character model = {{Character Models|}}");
+		out.push("|body model = {{Body Models|}}");
 	}
 	
 	const additional = extractAdditionals(tags);

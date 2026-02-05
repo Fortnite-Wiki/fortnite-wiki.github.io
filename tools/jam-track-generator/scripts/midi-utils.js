@@ -23,6 +23,8 @@ const EVENT_MAP = {
     'outro': 'Outro',
 }
 
+const decoder = new TextDecoder('utf-8');
+
 export async function decryptMidi(urlToEncryptedDat, aesKey) {
     const encryptedBuffer = await fetch(urlToEncryptedDat).then(r => r.arrayBuffer());
     const datBytes = new Uint8Array(encryptedBuffer);
@@ -39,15 +41,12 @@ export async function decryptMidi(urlToEncryptedDat, aesKey) {
         { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding }
     );
 
-    return normalizeMidiBuffer(wordToUint8Array(decrypted)).buffer;
-}
+	const decryptedBytes = new Uint8Array(decrypted.sigBytes);
+	for (let i = 0; i < decrypted.sigBytes; i++) {
+		decryptedBytes[i] = (decrypted.words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
+	}
 
-export function wordToUint8Array(wordArray) {
-    const result = new Uint8Array(wordArray.sigBytes);
-    for (let i = 0; i < wordArray.sigBytes; i++) {
-        result[i] = (wordArray.words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
-    }
-    return result;
+    return normalizeMidiBuffer(decryptedBytes).buffer;
 }
 
 export function extractFormattedProVocalsSentences(midiArrayBuffer) {
@@ -94,6 +93,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 
 	const messagesOnlyLyrics = messages
 		.filter(m => m.type === 'lyrics')
+		.map(m => ({ ...m, text: decodeToUtf8(m.text) }))
 		.sort((a, b) => a.time - b.time);
 
 	const messagesOnlySung = messagesOnlyNotes
@@ -175,7 +175,9 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 			if (m.type === 'trackName') {
 				continue;
 			}
-			if (m.text && m.text.trim().length > 0) {
+
+			const decodedText = decodeToUtf8(m.text);
+			if (decodedText && decodedText.trim().length > 0) {
 				phrases.push({
 					start: m.time,
 					note: null,
@@ -184,7 +186,7 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 						start: m.time,
 						end: m.time,
 						note: null,
-						text: `SPECIAL-${m.text}`
+						text: `SPECIAL-${decodedText}`
 					}]
 				});
 			}
@@ -209,10 +211,8 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 		}
 		const aSpecial = hasSpecial(a);
 		const bSpecial = hasSpecial(b);
-		if (aSpecial === bSpecial) {
-			return 0;
-		}
-		return aSpecial ? -1 : 1;
+
+		return aSpecial === bSpecial ? 0 : (aSpecial ? -1 : 1);
 	});
 
 	const sentences = [];
@@ -222,13 +222,12 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 		let overdriveLine = false;
 		for (let i = 0; i < phrase.notes.length; i++) {
 			const note = phrase.notes[i];
-			if (!note.text) {
-				continue;
-			}
+			if (!note.text) continue;
+
 			let noteText = note.text.trim();
 
 			if (noteText.startsWith('SPECIAL-')) {
-                sentences.push('');// Add an empty line before special sections
+                sentences.push(''); // Add an empty line before special sections
 
                 let specialText = noteText.replace('SPECIAL-', '').replace('[', '').replace(']', '');
                 specialText = EVENT_MAP[specialText];
@@ -266,27 +265,36 @@ export function extractFormattedProVocalsSentences(midiArrayBuffer) {
 		}
 
         sentenceText = sentenceText.trim();
-
 		if (overdriveLine && sentenceText.length > 0) {
 			sentenceText = `{{OverdriveLyric|${sentenceText}}}`;
 		}
 
-		sentenceText += '<br>';
-
-		sentences.push(sentenceText.trim());
+		if (sentenceText.length > 0) {
+			sentences.push(sentenceText + '<br>');
+		}
 	}
 
 	return sentences;
+}
+
+function decodeToUtf8(data) {
+	if (!data) return '';
+
+	if (typeof data === 'string') {
+		const bytes = new Uint8Array(data.length);
+		for (let i = 0; i < data.length; i++) {
+			bytes[i] = data.charCodeAt(i);
+		}
+		return decoder.decode(bytes);
+	}
+	return decoder.decode(new Uint8Array(data));
 }
 
 function toAbsoluteTime(track) {
 	let time = 0;
 	return track.map(event => {
 		time += event.deltaTime || 0;
-		return {
-			...event,
-			time
-		};
+		return { ...event, time };
 	});
 }
 
@@ -309,18 +317,11 @@ function hasSpecial(phrase) {
 
 function normalizeMidiBuffer(input) {
 	const bytes = input instanceof Uint8Array ? input : new Uint8Array(input);
-	if (bytes.length < 4) {
-		throw new Error('Bad MIDI file. Too small to contain header.');
-	}
-
-	if (isMidiHeader(bytes, 0)) {
-		return bytes;
-	}
+	if (bytes.length < 4) throw new Error('Bad MIDI file. Too small to contain header.');
+	if (isMidiHeader(bytes, 0)) return bytes;
 
 	const offset = findMidiHeaderOffset(bytes);
-	if (offset >= 0) {
-		return bytes.subarray(offset);
-	}
+	if (offset >= 0) return bytes.subarray(offset);
 
 	const headerHex = Array.from(bytes.subarray(0, 4))
 		.map(b => b.toString(16).padStart(2, '0'))
@@ -339,9 +340,7 @@ function isMidiHeader(bytes, offset) {
 
 function findMidiHeaderOffset(bytes) {
 	for (let i = 0; i <= bytes.length - 4; i++) {
-		if (isMidiHeader(bytes, i)) {
-			return i;
-		}
+		if (isMidiHeader(bytes, i)) return i;
 	}
 	return -1;
 }

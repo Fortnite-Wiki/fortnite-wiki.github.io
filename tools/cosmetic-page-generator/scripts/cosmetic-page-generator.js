@@ -1832,7 +1832,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		addedCategories.add('Free Cosmetics');
 	}
 	
-	if (isFestivalCosmetic && (cosmeticType != instrumentType)) {
+	if (isFestivalCosmetic && (cosmeticType != instrumentType) && cosmeticType != "Aura") {
 		out.push("[[Category:Compatible Cosmetics]]");
 		addedCategories.add('Compatible Cosmetics');
 	}

@@ -487,9 +487,7 @@ function generateWikiText(track, lyricSentences = [], settings) {
 	wikiText += `|prolead = ${track.difficulties.pg + 1 || 0}\n`;
 	wikiText += `|probass = ${track.difficulties.pb + 1 || 0}\n`;
 	wikiText += `|prodrums = ${track.difficulties.pd + 1 || 0}\n`;
-	if (track.difficulties.bd) {
-		wikiText += `|provocals = ${track.difficulties.bd + 1}\n`;
-	}
+	wikiText += `|provocals = ${track.difficulties.bd + 1 || 0}\n`;
 	wikiText += '}}\n\n';
 	
 	// Lyrics section

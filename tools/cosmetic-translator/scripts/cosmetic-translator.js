@@ -188,7 +188,14 @@ async function translateKeys(nameKey, descriptionKey) {
   }
 
   // Build the Cosmetic Translations output
-  let lines = ["== Other Languages ==", "{{Cosmetic Translations"];
+  const includeClear = document.getElementById("include-clear")?.checked ?? true;
+  let lines = [];
+  
+  if (includeClear) {
+    lines.push("{{Clear}}");
+  }
+  
+  lines.push("== Other Languages ==", "{{Cosmetic Translations");
   
   if (nameKey) {
     const nameEn = nameTranslations["en"] || "";

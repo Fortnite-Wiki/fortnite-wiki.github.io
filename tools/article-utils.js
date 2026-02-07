@@ -229,7 +229,7 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
 
                         const canBePurchasedDirectly = settings.shopCost && settings.shopCost.trim() !== "";
 
-                        const commaFlag = bundleEntries.length > 1 && !first || canBePurchasedDirectly ? ", " : "";
+                        const commaFlag = bundleEntries.length > 1 && (!first || canBePurchasedDirectly) && (!last || bundleEntries.length > 2 || canBePurchasedDirectly) ? ", " : (first && !canBePurchasedDirectly) ? "" : " ";
                         const orFlag = (previousHas || canBePurchasedDirectly) && last ? `or ` : "";
                         const itemShopFlag = (!canBePurchasedDirectly && !previousHas) ? "in the [[Item Shop]] " : "";
 

@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -476,7 +476,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	infobox.push('}}');
 	
-	let theFlag = bundleName.toLowerCase().startsWith('the ') ? '' : 'The ';
+	let theFlag = bundleName.toLowerCase().startsWith('the ') || characterBundlePattern.test(bundleID) ? '' : 'The ';
 	let summary = `${theFlag}'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
 	if (settings.isUnreleased) {
 		summary = summary + ' that is currently unreleased.';
@@ -488,7 +488,9 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
-	if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
+	if (characterBundlePattern.test(bundleID) && cosmetics[0]?.cosmeticType == "Outfit" && cosmetics[1]?.cosmeticType == "Back Bling") {
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains the [[${cosmetics[0]?.name}]] [[Outfit]] and the [[${cosmetics[1]?.name}]] [[Back Bling]].`;
+	} else if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
 		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag} and contains cosmetics from ${theSetFlag}[[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
 	} else if (cosmetics[0]?.setName) {

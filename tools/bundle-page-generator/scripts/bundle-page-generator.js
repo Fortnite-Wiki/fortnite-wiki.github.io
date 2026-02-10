@@ -588,6 +588,10 @@ async function handleGenerate() {
 		const hiddenName = (e.hiddenName && e.hiddenName.value || '').trim();
 		nameCounts[hiddenName] = (nameCounts[hiddenName] || 0) + 1;
 	}
+	for (const jt of jamTracksEntries) {
+		const title = jt.input.value;
+		nameCounts[title] = (nameCounts[title] || 0) + 1;
+	}
 
 	const cosmetics = [];
 	for (const e of cosmeticsEntries) {
@@ -706,6 +710,10 @@ async function handleGenerate() {
 	for (const jt of jamTracksEntries) {
 		const title = (jt.input && jt.input.value || '').trim();
 		if (!title) continue;
+
+		const hasDuplicate = nameCounts[title] > 1;
+		const linkTarget = hasDuplicate ? `${title} (Jam Track)` : title;
+
 		cosmetics.push({
 			name: title,
 			rarity: '',
@@ -713,7 +721,7 @@ async function handleGenerate() {
 			fileType: 'Jam Track',
 			isJamTrack: true,
 			jamTrackTitle: title,
-			linkTarget: title,
+			linkTarget: linkTarget,
 			linkDisplay: title
 		});
 	}

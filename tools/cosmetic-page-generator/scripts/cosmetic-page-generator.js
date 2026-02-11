@@ -14,6 +14,8 @@ const CATEGORIES_FOR_SELECTION = [
 	'Compatible Cosmetics',
 	'Transformative Cosmetics',
 	'Winter Cosmetics',
+	"Valentine's Day Cosmetics",
+	"Saint Patrick's Day Cosmetics",
 ];
 
 let index = [];

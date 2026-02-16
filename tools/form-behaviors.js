@@ -1,4 +1,5 @@
 import { SEASON_UPDATE_VERSIONS, OG_SEASON_UPDATE_VERSIONS, FESTIVAL_SEASON_UPDATE_VERSIONS, LEGO_SEASON_UPDATE_VERSIONS } from '/data/datesAndVersions.js';
+import { getBundleEntries } from './bundle-controls.js';
 
 let elements = {};
 
@@ -128,10 +129,19 @@ function setupItemShopAppearancesToggle() {
 			appearancesFields.forEach(field => {
 				field.style.display = 'block';
 			});
-			// Auto-fill with cosmetic name if available
+
+			// Auto-fill with cosmetic / bundle name if available
 			const name = elements.cosmeticInputName || elements.jamTrackInput || elements.bundleInputName;
-			if (name) {
-				elements.shopAppearances.value = name.value.trim();
+			const bundleEntries = getBundleEntries();
+			const hasOneBundle = bundleEntries && bundleEntries.length === 1;
+			const bundleCostEmpty = elements.shopCost && elements.shopCost.value.trim() === '';
+			
+			if (name && !(hasOneBundle && bundleCostEmpty)) {
+				if (hasOneBundle && bundleCostEmpty) {
+					elements.shopAppearances.value = bundleEntries[0].bundleName.value.trim();
+				} else {
+					elements.shopAppearances.value = name.value.trim();
+				}
 			}
 		} else {
 			appearancesFields.forEach(field => {

@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -488,8 +488,8 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
-	if (characterBundlePattern.test(bundleID) && cosmetics[0]?.cosmeticType == "Outfit" && cosmetics[1]?.cosmeticType == "Back Bling") {
-		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains the [[${cosmetics[0]?.name}]] [[Outfit]] and the [[${cosmetics[1]?.name}]] [[Back Bling]].`;
+	if (characterBundlePattern.test(bundleID) && cosmetics.length == 2 && cosmetics[0]?.cosmeticType == "Outfit") {
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains the [[${cosmetics[0]?.name}]] [[Outfit]] and the [[${cosmetics[1]?.name}]] [[${cosmetics[1]?.cosmeticType}]].`;
 	} else if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
 		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag} and contains cosmetics from ${theSetFlag}[[:Category:${cosmetics[0]?.setName} Set|${cosmetics[0]?.setName} Set]].`;
@@ -618,18 +618,7 @@ async function handleGenerate() {
 				if (!cosmeticType) {
 					cosmeticType = TYPE_MAP[itemDefinitionData.Type] || "";
 				}
-				if (cosmeticType === "Shoes") {
-					cosmeticType = "Kicks";
-				}
-				if (cosmeticType === "Companion") {
-					cosmeticType = "Sidekick";
-				}
-				if (cosmeticType === "Vehicle Body" || cosmeticType === "Body") {
-					cosmeticType = "Car Body";
-				}
-				if (cosmeticType === "Drift Trail") {
-					cosmeticType = "Trail";
-				}
+				cosmeticType = normalizeCosmeticType(cosmeticType);
 
 				const carBodyName = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag)?.name;
 

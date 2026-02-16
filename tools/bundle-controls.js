@@ -84,6 +84,7 @@ export function removeBundleEntry() {
 	if (bundlesEntries.length === 0) return;
 	const entry = bundlesEntries.pop();
 	if (entry && entry.wrapper && entry.wrapper.parentNode) entry.wrapper.parentNode.removeChild(entry.wrapper);
+	updateShopAppearancesIfNeeded();
 }
 
 function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWrapper, sugDiv) {
@@ -137,9 +138,23 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWra
 			hiddenIdEl.value = entry.bundle_id;
 			hiddenNameEl.value = entry.bundle_name;
 			sugDiv.innerHTML = '';
+			updateShopAppearancesIfNeeded();
 		};
 		sugDiv.appendChild(div);
 	});
+}
+
+function updateShopAppearancesIfNeeded() {
+	if (bundlesEntries.length !== 1) return;
+	if (!document.getElementById('shop-cost')) return;
+
+	const shopCost = document.getElementById('shop-cost').value.trim();
+	if (shopCost !== '') return;
+
+	const shopAppearancesEl = document.getElementById('shop-appearances');
+	if (shopAppearancesEl) {
+		shopAppearancesEl.value = bundlesEntries[0].bundleName.value.trim();
+	}
 }
 
 export function setupBundleControls() {

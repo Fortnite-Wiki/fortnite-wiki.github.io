@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists, normalizeCosmeticType } from '../../../tools/utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
@@ -124,6 +124,7 @@ function updateSuggestions() {
 
 			const ID = itemDefinitionData.Name;
 			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
+			cosmeticType = normalizeCosmeticType(cosmeticType);
 
 			await updateWikiPageButton(entry.name, cosmeticType);
 
@@ -370,10 +371,7 @@ async function extractPickaxeSubtype(weapon_definition) {
 		collectFrom(props.PrimaryFireAbility_InState, inStateSubtypes);
 	}
 
-	const combinedSubtypes = [
-		...primaryFireSubtypes,
-		...inStateSubtypes
-	];
+	const combinedSubtypes = [...new Set([...primaryFireSubtypes, ...inStateSubtypes])];
 	if (combinedSubtypes.length === 0) return "";
 
 	return `${combinedSubtypes.map(item => `{{Cosmetic Subtypes|${item}}}`).join(' ')}`;
@@ -1153,24 +1151,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (!cosmeticType) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
-	if (cosmeticType === "Character") {
-		cosmeticType = "Outfit";
-	}
-	if (cosmeticType === "Shoes") {
-		cosmeticType = "Kicks";
-	}
-	if (cosmeticType === "Companion") {
-		cosmeticType = "Sidekick";
-	}
-	if (cosmeticType === "Vehicle Body" || cosmeticType === "Body") {
-		cosmeticType = "Car Body";
-	}
-	if (cosmeticType === "Drift Trail") {
-		cosmeticType = "Trail";
-	}
-	if (cosmeticType === "Turbo") {
-		cosmeticType = "Boost";
-	}
+	cosmeticType = normalizeCosmeticType(cosmeticType);
 
 	let usePlural = false;
 	if (cosmeticType == 'Wheels' || cosmeticType == 'Kicks') {
@@ -2186,10 +2167,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 
 			const ID = itemDefinitionData.Name;
 			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
-
-			if (cosmeticType === "Companion") {
-				cosmeticType = "Sidekick";
-			}
+			cosmeticType = normalizeCosmeticType(cosmeticType);
 
 			try {
 				const res = await getMostUpToDateImage(entry.name, cosmeticType);

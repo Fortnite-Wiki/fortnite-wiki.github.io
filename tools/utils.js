@@ -77,6 +77,24 @@ export const SERIES_CONVERSION = {
 
 export const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;
 
+const COSMETIC_TYPE_NORMALIZATION = {
+	"Character": "Outfit",
+	"Shoes": "Kicks",
+	"Companion": "Sidekick",
+	"Vehicle Body": "Car Body",
+	"Body": "Car Body",
+	"Drift Trail": "Trail",
+	"Turbo": "Boost",
+	"Wheel": "Wheels"
+};
+
+export function normalizeCosmeticType(cosmeticType) {
+	if (typeof cosmeticType !== 'string') return cosmeticType;
+	const trimmed = cosmeticType.trim();
+	if (!trimmed) return trimmed;
+	return COSMETIC_TYPE_NORMALIZATION[trimmed] || trimmed;
+}
+
 export function articleFor(word) {
 	if (word === "") return "";
 	return word[0].toLowerCase().match(/[aeiou]/) ? "an" : "a";

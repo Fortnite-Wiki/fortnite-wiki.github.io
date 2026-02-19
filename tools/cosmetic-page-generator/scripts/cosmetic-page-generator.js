@@ -483,12 +483,16 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 		}
 		const props = variant.Properties;
 		const rawChannelName = props.VariantChannelName?.LocalizedString.trim() || "";
-		const channelName = (rawChannelName == rawChannelName.toUpperCase()) ? forceTitleCase(rawChannelName) :
+		let channelName = (rawChannelName == rawChannelName.toUpperCase()) ? forceTitleCase(rawChannelName) :
 			((/[a-z]/.test(rawChannelName.slice(1))) && (/[A-Z]/.test(rawChannelName.slice(1)))) ? rawChannelName : forceTitleCase(rawChannelName);
-		if (!channelName) {
+		if (!channelName && data.length > 1) {
 			console.log("Skipping variant with no channel name:", variant);
 			continue;
 		}
+		
+		if (channelName == "LEGO® Style") continue; // we don't show Signature vs Base in Selectable Styles table
+
+		if (!channelName) channelName = "Style";
 		const immutable = (props.VariantChannelTag?.TagName || "").startsWith("Cosmetics.Variant.Channel.Immutable.");
 		if (immutable) immutableChannels.add(channelName);
 

@@ -884,7 +884,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 	}
 
 	let featured = null;
-	if (featuredFiles.size === numBRDav2Assets - 1) {
+	if (featuredFiles.size === numBRDav2Assets - 1 && cosmeticType != "Sidekick") {
 		if (featuredFiles.size === 1) {
 			featured = Array.from(featuredFiles)[0];
 		} else if (featuredFiles.size > 0) {

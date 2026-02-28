@@ -475,7 +475,8 @@ def build_bundle_index(index):
                     continue
 
                 props = entry.get("Properties", {}) or {}
-                bundle_name = props.get("DisplayName", {}).get("LocalizedString") if props else None
+                display = (props or {}).get("DisplayName") or {}
+                bundle_name = display.get("LocalizedString") or display.get("SourceString") or display.get("CultureInvariantString")
 
                 filename_no_ext = os.path.splitext(file)[0]
                 m = bundle_re.search(filename_no_ext)

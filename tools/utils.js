@@ -188,7 +188,7 @@ export function getSeasonReleased(releaseDate, settings, usePlural = false) {
 			}
 		}
 
-		const firstTextFlag = !settings.isQuestReward || settings.questFirstReleasedText ? 'first ' : '';
+		const firstTextFlag = !settings.isQuestReward && !settings.isRocketPass || settings.questFirstReleasedText ? 'first ' : '';
 		
 		if (matchedSeasonKey) {
 			if (matchedSeasonKey === 'C2R') {

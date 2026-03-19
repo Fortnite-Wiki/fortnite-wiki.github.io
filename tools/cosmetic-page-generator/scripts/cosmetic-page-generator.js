@@ -2249,7 +2249,8 @@ function willCategoryAutoGenerate(categoryName) {
 		return (elements.sourceBattlePass?.checked && elements.passFreeBP?.checked) ||
 					 (elements.sourceOGPass?.checked && elements.passFreeOG?.checked) ||
 					 (elements.sourceMusicPass?.checked && elements.passFreeMusic?.checked) ||
-					 (elements.sourceLEGOPass?.checked && elements.passFreeLEGO?.checked);
+					 (elements.sourceLEGOPass?.checked && elements.passFreeLEGO?.checked) ||
+					 (elements.sourceRocketPass?.checked && elements.passFreeRocket?.checked);
 	}
 
 	if (categoryName === 'Compatible Cosmetics') {
@@ -2300,6 +2301,7 @@ function handleSourceSelection() {
 	if (elements.passFreeOG) elements.passFreeOG.checked = false;
 	if (elements.passFreeMusic) elements.passFreeMusic.checked = false;
 	if (elements.passFreeLEGO) elements.passFreeLEGO.checked = false;
+	if (elements.passFreeRocket) elements.passFreeRocket.checked = false;
 
 	const rocketPassChecked = elements.sourceRocketPass.checked;
 

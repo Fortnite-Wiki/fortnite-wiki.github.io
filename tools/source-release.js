@@ -323,8 +323,9 @@ export function getSourceReleaseSettings(elements) {
 	// Rocket Pass settings
 	settings.rocketPassSeason = elements.rocketPassSeason?.value.trim() || '';
 	settings.rocketPassLevel = elements.rocketPassLevel?.value.trim() || '';
+	settings.passFreeRocket = elements.passFreeRocket?.checked || false;
 
-	settings.isFree = (settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLEGO) || (settings.isQuestReward && (!settings.questCost || settings.questCost.toLowerCase() === 'free'));
+	settings.isFree = (settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLEGO) || (settings.isRocketPass && settings.passFreeRocket) || (settings.isQuestReward && (!settings.questCost || settings.questCost.toLowerCase() === 'free'));
 	
 	return settings;
 }

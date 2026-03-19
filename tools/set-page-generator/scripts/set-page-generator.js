@@ -362,12 +362,16 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 
 		if (props.DataList) {
 			for (const entry of props.DataList) {
-				if (entry && typeof entry === 'object' && entry.Series) {
-					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
-					if (SERIES_CONVERSION[objectName]) {
-						rarity = SERIES_CONVERSION[objectName];
+				if (entry && typeof entry === 'object') {
+					if (entry.Rarity) {
+						rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
 					}
-					break;
+					if (entry.Series) {
+						const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+						if (SERIES_CONVERSION[objectName]) {
+							rarity = SERIES_CONVERSION[objectName];
+						}
+					}
 				}
 			}
 		}
@@ -446,12 +450,16 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		if (outfitCosmetics[0].DataList || outfitCosmetics[0].data?.Properties?.DataList) {
 			const dataList = outfitCosmetics[0].DataList || outfitCosmetics[0].data?.Properties?.DataList;
 			for (const entry of dataList) {
-				if (entry && typeof entry === 'object' && entry.Series) {
-					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
-					if (SERIES_CONVERSION[objectName]) {
-						rarity = SERIES_CONVERSION[objectName];
+				if (entry && typeof entry === 'object') {
+					if (entry.Rarity) {
+						rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
 					}
-					break;
+					if (entry.Series) {
+						const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+						if (SERIES_CONVERSION[objectName]) {
+							rarity = SERIES_CONVERSION[objectName];
+						}
+					}
 				}
 			}
 		}
@@ -461,12 +469,16 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		rarity = (first.data?.Properties?.Rarity || '').split('::').pop() || first.data?.Properties?.Rarity || '';
 		if (first.data?.Properties?.DataList) {
 			for (const entry of first.data.Properties.DataList) {
-				if (entry && typeof entry === 'object' && entry.Series) {
-					const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
-					if (SERIES_CONVERSION[objectName]) {
-						rarity = SERIES_CONVERSION[objectName];
+				if (entry && typeof entry === 'object') {
+					if (entry.Rarity) {
+						rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
 					}
-					break;
+					if (entry.Series) {
+						const objectName = entry.Series.ObjectName.split("'").slice(-2)[0];
+						if (SERIES_CONVERSION[objectName]) {
+							rarity = SERIES_CONVERSION[objectName];
+						}
+					}
 				}
 			}
 		}

@@ -132,6 +132,11 @@ function updateSuggestions() {
 			let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 						 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 			
+			const rarityEntry = (props.DataList || []).find(entry => entry?.Rarity);
+			if (rarityEntry) {
+				rarity = rarityEntry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() +
+						 rarityEntry.Rarity.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+			}	 
 			const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
 			if (seriesEntry) {
 				let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
@@ -937,6 +942,9 @@ async function generateDecalsTable(name, tags) {
 						series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
 						rarity = SERIES_CONVERSION[series] || rarity;
 					}
+					if (entry.Rarity) {
+						rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase();
+					}
 				}
 			}
 			
@@ -1074,6 +1082,9 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 
 	for (const entry of props.DataList || []) {
 		if (typeof entry === 'object' && entry !== null) {
+			if (entry.Rarity) {
+				rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+			}
 			if (entry.Series) {
 				series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
 				rarity = SERIES_CONVERSION[series] || rarity;
@@ -1195,6 +1206,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 			if (entry.Tags) {
 				tags = entry.Tags;
+			}
+			if (entry.Rarity) {
+				rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
 			}
 			if (entry.Series) {
 				series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];

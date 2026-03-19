@@ -645,6 +645,9 @@ async function handleGenerate() {
 						if (entry.Tags) {
 							tags = entry.Tags;
 						}
+						if (entry.Rarity) {
+							rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+						}
 						if (entry.Series) {
 							let series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
 							rarity = SERIES_CONVERSION[series] || rarity;

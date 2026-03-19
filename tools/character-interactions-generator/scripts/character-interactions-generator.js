@@ -112,6 +112,11 @@ async function generateMarkup() {
             let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
                          props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
             // Check for series conversion
+            const rarityEntry = (props.DataList || []).find(entry => entry?.Rarity);
+            if (rarityEntry) {
+                rarity = rarityEntry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + 
+                         rarityEntry.Rarity.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+            }
             const seriesEntry = (props.DataList || []).find(entry => entry?.Series);
             if (seriesEntry) {
                 let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];

@@ -198,8 +198,6 @@ function updateSuggestions() {
 
 				document.getElementById('rocket-pass-field').style.display = 'block';
 				document.getElementById('rocket-league-field').style.display = 'block';
-				document.getElementById('rocket-league-cosmetic').checked = false;
-				document.getElementById('rocket-league-exclusive-field').style.display = 'none';
 			} else {
 				document.getElementById('rocket-pass-field').style.display = 'none';
 				document.getElementById('source-rocket-pass').checked = false;

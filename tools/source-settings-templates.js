@@ -211,6 +211,12 @@ const SOURCE_SETTINGS = {
 				<label for="rocket-pass-level">Level:</label>
 				<input type="number" id="rocket-pass-level" placeholder="1" min="1" max="100">
 			</div>
+			<div class="inline-group">
+				<label class="checkbox-label">
+					<input type="checkbox" id="pass-free-rocket">
+					Free?
+				</label>
+			</div>
 		</div>`
 };
 
@@ -251,7 +257,7 @@ export const SOURCE_SETTINGS_FIELDS = {
 	musicPass: ['music-season', 'music-page', 'music-page-completion', 'pass-free-music'],
 	legoPass: ['lego-season', 'lego-season-abbr', 'lego-page', 'lego-page-completion', 'pass-free-lego'],
 	questReward: ['quest-name', 'quest-cost', 'quest-first-released'],
-	rocketPass: ['rocket-pass-season', 'rocket-pass-level']
+	rocketPass: ['rocket-pass-season', 'rocket-pass-level', 'pass-free-rocket']
 };
 
 export function generateSourceReleaseHTML(sources, includeUpdateVersion = true) {

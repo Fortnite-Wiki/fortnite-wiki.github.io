@@ -318,7 +318,7 @@ export function getSourceReleaseSettings(elements) {
 	// Quest Reward settings
 	settings.questName = elements.questName?.value.trim() || '';
 	settings.questCost = elements.questCost?.value.trim() || '';
-	settings.questFirstReleasedText = elements.questFirstReleased?.checked || false;
+	settings.questFirstReleasedText = settings.isQuestReward && elements.qelements.questFirstReleased?.checked || false;
 	
 	// Rocket Pass settings
 	settings.rocketPassSeason = elements.rocketPassSeason?.value.trim() || '';

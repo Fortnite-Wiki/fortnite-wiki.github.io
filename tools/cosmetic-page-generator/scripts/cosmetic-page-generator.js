@@ -307,7 +307,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 		"Sword": [
 			"GAB_Melee_BRsword_ImpactCombo_Athena",
 			"GAB_Melee_CeremonialGuard_ImpactCombo_Athena",
-			"GAB_Melee_YogaPatio_ImpactCombo_Athena"
+			"GAB_Melee_YogaPatio_ImpactCombo_Athena",
+			"GAB_Melee_Sword1H_ImpactCombo_Athena_C"
 		],
 		"Dual Flail": [
 			"GAB_Melee_DualWield_Embers_ImpactCombo",

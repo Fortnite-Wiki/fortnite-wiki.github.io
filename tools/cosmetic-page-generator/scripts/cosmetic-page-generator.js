@@ -545,7 +545,19 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 
 				let displayName = null;
 				if (pair.ColorDisplayName) {
-					displayName = pair.ColorDisplayName.LocalizedString || null;
+					const rawDisplayName = pair.ColorDisplayName.LocalizedString || null;
+
+					if (rawDisplayName) {
+						displayName =
+							(rawDisplayName == rawDisplayName.toUpperCase())
+							? forceTitleCase(rawDisplayName)
+							: (
+								(/[a-z]/.test(rawDisplayName.slice(1))) &&
+								(/[A-Z]/.test(rawDisplayName.slice(1)))
+							)
+							? rawDisplayName
+							: forceTitleCase(rawDisplayName);
+					}
 				}
 
 				const variantKey = colorHex || `color_${i}`;

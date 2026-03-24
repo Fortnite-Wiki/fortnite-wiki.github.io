@@ -124,6 +124,11 @@ COMPANION_FILTER_SET_DIR = os.path.join(
     r"Plugins/GameFeatures/CosmeticCompanions/Content/Data/VariantFilterSet"
 )
 
+CHARACTER_COLOR_SWATCHES_DIR = os.path.join(
+    BASE_DIR,
+    r"Content/Characters/CharacterColorSwatches/Misc"
+)
+
 VALID_TYPES = [
     "AthenaCharacterItemDefinition",
     "AthenaBackpackItemDefinition",
@@ -723,6 +728,28 @@ if os.path.exists(RACING_LOC_DIRECTORY):
                 os.remove(src_path)
     
     print(f"Moved and compressed {count} Racing localization JSON files from RACING_LOC_DIRECTORY")
+
+if os.path.exists(CHARACTER_COLOR_SWATCHES_DIR):
+    target_path = os.path.join(os.path.dirname(__file__), "cosmetics", "Characters", "ColorSwatches")
+    if os.path.exists(target_path):
+        shutil.rmtree(target_path)
+    shutil.copytree(CHARACTER_COLOR_SWATCHES_DIR, target_path)
+
+    count = 0
+    for root, _, files in os.walk(target_path):
+        for file in files:
+            src_path = os.path.join(root, file)
+            if not file.endswith('.gz'):
+                dest_path = src_path + '.gz'
+                with open(src_path, "rb") as f_in:
+                    raw = f_in.read()
+                    compressed = gzip.compress(raw, mtime=0)
+                    with open(dest_path, "wb") as f_out:
+                        f_out.write(compressed)
+                        count += 1
+                os.remove(src_path)
+
+    print(f"Moved and compressed {count} Character ColorSwatches")
 
 
 # Move and compress Companion ColorSwatches/MaterialParameterSets

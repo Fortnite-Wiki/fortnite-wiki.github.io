@@ -507,8 +507,14 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 			const defaultColor = richColorVar.DefaultStartingColor.Hex || "";
 
 			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
-			colorSwatchPath = DATA_BASE_PATH + colorSwatchPath.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/').replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/') + '.json';
-			colorSwatchPath = colorSwatchPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/'); // fallback fix
+			colorSwatchPath =
+				DATA_BASE_PATH +
+				colorSwatchPath
+					.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/')
+					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/')
+					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
+					.replace(/Game\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
+				+ '.json';
 
 			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
 				console.warn("Failed to load color swatch data:", err);

@@ -72,7 +72,8 @@ export const SERIES_CONVERSION = {
 	"Series_Porsche": "Porsche Series",
 	"Series_RAM": "Ram Series",
 	"Series_Tesla": "Tesla Series",
-	"Series_AstonMartin": "Aston Martin Series"
+	"Series_AstonMartin": "Aston Martin Series",
+	"Series_Rivian": "Rivian Series"
 };
 
 export const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;

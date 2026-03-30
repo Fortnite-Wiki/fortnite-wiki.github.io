@@ -283,7 +283,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 			"GAB_Melee_DualWield_ImpactCombo_Athena",
 			"GAB_Melee_DualWield_OrderGuardMale_ImpactCombo_Athena",
 			"GAB_Melee_DualWield_CyberArmorFemale_ImpactCombo_Athena",
-			"GAB_Melee_SteamPower_Fists_ImpactCombo_Athena"
+			"GAB_Melee_SteamPower_Fists_ImpactCombo_Athena",
+			"GAB_Melee_DualWield_HerbHutch_ImpactCombo_Athena"
 		],
 		"Spinner": [
 			"GAB_Melee_Galileo_Ferry_ImpactCombo_Athena"

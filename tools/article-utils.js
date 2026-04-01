@@ -72,16 +72,16 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     
     } else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
         const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-        cost = `{{V-Bucks|1,000}} <br> ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
+        cost = `{{V-Bucks|800}} <br> ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
     
     } else if (settings.isOGPass && settings.ogSeason) {
-        cost = `{{V-Bucks|1,000}} <br> ({{OGPass|${settings.ogSeason}}})`;
+        cost = `{{V-Bucks|800}} <br> ({{OGPass|${settings.ogSeason}}})`;
     
     } else if (settings.isMusicPass && settings.musicSeason) {
-        cost = `{{V-Bucks|1,400}} <br> ({{MusicPass|${settings.musicSeason}}})`;
+        cost = `{{V-Bucks|1,200}} <br> ({{MusicPass|${settings.musicSeason}}})`;
     
     } else if (settings.isLEGOPass && settings.legoSeason) {
-        cost = `{{V-Bucks|1,400}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
+        cost = `{{V-Bucks|1,200}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
     
     } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType

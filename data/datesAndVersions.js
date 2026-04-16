@@ -120,6 +120,7 @@ export const FESTIVAL_SEASON_RELEASE_DATES = {
     11: new Date(2025, 9, 9), // October 9, 2025
     12: new Date(2025, 10, 29), // November 29, 2025
     13: new Date(2026, 1, 5), // February 5th, 2026
+    14: new Date(2026, 3, 16), // April 16th, 2026
 };
 
 export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
@@ -135,7 +136,8 @@ export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
     10: '37.10',
     11: '37.50',
     12: '39.00',
-    13: '39.40'
+    13: '39.40',
+    14: '40.20',
 };
 
 export const LEGO_SEASON_NAMES = [
@@ -147,7 +149,8 @@ export const LEGO_SEASON_NAMES = [
     "First Order",
     "Supernova Academy",
     "Palm Paradise",
-    "Ninjago"
+    "Ninjago",
+    "Soaring Skies",
 ];
 
 export const LEGO_SEASON_RELEASE_DATES = {
@@ -159,7 +162,8 @@ export const LEGO_SEASON_RELEASE_DATES = {
     "First Order": new Date(2025, 4, 2), // May 2, 2025
     "Supernova Academy": new Date(2025, 5, 7), // June 7, 2025
     "Palm Paradise": new Date(2025, 7, 7), // August 7, 2025
-    "Ninjago": new Date(2025, 11, 11) // December 11, 2025
+    "Ninjago": new Date(2025, 11, 11), // December 11, 2025
+    "Soaring Skies": new Date(2026, 3, 16), // April 16th, 2026
 };
 
 export const LEGO_SEASON_UPDATE_VERSIONS = {
@@ -171,5 +175,6 @@ export const LEGO_SEASON_UPDATE_VERSIONS = {
     "First Order": '35.00',
     "Supernova Academy": '36.00',
     "Palm Paradise": '37.00',
-    "Ninjago": '39.10'
+    "Ninjago": '39.10',
+    "Soaring Skies": '40.20',
 };

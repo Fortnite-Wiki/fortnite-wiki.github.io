@@ -454,7 +454,7 @@ def build_localized_sets_map(sets_file):
     return mapping
 
 
-bundle_re = re.compile(r"DA_(?:(Character_([^/\n]+))|(([^/\n]+)_Character)|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
+bundle_re = re.compile(r"DA_(?:((?:Character|CID)_([^/\n]+))|(([^/\n]+)_(?:Character|CID))|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
 def build_bundle_index(index):
     # Build a quick lookup of DAv2 display asset files
     dav2_files = {}
@@ -508,7 +508,9 @@ def build_bundle_index(index):
                     f"DAv2_Featured_Bundle_{bundle_id}.json",
                     f"DAv2_Bundle_{bundle_id}.json",
                     f"DAv2_Character_{character_part}.json",
-                    f"DAv2_{character_part}_Character.json"
+                    f"DAv2_{character_part}_Character.json",
+                    f"DAv2_CID_{character_part}.json",
+                    f"DAv2_{character_part}_CID.json"
                 ]
                 for cand in candidates:
                     cand_lower = cand.lower()

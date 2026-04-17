@@ -76,7 +76,7 @@ export const SERIES_CONVERSION = {
 	"Series_Rivian": "Rivian Series"
 };
 
-export const characterBundlePattern = /^DA_(?:Character_(.+)|(.+)_Character)$/;
+export const characterBundlePattern = /^DA_(?:(?:Character|CID)_(.+)|(.+)_(?:Character|CID))$/;
 
 const COSMETIC_TYPE_NORMALIZATION = {
 	"Character": "Outfit",

@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists, normalizeCosmeticType } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists, normalizeCosmeticType } from '../../../tools/utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
@@ -505,15 +505,13 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 			const richColorVar = props.InlineVariant?.RichColorVar;
 			if (!richColorVar) continue;
 
-			const defaultColor = richColorVar.DefaultStartingColor.Hex || "";
-
 			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
 			colorSwatchPath =
 				DATA_BASE_PATH +
 				colorSwatchPath
 					.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/')
-					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
+					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
 					.replace(/Game\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
 				+ '.json';
 
@@ -580,7 +578,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
 			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
 			materialParamsPath = materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/'); // fallback fix
 
 			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
@@ -1454,20 +1452,23 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	out.push(`|rarity = ${rarity}`);
 	
+	const bundledWithParts = [];
+	if (settings.bundledWith) {
+		bundledWithParts.push(settings.bundledWith);
+	}
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
-		let bundledWithString = "|bundled_with = ";
 		if (instrumentType != cosmeticType) {
-			bundledWithString = bundledWithString + `[[${name} (${instrumentType})|${name}]] <br> `;
+			bundledWithParts.push(`[[${name} (${instrumentType})|${name}]]`);
 			if (cosmeticType == "Back Bling") {
-				bundledWithString = bundledWithString + `[[${name} (Pickaxe)|${name}]]`;
+				bundledWithParts.push(`[[${name} (Pickaxe)|${name}]]`);
 			} else if (cosmeticType == "Pickaxe") {
-				bundledWithString = bundledWithString + `[[${name} (Back Bling)|${name}]]`;
+				bundledWithParts.push(`[[${name} (Back Bling)|${name}]]`);
 			}
 		} else {
-			bundledWithString = bundledWithString + `[[${name} (Back Bling)|${name}]] <br> [[${name} (Pickaxe)|${name}]]`;
+			bundledWithParts.push(`[[${name} (Back Bling)|${name}]]`, `[[${name} (Pickaxe)|${name}]]`);
 		}
-		out.push(bundledWithString);
 	}
+	out.push(`|bundled_with = ${bundledWithParts.join(' <br> ')}`);
 
 	if (cosmeticType === "Outfit") {
 		out.push("|character model = {{Character Models|}}");
@@ -1536,6 +1537,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				out.push(`|LEGOID = ${entryMeta.jido}`);
 			}
 		}
+	} else if (cosmeticType === "Sidekick") {
+		out.push("|LEGOUse = y");
 	}
 
 	if (cosmeticType === "Loading Screen") {
@@ -1719,9 +1722,10 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			columns = [name];
 		}
 
-		if (hasLegoStyle(entryMeta) && cosmeticType === "Outfit") {
-			columns.push('LEGO');
-		}
+		// DISABLED SINCE WEB SHOP NO LONGER HAS LEGO RENDERS FOR NOW
+		// if (hasLegoStyle(entryMeta) && cosmeticType === "Outfit") {
+		// 	columns.push('LEGO');
+		// }
 
 		const channelPrefix = channelKeys.length === 1 && channelKeys[0].toLowerCase() !== "style" ? `${channelKeys[0]} - ` : '';
 
@@ -1791,7 +1795,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 					const rawName = be.bundleName.value.trim();
 					const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
 					const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-					const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+					const theFlag = lockerBundlePattern.test(be.bundleID.value) || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
 					appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
 				}
 			} else if (inOwnCharacterBundle) {
@@ -1802,7 +1806,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 								const rawName = be.bundleName.value.trim();
 								const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
 								const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-								const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+								const theFlag = lockerBundlePattern.test(be.bundleID.value) || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
 								appearancesSection.push(`|bundled_with = ${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`);
 								break;
 							}
@@ -1976,6 +1980,7 @@ async function generatePage() {
 		updateVersion: elements.updateVersion.value.trim(),
 		isCollaboration: elements.collaboration.checked,
 		hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
+		bundledWith: elements.bundledWith ? elements.bundledWith.value.trim() : '',
 		remixOf: elements.remixOf ? elements.remixOf.value.trim() : '',
 		isRocketLeagueCosmetic: elements.isRocketLeagueCosmetic.checked,
 		isRocketLeagueExclusive: elements.isRocketLeagueExclusive.checked
@@ -2357,6 +2362,7 @@ async function initialiseApp() {
 		collaboration: document.getElementById('collaboration'),
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
+		bundledWith: document.getElementById('bundled-with'),
 		hasRenders: document.getElementById('has-renders'),
 		remixOf: document.getElementById('remix-of'),
 		categoriesDropdown: document.getElementById('categories-dropdown'),

@@ -507,11 +507,17 @@ def build_bundle_index(index):
                     f"DAv2_Bundle_Featured_{bundle_id}.json",
                     f"DAv2_Featured_Bundle_{bundle_id}.json",
                     f"DAv2_Bundle_{bundle_id}.json",
-                    f"DAv2_Character_{character_part}.json",
-                    f"DAv2_{character_part}_Character.json",
-                    f"DAv2_CID_{character_part}.json",
-                    f"DAv2_{character_part}_CID.json"
                 ]
+                if character_part:
+                    character_part_base = character_part.replace("_Athena_Commando", "")
+                    candidates.extend([
+                        f"DAv2_Character_{character_part}.json",
+                        f"DAv2_{character_part}_Character.json",
+                        f"DAv2_CID_{character_part}.json",
+                        f"DAv2_CID_{character_part_base}.json",
+                        f"DAv2_{character_part}_CID.json",
+                      f"DAv2_{character_part_base}_CID.json"
+                    ])
                 for cand in candidates:
                     cand_lower = cand.lower()
                     if cand_lower in dav2_files.keys():
@@ -783,7 +789,7 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
         for root, dirs, files in os.walk(src_root):
             folder_name = os.path.basename(root)
             # treat "MPS & MaterialParamaterSets & MaterialParamSets" as MaterialParameterSets
-            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets":
+            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets" or folder_name == "MaterialParametrs":
                 folder_name = "MaterialParameterSets"
 
             if folder_name not in ("ColorSwatches", "MaterialParameterSets"):

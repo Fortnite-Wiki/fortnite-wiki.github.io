@@ -221,7 +221,7 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
                         const rawName = be.bundleName.value.trim();
                         const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
                         const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-                        const theFlag = rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+                        const theFlag = be.bundleID.value.includes('Architect_') || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
 
                         const i = bundleEntries.indexOf(be);
                         const previousHas = i > 0 && bundleEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);

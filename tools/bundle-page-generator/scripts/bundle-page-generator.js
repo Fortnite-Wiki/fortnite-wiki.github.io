@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -83,6 +83,16 @@ function updateBundleSuggestions() {
 			currentBundleName = entry.bundle_name;
 			if (elements.includeAppearances && elements.includeAppearances.checked) {
 				elements.shopAppearances.value = entry.bundle_name;
+			}
+			if (entry.bundle_id.includes('Architect_') || entry.bundle_id.includes('architect_')) {
+				elements.collaboration.checked = true;
+				elements.collaboration.disabled = true;
+				elements.lockerBundleOwner.value = entry.bundle_name.replace('\'s Locker Bundle', '').trim();
+				document.getElementById('locker-bundle-fields').style.display = 'block';
+			} else {
+				elements.collaboration.checked = false;
+				elements.collaboration.disabled = false;
+				document.getElementById('locker-bundle-fields').style.display = 'none';
 			}
 			sugDiv.innerHTML = '';
 		};
@@ -363,7 +373,7 @@ function updateBannerSuggestions(idField, fileField, nameField, sugDiv) {
 
 async function getBundleData(bundleID, bundleName) {
 	const entryMeta = index.find(e =>
-		(e.bundle_id && e.bundle_id.toLowerCase() === bundleID.toLowerCase()) ||
+		(e.bundle_id && (e.bundle_id.toLowerCase().replace('_Athena_Commando', '') === bundleID.toLowerCase() || e.bundle_id.toLowerCase() === bundleID.toLowerCase())) ||
 		(e.bundle_name && e.bundle_name.toLowerCase() === bundleName.toLowerCase())
 	);
 
@@ -398,7 +408,7 @@ async function getBundleData(bundleID, bundleName) {
 async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
 	const infobox = [];
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
-	if (settings.collaboration) infobox.push('{{Collaboration|Cosmetic}}');
+	if (settings.collaboration) infobox.push(settings.isLockerBundle ? '{{Collaboration|Locker Bundle}}' : '{{Collaboration|Cosmetic}}');
 	if (settings.isUnreleased) infobox.push('{{Unreleased|Cosmetic}}');
 	if (settings.isRocketLeagueCosmetic) infobox.push('{{Rocket League Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
@@ -476,7 +486,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	infobox.push('}}');
 	
-	let theFlag = bundleName.toLowerCase().startsWith('the ') || characterBundlePattern.test(bundleID) ? '' : 'The ';
+	let theFlag = settings.isLockerBundle || bundleName.toLowerCase().startsWith('the ') || characterBundlePattern.test(bundleID) ? '' : 'The ';
 	let summary = `${theFlag}'''${bundleName}''' is ${articleFor(rarity)} {{${rarity}}} [[Item Shop Bundle]] in [[Fortnite]]`;
 	if (settings.isUnreleased) {
 		summary = summary + ' that is currently unreleased.';
@@ -488,7 +498,10 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
-	if (characterBundlePattern.test(bundleID) && cosmetics.length == 2 && cosmetics[0]?.cosmeticType == "Outfit") {
+	if (lockerBundlePattern.test(bundleID)) {
+		const bundleOwnerText = settings.lockerBundleOwnerLink ? `[[${settings.lockerBundleOwnerLink}|${settings.lockerBundleOwner}]]` : settings.lockerBundleOwner;
+		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains cosmetics that ${bundleOwnerText} has picked out.`;
+	} else if (characterBundlePattern.test(bundleID) && cosmetics.length == 2 && cosmetics[0]?.cosmeticType == "Outfit") {
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains the [[${cosmetics[0]?.name}]] [[Outfit]] and the [[${cosmetics[1]?.name}]] [[${cosmetics[1]?.cosmeticType}]].`;
 	} else if (cosmetics[0]?.setName && seasonFirstReleasedFlag) {
 		const theSetFlag = cosmetics[0]?.setName.toLowerCase().startsWith("the ") ? "" : "the ";
@@ -785,16 +798,20 @@ async function handleGenerate() {
 
 	const settings = {
 		...getSourceReleaseSettings(elements),
+		isLockerBundle: lockerBundlePattern.test(bundleID),
 		vbucksCost: ensureVbucksTemplate(elements.vbucksCost.value.trim()),
 		includeAppearances: elements.includeAppearances.checked,
 		shopAppearances: elements.shopAppearances.value.trim(),
 		collaboration: elements.collaboration.checked,
+		lockerBundleOwner: elements.lockerBundleOwner.value.trim(),
+		lockerBundleOwnerLink: elements.lockerBundleOwnerLink.value.trim(),
 		isRocketLeagueCosmetic: elements.rocketLeagueCosmetic.checked,
 		displayTitle: elements.displayTitle.checked,
 		updateVersion: elements.updateVersion.value.trim(),
 	};
 
 	showStatus('Generating bundle page...', 'loading');
+	console.log('Generating page with settings:', { bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings });
 	// Apply force-title-case option if enabled
 	let outBundleName = bundleName;
 	if (elements.forceTitleCase && elements.forceTitleCase.checked) {
@@ -846,6 +863,8 @@ async function initialiseApp() {
 		includeAppearances: document.getElementById('include-appearances'),
 		shopAppearances: document.getElementById('shop-appearances'),
 		collaboration: document.getElementById('collaboration'),
+		lockerBundleOwner: document.getElementById('locker-bundle-owner'),
+		lockerBundleOwnerLink: document.getElementById('locker-bundle-owner-link'),
 		rocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		displayTitle: document.getElementById('display-title'),
 		forceTitleCase: document.getElementById('force-title-case'),

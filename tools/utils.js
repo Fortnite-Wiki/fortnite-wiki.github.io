@@ -77,6 +77,7 @@ export const SERIES_CONVERSION = {
 };
 
 export const characterBundlePattern = /^DA_(?:(?:Character|CID)_(.+)|(.+)_(?:Character|CID))$/;
+export const lockerBundlePattern = /^[Aa]rchitect_(.+)_?Bundle$/;
 
 const COSMETIC_TYPE_NORMALIZATION = {
 	"Character": "Outfit",

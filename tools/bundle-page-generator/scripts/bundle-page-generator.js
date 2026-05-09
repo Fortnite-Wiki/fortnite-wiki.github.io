@@ -544,8 +544,6 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 				ending = 'Fortnite.png';
 			} else if (isFestivalCosmetic && !isPickaxeOverride) {
 				ending = 'Fortnite Festival.png';
-			} else if (isRacingCosmetic) {
-				ending = 'Rocket Racing.png';
 			}
 
 			pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`);

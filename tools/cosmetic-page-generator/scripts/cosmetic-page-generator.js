@@ -948,7 +948,7 @@ async function generateDecalsTable(name, tags) {
 			const localized = props.ItemName?.LocalizedString;
 			let rarity = props.Rarity?.value || "Uncommon";
 			const name = localized || mi.name || mi.id;
-			const fileName = `${name} - Decal - Rocket Racing.png`;
+			const fileName = `${name} - Decal - Fortnite.png`;
 
 			let series = null;
 			
@@ -1388,18 +1388,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				out.push(`${name} (Featured) - ${instrumentType} - Fortnite Festival.png|Featured`);
 				out.push("</gallery>");
 			}
-		} else if (isRacingCosmetic) {
-			if (cosmeticType == "Wheel") {
-				out.push("|image = <gallery>");
-				out.push(`${name} - Wheels - Rocket Racing.png|Icon`);
-				out.push(`${name} (Featured) - Wheels - Rocket Racing.png|Featured`);
-				out.push("</gallery>");
-			} else {
-				out.push("|image = <gallery>");
-				out.push(`${name} - ${cosmeticType} - Rocket Racing.png|Icon`);
-				out.push(`${name} (Featured) - ${cosmeticType} - Rocket Racing.png|Featured`);
-				out.push("</gallery>");
-			}
+		} else if (isRacingCosmetic && cosmeticType == "Wheel") {
+			out.push("|image = <gallery>");
+			out.push(`${name} - Wheels - Fortnite.png|Icon`);
+			out.push(`${name} (Featured) - Wheels - Fortnite.png|Featured`);
+			out.push("</gallery>");
 		} else {
 			out.push("|image = <gallery>");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
@@ -1426,12 +1419,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				} else {
 					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
 				}
-			} else if (isRacingCosmetic) {
-				if (cosmeticType === "Wheel") {
-					out.push(`|image = ${name} - Wheels - Rocket Racing.png`);
-				} else {
-					out.push(`|image = ${name} - ${cosmeticType} - Rocket Racing.png`);
-				}
+			} else if (isRacingCosmetic && cosmeticType === "Wheel") {
+				out.push(`|image = ${name} - Wheels - Fortnite.png`);
 			} else {
 				out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
 			}
@@ -1754,7 +1743,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 			rendersSection.push(chunk.map(c => {
 				let filename = '';
-				let fileEnding = isRacingCosmetic ? 'Rocket Racing' : (isFestivalCosmetic ? 'Fortnite Festival' : 'Fortnite');
+				let fileEnding = isFestivalCosmetic ? 'Fortnite Festival' : 'Fortnite';
 
 				const carBodyName = cosmeticType == "Decal" && entryMeta.carBodyTag && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.startsWith("body_")) && entryMeta.carBodyTag == e.carBodyTag)?.name;
 				let carNameFlag = carBodyName ? `${carBodyName} - ` : '';

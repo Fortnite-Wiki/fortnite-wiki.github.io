@@ -560,8 +560,6 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 				ending = 'Fortnite.png';
 			} else if (isFestivalCosmetic && !isPickaxeOverride) {
 				ending = 'Fortnite Festival.png';
-			} else if (isRacingCosmetic) {
-				ending = 'Rocket Racing.png';
 			}
 			return `{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`;
 		}).join('\n|'));

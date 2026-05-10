@@ -499,7 +499,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
 	if (lockerBundlePattern.test(bundleID)) {
-		const bundleOwnerText = settings.lockerBundleOwnerLink ? `[[${settings.lockerBundleOwnerLink}|${settings.lockerBundleOwner}]]` : settings.lockerBundleOwner;
+		const bundleOwnerText = settings.lockerBundleOwnerLink ? `[${settings.lockerBundleOwnerLink} ${settings.lockerBundleOwner}]` : settings.lockerBundleOwner;
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains cosmetics that ${bundleOwnerText} has picked out.`;
 	} else if (characterBundlePattern.test(bundleID) && cosmetics.length == 2 && cosmetics[0]?.cosmeticType == "Outfit") {
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains the [[${cosmetics[0]?.name}]] [[Outfit]] and the [[${cosmetics[1]?.name}]] [[${cosmetics[1]?.cosmeticType}]].`;

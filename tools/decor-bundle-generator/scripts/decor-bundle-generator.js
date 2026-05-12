@@ -208,12 +208,35 @@ async function generatePage() {
 }
 
 function generateDecorBundleWikiText(entry, matches, settings) {	
-	function getCategoryLabel(attributeTags) {
-		return attributeTags.find(t => t.startsWith('Juno.BuildingMenu.Category')).split('.').pop();
+	function getCategoryLabel(prop) {
+		const attributeTags = prop.attributeTags;
+
+		if (!Array.isArray(attributeTags)) {
+			console.error('Prop missing attributeTags:', prop);
+			return 'I am an idiot for not checking the Wiki Tools generator output';
+		}
+
+		const categoryTag = attributeTags.find(
+			t => typeof t === 'string' &&
+			t.startsWith('Juno.BuildingMenu.Category')
+		);
+
+		if (!categoryTag) {
+			console.error('Prop missing category tag:', {
+				name: prop.name,
+				id: prop.id,
+				attributeTags
+			});
+
+			return 'I am an idiot for not checking the Wiki Tools generator output';
+		}
+
+		return categoryTag.split('.').pop();
 	}
 
+
 	const infoboxItems = matches.map(m => {
-		return `[[LEGO Fortnite:${getCategoryLabel(m.attributeTags)}|${m.name}]]`;
+		return `[[LEGO Fortnite:${getCategoryLabel(m)}|${m.name}]]`;
 	}).join(' <br> ');
 
 	let itemsGrid = '';
@@ -221,7 +244,7 @@ function generateDecorBundleWikiText(entry, matches, settings) {
 		const cols = 3;
 		for (let i = 0; i < matches.length; i++) {
 			const m = matches[i];
-			const cat = getCategoryLabel(m.attributeTags);
+			const cat = getCategoryLabel(m);
 			const imageName = `${m.name} - ${cat.replace(/s$/, '')} - LEGO Fortnite.png`;
 			const linkTarget = `LEGO Fortnite:${cat}`;
 			const cell = `|{{LEGO Background|image=${imageName}|size=130px|link=${linkTarget}}} <br> {{Style Name|[[${linkTarget}|${m.name}]]}}`;

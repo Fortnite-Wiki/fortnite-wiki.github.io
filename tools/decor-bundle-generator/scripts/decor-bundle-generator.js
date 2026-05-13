@@ -247,7 +247,7 @@ function generateDecorBundleWikiText(entry, matches, settings) {
 			const cat = getCategoryLabel(m);
 			const imageName = `${m.name} - ${cat.replace(/s$/, '')} - LEGO Fortnite.png`;
 			const linkTarget = `LEGO Fortnite:${cat}`;
-			const cell = `|{{LEGO Background|image=${imageName}|size=130px|link=${linkTarget}}} <br> {{Style Name|[[${linkTarget}|${m.name}]]}}`;
+			const cell = `|{{LEGO Background|image=${imageName}|size=130px|link=${linkTarget}}} {{Style Name|[[${linkTarget}|${m.name}]]}}`;
 			itemsGrid += cell + '\n';
 			if ((i + 1) % cols === 0 && i !== matches.length - 1) itemsGrid += '|-\n';
 		}

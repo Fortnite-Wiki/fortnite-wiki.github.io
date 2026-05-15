@@ -69,4 +69,12 @@ export default [
         name: 'FModel',
         description: 'FModel is an open-source software that allows you to explore Fortnite\'s files.',
     },
+    {
+        id: 'cosmetic-search-tag-grabber',
+        thumbnail: 'cosmetic-search-tag-grabber',
+        name: 'Cosmetic Search Tag Grabber',
+        version: 'v1.0',
+        description: 'Outputs all search tags that can make a certain cosmetic show up in the locker search.',
+        isSiteTool: true,
+    }
 ];

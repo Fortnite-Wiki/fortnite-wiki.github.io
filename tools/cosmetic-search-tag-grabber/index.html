@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cosmetic Search Tag Grabber</title>
+	
+	<script src="./scripts/cosmetic-search-tag-grabber.js" type="module"></script>
+	<script src="/scripts/pageinfo.js" type="module"></script>
+	<script src="/scripts/load-site-notices.js" type="module"></script>
+
+	<link rel="stylesheet" href="./styles/styles.css" />
+	<link rel="icon" href="/files/images/siteIcon.png" />
+</head>
+
+<body>
+	<header>
+		<a href="/index.html" id="return-main">
+			<span>
+				<img src="/files/images/return-icon.png" alt="back" />
+			</span>
+		</a>
+		<img src="/files/images/tool-icons/cosmetic-search-tag-grabber-2.png" alt="logo" />
+		<span style="margin-right: 1rem">
+			<h1 class="name">Cosmetic Search Tag Grabber</h1>
+			<span class="version"></span>
+		</span>
+	</header>
+
+	<div id="wrapper">
+		<main>
+			<section id="cosmetic-search-section">
+				<h3>Cosmetic Search</h3>
+				<input type="text" id="cosmetic-display" placeholder="Enter cosmetic ID or Name" autocomplete="off" />
+				<input type="hidden" id="cosmetic-input" />
+				<input type="hidden" id="cosmetic-input-name" />
+				<div id="suggestions"></div>
+				<button class="sec-subm" id="generate-btn">Get Search Tags</button>
+			</section>
+			
+			<section id="reverse-search-section">
+				<h3>Tag Search</h3>
+				<input type="text" id="tag-input" placeholder="Enter search tag" autocomplete="off" />
+				<div id="tag-suggestions"></div>
+				<button class="sec-subm" id="reverse-btn">Find Cosmetics</button>
+			</section>
+
+			<div id="status" class="status hidden"></div>
+		</main>
+		
+		<aside>
+			<section>
+				<div class="title-box">
+					<h3>Search Tags</h3>
+				</div>
+				<textarea id="output" readonly placeholder="Search tags / cosmetics will appear here..."></textarea>
+				<button class="sec-subm" id="copy-btn" disabled>Copy to Clipboard</button>
+				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+			</section>
+		</aside>
+	</div>
+</body>
+</html>

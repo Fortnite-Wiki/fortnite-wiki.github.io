@@ -2,7 +2,6 @@ import os
 import json
 import gzip
 import shutil
-import io
 import time
 import re
 
@@ -95,6 +94,12 @@ SETS_JSON_FILE = os.path.join(
     BASE_DIR,
     r"Content\Athena\Items\Cosmetics\Metadata\CosmeticSets.json"
 )
+
+SEARCH_TAGS_JSON_FILE = os.path.join(
+    BASE_DIR,
+    r"Content\Balance\DataTables\GeneratedSearchTagData.json"
+)
+
 DISPLAY_ASSETS_DIR = os.path.join(
     BASE_DIR,
     r"Plugins\GameFeatures\OfferCatalog\Content\NewDisplayAssets"
@@ -323,6 +328,12 @@ def build_index(dirs):
 
                 if not cosmetic_id or not item_name or is_default_item(props):
                     continue
+                    
+                generated_tags = None
+                for item in props.get("DataList", []):
+                    if "GeneratedTagsIndexes" in item:
+                        generated_tags = item["GeneratedTagsIndexes"]
+                        break
 
                 weapon_definition_path = get_weapon_definition(entry)
                 rel_path = adjust_path(path, directory)
@@ -348,6 +359,9 @@ def build_index(dirs):
                     item_entry["setID"] = set_id
                 if weapon_definition_path != "":
                     item_entry["weaponDefinition"] = weapon_definition_path
+
+                if generated_tags:
+                    item_entry["generatedSearchTagIndexes"] = generated_tags
 
                 if companion_emotes != []:
                     for companion_emote in companion_emotes:
@@ -453,6 +467,22 @@ def build_localized_sets_map(sets_file):
             mapping[set_id] = localization_key
     return mapping
 
+def get_search_tags(search_tags_file):
+    data = load_json(search_tags_file)
+    if not data or not isinstance(data, list) or not data[0]:
+        return {}
+    
+    output = []
+    
+    props = data[0].get("Properties", {})
+    tags = props.get("LocalizedTags", [])
+
+    for tag in tags:
+        tag_name = tag.get("LocalizedString")
+        if tag_name:
+            output.append(tag_name)
+
+    return output
 
 bundle_re = re.compile(r"DA_(?:((?:Character|CID)_([^/\n]+))|(([^/\n]+)_(?:Character|CID))|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
 def build_bundle_index(index):
@@ -608,6 +638,7 @@ jido_map = build_jido_map(FIGURE_COSMETICS_DIR)
 bean_map = build_bean_map(DT_BEAN_MAP_FILE, NEW_BEANSTALK_DEF_DIR)
 sets_map = build_sets_map(SETS_JSON_FILE)
 localized_sets_map = build_localized_sets_map(SETS_JSON_FILE)
+tags = get_search_tags(SEARCH_TAGS_JSON_FILE)
 companion_style_index = build_companion_style_index()
 
 display_assets_files = {}
@@ -650,6 +681,11 @@ with open("CosmeticSetLocalizations.json", 'w', encoding='utf-8') as f:
     json.dump(localized_sets_map, f, indent=2, ensure_ascii=False)
 
 print(f"CosmeticSetLocalizations.json created with {len(localized_sets_map)} sets.")
+
+with open("CosmeticSearchTags.json", 'w', encoding='utf-8') as f:
+    json.dump(tags, f, indent=2, ensure_ascii=False)
+
+print(f"CosmeticSearchTags.json created with {len(tags)} tags.")
 
 with open("CompanionStyleVariantTokens.json", 'w', encoding='utf-8') as f:
     json.dump(companion_style_index, f, indent=2, ensure_ascii=False)

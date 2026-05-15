@@ -1,0 +1,29 @@
+@import url("/styles/global.css");
+@import url("/tools/common.css");
+
+#cosmetic-display {
+  width: 100% !important;
+}
+
+#tag-input {
+  width: 100% !important;
+}
+
+#tag-suggestions {
+  position: relative;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-top: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  border-radius: 4px;
+}
+
+#tag-suggestions div {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+#tag-suggestions div:hover {
+  background: rgba(255,255,255,0.1);
+}

@@ -66,14 +66,18 @@ function updateTagSuggestions() {
 
     const matches = searchTags
         .map((tag, i) => ({ tag, i }))
-        .filter(t => t.tag.toLowerCase().includes(input))
+        .filter(t => {
+            const normalizedTag = t.tag.replace(/\n/g, '\\n').toLowerCase();
+            return normalizedTag.includes(input);
+        })
         .slice(0, 15);
 
     matches.forEach(({ tag }) => {
         const div = document.createElement("div");
-        div.textContent = tag;
+        div.textContent = tag.replace(/\n/g, '\\n');
+        
         div.onclick = () => {
-            document.getElementById("tag-input").value = tag;
+            document.getElementById("tag-input").value = tag.replace(/\n/g, '\\n');
             sugDiv.innerHTML = "";
         };
         sugDiv.appendChild(div);
@@ -108,17 +112,24 @@ function setupEvents() {
         }
 
         const entry = index.find(e => e.id === id);
-        const tags = entry.generatedSearchTagIndexes.map(i => searchTags[i]);
+        const tags = entry.generatedSearchTagIndexes.map(i => {
+                const rawTag = searchTags[i];
+                return rawTag ? rawTag.replace(/\n/g, '\\n') : "";
+            }).filter(Boolean);
 
         const output = document.getElementById("output");
         output.value = tags.length ? tags.join("\n") : "(No search tags found)";
+
         document.getElementById("copy-btn").disabled = tags.length === 0;
         showStatus(`Found ${tags.length} search tags.`, "success");
     });
 
     document.getElementById("reverse-btn").addEventListener("click", async () => {
-        const tagName = document.getElementById("tag-input").value.trim();
-        const tagIndex = searchTags.indexOf(tagName);
+        const displayedTagName = document.getElementById("tag-input").value.trim();
+
+        const actualTagName = displayedTagName.replace(/\\n/g, '\n');
+
+        const tagIndex = searchTags.indexOf(actualTagName);
         
         if (tagIndex === -1) {
             showStatus("Please select a tag from the suggestions.", "error");

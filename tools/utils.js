@@ -63,6 +63,7 @@ export const SERIES_CONVERSION = {
 	"Series_Dodge": "Dodge Series",
 	"Series_Ferrari": "Ferrari Series",
 	"Series_Ford": "Ford Series",
+	"Series_GamingLegends": "Gaming Legends Series",
 	"Series_Jeep": "Jeep Series",
 	"Series_Lamborghini": "Lamborghini Series",
 	"Series_McLaren": "McLaren Series",

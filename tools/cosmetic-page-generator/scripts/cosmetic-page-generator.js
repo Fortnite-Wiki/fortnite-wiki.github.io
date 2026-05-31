@@ -1457,7 +1457,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			bundledWithParts.push(`[[${name} (Back Bling)|${name}]]`, `[[${name} (Pickaxe)|${name}]]`);
 		}
 	}
-	out.push(`|bundled_with = ${bundledWithParts.join(' <br> ')}`);
+	if (bundledWithParts.length > 0) {
+		out.push(`|bundled_with = ${bundledWithParts.join(' <br> ')}`);
+	}
 
 	if (cosmeticType === "Outfit") {
 		out.push("|character model = {{Character Models|}}");

@@ -1,23 +1,37 @@
 name: "Notify discord on data update"
 
 on:
-  push:
-    paths:
-      - 'data/latest-data-update.txt'
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
 
 jobs:
   notify:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Check if data file changed
+        id: check
+        run: |
+          git diff --name-only HEAD^ HEAD | grep -q 'data/latest-data-update.txt' \
+            && echo "changed=true" >> $GITHUB_OUTPUT \
+            || echo "changed=false" >> $GITHUB_OUTPUT
 
       - name: Read update text
         id: read
+        if: steps.check.outputs.changed == 'true'
         run: |
           CONTENT=$(cat data/latest-data-update.txt)
           echo "content=$CONTENT" >> $GITHUB_OUTPUT
 
       - name: Send to Discord
+        if: steps.check.outputs.changed == 'true'
         run: |
           curl -X POST \
             -H "Content-Type: application/json" \

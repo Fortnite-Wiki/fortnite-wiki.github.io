@@ -498,7 +498,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
 	
-	if (lockerBundlePattern.test(bundleID)) {
+	if (settings.isLockerBundle) {
 		const bundleOwnerText = settings.lockerBundleOwnerLink ? `[${settings.lockerBundleOwnerLink} ${settings.lockerBundleOwner}]` : settings.lockerBundleOwner;
 		summary += ` ${theFlag}${bundleName}${seasonFirstReleasedFlag ? seasonFirstReleasedFlag + ' and' : ''} contains cosmetics that ${bundleOwnerText} has picked out.`;
 	} else if (characterBundlePattern.test(bundleID) && cosmetics.length == 2 && cosmetics[0]?.cosmeticType == "Outfit") {
@@ -581,7 +581,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	}
 	
 	const categories = ["[[Category:Item Shop Bundles]]"];
-	if (cosmetics[0]?.setName) {
+	if (cosmetics[0]?.setName && !settings.isLockerBundle) {
 		categories.push(`[[Category:${cosmetics[0].setName} Set]]`);
 	}
 

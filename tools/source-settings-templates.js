@@ -28,6 +28,8 @@ const SOURCE_SETTINGS = {
 			<hr>
 			<div id="bundles-box">
 				<h5>Bundles it's contained in:</h5>
+				<label style="font-size: small;" for="keep-bundle-inputs">Keep the following inputs when switching cosmetics? </label>
+				<input type="checkbox" id="keep-bundle-inputs" title="Keep bundle inputs when switching cosmetics" style="font-size: small;margin: 0;transform: scale(0.89);" class="keep-bundle-inputs">
 				<div id="bundles-controls">
 					<button id="add-bundle" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
 					<button id="remove-bundle" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
@@ -168,7 +170,8 @@ const SOURCE_SETTINGS = {
 				<label for="lego-season">Season Name:</label>
 				<select id="lego-season">
 					<option value="">Select season</option>
-					${LEGO_SEASON_NAMES.map(season => `<option value="${season}">${season}</option>`).join('')}
+					<!-- Alternative, but sorted 1200 first: ${Object.values(LEGO_SEASON_NAMES).flat().map(season => `<option value="${season}">${season}</option>`).join('')} -->
+					${[...LEGO_SEASON_NAMES["1400"], ...LEGO_SEASON_NAMES["1200"]].map(season => `<option value="${season}">${season}</option>`).join('')}
 				</select>
 			</div>
 			<div class="inline-group">

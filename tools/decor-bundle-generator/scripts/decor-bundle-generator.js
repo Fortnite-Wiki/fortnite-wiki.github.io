@@ -1,7 +1,7 @@
 import { loadGzJson } from '../../jsondata.js';
 
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../source-release.js';
-import { initBundleControls, getBundleEntries, setupBundleControls } from '../../bundle-controls.js';
+import { initBundleControls, getBundleEntries, removeBundleEntry, setupBundleControls } from '../../bundle-controls.js';
 import { initFormBehaviors } from '../../form-behaviors.js';
 
 import { getSeasonReleased, pageExists } from '../../utils.js';
@@ -84,6 +84,12 @@ function updateSuggestions() {
 			document.getElementById("bundle-input-name").value = entry.name;
 
 			sugDiv.innerHTML = "";
+
+			const keepBundleInputs = document.getElementById('keep-bundle-inputs')?.checked;
+			if (!keepBundleInputs) {
+				const bundles = getBundleEntries();
+				while (bundles.length != 0) removeBundleEntry();
+			}
 			await updateWikiPageButtonDecor();
 		};
 		sugDiv.appendChild(div);
@@ -203,7 +209,7 @@ async function generatePage() {
 	
 	const wikiText = generateDecorBundleWikiText(entry, matches, settings);
 	displayOutput(wikiText);
-	showStatus('Page generated — copy output to clipboard when ready.', 'success');
+	showStatus('Page generated successfully!', 'success');
 	setTimeout(hideStatus, 2500);
 }
 

@@ -3,7 +3,7 @@ import { decryptMidi, extractFormattedProVocalsSentences } from './midi-utils.js
 import { getSeasonReleased, pageExists } from '../../utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../source-release.js';
-import { initBundleControls, getBundleEntries, setupBundleControls } from '../../bundle-controls.js';
+import { initBundleControls, getBundleEntries, removeBundleEntry, setupBundleControls } from '../../bundle-controls.js';
 import { initFormBehaviors } from '../../form-behaviors.js';
 
 let jamTracksData = null;
@@ -277,6 +277,12 @@ function setupSearch() {
 					elements.albumInput.value = currentTrackData.album;
 				} else {
 					elements.albumInput.value = '';
+				}
+
+				const keepBundleInputs = document.getElementById('keep-bundle-inputs')?.checked;
+				if (!keepBundleInputs) {
+					const bundles = getBundleEntries();
+					while (bundles.length != 0) removeBundleEntry();
 				}
 
 				elements.suggestions.innerHTML = '';

@@ -93,8 +93,11 @@ function updateSuggestions() {
 		div.onclick = async () => {
 			elements.displayTitle.disabled = false;
 
-			const bundles = getBundleEntries();
-			while (bundles.length != 0) removeBundleEntry();
+			const keepBundleInputs = document.getElementById('keep-bundle-inputs')?.checked;
+			if (!keepBundleInputs) {
+				const bundles = getBundleEntries();
+				while (bundles.length != 0) removeBundleEntry();
+			}
 			var ftChrsSection = document.getElementById("featured-characters-config");
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
 			while (featuredCharactersEntries.length != 0) removeFeaturedCharacterEntry();
@@ -206,11 +209,11 @@ function updateSuggestions() {
 				document.getElementById('rocket-league-cosmetic').checked = false;
 				document.getElementById('rocket-league-exclusive').checked = false;
 			}
-			// If Festival cosmetics, force display title on and lock it so user can't uncheck it.
+			// If Festival cosmetics or Decals, force display title on and lock it so user can't uncheck it.
 			const displayTitleEl = document.getElementById('display-title');
-			if (isFestivalCosmetic) {
+			if (isFestivalCosmetic || cosmeticType == "Decal") {
 				displayTitleEl.checked = true;
-				if (instrumentType != null && instrumentType != "") {
+				if (instrumentType != null && instrumentType != "" || cosmeticType == "Decal") {
 					displayTitleEl.disabled = true;
 				}
 			} else {
@@ -775,11 +778,19 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 		const pipe = replacePipes ? "{{!}}" : "|";
 
 		const table = [`{${pipe}${noClasses ? '' : ` class=\"${addClassToUse} reward-table${secondClassToUse ? ` ${secondClassToUse}` : ''}\"`}`];
+		
+		// Check if any colspan should be 3, if so, all should be 3
+		const anyColspan3 = Array.from(entries).some(([_, info]) => {
+			const variants = Array.isArray(info) ? info : (info && Array.isArray(info.variants) ? info.variants : []);
+			const colspan = (info && Number.isInteger(info.colspan)) ? info.colspan : (variants.length > 2 ? 3 : variants.length);
+			return colspan === 3;
+		});
+		
 		let first = true;
 		for (const [channel, info] of entries) {
 			const variants = Array.isArray(info) ? info : (info && Array.isArray(info.variants) ? info.variants : []);
 			const chunks = chunkList(variants, 3);
-			const colspan = (info && Number.isInteger(info.colspan)) ? info.colspan : (variants.length > 2 ? 3 : variants.length);
+			const colspan = anyColspan3 ? 3 : ((info && Number.isInteger(info.colspan)) ? info.colspan : (variants.length > 2 ? 3 : variants.length));
 			const colspanFlag = colspan > 1 ? `colspan="${colspan}"${pipe}` : "";
 
 			if (!first) table.push(`${pipe}-`);
@@ -1396,7 +1407,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			out.push("|image = <gallery>");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-			out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
+			if (cosmeticType == "Loading Screen" && settings.isBattlePass) {
+				out.push(`${name} (Battle Pass) - ${cosmeticType} - Fortnite.png|Featured`);
+			} else {
+				out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
+			}
 			out.push("</gallery>");
 		}
 	} else if (cosmeticType == "Outfit" && settings.isBattlePass) {
@@ -1745,7 +1760,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 			rendersSection.push(chunk.map(c => {
 				let filename = '';
-				let fileEnding = isFestivalCosmetic ? 'Fortnite Festival' : 'Fortnite';
+
+				const useFestivalEnding = isFestivalCosmetic && cosmeticType != "Pickaxe" && cosmeticType != "Back Bling";
+				let fileEnding = useFestivalEnding ? 'Fortnite Festival' : 'Fortnite';
 
 				const carBodyName = cosmeticType == "Decal" && entryMeta.carBodyTag && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.startsWith("body_")) && entryMeta.carBodyTag == e.carBodyTag)?.name;
 				let carNameFlag = carBodyName ? `${carBodyName} - ` : '';

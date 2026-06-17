@@ -1,5 +1,5 @@
 import { characterBundlePattern, forceTitleCase, abbreviate, getFormattedReleaseDate, getItemShopHistoryDate, ensureVbucksTemplate } from './utils.js';
-import { SEASON_RELEASE_DATES, OG_SEASON_RELEASE_DATES, FESTIVAL_SEASON_RELEASE_DATES, LEGO_SEASON_RELEASE_DATES } from '../../../data/datesAndVersions.js';
+import { SEASON_RELEASE_DATES, OG_SEASON_RELEASE_DATES, FESTIVAL_SEASON_RELEASE_DATES, LEGO_SEASON_RELEASE_DATES, LEGO_SEASON_NAMES } from '../../../data/datesAndVersions.js';
 
 export function generateUnlockedParameter(settings, bundleEntries = []) {
     let unlocked = '';
@@ -81,7 +81,8 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         cost = `{{V-Bucks|1,200}} <br> ({{MusicPass|${settings.musicSeason}}})`;
     
     } else if (settings.isLEGOPass && settings.legoSeason) {
-        cost = `{{V-Bucks|1,200}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
+        const vbucksAmount = LEGO_SEASON_NAMES["1400"].includes(settings.legoSeason) ? "1,400" : "1,200";
+        cost = `{{V-Bucks|${vbucksAmount}}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
     
     } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType

@@ -142,18 +142,23 @@ export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
     14: '40.20',
 };
 
-export const LEGO_SEASON_NAMES = [
-    "Rebel Adventure",
-    "Tropical Treasures",
-    "Brick or Treat",
-    "Chill & Thrill",
-    "Goldrush Gallery",
-    "First Order",
-    "Supernova Academy",
-    "Palm Paradise",
-    "Ninjago",
-    "Soaring Skies",
-];
+// divided by V-Bucks cost
+export const LEGO_SEASON_NAMES = {
+    "1400": [
+        "Rebel Adventure",
+        "Tropical Treasures",
+        "Brick or Treat",
+        "Chill & Thrill",
+        "Goldrush Gallery",
+        "First Order",
+        "Supernova Academy",
+        "Palm Paradise",
+        "Ninjago",
+    ],
+    "1200": [
+        "Soaring Skies",
+    ]
+};
 
 export const LEGO_SEASON_RELEASE_DATES = {
     "Rebel Adventure": new Date(2024, 4, 3), // May 3, 2024

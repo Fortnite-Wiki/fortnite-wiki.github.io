@@ -324,7 +324,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 		],
 		"Single-Wield": [
 			"GAB_Melee_CyberArmorFemale_ImpactCombo_Athena",
-			"GAB_Melee_MindPinch_ImpactCombo_Athena"
+			"GAB_Melee_MindPinch_ImpactCombo_Athena",
+			"GAB_Melee_Dagger1H_ImpactCombo_Athena"
 		],
 		"Spear": [
 			"GAB_Melee_Lance_ImpactCombo_Athena"

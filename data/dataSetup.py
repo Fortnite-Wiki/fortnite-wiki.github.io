@@ -824,8 +824,8 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
         
         for root, dirs, files in os.walk(src_root):
             folder_name = os.path.basename(root)
-            # treat "MPS & MaterialParamaterSets & MaterialParamSets" as MaterialParameterSets
-            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets" or folder_name == "MaterialParametrs":
+            # treat Epic's mistakes as MaterialParameterSets
+            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets" or folder_name == "MaterialParametrs" or folder_name == "MaterialParamSettings":
                 folder_name = "MaterialParameterSets"
 
             if folder_name not in ("ColorSwatches", "MaterialParameterSets"):

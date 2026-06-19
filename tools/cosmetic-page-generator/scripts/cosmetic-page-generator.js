@@ -515,7 +515,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 				colorSwatchPath
 					.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/')
-					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
+					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs|MaterialParamSettings)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
 					.replace(/Game\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
 				+ '.json';
 
@@ -582,7 +582,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
 			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
+			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs|MaterialParamSettings)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
 			materialParamsPath = materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/'); // fallback fix
 
 			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {

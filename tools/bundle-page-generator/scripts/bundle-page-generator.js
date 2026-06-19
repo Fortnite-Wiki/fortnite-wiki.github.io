@@ -651,17 +651,22 @@ async function handleGenerate() {
 				const isRacingCosmetic = entryMeta.path.startsWith("Racing");
 
 				let tags = [];
+				let seriesRarity = null;
 				for (const entry of props.DataList || []) {
 					if (typeof entry === 'object' && entry !== null) {
 						if (entry.Tags) {
 							tags = entry.Tags;
 						}
 						if (entry.Rarity) {
-							rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+							const parsedRarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase();
+							if (!seriesRarity) {
+								rarity = parsedRarity || rarity;
+							}
 						}
 						if (entry.Series) {
 							let series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
-							rarity = SERIES_CONVERSION[series] || rarity;
+							seriesRarity = SERIES_CONVERSION[series] || seriesRarity;
+							rarity = seriesRarity || rarity;
 						}
 					}
 				}

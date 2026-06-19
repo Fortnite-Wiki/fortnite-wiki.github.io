@@ -1221,6 +1221,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	let mainIcon = { large: "", icon: "" };
 	let tags = [];
 	let series = null;
+	let seriesRarity = null;
 	let filterSetPath = "";
 	let channelIconMap = null;
 	
@@ -1236,11 +1237,15 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				tags = entry.Tags;
 			}
 			if (entry.Rarity) {
-				rarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || rarity;
+				const parsedRarity = entry.Rarity.split("::")?.pop()?.charAt(0).toUpperCase() + entry.Rarity?.split("::")?.pop()?.slice(1).toLowerCase();
+				if (!seriesRarity) {
+					rarity = parsedRarity || rarity;
+				}
 			}
 			if (entry.Series) {
 				series = entry.Series.ObjectName?.split("'")?.slice(-2)[0];
-				rarity = SERIES_CONVERSION[series] || rarity;
+				seriesRarity = SERIES_CONVERSION[series] || seriesRarity;
+				rarity = seriesRarity || rarity;
 			}
 			if (entry.SharedFilterSet) {
 				filterSetPath = entry.SharedFilterSet.AssetPathName.split('.')[0].replace('/CosmeticCompanions/Data/VariantFilterSet/', 'cosmetics/Companions/VariantFilterSets/');

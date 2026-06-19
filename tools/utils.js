@@ -319,7 +319,7 @@ async function fetchWikiImageFiles(title) {
  *  - Prefer filenames containing a version token like "(v30.00)" with the highest numeric version.
  *  - Fallback to "{name} - cosmeticType - Fortnite.png".
  */
-export async function getMostUpToDateImage(name, cosmeticType, lego = false) {
+export async function getMostUpToDateImage(name, cosmeticType, ending = "Fortnite") {
 	const tryTitles = [`${name} (${cosmeticType})`, name];
 	for (const t of tryTitles) {
 		const files = await fetchWikiImageFiles(t);
@@ -331,7 +331,7 @@ export async function getMostUpToDateImage(name, cosmeticType, lego = false) {
 		let bestFile = null;
 		for (const f of files) {
 			const m = f.match(versionRegex);
-			const fileFormat = `- ${cosmeticType} - ${lego ? 'LEGO Fortnite' : 'Fortnite'}.png`;
+			const fileFormat = `- ${cosmeticType} - ${ending}.png`;
 			if (m && f.startsWith(name) && f.includes(fileFormat)) {
 				const major = parseInt(m[1] || '0', 10);
 				const minor = parseInt(m[2] || '0', 10);
@@ -345,5 +345,5 @@ export async function getMostUpToDateImage(name, cosmeticType, lego = false) {
 		if (bestFile) return { file: bestFile, pageTitle: t };
 	}
 
-	return { file: `${name} - ${cosmeticType} - ${lego ? 'LEGO Fortnite' : 'Fortnite'}.png`, pageTitle: name };
+	return { file: `${name} - ${cosmeticType} - ${ending}.png`, pageTitle: name };
 }

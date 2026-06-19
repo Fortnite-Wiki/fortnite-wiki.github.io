@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType, pageExists } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -15,6 +15,7 @@ let bannersEntries = [];
 let elements = {};
 
 let currentBundleName = '';
+let pageTitle = '';
 
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -76,7 +77,7 @@ function updateBundleSuggestions() {
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
 		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
-		div.onclick = () => {
+		div.onclick = async () => {
 			document.getElementById('bundle-display').value = `${entry.bundle_name} (${entry.bundle_id})`;
 			document.getElementById('bundle-input').value = entry.bundle_id;
 			document.getElementById('bundle-input-name').value = entry.bundle_name;
@@ -539,18 +540,19 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 		} else if (isBanner) {
 			pushCell(`[[File:${bannerFile}|130px|link=Banner Icons]]`);
 		} else {
-			let ending = 'Fortnite.png';
+			let ending = 'Fortnite';
 			if (fileType == 'Pickaxe' || fileType == 'Back Bling') {
-				ending = 'Fortnite.png';
+				ending = 'Fortnite';
 			} else if (isFestivalCosmetic && !isPickaxeOverride) {
-				ending = 'Fortnite Festival.png';
+				ending = 'Fortnite Festival';
 			}
 
-			pushCell(`{{${rarity} Rarity|[[File:${name} - ${fileType} - ${ending}|130px|link=${linkTarget}]]}}`);
+			const res = await getMostUpToDateImage(name, cosmeticType, ending);
+			pushCell(`{{${rarity} Rarity|[[File:${res.file}|130px|link=${linkTarget}]]}}`);
 
 			if (cosmeticType == "Outfit" && hasLEGOStyle) {
-				const res = await getMostUpToDateImage(name, cosmeticType, true);
-				pushCell(`{{${rarity} Rarity|[[File:${res.file}|130px|link=${linkTarget}]]}}`);
+				const legoRes = await getMostUpToDateImage(name, cosmeticType, "LEGO Fortnite");
+				pushCell(`{{${rarity} Rarity|[[File:${legoRes.file}|130px|link=${linkTarget}]]}}`);
 			}
 		}
 	}
@@ -779,7 +781,8 @@ async function handleGenerate() {
 			if (!Array.isArray(presentations)) continue;
 
 			for (const pres of presentations) {
-				const tag = pres?.ProductTag?.TagName;
+				let tag = pres?.ProductTag?.TagName;
+				tag = tag?.replaceAll('Delmar', 'DelMar');
 				if (imageProductTagCounts.hasOwnProperty(tag)) {
 					imageProductTagCounts[tag]++;
 				}
@@ -794,6 +797,15 @@ async function handleGenerate() {
 			}
 		}
 	}
+
+	const preDaBundleID = bundleID;
+	let outBundleName = bundleName;
+	if (elements.forceTitleCase && elements.forceTitleCase.checked) {
+		outBundleName = forceTitleCase(bundleName);
+		currentBundleName = outBundleName;
+	}
+
+	await updateWikiPageButton(outBundleName, characterBundlePattern.test(preDaBundleID) || imageProductTagCounts['Product.DelMar'] > 0);
 
 	if (da && Array.isArray(da)) {
 		bundleID = da[0]?.Name.replace('DA_Featured_', '') || bundleID;
@@ -815,12 +827,6 @@ async function handleGenerate() {
 
 	showStatus('Generating bundle page...', 'loading');
 	console.log('Generating page with settings:', { bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings });
-	// Apply force-title-case option if enabled
-	let outBundleName = bundleName;
-	if (elements.forceTitleCase && elements.forceTitleCase.checked) {
-		outBundleName = forceTitleCase(bundleName);
-		currentBundleName = outBundleName;
-	}
 	let page = await generateBundlePage(bundleID, outBundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings);
 
 	document.getElementById('output').value = page;
@@ -842,9 +848,29 @@ async function copyToClipboard() {
 	}
 }
 
+async function openWikiPage() {
+	const exists = await pageExists(pageTitle)
+
+	const wikiUrl = `https://fortnite.fandom.com/wiki/${encodeURIComponent(pageTitle)}`;
+	const finalUrl = exists ? `${wikiUrl}?action=edit` : wikiUrl;
+	
+	window.open(finalUrl, '_blank');
+	showStatus(`${exists ? 'Edit' : 'Create'} page opened in new tab`, 'success');
+	setTimeout(hideStatus, 2000);
+}
+
+async function updateWikiPageButton(bundleName, useSuffix = false) {
+	pageTitle = useSuffix ? `${bundleName} (Item Shop Bundle)` : bundleName;
+	
+	document.getElementById('wiki-page-btn').disabled = false;
+	document.getElementById('wiki-page-btn').textContent = await pageExists(pageTitle) ? 'Edit page' : 'Create page';
+}
+
 function handleClear() {
 	document.getElementById('output').value = '';
 	document.getElementById('copy-btn').disabled = true;
+	document.getElementById('wiki-page-btn').disabled = true;
+	document.getElementById('wiki-page-btn').textContent = 'Create page';
 }
 
 function showStatus(message, type = 'loading') {
@@ -886,6 +912,7 @@ async function initialiseApp() {
 	document.getElementById('generate-btn').addEventListener('click', handleGenerate);
 	document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
 	document.getElementById('clear-btn').addEventListener('click', handleClear);
+	document.getElementById('wiki-page-btn').addEventListener('click', openWikiPage);
 
 	document.getElementById('add-cosmetic').addEventListener('click', (e) => { e.preventDefault(); createCosmeticEntry(); });
 	document.getElementById('remove-cosmetic').addEventListener('click', (e) => { e.preventDefault(); removeCosmeticEntry(); });

@@ -1149,7 +1149,6 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	out.push(`|ID = ${id}`);
 	out.push("|LEGOUse = y");
 	out.push("|LEGOID = n");
-	out.push("|BallisticUse = n");
 	out.push("}}");
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);

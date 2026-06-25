@@ -270,7 +270,7 @@ def build_index(dirs):
             if related_companion == this_companion:
                 variantTag = props.get("VariantNameTag").get("TagName")
                 variantID = entry.get("Name")
-                itemNameKey = props.get("ItemName").get("Key")
+                itemNameKey = props.get("ItemName", {}).get("Key", "")
                 
                 found_variant_emotes.append({
                     "variantTag": variantTag,
@@ -324,7 +324,7 @@ def build_index(dirs):
                 
                 cosmetic_id = entry.get("Name")
                 props = entry.get("Properties", {})
-                item_name = props.get("ItemName", {}).get("LocalizedString")
+                item_name = props.get("ItemName", {}).get("LocalizedString") or ""
 
                 if not cosmetic_id or not item_name or is_default_item(props):
                     continue

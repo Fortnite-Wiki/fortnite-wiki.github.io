@@ -515,9 +515,9 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 
     let pronoun = 'their';
     if (outfitCosmetics.length) {
-        const genderRaw = outfitCosmetics[0].Gender || '';
-        if (genderRaw.includes('Female')) pronoun = 'her';
-        else if (genderRaw.includes('Male')) pronoun = 'his';
+        const gender = outfitCosmetics[0].Gender || '';
+        if (gender == 1) pronoun = 'his';
+        else if (gender == 2) pronoun = 'her';
     }
 
     const outfitNames = outfitCosmetics.map(props => props.ItemName?.SourceString).filter(Boolean);

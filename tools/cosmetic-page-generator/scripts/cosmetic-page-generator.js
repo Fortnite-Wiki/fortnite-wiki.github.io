@@ -943,7 +943,7 @@ async function generateDecalsTable(name, tags) {
 		return matchingTags.has(e.carBodyTag);
 	});
 
-	const carBodyName = index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && matchingTags.has(e.carBodyTag))?.name;
+	const carBodyName = index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_") || e.id.toLowerCase().startsWith("id_body_")) && matchingTags.has(e.carBodyTag))?.name;
 	
 	const decalRows = [];
 	let currentIcons = [];
@@ -1393,7 +1393,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	if (are_there_shop_assets(entryMeta) || (itemshop && !settings.isBattlePass && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || (cosmeticType == "Loading Screen" && settings.isBattlePass) || cosmeticType == "Car Body") {
+	if (are_there_shop_assets(entryMeta) || (itemshop && !settings.isBattlePass && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || cosmeticType == "Car Body") {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
@@ -1422,10 +1422,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 			out.push("</gallery>");
 		}
-	} else if (cosmeticType == "Outfit" && settings.isBattlePass) {
+	} else if ((cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
 		out.push("|image = <gallery>");
-		out.push(`${name} - Outfit - Fortnite.png|Icon`);
-		out.push(`${name} (Battle Pass) - Outfit - Fortnite.png|Featured`);
+		out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
+		const pass = settings.isOGPass ? "OG Pass" : settings.isLEGOPass ? "LEGO Pass" : settings.isMusicPass ? "Music Pass" : "Battle Pass";
+		out.push(`${name} (${pass}) - ${cosmeticType} - Fortnite.png|Featured`);
 		out.push("</gallery>");
 	} else {
 		if (cosmeticType === "Spray") {

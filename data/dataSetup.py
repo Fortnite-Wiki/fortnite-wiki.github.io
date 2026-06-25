@@ -134,7 +134,7 @@ CHARACTER_COLOR_SWATCHES_DIR = os.path.join(
     r"Content/Characters/CharacterColorSwatches/Misc"
 )
 
-VALID_TYPES = [
+VALID_TYPES = {
     "AthenaCharacterItemDefinition",
     "AthenaBackpackItemDefinition",
     "AthenaPickaxeItemDefinition",
@@ -164,13 +164,20 @@ VALID_TYPES = [
     "CosmeticCompanionItemDefinition",
     "CosmeticCompanionReactFXItemDefinition",
     "FortVariantTokenType", # for companion emotes
-]
+}
+
+_FILE_CACHE = {}
 
 def load_json(filepath):
+    if filepath in _FILE_CACHE:
+        return _FILE_CACHE[filepath]
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            data = json.load(f)
+            _FILE_CACHE[filepath] = data
+            return data
     except:
+        _FILE_CACHE[filepath] = None
         return None
 
 def is_valid_json(data):
@@ -443,29 +450,19 @@ def build_bean_map(bean_file, new_bean_directory):
                         mapping[cid] = bean_id
     return mapping
 
-def build_sets_map(sets_file):
+def build_sets_maps(sets_file):
     data = load_json(sets_file)
     if not data or not isinstance(data, list) or not data[0]:
-        return {}
+        return {}, {}
     rows = data[0].get("Rows", {})
-    mapping = {}
+    names, keys = {}, {}
     for set_id, row in rows.items():
-        display_name = row.get("DisplayName", {}).get("LocalizedString")
-        if display_name:
-            mapping[set_id] = display_name
-    return mapping
-
-def build_localized_sets_map(sets_file):
-    data = load_json(sets_file)
-    if not data or not isinstance(data, list) or not data[0]:
-        return {}
-    rows = data[0].get("Rows", {})
-    mapping = {}
-    for set_id, row in rows.items():
-        localization_key = row.get("DisplayName", {}).get("Key")
-        if localization_key:
-            mapping[set_id] = localization_key
-    return mapping
+        dn = row.get("DisplayName", {})
+        if ls := dn.get("LocalizedString"):
+            names[set_id] = ls
+        if k := dn.get("Key"):
+            keys[set_id] = k
+    return names, keys
 
 def get_search_tags(search_tags_file):
     data = load_json(search_tags_file)
@@ -550,7 +547,7 @@ def build_bundle_index(index):
                     ])
                 for cand in candidates:
                     cand_lower = cand.lower()
-                    if cand_lower in dav2_files.keys():
+                    if cand_lower in dav2_files:
                         dav2_path = f"DAv2/{dav2_files[cand_lower]}"
                         break
 
@@ -636,8 +633,7 @@ def build_companion_style_index():
 index = build_index(COSMETICS_DIRS)
 jido_map = build_jido_map(FIGURE_COSMETICS_DIR)
 bean_map = build_bean_map(DT_BEAN_MAP_FILE, NEW_BEANSTALK_DEF_DIR)
-sets_map = build_sets_map(SETS_JSON_FILE)
-localized_sets_map = build_localized_sets_map(SETS_JSON_FILE)
+sets_map, localized_sets_map = build_sets_maps(SETS_JSON_FILE)
 tags = get_search_tags(SEARCH_TAGS_JSON_FILE)
 companion_style_index = build_companion_style_index()
 
@@ -697,7 +693,6 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
     for subdir, _, files in os.walk(src_root):
         if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
             continue
-        rel = os.path.relpath(subdir, src_root)
 
         # Remove "Cosmetics" from the relative path if present
         rel = os.path.relpath(subdir, src_root)

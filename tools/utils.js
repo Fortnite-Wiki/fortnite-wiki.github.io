@@ -87,6 +87,7 @@ const COSMETIC_TYPE_NORMALIZATION = {
 	"Companion": "Sidekick",
 	"Vehicle Body": "Car Body",
 	"Body": "Car Body",
+	"VehicleCosmetics_Body": "Car Body", // ItemTypeTag.TagName
 	"Drift Trail": "Trail",
 	"Turbo": "Boost",
 	"Wheel": "Wheels"

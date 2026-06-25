@@ -1193,6 +1193,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (!cosmeticType) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
+	if (cosmeticType === description) {
+		cosmeticType = props.ItemTypeTag?.TagName || cosmeticType;
+	}
 	cosmeticType = normalizeCosmeticType(cosmeticType);
 
 	let usePlural = false;

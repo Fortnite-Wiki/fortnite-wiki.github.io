@@ -111,7 +111,7 @@ async function search() {
   
   if (!input) return;
 
-  const entryMeta = index.find(e => e.id.toLowerCase() === input || e.name.toLowerCase() === input);
+  const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input || e.name && e.name.toLowerCase() === input);
   if (!entryMeta) {
     output.value = "Cosmetic not found.";
     return;

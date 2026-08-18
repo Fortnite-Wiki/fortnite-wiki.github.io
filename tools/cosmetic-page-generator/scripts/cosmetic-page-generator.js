@@ -1359,7 +1359,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				if (featuredFiles.length === 1) {
 					featured = featuredFiles[0];
 				} else {
-					featured = ["<gallery>", ...featuredFiles.map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n");
+					featured = ["{{InfoboxTabber|", ...featuredFiles.map((filename, idx) => `${filename}|${idx + 1}`), "}}"].join("\n");
 				}
 			}
 		}
@@ -1402,38 +1402,38 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
 				}
 			} else {
-				out.push("|image = <gallery>");
+				out.push("|image = {{InfoboxTabber|");
 				out.push(`${name} - ${instrumentType} - Fortnite Festival.png|Icon`);
 				out.push(`${name} (Featured) - ${instrumentType} - Fortnite Festival.png|Featured`);
-				out.push("</gallery>");
+				out.push("}}");
 			}
 		} else if (isRacingCosmetic && cosmeticType == "Wheel") {
-			out.push("|image = <gallery>");
+			out.push("|image = {{InfoboxTabber|");
 			out.push(`${name} - Wheels - Fortnite.png|Icon`);
 			out.push(`${name} (Featured) - Wheels - Fortnite.png|Featured`);
-			out.push("</gallery>");
+			out.push("}}");
 		} else {
-			out.push("|image = <gallery>");
+			out.push("|image = {{InfoboxTabber|");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
 			if (cosmeticType == "Loading Screen" && settings.isBattlePass) {
 				out.push(`${name} (Battle Pass) - ${cosmeticType} - Fortnite.png|Featured`);
 			} else {
 				out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
 			}
-			out.push("</gallery>");
+			out.push("}}");
 		}
 	} else if ((cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
-		out.push("|image = <gallery>");
+		out.push("|image = {{InfoboxTabber|");
 		out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
 		const pass = settings.isOGPass ? "OG Pass" : settings.isLEGOPass ? "LEGO Pass" : settings.isMusicPass ? "Music Pass" : "Battle Pass";
 		out.push(`${name} (${pass}) - ${cosmeticType} - Fortnite.png|Featured`);
-		out.push("</gallery>");
+		out.push("}}");
 	} else {
 		if (cosmeticType === "Spray") {
-			out.push("|image = <gallery>");
+			out.push("|image = {{InfoboxTabber|");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
 			out.push(`${name} (Decal) - ${cosmeticType} - Fortnite.png|Decal`);
-			out.push("</gallery>");
+			out.push("}}");
 		} else {
 			if (isFestivalCosmetic) {
 				if (cosmeticType == "Aura") {
@@ -1965,7 +1965,7 @@ async function determinePageTitle(cosmeticName, cosmeticType) {
 async function openWikiPage() {
 	const exists = await pageExists(pageTitle)
 
-	const wikiUrl = `https://fortnite.fandom.com/wiki/${encodeURIComponent(pageTitle)}`;
+	const wikiUrl = `https://fortnite.weirdgloop.org/w/${encodeURIComponent(pageTitle)}`;
 	const finalUrl = exists ? `${wikiUrl}?action=edit` : wikiUrl;
 	
 	window.open(finalUrl, '_blank');
@@ -2253,7 +2253,7 @@ function renderSelectedCategories() {
 			<span class="remove-category" data-category="${category}">✕</span>
 		`;
 		badge.querySelector('span:first-child').addEventListener('click', () => {
-			window.open(`https://fortnite.fandom.com/wiki/Category:${category}`, '_blank');
+			window.open(`https://fortnite.weirdgloop.org/w/Category:${category}`, '_blank');
 		});
 		container.appendChild(badge);
 	});

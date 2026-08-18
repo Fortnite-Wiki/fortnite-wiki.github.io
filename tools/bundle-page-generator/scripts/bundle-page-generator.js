@@ -851,7 +851,7 @@ async function copyToClipboard() {
 async function openWikiPage() {
 	const exists = await pageExists(pageTitle)
 
-	const wikiUrl = `https://fortnite.fandom.com/wiki/${encodeURIComponent(pageTitle)}`;
+	const wikiUrl = `https://fortnite.weirdgloop.org/w/${encodeURIComponent(pageTitle)}`;
 	const finalUrl = exists ? `${wikiUrl}?action=edit` : wikiUrl;
 	
 	window.open(finalUrl, '_blank');

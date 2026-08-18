@@ -247,7 +247,7 @@ export function stripVbucksTemplate(val) {
  */
 export async function pageExists(title) {
 	try {
-		const endpoint = 'https://fortnite.fandom.com/api.php';
+		const endpoint = 'https://fortnite.weirdgloop.org/api.php';
 		const params = new URLSearchParams({
 			action: 'query',
 			titles: title,
@@ -278,12 +278,12 @@ export async function pageExists(title) {
 }
 
 /**
- * Query the Fandom MediaWiki API for images on a page title.
+ * Query the MediaWiki API for images on a page title.
  * Returns an array of filenames (without the leading "File:").
  */
 async function fetchWikiImageFiles(title) {
 	try {
-		const endpoint = 'https://fortnite.fandom.com/api.php';
+		const endpoint = 'https://fortnite.weirdgloop.org/api.php';
 		const params = new URLSearchParams({
 			action: 'query',
 			prop: 'images',

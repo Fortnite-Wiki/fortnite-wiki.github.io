@@ -1,6 +1,6 @@
 // MediaWiki API helpers for bundle info
 async function fetchCategoryMembers(categoryName) {
-	const API_ENDPOINT = "https://fortnite.fandom.com/api.php";
+	const API_ENDPOINT = "https://fortnite.weirdgloop.org/api.php";
 	let members = [];
 	let cmcontinue = null;
 	while (true) {
@@ -30,7 +30,7 @@ async function fetchCategoryMembers(categoryName) {
 }
 
 async function fetchWikiPageWikitext(pageTitle) {
-	const API_ENDPOINT = "https://fortnite.fandom.com/api.php";
+	const API_ENDPOINT = "https://fortnite.weirdgloop.org/api.php";
 	const params = new URLSearchParams({
 		action: "query",
 		prop: "revisions",

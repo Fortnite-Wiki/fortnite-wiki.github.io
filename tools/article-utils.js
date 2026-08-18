@@ -88,7 +88,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
             && (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
         ) {
-            cost = ensureVbucksTemplate(settings.shopCost) + ` <small>([[${name} (${instrumentType})|${name}]])</small>`;
+            cost = ensureVbucksTemplate(settings.shopCost) + ` <br> <small>([[${name} (${instrumentType})|${name}]])</small>`;
         } else {
             cost = ensureVbucksTemplate(settings.shopCost);
         }
@@ -108,7 +108,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
                     const rawName = be.bundleName.value.trim();
                     const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
                     const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-                    return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
+                    return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <br> <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
                 }
                 return null;
             })

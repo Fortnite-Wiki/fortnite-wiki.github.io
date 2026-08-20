@@ -516,7 +516,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 					.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs|MaterialParamSettings)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
-					.replace(/Game\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
+					.replace(/(?:Game|BRCosmetics)\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
 				+ '.json';
 
 			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
@@ -1250,7 +1250,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				rarity = seriesRarity || rarity;
 			}
 			if (entry.SharedFilterSet) {
-				filterSetPath = entry.SharedFilterSet.AssetPathName.split('.')[0].replace('/CosmeticCompanions/Data/VariantFilterSet/', 'cosmetics/Companions/VariantFilterSets/');
+				filterSetPath = entry.SharedFilterSet.AssetPathName.split('.')[0].replace('/CosmeticCompanions/Data/VariantFilterSet/', 'cosmetics/Companions/VariantFilterSets/').replace('/BRCosmetics/Athena/Items/Cosmetics', 'cosmetics');
 			}
 		}
 	}

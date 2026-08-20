@@ -167,7 +167,7 @@ async function openWikiPage() {
 	const pageTitle = `LEGO Fortnite:${bundleName}`;
 	const shouldEdit = await pageExists(pageTitle);
 	
-	const wikiUrl = `https://fortnite.fandom.com/wiki/${encodeURIComponent(pageTitle)}`;
+	const wikiUrl = `https://fortnite.weirdgloop.org/w/${encodeURIComponent(pageTitle)}`;
 	const finalUrl = shouldEdit ? `${wikiUrl}?action=edit` : wikiUrl;
 	
 	window.open(finalUrl, '_blank');

@@ -1966,7 +1966,8 @@ async function openWikiPage() {
 	const exists = await pageExists(pageTitle)
 
 	const wikiUrl = `https://fortnite.weirdgloop.org/w/${encodeURIComponent(pageTitle)}`;
-	const finalUrl = exists ? `${wikiUrl}?action=edit` : wikiUrl;
+	const summary = `${exists ? 'Edited' : 'Created'} page using Cosmetic Page Generator`;
+	const finalUrl = `${wikiUrl}?action=edit&summary=${encodeURIComponent(summary)}`;
 	
 	window.open(finalUrl, '_blank');
 	showStatus(`${exists ? 'Edit' : 'Create'} page opened in new tab`, 'success');

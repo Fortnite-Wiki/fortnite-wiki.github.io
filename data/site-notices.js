@@ -16,6 +16,15 @@
 
 export default [
     {
+        id: 'fandom-not-allowed',
+        type: 'danger',
+        collapsible: false,
+        dismissible: true,
+        summaryText: '',
+        bodyHtml: '<p><strong>Important:</strong> This site is intended only for <a href="https://fortnite.weirdgloop.org" target="_blank" style="color: #721c24; font-weight: bold;">the independent wiki</a>. If you intend to edit the Fandom wiki, you do not have permission to use any of the tools provided here.',
+        paths: ['/'],
+    },
+    {
         id: 'update-info',
         type: 'info',
         collapsible: true,
@@ -32,7 +41,7 @@ export default [
         collapsible: false,
         dismissible: true,
         summaryText: '',
-        bodyHtml: '<p><strong>Important:</strong> Decor Bundle pages should be created only in the <b>LEGO Fortnite</b> namespace.</p>',
+        bodyHtml: '<p><strong>Important:</strong> Decor Bundle pages should be created only in the <b>LEGO</b> namespace.</p>',
         paths: ['/tools/decor-bundle-generator/'],
     }
 ];

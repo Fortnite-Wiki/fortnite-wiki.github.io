@@ -47,6 +47,7 @@ const VARIANT_OPTION_FIELDS = [
 ];
 
 let index = [];
+let latestDav2Paths = new Map();
 let generatedImages = [];
 let selectedAsset = null;
 let detectedStyleGroups = [];
@@ -55,6 +56,39 @@ const elements = {};
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+	latestDav2Paths = buildLatestDav2PathMap(index);
+}
+
+function buildLatestDav2PathMap(entries) {
+	const map = new Map();
+	if (!Array.isArray(entries)) return map;
+
+	for (const entry of entries) {
+		for (const path of [entry?.dav2, entry?.dav2_path]) {
+			const dav2Id = getDisplayAssetId(path);
+			if (!dav2Id) continue;
+
+			const key = dav2Id.toLowerCase();
+			const season = getDav2Season(path);
+			const existing = map.get(key);
+			if (!existing || season > existing.season) {
+				map.set(key, { path, season });
+			}
+		}
+	}
+
+	return map;
+}
+
+function getLatestDav2Path(path) {
+	const dav2Id = getDisplayAssetId(path);
+	if (!dav2Id) return path || '';
+	return latestDav2Paths.get(dav2Id.toLowerCase())?.path || path || '';
+}
+
+function getDav2Season(path) {
+	const match = String(path || '').match(/\/S(\d+)\//i);
+	return match ? Number(match[1]) : -1;
 }
 
 function showStatus(message, type = 'loading') {
@@ -85,24 +119,26 @@ function getAssetCandidates() {
 		const candidates = [];
 
 		if (typeof entry.id === 'string' && typeof entry.name === 'string') {
+			const dav2Path = getLatestDav2Path(entry.dav2);
 			candidates.push({
 				kind: 'Cosmetic',
 				id: entry.id,
 				name: entry.name,
 				dataPath: entry.path || '',
-				dav2Path: entry.dav2 || '',
-				dav2Id: getDisplayAssetId(entry.dav2),
+				dav2Path,
+				dav2Id: getDisplayAssetId(dav2Path),
 			});
 		}
 
 		if (typeof entry.bundle_id === 'string' && typeof entry.bundle_name === 'string') {
+			const dav2Path = getLatestDav2Path(entry.dav2_path);
 			candidates.push({
 				kind: 'Bundle',
 				id: entry.bundle_id,
 				name: entry.bundle_name,
 				dataPath: '',
-				dav2Path: entry.dav2_path || '',
-				dav2Id: getDisplayAssetId(entry.dav2_path),
+				dav2Path,
+				dav2Id: getDisplayAssetId(dav2Path),
 			});
 		}
 

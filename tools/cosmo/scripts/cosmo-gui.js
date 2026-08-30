@@ -2,6 +2,9 @@ import { loadGzJson } from '../../jsondata.js';
 
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
+const MAX_AUTO_COMBINATIONS = 250;
+const VERSION = '42.00';
+const RELEASE_KEY = 'x7SL9QH7uQccGqpounh26Jz4x+ugIx0fsl+Wf+EpVKQ=';
 
 const TYPE_MAPPINGS = {
 	companion_: 'CosmeticMimosa',
@@ -37,6 +40,8 @@ const VARIANT_OPTION_FIELDS = [
 	'TextureOptions',
 	'NumericalOptions',
 	'ProgressiveStageOptions',
+	'GenericPropertyOptions',
+	'Variants',
 ];
 
 let index = [];
@@ -118,7 +123,7 @@ function updateAssetSuggestions() {
 	elements.assetDav2Path.value = '';
 	elements.assetDav2Id.value = '';
 	selectedAsset = null;
-	clearDetectedStyles('Select an asset to load options.');
+	clearDetectedStyles('Select an asset to load options, or generate a custom ID without detected styles.');
 	elements.assetSuggestions.innerHTML = '';
 	if (!input) return;
 
@@ -168,7 +173,7 @@ function clearDetectedStyles(message = '') {
 
 async function loadDetectedStyles() {
 	if (!selectedAsset) {
-		clearDetectedStyles('Select an asset to load options.');
+		clearDetectedStyles('Select an asset to load options, or generate a custom ID without detected styles.');
 		return;
 	}
 
@@ -203,18 +208,15 @@ async function loadCosmeticStyleGroups(asset) {
 		.map((variantRef, channelIndex) => {
 			const variant = findVariantObject(data, variantRef);
 			const props = variant?.Properties || {};
-			const optionField = VARIANT_OPTION_FIELDS.find((field) => Array.isArray(props[field]) && props[field].length > 0);
-			const options = optionField ? props[optionField] : [];
+			const optionInfo = getVariantOptionInfo(props);
 
 			return {
-				name: localizedText(props.VariantChannelName) || `Channel ${channelIndex + 1}`,
-				options: options.map((option, optionIndex) => ({
-					value: optionIndex,
-					name: localizedText(option?.VariantName) || `Option ${optionIndex}`,
-				})),
+				name: localizedText(props.VariantChannelName) || friendlyVariantType(variant?.Type) || `Channel ${channelIndex + 1}`,
+				optionSource: optionInfo.source,
+				options: optionInfo.options,
 			};
 		})
-		.filter((group) => group.options.length > 0);
+		.filter((group) => !isUnsupportedCosmoStyleGroup(group));
 }
 
 async function loadStoreStyleGroups(asset) {
@@ -248,6 +250,57 @@ function localizedText(value) {
 	return value.LocalizedString || value.SourceString || value.CultureInvariantString || '';
 }
 
+function getVariantOptionInfo(props) {
+	const optionField = VARIANT_OPTION_FIELDS.find((field) => Array.isArray(props[field]) && props[field].length > 0);
+	if (optionField) {
+		return {
+			source: optionField,
+			options: props[optionField].map((option, optionIndex) => ({
+				value: optionIndex,
+				name: localizedText(option?.VariantName) || localizedText(option?.ColorName) || option?.Name || `Option ${optionIndex}`,
+			})),
+		};
+	}
+
+	if (Array.isArray(props.LoadoutAugmentations) && props.LoadoutAugmentations.length > 0) {
+		return {
+			source: 'LoadoutAugmentations',
+			options: props.LoadoutAugmentations.map((option, optionIndex) => ({
+				value: optionIndex,
+				name: localizedText(option?.VariantName) || loadoutItemName(option?.LoadoutItem) || `Option ${optionIndex}`,
+			})),
+		};
+	}
+
+	return {
+		source: 'Default',
+		options: [{
+			value: 0,
+			name: 'Default',
+		}],
+	};
+}
+
+function isUnsupportedCosmoStyleGroup(group) {
+	return group.optionSource === 'GenericPropertyOptions' || /lego/i.test(group.name);
+}
+
+function friendlyVariantType(type) {
+	if (typeof type !== 'string' || !type) return '';
+
+	return type
+		.replace(/^FortCosmetic/, '')
+		.replace(/Variant$/, '')
+		.replace(/([a-z])([A-Z])/g, '$1 $2')
+		.trim();
+}
+
+function loadoutItemName(loadoutItem) {
+	const assetPath = loadoutItem?.AssetPathName;
+	if (typeof assetPath !== 'string' || !assetPath) return '';
+	return assetPath.split('.').pop() || '';
+}
+
 function storePresentationName(presentation, index) {
 	const productTag = presentation?.ProductTag?.TagName || `Option ${index}`;
 	return productTag;
@@ -267,9 +320,14 @@ function renderDetectedStyleControls() {
 	const detectedUnit = isVariantOptionImageType(imageType) || imageType === 'store_image'
 		? 'option'
 		: 'combination';
-	elements.detectedStyleStatus.textContent = showAllOptions
-		? `${generatedCount} detected ${detectedUnit}${generatedCount === 1 ? '' : 's'} will be generated.`
-		: `${detectedStyleGroups.length} option group${detectedStyleGroups.length === 1 ? '' : 's'} detected.`;
+	if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
+		const comboCount = getFullCombinationCount();
+		elements.detectedStyleStatus.textContent = `${comboCount.toLocaleString()} combinations detected. Only default candidates will be checked for this large set.`;
+	} else {
+		elements.detectedStyleStatus.textContent = showAllOptions
+			? `${generatedCount} detected ${detectedUnit}${generatedCount === 1 ? '' : 's'} will be generated.`
+			: `${detectedStyleGroups.length} option group${detectedStyleGroups.length === 1 ? '' : 's'} detected.`;
+	}
 
 	detectedStyleGroups.forEach((group, groupIndex) => {
 		const row = document.createElement('div');
@@ -339,11 +397,25 @@ function allDetectedOptionStyles() {
 
 function getDetectedGeneratedCount(imageType) {
 	if (!detectedStyleGroups.length) return 0;
+	if (shouldUseDefaultOnlyForLargeCombos(imageType)) return getDefaultStyleArrays().length;
 	if (isVariantOptionImageType(imageType) || imageType === 'store_image') {
 		return detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
 	}
 
+	return getFullCombinationCount();
+}
+
+function getFullCombinationCount() {
+	if (!detectedStyleGroups.length) return 0;
 	return detectedStyleGroups.reduce((total, group) => total * group.options.length, 1);
+}
+
+function shouldUseDefaultOnlyForLargeCombos(imageType) {
+	return (
+		imageType === 'locker_preview_image' &&
+		elements.styleSource?.value === 'detected-all' &&
+		getFullCombinationCount() > MAX_AUTO_COMBINATIONS
+	);
 }
 
 function isVariantOptionImageType(imageType) {
@@ -405,6 +477,15 @@ function getAssetType(assetId, imageType, dav2Id = '') {
 	}
 
 	throw new Error(`Unknown cosmetic type for ID: ${assetId}`);
+}
+
+function getEnteredAssetId() {
+	const selectedId = elements.assetId.value.trim();
+	if (selectedId) return selectedId;
+
+	const entered = elements.assetDisplay.value.trim();
+	const match = entered.match(/\(([^()]+)\)\s*$/);
+	return (match ? match[1] : entered).trim();
 }
 
 function buildPath(assetId, imageType, styleArray, version, dav2Id = '') {
@@ -492,27 +573,23 @@ function getStyleLabel(styleArray, imageType) {
 }
 
 async function generateImages() {
-	const assetId = elements.assetId.value.trim();
+	const assetId = getEnteredAssetId();
 	const imageType = elements.imageType.value;
-	const version = elements.version.value.trim();
-	const releaseKey = elements.releaseKey.value.trim();
 	const dav2Id = elements.assetDav2Id.value.trim();
 
-	if (!assetId) throw new Error('Please select an asset from the search results');
-	if (!version) throw new Error('Please enter a version');
-	if (!releaseKey) throw new Error('Please enter a release key');
+	if (!assetId) throw new Error('Please enter an asset ID or select an asset from the search results');
 
 	const styles = getStyleArrays(imageType);
 	const images = [];
 
 	for (const style of styles) {
-		const path = buildPath(assetId, imageType, style, version, dav2Id);
+		const path = buildPath(assetId, imageType, style, VERSION, dav2Id);
 		images.push({
 			assetId,
 			imageType,
 			style,
 			path,
-			url: await makeUrl(path, releaseKey),
+			url: await makeUrl(path, RELEASE_KEY),
 			fileName: getFileName(imageType, style),
 			styleLabel: getStyleLabel(style, imageType),
 			styleSelections: getStyleSelections(style, imageType),
@@ -525,6 +602,10 @@ async function generateImages() {
 function getStyleArrays(imageType) {
 	if (elements.styleSource.value === 'manual') {
 		return parseStyleInput(elements.styleArray.value);
+	}
+
+	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {
+		return getDefaultStyleArrays();
 	}
 
 	if (isVariantOptionImageType(imageType)) {
@@ -540,6 +621,11 @@ function getStyleArrays(imageType) {
 	return selectedDetectedStyle();
 }
 
+function getDefaultStyleArrays() {
+	if (!detectedStyleGroups.length) return [null];
+	return [null, detectedStyleGroups.map(() => 0)];
+}
+
 function updateStyleSourceUI() {
 	const useManual = elements.styleSource.value === 'manual';
 	elements.styleArray.closest('.inline-group').style.display = useManual ? 'flex' : 'none';
@@ -547,10 +633,39 @@ function updateStyleSourceUI() {
 	if (!useManual) renderDetectedStyleControls();
 }
 
-function renderOutput(images) {
-	elements.output.value = images
-		.map((image) => `${image.path}\n${image.url}`)
-		.join('\n\n');
+function getLoadedImages() {
+	return generatedImages.filter((image) => image.exists === true);
+}
+
+function refreshGeneratedResults() {
+	const loadedImages = getLoadedImages();
+	const checkedCount = generatedImages.filter((image) => image.exists !== null).length;
+	const missingCount = generatedImages.filter((image) => image.exists === false).length;
+
+	updatePreviewEmptyMessage(loadedImages.length, checkedCount);
+
+	if (checkedCount !== generatedImages.length) {
+		showStatus(`Checking ${checkedCount}/${generatedImages.length} candidate image${generatedImages.length === 1 ? '' : 's'}...`, 'loading');
+		return;
+	}
+
+	if (!loadedImages.length) {
+		showStatus('No images were found for those Cosmo paths.', 'error');
+		return;
+	}
+
+	const skipped = missingCount ? ` ${missingCount} missing skipped.` : '';
+	showStatus(`Found ${loadedImages.length} image${loadedImages.length === 1 ? '' : 's'}.${skipped}`, 'success');
+}
+
+function updatePreviewEmptyMessage(loadedCount, checkedCount) {
+	elements.previewGrid.querySelector('.preview-empty')?.remove();
+	if (!generatedImages.length || checkedCount !== generatedImages.length || loadedCount > 0) return;
+
+	const empty = document.createElement('div');
+	empty.className = 'preview-empty';
+	empty.textContent = 'No preview images found.';
+	elements.previewGrid.appendChild(empty);
 }
 
 function renderPreview(images) {
@@ -561,14 +676,20 @@ function renderPreview(images) {
 		card.className = 'preview-card';
 
 		const img = document.createElement('img');
-		img.src = image.url;
 		img.alt = image.styleLabel || image.fileName;
-		img.loading = 'lazy';
+		img.loading = 'eager';
 		img.title = 'Right-click to save this image manually';
-		img.addEventListener('error', () => {
-			card.classList.add('missing');
-			status.textContent = 'Missing';
+		img.addEventListener('load', () => {
+			image.exists = true;
+			status.textContent = 'Found';
+			refreshGeneratedResults();
 		});
+		img.addEventListener('error', () => {
+			image.exists = false;
+			card.remove();
+			refreshGeneratedResults();
+		});
+		img.src = image.url;
 
 		const status = document.createElement('span');
 		status.className = 'preview-state';
@@ -621,11 +742,17 @@ function renderPreview(images) {
 
 async function handleGenerate() {
 	try {
-		showStatus('Generating URLs...', 'loading');
+		showStatus('Generating candidate URLs...', 'loading');
 		generatedImages = await generateImages();
-		renderOutput(generatedImages);
+		generatedImages.forEach((image) => {
+			image.exists = null;
+		});
 		renderPreview(generatedImages);
-		showStatus(`Generated ${generatedImages.length} URL${generatedImages.length === 1 ? '' : 's'}.`, 'success');
+		if (!generatedImages.length) {
+			showStatus('No candidate URLs were generated.', 'error');
+		} else {
+			showStatus(`Checking ${generatedImages.length} candidate image${generatedImages.length === 1 ? '' : 's'}...`, 'loading');
+		}
 	} catch (error) {
 		generatedImages = [];
 		showStatus(error.message || String(error), 'error');
@@ -634,7 +761,6 @@ async function handleGenerate() {
 
 function clearAll() {
 	generatedImages = [];
-	elements.output.value = '';
 	elements.previewGrid.innerHTML = '';
 	hideStatus();
 }
@@ -655,12 +781,9 @@ function cacheElements() {
 		detectedStyleBox: document.getElementById('detected-style-box'),
 		detectedStyleStatus: document.getElementById('detected-style-status'),
 		detectedStyleControls: document.getElementById('detected-style-controls'),
-		version: document.getElementById('version'),
-		releaseKey: document.getElementById('release-key'),
 		generateBtn: document.getElementById('generate-btn'),
 		clearBtn: document.getElementById('clear-btn'),
 		status: document.getElementById('status'),
-		output: document.getElementById('output'),
 		previewGrid: document.getElementById('preview-grid'),
 	});
 }

@@ -21,28 +21,6 @@ aside {
 	width: 100% !important;
 }
 
-#output {
-	height: 18rem;
-}
-
-.generated-url-toggle {
-	margin-bottom: 0.75rem;
-}
-
-.generated-url-toggle summary {
-	cursor: pointer;
-	color: white;
-	font-size: 1.1rem;
-}
-
-.generated-url-toggle summary:hover {
-	color: #ccc;
-}
-
-.generated-url-toggle textarea {
-	margin-top: 0.75rem;
-}
-
 .suggestions {
 	max-height: 250px;
 	overflow-y: auto;
@@ -167,7 +145,6 @@ aside {
 	display: block;
 	align-self: center;
 	border-radius: 4px;
-	background: #2f4f34;
 	width: 100%;
 	max-width: 220px;
 	aspect-ratio: 1 / 1;
@@ -187,6 +164,14 @@ aside {
 .preview-card.missing .preview-state {
 	border-color: #dc2626;
 	color: #fca5a5;
+}
+
+.preview-empty {
+	border: 1px solid var(--col-acc);
+	border-radius: 6px;
+	background: var(--col-bg3);
+	padding: 1rem;
+	color: #ccc;
 }
 
 .preview-name {

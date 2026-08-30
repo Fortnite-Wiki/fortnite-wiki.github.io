@@ -50,9 +50,9 @@
 						<div class="inline-group">
 							<label for="image-type">Image Type:</label>
 							<select id="image-type">
-								<option value="locker_preview_image">locker_preview_image</option>
+								<option value="locker_preview_image" selected>locker_preview_image</option>
 								<option value="preview_image">preview_image</option>
-								<option value="store_image" selected>store_image</option>
+								<option value="store_image">store_image</option>
 							</select>
 						</div>
 						<div class="inline-group">
@@ -72,17 +72,6 @@
 							<div id="detected-style-controls"></div>
 						</div>
 					</div>
-					<div class="column">
-						<h4>Release</h4>
-						<div class="inline-group">
-							<label for="version">Version:</label>
-							<input type="text" id="version" value="42.00" />
-						</div>
-						<div class="inline-group">
-							<label for="release-key">Release Key:</label>
-							<input type="text" id="release-key" value="x7SL9QH7uQccGqpounh26Jz4x+ugIx0fsl+Wf+EpVKQ=" />
-						</div>
-					</div>
 				</div>
 			</section>
 
@@ -97,12 +86,6 @@
 				</div>
 				<p class="manual-save-note">Right-click a loaded preview and choose Save Image As, or open the direct image URL and save it manually.</p>
 				<div id="preview-grid" class="preview-grid"></div>
-			</section>
-			<section>
-				<details class="generated-url-toggle">
-					<summary>Generated URLs</summary>
-					<textarea id="output" readonly placeholder="Generated Cosmo paths and URLs will appear here..."></textarea>
-				</details>
 				<button class="sec-subm secondary" id="clear-btn">Clear</button>
 			</section>
 		</aside>

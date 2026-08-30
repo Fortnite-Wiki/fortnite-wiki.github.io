@@ -31,14 +31,14 @@ export default [
         description: 'Generates Item Shop Bundle pages.',
         isSiteTool: true,
     },
-    {
-        id: 'cosmo',
-        thumbnail: 'cosmo',
-        name: 'Cosmo Image API',
-        version: 'v0.0',
-        description: 'Pulls existing Fortnite cosmetic image URLs and previews from the Cosmo API.',
-        isSiteTool: true,
-    },
+    // {
+    //     id: 'cosmo',
+    //     thumbnail: 'cosmo',
+    //     name: 'Cosmo Image API',
+    //     version: 'v0.0',
+    //     description: 'Pulls existing Fortnite cosmetic image URLs and previews from the Cosmo API.',
+    //     isSiteTool: true,
+    // },
     {
         id: 'jam-track-generator',
         thumbnail: 'jam-track-generator',

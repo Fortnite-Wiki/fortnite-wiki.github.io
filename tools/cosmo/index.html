@@ -51,7 +51,8 @@
 							<label for="image-type">Image Type:</label>
 							<select id="image-type">
 								<option value="locker_preview_image" selected>locker_preview_image</option>
-								<option value="preview_image">preview_image</option>
+								<option value="preview_image">preview_permutation_image</option>
+								<option value="preview_permutation_image">preview_image</option>
 								<option value="store_image">store_image</option>
 							</select>
 						</div>
@@ -67,6 +68,17 @@
 								<option value="manual">Manual Array</option>
 							</select>
 						</div>
+						<label class="large-style-toggle" for="check-large-style-sets">
+							<input type="checkbox" id="check-large-style-sets" />
+							<span>
+								<strong>Check large style sets</strong>
+								<small>If the page lags for more than 5 seconds, refresh the page and turn this off.</small>
+							</span>
+						</label>
+						<div class="generator-actions">
+							<button class="sec-subm" id="generate-btn">Generate URLs</button>
+							<div id="status" class="status hidden"></div>
+						</div>
 						<div id="detected-style-box" class="detected-style-box">
 							<div id="detected-style-status" class="detected-style-status">Select an asset to load options.</div>
 							<div id="detected-style-controls"></div>
@@ -74,9 +86,6 @@
 					</div>
 				</div>
 			</section>
-
-			<button class="sec-subm" id="generate-btn">Generate URLs</button>
-			<div id="status" class="status hidden"></div>
 		</main>
 
 		<aside>

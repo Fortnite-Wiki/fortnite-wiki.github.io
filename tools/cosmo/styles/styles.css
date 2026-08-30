@@ -71,6 +71,55 @@ aside {
 	padding: 0.75rem;
 }
 
+.generator-actions {
+	display: grid;
+	align-items: start;
+	gap: 0.75rem;
+	margin-top: 1rem;
+}
+
+.generator-actions .sec-subm {
+	justify-self: start;
+	margin: 0;
+}
+
+.large-style-toggle {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6rem;
+	margin-top: 0.9rem;
+	color: #ccc;
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+.large-style-toggle input {
+	width: auto;
+	margin: 0.2rem 0 0;
+}
+
+.large-style-toggle input:disabled,
+.large-style-toggle input:disabled + span {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.large-style-toggle span {
+	display: grid;
+	gap: 0.15rem;
+}
+
+.large-style-toggle strong {
+	color: white;
+	font-weight: 600;
+}
+
+.large-style-toggle small {
+	color: #b7b7b7;
+	font-size: 0.8rem;
+	line-height: 1.35;
+}
+
 .detected-style-status {
 	margin-bottom: 0.75rem;
 	color: #ccc;

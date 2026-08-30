@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cosmo Image Generator</title>
+
+	<script src="./scripts/cosmo-gui.js" type="module"></script>
+	<script src="/scripts/pageinfo.js" type="module"></script>
+	<script src="/scripts/load-site-notices.js" type="module"></script>
+
+	<link rel="stylesheet" href="./styles/styles.css" />
+	<link rel="icon" href="/files/images/siteIcon.png" />
+</head>
+
+<body>
+	<header>
+		<a href="/index.html" id="return-main">
+			<span>
+				<img src="/files/images/return-icon.png" alt="back" />
+			</span>
+		</a>
+		<img src="/files/images/tool-icons/cosmo.png" alt="logo" />
+		<span style="margin-right: 1rem">
+			<h1 class="name">Cosmo Image Generator</h1>
+			<span class="version"></span>
+		</span>
+	</header>
+
+	<div id="wrapper">
+		<main>
+			<section>
+				<h3>Asset Search</h3>
+				<input type="text" id="asset-display" placeholder="Enter cosmetic or bundle ID / Name" autocomplete="off" />
+				<input type="hidden" id="asset-id" />
+				<input type="hidden" id="asset-name" />
+				<input type="hidden" id="asset-kind" />
+				<input type="hidden" id="asset-data-path" />
+				<input type="hidden" id="asset-dav2-path" />
+				<input type="hidden" id="asset-dav2-id" />
+				<div id="asset-suggestions" class="suggestions"></div>
+			</section>
+
+			<section>
+				<h3>Cosmo Settings</h3>
+				<div class="two-column-layout">
+					<div class="column">
+						<h4>Image</h4>
+						<div class="inline-group">
+							<label for="image-type">Image Type:</label>
+							<select id="image-type">
+								<option value="locker_preview_image">locker_preview_image</option>
+								<option value="preview_image">preview_image</option>
+								<option value="store_image" selected>store_image</option>
+							</select>
+						</div>
+						<div class="inline-group">
+							<label for="style-array">Style Array:</label>
+							<input type="text" id="style-array" placeholder="[0-1,0-1]" />
+						</div>
+						<div class="inline-group">
+							<label for="style-source">Style Source:</label>
+							<select id="style-source">
+								<option value="detected-selected">Detected Selection</option>
+								<option value="detected-all" selected>All Detected Options</option>
+								<option value="manual">Manual Array</option>
+							</select>
+						</div>
+						<div id="detected-style-box" class="detected-style-box">
+							<div id="detected-style-status" class="detected-style-status">Select an asset to load options.</div>
+							<div id="detected-style-controls"></div>
+						</div>
+					</div>
+					<div class="column">
+						<h4>Release</h4>
+						<div class="inline-group">
+							<label for="version">Version:</label>
+							<input type="text" id="version" value="42.00" />
+						</div>
+						<div class="inline-group">
+							<label for="release-key">Release Key:</label>
+							<input type="text" id="release-key" value="x7SL9QH7uQccGqpounh26Jz4x+ugIx0fsl+Wf+EpVKQ=" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<button class="sec-subm" id="generate-btn">Generate URLs</button>
+			<div id="status" class="status hidden"></div>
+		</main>
+
+		<aside>
+			<section>
+				<div class="title-box">
+					<h3>Preview:</h3>
+				</div>
+				<p class="manual-save-note">Right-click a loaded preview and choose Save Image As, or open the direct image URL and save it manually.</p>
+				<div id="preview-grid" class="preview-grid"></div>
+			</section>
+			<section>
+				<details class="generated-url-toggle">
+					<summary>Generated URLs</summary>
+					<textarea id="output" readonly placeholder="Generated Cosmo paths and URLs will appear here..."></textarea>
+				</details>
+				<button class="sec-subm secondary" id="clear-btn">Clear</button>
+			</section>
+		</aside>
+	</div>
+</body>
+</html>

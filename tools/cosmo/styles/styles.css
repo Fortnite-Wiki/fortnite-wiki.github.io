@@ -1,0 +1,260 @@
+@import url("/styles/global.css");
+@import url("/tools/common.css");
+
+main,
+aside {
+	flex: 1;
+	min-width: 0;
+}
+
+#wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+#asset-display,
+#asset-id,
+#release-key {
+	width: 100% !important;
+}
+
+#output {
+	height: 18rem;
+}
+
+.generated-url-toggle {
+	margin-bottom: 0.75rem;
+}
+
+.generated-url-toggle summary {
+	cursor: pointer;
+	color: white;
+	font-size: 1.1rem;
+}
+
+.generated-url-toggle summary:hover {
+	color: #ccc;
+}
+
+.generated-url-toggle textarea {
+	margin-top: 0.75rem;
+}
+
+.suggestions {
+	max-height: 250px;
+	overflow-y: auto;
+	background-color: var(--col-bg3);
+}
+
+.suggestions div {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem;
+	cursor: pointer;
+	color: white;
+	border-bottom: 1px solid var(--col-acc);
+}
+
+.suggestions div:last-child {
+	border-bottom: none;
+}
+
+.suggestions div:hover {
+	background-color: var(--col-acc);
+}
+
+.suggestion-kind {
+	display: inline-flex;
+	flex: 0 0 4.75rem;
+	justify-content: center;
+	border: 1px solid var(--col-acc);
+	border-radius: 4px;
+	background: var(--col-bg2);
+	padding: 0.15rem 0.35rem;
+	color: #ccc;
+	font-size: 0.75rem;
+}
+
+.suggestion-label {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	line-height: 1.35;
+}
+
+.detected-style-box {
+	margin-top: 0.75rem;
+	border: 1px solid var(--col-acc);
+	border-radius: 6px;
+	background: var(--col-bg3);
+	padding: 0.75rem;
+}
+
+.detected-style-status {
+	margin-bottom: 0.75rem;
+	color: #ccc;
+	font-size: 0.85rem;
+}
+
+.detected-style-row {
+	display: grid;
+	grid-template-columns: minmax(7rem, 0.45fr) minmax(10rem, 1fr);
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 0.65rem;
+}
+
+.detected-style-row label {
+	color: #ccc;
+	font-size: 0.9rem;
+}
+
+.detected-style-row select {
+	width: 100%;
+	min-width: 0;
+	margin: 0;
+}
+
+.detected-style-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	min-width: 0;
+}
+
+.detected-style-option {
+	border: 1px solid var(--col-acc);
+	border-radius: 4px;
+	background: var(--col-bg2);
+	padding: 0.35rem 0.5rem;
+	color: white;
+	font-size: 0.85rem;
+	line-height: 1.25;
+}
+
+.preview-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1rem;
+}
+
+.manual-save-note {
+	margin: 0 0 1rem;
+	color: #ccc;
+	font-size: 0.9rem;
+	line-height: 1.4;
+}
+
+.preview-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+	border: 1px solid var(--col-acc);
+	border-radius: 6px;
+	background: var(--col-bg3);
+	padding: 0.75rem;
+	min-width: 0;
+}
+
+.preview-card.missing {
+	border-color: #dc2626;
+}
+
+.preview-card img {
+	display: block;
+	align-self: center;
+	border-radius: 4px;
+	background: #2f4f34;
+	width: 100%;
+	max-width: 220px;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+}
+
+.preview-state {
+	align-self: flex-start;
+	border: 1px solid var(--col-acc);
+	border-radius: 4px;
+	background: var(--col-bg2);
+	padding: 0.2rem 0.4rem;
+	color: #ccc;
+	font-size: 0.75rem;
+}
+
+.preview-card.missing .preview-state {
+	border-color: #dc2626;
+	color: #fca5a5;
+}
+
+.preview-name {
+	overflow-wrap: anywhere;
+	color: white;
+	font-family: "Fira Mono", monospace;
+	font-size: 0.85rem;
+}
+
+.preview-style-list {
+	display: grid;
+	gap: 0.25rem;
+	color: white;
+	font-size: 0.82rem;
+	line-height: 1.35;
+}
+
+.preview-style-row {
+	display: grid;
+	grid-template-columns: minmax(5.5rem, max-content) minmax(0, 1fr);
+	gap: 0.45rem;
+	align-items: baseline;
+}
+
+.preview-style-group {
+	color: #ccc;
+}
+
+.preview-style-option {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	font-weight: 600;
+}
+
+.preview-card code {
+	overflow-wrap: anywhere;
+	color: #ccc;
+	font-family: "Fira Mono", monospace;
+	font-size: 0.72rem;
+	line-height: 1.35;
+}
+
+.preview-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: auto;
+}
+
+.compact-action {
+	margin: 0;
+	padding: 0.45rem 0.75rem;
+	font-size: 0.85rem;
+	text-decoration: none;
+}
+
+#status {
+	white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+	#wrapper {
+		flex-direction: column;
+		gap: 1rem;
+		padding: 0 10px;
+	}
+
+	.detected-style-row {
+		grid-template-columns: 1fr;
+	}
+}

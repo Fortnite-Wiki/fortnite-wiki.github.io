@@ -68,10 +68,6 @@ LOC_DIRECTORY = os.path.join(
     r"Content\Localization"
 )
 
-SPARKS_LOC_DIRECTORY = os.path.join(
-    BASE_DIR,
-    r"Plugins\GameFeatures\FM\SparksCosmetics\Content\Localization\SparksCosmetics"
-)
 RACING_LOC_DIRECTORY = os.path.join(
     BASE_DIR,
     r"Plugins\GameFeatures\VehicleCosmetics\Content\Localization\VehicleCosmetics"
@@ -746,29 +742,6 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
             count += 1
     print(f"{count} JSON files compressed and saved as .gz in {label}")
 
-# Move and compress SPARKS_LOC_DIRECTORY
-if os.path.exists(SPARKS_LOC_DIRECTORY):
-    target_path = os.path.join(os.path.join(os.path.dirname(__file__), "localization"), "SparksCosmetics")
-    if os.path.exists(target_path):
-        shutil.rmtree(target_path)
-    shutil.copytree(SPARKS_LOC_DIRECTORY, target_path)
-
-    count = 0
-    for root, _, files in os.walk(target_path):
-        for file in files:
-            src_path = os.path.join(root, file)
-            if not file.endswith('.gz'):
-                dest_path = src_path + '.gz'
-                with open(src_path, "rb") as f_in:
-                    raw = f_in.read()
-                    compressed = gzip.compress(raw, mtime=0)
-                    with open(dest_path, "wb") as f_out:
-                        f_out.write(compressed)
-                        count += 1
-                os.remove(src_path)
-    
-    print(f"Moved and compressed {count} Sparks localization JSON files from SPARKS_LOC_DIRECTORY")
-
 # Move and compress RACING_LOC_DIRECTORY
 if os.path.exists(RACING_LOC_DIRECTORY):
     target_path = os.path.join(os.path.join(os.path.dirname(__file__), "localization"), "VehicleCosmetics")
@@ -791,6 +764,38 @@ if os.path.exists(RACING_LOC_DIRECTORY):
                 os.remove(src_path)
     
     print(f"Moved and compressed {count} Racing localization JSON files from RACING_LOC_DIRECTORY")
+
+def localization_folder_sort_key(folder):
+    match = re.fullmatch(r"Fortnite_locchunk(\d+)", folder)
+    if match:
+        return (0, -int(match.group(1)), folder)
+    if folder == "Fortnite":
+        return (1, 0, folder)
+    if folder == "VehicleCosmetics":
+        return (2, 0, folder)
+    return (3, 0, folder)
+
+def build_localization_index():
+    localization_root = os.path.join(os.path.dirname(__file__), "localization")
+    if not os.path.exists(localization_root):
+        return
+
+    legacy_sparks_root = os.path.join(localization_root, "SparksCosmetics")
+    if os.path.exists(legacy_sparks_root):
+        shutil.rmtree(legacy_sparks_root)
+
+    folders = [
+        entry
+        for entry in os.listdir(localization_root)
+        if os.path.isdir(os.path.join(localization_root, entry))
+    ]
+    folders.sort(key=localization_folder_sort_key)
+
+    out_path = os.path.join(localization_root, "index.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(folders, f, indent=2, ensure_ascii=False)
+
+    print(f"localization/index.json created with {len(folders)} folders.")
 
 if os.path.exists(CHARACTER_COLOR_SWATCHES_DIR):
     target_path = os.path.join(os.path.dirname(__file__), "cosmetics", "Characters", "ColorSwatches")
@@ -1041,6 +1046,7 @@ copy_and_gzip(FESTIVAL_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "c
 copy_and_gzip(RACING_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Racing"), "cosmetics/Racing")
 copy_and_gzip(COMPANIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions"), "cosmetics/Companions")
 copy_and_gzip(LOC_DIRECTORY, os.path.join(os.path.dirname(__file__), "localization"), "localization")
+build_localization_index()
 copy_and_gzip(DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DAv2"), "DAv2")
 copy_and_gzip(BUNDLE_DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DA"), "DA (Bundle)", bundle_re)
 copy_and_gzip(WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons")

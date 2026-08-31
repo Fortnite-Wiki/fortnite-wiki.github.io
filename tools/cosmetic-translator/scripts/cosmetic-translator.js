@@ -75,25 +75,57 @@ function updateSuggestions() {
   });
 }
 
-async function getPakChunkFolders() {
+async function getLocalizationFolders() {
   try {
-    const resp = await fetch("https://api.fortniteapi.com/v1/aes");
-    const data = await resp.json();
-    const folders = ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30", "Fortnite_locchunk32", "Fortnite_locchunk20"];
-    if (data.dynamicKeys) {
-      data.dynamicKeys.forEach(d => {
-        const match = d.name.match(/^pakchunk(\d+)-/);
-        if (match) {
-          const folderName = `Fortnite_locchunk${match[1]}`;
-          if (!folders.includes(folderName)) folders.push(folderName);
-        }
-      });
-    }
-    console.log("Fetching translations from the following folders:", folders);
-    return folders;
-  } catch {
-    return ["SparksCosmetics", "VehicleCosmetics", "Fortnite_locchunk100", "Fortnite_locchunk30", "Fortnite_locchunk32", "Fortnite_locchunk20"];
+    const apiFolders = await getFortniteApiLocalizationFolders();
+    const localFolders = await getLocalLocalizationFolders().catch(() => []);
+    return mergeLocalizationFolders(apiFolders, localFolders);
+  } catch (error) {
+    console.warn("Falling back to local localization folder index:", error);
+    return getLocalLocalizationFolders();
   }
+}
+
+async function getFortniteApiLocalizationFolders() {
+  const resp = await fetch("https://api.fortniteapi.com/v1/aes");
+  if (!resp.ok) throw new Error(`FortniteAPI AES request failed: ${resp.status}`);
+
+  const data = await resp.json();
+  const folders = [];
+
+  if (Array.isArray(data.dynamicKeys)) {
+    data.dynamicKeys.forEach(d => {
+      const match = d.name?.match(/^pakchunk(\d+)-/);
+      if (match) {
+        const folderName = `Fortnite_locchunk${match[1]}`;
+        if (!folders.includes(folderName)) folders.push(folderName);
+      }
+    });
+  }
+
+  return folders;
+}
+
+async function getLocalLocalizationFolders() {
+  const resp = await fetch("../../data/localization/index.json");
+  if (!resp.ok) throw new Error(`Failed to fetch localization index: ${resp.status}`);
+
+  const folders = await resp.json();
+  if (!Array.isArray(folders) || !folders.length) {
+    throw new Error("Localization index is empty.");
+  }
+
+  return folders.filter(folder => folder !== 'SparksCosmetics');
+}
+
+function mergeLocalizationFolders(primaryFolders, fallbackFolders) {
+  const merged = [];
+  for (const folder of [...primaryFolders, ...fallbackFolders]) {
+    if (folder !== 'SparksCosmetics' && !merged.includes(folder)) {
+      merged.push(folder);
+    }
+  }
+  return merged;
 }
 
 async function search() {
@@ -148,7 +180,13 @@ async function translateKeys(nameKey, descriptionKey) {
   let folders = null;
   if (nameKey || descriptionKey) {
     output.value = "Getting translations...";
-    folders = await getPakChunkFolders();
+    try {
+      folders = await getLocalizationFolders();
+    } catch (error) {
+      console.error(error);
+      output.value = "Could not load the local localization folder index.";
+      return;
+    }
   } else {
     output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
     return;

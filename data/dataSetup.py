@@ -787,7 +787,7 @@ def build_localization_index():
     folders = [
         entry
         for entry in os.listdir(localization_root)
-        if os.path.isdir(os.path.join(localization_root, entry))
+        if not entry.startswith("UEFN") and os.path.isdir(os.path.join(localization_root, entry))
     ]
     folders.sort(key=localization_folder_sort_key)
 

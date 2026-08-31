@@ -115,13 +115,13 @@ async function getLocalLocalizationFolders() {
     throw new Error("Localization index is empty.");
   }
 
-  return folders.filter(folder => folder !== 'SparksCosmetics');
+  return folders.filter(folder => folder !== 'SparksCosmetics' && !folder.startsWith('UEFN'));
 }
 
 function mergeLocalizationFolders(primaryFolders, fallbackFolders) {
   const merged = [];
   for (const folder of [...primaryFolders, ...fallbackFolders]) {
-    if (folder !== 'SparksCosmetics' && !merged.includes(folder)) {
+    if (folder !== 'SparksCosmetics' && !folder.startsWith('UEFN') && !merged.includes(folder)) {
       merged.push(folder);
     }
   }

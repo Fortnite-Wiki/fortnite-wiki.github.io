@@ -481,7 +481,27 @@ def get_search_tags(search_tags_file):
 
     return output
 
-bundle_re = re.compile(r"DA_(?:((?:Character|CID)_([^/\n]+))|(([^/\n]+)_(?:Character|CID))|Feature(?:d)?_([^/\n]+?)_Bundle)", re.IGNORECASE)
+bundle_re = re.compile(r"^DA_(?:((?:Character|CID)_([^/\n]+))|(([^/\n]+)_(?:Character|CID))|Feature(?:d)?_([^/\n]+?)_Bundle|Feature(?:d)?_([^/\n]*Starter[^/\n]*))$", re.IGNORECASE)
+
+def build_starter_dav2_candidates(starter_id):
+    variants = []
+
+    def add(value):
+        if value and value not in variants:
+            variants.append(value)
+
+    add(starter_id)
+    add(re.sub(r"_StarterPack(?=$|_)", "StarterPack", starter_id, flags=re.IGNORECASE))
+    add(re.sub(r"StarterQP\b", "Starter_QP", starter_id, flags=re.IGNORECASE))
+
+    candidates = []
+    for variant in variants:
+        candidates.extend([
+            f"DAv2_RMT_{variant}.json",
+            f"DAv2_{variant}.json",
+        ])
+    return candidates
+
 def build_bundle_index(index):
     # Build a quick lookup of DAv2 display asset files
     dav2_files = {}
@@ -519,8 +539,10 @@ def build_bundle_index(index):
                     (f"DA_{m.group(1)}" if m.group(1) else None)
                     or (f"DA_{m.group(3)}" if m.group(3) else None)
                     or m.group(5)
+                    or m.group(6)
                 )
                 character_part = m.group(2) or m.group(4)
+                starter_part = m.group(6)
                 if not bundle_id or bundle_id in seen_bundle_ids:
                     continue
                 seen_bundle_ids.add(bundle_id)
@@ -535,6 +557,8 @@ def build_bundle_index(index):
                     f"DAv2_Featured_Bundle_{bundle_id}.json",
                     f"DAv2_Bundle_{bundle_id}.json",
                 ]
+                if starter_part:
+                    candidates.extend(build_starter_dav2_candidates(starter_part))
                 if character_part:
                     character_part_base = character_part.replace("_Athena_Commando", "")
                     candidates.extend([

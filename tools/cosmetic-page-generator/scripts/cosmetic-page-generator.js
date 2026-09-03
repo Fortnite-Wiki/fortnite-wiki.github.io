@@ -733,10 +733,15 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 				const variantMaterialParams = option.VariantMaterialParams || [];
 				for (const param of variantMaterialParams) {
 					const colorParams = param.ColorParams || [];
-					if (colorParams.length > 0) {
+					if (colorParams.length > 1) {
 						const colorAParam = colorParams.find(cp => cp.ParamName === "ColorA");
 						if (colorAParam?.Value?.Hex) {
 							colorHex = colorAParam.Value.Hex.toLowerCase();
+							break;
+						}
+					} else {
+						if (colorParams[0]?.Value?.Hex) {
+							colorHex = colorParams[0].Value.Hex.toLowerCase();
 							break;
 						}
 					}

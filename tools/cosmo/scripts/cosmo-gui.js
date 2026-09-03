@@ -3,8 +3,8 @@ import { loadGzJson } from '../../jsondata.js';
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const MAX_AUTO_COMBINATIONS = 1000;
-const VERSION = '42.00';
-const RELEASE_KEY = 'x7SL9QH7uQccGqpounh26Jz4x+ugIx0fsl+Wf+EpVKQ=';
+const VERSION = '42.10';
+const RELEASE_KEY = 's6BZWKurWDx0uXEMiH6NuHgrdhYAYxtDej6OzDZkaGs=';
 
 const TYPE_MAPPINGS = {
 	companion_: 'CosmeticMimosa',

@@ -97,7 +97,8 @@ export const OG_SEASON_RELEASE_DATES = {
     6: new Date(2025, 9, 2), // October 2, 2025
     7: new Date(2025, 11, 11), // December 11, 2025
     8: new Date(2026, 3, 1), // April 1, 2026
-    9: new Date(2026, 5, 25) // June 25, 2026
+    9: new Date(2026, 5, 25), // June 25, 2026
+    10: new Date(2026, 8, 3) // September 3, 2026
 };
 
 export const OG_SEASON_UPDATE_VERSIONS = {
@@ -109,7 +110,8 @@ export const OG_SEASON_UPDATE_VERSIONS = {
     6: '37.40',
     7: '39.10',
     8: '40.10',
-    9: '41.10'
+    9: '41.10',
+    10: '42.00'
 };
 
 export const FESTIVAL_SEASON_RELEASE_DATES = {

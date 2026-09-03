@@ -3,6 +3,7 @@ import { loadGzJson } from '../../jsondata.js';
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const MAX_AUTO_COMBINATIONS = 1000;
+const MAX_PARALLEL_PREVIEW_LOADS = 6;
 const VERSION = '42.10';
 const RELEASE_KEY = 's6BZWKurWDx0uXEMiH6NuHgrdhYAYxtDej6OzDZkaGs=';
 
@@ -51,6 +52,7 @@ let latestDav2Paths = new Map();
 let generatedImages = [];
 let selectedAsset = null;
 let detectedStyleGroups = [];
+let previewLoadRun = 0;
 
 const elements = {};
 
@@ -899,6 +901,8 @@ function updatePreviewEmptyMessage(loadedCount, checkedCount) {
 
 function renderPreview(images) {
 	elements.previewGrid.innerHTML = '';
+	const loadRun = ++previewLoadRun;
+	const previewItems = [];
 
 	for (const image of images) {
 		const card = document.createElement('div');
@@ -908,17 +912,6 @@ function renderPreview(images) {
 		img.alt = image.styleLabel || image.fileName;
 		img.loading = 'eager';
 		img.title = 'Right-click to save this image manually';
-		img.addEventListener('load', () => {
-			image.exists = true;
-			status.textContent = 'Found';
-			refreshGeneratedResults();
-		});
-		img.addEventListener('error', () => {
-			image.exists = false;
-			card.remove();
-			refreshGeneratedResults();
-		});
-		img.src = image.url;
 
 		const status = document.createElement('span');
 		status.className = 'preview-state';
@@ -966,7 +959,51 @@ function renderPreview(images) {
 		actions.append(open);
 		card.append(status, img, styleInfo, path, actions);
 		elements.previewGrid.appendChild(card);
+		previewItems.push({ card, image, img, status });
 	}
+
+	loadPreviewImages(previewItems, loadRun);
+}
+
+async function loadPreviewImages(previewItems, loadRun) {
+	let nextIndex = 0;
+
+	async function worker() {
+		while (nextIndex < previewItems.length) {
+			if (loadRun !== previewLoadRun) return;
+
+			const previewItem = previewItems[nextIndex++];
+			previewItem.status.textContent = 'Checking';
+			await loadPreviewImage(previewItem, loadRun);
+		}
+	}
+
+	const workerCount = Math.min(MAX_PARALLEL_PREVIEW_LOADS, previewItems.length);
+	await Promise.all(Array.from({ length: workerCount }, worker));
+}
+
+function loadPreviewImage({ card, image, img, status }, loadRun) {
+	return new Promise((resolve) => {
+		const settle = (exists) => {
+			if (loadRun !== previewLoadRun) {
+				resolve();
+				return;
+			}
+
+			image.exists = exists;
+			if (exists) {
+				status.textContent = 'Found';
+			} else {
+				card.remove();
+			}
+			refreshGeneratedResults();
+			resolve();
+		};
+
+		img.addEventListener('load', () => settle(true), { once: true });
+		img.addEventListener('error', () => settle(false), { once: true });
+		img.src = image.url;
+	});
 }
 
 async function handleGenerate() {
@@ -989,6 +1026,7 @@ async function handleGenerate() {
 }
 
 function clearAll() {
+	previewLoadRun++;
 	generatedImages = [];
 	elements.previewGrid.innerHTML = '';
 	hideStatus();

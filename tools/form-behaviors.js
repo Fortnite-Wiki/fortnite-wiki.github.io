@@ -87,7 +87,11 @@ function autoFillPassVersion() {
 		const seasonInput = elements.bpSeason.value.trim().toUpperCase();
 		if (seasonInput) updateVersion = SEASON_UPDATE_VERSIONS[seasonInput] || "";
 	} else if (ogChecked && elements.ogSeason) {
-		const seasonInput = elements.ogSeason.value.trim();
+		let seasonInput = elements.ogSeason.value.trim();
+		if (seasonInput == 10) {
+			elements.ogSeason.value = 'X';
+			seasonInput = 'X';
+		}
 		if (seasonInput) updateVersion = OG_SEASON_UPDATE_VERSIONS[seasonInput] || "";
 	} else if (musicChecked && elements.musicSeason) {
 		const seasonInput = elements.musicSeason.value.trim();

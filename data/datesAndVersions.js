@@ -111,7 +111,7 @@ export const OG_SEASON_UPDATE_VERSIONS = {
     7: '39.10',
     8: '40.10',
     9: '41.10',
-    10: '42.00'
+    10: '42.10'
 };
 
 export const FESTIVAL_SEASON_RELEASE_DATES = {

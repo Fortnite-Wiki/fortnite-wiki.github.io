@@ -75,7 +75,7 @@ aside {
 	display: grid;
 	align-items: start;
 	gap: 0.75rem;
-	margin-top: 1rem;
+	margin-top: 0;
 }
 
 .generator-actions .sec-subm {
@@ -278,7 +278,12 @@ aside {
 }
 
 #status {
+	margin-top: 0;
 	white-space: pre-wrap;
+}
+
+#detected-style-box {
+	width: 100%;
 }
 
 @media (max-width: 768px) {

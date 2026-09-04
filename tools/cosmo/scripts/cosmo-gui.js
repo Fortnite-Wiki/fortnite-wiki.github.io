@@ -4,8 +4,49 @@ const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const MAX_AUTO_COMBINATIONS = 1000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
-const VERSION = '42.10';
-const RELEASE_KEY = 's6BZWKurWDx0uXEMiH6NuHgrdhYAYxtDej6OzDZkaGs=';
+
+const RELEASES = [
+	{
+		version: '42.10',
+		key: 's6BZWKurWDx0uXEMiH6NuHgrdhYAYxtDej6OzDZkaGs=',
+		label: '42.10 - Latest',
+	},
+	{
+		version: '42.00',
+		key: 'x7SL9QH7uQccGqpounh26Jz4x+ugIx0fsl+Wf+EpVKQ=',
+		label: '42.00',
+	},
+	{
+		version: '41.30',
+		key: 'OE4VTg8RVeDrg28sI23J6cClN+ROG0fVeEJTy6+lAnI=',
+		label: '41.30',
+	},
+	{
+		version: '41.20',
+		key: 'fYm7gPh1KVzF1iWkD1rqGQBhAb7FHmJO4CNBCfYlZBk=',
+		label: '41.20',
+	},
+	{
+		version: '41.10',
+		key: 'vHckCP9oI+pW5prHTYaMbXiC1YVJ2w4yRBtGUQzmYMY=',
+		label: '41.10',
+	},
+	{
+		version: '41.00',
+		key: 'BhmLB0jhpLStVemxcXODVXCbCdmAVHozdTbrG4+R+4E=',
+		label: '41.00',
+	},
+	{
+		version: '40.41',
+		key: 'N9X0xYQZe74po4fNeCQxwTTGlKVpTzjr9QE1E8SMrEU=',
+		label: '40.41',
+	},
+	{
+		version: '40.40',
+		key: 'otRg6EEDUM+ZE9v5GZzq+dX8AklDcUb6NY0YI9lyNJU=',
+		label: '40.40',
+	},
+];
 
 const TYPE_MAPPINGS = {
 	companion_: 'CosmeticMimosa',
@@ -786,6 +827,7 @@ async function generateImages() {
 	const assetId = getEnteredAssetId();
 	const imageType = elements.imageType.value;
 	const dav2Id = elements.assetDav2Id.value.trim();
+	const release = getSelectedRelease();
 
 	if (!assetId) throw new Error('Please enter an asset ID or select an asset from the search results');
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {
@@ -796,14 +838,14 @@ async function generateImages() {
 	const images = [];
 
 	for (const style of styles) {
-		const path = buildPath(assetId, imageType, style, VERSION, dav2Id);
+		const path = buildPath(assetId, imageType, style, release.version, dav2Id);
 		images.push({
 			assetId,
 			imageType,
 			requestedImageType: imageType,
 			style,
 			path,
-			url: await makeUrl(path, RELEASE_KEY),
+			url: await makeUrl(path, release.key),
 			fileName: getFileName(imageType, style),
 			styleLabel: getStyleLabel(style, imageType),
 			styleSelections: getStyleSelections(style, imageType),
@@ -811,6 +853,10 @@ async function generateImages() {
 	}
 
 	return images;
+}
+
+function getSelectedRelease() {
+	return RELEASES.find((release) => release.version === elements.releaseVersion.value) || RELEASES[0];
 }
 
 function getStyleArrays(imageType) {
@@ -1043,6 +1089,7 @@ function cacheElements() {
 		assetDav2Id: document.getElementById('asset-dav2-id'),
 		assetSuggestions: document.getElementById('asset-suggestions'),
 		imageType: document.getElementById('image-type'),
+		releaseVersion: document.getElementById('release-version'),
 		styleArray: document.getElementById('style-array'),
 		styleSource: document.getElementById('style-source'),
 		checkLargeStyleSets: document.getElementById('check-large-style-sets'),
@@ -1054,6 +1101,17 @@ function cacheElements() {
 		status: document.getElementById('status'),
 		previewGrid: document.getElementById('preview-grid'),
 	});
+}
+
+function populateReleaseOptions() {
+	elements.releaseVersion.innerHTML = '';
+	for (const release of RELEASES) {
+		const option = document.createElement('option');
+		option.value = release.version;
+		option.textContent = release.label;
+		elements.releaseVersion.appendChild(option);
+	}
+	elements.releaseVersion.value = RELEASES[0].version;
 }
 
 function setupEvents() {
@@ -1077,6 +1135,7 @@ function setupEvents() {
 
 window.addEventListener('DOMContentLoaded', async () => {
 	cacheElements();
+	populateReleaseOptions();
 	setupEvents();
 	updateStyleSourceUI();
 

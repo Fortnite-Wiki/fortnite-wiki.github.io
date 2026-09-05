@@ -21,6 +21,20 @@ aside {
 	width: 100% !important;
 }
 
+.custom-release-fields {
+	display: grid;
+	gap: 0.6rem;
+	margin: -0.35rem 0 0.75rem;
+}
+
+.custom-release-fields[hidden] {
+	display: none;
+}
+
+.custom-release-fields input {
+	min-width: min(24rem, 100%);
+}
+
 .suggestions {
 	max-height: 250px;
 	overflow-y: auto;
@@ -175,6 +189,19 @@ aside {
 	line-height: 1.4;
 }
 
+.preview-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 0 0 1rem;
+}
+
+.selection-count {
+	color: #ccc;
+	font-size: 0.85rem;
+}
+
 .preview-card {
 	display: flex;
 	flex-direction: column;
@@ -184,6 +211,27 @@ aside {
 	background: var(--col-bg3);
 	padding: 0.75rem;
 	min-width: 0;
+}
+
+.preview-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+
+.preview-select {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: #ccc;
+	font-size: 0.8rem;
+	line-height: 1;
+}
+
+.preview-select input {
+	width: auto;
+	margin: 0;
 }
 
 .preview-card.missing {

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cosmo Image API</title>
 
-	<script src="./scripts/cosmo-gui.js" type="module"></script>
+	<script src="./scripts/cosmo-gui.js?v=20260905-zip-proxy" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
@@ -60,6 +60,16 @@
 							<label for="release-version">Release:</label>
 							<select id="release-version"></select>
 						</div>
+						<div class="custom-release-fields" id="custom-release-fields" hidden>
+							<div class="inline-group">
+								<label for="custom-release-version">Version:</label>
+								<input type="text" id="custom-release-version" placeholder="42.10" />
+							</div>
+							<div class="inline-group">
+								<label for="custom-release-key">Key:</label>
+								<input type="text" id="custom-release-key" placeholder="Base64 Cosmo release key" />
+							</div>
+						</div>
 						<div class="inline-group">
 							<label for="style-array">Style Array:</label>
 							<input type="text" id="style-array" placeholder="[0-1,0-1]" />
@@ -100,7 +110,12 @@
 				<div class="title-box">
 					<h3>Preview:</h3>
 				</div>
-				<p class="manual-save-note">Right-click a loaded preview and choose Save Image As, or open the direct image URL and save it manually.</p>
+				<p class="manual-save-note">Use Download on a loaded preview or Download Selected ZIP to save with wiki filenames.</p>
+				<div class="preview-toolbar">
+					<button class="sec-subm secondary compact-action" id="select-all-images" disabled>Select All</button>
+					<button class="sec-subm compact-action" id="download-selected-zip" disabled>Download Selected ZIP</button>
+					<span id="selection-count" class="selection-count">0 selected</span>
+				</div>
 				<div id="preview-grid" class="preview-grid"></div>
 				<button class="sec-subm secondary" id="clear-btn">Clear</button>
 			</section>

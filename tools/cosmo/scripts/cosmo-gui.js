@@ -2,8 +2,11 @@ import { loadGzJson } from '../../jsondata.js';
 
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
+const COSMO_PROXY_URL = 'https://cosmo-proxy.fortnite-wiki-tools.workers.dev/?url=';
+const CUSTOM_RELEASE_VALUE = '__custom__';
 const MAX_AUTO_COMBINATIONS = 1000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
+const ZIP_DOWNLOAD_TIMEOUT_MS = 10000;
 const MIN_DAV2_SEASON = 19;
 
 const RELEASES = [
@@ -100,6 +103,36 @@ const SPARKS_INSTRUMENT_TYPES = {
 	guitar: 'SparksGuitar',
 	keytar: 'SparksKeyboard',
 	mic: 'SparksMic',
+};
+
+const ZIP_ASSET_TYPE_LABELS = [
+	[/^bundle_/i, 'Bundle'],
+	[/^(character_|cid_)/i, 'Outfit'],
+	[/^(bid_|backpack_)/i, 'Back Bling'],
+	[/^pickaxe_/i, 'Pickaxe'],
+	[/^glider_/i, 'Glider'],
+	[/^(eid_|spray_|spid_|emoticon_)/i, 'Emote'],
+	[/^musicpack_/i, 'Music'],
+	[/^loadingscreen_/i, 'Loading Screen'],
+	[/^banner_/i, 'Banner'],
+	[/^trails_id_/i, 'Contrail'],
+	[/^shoes_/i, 'Kicks'],
+	[/^companion_/i, 'Companion'],
+	[/^sparks_bass_/i, 'Bass'],
+	[/^sparks_drum_/i, 'Drums'],
+	[/^sparks_guitar_/i, 'Guitar'],
+	[/^sparks_keytar_/i, 'Keytar'],
+	[/^sparks_mic_/i, 'Microphone'],
+	[/^sparksaura_/i, 'Aura'],
+	[/^carbody_/i, 'Car Body'],
+	[/^carskin_/i, 'Car Decal'],
+];
+
+const ZIP_IMAGE_TYPE_LABELS = {
+	locker_preview_image: 'Locker Preview',
+	preview_image: 'Preview',
+	preview_permutation_image: 'Preview Permutation',
+	store_image: 'Store',
 };
 
 let index = [];
@@ -984,7 +1017,30 @@ async function generateImages() {
 }
 
 function getSelectedRelease() {
+	if (elements.releaseVersion.value === CUSTOM_RELEASE_VALUE) {
+		const version = elements.customReleaseVersion.value.trim();
+		const key = elements.customReleaseKey.value.replace(/\s+/g, '');
+
+		if (!version) throw new Error('Please enter a custom release version.');
+		if (!key) throw new Error('Please enter a custom release key.');
+		validateReleaseKey(key);
+
+		return {
+			version,
+			key,
+			label: `${version} - Custom`,
+		};
+	}
+
 	return RELEASES.find((release) => release.version === elements.releaseVersion.value) || RELEASES[0];
+}
+
+function validateReleaseKey(key) {
+	try {
+		base64ToBytes(key);
+	} catch {
+		throw new Error('Custom release key must be valid base64.');
+	}
 }
 
 function getStyleArrays(imageType) {
@@ -1048,6 +1104,7 @@ function refreshGeneratedResults() {
 	const missingCount = generatedImages.filter((image) => image.exists === false).length;
 
 	updatePreviewEmptyMessage(loadedImages.length, checkedCount);
+	updateSelectionControls();
 
 	if (checkedCount !== generatedImages.length) {
 		showStatus(`Checking ${checkedCount}/${generatedImages.length} candidate image${generatedImages.length === 1 ? '' : 's'}...`, 'loading');
@@ -1082,6 +1139,22 @@ function renderPreview(images) {
 		const card = document.createElement('div');
 		card.className = 'preview-card';
 
+		const header = document.createElement('div');
+		header.className = 'preview-card-header';
+
+		const selectLabel = document.createElement('label');
+		selectLabel.className = 'preview-select';
+
+		const selectInput = document.createElement('input');
+		selectInput.type = 'checkbox';
+		selectInput.checked = image.selected !== false;
+		selectInput.addEventListener('change', () => {
+			image.selected = selectInput.checked;
+			updateSelectionControls();
+		});
+
+		selectLabel.append(selectInput, document.createTextNode('Select'));
+
 		const img = document.createElement('img');
 		img.alt = image.styleLabel || image.fileName;
 		img.loading = 'eager';
@@ -1090,6 +1163,7 @@ function renderPreview(images) {
 		const status = document.createElement('span');
 		status.className = 'preview-state';
 		status.textContent = 'Preview';
+		header.append(selectLabel, status);
 
 		const styleInfo = document.createElement('div');
 		styleInfo.className = 'preview-style-list';
@@ -1130,12 +1204,21 @@ function renderPreview(images) {
 		open.rel = 'noopener';
 		open.textContent = 'Open';
 
-		actions.append(open);
-		card.append(status, img, styleInfo, path, actions);
+		const download = document.createElement('button');
+		download.type = 'button';
+		download.className = 'sec-subm compact-action';
+		download.textContent = 'Download';
+		download.addEventListener('click', () => {
+			downloadSingleImage(image, download);
+		});
+
+		actions.append(open, download);
+		card.append(header, img, styleInfo, path, actions);
 		elements.previewGrid.appendChild(card);
-		previewItems.push({ card, image, img, status });
+		previewItems.push({ card, image, img, status, selectInput });
 	}
 
+	updateSelectionControls();
 	loadPreviewImages(previewItems, loadRun);
 }
 
@@ -1156,7 +1239,7 @@ async function loadPreviewImages(previewItems, loadRun) {
 	await Promise.all(Array.from({ length: workerCount }, worker));
 }
 
-function loadPreviewImage({ card, image, img, status }, loadRun) {
+function loadPreviewImage({ card, image, img, status, selectInput }, loadRun) {
 	return new Promise((resolve) => {
 		const settle = (exists) => {
 			if (loadRun !== previewLoadRun) {
@@ -1168,6 +1251,8 @@ function loadPreviewImage({ card, image, img, status }, loadRun) {
 			if (exists) {
 				status.textContent = 'Found';
 			} else {
+				selectInput.checked = false;
+				image.selected = false;
 				card.remove();
 			}
 			refreshGeneratedResults();
@@ -1180,12 +1265,455 @@ function loadPreviewImage({ card, image, img, status }, loadRun) {
 	});
 }
 
+function getSelectedLoadedImages() {
+	return getLoadedImages().filter((image) => image.selected !== false);
+}
+
+function updateSelectionControls() {
+	if (!elements.selectionCount || !elements.selectAllImages || !elements.downloadSelectedZip) return;
+
+	const loadedImages = getLoadedImages();
+	const selectedImages = getSelectedLoadedImages();
+	const loadedCount = loadedImages.length;
+	const selectedCount = selectedImages.length;
+
+	elements.selectionCount.textContent = `${selectedCount}/${loadedCount} selected`;
+	elements.selectAllImages.disabled = loadedCount === 0;
+	elements.downloadSelectedZip.disabled = selectedCount === 0;
+}
+
+function selectAllImages() {
+	for (const image of getLoadedImages()) {
+		image.selected = true;
+	}
+
+	elements.previewGrid.querySelectorAll('.preview-select input').forEach((input) => {
+		input.checked = true;
+	});
+	updateSelectionControls();
+}
+
+async function downloadSelectedZip() {
+	const selectedImages = getSelectedLoadedImages();
+	if (!selectedImages.length) {
+		showStatus('No loaded images are selected.', 'error');
+		return;
+	}
+
+	elements.downloadSelectedZip.disabled = true;
+	showStatus(`Downloading ${selectedImages.length} selected image${selectedImages.length === 1 ? '' : 's'}...`, 'loading');
+
+	try {
+		const files = [];
+		const failedImages = [];
+		const usedFileNames = new Set();
+
+		for (let index = 0; index < selectedImages.length; index++) {
+			const image = selectedImages[index];
+			showStatus(`Downloading ${index + 1}/${selectedImages.length}: ${image.fileName}`, 'loading');
+
+			try {
+				const data = await downloadCosmoImageBytes(image);
+
+				files.push({
+					name: getUniqueZipFileName(getImageDownloadFileName(image), usedFileNames),
+					data,
+				});
+			} catch (error) {
+				failedImages.push({ image, error });
+			}
+		}
+
+		if (!files.length) throw new Error('Failed to download every selected image.');
+
+		const zipBlob = createZipBlob(files);
+		downloadBlob(zipBlob, getZipDownloadName());
+		if (failedImages.length) {
+			showStatus(
+				`Downloaded ${files.length} image${files.length === 1 ? '' : 's'} as a ZIP. ${failedImages.length} failed to download.`,
+				'error',
+			);
+		} else {
+			showStatus(`Downloaded ${files.length} image${files.length === 1 ? '' : 's'} as a ZIP.`, 'success');
+		}
+	} catch (error) {
+		showStatus(`${error.message || error}\nThe proxy returned an error while downloading Cosmo image bytes.`, 'error');
+	} finally {
+		updateSelectionControls();
+	}
+}
+
+async function downloadSingleImage(image, button) {
+	const fileName = getImageDownloadFileName(image);
+	const originalText = button.textContent;
+	button.disabled = true;
+	button.textContent = 'Downloading';
+	showStatus(`Downloading ${fileName}...`, 'loading');
+
+	try {
+		const data = await downloadCosmoImageBytes(image);
+		downloadBlob(new Blob([data], { type: 'image/png' }), fileName);
+		showStatus(`Downloaded ${fileName}.`, 'success');
+	} catch (error) {
+		showStatus(`Failed to download ${fileName}: ${error.message || error}`, 'error');
+	} finally {
+		button.disabled = false;
+		button.textContent = originalText;
+	}
+}
+
+async function downloadCosmoImageBytes(image) {
+	const controller = new AbortController();
+	const timeout = setTimeout(() => controller.abort(), ZIP_DOWNLOAD_TIMEOUT_MS);
+
+	try {
+		const response = await fetch(getProxiedCosmoUrl(image.url), {
+			cache: 'no-store',
+			credentials: 'omit',
+			referrerPolicy: 'no-referrer',
+			signal: controller.signal,
+		});
+		if (!response.ok) throw new Error(`HTTP ${response.status}`);
+		return new Uint8Array(await response.arrayBuffer());
+	} finally {
+		clearTimeout(timeout);
+	}
+}
+
+function getProxiedCosmoUrl(url) {
+	return `${COSMO_PROXY_URL}${encodeURIComponent(url)}`;
+}
+
+function getImageDownloadFileName(image) {
+	if (image.imageType === 'store_image') {
+		return getStoreImageDownloadFileName(image);
+	}
+
+	const cosmeticName = getZipCosmeticName(image);
+	const imageType = getZipImageTypeLabel(image);
+	const stylePart = getZipStylePart(image);
+	const assetType = getZipAssetTypeLabel(image);
+	const game = getZipGameLabel(image);
+	return sanitizeFileName(`${cosmeticName} (${imageType} - ${stylePart}) - ${assetType} - ${game}.png`);
+}
+
+function getStoreImageDownloadFileName(image) {
+	const cosmeticName = getZipCosmeticName(image);
+	const storeOption = getStoreImageOption(image);
+	const assetType = getZipAssetTypeLabel(image);
+	const descriptor = getZipStoreDescriptor(image, storeOption, assetType);
+	const game = getZipGameLabel(image, storeOption);
+	if (isZipBundleImage(image)) {
+		return sanitizeFileName(getZipBundleStoreFileName(cosmeticName, descriptor));
+	}
+
+	return sanitizeFileName(`${cosmeticName} - (${descriptor}) - ${assetType} - ${game}.png`);
+}
+
+function getZipBundleStoreFileName(bundleName, descriptor) {
+	const suffix = descriptor === 'Featured' ? '' : ` (${descriptor.replace(/ - Featured$/i, '')})`;
+	return `${bundleName}${suffix} - Item Shop Bundle - Fortnite.png`;
+}
+
+function isZipBundleImage(image) {
+	return elements.assetKind.value === 'Bundle' || selectedAsset?.kind === 'Bundle' || /^bundle_/i.test(image?.assetId || '');
+}
+
+function getZipCosmeticName(image) {
+	const storedName = elements.assetName.value.trim() || selectedAsset?.name || '';
+	if (storedName) return storedName;
+
+	const displayValue = elements.assetDisplay.value.trim();
+	const displayMatch = displayValue.match(/^(.+?)\s*\(([^()]+)\)\s*$/);
+	if (displayMatch?.[1]) return displayMatch[1].trim();
+
+	return image.assetId || 'Cosmo Image';
+}
+
+function getZipImageTypeLabel(image) {
+	return ZIP_IMAGE_TYPE_LABELS[image.imageType] || friendlyVariantType(image.imageType || 'Image');
+}
+
+function getZipStylePart(image) {
+	return Array.isArray(image.style) ? image.style.join(',') : 'Default';
+}
+
+function getZipStoreDescriptor(image, storeOption, assetType) {
+	const baseLabel = getZipStoreBaseLabel(storeOption?.name);
+	if (isLegoStoreOption(image, storeOption)) {
+		const legoDescriptor = getNumberedLegoStoreDescriptor(storeOption);
+		if (legoDescriptor) return legoDescriptor;
+		if (assetType === 'Outfit') return 'Featured';
+		return 'LEGO';
+	}
+	if (!shouldNumberStoreImage(image, storeOption)) return baseLabel;
+
+	const index = getStoreImageOptionIndex(image, storeOption);
+	return `${String(index + 1).padStart(2, '0')} - ${baseLabel}`;
+}
+
+function getZipStoreBaseLabel(name) {
+	const rawName = String(name || '').trim();
+	const tagName = rawName.includes('.') ? rawName.split('.').pop() : rawName;
+	const normalized = tagName.replace(/[_-]+/g, ' ').trim();
+
+	if (!normalized || /^default$/i.test(normalized)) return 'Featured';
+	if (/^(br|battle royale)$/i.test(normalized)) return 'Featured';
+	if (/^(juno|lego)$/i.test(normalized)) return 'LEGO';
+	if (/^featured$/i.test(normalized)) return 'Featured';
+
+	return titleCaseWords(normalized);
+}
+
+function shouldNumberStoreImage(image, storeOption) {
+	const index = getStoreImageOptionIndex(image, storeOption);
+	if (index <= 0 || isLegoStoreOption(image, storeOption)) return false;
+
+	return (
+		elements.assetKind.value === 'Bundle' ||
+		selectedAsset?.kind === 'Bundle' ||
+		isCompanionAssetId(image.assetId) ||
+		getStoreImageOptionCount() > 1
+	);
+}
+
+function getStoreImageOption(image) {
+	const value = getStoreImageOptionIndex(image);
+	const option = detectedStyleGroups[0]?.options.find((item) => Number(item.value) === value);
+	if (option) return option;
+
+	const selection = image.styleSelections?.[0];
+	if (!selection) return null;
+
+	return {
+		value: selection.value,
+		name: selection.optionName,
+	};
+}
+
+function getStoreImageOptionIndex(image, storeOption = null) {
+	if (Number.isFinite(Number(storeOption?.value))) return Number(storeOption.value);
+	if (Array.isArray(image.style) && Number.isFinite(Number(image.style[0]))) return Number(image.style[0]);
+	return 0;
+}
+
+function getStoreImageOptionCount() {
+	return detectedStyleGroups[0]?.options?.length || 0;
+}
+
+function getNumberedLegoStoreDescriptor(storeOption) {
+	const legoOptions = getLegoStoreOptions();
+	if (legoOptions.length <= 1) return '';
+
+	const legoIndex = legoOptions.findIndex((option) => Number(option.value) === Number(storeOption?.value));
+	if (legoIndex < 0) return '';
+	if (legoIndex === 0) return 'LEGO';
+	return `LEGO - ${String(legoIndex + 1).padStart(2, '0')}`;
+}
+
+function getLegoStoreOptions() {
+	return (detectedStyleGroups[0]?.options || []).filter((option) => isLegoStoreOptionName(option?.name));
+}
+
+function isLegoStoreOptionName(name) {
+	return /juno|lego/i.test(String(name || ''));
+}
+
+function isLegoStoreOption(image, storeOption) {
+	return /juno|lego/i.test([
+		storeOption?.name,
+		image?.path,
+		image?.assetId,
+		elements.assetDav2Id.value,
+		elements.assetDav2Path.value,
+		selectedAsset?.dav2Id,
+		selectedAsset?.dav2Path,
+	].filter(Boolean).join(' '));
+}
+
+function getZipAssetTypeLabel(image) {
+	const assetId = image?.assetId || image;
+	if (elements.assetKind.value === 'Bundle' || selectedAsset?.kind === 'Bundle') return 'Bundle';
+
+	const baseId = String(assetId || '').split('[', 1)[0];
+	const match = ZIP_ASSET_TYPE_LABELS.find(([pattern]) => pattern.test(baseId));
+	return match?.[1] || 'Cosmetic';
+}
+
+function getZipGameLabel(image, storeOption = null) {
+	const assetId = image?.assetId || image;
+	if (isLegoStoreOption(image, storeOption)) return 'LEGO Fortnite';
+	return /^sparks/i.test(String(assetId || '')) ? 'Fortnite Festival' : 'Fortnite';
+}
+
+function titleCaseWords(value) {
+	return String(value || '')
+		.replace(/([a-z])([A-Z])/g, '$1 $2')
+		.split(/\s+/)
+		.filter(Boolean)
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+		.join(' ');
+}
+
+function getUniqueZipFileName(fileName, usedFileNames) {
+	const safeName = sanitizeFileName(fileName || 'cosmo-image.png') || 'cosmo-image.png';
+	const dotIndex = safeName.lastIndexOf('.');
+	const baseName = dotIndex > 0 ? safeName.slice(0, dotIndex) : safeName;
+	const extension = dotIndex > 0 ? safeName.slice(dotIndex) : '';
+	let candidate = safeName;
+	let counter = 2;
+
+	while (usedFileNames.has(candidate.toLowerCase())) {
+		candidate = `${baseName}-${counter}${extension}`;
+		counter++;
+	}
+
+	usedFileNames.add(candidate.toLowerCase());
+	return candidate;
+}
+
+function getZipDownloadName() {
+	const assetId = sanitizeFileName(getEnteredAssetId() || 'cosmo-images') || 'cosmo-images';
+	const imageType = sanitizeFileName(elements.imageType.value || 'images') || 'images';
+	return `${assetId}-${imageType}.zip`;
+}
+
+function sanitizeFileName(value) {
+	return String(value || '')
+		.replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function createZipBlob(files) {
+	const localChunks = [];
+	const centralChunks = [];
+	const now = new Date();
+	const { dosTime, dosDate } = getDosDateTime(now);
+	let offset = 0;
+
+	for (const file of files) {
+		const nameBytes = new TextEncoder().encode(file.name);
+		const data = file.data;
+		const crc = crc32(data);
+		const localHeader = createZipLocalHeader(nameBytes, data.length, crc, dosTime, dosDate);
+		const centralHeader = createZipCentralHeader(nameBytes, data.length, crc, dosTime, dosDate, offset);
+
+		localChunks.push(localHeader, nameBytes, data);
+		centralChunks.push(centralHeader, nameBytes);
+		offset += localHeader.length + nameBytes.length + data.length;
+	}
+
+	const centralOffset = offset;
+	const centralSize = centralChunks.reduce((sum, chunk) => sum + chunk.length, 0);
+	const endRecord = createZipEndRecord(files.length, centralSize, centralOffset);
+	return new Blob([...localChunks, ...centralChunks, endRecord], { type: 'application/zip' });
+}
+
+function createZipLocalHeader(nameBytes, size, crc, dosTime, dosDate) {
+	const bytes = new Uint8Array(30);
+	const view = new DataView(bytes.buffer);
+	view.setUint32(0, 0x04034b50, true);
+	view.setUint16(4, 20, true);
+	view.setUint16(6, 0, true);
+	view.setUint16(8, 0, true);
+	view.setUint16(10, dosTime, true);
+	view.setUint16(12, dosDate, true);
+	view.setUint32(14, crc, true);
+	view.setUint32(18, size, true);
+	view.setUint32(22, size, true);
+	view.setUint16(26, nameBytes.length, true);
+	view.setUint16(28, 0, true);
+	return bytes;
+}
+
+function createZipCentralHeader(nameBytes, size, crc, dosTime, dosDate, offset) {
+	const bytes = new Uint8Array(46);
+	const view = new DataView(bytes.buffer);
+	view.setUint32(0, 0x02014b50, true);
+	view.setUint16(4, 20, true);
+	view.setUint16(6, 20, true);
+	view.setUint16(8, 0, true);
+	view.setUint16(10, 0, true);
+	view.setUint16(12, dosTime, true);
+	view.setUint16(14, dosDate, true);
+	view.setUint32(16, crc, true);
+	view.setUint32(20, size, true);
+	view.setUint32(24, size, true);
+	view.setUint16(28, nameBytes.length, true);
+	view.setUint16(30, 0, true);
+	view.setUint16(32, 0, true);
+	view.setUint16(34, 0, true);
+	view.setUint16(36, 0, true);
+	view.setUint32(38, 0, true);
+	view.setUint32(42, offset, true);
+	return bytes;
+}
+
+function createZipEndRecord(fileCount, centralSize, centralOffset) {
+	const bytes = new Uint8Array(22);
+	const view = new DataView(bytes.buffer);
+	view.setUint32(0, 0x06054b50, true);
+	view.setUint16(4, 0, true);
+	view.setUint16(6, 0, true);
+	view.setUint16(8, fileCount, true);
+	view.setUint16(10, fileCount, true);
+	view.setUint32(12, centralSize, true);
+	view.setUint32(16, centralOffset, true);
+	view.setUint16(20, 0, true);
+	return bytes;
+}
+
+function getDosDateTime(date) {
+	const dosTime = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+	const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
+	return { dosTime, dosDate };
+}
+
+function crc32(bytes) {
+	let crc = 0xffffffff;
+	const table = getCrc32Table();
+
+	for (const byte of bytes) {
+		crc = (crc >>> 8) ^ table[(crc ^ byte) & 0xff];
+	}
+
+	return (crc ^ 0xffffffff) >>> 0;
+}
+
+let crc32Table = null;
+function getCrc32Table() {
+	if (crc32Table) return crc32Table;
+
+	crc32Table = new Uint32Array(256);
+	for (let i = 0; i < 256; i++) {
+		let value = i;
+		for (let bit = 0; bit < 8; bit++) {
+			value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1;
+		}
+		crc32Table[i] = value >>> 0;
+	}
+	return crc32Table;
+}
+
+function downloadBlob(blob, fileName) {
+	const url = URL.createObjectURL(blob);
+	const link = document.createElement('a');
+	link.href = url;
+	link.download = fileName;
+	document.body.appendChild(link);
+	link.click();
+	link.remove();
+	setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 async function handleGenerate() {
 	try {
 		showStatus('Generating candidate URLs...', 'loading');
 		generatedImages = await generateImages();
 		generatedImages.forEach((image) => {
 			image.exists = null;
+			image.selected = true;
 		});
 		renderPreview(generatedImages);
 		if (!generatedImages.length) {
@@ -1203,6 +1731,7 @@ function clearAll() {
 	previewLoadRun++;
 	generatedImages = [];
 	elements.previewGrid.innerHTML = '';
+	updateSelectionControls();
 	hideStatus();
 }
 
@@ -1218,6 +1747,9 @@ function cacheElements() {
 		assetSuggestions: document.getElementById('asset-suggestions'),
 		imageType: document.getElementById('image-type'),
 		releaseVersion: document.getElementById('release-version'),
+		customReleaseFields: document.getElementById('custom-release-fields'),
+		customReleaseVersion: document.getElementById('custom-release-version'),
+		customReleaseKey: document.getElementById('custom-release-key'),
 		styleArray: document.getElementById('style-array'),
 		styleSource: document.getElementById('style-source'),
 		checkLargeStyleSets: document.getElementById('check-large-style-sets'),
@@ -1228,6 +1760,9 @@ function cacheElements() {
 		clearBtn: document.getElementById('clear-btn'),
 		status: document.getElementById('status'),
 		previewGrid: document.getElementById('preview-grid'),
+		selectAllImages: document.getElementById('select-all-images'),
+		downloadSelectedZip: document.getElementById('download-selected-zip'),
+		selectionCount: document.getElementById('selection-count'),
 	});
 }
 
@@ -1239,16 +1774,31 @@ function populateReleaseOptions() {
 		option.textContent = release.label;
 		elements.releaseVersion.appendChild(option);
 	}
+
+	const customOption = document.createElement('option');
+	customOption.value = CUSTOM_RELEASE_VALUE;
+	customOption.textContent = 'Custom...';
+	elements.releaseVersion.appendChild(customOption);
+
 	elements.releaseVersion.value = RELEASES[0].version;
+	updateCustomReleaseFields();
+}
+
+function updateCustomReleaseFields() {
+	const useCustom = elements.releaseVersion.value === CUSTOM_RELEASE_VALUE;
+	elements.customReleaseFields.hidden = !useCustom;
 }
 
 function setupEvents() {
 	elements.assetDisplay.addEventListener('input', updateAssetSuggestions);
 	elements.imageType.addEventListener('change', loadDetectedStyles);
+	elements.releaseVersion.addEventListener('change', updateCustomReleaseFields);
 	elements.styleSource.addEventListener('change', updateStyleSourceUI);
 	elements.checkLargeStyleSets.addEventListener('change', renderDetectedStyleControls);
 	elements.generateBtn.addEventListener('click', handleGenerate);
 	elements.clearBtn.addEventListener('click', clearAll);
+	elements.selectAllImages.addEventListener('click', selectAllImages);
+	elements.downloadSelectedZip.addEventListener('click', downloadSelectedZip);
 
 	elements.assetDisplay.addEventListener('keypress', (event) => {
 		if (event.key === 'Enter') handleGenerate();

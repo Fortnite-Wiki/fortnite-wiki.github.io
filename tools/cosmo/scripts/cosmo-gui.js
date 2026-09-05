@@ -4,6 +4,7 @@ const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const MAX_AUTO_COMBINATIONS = 1000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
+const MIN_DAV2_SEASON = 19;
 
 const RELEASES = [
 	{
@@ -67,7 +68,11 @@ const TYPE_MAPPINGS = {
 	shoes_: 'CosmeticShoes',
 	vtid_: 'CosmeticVariantToken',
 	sparksaura_: 'SparksAura',
+	sparks_bass_: 'SparksBass',
 	sparks_drum_: 'SparksDrums',
+	sparks_guitar_: 'SparksGuitar',
+	sparks_keytar_: 'SparksKeyboard',
+	sparks_mic_: 'SparksMic',
 	carbody_: 'VehicleCosmetics_Body',
 	carskin_: 'VehicleCosmetics_Skin',
 };
@@ -87,6 +92,15 @@ const VARIANT_OPTION_FIELDS = [
 	'AdditivePoseOptions',
 	'Variants',
 ];
+
+const SPARKS_INSTRUMENT_TYPES = {
+	bass: 'SparksBass',
+	drum: 'SparksDrums',
+	drumkit: 'SparksDrums',
+	guitar: 'SparksGuitar',
+	keytar: 'SparksKeyboard',
+	mic: 'SparksMic',
+};
 
 let index = [];
 let latestDav2Paths = new Map();
@@ -169,7 +183,7 @@ function getAssetCandidates() {
 				name: entry.name,
 				dataPath: entry.path || '',
 				dav2Path,
-				dav2Id: getDisplayAssetId(dav2Path),
+				dav2Id: getDisplayAssetId(dav2Path) || getPrimaryDisplayAssetId(entry.id),
 			});
 		}
 
@@ -317,11 +331,11 @@ async function loadCosmeticStyleGroups(asset) {
 }
 
 async function loadStoreStyleGroups(asset) {
-	if (!asset.dav2Path) return [];
+	const displayAsset = await loadDisplayAssetData(asset);
+	if (!displayAsset) return [];
 
-	const data = await loadGzJson(`${DATA_BASE_PATH}${asset.dav2Path}`);
-	const presentations = Array.isArray(data)
-		? data.flatMap((entry) => entry?.Properties?.ContextualPresentations || [])
+	const presentations = Array.isArray(displayAsset.data)
+		? displayAsset.data.flatMap((entry) => entry?.Properties?.ContextualPresentations || [])
 		: [];
 
 	if (!presentations.length) return [];
@@ -333,6 +347,110 @@ async function loadStoreStyleGroups(asset) {
 			name: storePresentationName(presentation, index),
 		})),
 	}];
+}
+
+async function loadDisplayAssetData(asset) {
+	if (asset.dav2Path) {
+		return {
+			path: asset.dav2Path,
+			id: getDisplayAssetId(asset.dav2Path),
+			data: await loadGzJson(`${DATA_BASE_PATH}${asset.dav2Path}`),
+		};
+	}
+
+	const ids = uniqueStrings([
+		asset.dav2Id,
+		...getDisplayAssetIdCandidates(asset.id),
+	]);
+
+	for (const id of ids) {
+		const indexedPath = getLatestDav2Path(`${id}.json`);
+		const paths = uniqueStrings([
+			indexedPath,
+			...getDisplayAssetPathCandidates(id),
+		]);
+
+		for (const path of paths) {
+			if (!path || !(await dataFileExists(`${DATA_BASE_PATH}${path}`))) continue;
+
+			const data = await loadGzJson(`${DATA_BASE_PATH}${path}`);
+			asset.dav2Path = path;
+			asset.dav2Id = id;
+			if (asset === selectedAsset) {
+				elements.assetDav2Path.value = path;
+				elements.assetDav2Id.value = id;
+			}
+			return { path, id, data };
+		}
+	}
+
+	return null;
+}
+
+function getPrimaryDisplayAssetId(assetId) {
+	return getDisplayAssetIdCandidates(assetId)[0] || '';
+}
+
+function getDisplayAssetIdCandidates(assetId) {
+	if (typeof assetId !== 'string' || !assetId.trim()) return [];
+	if (/^dav2_/i.test(assetId)) return [assetId];
+
+	const ids = [`DAv2_${assetId}`];
+	const festivalMatch = assetId.match(/^Sparks_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)_(.+)$/i);
+	if (festivalMatch) {
+		const instrument = festivalMatch[1];
+		const baseId = festivalMatch[2];
+		const instruments = /^Drum/i.test(instrument) ? ['Drum', 'DrumKit'] : [instrument];
+		for (const itemInstrument of instruments) {
+			ids.unshift(`DAv2_Sparks_${baseId}_${itemInstrument}`);
+		}
+	}
+
+	const festivalSuffixMatch = assetId.match(/^Sparks_(.+)_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)$/i);
+	if (festivalSuffixMatch) {
+		const baseId = festivalSuffixMatch[1];
+		const instrument = festivalSuffixMatch[2];
+		const instruments = /^Drum/i.test(instrument) ? ['Drum', 'DrumKit'] : [instrument];
+		for (const itemInstrument of instruments) {
+			ids.unshift(`DAv2_Sparks_${baseId}_${itemInstrument}`);
+			ids.push(`DAv2_Sparks_${itemInstrument}_${baseId}`);
+		}
+	}
+
+	return uniqueStrings(ids);
+}
+
+function getDisplayAssetPathCandidates(dav2Id) {
+	const fileName = `${dav2Id}.json`;
+	const paths = [];
+	for (let season = getLatestReleaseSeason(); season >= MIN_DAV2_SEASON; season--) {
+		paths.push(`DAv2/S${season}/${fileName}`);
+	}
+	paths.push(`DAv2/${fileName}`);
+	return paths;
+}
+
+function getLatestReleaseSeason() {
+	const season = Number.parseInt(RELEASES[0].version.split('.')[0], 10);
+	return Number.isFinite(season) ? season : 42;
+}
+
+async function dataFileExists(path) {
+	try {
+		const response = await fetch(path.endsWith('.gz') ? path : `${path}.gz`, { method: 'HEAD' });
+		return response.ok;
+	} catch {
+		return false;
+	}
+}
+
+function uniqueStrings(values) {
+	const seen = new Set();
+	return values.filter((value) => {
+		if (!value || seen.has(value)) return false;
+		seen.add(value);
+		return true;
+	});
 }
 
 function findVariantObject(data, variantRef) {
@@ -714,16 +832,26 @@ function cartesianProduct(arrays) {
 
 function getAssetType(assetId, imageType, dav2Id = '') {
 	if (imageType === 'store_image') {
-		const storeId = dav2Id || (/^dav2_/i.test(assetId) ? assetId : `dav2_${assetId}`);
+		const storeId = dav2Id || getPrimaryDisplayAssetId(assetId) || (/^dav2_/i.test(assetId) ? assetId : `dav2_${assetId}`);
 		return ['AthenaItemShopOfferDisplayData', storeId];
 	}
 
 	const baseId = assetId.split('[', 1)[0].toLowerCase();
+	const sparksType = getSparksInstrumentType(baseId);
+	if (sparksType) return [sparksType, assetId];
+
 	for (const [prefix, assetType] of Object.entries(TYPE_MAPPINGS)) {
 		if (baseId.startsWith(prefix)) return [assetType, assetId];
 	}
 
 	throw new Error(`Unknown cosmetic type for ID: ${assetId}`);
+}
+
+function getSparksInstrumentType(baseId) {
+	const parts = baseId.split('_');
+	if (parts[0] !== 'sparks') return '';
+
+	return SPARKS_INSTRUMENT_TYPES[parts[1]] || SPARKS_INSTRUMENT_TYPES[parts[parts.length - 1]] || '';
 }
 
 function getEnteredAssetId() {

@@ -528,7 +528,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	const nameCells = [];
 
 	for (const item of cosmetics) {
-		const { name, rarity, cosmeticType, fileType, isFestivalCosmetic, isPickaxeOverride, isRacingCosmetic, hasLEGOStyle, linkTarget, linkDisplay, isJamTrack, jamTrackTitle, isBanner, bannerFile } = item;
+		const { name, rarity, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, hasLEGOStyle, linkTarget, linkDisplay, isJamTrack, jamTrackTitle, isBanner, bannerFile } = item;
 
 		const pushCell = (imageMarkup) => {
 			imageCells.push(imageMarkup);
@@ -543,11 +543,11 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 			let ending = 'Fortnite';
 			if (fileType == 'Pickaxe' || fileType == 'Back Bling') {
 				ending = 'Fortnite';
-			} else if (isFestivalCosmetic && !isPickaxeOverride) {
+			} else if (isFestivalCosmetic) {
 				ending = 'Fortnite Festival';
 			}
 
-			const res = await getMostUpToDateImage(name, cosmeticType, ending);
+			const res = await getMostUpToDateImage(name, fileType, ending);
 			pushCell(`{{${rarity} Rarity|[[File:${res.file}|130px|link=${linkTarget}]]}}`);
 
 			if (cosmeticType == "Outfit" && hasLEGOStyle) {
@@ -677,14 +677,10 @@ async function handleGenerate() {
 				const setName = cosmeticSets[setTag] || "";
 
 				let fileType = cosmeticType;
-				let isPickaxeOverride = false;
 				if (isFestivalCosmetic && instrumentType) {
-					if (instrumentType === 'Drums' && cosmeticType != instrumentType) {
-						fileType = 'Pickaxe';
-						isPickaxeOverride = true;
-					} else {
-						fileType = instrumentType;
-					}
+					fileType = instrumentType === 'Drums' && (cosmeticType === 'Pickaxe' || cosmeticType === 'Back Bling')
+						? 'Pickaxe'
+						: instrumentType;
 				}
 				if (isRacingCosmetic && fileType === 'Wheel') fileType = 'Wheels';
 
@@ -694,7 +690,8 @@ async function handleGenerate() {
 				}
 
 				const hasDuplicate = nameCounts[name] > 1;
-				const linkTarget = hasDuplicate ? `${name} (${carBodyName || (cosmeticType == "Wheel" ? "Wheels" : cosmeticType)})` : (carBodyName ? `${name} (${carBodyName})` : name);
+				const duplicateType = cosmeticType == "Wheel" ? "Wheels" : cosmeticType;
+				const linkTarget = hasDuplicate ? `${name} (${carBodyName || duplicateType})` : (carBodyName ? `${name} (${carBodyName})` : name);
 				const linkDisplay = name;
 
 				cosmetics.push({
@@ -704,7 +701,6 @@ async function handleGenerate() {
 					fileType,
 					setName,
 					isFestivalCosmetic,
-					isPickaxeOverride,
 					isRacingCosmetic,
 					hasLEGOStyle,
 					linkTarget,

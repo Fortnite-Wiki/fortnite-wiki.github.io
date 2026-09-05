@@ -662,7 +662,37 @@ for root, _, files in os.walk(DISPLAY_ASSETS_DIR):
     for file in files:
         if file.endswith(".json"):
             rel_path = os.path.relpath(os.path.join(root, file), DISPLAY_ASSETS_DIR).replace("\\", "/")
-            display_assets_files.setdefault(file, []).append(rel_path)
+            display_assets_files.setdefault(file.lower(), []).append(rel_path)
+
+def get_display_asset_keys(cid):
+    keys = [
+        f"DAv2_{cid}.json",
+        f"DAv2_{cid.replace('Shoes', 'Shoe')}.json",
+        f"DAv2_{cid.replace('_Athena_Commando', '')}.json",
+    ]
+
+    sparks_match = re.fullmatch(r"Sparks_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)_(.+)", cid, re.IGNORECASE)
+    if sparks_match:
+        instrument = sparks_match.group(1)
+        base_id = sparks_match.group(2)
+        instruments = ["Drum", "DrumKit"] if instrument.lower().startswith("drum") else [instrument]
+        for item_instrument in reversed(instruments):
+            keys.insert(0, f"DAv2_Sparks_{base_id}_{item_instrument}.json")
+
+    sparks_suffix_match = re.fullmatch(r"Sparks_(.+)_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)", cid, re.IGNORECASE)
+    if sparks_suffix_match:
+        base_id = sparks_suffix_match.group(1)
+        instrument = sparks_suffix_match.group(2)
+        instruments = ["Drum", "DrumKit"] if instrument.lower().startswith("drum") else [instrument]
+        for item_instrument in reversed(instruments):
+            keys.insert(0, f"DAv2_Sparks_{base_id}_{item_instrument}.json")
+            keys.append(f"DAv2_Sparks_{item_instrument}_{base_id}.json")
+
+    return keys
+
+def get_display_asset_season(path):
+    match = re.search(r"(?:^|/)S(\d+)(?:/|$)", path, re.IGNORECASE)
+    return int(match.group(1)) if match else -1
 
 for entry in index:
     cid = entry["id"]
@@ -671,9 +701,11 @@ for entry in index:
     if cid in bean_map:
         entry["beanid"] = bean_map[cid]
 
-    for key in (f"DAv2_{cid}.json", f"DAv2_{cid.replace('Shoes', 'Shoe')}.json", f"DAv2_{cid.replace('_Athena_Commando', '')}.json"):
-        if key in display_assets_files:
-            entry["dav2"] = f"DAv2/{display_assets_files[key][0]}"
+    for key in get_display_asset_keys(cid):
+        display_asset_paths = display_assets_files.get(key.lower())
+        if display_asset_paths:
+            latest_display_asset_path = max(display_asset_paths, key=get_display_asset_season)
+            entry["dav2"] = f"DAv2/{latest_display_asset_path}"
             break
 
 index = build_bundle_index(index)

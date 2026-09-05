@@ -1407,7 +1407,7 @@ function getStoreImageDownloadFileName(image) {
 		return sanitizeFileName(getZipBundleStoreFileName(cosmeticName, descriptor));
 	}
 
-	return sanitizeFileName(`${cosmeticName} - (${descriptor}) - ${assetType} - ${game}.png`);
+	return sanitizeFileName(`${cosmeticName} (${descriptor}) - ${assetType} - ${game}.png`);
 }
 
 function getZipBundleStoreFileName(bundleName, descriptor) {

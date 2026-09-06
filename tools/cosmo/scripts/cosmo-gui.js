@@ -61,6 +61,7 @@ const TYPE_MAPPINGS = {
 	backpack_: 'AthenaBackpack',
 	pickaxe_: 'AthenaPickaxe',
 	glider_: 'AthenaGlider',
+	wrap_: 'AthenaItemWrap',
 	loadingscreen_: 'AthenaLoadingScreen',
 	spray_: 'AthenaDance',
 	spid_: 'AthenaDance',
@@ -111,6 +112,7 @@ const ZIP_ASSET_TYPE_LABELS = [
 	[/^(bid_|backpack_)/i, 'Back Bling'],
 	[/^pickaxe_/i, 'Pickaxe'],
 	[/^glider_/i, 'Glider'],
+	[/^wrap_/i, 'Wrap'],
 	[/^(eid_|spray_|spid_|emoticon_)/i, 'Emote'],
 	[/^musicpack_/i, 'Music'],
 	[/^loadingscreen_/i, 'Loading Screen'],
@@ -126,6 +128,20 @@ const ZIP_ASSET_TYPE_LABELS = [
 	[/^sparksaura_/i, 'Aura'],
 	[/^carbody_/i, 'Car Body'],
 	[/^carskin_/i, 'Car Decal'],
+];
+
+const ZIP_DATA_PATH_TYPE_LABELS = [
+	[/^Characters\//i, 'Outfit'],
+	[/^Backpacks\//i, 'Back Bling'],
+	[/^Pickaxes\//i, 'Pickaxe'],
+	[/^Gliders\//i, 'Glider'],
+	[/^Wraps\//i, 'Wrap'],
+	[/^Dances\//i, 'Emote'],
+	[/^MusicPacks\//i, 'Music'],
+	[/^LoadingScreens\//i, 'Loading Screen'],
+	[/^Contrails\//i, 'Contrail'],
+	[/^Shoes\//i, 'Kicks'],
+	[/^Companions\//i, 'Companion'],
 ];
 
 const ZIP_IMAGE_TYPE_LABELS = {
@@ -1534,6 +1550,9 @@ function isLegoStoreOption(image, storeOption) {
 function getZipAssetTypeLabel(image) {
 	const assetId = image?.assetId || image;
 	if (elements.assetKind.value === 'Bundle' || selectedAsset?.kind === 'Bundle') return 'Bundle';
+
+	const dataPathMatch = ZIP_DATA_PATH_TYPE_LABELS.find(([pattern]) => pattern.test(selectedAsset?.dataPath || ''));
+	if (dataPathMatch) return dataPathMatch[1];
 
 	const baseId = String(assetId || '').split('[', 1)[0];
 	const match = ZIP_ASSET_TYPE_LABELS.find(([pattern]) => pattern.test(baseId));

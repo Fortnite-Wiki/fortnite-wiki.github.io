@@ -119,7 +119,7 @@ const ZIP_ASSET_TYPE_LABELS = [
 	[/^banner_/i, 'Banner'],
 	[/^trails_id_/i, 'Contrail'],
 	[/^shoes_/i, 'Kicks'],
-	[/^companion_/i, 'Companion'],
+	[/^companion_/i, 'Sidekick'],
 	[/^sparks_bass_/i, 'Bass'],
 	[/^sparks_drum_/i, 'Drums'],
 	[/^sparks_guitar_/i, 'Guitar'],
@@ -141,7 +141,7 @@ const ZIP_DATA_PATH_TYPE_LABELS = [
 	[/^LoadingScreens\//i, 'Loading Screen'],
 	[/^Contrails\//i, 'Contrail'],
 	[/^Shoes\//i, 'Kicks'],
-	[/^Companions\//i, 'Companion'],
+	[/^Companions\//i, 'Sidekick'],
 ];
 
 const ZIP_IMAGE_TYPE_LABELS = {

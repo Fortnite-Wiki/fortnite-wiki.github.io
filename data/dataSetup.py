@@ -960,8 +960,6 @@ def move_and_compress_lego():
     print(f"Moved and compressed {prop_count} _CraftingFormulas JSON files to LEGO/CraftingFormulas")
 
 
-accountUnlock_prefix = "Juno.AccountItems.Unlock.BuildingProp.".lower()
-
 def build_jbpid_index():
     juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
     out_dir = os.path.join(os.path.dirname(__file__), "LEGO")
@@ -993,8 +991,10 @@ def build_jbpid_index():
                 tag = ""
                 for dl in props.get("DataList", []):
                     if isinstance(dl, dict) and isinstance(dl.get("Tags"), list) and dl.get("Tags"):
-                        tag = dl.get("Tags")[0]
-                        break
+                        for dlTag in dl.get("Tags"):
+                            if dlTag.lower().startswith("juno.accountitems.unlock.buildingprop."):
+                                tag = dlTag
+                                break
 
                 if jbp_id and name:
                     entries.append({"id": jbp_id, "name": name, "tag": tag})

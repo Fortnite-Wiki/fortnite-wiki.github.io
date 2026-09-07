@@ -926,7 +926,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 		if (featuredFiles.size === 1) {
 			featured = Array.from(featuredFiles)[0];
 		} else if (featuredFiles.size > 0) {
-			featured = ["<gallery>", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "</gallery>"].join("\n");
+			featured = ["{{InfoboxTabber|", ...Array.from(featuredFiles).map((filename, idx) => `${filename}|${idx + 1}`), "}}"].join("\n");
 		}
 	}
 

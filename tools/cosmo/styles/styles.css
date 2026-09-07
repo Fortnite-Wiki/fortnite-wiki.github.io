@@ -134,6 +134,47 @@ aside {
 	line-height: 1.35;
 }
 
+.gallery-output-box {
+	display: grid;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.gallery-output-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.gallery-output-header h4 {
+	margin: 0;
+}
+
+.gallery-output-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	color: #ccc;
+	font-size: 0.9rem;
+}
+
+.gallery-output-toggle input {
+	width: auto;
+	margin: 0;
+}
+
+#gallery-output {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 13rem;
+	resize: vertical;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 0.85rem;
+	line-height: 1.35;
+	white-space: pre;
+}
+
 .detected-style-status {
 	margin-bottom: 0.75rem;
 	color: #ccc;
@@ -142,15 +183,20 @@ aside {
 
 .detected-style-row {
 	display: grid;
-	grid-template-columns: minmax(7rem, 0.45fr) minmax(10rem, 1fr);
-	align-items: center;
+	grid-template-columns: minmax(7rem, 8.5rem) minmax(0, 1fr);
+	align-items: start;
 	gap: 0.75rem;
-	margin-top: 0.65rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	padding-top: 0.75rem;
+	margin-top: 0.75rem;
 }
 
 .detected-style-row label {
+	padding-top: 0.35rem;
 	color: #ccc;
 	font-size: 0.9rem;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
 }
 
 .detected-style-row select {

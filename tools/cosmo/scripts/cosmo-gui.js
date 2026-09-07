@@ -774,20 +774,14 @@ function allDetectedOptionStyles() {
 }
 
 function getDetectedGeneratedCount(imageType) {
-	if (!detectedStyleGroups.length) return 0;
+	if (!detectedStyleGroups.length) return shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) return getDefaultStyleArrays().length;
-	if (shouldIncludeCompanionBaseLocker(imageType)) {
-		return 1 + (
-			elements.styleSource?.value === 'detected-all'
-				? allDetectedStyles().length
-				: selectedDetectedStyle().length
-		);
-	}
+	const defaultCandidateCount = shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
 	if (usesVariantOptionStyleFormat(imageType) || imageType === 'store_image') {
-		return detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
+		return defaultCandidateCount + detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
 	}
 
-	return getFullCombinationCount();
+	return defaultCandidateCount + getFullCombinationCount();
 }
 
 function getFullCombinationCount() {
@@ -816,12 +810,8 @@ function usesFullStyleCombinations(imageType) {
 	return imageType !== 'store_image' && !usesVariantOptionStyleFormat(imageType);
 }
 
-function shouldIncludeCompanionBaseLocker(imageType, assetId = getCurrentAssetId()) {
-	return (
-		imageType === 'locker_preview_image' &&
-		elements.styleSource?.value !== 'manual' &&
-		isCompanionAssetId(assetId)
-	);
+function shouldIncludeDefaultImageCandidate(imageType) {
+	return imageType !== 'store_image' && elements.styleSource?.value !== 'manual';
 }
 
 function isCompanionAssetId(assetId) {
@@ -1068,24 +1058,21 @@ function getStyleArrays(imageType) {
 		return getDefaultStyleArrays();
 	}
 
-	if (shouldIncludeCompanionBaseLocker(imageType)) {
-		const detectedStyles = elements.styleSource.value === 'detected-all'
-			? allDetectedStyles()
-			: selectedDetectedStyle();
-		return uniqueStyleArrays([null, ...detectedStyles]);
-	}
+	let styles;
 
 	if (usesVariantOptionStyleFormat(imageType)) {
-		return elements.styleSource.value === 'detected-all'
+		styles = elements.styleSource.value === 'detected-all'
 			? allDetectedOptionStyles()
 			: selectedDetectedOptionStyles();
+	} else if (elements.styleSource.value === 'detected-all') {
+		styles = allDetectedStyles();
+	} else {
+		styles = selectedDetectedStyle();
 	}
 
-	if (elements.styleSource.value === 'detected-all') {
-		return allDetectedStyles();
-	}
-
-	return selectedDetectedStyle();
+	return shouldIncludeDefaultImageCandidate(imageType)
+		? uniqueStyleArrays([null, ...styles])
+		: styles;
 }
 
 function getDefaultStyleArrays() {
@@ -1286,6 +1273,7 @@ function getSelectedLoadedImages() {
 }
 
 function updateSelectionControls() {
+	updateGalleryOutput();
 	if (!elements.selectionCount || !elements.selectAllImages || !elements.downloadSelectedZip) return;
 
 	const loadedImages = getLoadedImages();
@@ -1307,6 +1295,21 @@ function selectAllImages() {
 		input.checked = true;
 	});
 	updateSelectionControls();
+}
+
+async function copyGalleryOutput() {
+	const text = elements.galleryOutput.value;
+	if (!text) return;
+
+	try {
+		await navigator.clipboard.writeText(text);
+		showStatus('Copied gallery output.', 'success');
+	} catch {
+		elements.galleryOutput.focus();
+		elements.galleryOutput.select();
+		document.execCommand('copy');
+		showStatus('Copied gallery output.', 'success');
+	}
 }
 
 async function downloadSelectedZip() {
@@ -1332,7 +1335,7 @@ async function downloadSelectedZip() {
 				const data = await downloadCosmoImageBytes(image);
 
 				files.push({
-					name: getUniqueZipFileName(getImageDownloadFileName(image), usedFileNames),
+					name: getUniqueZipFileName(getImageDownloadFileName(image, selectedImages), usedFileNames),
 					data,
 				});
 			} catch (error) {
@@ -1360,7 +1363,7 @@ async function downloadSelectedZip() {
 }
 
 async function downloadSingleImage(image, button) {
-	const fileName = getImageDownloadFileName(image);
+	const fileName = getImageDownloadFileName(image, getSelectedLoadedImages());
 	const originalText = button.textContent;
 	button.disabled = true;
 	button.textContent = 'Downloading';
@@ -1400,17 +1403,91 @@ function getProxiedCosmoUrl(url) {
 	return `${COSMO_PROXY_URL}${encodeURIComponent(url)}`;
 }
 
-function getImageDownloadFileName(image) {
+function updateGalleryOutput() {
+	if (!elements.galleryOutput || !elements.copyGalleryOutput) return;
+
+	const images = getSelectedLoadedImages();
+	const output = buildGalleryOutput(images);
+	elements.galleryOutput.value = output;
+	elements.copyGalleryOutput.disabled = !output;
+}
+
+function buildGalleryOutput(images) {
+	if (!images.length) return '';
+
+	const title = getGalleryTitle(images[0]);
+	const tabPrefix = elements.nestedTabberOutput?.checked ? '{{!}}-{{!}}' : '|-|';
+	const lines = [
+		`${tabPrefix}${title}=`,
+		`=== ${title} ===`,
+		'<gallery>',
+	];
+
+	for (const image of images) {
+		const fileName = formatGalleryFileName(getImageDownloadFileName(image, images));
+		const caption = getGalleryCaption(image);
+		lines.push(`${fileName}|${caption}`);
+	}
+
+	lines.push('</gallery>');
+	return lines.join('\n');
+}
+
+function getGalleryTitle(image) {
+	if (image.imageType === 'locker_preview_image') return 'Locker Previews';
+	if (image.imageType === 'store_image') return 'Store Images';
+	if (image.imageType === 'preview_permutation_image') return 'Preview Permutations';
+	return 'Preview Images';
+}
+
+function formatGalleryFileName(fileName) {
+	return fileName;
+}
+
+function getGalleryCaption(image) {
+	const cosmeticName = getZipCosmeticName(image);
+	if (!image.styleSelections?.length) return cosmeticName;
+
+	const labels = image.styleSelections
+		.map((selection) => formatGalleryCaptionLabel(selection.optionName))
+		.filter((label) => shouldUseGalleryCaptionLabel(label, cosmeticName));
+
+	return labels.length ? labels.join(', ') : cosmeticName;
+}
+
+function formatGalleryCaptionLabel(label) {
+	const value = String(label || '').trim();
+	return isAllCapsLabel(value) ? titleCaseWords(value) : value;
+}
+
+function isAllCapsLabel(value) {
+	return /[A-Z]/.test(value) && value === value.toUpperCase();
+}
+
+function shouldUseGalleryCaptionLabel(label, cosmeticName) {
+	const normalized = String(label || '').trim();
+	if (!normalized) return false;
+
+	const lower = normalized.toLowerCase();
+	return !(
+		lower === cosmeticName.toLowerCase() ||
+		lower === 'default' ||
+		lower === 'base' ||
+		lower === 'off' ||
+		lower === 'none'
+	);
+}
+
+function getImageDownloadFileName(image, contextImages = [image]) {
 	if (image.imageType === 'store_image') {
 		return getStoreImageDownloadFileName(image);
 	}
 
 	const cosmeticName = getZipCosmeticName(image);
-	const imageType = getZipImageTypeLabel(image);
-	const stylePart = getZipStylePart(image);
+	const imageDescriptor = getZipImageDescriptor(image, contextImages);
 	const assetType = getZipAssetTypeLabel(image);
 	const game = getZipGameLabel(image);
-	return sanitizeFileName(`${cosmeticName} (${imageType} - ${stylePart}) - ${assetType} - ${game}.png`);
+	return sanitizeFileName(`${cosmeticName} (${imageDescriptor}) - ${assetType} - ${game}.png`);
 }
 
 function getStoreImageDownloadFileName(image) {
@@ -1450,8 +1527,29 @@ function getZipImageTypeLabel(image) {
 	return ZIP_IMAGE_TYPE_LABELS[image.imageType] || friendlyVariantType(image.imageType || 'Image');
 }
 
-function getZipStylePart(image) {
-	return Array.isArray(image.style) ? image.style.join(',') : 'Default';
+function getZipImageDescriptor(image, contextImages = [image]) {
+	const imageType = getZipImageTypeLabel(image);
+	const stylePart = getZipStylePart(image, contextImages);
+	return stylePart ? `${imageType} - ${stylePart}` : imageType;
+}
+
+function getZipStylePart(image, contextImages = [image]) {
+	if (!Array.isArray(image.style)) return '';
+	if (isZeroStyleArray(image.style) && !hasDefaultImageCandidate(image, contextImages)) return '';
+	return image.style.join(',');
+}
+
+function isZeroStyleArray(styleArray) {
+	return Array.isArray(styleArray) && styleArray.length > 0 && styleArray.every((value) => Number(value) === 0);
+}
+
+function hasDefaultImageCandidate(image, contextImages) {
+	return contextImages.some((candidate) => (
+		candidate !== image &&
+		candidate?.assetId === image.assetId &&
+		candidate?.imageType === image.imageType &&
+		candidate?.style === null
+	));
 }
 
 function getZipStoreDescriptor(image, storeOption, assetType) {
@@ -1751,6 +1849,7 @@ function clearAll() {
 	generatedImages = [];
 	elements.previewGrid.innerHTML = '';
 	updateSelectionControls();
+	updateGalleryOutput();
 	hideStatus();
 }
 
@@ -1772,6 +1871,9 @@ function cacheElements() {
 		styleArray: document.getElementById('style-array'),
 		styleSource: document.getElementById('style-source'),
 		checkLargeStyleSets: document.getElementById('check-large-style-sets'),
+		galleryOutput: document.getElementById('gallery-output'),
+		copyGalleryOutput: document.getElementById('copy-gallery-output'),
+		nestedTabberOutput: document.getElementById('nested-tabber-output'),
 		detectedStyleBox: document.getElementById('detected-style-box'),
 		detectedStyleStatus: document.getElementById('detected-style-status'),
 		detectedStyleControls: document.getElementById('detected-style-controls'),
@@ -1818,6 +1920,8 @@ function setupEvents() {
 	elements.clearBtn.addEventListener('click', clearAll);
 	elements.selectAllImages.addEventListener('click', selectAllImages);
 	elements.downloadSelectedZip.addEventListener('click', downloadSelectedZip);
+	elements.copyGalleryOutput.addEventListener('click', copyGalleryOutput);
+	elements.nestedTabberOutput.addEventListener('change', updateGalleryOutput);
 
 	elements.assetDisplay.addEventListener('keypress', (event) => {
 		if (event.key === 'Enter') handleGenerate();

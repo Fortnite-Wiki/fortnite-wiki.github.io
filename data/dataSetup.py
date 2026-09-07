@@ -650,6 +650,8 @@ def build_companion_style_index():
 
     return output
 
+print("Starting data setup...")
+
 index = build_index(COSMETICS_DIRS)
 jido_map = build_jido_map(FIGURE_COSMETICS_DIR)
 bean_map = build_bean_map(DT_BEAN_MAP_FILE, NEW_BEANSTALK_DEF_DIR)
@@ -989,8 +991,10 @@ def build_jbpid_index():
                 tag = ""
                 for dl in props.get("DataList", []):
                     if isinstance(dl, dict) and isinstance(dl.get("Tags"), list) and dl.get("Tags"):
-                        tag = dl.get("Tags")[0]
-                        break
+                        for dlTag in dl.get("Tags"):
+                            if dlTag.startswith("Juno.AccountItems.Unlock.BuildingProp."):
+                                tag = dlTag
+                                break
 
                 if jbp_id and name:
                     entries.append({"id": jbp_id, "name": name, "tag": tag})

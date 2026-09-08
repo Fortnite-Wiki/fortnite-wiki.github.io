@@ -1420,6 +1420,7 @@ function buildGalleryOutput(images) {
 	const lines = [
 		`${tabPrefix}${title}=`,
 		`=== ${title} ===`,
+		...(images[0].imageType === 'locker_preview_image' ? ["{{LockerPreviewInfo}}"] : []),
 		'<gallery>',
 	];
 

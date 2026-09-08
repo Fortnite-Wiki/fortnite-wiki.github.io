@@ -89,17 +89,6 @@
 								<small>If the page lags for more than 5 seconds, refresh the page and turn this off.</small>
 							</span>
 						</label>
-						<div class="gallery-output-box">
-							<div class="gallery-output-header">
-								<h4>Gallery Output</h4>
-								<button class="sec-subm secondary compact-action" id="copy-gallery-output" disabled>Copy</button>
-							</div>
-							<label class="gallery-output-toggle" for="nested-tabber-output">
-								<input type="checkbox" id="nested-tabber-output" checked />
-								<span>Nested tabber</span>
-							</label>
-							<textarea id="gallery-output" readonly></textarea>
-						</div>
 					</div>
 					<div class="column">
 						<h4>Options</h4>
@@ -112,6 +101,18 @@
 							<div id="detected-style-controls"></div>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section>
+				<h3>Gallery Output</h3>
+				<button class="sec-subm secondary compact-action" id="copy-gallery-output" disabled>Copy</button>
+				<div class="gallery-output-box">
+					<label class="gallery-output-toggle" for="nested-tabber-output">
+						<input type="checkbox" id="nested-tabber-output" />
+						<span>Nested tabber</span>
+					</label>
+					<textarea id="gallery-output" readonly></textarea>
 				</div>
 			</section>
 		</main>

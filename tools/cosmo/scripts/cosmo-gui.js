@@ -436,8 +436,37 @@ async function loadDisplayAssetData(asset) {
 	return null;
 }
 
+async function resolveCustomStoreAsset(assetId) {
+	if (selectedAsset || elements.assetDav2Id.value.trim()) return;
+
+	const customAsset = {
+		kind: isBundleDisplayAssetId(assetId) ? 'Bundle' : 'Cosmetic',
+		id: assetId,
+		name: '',
+		dataPath: '',
+		dav2Path: '',
+		dav2Id: '',
+	};
+
+	const styleGroups = await loadStoreStyleGroups(customAsset);
+	if (!customAsset.dav2Id) return;
+
+	elements.assetKind.value = customAsset.kind;
+	elements.assetDav2Path.value = customAsset.dav2Path || '';
+	elements.assetDav2Id.value = customAsset.dav2Id || '';
+
+	if (styleGroups.length) {
+		detectedStyleGroups = styleGroups;
+		renderDetectedStyleControls();
+	}
+}
+
 function getPrimaryDisplayAssetId(assetId) {
 	return getDisplayAssetIdCandidates(assetId)[0] || '';
+}
+
+function isBundleDisplayAssetId(assetId) {
+	return /^(dav2_)?bundle_/i.test(String(assetId || ''));
 }
 
 function getDisplayAssetIdCandidates(assetId) {
@@ -993,10 +1022,12 @@ function getStyleLabel(styleArray, imageType) {
 async function generateImages() {
 	const assetId = getEnteredAssetId();
 	const imageType = elements.imageType.value;
-	const dav2Id = elements.assetDav2Id.value.trim();
 	const release = getSelectedRelease();
 
 	if (!assetId) throw new Error('Please enter an asset ID or select an asset from the search results');
+	if (imageType === 'store_image') await resolveCustomStoreAsset(assetId);
+
+	const dav2Id = elements.assetDav2Id.value.trim();
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {
 		showStatus(`Large style set detected. Checking default candidates only instead of ${getFullCombinationCount().toLocaleString()} combinations.`, 'loading');
 	}
@@ -1052,6 +1083,10 @@ function validateReleaseKey(key) {
 function getStyleArrays(imageType) {
 	if (elements.styleSource.value === 'manual') {
 		return parseStyleInput(elements.styleArray.value);
+	}
+
+	if (imageType === 'store_image' && !detectedStyleGroups.length) {
+		return [[0]];
 	}
 
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {

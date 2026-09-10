@@ -1449,13 +1449,14 @@ function updateGalleryOutput() {
 
 function buildGalleryOutput(images) {
 	if (!images.length) return '';
+	if (images[0].imageType !== 'locker_preview_image') return '';
 
 	const title = getGalleryTitle(images[0]);
 	const tabPrefix = elements.nestedTabberOutput?.checked ? '{{!}}-{{!}}' : '|-|';
 	const lines = [
 		`${tabPrefix}${title}=`,
 		`=== ${title} ===`,
-		...(images[0].imageType === 'locker_preview_image' ? ["{{LockerPreviewInfo}}"] : []),
+		"{{LockerPreviewInfo}}",
 		'<gallery>',
 	];
 

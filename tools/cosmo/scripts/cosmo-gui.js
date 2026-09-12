@@ -258,6 +258,33 @@ function getDisplayAssetId(path) {
 	return fileName.replace(/\.json$/i, '');
 }
 
+function updateDav2Hint() {
+	if (!elements.assetDav2Hint) return;
+
+	if (elements.imageType.value !== 'store_image') {
+		elements.assetDav2Hint.hidden = true;
+		elements.assetDav2Hint.textContent = '';
+		return;
+	}
+
+	const dav2Id = elements.assetDav2Id.value.trim();
+	const dav2Path = elements.assetDav2Path.value.trim();
+	const enteredId = getEnteredAssetId();
+	const inferredDav2Id = getPrimaryDisplayAssetId(enteredId);
+	const displayDav2Id = dav2Id || inferredDav2Id;
+
+	if (!displayDav2Id) {
+		elements.assetDav2Hint.hidden = true;
+		elements.assetDav2Hint.textContent = '';
+		return;
+	}
+
+	const inferredText = dav2Id ? '' : ' (inferred)';
+	const pathText = dav2Path ? ` • ${dav2Path}` : '';
+	elements.assetDav2Hint.textContent = `DAV2: ${displayDav2Id}${inferredText}${pathText}`;
+	elements.assetDav2Hint.hidden = false;
+}
+
 function updateAssetSuggestions() {
 	const input = elements.assetDisplay.value.trim().toLowerCase();
 	elements.assetId.value = '';
@@ -268,6 +295,7 @@ function updateAssetSuggestions() {
 	elements.assetDav2Id.value = '';
 	selectedAsset = null;
 	applyAssetMode();
+	updateDav2Hint();
 	clearDetectedStyles('Select an asset to load options, or generate a custom ID without detected styles.');
 	elements.assetSuggestions.innerHTML = '';
 	if (!input) return;
@@ -308,6 +336,7 @@ async function selectAsset(asset) {
 	elements.assetDav2Id.value = asset.dav2Id || '';
 	elements.assetSuggestions.innerHTML = '';
 	applyAssetMode(asset);
+	updateDav2Hint();
 	await loadDetectedStyles();
 }
 
@@ -428,6 +457,7 @@ async function loadDisplayAssetData(asset) {
 			if (asset === selectedAsset) {
 				elements.assetDav2Path.value = path;
 				elements.assetDav2Id.value = id;
+				updateDav2Hint();
 			}
 			return { path, id, data };
 		}
@@ -454,6 +484,7 @@ async function resolveCustomStoreAsset(assetId) {
 	elements.assetKind.value = customAsset.kind;
 	elements.assetDav2Path.value = customAsset.dav2Path || '';
 	elements.assetDav2Id.value = customAsset.dav2Id || '';
+	updateDav2Hint();
 
 	if (styleGroups.length) {
 		detectedStyleGroups = styleGroups;
@@ -1899,6 +1930,7 @@ function cacheElements() {
 		assetDataPath: document.getElementById('asset-data-path'),
 		assetDav2Path: document.getElementById('asset-dav2-path'),
 		assetDav2Id: document.getElementById('asset-dav2-id'),
+		assetDav2Hint: document.getElementById('asset-dav2-hint'),
 		assetSuggestions: document.getElementById('asset-suggestions'),
 		imageType: document.getElementById('image-type'),
 		releaseVersion: document.getElementById('release-version'),
@@ -1949,7 +1981,10 @@ function updateCustomReleaseFields() {
 
 function setupEvents() {
 	elements.assetDisplay.addEventListener('input', updateAssetSuggestions);
-	elements.imageType.addEventListener('change', loadDetectedStyles);
+	elements.imageType.addEventListener('change', () => {
+		updateDav2Hint();
+		loadDetectedStyles();
+	});
 	elements.releaseVersion.addEventListener('change', updateCustomReleaseFields);
 	elements.styleSource.addEventListener('change', updateStyleSourceUI);
 	elements.checkLargeStyleSets.addEventListener('change', renderDetectedStyleControls);
@@ -1976,6 +2011,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 	populateReleaseOptions();
 	setupEvents();
 	updateStyleSourceUI();
+	updateDav2Hint();
 
 	try {
 		showStatus('Loading data...', 'loading');

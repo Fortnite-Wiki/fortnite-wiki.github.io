@@ -2477,9 +2477,13 @@ async function initialiseApp() {
 		showStatus('Loading cosmetic data...', 'loading');
 		
 		await loadIndex();
+		console.log('Index loaded successfully');
 		await loadJamTrackNames();
+		console.log('Jam track names loaded successfully');
 		await loadCompanionVTIDs();
+		console.log('Companion VTIDs loaded successfully');
 		await loadCosmeticSets();
+		console.log('Cosmetic sets loaded successfully');
 
 		hideStatus();
 		console.log('Cosmetic Page Generator initialised successfully');

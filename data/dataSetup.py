@@ -183,12 +183,6 @@ def normalize_path(path, base_remove):
     rel_path = os.path.relpath(path, base_remove).replace("\\", "/")
     return rel_path
 
-def canonicalize_br_cosmetic_path(path):
-    parts = path.replace("\\", "/").split("/")
-    if parts and parts[0].lower() == "pickaxes":
-        parts[0] = "Pickaxes"
-    return "/".join(parts)
-
 def get_set_id(props):
     for item in props.get("DataList", []):
         for tag in item.get("Tags", []):
@@ -312,7 +306,7 @@ def build_index(dirs):
             return "Racing/" + rel_path
         elif directory == COMPANIONS_DIR:
             return "Companions/" + rel_path
-        return canonicalize_br_cosmetic_path(rel_path)
+        return rel_path
     
     for directory in dirs:
         for subdir, _, files in os.walk(directory):
@@ -759,8 +753,6 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
         rel_parts = rel.split(os.sep)
         filtered_parts = [part for part in rel_parts if part != "Cosmetics"]
         rel = os.path.join(*filtered_parts) if filtered_parts else ""
-        if dest_root == os.path.join(os.path.dirname(__file__), "cosmetics"):
-            rel = canonicalize_br_cosmetic_path(rel).replace("/", os.sep)
 
         dest_dir = os.path.join(dest_root, rel)
         os.makedirs(dest_dir, exist_ok=True)
@@ -891,7 +883,7 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
         for root, dirs, files in os.walk(src_root):
             folder_name = os.path.basename(root)
             # treat Epic's mistakes as MaterialParameterSets
-            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets" or folder_name == "MaterialParametrs" or folder_name == "MaterialParamSettings":
+            if folder_name == "MPS" or folder_name == "MaterialParameters" or folder_name == "MaterialParamaterSets" or folder_name == "MaterialParamSets" or folder_name == "MaterialParametrs" or folder_name == "MaterialParamSettings" or folder_name == "MaterialParametrSets":
                 folder_name = "MaterialParameterSets"
 
             if folder_name not in ("ColorSwatches", "MaterialParameterSets"):

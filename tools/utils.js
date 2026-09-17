@@ -233,6 +233,11 @@ export function ensureVbucksTemplate(val) {
 	return `{{V-Bucks|${formatted}}}`;
 }
 
+export function normalizeVbucksInfoboxBreaks(val) {
+	if (!val) return '';
+	return val.replace(/(\{\{\s*V-Bucks\s*\|[^}]+}})\s*<br\s*\/?>(?!\s*\{\{\s*V-Bucks\s*\|)\s*/gi, '$1 ');
+}
+
 // Helper: remove {{V-Bucks|...}} and return just the number
 export function stripVbucksTemplate(val) {
 	if (!val) return '';

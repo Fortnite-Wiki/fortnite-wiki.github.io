@@ -84,7 +84,7 @@ async function getFirstBundleFromCategory(categoryName) {
 	return { bundleName: null, bundleCost: null };
 }
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, stripVbucksTemplate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks, stripVbucksTemplate } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -496,9 +496,9 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		}
 	}
 
-	infobox.push(`|total_v-buck_price = ${options.totalVbucks || ''} <br> {{SetIcon|Item Shop}}`);
+	infobox.push(`|total_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.totalVbucks || ''} <br> {{SetIcon|Item Shop}}`)}`);
 
-	infobox.push(`|bundle_v-buck_price = ${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`);
+	infobox.push(`|bundle_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`)}`);
 
 	if (options.bundleName) {
 		infobox.push(`|bundles = [[${options.bundleName}]]`);

@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, pageExists, normalizeCosmeticType } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists } from '../../../tools/utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
@@ -1144,7 +1144,7 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	out.push("|type = Emote");
 	out.push("|additional = {{Built-In}}")
 	out.push(`|unlocked = [[${companionName}'s Rewards]]`);
-	out.push(`|cost = ${settings.questCost} <br> <small>([[${companionName}]])</small>`);
+	out.push(`|cost = ${normalizeVbucksInfoboxBreaks(`${settings.questCost} <br> <small>([[${companionName}]])</small>`)}`);
 	out.push(`|release = ${generateReleaseParameter(settings)}`);
 	if (settings.updateVersion != "") {
 		out.push(`|added_in = [[Update v${settings.updateVersion}]]`);

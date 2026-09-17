@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType, pageExists } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -458,7 +458,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	infobox.push(`|cosmetics = ${links.join(' <br> ')}`);
 
 	if (settings.vbucksCost != "") {
-		infobox.push(`|cost = ${settings.vbucksCost}`);
+		infobox.push(`|cost = ${normalizeVbucksInfoboxBreaks(settings.vbucksCost)}`);
 	} else {
 		infobox.push(`|cost = `);
 	}

@@ -1,4 +1,4 @@
-import { characterBundlePattern, forceTitleCase, abbreviate, getFormattedReleaseDate, getItemShopHistoryDate, ensureVbucksTemplate } from './utils.js';
+import { characterBundlePattern, forceTitleCase, abbreviate, getFormattedReleaseDate, getItemShopHistoryDate, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks } from './utils.js';
 import { SEASON_RELEASE_DATES, OG_SEASON_RELEASE_DATES, FESTIVAL_SEASON_RELEASE_DATES, LEGO_SEASON_RELEASE_DATES, LEGO_SEASON_NAMES } from '../../../data/datesAndVersions.js';
 
 export function generateUnlockedParameter(settings, bundleEntries = []) {
@@ -72,23 +72,23 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     
     } else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
         const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-        cost = `{{V-Bucks|800}} <br> ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
+        cost = `{{V-Bucks|800}} ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
     
     } else if (settings.isOGPass && settings.ogSeason) {
-        cost = `{{V-Bucks|800}} <br> ({{OGPass|${settings.ogSeason}}})`;
+        cost = `{{V-Bucks|800}} ({{OGPass|${settings.ogSeason}}})`;
     
     } else if (settings.isMusicPass && settings.musicSeason) {
-        cost = `{{V-Bucks|1,200}} <br> ({{MusicPass|${settings.musicSeason}}})`;
+        cost = `{{V-Bucks|1,200}} ({{MusicPass|${settings.musicSeason}}})`;
     
     } else if (settings.isLEGOPass && settings.legoSeason) {
         const vbucksAmount = LEGO_SEASON_NAMES["1400"].includes(settings.legoSeason) ? "1,400" : "1,200";
-        cost = `{{V-Bucks|${vbucksAmount}}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
+        cost = `{{V-Bucks|${vbucksAmount}}} ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
     
     } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
             && (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
         ) {
-            cost = ensureVbucksTemplate(settings.shopCost) + ` <br> <small>([[${name} (${instrumentType})|${name}]])</small>`;
+            cost = ensureVbucksTemplate(settings.shopCost) + ` <small>([[${name} (${instrumentType})|${name}]])</small>`;
         } else {
             cost = ensureVbucksTemplate(settings.shopCost);
         }
@@ -108,7 +108,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
                     const rawName = be.bundleName.value.trim();
                     const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
                     const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-                    return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <br> <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
+                    return `${ensureVbucksTemplate(be.bundleCost.value.trim())} <small>([[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]])</small>`;
                 }
                 return null;
             })
@@ -118,7 +118,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         }
     }
 
-    return cost;
+    return normalizeVbucksInfoboxBreaks(cost);
 }
 
 export function generateReleaseParameter(settings) {

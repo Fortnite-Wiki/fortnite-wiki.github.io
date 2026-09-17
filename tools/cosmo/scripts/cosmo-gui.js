@@ -81,7 +81,7 @@ const TYPE_MAPPINGS = {
 	sparks_drum_: 'SparksDrums',
 	sparks_guitar_: 'SparksGuitar',
 	sparks_keytar_: 'SparksKeyboard',
-	sparks_mic_: 'SparksMic',
+	sparks_mic_: 'SparksMicrophone',
 	carbody_: 'VehicleCosmetics_Body',
 	carskin_: 'VehicleCosmetics_Skin',
 };
@@ -108,7 +108,7 @@ const SPARKS_INSTRUMENT_TYPES = {
 	drumkit: 'SparksDrums',
 	guitar: 'SparksGuitar',
 	keytar: 'SparksKeyboard',
-	mic: 'SparksMic',
+	mic: 'SparksMicrophone',
 };
 
 const ZIP_ASSET_TYPE_LABELS = [
@@ -888,6 +888,10 @@ function isCompanionAssetId(assetId) {
 	return typeof assetId === 'string' && assetId.toLowerCase().startsWith('companion_');
 }
 
+function isMicrophoneAssetId(assetId) {
+	return getSparksInstrumentLabelFromValue(assetId) === 'Microphone';
+}
+
 function isVariantOptionImageType(imageType) {
 	return imageType === 'preview_image';
 }
@@ -1073,7 +1077,7 @@ async function generateImages() {
 		showStatus(`Large style set detected. Checking default candidates only instead of ${getFullCombinationCount().toLocaleString()} combinations.`, 'loading');
 	}
 
-	const styles = getStyleArrays(imageType);
+	const styles = getStyleArrays(imageType, assetId);
 	const images = [];
 
 	for (const style of styles) {
@@ -1121,7 +1125,7 @@ function validateReleaseKey(key) {
 	}
 }
 
-function getStyleArrays(imageType) {
+function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 	if (elements.styleSource.value === 'manual') {
 		return parseStyleInput(elements.styleArray.value);
 	}
@@ -1131,7 +1135,7 @@ function getStyleArrays(imageType) {
 	}
 
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {
-		return getDefaultStyleArrays();
+		return addMicrophoneLockerPreviewFallback(getDefaultStyleArrays(), imageType, assetId);
 	}
 
 	let styles;
@@ -1146,9 +1150,16 @@ function getStyleArrays(imageType) {
 		styles = selectedDetectedStyle();
 	}
 
-	return shouldIncludeDefaultImageCandidate(imageType)
+	const styleArrays = shouldIncludeDefaultImageCandidate(imageType)
 		? uniqueStyleArrays([null, ...styles])
 		: styles;
+
+	return addMicrophoneLockerPreviewFallback(styleArrays, imageType, assetId);
+}
+
+function addMicrophoneLockerPreviewFallback(styleArrays, imageType, assetId) {
+	if (imageType !== 'locker_preview_image' || !isMicrophoneAssetId(assetId)) return styleArrays;
+	return uniqueStyleArrays([...styleArrays, [0, 0]]);
 }
 
 function getDefaultStyleArrays() {

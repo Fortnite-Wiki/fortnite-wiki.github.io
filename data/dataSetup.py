@@ -54,13 +54,25 @@ COMPANIONS_DIR = os.path.join(
     r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Items"
 )
 
+DEFAULT_ATHENA_CHARACTER_DIR = os.path.join(
+    BASE_DIR,
+    r"Plugins\GameFeatures\DefaultCosmeticsAthena\Content\Characters\Items\Character"
+)
+
+SOLIDWAVE_CIDS_DIR = os.path.join(
+    BASE_DIR,
+    r"Plugins\GameFeatures\FNE\SolidWave\SolidWaveCosmetics\Content\CIDs"
+)
+
 COSMETICS_DIRS = [
     BR_COSMETICS_DIR,
     OLD_BR_COSMETICS_DIR,
     KICKS_DIR,
     FESTIVAL_COSMETICS_DIR,
     RACING_COSMETICS_DIR,
-    COMPANIONS_DIR
+    COMPANIONS_DIR,
+    DEFAULT_ATHENA_CHARACTER_DIR,
+    SOLIDWAVE_CIDS_DIR
 ]
 
 LOC_DIRECTORY = os.path.join(
@@ -296,6 +308,11 @@ def build_index(dirs):
     def is_default_item(props):
         return any("Cosmetics.Source.DefaultItem" in item.get("Tags", []) for item in props.get("DataList", []))
 
+    def should_keep_default_item(entry, directory):
+        if entry.get("Name") in {"DefaultGlider", "DefaultPickaxe"}:
+            return True
+        return directory == DEFAULT_ATHENA_CHARACTER_DIR and entry.get("Type") == "AthenaCharacterItemDefinition"
+
     def adjust_path(path, directory):
         rel_path = normalize_path(path, directory)
         if directory == KICKS_DIR:
@@ -306,6 +323,8 @@ def build_index(dirs):
             return "Racing/" + rel_path
         elif directory == COMPANIONS_DIR:
             return "Companions/" + rel_path
+        elif directory in {DEFAULT_ATHENA_CHARACTER_DIR, SOLIDWAVE_CIDS_DIR}:
+            return "Characters/" + rel_path
         return rel_path
     
     for directory in dirs:
@@ -328,8 +347,10 @@ def build_index(dirs):
                 cosmetic_id = entry.get("Name")
                 props = entry.get("Properties", {})
                 item_name = props.get("ItemName", {}).get("LocalizedString") or ""
+                if not item_name and entry.get("Type") == "AthenaGliderItemDefinition":
+                    item_name = cosmetic_id
 
-                if not cosmetic_id or not item_name or is_default_item(props):
+                if not cosmetic_id or not item_name or (is_default_item(props) and not should_keep_default_item(entry, directory)):
                     continue
                     
                 generated_tags = None
@@ -1081,6 +1102,8 @@ copy_and_gzip(KICKS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "S
 copy_and_gzip(FESTIVAL_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Festival"), "cosmetics/Festival")
 copy_and_gzip(RACING_COSMETICS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Racing"), "cosmetics/Racing")
 copy_and_gzip(COMPANIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions"), "cosmetics/Companions")
+copy_and_gzip(DEFAULT_ATHENA_CHARACTER_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Characters"), "cosmetics/Characters (DefaultCosmeticsAthena)")
+copy_and_gzip(SOLIDWAVE_CIDS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Characters"), "cosmetics/Characters (SolidWave)")
 copy_and_gzip(LOC_DIRECTORY, os.path.join(os.path.dirname(__file__), "localization"), "localization")
 build_localization_index()
 copy_and_gzip(DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DAv2"), "DAv2")

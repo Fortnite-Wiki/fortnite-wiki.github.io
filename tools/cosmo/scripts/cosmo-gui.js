@@ -65,7 +65,9 @@ const TYPE_MAPPINGS = {
 	eid_: 'AthenaDance',
 	bid_: 'AthenaBackpack',
 	backpack_: 'AthenaBackpack',
+	gadget_: 'AthenaBackpack',
 	pickaxe_: 'AthenaPickaxe',
+	halloweenscythe: 'AthenaPickaxe',
 	defaultpickaxe: 'AthenaPickaxe',
 	glider_: 'AthenaGlider',
 	solo_: 'AthenaGlider',
@@ -73,15 +75,25 @@ const TYPE_MAPPINGS = {
 	squad_: 'AthenaGlider',
 	umbrella_: 'AthenaGlider',
 	founderumbrella: 'AthenaGlider',
+	founderglider: 'AthenaGlider',
+	preseasonglider: 'AthenaGlider',
 	defaultglider: 'AthenaGlider',
+	chillyfabric: 'AthenaItemWrap',
 	wrap_: 'AthenaItemWrap',
 	loadingscreen_: 'AthenaLoadingScreen',
+	lsid_: 'AthenaLoadingScreen',
 	spray_: 'AthenaDance',
 	spid_: 'AthenaDance',
 	emoticon_: 'AthenaDance',
+	emoji_: 'AthenaDance',
+	toy_: 'AthenaToy',
+	petcarrier_: 'AthenaPetCarrier',
+	petid_: 'AthenaPet',
 	musicpack_: 'AthenaMusicPack',
 	banner_: 'HomebaseBannerIcon',
+	contrail_: 'AthenaSkyDiveContrail',
 	trails_id_: 'AthenaSkyDiveContrail',
+	trails_: 'AthenaSkyDiveContrail',
 	shoes_: 'CosmeticShoes',
 	vtid_: 'CosmeticVariantToken',
 	sparksaura_: 'SparksAura',
@@ -91,7 +103,13 @@ const TYPE_MAPPINGS = {
 	sparks_keytar_: 'SparksKeyboard',
 	sparks_mic_: 'SparksMicrophone',
 	carbody_: 'VehicleCosmetics_Body',
+	body_: 'VehicleCosmetics_Body',
 	carskin_: 'VehicleCosmetics_Skin',
+	wheel_: 'VehicleCosmetics_Wheel',
+	id_body_: 'VehicleCosmetics_Body',
+	id_skin_: 'VehicleCosmetics_Skin',
+	id_drifttrail_: 'VehicleCosmetics_DriftTrail',
+	id_booster_: 'VehicleCosmetics_Booster',
 };
 
 const VARIANT_OPTION_FIELDS = [
@@ -122,15 +140,17 @@ const SPARKS_INSTRUMENT_TYPES = {
 const ZIP_ASSET_TYPE_LABELS = [
 	[/^bundle_/i, 'Bundle'],
 	[/^(character_|cid_|solidwave_character)/i, 'Outfit'],
-	[/^(bid_|backpack_)/i, 'Back Bling'],
-	[/^(pickaxe_|defaultpickaxe)/i, 'Pickaxe'],
-	[/^(glider_|solo_|duo_|squad_|umbrella_|founderumbrella|defaultglider)/i, 'Glider'],
+	[/^(bid_|backpack_|gadget_)/i, 'Back Bling'],
+	[/^(pickaxe_|defaultpickaxe)|pickaxe$/i, 'Pickaxe'],
+	[/^(glider_|solo_|duo_|squad_|umbrella_|founderumbrella|founderglider|preseasonglider|defaultglider)|glider$/i, 'Glider'],
 	[/^wrap_/i, 'Wrap'],
-	[/^(eid_|spray_|spid_|emoticon_)/i, 'Emote'],
+	[/^(eid_|spray_|spid_|emoticon_|emoji_)/i, 'Emote'],
+	[/^toy_/i, 'Toy'],
+	[/^(petcarrier_|petid_)/i, 'Pet'],
 	[/^musicpack_/i, 'Music'],
-	[/^loadingscreen_/i, 'Loading Screen'],
+	[/^(loadingscreen_|lsid_)/i, 'Loading Screen'],
 	[/^banner_/i, 'Banner'],
-	[/^trails_id_/i, 'Contrail'],
+	[/^(contrail_|trails_id_|trails_)/i, 'Contrail'],
 	[/^shoes_/i, 'Kicks'],
 	[/^companion_/i, 'Sidekick'],
 	[/^sparks_bass_/i, 'Bass'],
@@ -141,6 +161,7 @@ const ZIP_ASSET_TYPE_LABELS = [
 	[/^sparksaura_/i, 'Aura'],
 	[/^carbody_/i, 'Car Body'],
 	[/^carskin_/i, 'Car Decal'],
+	[/^wheel_/i, 'Wheels'],
 ];
 
 const ZIP_DATA_PATH_TYPE_LABELS = [
@@ -150,16 +171,51 @@ const ZIP_DATA_PATH_TYPE_LABELS = [
 	[/^Gliders\//i, 'Glider'],
 	[/^Wraps\//i, 'Wrap'],
 	[/^Dances\//i, 'Emote'],
+	[/^Toys\//i, 'Toy'],
+	[/^PetCarriers\//i, 'Pet'],
+	[/^Pets\//i, 'Pet'],
 	[/^MusicPacks\//i, 'Music'],
 	[/^LoadingScreens\//i, 'Loading Screen'],
 	[/^Contrails\//i, 'Contrail'],
 	[/^Shoes\//i, 'Kicks'],
 	[/^Companions\//i, 'Sidekick'],
+	[/^Racing\/Bodies\//i, 'Car Body'],
+	[/^Racing\/Skins\//i, 'Car Decal'],
+	[/^Racing\/Wheels\//i, 'Wheels'],
+	[/^Racing\/DriftTrails?\//i, 'Trail'],
+	[/^Racing\/Boosters\//i, 'Boost'],
 	[/^Festival\/Instrument\/Bass\//i, 'Bass'],
 	[/^Festival\/Instrument\/Drum\//i, 'Drums'],
 	[/^Festival\/Instrument\/Guitar\//i, 'Guitar'],
 	[/^Festival\/Instrument\/Keytar\//i, 'Keytar'],
 	[/^Festival\/Instrument\/Mic\//i, 'Microphone'],
+];
+
+const COSMO_DATA_PATH_TYPE_MAPPINGS = [
+	[/^Characters\//i, 'AthenaCharacter'],
+	[/^Backpacks\//i, 'AthenaBackpack'],
+	[/^Pickaxes\//i, 'AthenaPickaxe'],
+	[/^Gliders\//i, 'AthenaGlider'],
+	[/^(Wraps|ItemWraps)\//i, 'AthenaItemWrap'],
+	[/^Dances\//i, 'AthenaDance'],
+	[/^Toys\//i, 'AthenaToy'],
+	[/^PetCarriers\//i, 'AthenaPetCarrier'],
+	[/^Pets\//i, 'AthenaPet'],
+	[/^MusicPacks\//i, 'AthenaMusicPack'],
+	[/^LoadingScreens\//i, 'AthenaLoadingScreen'],
+	[/^Contrails\//i, 'AthenaSkyDiveContrail'],
+	[/^Shoes\//i, 'CosmeticShoes'],
+	[/^Companions\//i, 'CosmeticMimosa'],
+	[/^Racing\/Bodies\//i, 'VehicleCosmetics_Body'],
+	[/^Racing\/Skins\//i, 'VehicleCosmetics_Skin'],
+	[/^Racing\/Wheels\//i, 'VehicleCosmetics_Wheel'],
+	[/^Racing\/DriftTrails?\//i, 'VehicleCosmetics_DriftTrail'],
+	[/^Racing\/Boosters\//i, 'VehicleCosmetics_Booster'],
+	[/^Festival\/Instrument\/Bass\//i, 'SparksBass'],
+	[/^Festival\/Instrument\/Drum\//i, 'SparksDrums'],
+	[/^Festival\/Instrument\/Guitar\//i, 'SparksGuitar'],
+	[/^Festival\/Instrument\/Keytar\//i, 'SparksKeyboard'],
+	[/^Festival\/Instrument\/Mic\//i, 'SparksMicrophone'],
 ];
 
 const ZIP_IMAGE_TYPE_LABELS = {
@@ -964,6 +1020,14 @@ function getAssetType(assetId, imageType, dav2Id = '') {
 	for (const [prefix, assetType] of Object.entries(TYPE_MAPPINGS)) {
 		if (baseId.startsWith(prefix)) return [assetType, assetId];
 	}
+
+	if (baseId.endsWith('pickaxe')) return ['AthenaPickaxe', assetId];
+	if (baseId.endsWith('glider')) return ['AthenaGlider', assetId];
+
+	const selectedBaseId = String(selectedAsset?.id || '').toLowerCase();
+	const dataPath = selectedBaseId === baseId ? selectedAsset.dataPath : '';
+	const dataPathMatch = COSMO_DATA_PATH_TYPE_MAPPINGS.find(([pattern]) => pattern.test(dataPath || ''));
+	if (dataPathMatch) return [dataPathMatch[1], assetId];
 
 	throw new Error(`Unknown cosmetic type for ID: ${assetId}`);
 }

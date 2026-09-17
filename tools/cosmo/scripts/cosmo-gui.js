@@ -147,6 +147,11 @@ const ZIP_DATA_PATH_TYPE_LABELS = [
 	[/^Contrails\//i, 'Contrail'],
 	[/^Shoes\//i, 'Kicks'],
 	[/^Companions\//i, 'Sidekick'],
+	[/^Festival\/Instrument\/Bass\//i, 'Bass'],
+	[/^Festival\/Instrument\/Drum\//i, 'Drums'],
+	[/^Festival\/Instrument\/Guitar\//i, 'Guitar'],
+	[/^Festival\/Instrument\/Keytar\//i, 'Keytar'],
+	[/^Festival\/Instrument\/Mic\//i, 'Microphone'],
 ];
 
 const ZIP_IMAGE_TYPE_LABELS = {
@@ -1315,6 +1320,8 @@ async function loadPreviewImages(previewItems, loadRun) {
 
 function loadPreviewImage({ card, image, img, status, selectInput }, loadRun) {
 	return new Promise((resolve) => {
+		let triedProxy = false;
+
 		const settle = (exists) => {
 			if (loadRun !== previewLoadRun) {
 				resolve();
@@ -1333,9 +1340,21 @@ function loadPreviewImage({ card, image, img, status, selectInput }, loadRun) {
 			resolve();
 		};
 
-		img.addEventListener('load', () => settle(true), { once: true });
-		img.addEventListener('error', () => settle(false), { once: true });
-		img.src = image.url;
+		const loadUrl = (url) => {
+			img.onload = () => settle(true);
+			img.onerror = () => {
+				if (!triedProxy) {
+					triedProxy = true;
+					status.textContent = 'Proxy';
+					loadUrl(getProxiedCosmoUrl(image.url));
+					return;
+				}
+				settle(false);
+			};
+			img.src = url;
+		};
+
+		loadUrl(image.url);
 	});
 }
 
@@ -1488,7 +1507,29 @@ function buildGalleryOutput(images) {
 	if (images[0].imageType !== 'locker_preview_image') return '';
 
 	const title = getGalleryTitle(images[0]);
-	const tabPrefix = elements.nestedTabberOutput?.checked ? '{{!}}-{{!}}' : '|-|';
+	const isNested = elements.nestedTabberOutput?.checked;
+	const isFullGallery = elements.fullGalleryOutput?.checked;
+	const tabPrefix = isNested ? '{{!}}-{{!}}' : '|-|';
+	const bodyLines = buildGalleryBodyLines(title, images, tabPrefix);
+
+	if (!isFullGallery) return bodyLines.join('\n');
+	if (isNested) {
+		return [
+			'== Gallery ==',
+			'{{#tag:tabber|' + buildGalleryBodyLines(title, images, '').join('\n'),
+			'}}',
+		].join('\n');
+	}
+
+	return [
+		'== Gallery ==',
+		'<tabber>',
+		...bodyLines,
+		'</tabber>',
+	].join('\n');
+}
+
+function buildGalleryBodyLines(title, images, tabPrefix) {
 	const lines = [
 		`${tabPrefix}${title}=`,
 		`=== ${title} ===`,
@@ -1503,7 +1544,7 @@ function buildGalleryOutput(images) {
 	}
 
 	lines.push('</gallery>');
-	return lines.join('\n');
+	return lines;
 }
 
 function getGalleryTitle(image) {
@@ -1725,7 +1766,10 @@ function getZipAssetTypeLabel(image) {
 	const dataPathMatch = ZIP_DATA_PATH_TYPE_LABELS.find(([pattern]) => pattern.test(selectedAsset?.dataPath || ''));
 	if (dataPathMatch) return dataPathMatch[1];
 
-	const baseId = String(assetId || '').split('[', 1)[0];
+	const instrumentLabel = getSparksInstrumentLabel(image);
+	if (instrumentLabel) return instrumentLabel;
+
+	const baseId = getAssetBaseId(assetId);
 	const match = ZIP_ASSET_TYPE_LABELS.find(([pattern]) => pattern.test(baseId));
 	return match?.[1] || 'Cosmetic';
 }
@@ -1733,7 +1777,67 @@ function getZipAssetTypeLabel(image) {
 function getZipGameLabel(image, storeOption = null) {
 	const assetId = image?.assetId || image;
 	if (isLegoStoreOption(image, storeOption)) return 'LEGO Fortnite';
-	return /^sparks/i.test(String(assetId || '')) ? 'Fortnite Festival' : 'Fortnite';
+	return isSparksInstrumentImage(image) || /^sparks/i.test(String(assetId || '')) ? 'Fortnite Festival' : 'Fortnite';
+}
+
+function getAssetBaseId(assetId) {
+	return String(assetId || '')
+		.split('[', 1)[0]
+		.split('/')
+		.pop()
+		.replace(/\.json(?:\.gz)?$/i, '');
+}
+
+function getSparksInstrumentLabel(image) {
+	const haystack = [
+		image?.assetId,
+		image?.path,
+		elements.assetDav2Id.value,
+		elements.assetDav2Path.value,
+		selectedAsset?.id,
+		selectedAsset?.dataPath,
+		selectedAsset?.dav2Id,
+		selectedAsset?.dav2Path,
+	].filter(Boolean);
+
+	for (const value of haystack) {
+		const label = getSparksInstrumentLabelFromValue(value);
+		if (label) return label;
+	}
+
+	return '';
+}
+
+function isSparksInstrumentImage(image) {
+	return Boolean(getSparksInstrumentLabel(image));
+}
+
+function getSparksInstrumentLabelFromValue(value) {
+	const baseId = getAssetBaseId(value).replace(/^dav2_/i, '');
+	const normalizedPath = String(value || '').replace(/\\/g, '/');
+	const pathMatch = normalizedPath.match(/Festival\/Instrument\/(Bass|Drum|Guitar|Keytar|Mic)\//i);
+	const prefixMatch = baseId.match(/^Sparks_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)_/i);
+	const suffixMatch = baseId.match(/^Sparks_.+_(Bass|Drum|DrumKit|Guitar|Keytar|Mic)$/i);
+	const instrument = pathMatch?.[1] || prefixMatch?.[1] || suffixMatch?.[1] || '';
+	return getSparksInstrumentTypeLabel(instrument);
+}
+
+function getSparksInstrumentTypeLabel(instrument) {
+	switch (String(instrument || '').toLowerCase()) {
+		case 'bass':
+			return 'Bass';
+		case 'drum':
+		case 'drumkit':
+			return 'Drums';
+		case 'guitar':
+			return 'Guitar';
+		case 'keytar':
+			return 'Keytar';
+		case 'mic':
+			return 'Microphone';
+		default:
+			return '';
+	}
 }
 
 function titleCaseWords(value) {
@@ -1948,6 +2052,7 @@ function cacheElements() {
 		galleryOutput: document.getElementById('gallery-output'),
 		copyGalleryOutput: document.getElementById('copy-gallery-output'),
 		nestedTabberOutput: document.getElementById('nested-tabber-output'),
+		fullGalleryOutput: document.getElementById('full-gallery-output'),
 		detectedStyleBox: document.getElementById('detected-style-box'),
 		detectedStyleStatus: document.getElementById('detected-style-status'),
 		detectedStyleControls: document.getElementById('detected-style-controls'),
@@ -1999,6 +2104,7 @@ function setupEvents() {
 	elements.downloadSelectedZip.addEventListener('click', downloadSelectedZip);
 	elements.copyGalleryOutput.addEventListener('click', copyGalleryOutput);
 	elements.nestedTabberOutput.addEventListener('change', updateGalleryOutput);
+	elements.fullGalleryOutput.addEventListener('change', updateGalleryOutput);
 
 	elements.assetDisplay.addEventListener('keypress', (event) => {
 		if (event.key === 'Enter') handleGenerate();

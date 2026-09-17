@@ -33,6 +33,47 @@ let addCompatibleCosmeticsCategory = false;
 
 let pageTitle = '';
 
+function parseCosmeticSearchValue(value) {
+	const input = (value || '').trim();
+	if (!input) return '';
+
+	const idMatch = input.match(/\(([^()]+)\)\s*$/);
+	return (idMatch ? idMatch[1] : input).trim();
+}
+
+function getCosmeticSearchInput() {
+	const selectedId = elements.cosmeticInput.value.trim();
+	const selectedName = elements.cosmeticInputName.value.trim();
+	const displayInput = elements.cosmeticDisplayInput.value.trim();
+	if (selectedId && displayInput === `${selectedName} (${selectedId})`) return selectedId;
+
+	return parseCosmeticSearchValue(displayInput);
+}
+
+function getCosmeticDataPathVariants(path) {
+	const normalizedPath = path.replace(/\\/g, '/');
+	const pickaxeMatch = normalizedPath.match(/^pickaxes\/(.+)$/i);
+	if (!pickaxeMatch) return [normalizedPath];
+
+	return [
+		normalizedPath,
+		`Pickaxes/${pickaxeMatch[1]}`,
+		`PickAxes/${pickaxeMatch[1]}`
+	].filter((value, index, arr) => arr.indexOf(value) === index);
+}
+
+async function loadCosmeticData(path) {
+	let lastError = null;
+	for (const pathVariant of getCosmeticDataPathVariants(path)) {
+		try {
+			return await loadGzJson(`${DATA_BASE_PATH}cosmetics/${pathVariant}`);
+		} catch (error) {
+			lastError = error;
+		}
+	}
+	throw lastError;
+}
+
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 }
@@ -121,7 +162,7 @@ function updateSuggestions() {
 				return;
 			}
 
-			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
+			const cosmeticData = await loadCosmeticData(entry.path);
 			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) return;
 			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
 
@@ -227,7 +268,8 @@ function updateSuggestions() {
 }
 
 async function searchCosmetic(input) {
-	const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input.toLowerCase() || e.name && e.name.toLowerCase() === input.toLowerCase());
+	const searchInput = parseCosmeticSearchValue(input);
+	const entryMeta = index.find(e => (e.id && e.id.toLowerCase() === searchInput.toLowerCase()) || (e.name && e.name.toLowerCase() === searchInput.toLowerCase()));
 	
 	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	
@@ -235,7 +277,7 @@ async function searchCosmetic(input) {
 		if (!entryMeta.path) {
 			return { data: null, allData: null, entryMeta };
 		}
-		const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entryMeta.path}`);
+		const cosmeticData = await loadCosmeticData(entryMeta.path);
 		if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 			return { data: null, allData: null, entryMeta };
 		}
@@ -956,7 +998,7 @@ async function generateDecalsTable(name, tags) {
 	
 	for (const mi of matchedIndexEntries) {
 		try {
-			const json = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${mi.path}`);
+			const json = await loadCosmeticData(mi.path);
 			const itemDef = Array.isArray(json)
 				? json.find(d => d.Type in TYPE_MAP) || json[0]
 				: json;
@@ -1055,7 +1097,7 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 			let rewardName = "";
 
 			if (entryMeta.path) {
-				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entryMeta.path}`);
+				const cosmeticData = await loadCosmeticData(entryMeta.path);
 				if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) {
 					continue;
 				}
@@ -1994,8 +2036,7 @@ async function updateWikiPageButton(cosmeticName, cosmeticType) {
 }
 
 async function generatePage() {
-	const cosmeticInput = elements.cosmeticInput.value.trim();
-	const cosmeticDisplayInput = elements.cosmeticDisplayInput.value.trim();
+	const cosmeticInput = getCosmeticSearchInput();
 
 	let settings = {
 		...getSourceReleaseSettings(elements),
@@ -2023,7 +2064,6 @@ async function generatePage() {
 	try {
 		showStatus('Searching for cosmetic...', 'loading');
 		
-		const inputId = document.getElementById("cosmetic-input").value;
 		const result = await searchCosmetic(cosmeticInput);
 		const { data, allData, entryMeta } = result;
 
@@ -2225,7 +2265,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 			character_name.value = entry.name;
 			character_file.value = 'Resolving image...';
 
-			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
+			const cosmeticData = await loadCosmeticData(entry.path);
 			if (!cosmeticData || !Array.isArray(cosmeticData) || cosmeticData.length === 0) return;
 			let itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
 

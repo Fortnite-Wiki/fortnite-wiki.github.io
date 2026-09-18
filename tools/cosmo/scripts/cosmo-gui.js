@@ -160,7 +160,7 @@ const ZIP_ASSET_TYPE_LABELS = [
 	[/^sparks_mic_/i, 'Microphone'],
 	[/^sparksaura_/i, 'Aura'],
 	[/^carbody_/i, 'Car Body'],
-	[/^carskin_/i, 'Car Decal'],
+	[/^carskin_/i, 'Decal'],
 	[/^wheel_/i, 'Wheels'],
 ];
 
@@ -180,7 +180,7 @@ const ZIP_DATA_PATH_TYPE_LABELS = [
 	[/^Shoes\//i, 'Kicks'],
 	[/^Companions\//i, 'Sidekick'],
 	[/^Racing\/Bodies\//i, 'Car Body'],
-	[/^Racing\/Skins\//i, 'Car Decal'],
+	[/^Racing\/Skins\//i, 'Decal'],
 	[/^Racing\/Wheels\//i, 'Wheels'],
 	[/^Racing\/DriftTrails?\//i, 'Trail'],
 	[/^Racing\/Boosters\//i, 'Boost'],
@@ -305,6 +305,7 @@ function getAssetCandidates() {
 				id: entry.id,
 				name: entry.name,
 				dataPath: entry.path || '',
+				carBodyTag: entry.carBodyTag || '',
 				dav2Path,
 				dav2Id: getDisplayAssetId(dav2Path) || getPrimaryDisplayAssetId(entry.id),
 			});
@@ -1725,9 +1726,65 @@ function getZipImageTypeLabel(image) {
 }
 
 function getZipImageDescriptor(image, contextImages = [image]) {
-	const imageType = getZipImageTypeLabel(image);
+	const contextLabel = getZipImageContextLabel(image);
+	const imageTypeLabel = getZipImageTypeLabel(image);
+	const imageType = contextLabel ? `${contextLabel} - ${imageTypeLabel}` : imageTypeLabel;
 	const stylePart = getZipStylePart(image, contextImages);
 	return stylePart ? `${imageType} - ${stylePart}` : imageType;
+}
+
+function getZipImageContextLabel(image) {
+	if (image?.imageType !== 'locker_preview_image') return '';
+	if (getZipAssetTypeLabel(image) !== 'Decal') return '';
+	return getRacingDecalCarBodyName(image);
+}
+
+function getRacingDecalCarBodyName(image) {
+	const carBodyTag = getRacingDecalCarBodyTag(image);
+	if (!Array.isArray(index)) return '';
+
+	const body = carBodyTag ? index.find((entry) => (
+		isRacingCarBodyEntry(entry) &&
+		String(entry.carBodyTag || '').toLowerCase() === carBodyTag.toLowerCase()
+	)) : null;
+	const fallbackBody = body || getRacingDecalCarBodyFromPath(image);
+
+	return fallbackBody?.name || '';
+}
+
+function getRacingDecalCarBodyTag(image) {
+	if (selectedAsset?.carBodyTag) return selectedAsset.carBodyTag;
+
+	const assetId = getAssetBaseId(image?.assetId || image);
+	const entry = Array.isArray(index) ? index.find((item) => (
+		String(item?.id || '').toLowerCase() === assetId.toLowerCase()
+	)) : null;
+
+	return entry?.carBodyTag || '';
+}
+
+function isRacingCarBodyEntry(entry) {
+	const id = String(entry?.id || '').toLowerCase();
+	return (
+		id.startsWith('carbody_') ||
+		id.startsWith('body_') ||
+		id.startsWith('id_body_')
+	);
+}
+
+function getRacingDecalCarBodyFromPath(image) {
+	const assetId = getAssetBaseId(image?.assetId || image);
+	const decal = Array.isArray(index) ? index.find((entry) => (
+		String(entry?.id || '').toLowerCase() === assetId.toLowerCase()
+	)) : null;
+	const match = String(decal?.path || selectedAsset?.dataPath || '').match(/^Racing\/Skins\/([^/]+)\//i);
+	if (!match) return null;
+
+	const bodyFolder = match[1].toLowerCase();
+	return index.find((entry) => (
+		isRacingCarBodyEntry(entry) &&
+		String(entry.path || '').toLowerCase().startsWith(`racing/bodies/${bodyFolder}/`)
+	)) || null;
 }
 
 function getZipStylePart(image, contextImages = [image]) {

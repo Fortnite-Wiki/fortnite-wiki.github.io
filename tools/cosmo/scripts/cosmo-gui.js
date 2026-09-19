@@ -119,6 +119,7 @@ const VARIANT_OPTION_FIELDS = [
 	'MaterialOptions',
 	'MeshOptions',
 	'MorphOptions',
+	'MorphTargetOptions',
 	'ColorOptions',
 	'TextureOptions',
 	'NumericalOptions',

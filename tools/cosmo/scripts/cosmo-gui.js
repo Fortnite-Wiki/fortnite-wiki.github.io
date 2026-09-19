@@ -1621,16 +1621,20 @@ function updateSelectionControls() {
 
 	elements.selectionCount.textContent = `${selectedCount}/${loadedCount} selected`;
 	elements.selectAllImages.disabled = loadedCount === 0;
+	elements.selectAllImages.textContent = loadedCount > 0 && selectedCount === loadedCount
+		? 'Unselect All'
+		: 'Select All';
 	elements.downloadSelectedZip.disabled = selectedCount === 0;
 }
 
 function selectAllImages() {
+	const shouldSelect = getSelectedLoadedImages().length < getLoadedImages().length;
 	for (const image of getLoadedImages()) {
-		image.selected = true;
+		image.selected = shouldSelect;
 	}
 
 	elements.previewGrid.querySelectorAll('.preview-select input').forEach((input) => {
-		input.checked = true;
+		input.checked = shouldSelect;
 	});
 	updateSelectionControls();
 }

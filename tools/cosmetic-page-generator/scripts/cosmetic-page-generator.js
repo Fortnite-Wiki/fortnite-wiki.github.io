@@ -1754,7 +1754,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		const rendersSection = [];
 		rendersSection.push('== Render ==');
 		rendersSection.push('<center>');
-		rendersSection.push('{|');
+		rendersSection.push('{| class="style-text"');
 
 		const colspanFlag = columns.length == 1 ? '' : `colspan="${columns.length > 3 ? 3 : columns.length}"|`;
 		rendersSection.push(`!${colspanFlag}{{Style Header|Render}}`);
@@ -1768,7 +1768,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				if (c !== 'LEGO' && c !== name && variantMatchesMain && !variantMatchesMain[`${channelKeys[0]},${c}`]) {
 					styleName = `${channelPrefix}${c}`;
 				}
-				return `!{{Style Name|${styleName}}}`;
+				return `!${styleName}`;
 			}).join('\n'));
 			rendersSection.push('|-');
 

@@ -221,7 +221,7 @@ const COSMO_DATA_PATH_TYPE_MAPPINGS = [
 const ZIP_IMAGE_TYPE_LABELS = {
 	locker_preview_image: 'Locker Preview',
 	preview_image: 'Preview',
-	preview_permutation_image: 'Preview Permutation',
+	preview_permutation_image: 'Permutation',
 	store_image: 'Store',
 };
 
@@ -298,7 +298,7 @@ function getAssetCandidates() {
 	return index.flatMap((entry) => {
 		const candidates = [];
 
-		if (typeof entry.id === 'string' && typeof entry.name === 'string') {
+		if (typeof entry.id === 'string' && typeof entry.name === 'string' && !isHiddenSearchAssetId(entry.id)) {
 			const dav2Path = getLatestDav2Path(entry.dav2);
 			candidates.push({
 				kind: 'Cosmetic',
@@ -323,8 +323,12 @@ function getAssetCandidates() {
 			});
 		}
 
-		return candidates;
+	return candidates;
 	});
+}
+
+function isHiddenSearchAssetId(assetId) {
+	return /^petid_/i.test(String(assetId || ''));
 }
 
 function getDisplayAssetId(path) {
@@ -823,6 +827,7 @@ function renderDetectedStyleControls() {
 
 	const showAllOptions = elements.styleSource.value === 'detected-all';
 	const imageType = elements.imageType.value;
+	const visibleGroups = getVisibleDetectedStyleGroups(imageType);
 	const generatedCount = getDetectedGeneratedCount(imageType);
 	const detectedUnit = usesVariantOptionStyleFormat(imageType) || imageType === 'store_image'
 		? 'option'
@@ -833,10 +838,10 @@ function renderDetectedStyleControls() {
 	} else {
 		elements.detectedStyleStatus.textContent = showAllOptions
 			? `${generatedCount} detected ${detectedUnit}${generatedCount === 1 ? '' : 's'} will be generated.`
-			: `${detectedStyleGroups.length} option group${detectedStyleGroups.length === 1 ? '' : 's'} detected.`;
+			: `${visibleGroups.length} option group${visibleGroups.length === 1 ? '' : 's'} detected.`;
 	}
 
-	detectedStyleGroups.forEach((group, groupIndex) => {
+	visibleGroups.forEach(({ group, groupIndex }) => {
 		const row = document.createElement('div');
 		row.className = 'detected-style-row';
 
@@ -875,6 +880,12 @@ function renderDetectedStyleControls() {
 	});
 }
 
+function getVisibleDetectedStyleGroups(imageType) {
+	return detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => !shouldUseImmutableOnlyStyles(imageType) || isImmutableVariantGroup(group));
+}
+
 function selectedDetectedStyle() {
 	if (!detectedStyleGroups.length) return [null];
 
@@ -891,6 +902,41 @@ function selectedDetectedStyle() {
 function allDetectedStyles() {
 	if (!detectedStyleGroups.length) return [null];
 	return cartesianProduct(detectedStyleGroups.map((group) => getStyleValuesForCombination(group)));
+}
+
+function selectedPreviewPermutationStyle() {
+	if (!detectedStyleGroups.length) return [null];
+
+	const selectedByGroupIndex = new Map(
+		Array.from(elements.detectedStyleControls.querySelectorAll('.detected-style-select'))
+			.map((select) => [Number(select.dataset.groupIndex), Number(select.value)])
+	);
+
+	return [detectedStyleGroups.map((group, groupIndex) => (
+		isImmutableVariantGroup(group)
+			? selectedByGroupIndex.get(groupIndex) ?? getDefaultOptionValue(group)
+			: getDefaultOptionValue(group)
+	))];
+}
+
+function allPreviewPermutationStyles() {
+	if (!detectedStyleGroups.length) return [null];
+
+	const immutableGroups = detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => isImmutableVariantGroup(group));
+	const baseValues = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
+
+	if (!immutableGroups.length) return [baseValues];
+
+	return cartesianProduct(immutableGroups.map(({ group }) => getStyleValuesForCombination(group)))
+		.map((values) => {
+			const style = [...baseValues];
+			values.forEach((value, valueIndex) => {
+				style[immutableGroups[valueIndex].groupIndex] = value;
+			});
+			return style;
+		});
 }
 
 function selectedDetectedOptionStyles() {
@@ -915,6 +961,7 @@ function getDetectedGeneratedCount(imageType) {
 	if (!detectedStyleGroups.length) return shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) return getDefaultStyleArrays().length;
 	const defaultCandidateCount = shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
+	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount();
 	if (usesVariantOptionStyleFormat(imageType) || imageType === 'store_image') {
 		return defaultCandidateCount + detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
 	}
@@ -927,8 +974,23 @@ function getFullCombinationCount() {
 	return detectedStyleGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
 }
 
+function getPreviewPermutationCombinationCount() {
+	if (!detectedStyleGroups.length) return 0;
+	const immutableGroups = detectedStyleGroups.filter((group) => isImmutableVariantGroup(group));
+	if (!immutableGroups.length) return 1;
+	return immutableGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
+}
+
 function getStyleValuesForCombination(group) {
 	return group.options.map((option) => option.value);
+}
+
+function isImmutableVariantGroup(group) {
+	return /immutable/i.test(String(group?.tagName || ''));
+}
+
+function shouldUseImmutableOnlyStyles(imageType, assetId = getCurrentAssetId()) {
+	return imageType !== 'store_image' && isCompanionAssetId(assetId);
 }
 
 function getDefaultOptionValue(group) {
@@ -949,7 +1011,7 @@ function usesFullStyleCombinations(imageType) {
 }
 
 function shouldIncludeDefaultImageCandidate(imageType) {
-	return imageType !== 'store_image' && elements.styleSource?.value !== 'manual';
+	return imageType !== 'store_image' && imageType !== 'preview_permutation_image' && elements.styleSource?.value !== 'manual';
 }
 
 function isCompanionAssetId(assetId) {
@@ -1056,8 +1118,9 @@ function getCurrentAssetId() {
 	return elements.assetId?.value.trim() || selectedAsset?.id || elements.assetDisplay?.value.trim() || '';
 }
 
-function buildPath(assetId, imageType, styleArray, version, dav2Id = '') {
+function buildPath(assetId, imageType, styleArray, version, dav2Id = '', assetTypeOverride = '') {
 	let [assetType, normalizedId] = getAssetType(assetId, imageType, dav2Id);
+	if (assetTypeOverride) assetType = assetTypeOverride;
 
 	if (normalizedId.includes('[')) {
 		const [base, suffix] = normalizedId.split('[', 2);
@@ -1069,6 +1132,32 @@ function buildPath(assetId, imageType, styleArray, version, dav2Id = '') {
 	let path = `fn/${version}/${assetType}:${normalizedId}/${imageType}`;
 	if (styleArray !== null) path += `[${styleArray.join(',')}]`;
 	return path;
+}
+
+function buildCandidatePaths(assetId, imageType, styleArray, version, dav2Id = '') {
+	const paths = [buildPath(assetId, imageType, styleArray, version, dav2Id)];
+	const fallbackTypes = getCosmoAssetTypeFallbacks(assetId, imageType);
+
+	for (const assetType of fallbackTypes) {
+		const path = buildPath(assetId, imageType, styleArray, version, dav2Id, assetType);
+		if (!paths.includes(path)) paths.push(path);
+	}
+
+	return paths;
+}
+
+function getCosmoAssetTypeFallbacks(assetId, imageType) {
+	if (imageType === 'store_image') return [];
+
+	const baseId = String(assetId || '').split('[', 1)[0].toLowerCase();
+	if (baseId.startsWith('petcarrier_')) return ['AthenaBackpack'];
+	if (baseId.startsWith('petid_')) return ['AthenaPetCarrier', 'AthenaBackpack'];
+	return [];
+}
+
+function getFallbackGroupKey(assetId, imageType, styleArray) {
+	const styleKey = styleArray === null ? 'default' : styleArray.join(',');
+	return `${assetId}|${imageType}|${styleKey}`.toLowerCase();
 }
 
 function base64ToBytes(value) {
@@ -1107,7 +1196,7 @@ function getFileName(imageType, styleArray) {
 	return `${imageType}${styleSuffix(styleArray)}.png`;
 }
 
-function getStyleSelections(styleArray, imageType) {
+function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()) {
 	if (!Array.isArray(styleArray) || !detectedStyleGroups.length) return [];
 
 	if (usesVariantOptionStyleFormat(imageType)) {
@@ -1124,6 +1213,7 @@ function getStyleSelections(styleArray, imageType) {
 
 	return styleArray.map((value, index) => {
 		const group = detectedStyleGroups[index];
+		if (shouldUseImmutableOnlyStyles(imageType, assetId) && !isImmutableVariantGroup(group)) return null;
 		const option = group?.options.find((item) => Number(item.value) === Number(value));
 
 		return {
@@ -1134,8 +1224,8 @@ function getStyleSelections(styleArray, imageType) {
 	}).filter(Boolean);
 }
 
-function getStyleLabel(styleArray, imageType) {
-	const selections = getStyleSelections(styleArray, imageType);
+function getStyleLabel(styleArray, imageType, assetId = getCurrentAssetId()) {
+	const selections = getStyleSelections(styleArray, imageType, assetId);
 	if (!selections.length) return styleArray === null ? 'Default' : getFileName('Style', styleArray).replace(/\.png$/, '');
 	return selections.map((selection) => `${selection.groupName}: ${selection.optionName}`).join(' | ');
 }
@@ -1157,18 +1247,24 @@ async function generateImages() {
 	const images = [];
 
 	for (const style of styles) {
-		const path = buildPath(assetId, imageType, style, release.version, dav2Id);
-		images.push({
-			assetId,
-			imageType,
-			requestedImageType: imageType,
-			style,
-			path,
-			url: await makeUrl(path, release.key),
-			fileName: getFileName(imageType, style),
-			styleLabel: getStyleLabel(style, imageType),
-			styleSelections: getStyleSelections(style, imageType),
-		});
+		const paths = buildCandidatePaths(assetId, imageType, style, release.version, dav2Id);
+		const fallbackGroupKey = paths.length > 1 ? getFallbackGroupKey(assetId, imageType, style) : '';
+		for (let fallbackRank = 0; fallbackRank < paths.length; fallbackRank++) {
+			const path = paths[fallbackRank];
+			images.push({
+				assetId,
+				imageType,
+				requestedImageType: imageType,
+				style,
+				path,
+				url: await makeUrl(path, release.key),
+				fileName: getFileName(imageType, style),
+				styleLabel: getStyleLabel(style, imageType, assetId),
+				styleSelections: getStyleSelections(style, imageType, assetId),
+				fallbackGroupKey,
+				fallbackRank,
+			});
+		}
 	}
 
 	return images;
@@ -1216,7 +1312,11 @@ function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 
 	let styles;
 
-	if (usesVariantOptionStyleFormat(imageType)) {
+	if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
+		styles = elements.styleSource.value === 'detected-all'
+			? allPreviewPermutationStyles()
+			: selectedPreviewPermutationStyle();
+	} else if (usesVariantOptionStyleFormat(imageType)) {
 		styles = elements.styleSource.value === 'detected-all'
 			? allDetectedOptionStyles()
 			: selectedDetectedOptionStyles();
@@ -1381,6 +1481,8 @@ function renderPreview(images) {
 		actions.append(open, download);
 		card.append(header, img, styleInfo, path, actions);
 		elements.previewGrid.appendChild(card);
+		image.previewCard = card;
+		image.previewSelectInput = selectInput;
 		previewItems.push({ card, image, img, status, selectInput });
 	}
 
@@ -1415,8 +1517,18 @@ function loadPreviewImage({ card, image, img, status, selectInput }, loadRun) {
 				return;
 			}
 
+			if (exists && hasHigherPriorityLoadedFallback(image)) {
+				image.exists = 'duplicate';
+				image.selected = false;
+				card.remove();
+				refreshGeneratedResults();
+				resolve();
+				return;
+			}
+
 			image.exists = exists;
 			if (exists) {
+				removeLowerPriorityLoadedFallbacks(image);
 				status.textContent = 'Found';
 			} else {
 				selectInput.checked = false;
@@ -1443,6 +1555,36 @@ function loadPreviewImage({ card, image, img, status, selectInput }, loadRun) {
 
 		loadUrl(image.url);
 	});
+}
+
+function hasHigherPriorityLoadedFallback(image) {
+	if (!image.fallbackGroupKey) return false;
+	return generatedImages.some((candidate) => (
+		candidate !== image &&
+		candidate.fallbackGroupKey === image.fallbackGroupKey &&
+		candidate.exists === true &&
+		Number(candidate.fallbackRank) < Number(image.fallbackRank)
+	));
+}
+
+function removeLowerPriorityLoadedFallbacks(image) {
+	if (!image.fallbackGroupKey) return;
+
+	for (const candidate of generatedImages) {
+		if (
+			candidate === image ||
+			candidate.fallbackGroupKey !== image.fallbackGroupKey ||
+			candidate.exists !== true ||
+			Number(candidate.fallbackRank) <= Number(image.fallbackRank)
+		) {
+			continue;
+		}
+
+		candidate.exists = 'duplicate';
+		candidate.selected = false;
+		if (candidate.previewSelectInput) candidate.previewSelectInput.checked = false;
+		candidate.previewCard?.remove();
+	}
 }
 
 function getSelectedLoadedImages() {
@@ -1591,7 +1733,7 @@ function updateGalleryOutput() {
 
 function buildGalleryOutput(images) {
 	if (!images.length) return '';
-	if (images[0].imageType !== 'locker_preview_image') return '';
+	if (!isGallerySupportedImageType(images[0].imageType)) return '';
 
 	const title = getGalleryTitle(images[0]);
 	const isNested = elements.nestedTabberOutput?.checked;
@@ -1621,15 +1763,10 @@ function buildGalleryBodyLines(title, images, tabPrefix) {
 	const lines = [
 		`${tabPrefix}${title}=`,
 		`=== ${title} ===`,
-		"{{LockerPreviewInfo}}",
 	];
 
-	if (shouldWrapGalleryInScrollbox(images)) {
-		lines.push('{{Scrollbox Clear|BoxHeight=500|Content=');
-		lines.push(...galleryLines);
-		lines.push('}}');
-		return lines;
-	}
+	const infoTemplate = getGalleryInfoTemplate(images[0]);
+	if (infoTemplate) lines.push(infoTemplate);
 
 	lines.push(...galleryLines);
 	return lines;
@@ -1648,14 +1785,20 @@ function buildGalleryLines(images) {
 	return lines;
 }
 
-function shouldWrapGalleryInScrollbox(images) {
-	return images.length >= 30 && images.some((image) => isRacingCosmeticImage(image));
+function isGallerySupportedImageType(imageType) {
+	return imageType === 'locker_preview_image' || imageType === 'preview_permutation_image';
+}
+
+function getGalleryInfoTemplate(image) {
+	if (isCompanionAssetId(image?.assetId)) return '{{SidekickPermutationInfo}}';
+	if (image?.imageType === 'locker_preview_image') return '{{LockerPreviewInfo}}';
+	return '';
 }
 
 function getGalleryTitle(image) {
 	if (image.imageType === 'locker_preview_image') return 'Locker Previews';
 	if (image.imageType === 'store_image') return 'Store Images';
-	if (image.imageType === 'preview_permutation_image') return 'Preview Permutations';
+	if (image.imageType === 'preview_permutation_image') return 'Permutation Icons';
 	return 'Preview Images';
 }
 
@@ -1669,7 +1812,13 @@ function getGalleryCaption(image, contextImages = [image]) {
 		const racingCaption = getRacingGalleryCaption(image);
 		if (racingCaption) return racingCaption;
 	}
-	if (!hasDefaultImageCandidateInGallery(contextImages) && image === contextImages[0]) return cosmeticName;
+	if (
+		image.imageType === 'locker_preview_image' &&
+		!hasDefaultImageCandidateInGallery(contextImages) &&
+		image === contextImages[0]
+	) {
+		return cosmeticName;
+	}
 	if (!image.styleSelections?.length) return cosmeticName;
 
 	const labels = image.styleSelections
@@ -1857,8 +2006,14 @@ function getRacingDecalCarBodyFromPath(image) {
 
 function getZipStylePart(image, contextImages = [image]) {
 	if (!Array.isArray(image.style)) return '';
+	if (shouldUseImmutableOnlyStyles(image.imageType, image.assetId)) return getPreviewPermutationStylePart(image.style);
 	if (isZeroStyleArray(image.style) && !hasDefaultImageCandidate(image, contextImages)) return '';
 	return image.style.join(',');
+}
+
+function getPreviewPermutationStylePart(styleArray) {
+	const values = styleArray.filter((value, index) => isImmutableVariantGroup(detectedStyleGroups[index]));
+	return values.length ? values.join(',') : styleArray.join(',');
 }
 
 function isZeroStyleArray(styleArray) {

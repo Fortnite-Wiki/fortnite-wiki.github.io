@@ -814,7 +814,12 @@ function colorSwatchChoiceName(swatch, namedSwatches, optionIndex) {
 }
 
 function isUnsupportedCosmoStyleGroup(group) {
-	return group.optionSource === 'GenericPropertyOptions' || /lego/i.test(group.name);
+	if (group.optionSource === 'GenericPropertyOptions' && !isVehiclePaintedStyleGroup(group)) return true;
+	return /lego/i.test(group.name);
+}
+
+function isVehiclePaintedStyleGroup(group) {
+	return /^Cosmetics\.Variant\.Channel\.Vehicle\.Painted\b/i.test(String(group?.tagName || ''));
 }
 
 function friendlyVariantType(type) {
@@ -850,7 +855,7 @@ function renderDetectedStyleControls() {
 	const imageType = elements.imageType.value;
 	const visibleGroups = getVisibleDetectedStyleGroups(imageType);
 	const generatedCount = getDetectedGeneratedCount(imageType);
-	const detectedUnit = usesVariantOptionStyleFormat(imageType) || imageType === 'store_image'
+	const detectedUnit = (!shouldUseImmutableOnlyStyles(imageType) && usesVariantOptionStyleFormat(imageType)) || imageType === 'store_image'
 		? 'option'
 		: 'combination';
 	if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
@@ -980,6 +985,7 @@ function allDetectedOptionStyles() {
 
 function getDetectedGeneratedCount(imageType) {
 	if (!detectedStyleGroups.length) return shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
+	if (shouldUseDefaultOnlyForPaintedCarLockerPreview(imageType)) return 1;
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) return getDefaultStyleArrays().length;
 	const defaultCandidateCount = shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
 	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount();
@@ -1011,7 +1017,7 @@ function isImmutableVariantGroup(group) {
 }
 
 function shouldUseImmutableOnlyStyles(imageType, assetId = getCurrentAssetId()) {
-	return imageType === 'preview_permutation_image' && isCompanionAssetId(assetId);
+	return imageType !== 'store_image' && isCompanionAssetId(assetId);
 }
 
 function getDefaultOptionValue(group) {
@@ -1024,6 +1030,14 @@ function shouldUseDefaultOnlyForLargeCombos(imageType) {
 		elements.styleSource?.value === 'detected-all' &&
 		!elements.checkLargeStyleSets?.checked &&
 		getFullCombinationCount() > MAX_AUTO_COMBINATIONS
+	);
+}
+
+function shouldUseDefaultOnlyForPaintedCarLockerPreview(imageType, assetId = getCurrentAssetId()) {
+	return (
+		imageType === 'locker_preview_image' &&
+		isRacingCarBodyAsset(assetId) &&
+		detectedStyleGroups.some((group) => isVehiclePaintedStyleGroup(group))
 	);
 }
 
@@ -1325,6 +1339,10 @@ function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 
 	if (imageType === 'store_image' && !detectedStyleGroups.length) {
 		return [[0]];
+	}
+
+	if (shouldUseDefaultOnlyForPaintedCarLockerPreview(imageType, assetId)) {
+		return [null];
 	}
 
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) {
@@ -1869,6 +1887,16 @@ function extractColorHex(value) {
 function isRacingCosmeticImage(image) {
 	const assetType = getZipAssetTypeLabel(image);
 	return ['Car Body', 'Wheels', 'Decal', 'Boost', 'Trail'].includes(assetType);
+}
+
+function isRacingCarBodyAsset(assetId) {
+	const baseId = getAssetBaseId(assetId).toLowerCase();
+	if (/^(carbody_|body_|id_body_)/i.test(baseId)) return true;
+	const selectedBaseId = String(selectedAsset?.id || '').toLowerCase();
+	if (selectedBaseId && selectedBaseId === baseId) {
+		return /^Racing\/Bodies\//i.test(selectedAsset?.dataPath || '');
+	}
+	return false;
 }
 
 function hasDefaultImageCandidateInGallery(images) {

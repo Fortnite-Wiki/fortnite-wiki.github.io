@@ -1623,7 +1623,7 @@ function buildGalleryBodyLines(title, images, tabPrefix) {
 
 	for (const image of images) {
 		const fileName = formatGalleryFileName(getImageDownloadFileName(image, images));
-		const caption = getGalleryCaption(image);
+		const caption = getGalleryCaption(image, images);
 		lines.push(`${fileName}|${caption}`);
 	}
 
@@ -1642,20 +1642,46 @@ function formatGalleryFileName(fileName) {
 	return fileName;
 }
 
-function getGalleryCaption(image) {
+function getGalleryCaption(image, contextImages = [image]) {
 	const cosmeticName = getZipCosmeticName(image);
+	if (!hasDefaultImageCandidateInGallery(contextImages) && image === contextImages[0]) return cosmeticName;
 	if (!image.styleSelections?.length) return cosmeticName;
 
 	const labels = image.styleSelections
-		.map((selection) => formatGalleryCaptionLabel(selection.optionName))
+		.map((selection) => formatGalleryCaptionSelection(selection, image.styleSelections))
 		.filter((label) => shouldUseGalleryCaptionLabel(label, cosmeticName));
 
 	return labels.length ? labels.join(', ') : cosmeticName;
 }
 
+function hasDefaultImageCandidateInGallery(images) {
+	return images.some((image) => image?.style === null);
+}
+
+function formatGalleryCaptionSelection(selection, selections) {
+	const optionLabel = formatGalleryCaptionLabel(selection.optionName);
+	if (selections.length !== 1) return optionLabel;
+
+	const groupLabel = formatGalleryCaptionLabel(selection.groupName);
+	if (!groupLabel || shouldOmitGalleryCaptionGroup(groupLabel, optionLabel)) return optionLabel;
+	return `${groupLabel} - ${optionLabel}`;
+}
+
 function formatGalleryCaptionLabel(label) {
 	const value = String(label || '').trim();
 	return isAllCapsLabel(value) ? titleCaseWords(value) : value;
+}
+
+function shouldOmitGalleryCaptionGroup(groupLabel, optionLabel) {
+	const group = String(groupLabel || '').trim().toLowerCase();
+	const option = String(optionLabel || '').trim().toLowerCase();
+	return (
+		!group ||
+		group === option ||
+		group === 'style' ||
+		group === 'styles' ||
+		group.startsWith('channel ')
+	);
 }
 
 function isAllCapsLabel(value) {
@@ -1671,7 +1697,6 @@ function shouldUseGalleryCaptionLabel(label, cosmeticName) {
 		lower === cosmeticName.toLowerCase() ||
 		lower === 'default' ||
 		lower === 'base' ||
-		lower === 'off' ||
 		lower === 'none'
 	);
 }

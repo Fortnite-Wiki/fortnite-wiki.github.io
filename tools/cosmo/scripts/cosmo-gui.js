@@ -1011,7 +1011,7 @@ function isImmutableVariantGroup(group) {
 }
 
 function shouldUseImmutableOnlyStyles(imageType, assetId = getCurrentAssetId()) {
-	return imageType !== 'store_image' && isCompanionAssetId(assetId);
+	return imageType === 'preview_permutation_image' && isCompanionAssetId(assetId);
 }
 
 function getDefaultOptionValue(group) {

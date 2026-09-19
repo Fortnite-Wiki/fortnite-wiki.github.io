@@ -419,6 +419,9 @@ function applyAssetMode(asset = selectedAsset) {
 	const isBundle = asset?.kind === 'Bundle';
 	const isCompanion = asset?.kind === 'Cosmetic' && isCompanionAssetId(asset.id);
 
+	const permutationOption = elements.imageType.querySelector('option[value="preview_permutation_image"]');
+	if (permutationOption) permutationOption.hidden = !isCompanion;
+
 	elements.imageType.disabled = isBundle;
 	if (isBundle) elements.imageType.value = 'store_image';
 

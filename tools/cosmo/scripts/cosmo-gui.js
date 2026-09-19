@@ -713,19 +713,23 @@ async function loadMaterialParameterSetChoices(props) {
 	const ref = props.InlineVariant?.MaterialParameterSetChoices;
 	if (!ref?.ObjectPath) return [];
 
-	const localPath = materialParameterSetDataPath(ref.ObjectPath);
-	if (!localPath) return [];
+	const localPaths = materialParameterSetDataPaths(ref.ObjectPath);
+	if (!localPaths.length) return [];
 
-	try {
-		const data = await loadGzJson(localPath);
-		const objectName = ref.ObjectName ? String(ref.ObjectName).match(/'([^']+)'/)?.[1] : '';
-		const entry = Array.isArray(data)
-			? data.find((item) => item?.Name === objectName) || data[0]
-			: null;
-		return Array.isArray(entry?.Properties?.Choices) ? entry.Properties.Choices : [];
-	} catch {
-		return [];
+	for (const localPath of localPaths) {
+		try {
+			const data = await loadGzJson(localPath);
+			const objectName = ref.ObjectName ? String(ref.ObjectName).match(/'([^']+)'/)?.[1] : '';
+			const entry = Array.isArray(data)
+				? data.find((item) => item?.Name === objectName) || data[0]
+				: null;
+			if (Array.isArray(entry?.Properties?.Choices)) return entry.Properties.Choices;
+		} catch {
+			continue;
+		}
 	}
+
+	return [];
 }
 
 async function loadColorSwatchChoices(props) {
@@ -754,16 +758,31 @@ async function loadColorSwatchChoices(props) {
 	return [];
 }
 
-function materialParameterSetDataPath(objectPath) {
+const COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES = new Set([
+	'MaterialParameterSets',
+	'MaterialParamaterSets',
+	'MaterialParameters',
+	'MPS',
+	'MaterialParamSets',
+	'MaterialParametrs',
+	'MaterialParamSettings',
+	'MaterialParametrSets',
+]);
+
+function materialParameterSetDataPaths(objectPath) {
 	const parts = String(objectPath).split('/').filter(Boolean);
-	const folderIndex = parts.findIndex((part) => part === 'MaterialParameterSets');
-	if (folderIndex < 1 || folderIndex >= parts.length - 1) return '';
+	const folderIndex = parts.findIndex((part) => COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES.has(part));
+	if (folderIndex < 1 || folderIndex >= parts.length - 1) return [];
 
 	const companionFolder = parts[folderIndex - 1];
 	const fileName = parts[folderIndex + 1].replace(/\.\d+$/, '');
-	if (!companionFolder || !fileName) return '';
+	if (!companionFolder || !fileName) return [];
 
-	return `${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`;
+	const exportedFolder = parts[folderIndex];
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`,
+		`${DATA_BASE_PATH}cosmetics/Companions/${exportedFolder}/${companionFolder}/${fileName}.json`,
+	]);
 }
 
 function colorSwatchDataPaths(assetPathName) {

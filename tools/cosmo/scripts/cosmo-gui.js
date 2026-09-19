@@ -1614,12 +1614,26 @@ function buildGalleryOutput(images) {
 }
 
 function buildGalleryBodyLines(title, images, tabPrefix) {
+	const galleryLines = buildGalleryLines(images);
 	const lines = [
 		`${tabPrefix}${title}=`,
 		`=== ${title} ===`,
 		"{{LockerPreviewInfo}}",
-		'<gallery>',
 	];
+
+	if (shouldWrapGalleryInScrollbox(images)) {
+		lines.push('{{Scrollbox Clear|BoxHeight=500|Content=');
+		lines.push(...galleryLines);
+		lines.push('}}');
+		return lines;
+	}
+
+	lines.push(...galleryLines);
+	return lines;
+}
+
+function buildGalleryLines(images) {
+	const lines = ['<gallery>'];
 
 	for (const image of images) {
 		const fileName = formatGalleryFileName(getImageDownloadFileName(image, images));
@@ -1629,6 +1643,10 @@ function buildGalleryBodyLines(title, images, tabPrefix) {
 
 	lines.push('</gallery>');
 	return lines;
+}
+
+function shouldWrapGalleryInScrollbox(images) {
+	return images.length >= 30 && images.some((image) => isRacingCosmeticImage(image));
 }
 
 function getGalleryTitle(image) {
@@ -1644,6 +1662,10 @@ function formatGalleryFileName(fileName) {
 
 function getGalleryCaption(image, contextImages = [image]) {
 	const cosmeticName = getZipCosmeticName(image);
+	if (isRacingCosmeticImage(image)) {
+		const racingCaption = getRacingGalleryCaption(image);
+		if (racingCaption) return racingCaption;
+	}
 	if (!hasDefaultImageCandidateInGallery(contextImages) && image === contextImages[0]) return cosmeticName;
 	if (!image.styleSelections?.length) return cosmeticName;
 
@@ -1652,6 +1674,24 @@ function getGalleryCaption(image, contextImages = [image]) {
 		.filter((label) => shouldUseGalleryCaptionLabel(label, cosmeticName));
 
 	return labels.length ? labels.join(', ') : cosmeticName;
+}
+
+function getRacingGalleryCaption(image) {
+	const labels = (image.styleSelections || [])
+		.map((selection) => extractColorHex(selection.optionName) || extractColorHex(selection.groupName))
+		.filter(Boolean);
+
+	return labels.length ? labels.join(', ') : '';
+}
+
+function extractColorHex(value) {
+	const match = String(value || '').match(/#[0-9a-f]{6}\b/i);
+	return match?.[0] || '';
+}
+
+function isRacingCosmeticImage(image) {
+	const assetType = getZipAssetTypeLabel(image);
+	return ['Car Body', 'Wheels', 'Decal', 'Boost', 'Trail'].includes(assetType);
 }
 
 function hasDefaultImageCandidateInGallery(images) {

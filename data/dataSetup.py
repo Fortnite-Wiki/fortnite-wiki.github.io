@@ -309,7 +309,7 @@ def build_index(dirs):
         return any("Cosmetics.Source.DefaultItem" in item.get("Tags", []) for item in props.get("DataList", []))
 
     def should_keep_default_item(entry, directory):
-        if entry.get("Name") in {"DefaultGlider", "DefaultPickaxe"}:
+        if entry.get("Name") in {"DefaultContrail", "DefaultGlider", "DefaultPickaxe"}:
             return True
         return directory == DEFAULT_ATHENA_CHARACTER_DIR and entry.get("Type") == "AthenaCharacterItemDefinition"
 
@@ -349,6 +349,8 @@ def build_index(dirs):
                 item_name = props.get("ItemName", {}).get("LocalizedString") or ""
                 if not item_name and entry.get("Type") == "AthenaGliderItemDefinition":
                     item_name = cosmetic_id
+                elif not item_name and cosmetic_id == "DefaultContrail":
+                    item_name = props.get("ItemShortDescription", {}).get("LocalizedString") or cosmetic_id
 
                 if not cosmetic_id or not item_name or (is_default_item(props) and not should_keep_default_item(entry, directory)):
                     continue

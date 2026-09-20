@@ -1902,8 +1902,8 @@ function isGallerySupportedImageType(imageType) {
 }
 
 function getGalleryInfoTemplate(image) {
-	if (isCompanionAssetId(image?.assetId)) return '{{SidekickPermutationInfo}}';
 	if (image?.imageType === 'locker_preview_image') return '{{LockerPreviewInfo}}';
+	if (image?.imageType === 'preview_permutation_image' && isCompanionAssetId(image?.assetId)) return '{{SidekickPermutationInfo}}';
 	return '';
 }
 

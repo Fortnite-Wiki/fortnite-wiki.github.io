@@ -931,36 +931,38 @@ function allDetectedStyles() {
 	return cartesianProduct(detectedStyleGroups.map((group) => getStyleValuesForCombination(group)));
 }
 
-function selectedPreviewPermutationStyle() {
+function selectedPreviewPermutationStyle(imageType) {
 	if (!detectedStyleGroups.length) return [null];
 
 	const selectedByGroupIndex = new Map(
 		Array.from(elements.detectedStyleControls.querySelectorAll('.detected-style-select'))
 			.map((select) => [Number(select.dataset.groupIndex), Number(select.value)])
 	);
+	const shouldIncludeGroup = getCompanionCombinationGroupPredicate(imageType);
 
 	return [detectedStyleGroups.map((group, groupIndex) => (
-		isGeneratedCompanionStyleGroup(group)
+		shouldIncludeGroup(group)
 			? selectedByGroupIndex.get(groupIndex) ?? getDefaultOptionValue(group)
 			: getDefaultOptionValue(group)
 	))];
 }
 
-function allPreviewPermutationStyles() {
+function allPreviewPermutationStyles(imageType) {
 	if (!detectedStyleGroups.length) return [null];
 
-	const immutableGroups = detectedStyleGroups
+	const shouldIncludeGroup = getCompanionCombinationGroupPredicate(imageType);
+	const generatedGroups = detectedStyleGroups
 		.map((group, groupIndex) => ({ group, groupIndex }))
-		.filter(({ group }) => isGeneratedCompanionStyleGroup(group));
+		.filter(({ group }) => shouldIncludeGroup(group));
 	const baseValues = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
 
-	if (!immutableGroups.length) return [baseValues];
+	if (!generatedGroups.length) return [baseValues];
 
-	return cartesianProduct(immutableGroups.map(({ group }) => getStyleValuesForCombination(group)))
+	return cartesianProduct(generatedGroups.map(({ group }) => getStyleValuesForCombination(group)))
 		.map((values) => {
 			const style = [...baseValues];
 			values.forEach((value, valueIndex) => {
-				style[immutableGroups[valueIndex].groupIndex] = value;
+				style[generatedGroups[valueIndex].groupIndex] = value;
 			});
 			return style;
 		});
@@ -1017,7 +1019,7 @@ function getDetectedGeneratedCount(imageType) {
 	if (shouldUseImmutableOnlyStyles(imageType) && usesVariantOptionStyleFormat(imageType)) {
 		return defaultCandidateCount + getCompanionPreviewOptionCount();
 	}
-	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount();
+	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount(imageType);
 	if (usesVariantOptionStyleFormat(imageType) || imageType === 'store_image') {
 		return defaultCandidateCount + detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
 	}
@@ -1030,11 +1032,11 @@ function getFullCombinationCount() {
 	return detectedStyleGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
 }
 
-function getPreviewPermutationCombinationCount() {
+function getPreviewPermutationCombinationCount(imageType) {
 	if (!detectedStyleGroups.length) return 0;
-	const immutableGroups = detectedStyleGroups.filter((group) => isGeneratedCompanionStyleGroup(group));
-	if (!immutableGroups.length) return 1;
-	return immutableGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
+	const generatedGroups = detectedStyleGroups.filter(getCompanionCombinationGroupPredicate(imageType));
+	if (!generatedGroups.length) return 1;
+	return generatedGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
 }
 
 function getCompanionPreviewOptionCount() {
@@ -1058,8 +1060,15 @@ function isGeneratedCompanionStyleGroup(group) {
 }
 
 function isAllowedCompanionStyleGroup(group, imageType) {
+	if (imageType === 'preview_permutation_image') return isImmutableVariantGroup(group);
 	if (usesVariantOptionStyleFormat(imageType)) return hasPreviewImageStyleOptions(group);
 	return isGeneratedCompanionStyleGroup(group);
+}
+
+function getCompanionCombinationGroupPredicate(imageType) {
+	return imageType === 'preview_permutation_image'
+		? isImmutableVariantGroup
+		: isGeneratedCompanionStyleGroup;
 }
 
 function hasPreviewImageStyleOptions(group) {
@@ -1298,7 +1307,12 @@ function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()
 
 	return styleArray.map((value, index) => {
 		const group = detectedStyleGroups[index];
-		if (shouldUseImmutableOnlyStyles(imageType, assetId) && !isGeneratedCompanionStyleGroup(group)) return null;
+		if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
+			const shouldIncludeGroup = imageType === 'preview_permutation_image'
+				? isImmutableVariantGroup(group)
+				: isGeneratedCompanionStyleGroup(group);
+			if (!shouldIncludeGroup) return null;
+		}
 		const option = group?.options.find((item) => Number(item.value) === Number(value));
 
 		return {
@@ -1407,8 +1421,8 @@ function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 			: selectedCompanionPreviewOptionStyles();
 	} else if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
 		styles = elements.styleSource.value === 'detected-all'
-			? allPreviewPermutationStyles()
-			: selectedPreviewPermutationStyle();
+			? allPreviewPermutationStyles(imageType)
+			: selectedPreviewPermutationStyle(imageType);
 	} else if (usesVariantOptionStyleFormat(imageType)) {
 		styles = elements.styleSource.value === 'detected-all'
 			? allDetectedOptionStyles()
@@ -2113,13 +2127,17 @@ function getRacingDecalCarBodyFromPath(image) {
 
 function getZipStylePart(image, contextImages = [image]) {
 	if (!Array.isArray(image.style)) return '';
-	if (shouldUseImmutableOnlyStyles(image.imageType, image.assetId)) return getPreviewPermutationStylePart(image.style);
+	if (shouldUseImmutableOnlyStyles(image.imageType, image.assetId)) return getCompanionStylePart(image.style, image.imageType);
 	if (isZeroStyleArray(image.style) && !hasDefaultImageCandidate(image, contextImages)) return '';
 	return image.style.join(',');
 }
 
-function getPreviewPermutationStylePart(styleArray) {
-	const values = styleArray.filter((value, index) => isGeneratedCompanionStyleGroup(detectedStyleGroups[index]));
+function getCompanionStylePart(styleArray, imageType) {
+	const shouldIncludeGroup = imageType === 'preview_permutation_image'
+		? isImmutableVariantGroup
+		: isGeneratedCompanionStyleGroup;
+	const values = styleArray.filter((value, index) => shouldIncludeGroup(detectedStyleGroups[index]));
+	if (imageType === 'preview_permutation_image') return values.join(',');
 	return values.length ? values.join(',') : styleArray.join(',');
 }
 

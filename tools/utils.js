@@ -250,74 +250,92 @@ export function stripVbucksTemplate(val) {
  * Check if a page exists on the Fortnite wiki.
  * Returns true if the page exists, false otherwise.
  */
+const pageExistenceCache = new Map();
+
 export async function pageExists(title) {
-	try {
-		const endpoint = 'https://fortnite.weirdgloop.org/api.php';
-		const params = new URLSearchParams({
-			action: 'query',
-			titles: title,
-			format: 'json',
-			origin: '*'
-		});
+	if (pageExistenceCache.has(title)) return pageExistenceCache.get(title);
 
-		const url = `${endpoint}?${params.toString()}`;
-		const resp = await fetch(url);
+	const request = (async () => {
+		try {
+			const endpoint = 'https://fortnite.weirdgloop.org/api.php';
+			const params = new URLSearchParams({
+				action: 'query',
+				titles: title,
+				format: 'json',
+				origin: '*'
+			});
 
-		if (!resp.ok) return false;
+			const url = `${endpoint}?${params.toString()}`;
+			const resp = await fetch(url);
 
-		const json = await resp.json();
-		const pages = json.query && json.query.pages ? json.query.pages : {};
+			if (!resp.ok) return false;
 
-		for (const pid of Object.keys(pages)) {
-			const p = pages[pid];
-			// If the page has a "missing" property, it doesn't exist
-			if (p && !(p.missing == "")) {
-				return true;
+			const json = await resp.json();
+			const pages = json.query && json.query.pages ? json.query.pages : {};
+
+			for (const pid of Object.keys(pages)) {
+				const p = pages[pid];
+				// If the page has a "missing" property, it doesn't exist
+				if (p && !(p.missing == "")) {
+					return true;
+				}
 			}
+			return false;
+		} catch (err) {
+			console.warn('pageExists error', err);
+			return false;
 		}
-		return false;
-	} catch (err) {
-		console.warn('pageExists error', err);
-		return false;
-	}
+	})();
+
+	pageExistenceCache.set(title, request);
+	return request;
 }
 
 /**
  * Query the MediaWiki API for images on a page title.
  * Returns an array of filenames (without the leading "File:").
  */
+const wikiImageFilesCache = new Map();
+
 async function fetchWikiImageFiles(title) {
-	try {
-		const endpoint = 'https://fortnite.weirdgloop.org/api.php';
-		const params = new URLSearchParams({
-			action: 'query',
-			prop: 'images',
-			titles: title,
-			format: 'json',
-			imlimit: 'max',
-			origin: '*'
-		});
-		const url = `${endpoint}?${params.toString()}`;
-		const resp = await fetch(url);
-		if (!resp.ok) return [];
-		const json = await resp.json();
-		const pages = json.query && json.query.pages ? json.query.pages : {};
-		const files = [];
-		for (const pid of Object.keys(pages)) {
-			const p = pages[pid];
-			if (p && p.images) {
-				for (const im of p.images) {
-					if (im && im.title && im.title.startsWith('File:')) {
-						files.push(im.title.replace(/^File:/, ''));
+	if (wikiImageFilesCache.has(title)) return wikiImageFilesCache.get(title);
+
+	const request = (async () => {
+		try {
+			const endpoint = 'https://fortnite.weirdgloop.org/api.php';
+			const params = new URLSearchParams({
+				action: 'query',
+				prop: 'images',
+				titles: title,
+				format: 'json',
+				imlimit: 'max',
+				origin: '*'
+			});
+			const url = `${endpoint}?${params.toString()}`;
+			const resp = await fetch(url);
+			if (!resp.ok) return [];
+			const json = await resp.json();
+			const pages = json.query && json.query.pages ? json.query.pages : {};
+			const files = [];
+			for (const pid of Object.keys(pages)) {
+				const p = pages[pid];
+				if (p && p.images) {
+					for (const im of p.images) {
+						if (im && im.title && im.title.startsWith('File:')) {
+							files.push(im.title.replace(/^File:/, ''));
+						}
 					}
 				}
 			}
+			return files;
+		} catch (err) {
+			console.warn('fetchWikiImageFiles error', err);
+			return [];
 		}
-		return files;
-	} catch (err) {
-		console.warn('fetchWikiImageFiles error', err);
-		return [];
-	}
+	})();
+
+	wikiImageFilesCache.set(title, request);
+	return request;
 }
 
 /**

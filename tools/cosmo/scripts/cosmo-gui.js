@@ -2128,11 +2128,47 @@ function getGalleryCaption(image, contextImages = [image]) {
 }
 
 function getRacingGalleryCaption(image) {
+	if (hasPaintedStyleSelection(image)) {
+		const labels = (image.styleSelections || [])
+			.map(formatPaintedRacingGallerySelection)
+			.filter(Boolean);
+
+		return labels.length ? labels.join(', ') : '';
+	}
+
 	const labels = (image.styleSelections || [])
 		.map((selection) => extractColorHex(selection.optionName) || extractColorHex(selection.groupName))
 		.filter(Boolean);
 
 	return labels.length ? labels.join(', ') : '';
+}
+
+function hasPaintedStyleSelection(image) {
+	return (image.styleSelections || []).some((selection) => isPaintedStyleSelection(selection));
+}
+
+function formatPaintedRacingGallerySelection(selection) {
+	const groupName = String(selection.groupName || '');
+	const optionName = String(selection.optionName || '');
+
+	if (isBodyColorSelection(selection)) {
+		const hex = extractColorHex(optionName) || extractColorHex(groupName);
+		return hex ? `Body Color - ${hex}` : '';
+	}
+
+	if (isPaintedStyleSelection(selection)) {
+		return `Painted Style - ${formatGalleryCaptionLabel(optionName)}`;
+	}
+
+	return '';
+}
+
+function isBodyColorSelection(selection) {
+	return /body color/i.test(String(selection.groupName || ''));
+}
+
+function isPaintedStyleSelection(selection) {
+	return /painted style/i.test(String(selection.groupName || ''));
 }
 
 function extractColorHex(value) {

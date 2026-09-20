@@ -666,6 +666,7 @@ async function getVariantOptionInfo(props) {
 			options: props[optionField].map((option, optionIndex) => ({
 				value: optionIndex,
 				name: localizedText(option?.VariantName) || localizedText(option?.ColorName) || option?.Name || `Option ${optionIndex}`,
+				previewImage: option?.PreviewImage?.AssetPathName || '',
 			})),
 		};
 	}
@@ -909,7 +910,7 @@ function renderDetectedStyleControls() {
 function getVisibleDetectedStyleGroups(imageType) {
 	return detectedStyleGroups
 		.map((group, groupIndex) => ({ group, groupIndex }))
-		.filter(({ group }) => !shouldUseImmutableOnlyStyles(imageType) || isGeneratedCompanionStyleGroup(group));
+		.filter(({ group }) => !shouldUseImmutableOnlyStyles(imageType) || isAllowedCompanionStyleGroup(group, imageType));
 }
 
 function selectedDetectedStyle() {
@@ -983,11 +984,39 @@ function allDetectedOptionStyles() {
 	));
 }
 
+function selectedCompanionPreviewOptionStyles() {
+	if (!detectedStyleGroups.length) return [null];
+
+	return Array.from(elements.detectedStyleControls.querySelectorAll('.detected-style-select'))
+		.map((select) => {
+			const groupIndex = Number(select.dataset.groupIndex);
+			const group = detectedStyleGroups[groupIndex];
+			const option = group?.options.find((item) => Number(item.value) === Number(select.value));
+			if (!option?.previewImage) return null;
+			return [group?.channelIndex ?? groupIndex, option.value];
+		})
+		.filter(Boolean);
+}
+
+function allCompanionPreviewOptionStyles() {
+	if (!detectedStyleGroups.length) return [null];
+
+	return detectedStyleGroups.flatMap((group, groupIndex) => {
+		if (!hasPreviewImageStyleOptions(group)) return [];
+		return group.options
+			.filter((option) => option.previewImage)
+			.map((option) => [group.channelIndex ?? groupIndex, option.value]);
+	});
+}
+
 function getDetectedGeneratedCount(imageType) {
 	if (!detectedStyleGroups.length) return shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
 	if (shouldUseDefaultOnlyForPaintedCarLockerPreview(imageType)) return 1;
 	if (shouldUseDefaultOnlyForLargeCombos(imageType)) return getDefaultStyleArrays().length;
 	const defaultCandidateCount = shouldIncludeDefaultImageCandidate(imageType) ? 1 : 0;
+	if (shouldUseImmutableOnlyStyles(imageType) && usesVariantOptionStyleFormat(imageType)) {
+		return defaultCandidateCount + getCompanionPreviewOptionCount();
+	}
 	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount();
 	if (usesVariantOptionStyleFormat(imageType) || imageType === 'store_image') {
 		return defaultCandidateCount + detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
@@ -1008,6 +1037,13 @@ function getPreviewPermutationCombinationCount() {
 	return immutableGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
 }
 
+function getCompanionPreviewOptionCount() {
+	if (!detectedStyleGroups.length) return 0;
+	return detectedStyleGroups.reduce((total, group) => (
+		total + group.options.filter((option) => option.previewImage).length
+	), 0);
+}
+
 function getStyleValuesForCombination(group) {
 	return group.options.map((option) => option.value);
 }
@@ -1019,6 +1055,15 @@ function isImmutableVariantGroup(group) {
 function isGeneratedCompanionStyleGroup(group) {
 	if (isImmutableVariantGroup(group)) return true;
 	return /^Cosmetics\.Variant\.Channel\.(Outfit|Material|Parts|Hair|Mesh|Pattern)\b/i.test(String(group?.tagName || ''));
+}
+
+function isAllowedCompanionStyleGroup(group, imageType) {
+	if (usesVariantOptionStyleFormat(imageType)) return hasPreviewImageStyleOptions(group);
+	return isGeneratedCompanionStyleGroup(group);
+}
+
+function hasPreviewImageStyleOptions(group) {
+	return group?.options?.some((option) => option.previewImage) || false;
 }
 
 function shouldUseImmutableOnlyStyles(imageType, assetId = getCurrentAssetId()) {
@@ -1356,7 +1401,11 @@ function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 
 	let styles;
 
-	if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
+	if (shouldUseImmutableOnlyStyles(imageType, assetId) && usesVariantOptionStyleFormat(imageType)) {
+		styles = elements.styleSource.value === 'detected-all'
+			? allCompanionPreviewOptionStyles()
+			: selectedCompanionPreviewOptionStyles();
+	} else if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
 		styles = elements.styleSource.value === 'detected-all'
 			? allPreviewPermutationStyles()
 			: selectedPreviewPermutationStyle();

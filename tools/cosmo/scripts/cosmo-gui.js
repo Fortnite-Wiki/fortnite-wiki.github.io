@@ -1975,8 +1975,6 @@ function hasDefaultImageCandidateInGallery(images) {
 
 function formatGalleryCaptionSelection(selection, selections) {
 	const optionLabel = formatGalleryCaptionLabel(selection.optionName);
-	if (selections.length !== 1) return optionLabel;
-
 	const groupLabel = formatGalleryCaptionLabel(selection.groupName);
 	if (!groupLabel || shouldOmitGalleryCaptionGroup(groupLabel, optionLabel)) return optionLabel;
 	return `${groupLabel} - ${optionLabel}`;
@@ -1984,7 +1982,8 @@ function formatGalleryCaptionSelection(selection, selections) {
 
 function formatGalleryCaptionLabel(label) {
 	const value = String(label || '').trim();
-	return isAllCapsLabel(value) ? titleCaseWords(value) : value;
+	if (isAllCapsLabel(value) || isAllLowerCaseLabel(value)) return titleCaseWords(value);
+	return value;
 }
 
 function shouldOmitGalleryCaptionGroup(groupLabel, optionLabel) {
@@ -2001,6 +2000,10 @@ function shouldOmitGalleryCaptionGroup(groupLabel, optionLabel) {
 
 function isAllCapsLabel(value) {
 	return /[A-Z]/.test(value) && value === value.toUpperCase();
+}
+
+function isAllLowerCaseLabel(value) {
+	return /[a-z]/.test(value) && value === value.toLowerCase() && !/^#[0-9a-f]{6}$/i.test(value);
 }
 
 function shouldUseGalleryCaptionLabel(label, cosmeticName) {

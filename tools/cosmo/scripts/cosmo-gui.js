@@ -766,6 +766,7 @@ const COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES = new Set([
 	'MaterialParamaterSets',
 	'MaterialParameters',
 	'MPS',
+	'ColorSwatches',
 	'MaterialParamSets',
 	'MaterialParametrs',
 	'MaterialParamSettings',

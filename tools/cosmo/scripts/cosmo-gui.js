@@ -909,7 +909,7 @@ function renderDetectedStyleControls() {
 function getVisibleDetectedStyleGroups(imageType) {
 	return detectedStyleGroups
 		.map((group, groupIndex) => ({ group, groupIndex }))
-		.filter(({ group }) => !shouldUseImmutableOnlyStyles(imageType) || isImmutableVariantGroup(group));
+		.filter(({ group }) => !shouldUseImmutableOnlyStyles(imageType) || isGeneratedCompanionStyleGroup(group));
 }
 
 function selectedDetectedStyle() {
@@ -939,7 +939,7 @@ function selectedPreviewPermutationStyle() {
 	);
 
 	return [detectedStyleGroups.map((group, groupIndex) => (
-		isImmutableVariantGroup(group)
+		isGeneratedCompanionStyleGroup(group)
 			? selectedByGroupIndex.get(groupIndex) ?? getDefaultOptionValue(group)
 			: getDefaultOptionValue(group)
 	))];
@@ -950,7 +950,7 @@ function allPreviewPermutationStyles() {
 
 	const immutableGroups = detectedStyleGroups
 		.map((group, groupIndex) => ({ group, groupIndex }))
-		.filter(({ group }) => isImmutableVariantGroup(group));
+		.filter(({ group }) => isGeneratedCompanionStyleGroup(group));
 	const baseValues = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
 
 	if (!immutableGroups.length) return [baseValues];
@@ -1003,7 +1003,7 @@ function getFullCombinationCount() {
 
 function getPreviewPermutationCombinationCount() {
 	if (!detectedStyleGroups.length) return 0;
-	const immutableGroups = detectedStyleGroups.filter((group) => isImmutableVariantGroup(group));
+	const immutableGroups = detectedStyleGroups.filter((group) => isGeneratedCompanionStyleGroup(group));
 	if (!immutableGroups.length) return 1;
 	return immutableGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
 }
@@ -1014,6 +1014,11 @@ function getStyleValuesForCombination(group) {
 
 function isImmutableVariantGroup(group) {
 	return /immutable/i.test(String(group?.tagName || ''));
+}
+
+function isGeneratedCompanionStyleGroup(group) {
+	if (isImmutableVariantGroup(group)) return true;
+	return /^Cosmetics\.Variant\.Channel\.(Outfit|Material|Parts|Hair|Mesh|Pattern)\b/i.test(String(group?.tagName || ''));
 }
 
 function shouldUseImmutableOnlyStyles(imageType, assetId = getCurrentAssetId()) {
@@ -1248,7 +1253,7 @@ function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()
 
 	return styleArray.map((value, index) => {
 		const group = detectedStyleGroups[index];
-		if (shouldUseImmutableOnlyStyles(imageType, assetId) && !isImmutableVariantGroup(group)) return null;
+		if (shouldUseImmutableOnlyStyles(imageType, assetId) && !isGeneratedCompanionStyleGroup(group)) return null;
 		const option = group?.options.find((item) => Number(item.value) === Number(value));
 
 		return {
@@ -2065,7 +2070,7 @@ function getZipStylePart(image, contextImages = [image]) {
 }
 
 function getPreviewPermutationStylePart(styleArray) {
-	const values = styleArray.filter((value, index) => isImmutableVariantGroup(detectedStyleGroups[index]));
+	const values = styleArray.filter((value, index) => isGeneratedCompanionStyleGroup(detectedStyleGroups[index]));
 	return values.length ? values.join(',') : styleArray.join(',');
 }
 

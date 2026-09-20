@@ -667,6 +667,8 @@ async function getVariantOptionInfo(props) {
 				value: optionIndex,
 				name: localizedText(option?.VariantName) || localizedText(option?.ColorName) || option?.Name || `Option ${optionIndex}`,
 				previewImage: option?.PreviewImage?.AssetPathName || '',
+				variantTag: option?.CustomizationVariantTag?.TagName || '',
+				cosmeticProperties: option?.CosmeticProperties || [],
 			})),
 		};
 	}
@@ -836,12 +838,20 @@ function colorSwatchChoiceName(swatch, namedSwatches, optionIndex) {
 }
 
 function isUnsupportedCosmoStyleGroup(group) {
-	if (group.optionSource === 'GenericPropertyOptions' && !isVehiclePaintedStyleGroup(group)) return true;
+	if (group.optionSource === 'GenericPropertyOptions' && !isVehiclePaintedStyleGroup(group) && !isVehicleTierStyleGroup(group)) return true;
 	return /lego/i.test(group.name);
 }
 
 function isVehiclePaintedStyleGroup(group) {
 	return /^Cosmetics\.Variant\.Channel\.Vehicle\.Painted\b/i.test(String(group?.tagName || ''));
+}
+
+function isVehicleTierStyleGroup(group) {
+	return /^Cosmetics\.Variant\.Channel\.Vehicle\.Tier\b/i.test(String(group?.tagName || ''));
+}
+
+function isVehicleBodyColorStyleGroup(group) {
+	return /^Cosmetics\.Variant\.Channel\.Vehicle\.Body\.Color\b/i.test(String(group?.tagName || ''));
 }
 
 function friendlyVariantType(type) {
@@ -883,6 +893,8 @@ function renderDetectedStyleControls() {
 	if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
 		const comboCount = getFullCombinationCount();
 		elements.detectedStyleStatus.textContent = `${comboCount.toLocaleString()} combinations detected. Only default candidates will be checked for this large set.`;
+	} else if (showAllOptions && shouldProbePaintedCarLockerPreview(imageType)) {
+		elements.detectedStyleStatus.textContent = 'Painted car detected. A few preview paths will be checked before expanding color/style combinations.';
 	} else {
 		elements.detectedStyleStatus.textContent = showAllOptions
 			? `${generatedCount} detected ${detectedUnit}${generatedCount === 1 ? '' : 's'} will be generated.`
@@ -1114,6 +1126,14 @@ function shouldUseDefaultOnlyForLargeCombos(imageType) {
 }
 
 function shouldUseDefaultOnlyForPaintedCarLockerPreview(imageType, assetId = getCurrentAssetId()) {
+	return hasPaintedCarLockerPreviewStyles(imageType, assetId) && !shouldProbePaintedCarLockerPreview(imageType, assetId);
+}
+
+function shouldProbePaintedCarLockerPreview(imageType, assetId = getCurrentAssetId()) {
+	return elements.styleSource?.value === 'detected-all' && hasPaintedCarLockerPreviewStyles(imageType, assetId);
+}
+
+function hasPaintedCarLockerPreviewStyles(imageType, assetId = getCurrentAssetId()) {
 	return (
 		imageType === 'locker_preview_image' &&
 		isRacingCarBodyAsset(assetId) &&
@@ -1363,7 +1383,7 @@ async function generateImages() {
 		showStatus(`Large style set detected. Checking default candidates only instead of ${getFullCombinationCount().toLocaleString()} combinations.`, 'loading');
 	}
 
-	const styles = getStyleArrays(imageType, assetId);
+	const styles = await getStyleArraysForGeneration(imageType, assetId, release, dav2Id);
 	const images = [];
 
 	for (const style of styles) {
@@ -1459,6 +1479,152 @@ function getStyleArrays(imageType, assetId = getEnteredAssetId()) {
 		: styles;
 
 	return addMicrophoneLockerPreviewFallback(styleArrays, imageType, assetId);
+}
+
+async function getStyleArraysForGeneration(imageType, assetId, release, dav2Id) {
+	if (shouldProbePaintedCarLockerPreview(imageType, assetId)) {
+		return getPaintedCarLockerPreviewStyleArrays(assetId, imageType, release, dav2Id);
+	}
+
+	return getStyleArrays(imageType, assetId);
+}
+
+async function getPaintedCarLockerPreviewStyleArrays(assetId, imageType, release, dav2Id) {
+	const defaultStyles = [null];
+	const paintGroups = getPaintedCarStyleGroups();
+	if (!paintGroups.length) return defaultStyles;
+
+	showStatus('Checking painted car preview probes...', 'loading');
+
+	const probeStyles = getPaintedCarProbeStyleArrays(paintGroups);
+	if (!probeStyles.length || !(await hasExistingCosmoStyle(assetId, imageType, probeStyles, release, dav2Id))) {
+		return defaultStyles;
+	}
+
+	return uniqueStyleArrays([...defaultStyles, ...getPaintedCarExpandedStyleArrays(paintGroups)]);
+}
+
+function getPaintedCarStyleGroups() {
+	const tierGroups = detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => isVehicleTierStyleGroup(group));
+	const bodyColorGroups = detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => isVehicleBodyColorStyleGroup(group));
+	const paintedGroups = detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => isVehiclePaintedStyleGroup(group));
+
+	if (!paintedGroups.length || !bodyColorGroups.length) return [];
+	if (!tierGroups.length) return [{
+		tier: null,
+		bodyColorGroups,
+		paintedGroups,
+	}];
+
+	return tierGroups.flatMap((tier) => tier.group.options.map((option, optionIndex) => {
+		const tierTag = getVehicleTierOptionSuffix(option, optionIndex);
+		return {
+			tier: { ...tier, value: option.value },
+			bodyColorGroups: bodyColorGroups.filter(({ group }) => getVehicleTierSuffix(group) === tierTag),
+			paintedGroups: paintedGroups.filter(({ group }) => getVehicleTierSuffix(group) === tierTag),
+		};
+	})).filter((group) => group.bodyColorGroups.length && group.paintedGroups.length);
+}
+
+function getVehicleTierOptionSuffix(option, optionIndex) {
+	const tag = String(option?.variantTag || '');
+	const tagMatch = tag.match(/\.Tier(\d+)$/i);
+	if (tagMatch) return `tier${tagMatch[1]}`;
+
+	const nameMatch = String(option?.name || '').match(/tier\s*(\d+)/i);
+	if (nameMatch) return `tier${nameMatch[1]}`;
+
+	return `tier${optionIndex + 1}`;
+}
+
+function getVehicleTierSuffix(group) {
+	return String(group?.tagName || '').match(/\.Tier(\d+)$/i)?.[0]?.slice(1).toLowerCase() || '';
+}
+
+function getPaintedCarProbeStyleArrays(paintGroups) {
+	return uniqueStyleArrays(paintGroups.flatMap((paintGroup) => {
+		const bodyGroup = paintGroup.bodyColorGroups[0];
+		const paintedGroup = paintGroup.paintedGroups[0];
+		return [
+			getPaintedCarStyleArray(paintGroup, [
+				{ group: bodyGroup, value: getFirstNonDefaultOptionValue(bodyGroup.group) },
+				{ group: paintedGroup, value: getDefaultOptionValue(paintedGroup.group) },
+			]),
+			getPaintedCarStyleArray(paintGroup, [
+				{ group: bodyGroup, value: getDefaultOptionValue(bodyGroup.group) },
+				{ group: paintedGroup, value: getFirstNonDefaultOptionValue(paintedGroup.group) },
+			]),
+			getPaintedCarStyleArray(paintGroup, [
+				{ group: bodyGroup, value: getFirstNonDefaultOptionValue(bodyGroup.group) },
+				{ group: paintedGroup, value: getFirstNonDefaultOptionValue(paintedGroup.group) },
+			]),
+		];
+	}));
+}
+
+function getPaintedCarExpandedStyleArrays(paintGroups) {
+	return paintGroups.flatMap((paintGroup) => {
+		const variableGroups = [...paintGroup.bodyColorGroups, ...paintGroup.paintedGroups];
+		return cartesianProduct(variableGroups.map(({ group }) => getStyleValuesForCombination(group)))
+			.map((values) => getPaintedCarStyleArray(
+				paintGroup,
+				variableGroups.map((group, index) => ({ group, value: values[index] }))
+			));
+	});
+}
+
+function getPaintedCarStyleArray(paintGroup, selections) {
+	const style = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
+	if (paintGroup.tier) style[paintGroup.tier.groupIndex] = paintGroup.tier.value;
+
+	for (const selection of selections) {
+		if (!selection?.group) continue;
+		style[selection.group.groupIndex] = selection.value;
+	}
+
+	return style;
+}
+
+function getFirstNonDefaultOptionValue(group) {
+	const defaultValue = getDefaultOptionValue(group);
+	return group.options.find((option) => Number(option.value) !== Number(defaultValue))?.value ?? defaultValue;
+}
+
+async function hasExistingCosmoStyle(assetId, imageType, styleArrays, release, dav2Id) {
+	for (const style of styleArrays) {
+		const paths = buildCandidatePaths(assetId, imageType, style, release.version, dav2Id);
+		for (const path of paths) {
+			const url = await makeUrl(path, release.key);
+			if (await cosmoImageExists(url)) return true;
+		}
+	}
+
+	return false;
+}
+
+async function cosmoImageExists(url) {
+	const controller = new AbortController();
+	const timeout = setTimeout(() => controller.abort(), ZIP_DOWNLOAD_TIMEOUT_MS);
+
+	try {
+		const response = await fetch(getProxiedCosmoUrl(url), {
+			cache: 'no-store',
+			credentials: 'omit',
+			referrerPolicy: 'no-referrer',
+			signal: controller.signal,
+		});
+		return response.ok;
+	} catch {
+		return false;
+	} finally {
+		clearTimeout(timeout);
+	}
 }
 
 function addMicrophoneLockerPreviewFallback(styleArrays, imageType, assetId) {

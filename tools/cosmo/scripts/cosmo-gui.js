@@ -776,7 +776,7 @@ const COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES = new Set([
 function materialParameterSetDataPaths(objectPath) {
 	const parts = String(objectPath).split('/').filter(Boolean);
 	const folderIndex = parts.findIndex((part) => COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES.has(part));
-	if (folderIndex < 1 || folderIndex >= parts.length - 1) return [];
+	if (folderIndex < 1 || folderIndex >= parts.length - 1) return directCompanionMaterialParameterSetDataPaths(parts);
 
 	const companionFolder = parts[folderIndex - 1];
 	const fileName = parts[folderIndex + 1].replace(/\.\d+$/, '');
@@ -789,11 +789,21 @@ function materialParameterSetDataPaths(objectPath) {
 	]);
 }
 
+function directCompanionMaterialParameterSetDataPaths(parts) {
+	const companionFolder = parts[parts.length - 2];
+	const fileName = parts[parts.length - 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !/^MPS_/i.test(fileName || '')) return [];
+
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`,
+	]);
+}
+
 function colorSwatchDataPaths(assetPathName) {
 	const [objectPath] = String(assetPathName).split('.');
 	const parts = objectPath.split('/').filter(Boolean);
 	const folderIndex = parts.findIndex((part) => part === 'ColorSwatches');
-	if (folderIndex < 0 || folderIndex >= parts.length - 1) return [];
+	if (folderIndex < 0 || folderIndex >= parts.length - 1) return directCompanionColorSwatchDataPaths(parts);
 
 	const fileName = parts[parts.length - 1];
 	if (!fileName) return [];
@@ -807,6 +817,16 @@ function colorSwatchDataPaths(assetPathName) {
 	paths.push(`${DATA_BASE_PATH}cosmetics/Characters/ColorSwatches/${fileName}.json`);
 
 	return paths;
+}
+
+function directCompanionColorSwatchDataPaths(parts) {
+	const companionFolder = parts[parts.length - 2];
+	const fileName = parts[parts.length - 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !/^CS_/i.test(fileName || '')) return [];
+
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/ColorSwatches/${companionFolder}/${fileName}.json`,
+	]);
 }
 
 function colorSwatchChoiceName(swatch, namedSwatches, optionIndex) {

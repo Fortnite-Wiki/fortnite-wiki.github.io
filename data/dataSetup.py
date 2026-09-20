@@ -910,6 +910,20 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
                 folder_name = "MaterialParameterSets"
 
             if folder_name not in ("ColorSwatches", "MaterialParameterSets"):
+                direct_mps_files = [file for file in files if file.endswith(".json") and file.startswith("MPS_")]
+                if direct_mps_files:
+                    rel_path = os.path.relpath(root, src_root)
+                    target_path = os.path.join(base_target, "MaterialParameterSets", rel_path)
+                    os.makedirs(target_path, exist_ok=True)
+                    for file in direct_mps_files:
+                        shutil.copy2(os.path.join(root, file), os.path.join(target_path, file))
+                direct_cs_files = [file for file in files if file.endswith(".json") and file.startswith("CS_")]
+                if direct_cs_files:
+                    rel_path = os.path.relpath(root, src_root)
+                    target_path = os.path.join(base_target, "ColorSwatches", rel_path)
+                    os.makedirs(target_path, exist_ok=True)
+                    for file in direct_cs_files:
+                        shutil.copy2(os.path.join(root, file), os.path.join(target_path, file))
                 continue
             
             rel_path = os.path.relpath(root, src_root)

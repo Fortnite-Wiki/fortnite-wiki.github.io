@@ -1,39 +1,48 @@
 // jsondata.js - shared JSON data loading for generators
 
-// Global cache for loaded JSON data
-const globalJsonCache = new Map();
-let pakoLoaded = false;
+let fflatePromise = null;
 
-// Dynamically load pako library
-async function loadPako() {
-  if (pakoLoaded) return;
-  return new Promise((resolve, reject) => {
+export function loadFflate() {
+  if (fflatePromise) return fflatePromise;
+
+  fflatePromise = new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/pako@latest/dist/pako.min.js';
-    script.onload = () => {
-      pakoLoaded = true;
-      resolve();
+    script.src = 'https://cdn.jsdelivr.net/npm/fflate@0.8.3/umd/index.js';
+
+    script.onload = resolve;
+    script.onerror = () => {
+      fflatePromise = null;
+      reject(new Error('Failed to load fflate library'));
     };
-    script.onerror = () => reject(new Error('Failed to load pako library'));
+
     document.head.appendChild(script);
   });
+
+  return fflatePromise;
 }
 
-// Shared loadGzJson function with global cache
+// Global cache for loaded JSON data
+const globalJsonCache = new Map();
+
 export async function loadGzJson(path) {
   const fullPath = path.endsWith('.gz') ? path : path + '.gz';
+
   if (globalJsonCache.has(fullPath)) {
     return globalJsonCache.get(fullPath);
   }
+
   try {
-    await loadPako(); // Ensure pako is loaded before using it
+    await loadFflate();
+
     const resp = await fetch(fullPath);
+
     if (!resp.ok) {
       throw new Error(`Failed to fetch ${fullPath}: ${resp.status}`);
     }
-    const buf = await resp.arrayBuffer();
-    const decompressed = pako.ungzip(new Uint8Array(buf), { to: "string" });
-    const data = JSON.parse(decompressed);
+
+    const compressed = new Uint8Array(await resp.arrayBuffer());
+    const data = JSON.parse(fflate.strFromU8(fflate.gunzipSync(compressed)));
+
     globalJsonCache.set(fullPath, data);
     return data;
   } catch (error) {

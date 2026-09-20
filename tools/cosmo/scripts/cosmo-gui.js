@@ -1,4 +1,4 @@
-import { loadGzJson } from '../../jsondata.js';
+import { loadFflate, loadGzJson } from '../../jsondata.js';
 
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
@@ -1775,6 +1775,7 @@ async function downloadSelectedZip() {
 
 		if (!files.length) throw new Error('Failed to download every selected image.');
 
+		await loadFflate();
 		const zipBlob = createZipBlob(files);
 		downloadBlob(zipBlob, getZipDownloadName());
 		if (failedImages.length) {
@@ -2368,114 +2369,17 @@ function sanitizeFileName(value) {
 }
 
 function createZipBlob(files) {
-	const localChunks = [];
-	const centralChunks = [];
-	const now = new Date();
-	const { dosTime, dosDate } = getDosDateTime(now);
-	let offset = 0;
+	const zipFiles = {};
 
 	for (const file of files) {
-		const nameBytes = new TextEncoder().encode(file.name);
-		const data = file.data;
-		const crc = crc32(data);
-		const localHeader = createZipLocalHeader(nameBytes, data.length, crc, dosTime, dosDate);
-		const centralHeader = createZipCentralHeader(nameBytes, data.length, crc, dosTime, dosDate, offset);
-
-		localChunks.push(localHeader, nameBytes, data);
-		centralChunks.push(centralHeader, nameBytes);
-		offset += localHeader.length + nameBytes.length + data.length;
+		zipFiles[file.name] = file.data;
 	}
 
-	const centralOffset = offset;
-	const centralSize = centralChunks.reduce((sum, chunk) => sum + chunk.length, 0);
-	const endRecord = createZipEndRecord(files.length, centralSize, centralOffset);
-	return new Blob([...localChunks, ...centralChunks, endRecord], { type: 'application/zip' });
-}
+	const zip = fflate.zipSync(zipFiles);
 
-function createZipLocalHeader(nameBytes, size, crc, dosTime, dosDate) {
-	const bytes = new Uint8Array(30);
-	const view = new DataView(bytes.buffer);
-	view.setUint32(0, 0x04034b50, true);
-	view.setUint16(4, 20, true);
-	view.setUint16(6, 0, true);
-	view.setUint16(8, 0, true);
-	view.setUint16(10, dosTime, true);
-	view.setUint16(12, dosDate, true);
-	view.setUint32(14, crc, true);
-	view.setUint32(18, size, true);
-	view.setUint32(22, size, true);
-	view.setUint16(26, nameBytes.length, true);
-	view.setUint16(28, 0, true);
-	return bytes;
-}
-
-function createZipCentralHeader(nameBytes, size, crc, dosTime, dosDate, offset) {
-	const bytes = new Uint8Array(46);
-	const view = new DataView(bytes.buffer);
-	view.setUint32(0, 0x02014b50, true);
-	view.setUint16(4, 20, true);
-	view.setUint16(6, 20, true);
-	view.setUint16(8, 0, true);
-	view.setUint16(10, 0, true);
-	view.setUint16(12, dosTime, true);
-	view.setUint16(14, dosDate, true);
-	view.setUint32(16, crc, true);
-	view.setUint32(20, size, true);
-	view.setUint32(24, size, true);
-	view.setUint16(28, nameBytes.length, true);
-	view.setUint16(30, 0, true);
-	view.setUint16(32, 0, true);
-	view.setUint16(34, 0, true);
-	view.setUint16(36, 0, true);
-	view.setUint32(38, 0, true);
-	view.setUint32(42, offset, true);
-	return bytes;
-}
-
-function createZipEndRecord(fileCount, centralSize, centralOffset) {
-	const bytes = new Uint8Array(22);
-	const view = new DataView(bytes.buffer);
-	view.setUint32(0, 0x06054b50, true);
-	view.setUint16(4, 0, true);
-	view.setUint16(6, 0, true);
-	view.setUint16(8, fileCount, true);
-	view.setUint16(10, fileCount, true);
-	view.setUint32(12, centralSize, true);
-	view.setUint32(16, centralOffset, true);
-	view.setUint16(20, 0, true);
-	return bytes;
-}
-
-function getDosDateTime(date) {
-	const dosTime = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
-	const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
-	return { dosTime, dosDate };
-}
-
-function crc32(bytes) {
-	let crc = 0xffffffff;
-	const table = getCrc32Table();
-
-	for (const byte of bytes) {
-		crc = (crc >>> 8) ^ table[(crc ^ byte) & 0xff];
-	}
-
-	return (crc ^ 0xffffffff) >>> 0;
-}
-
-let crc32Table = null;
-function getCrc32Table() {
-	if (crc32Table) return crc32Table;
-
-	crc32Table = new Uint32Array(256);
-	for (let i = 0; i < 256; i++) {
-		let value = i;
-		for (let bit = 0; bit < 8; bit++) {
-			value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1;
-		}
-		crc32Table[i] = value >>> 0;
-	}
-	return crc32Table;
+	return new Blob([zip], {
+		type: 'application/zip'
+	});
 }
 
 function downloadBlob(blob, fileName) {

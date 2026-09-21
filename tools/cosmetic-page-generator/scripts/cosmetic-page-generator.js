@@ -2033,12 +2033,13 @@ async function copyToClipboard() {
 
 async function determinePageTitle(cosmeticName, cosmeticType) {
 	const duplicates = index.filter(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
+	const nonJoinerDuplicates = duplicates.filter(e => !isJoinerVariant(e));
 	const jamTrackExists = jamTrackNames.filter(name => name.toLowerCase() === cosmeticName.toLowerCase()).length > 0;
 
 	const typedPageTitle = `${cosmeticName} (${cosmeticType})`;
 	
 	// If duplicates exist, default to typed page title
-	if (duplicates.length > 1 || jamTrackExists) {
+	if (nonJoinerDuplicates.length > 1 || jamTrackExists) {
 		return typedPageTitle;
 	}
 	
@@ -2054,6 +2055,12 @@ async function determinePageTitle(cosmeticName, cosmeticType) {
 	}
 	// Neither exists, default to creating with base name
 	return cosmeticName;
+}
+
+function isJoinerVariant(entry) {
+	const joinerPattern = /(?:^|[_-])joiner(?:$|[_-])/i;
+	return [entry?.id, entry?.path]
+		.some(value => typeof value === 'string' && joinerPattern.test(value));
 }
 
 async function openWikiPage() {

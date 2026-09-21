@@ -266,52 +266,7 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
 
     } else if (settings.isItemShop) {
         const canBePurchasedDirectly = settings.shopCost && settings.shopCost.trim() !== "";
-        let bundles = "";
-        const containedCosts = containedCosmeticEntries
-            .filter(entry => getContainedCosmeticName(entry) && getContainedCosmeticCost(entry))
-            .map((entry, i, pricedContainedCosmetics) => {
-                const previousHas = canBePurchasedDirectly || i > 0;
-                const hasPricedBundlesAfter = bundleEntries.some(be => be.bundleName?.value && be.bundleCost?.value);
-                const last = i == pricedContainedCosmetics.length - 1 && !hasPricedBundlesAfter;
-                const commaFlag = previousHas && (!last || pricedContainedCosmetics.length > 1 || hasPricedBundlesAfter) ? ", " : previousHas ? " " : "";
-                const orFlag = previousHas && last ? "or " : "";
-                const itemShopFlag = !canBePurchasedDirectly && i == 0 ? "in the [[Item Shop]] " : "";
-
-                return `${commaFlag}${orFlag}${itemShopFlag}with ${formatContainedCosmeticLink(entry, name)} for ${ensureVbucksTemplate(getContainedCosmeticCost(entry))}`;
-            });
-
-        if (bundleEntries.length > 0) {
-            const bundlesToAdd = bundleEntries
-                .map(be => {
-                    if (be.bundleName.value && be.bundleCost.value) {
-                        const rawName = be.bundleName.value.trim();
-                        const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
-                        const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
-                        const theFlag = be.bundleID.value.includes('Architect_') || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
-
-                        const i = bundleEntries.indexOf(be);
-                        const previousHas = i > 0 && bundleEntries.slice(0, i).some(b => b.bundleName && b.bundleName.value && b.bundleCost && b.bundleCost.value);
-                        const first = i == 0;
-                        const last = i == bundleEntries.length - 1;
-
-                        const hasPricedContainedCosmetics = containedCosts.length > 0;
-
-                        const commaFlag = bundleEntries.length > 1 && (!first || canBePurchasedDirectly || hasPricedContainedCosmetics) && (!last || bundleEntries.length > 2 || canBePurchasedDirectly || hasPricedContainedCosmetics) ? ", " : (first && !canBePurchasedDirectly && !hasPricedContainedCosmetics) ? "" : " ";
-                        const orFlag = (previousHas || canBePurchasedDirectly || hasPricedContainedCosmetics) && last ? `or ` : "";
-                        const itemShopFlag = (!canBePurchasedDirectly && !hasPricedContainedCosmetics && !previousHas) ? "in the [[Item Shop]] " : "";
-
-                        return `${commaFlag}${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
-                    }
-                    return null;
-                })
-                .filter(bc => bc !== null);
-            if (bundlesToAdd.length > 0) {
-                bundles = bundlesToAdd.join("");
-            }
-        }
-        if (containedCosts.length > 0) {
-            bundles = containedCosts.join("") + bundles;
-        }
+        const purchaseOptions = [];
 
         let bundledWithFlag = "";
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
@@ -320,9 +275,37 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
             bundledWithFlag = ` with [[${name} (${instrumentType})|${name}]]`;
         }
 
-        const itemShopFlag = settings.shopCost ? `in the [[Item Shop]]${bundledWithFlag} for ${ensureVbucksTemplate(settings.shopCost)}` : "";
-        if (itemShopFlag || bundles) {
-            article += ` that can be purchased ${itemShopFlag}${bundles}.`;
+        if (canBePurchasedDirectly) {
+            purchaseOptions.push(`in the [[Item Shop]]${bundledWithFlag} for ${ensureVbucksTemplate(settings.shopCost)}`);
+        }
+
+        containedCosmeticEntries
+            .filter(entry => getContainedCosmeticName(entry) && getContainedCosmeticCost(entry))
+            .forEach((entry) => {
+                const itemShopFlag = purchaseOptions.length === 0 ? "in the [[Item Shop]] " : "";
+                purchaseOptions.push(`${itemShopFlag}with ${formatContainedCosmeticLink(entry, name)} for ${ensureVbucksTemplate(getContainedCosmeticCost(entry))}`);
+            });
+
+        if (bundleEntries.length > 0) {
+            bundleEntries
+                .forEach(be => {
+                    if (be.bundleName.value && be.bundleCost.value) {
+                        const rawName = be.bundleName.value.trim();
+                        const name = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+                        const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
+                        const theFlag = be.bundleID.value.includes('Architect_') || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+                        const itemShopFlag = purchaseOptions.length === 0 ? "in the [[Item Shop]] " : "";
+                        purchaseOptions.push(`${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`);
+                    }
+                });
+        }
+
+        const purchaseText = purchaseOptions.length <= 2
+            ? purchaseOptions.join(" or ")
+            : `${purchaseOptions.slice(0, -1).join(", ")}, or ${purchaseOptions[purchaseOptions.length - 1]}`;
+
+        if (purchaseText) {
+            article += ` that can be purchased ${purchaseText}.`;
         } else {
             article += ".";
         }

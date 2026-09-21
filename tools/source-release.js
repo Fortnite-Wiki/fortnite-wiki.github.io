@@ -89,7 +89,10 @@ export function initSourceReleaseControls({
 	sources.forEach(key => {
 		const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
 		sourceElements[key] = document.getElementById(`source-${kebabKey}`);
-		sourceSettingsElements[key] = document.getElementById(`${kebabKey}-settings`);
+		sourceSettingsElements[key] = [
+			document.getElementById(`${kebabKey}-settings`),
+			...document.querySelectorAll(`[data-source-settings="${key}"]`)
+		].filter(Boolean);
 	});
 	
 	const releasedSwitch = document.getElementById('released-switch');
@@ -99,7 +102,10 @@ export function initSourceReleaseControls({
 	const itemShopHistory = document.getElementById('item-shop-history');
 	const shopHistoryPart = document.getElementById('shop-history-part');
 	const itemShopHistoryField = document.getElementById('item-shop-history-field');
-	
+	const sourceReleaseLayout = releasedSwitch?.closest('.two-column-layout');
+	const itemShopSettings = document.getElementById('item-shop-settings');
+	const itemShopBundleSettings = document.getElementById('item-shop-bundle-settings');
+
 	const sourceCheckboxes = Object.values(sourceElements).filter(Boolean);
 
 	const anySourceSelected = (keys) => keys.some((key) => sourceElements[key] && sourceElements[key].checked);
@@ -127,6 +133,38 @@ export function initSourceReleaseControls({
 		shopHistoryPart.style.display = itemShopHistory && itemShopHistory.checked ? 'inline-block' : 'none';
 	};
 
+	const setReleaseLayoutExpanded = (expanded) => {
+		sourceReleaseLayout?.classList.toggle('release-fields-visible', expanded);
+	};
+
+	const alignItemShopSettings = () => {
+		if (!itemShopSettings || !itemShopBundleSettings) return;
+
+		itemShopSettings.style.marginTop = '';
+		itemShopBundleSettings.style.marginTop = '';
+		if (itemShopSettings.classList.contains('hidden') || itemShopBundleSettings.classList.contains('hidden')) return;
+
+		const itemShopTop = itemShopSettings.getBoundingClientRect().top;
+		const bundleTop = itemShopBundleSettings.getBoundingClientRect().top;
+		if (itemShopTop < bundleTop) {
+			const currentMargin = parseFloat(getComputedStyle(itemShopSettings).marginTop) || 0;
+			itemShopSettings.style.marginTop = `${currentMargin + bundleTop - itemShopTop}px`;
+			return;
+		}
+
+		const currentMargin = parseFloat(getComputedStyle(itemShopBundleSettings).marginTop) || 0;
+		itemShopBundleSettings.style.marginTop = `${currentMargin + itemShopTop - bundleTop}px`;
+	};
+
+	const queueItemShopAlignment = () => {
+		if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
+			window.requestAnimationFrame(alignItemShopSettings);
+			return;
+		}
+
+		alignItemShopSettings();
+	};
+
 	const updateExclusivity = () => {
 		const activeSource = sourceCheckboxes.find((cb) => cb.checked);
 		if (!activeSource) {
@@ -141,11 +179,11 @@ export function initSourceReleaseControls({
 
 	const updateSourceSettings = () => {
 		// Show/hide source-specific settings sections
-		Object.entries(sourceSettingsElements).forEach(([key, element]) => {
-			if (!element) return;
+		Object.entries(sourceSettingsElements).forEach(([key, elements]) => {
 			const isChecked = sourceElements[key] && sourceElements[key].checked;
-			element.classList.toggle('hidden', !isChecked);
+			elements.forEach((element) => element.classList.toggle('hidden', !isChecked));
 		});
+		queueItemShopAlignment();
 	};
 
 	const updateReleaseUI = () => {
@@ -162,8 +200,10 @@ export function initSourceReleaseControls({
 			if (releasedLabel) releasedLabel.textContent = 'Yes';
 			setReleasedFieldsVisible(false);
 			setItemShopHistoryFieldVisible(false);
+			setReleaseLayoutExpanded(false);
 			clearReleaseValues();
 			updateShopHistoryPartVisibility();
+			queueItemShopAlignment();
 			return;
 		}
 
@@ -172,21 +212,26 @@ export function initSourceReleaseControls({
 		if (!isReleased) {
 			setReleasedFieldsVisible(false);
 			setItemShopHistoryFieldVisible(false);
+			setReleaseLayoutExpanded(false);
 			clearReleaseValues();
 			updateShopHistoryPartVisibility();
+			queueItemShopAlignment();
 			return;
 		}
 
 		if (hideReleaseFields) {
 			setReleasedFieldsVisible(false);
 			setItemShopHistoryFieldVisible(false);
+			setReleaseLayoutExpanded(false);
 			clearReleaseValues();
 			updateShopHistoryPartVisibility();
+			queueItemShopAlignment();
 			return;
 		}
 
 		setReleasedFieldsVisible(true);
 		setItemShopHistoryFieldVisible(!hideItemShopHistory);
+		setReleaseLayoutExpanded(true);
 
 		if (hideItemShopHistory && itemShopHistory) {
 			itemShopHistory.checked = false;
@@ -194,6 +239,7 @@ export function initSourceReleaseControls({
 		}
 
 		updateShopHistoryPartVisibility();
+		queueItemShopAlignment();
 	};
 
 	sourceCheckboxes.forEach((cb) => cb.addEventListener('change', () => {
@@ -204,7 +250,12 @@ export function initSourceReleaseControls({
 	}));
 
 	if (releasedSwitch) releasedSwitch.addEventListener('change', updateReleaseUI);
-	if (itemShopHistory) itemShopHistory.addEventListener('change', updateShopHistoryPartVisibility);
+	if (itemShopHistory) {
+		itemShopHistory.addEventListener('change', () => {
+			updateShopHistoryPartVisibility();
+			queueItemShopAlignment();
+		});
+	}
 
 	updateExclusivity();
 	updateSourceSettings();
@@ -220,7 +271,7 @@ export function initSourceReleaseControls({
 	// Add settings containers
 	sources.forEach(key => {
 		const camelCaseKey = (key.charAt(0).toLowerCase() + key.slice(1) + 'Settings').replace('Nonlinear', 'NonLinear').replace('Og', 'OG').replace('Lego', 'LEGO').replace('Bp', 'BP');
-		elements[camelCaseKey] = sourceSettingsElements[key];
+		elements[camelCaseKey] = sourceSettingsElements[key]?.[0] || null;
 	});
 
 	// Add release-related elements

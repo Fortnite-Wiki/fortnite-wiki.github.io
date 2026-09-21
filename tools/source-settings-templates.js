@@ -26,19 +26,6 @@ const SOURCE_SETTINGS = {
 				<p style="margin: 0rem !important"><small><small>(Leave blank if cannot be purchased directly)</small></small></p>
 			</div>
 			<hr>
-			<div id="bundles-box">
-				<h5>Bundles it's contained in:</h5>
-				<label style="font-size: small;" for="keep-bundle-inputs">Keep the following inputs when switching cosmetics? </label>
-				<input type="checkbox" id="keep-bundle-inputs" title="Keep bundle inputs when switching cosmetics" style="font-size: small;margin: 0;transform: scale(0.89);" class="keep-bundle-inputs">
-				<div id="bundles-controls">
-					<button id="add-bundle" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
-					<button id="remove-bundle" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
-				</div>
-				<div id="bundles-list" class="scrollbox">
-					<!-- Bundle entries appended here -->
-				</div>
-			</div>
-			<hr>
 			<div class="inline-group">
 				<label class="checkbox-label">
 					<input type="checkbox" id="include-appearances">
@@ -47,6 +34,18 @@ const SOURCE_SETTINGS = {
 			</div>
 			<div class="inline-group appearances-fields" style="display: none;">
 				<input type="text" id="shop-appearances" />
+			</div>
+		</div>
+		<div id="contained-cosmetics-box" class="source-settings hidden" data-source-settings="itemShop">
+			<h5>Bundled with:</h5>
+			<label style="font-size: small;" for="keep-contained-cosmetic-inputs">Keep the following inputs when switching cosmetics? </label>
+			<input type="checkbox" id="keep-contained-cosmetic-inputs" title="Keep bundled-with inputs when switching cosmetics" style="font-size: small;margin: 0;transform: scale(0.89);" class="keep-contained-cosmetic-inputs">
+			<div id="contained-cosmetics-controls">
+				<button id="add-contained-cosmetic" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
+				<button id="remove-contained-cosmetic" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
+			</div>
+			<div id="contained-cosmetics-list" class="scrollbox">
+				<!-- Cosmetic entries appended here -->
 			</div>
 		</div>`,
 	battlePass: `
@@ -223,6 +222,24 @@ const SOURCE_SETTINGS = {
 		</div>`
 };
 
+const ITEM_SHOP_BUNDLE_SETTINGS = `
+	<div id="item-shop-bundle-settings" class="source-settings item-shop-bundle-settings hidden" data-source-settings="itemShop">
+		<div id="bundles-box">
+			<h5>Bundles it's contained in:</h5>
+			<label style="font-size: small;" for="keep-bundle-inputs">Keep the following inputs when switching cosmetics? </label>
+			<input type="checkbox" id="keep-bundle-inputs" title="Keep bundle inputs when switching cosmetics" style="font-size: small;margin: 0;transform: scale(0.89);" class="keep-bundle-inputs">
+			<div id="bundles-controls">
+				<button id="add-bundle" class="sec-subm" style="padding: 0.25rem 0.5rem !important;">add</button>
+				<button id="remove-bundle" class="sec-subm secondary" style="padding: 0.25rem 0.5rem !important;">remove</button>
+			</div>
+			<div id="bundles-list" class="scrollbox">
+				<!-- Bundle entries appended here -->
+			</div>
+		</div>
+	</div>`;
+
+const EXTRA_SOURCE_SETTINGS = {};
+
 export function injectSourceSettings(container, sources) {
 	if (!container) {
 		console.error('Container element not found');
@@ -245,6 +262,16 @@ export function injectSourceSettings(container, sources) {
 		if (SOURCE_SETTINGS[sourceKey]) {
 			const settingsDiv = document.createElement('div');
 			settingsDiv.innerHTML = SOURCE_SETTINGS[sourceKey];
+			while (settingsDiv.firstElementChild) {
+				container.appendChild(settingsDiv.firstElementChild);
+			}
+		}
+	});
+
+	sources.forEach(sourceKey => {
+		if (EXTRA_SOURCE_SETTINGS[sourceKey]) {
+			const settingsDiv = document.createElement('div');
+			settingsDiv.innerHTML = EXTRA_SOURCE_SETTINGS[sourceKey];
 			container.appendChild(settingsDiv.firstElementChild);
 		}
 	});
@@ -266,6 +293,8 @@ export const SOURCE_SETTINGS_FIELDS = {
 export function generateSourceReleaseHTML(sources, includeUpdateVersion = true) {
 	const checkboxesHTML = sources.map(key => SOURCE_CHECKBOXES[key] || '').join('\n\t\t\t\t\t\t');
 	const settingsHTML = sources.map(key => SOURCE_SETTINGS[key] || '').join('\n\n\t\t\t\t\t\t');
+	const extraSettingsHTML = sources.map(key => EXTRA_SOURCE_SETTINGS[key] || '').join('\n\n\t\t\t');
+	const releaseExtraHTML = sources.includes('itemShop') ? ITEM_SHOP_BUNDLE_SETTINGS : '';
 
 	return `
 		<div class="two-column-layout">
@@ -280,11 +309,12 @@ export function generateSourceReleaseHTML(sources, includeUpdateVersion = true) 
 			</div>
 			
 			<!-- Right Column: Release Status -->
-			${generateReleaseHTML(includeUpdateVersion)}
-		</div>`;
+			${generateReleaseHTML(includeUpdateVersion, releaseExtraHTML)}
+		</div>
+		${extraSettingsHTML}`;
 }
 
-export function generateReleaseHTML(includeUpdateVersion = true) {
+export function generateReleaseHTML(includeUpdateVersion = true, extraHTML = '') {
 	return `
 			<div class="column">
 				<h4>Release Status</h4>
@@ -316,5 +346,6 @@ export function generateReleaseHTML(includeUpdateVersion = true) {
 					<label for="update-version">Update Version:</label>
 					<input type="text" id="update-version" placeholder="36.30" pattern="[0-9]+\\.[0-9]+" required>
 				</div>` : ''}
+				${extraHTML}
 			</div>`;
 }

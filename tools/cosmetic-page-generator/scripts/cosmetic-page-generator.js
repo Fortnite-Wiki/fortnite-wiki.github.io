@@ -1,8 +1,9 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists } from '../../../tools/utils.js';
-import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
+import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro, formatContainedCosmeticLink } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
+import { initContainedCosmeticControls, getContainedCosmeticEntries, removeContainedCosmeticEntry, setupContainedCosmeticControls } from '../../../tools/contained-cosmetic-controls.js';
 import { initFormBehaviors } from '../../../tools/form-behaviors.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -97,6 +98,12 @@ function updateSuggestions() {
 			if (!keepBundleInputs) {
 				const bundles = getBundleEntries();
 				while (bundles.length != 0) removeBundleEntry();
+			}
+
+			const keepContainedCosmeticInputs = document.getElementById('keep-contained-cosmetic-inputs')?.checked;
+			if (!keepContainedCosmeticInputs) {
+				const containedCosmetics = getContainedCosmeticEntries();
+				while (containedCosmetics.length != 0) removeContainedCosmeticEntry();
 			}
 			var ftChrsSection = document.getElementById("featured-characters-config");
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
@@ -245,6 +252,82 @@ async function searchCosmetic(input) {
 		console.warn(`Failed to load cosmetic data for ${entryMeta.id}:`, error);
 		return { data: null, allData: null, entryMeta };
 	}
+}
+
+async function getResolvedContainedCosmeticEntries() {
+	const entries = getContainedCosmeticEntries();
+	const resolvedEntries = [];
+
+	for (const entry of entries) {
+		const name = entry.cosmeticName?.value?.trim() || '';
+		if (!name) continue;
+
+		const id = entry.cosmeticID?.value?.trim() || '';
+		const cost = entry.cosmeticCost?.value?.trim() || '';
+		const cosmeticPath = entry.cosmeticPath?.value?.trim() || '';
+		const forceTitleCase = entry.forceTitleCase?.checked || false;
+		let cosmeticType = '';
+
+		if (cosmeticPath) {
+			try {
+				const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${cosmeticPath}`);
+				if (cosmeticData && Array.isArray(cosmeticData) && cosmeticData.length > 0) {
+					const itemDefinitionData = cosmeticData.find(dataEntry => dataEntry.Type in TYPE_MAP) || cosmeticData[0];
+					cosmeticType = itemDefinitionData.Properties?.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || '';
+					cosmeticType = normalizeCosmeticType(cosmeticType);
+				}
+			} catch (error) {
+				console.warn(`Failed to resolve contained cosmetic type for ${id || name}:`, error);
+			}
+		}
+
+		resolvedEntries.push({ id, name, cost, cosmeticType, forceTitleCase });
+	}
+
+	return resolvedEntries;
+}
+
+function getContainedCosmeticNameForOutput(entry) {
+	if (!entry?.name) return '';
+	return entry.forceTitleCase ? forceTitleCase(entry.name) : entry.name;
+}
+
+function getBundleNameForOutput(bundleEntry) {
+	if (!bundleEntry?.bundleName?.value) return '';
+	const rawName = bundleEntry.bundleName.value.trim();
+	return (bundleEntry.forceTitleCase && bundleEntry.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
+}
+
+function getBundleLinkForOutput(bundleEntry) {
+	const bundleName = getBundleNameForOutput(bundleEntry);
+	if (!bundleName) return '';
+	const rawName = bundleEntry.bundleName.value.trim();
+	const addItemShopBundleTag = characterBundlePattern.test(bundleEntry.bundleID.value);
+	const theFlag = lockerBundlePattern.test(bundleEntry.bundleID.value) || rawName.toLowerCase().startsWith("the ") || addItemShopBundleTag ? "" : "the ";
+	return `${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`;
+}
+
+function getItemShopAppearancesContext(settings, bundleEntries, containedCosmeticEntries, name) {
+	const fallbackName = settings.shopAppearances || name;
+	if (settings.shopCost && settings.shopCost.trim()) return { appearancesName: fallbackName, bundledWith: '' };
+
+	const firstPricedContainedCosmetic = containedCosmeticEntries.find(entry => entry.name && entry.cost);
+	if (firstPricedContainedCosmetic) {
+		return {
+			appearancesName: getContainedCosmeticNameForOutput(firstPricedContainedCosmetic),
+			bundledWith: formatContainedCosmeticLink(firstPricedContainedCosmetic, name)
+		};
+	}
+
+	const firstBundle = bundleEntries.find(entry => entry.bundleName?.value?.trim());
+	if (firstBundle) {
+		return {
+			appearancesName: getBundleNameForOutput(firstBundle),
+			bundledWith: getBundleLinkForOutput(firstBundle)
+		};
+	}
+
+	return { appearancesName: fallbackName, bundledWith: '' };
 }
 
 
@@ -1177,6 +1260,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 
 	const bundleEntries = getBundleEntries();
+	const containedCosmeticEntries = await getResolvedContainedCosmeticEntries();
 
 	let inOwnCharacterBundle = false;
 	for (const bundleEntry of bundleEntries) {
@@ -1370,6 +1454,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 	}
 
+	const itemShopAppearancesContext = getItemShopAppearancesContext(settings, bundleEntries, containedCosmeticEntries, name);
+
 	const out = [];
 
 	if (isFestivalCosmetic && instrumentType && cosmeticType != "Aura") {
@@ -1471,8 +1557,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|rarity = ${rarity}`);
 	
 	const bundledWithParts = [];
-	if (settings.bundledWith) {
-		bundledWithParts.push(settings.bundledWith);
+	for (const entry of containedCosmeticEntries) {
+		const cosmeticLink = formatContainedCosmeticLink(entry, name);
+		if (cosmeticLink) bundledWithParts.push(cosmeticLink);
 	}
 	if (isFestivalCosmetic && cosmeticType != "Aura") {
 		if (instrumentType != cosmeticType) {
@@ -1509,8 +1596,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`|set = [[:Category:${setName} Set|${setName}]]`);
 	}
 
-	out.push(`|unlocked = ${generateUnlockedParameter(settings, bundleEntries)}`);
-	out.push(`|cost = ${generateCostParameter(settings, bundleEntries, isFestivalCosmetic, name, rarity, cosmeticType, instrumentType)}`);
+	out.push(`|unlocked = ${generateUnlockedParameter(settings, bundleEntries, containedCosmeticEntries)}`);
+	out.push(`|cost = ${generateCostParameter(settings, bundleEntries, isFestivalCosmetic, name, rarity, cosmeticType, instrumentType, containedCosmeticEntries)}`);
 	
 	if (settings.updateVersion != "") {
 		out.push(`|added_in = [[Update v${settings.updateVersion}]]`);
@@ -1521,7 +1608,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push(`|release = ${generateReleaseParameter(settings)}`);
 	
 	if (settings.isItemShop && settings.includeAppearances) {
-		out.push(`|appearances = ${settings.shopAppearances}`);
+		out.push(`|appearances = ${itemShopAppearancesContext.appearancesName}`);
 	}
 
 	if (featured) {
@@ -1570,7 +1657,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	// Article section
 	let article = `'''${name}''' ${usePlural ? 'are' : 'is ' + articleFor(rarity)} {{${rarity}}} [[${cosmeticType}]] in [[Fortnite]]`;
 	
-	article += generateArticleIntro(settings, bundleEntries, name, cosmeticType, isFestivalCosmetic, instrumentType, usePlural);
+	article += generateArticleIntro(settings, bundleEntries, name, cosmeticType, isFestivalCosmetic, instrumentType, usePlural, containedCosmeticEntries);
 	
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings, usePlural);
 	
@@ -1802,14 +1889,16 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	
 	if (settings.isItemShop && settings.includeAppearances) {
 		const appearancesSection = [];
-		appearancesSection.push("== [[Item Shop]] Appearances ==", "{{ItemShopAppearances", `|name = ${settings.shopAppearances}`);
-		if (settings.shopAppearances != name) {
+		appearancesSection.push("== [[Item Shop]] Appearances ==", "{{ItemShopAppearances", `|name = ${itemShopAppearancesContext.appearancesName}`);
+		if (itemShopAppearancesContext.appearancesName != name) {
 			appearancesSection.push(`|name2 = ${name}`);
 		}
 		if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
 			&& (cosmeticType == "Back Bling" || cosmeticType == "Pickaxe")
 		) {
 			appearancesSection.push(`|bundled_with = [[${name} (${instrumentType})|${name}]]`);
+		} else if (itemShopAppearancesContext.bundledWith) {
+			appearancesSection.push(`|bundled_with = ${itemShopAppearancesContext.bundledWith}`);
 		} else {
 			if (bundleEntries.length == 1 && settings.shopCost == "") {
 				const be = bundleEntries[0];
@@ -2003,7 +2092,6 @@ async function generatePage() {
 		updateVersion: elements.updateVersion.value.trim(),
 		isCollaboration: elements.collaboration.checked,
 		hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
-		bundledWith: elements.bundledWith ? elements.bundledWith.value.trim() : '',
 		remixOf: elements.remixOf ? elements.remixOf.value.trim() : '',
 		isRocketLeagueCosmetic: elements.isRocketLeagueCosmetic.checked,
 		isRocketLeagueExclusive: elements.isRocketLeagueExclusive.checked
@@ -2385,7 +2473,6 @@ async function initialiseApp() {
 		collaboration: document.getElementById('collaboration'),
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
-		bundledWith: document.getElementById('bundled-with'),
 		hasRenders: document.getElementById('has-renders'),
 		remixOf: document.getElementById('remix-of'),
 		categoriesDropdown: document.getElementById('categories-dropdown'),
@@ -2495,6 +2582,8 @@ async function initialiseApp() {
 	// Initialize shared bundle controls
 	initBundleControls(index);
 	setupBundleControls();
+	initContainedCosmeticControls(index);
+	setupContainedCosmeticControls();
 }
 
 // Wait for source controls to be ready, then initialize

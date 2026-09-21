@@ -1,5 +1,6 @@
 import { SEASON_UPDATE_VERSIONS, OG_SEASON_UPDATE_VERSIONS, FESTIVAL_SEASON_UPDATE_VERSIONS, LEGO_SEASON_UPDATE_VERSIONS } from '/data/datesAndVersions.js';
 import { getBundleEntries } from './bundle-controls.js';
+import { getContainedCosmeticEntries } from './contained-cosmetic-controls.js';
 
 let elements = {};
 
@@ -134,18 +135,22 @@ function setupItemShopAppearancesToggle() {
 				field.style.display = 'block';
 			});
 
-			// Auto-fill with cosmetic / bundle name if available
+			// Auto-fill with cosmetic / bundled-with / bundle name if available
 			const name = elements.cosmeticInputName || elements.jamTrackInput || elements.bundleInputName;
 			const bundleEntries = getBundleEntries();
+			const containedCosmeticEntries = getContainedCosmeticEntries();
 			const hasOneBundle = bundleEntries && bundleEntries.length === 1;
-			const bundleCostEmpty = elements.shopCost && elements.shopCost.value.trim() === '';
-			
-			if (name && !(hasOneBundle && bundleCostEmpty)) {
-				if (hasOneBundle && bundleCostEmpty) {
-					elements.shopAppearances.value = bundleEntries[0].bundleName.value.trim();
-				} else {
-					elements.shopAppearances.value = name.value.trim();
-				}
+			const shopCostEmpty = elements.shopCost && elements.shopCost.value.trim() === '';
+			const firstPricedContainedCosmetic = containedCosmeticEntries.find(entry =>
+				entry.cosmeticName?.value?.trim() && entry.cosmeticCost?.value?.trim()
+			);
+
+			if (shopCostEmpty && firstPricedContainedCosmetic) {
+				elements.shopAppearances.value = firstPricedContainedCosmetic.cosmeticName.value.trim();
+			} else if (shopCostEmpty && hasOneBundle && bundleEntries[0].bundleName?.value?.trim()) {
+				elements.shopAppearances.value = bundleEntries[0].bundleName.value.trim();
+			} else if (name) {
+				elements.shopAppearances.value = name.value.trim();
 			}
 		} else {
 			appearancesFields.forEach(field => {

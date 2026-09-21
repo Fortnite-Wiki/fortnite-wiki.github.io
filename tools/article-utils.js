@@ -1,7 +1,42 @@
 import { characterBundlePattern, forceTitleCase, abbreviate, getFormattedReleaseDate, getItemShopHistoryDate, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks } from './utils.js';
 import { SEASON_RELEASE_DATES, OG_SEASON_RELEASE_DATES, FESTIVAL_SEASON_RELEASE_DATES, LEGO_SEASON_RELEASE_DATES, LEGO_SEASON_NAMES } from '../../../data/datesAndVersions.js';
 
-export function generateUnlockedParameter(settings, bundleEntries = []) {
+export function formatContainedCosmeticLink(entry, mainCosmeticName = '') {
+    const rawName = getContainedCosmeticName(entry);
+    if (!rawName) return '';
+
+    const cosmeticType = getContainedCosmeticType(entry);
+    if (mainCosmeticName && rawName.toLowerCase() === mainCosmeticName.toLowerCase() && cosmeticType) {
+        return `[[${rawName} (${cosmeticType})|${rawName}]]`;
+    }
+
+    return `[[${rawName}]]`;
+}
+
+function getContainedCosmeticName(entry) {
+    if (!entry) return '';
+    const rawName = typeof entry.name === 'string' ? entry.name.trim() : entry.cosmeticName?.value?.trim() || '';
+    const shouldForceTitleCase = entry.forceTitleCase === true || entry.forceTitleCase?.checked;
+    return shouldForceTitleCase ? forceTitleCase(rawName) : rawName;
+}
+
+function getContainedCosmeticCost(entry) {
+    if (!entry) return '';
+    if (typeof entry.cost === 'string') return entry.cost.trim();
+    return entry.cosmeticCost?.value?.trim() || '';
+}
+
+function getContainedCosmeticType(entry) {
+    if (!entry) return '';
+    if (typeof entry.cosmeticType === 'string') return entry.cosmeticType.trim();
+    return entry.cosmeticType?.value?.trim() || '';
+}
+
+function hasContainedCosmeticEntries(containedCosmeticEntries) {
+    return containedCosmeticEntries.some(entry => getContainedCosmeticName(entry));
+}
+
+export function generateUnlockedParameter(settings, bundleEntries = [], containedCosmeticEntries = []) {
     let unlocked = '';
 
     if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
@@ -37,9 +72,9 @@ export function generateUnlockedParameter(settings, bundleEntries = []) {
     } else if (settings.isRocketPass) {
         const freeFlag = settings.passFreeRocket ? "|Free" : "";
         unlocked = `Level ${settings.rocketPassLevel} <br> {{RocketPass|${settings.rocketPassSeason}${freeFlag}}}`;
-    
+
     } else if (settings.isItemShop && !settings.isUnreleased) {
-        if (settings.shopCost || bundleEntries.length == 0) {
+        if (settings.shopCost || bundleEntries.length == 0 || hasContainedCosmeticEntries(containedCosmeticEntries)) {
             unlocked = "[[Item Shop]]";
         }
         if (bundleEntries.length > 0) {
@@ -61,7 +96,7 @@ export function generateUnlockedParameter(settings, bundleEntries = []) {
     return unlocked;
 }
 
-export function generateCostParameter(settings, bundleEntries = [], isFestivalCosmetic = false, name = '', rarity = '', cosmeticType = '', instrumentType = '') {
+export function generateCostParameter(settings, bundleEntries = [], isFestivalCosmetic = false, name = '', rarity = '', cosmeticType = '', instrumentType = '', containedCosmeticEntries = []) {
     let cost = ''
 
     if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLEGO)) {
@@ -99,7 +134,23 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     } else if (settings.isRocketPass) {
         cost = `{{RLCredits|1,000}} <br> ({{RocketPass|${settings.rocketPassSeason}}})`;
     }
-    
+
+
+    if (settings.isItemShop && !settings.isUnreleased && containedCosmeticEntries.length > 0) {
+        const containedCosmeticCosts = containedCosmeticEntries
+            .map(entry => {
+                const cosmeticCost = getContainedCosmeticCost(entry);
+                const cosmeticLink = formatContainedCosmeticLink(entry, name);
+                if (cosmeticCost && cosmeticLink) {
+                    return `${ensureVbucksTemplate(cosmeticCost)} <small>(${cosmeticLink})</small>`;
+                }
+                return null;
+            })
+            .filter(c => c !== null);
+        if (containedCosmeticCosts.length > 0) {
+            cost = cost ? cost + " <br> " + containedCosmeticCosts.join(" <br> ") : containedCosmeticCosts.join(" <br> ");
+        }
+    }
 
     if (settings.isItemShop && !settings.isUnreleased && bundleEntries.length > 0) {
         const bundleCosts = bundleEntries
@@ -168,7 +219,7 @@ export function generateReleaseParameter(settings) {
     return '';
 }
 
-export function generateArticleIntro(settings, bundleEntries = [], name = '', cosmeticType = '', isFestivalCosmetic = false, instrumentType = '', usePlural = false) {
+export function generateArticleIntro(settings, bundleEntries = [], name = '', cosmeticType = '', isFestivalCosmetic = false, instrumentType = '', usePlural = false, containedCosmeticEntries = []) {
     let article = '';
 
     const obtainedOnPageCompletion =
@@ -212,9 +263,23 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
     
     } else if (settings.isUnreleased) {
         article += ` that ${usePlural ? 'are' : 'is'} currently unreleased.`;
-    
+
     } else if (settings.isItemShop) {
+        const canBePurchasedDirectly = settings.shopCost && settings.shopCost.trim() !== "";
         let bundles = "";
+        const containedCosts = containedCosmeticEntries
+            .filter(entry => getContainedCosmeticName(entry) && getContainedCosmeticCost(entry))
+            .map((entry, i, pricedContainedCosmetics) => {
+                const previousHas = canBePurchasedDirectly || i > 0;
+                const hasPricedBundlesAfter = bundleEntries.some(be => be.bundleName?.value && be.bundleCost?.value);
+                const last = i == pricedContainedCosmetics.length - 1 && !hasPricedBundlesAfter;
+                const commaFlag = previousHas && (!last || pricedContainedCosmetics.length > 1 || hasPricedBundlesAfter) ? ", " : previousHas ? " " : "";
+                const orFlag = previousHas && last ? "or " : "";
+                const itemShopFlag = !canBePurchasedDirectly && i == 0 ? "in the [[Item Shop]] " : "";
+
+                return `${commaFlag}${orFlag}${itemShopFlag}with ${formatContainedCosmeticLink(entry, name)} for ${ensureVbucksTemplate(getContainedCosmeticCost(entry))}`;
+            });
+
         if (bundleEntries.length > 0) {
             const bundlesToAdd = bundleEntries
                 .map(be => {
@@ -229,11 +294,11 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
                         const first = i == 0;
                         const last = i == bundleEntries.length - 1;
 
-                        const canBePurchasedDirectly = settings.shopCost && settings.shopCost.trim() !== "";
+                        const hasPricedContainedCosmetics = containedCosts.length > 0;
 
-                        const commaFlag = bundleEntries.length > 1 && (!first || canBePurchasedDirectly) && (!last || bundleEntries.length > 2 || canBePurchasedDirectly) ? ", " : (first && !canBePurchasedDirectly) ? "" : " ";
-                        const orFlag = (previousHas || canBePurchasedDirectly) && last ? `or ` : "";
-                        const itemShopFlag = (!canBePurchasedDirectly && !previousHas) ? "in the [[Item Shop]] " : "";
+                        const commaFlag = bundleEntries.length > 1 && (!first || canBePurchasedDirectly || hasPricedContainedCosmetics) && (!last || bundleEntries.length > 2 || canBePurchasedDirectly || hasPricedContainedCosmetics) ? ", " : (first && !canBePurchasedDirectly && !hasPricedContainedCosmetics) ? "" : " ";
+                        const orFlag = (previousHas || canBePurchasedDirectly || hasPricedContainedCosmetics) && last ? `or ` : "";
+                        const itemShopFlag = (!canBePurchasedDirectly && !hasPricedContainedCosmetics && !previousHas) ? "in the [[Item Shop]] " : "";
 
                         return `${commaFlag}${orFlag}${itemShopFlag}with ${theFlag}[[${addItemShopBundleTag ? `${name} (Item Shop Bundle)|${name}` : name}]] for ${ensureVbucksTemplate(be.bundleCost.value.trim())}`;
                     }
@@ -243,6 +308,9 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
             if (bundlesToAdd.length > 0) {
                 bundles = bundlesToAdd.join("");
             }
+        }
+        if (containedCosts.length > 0) {
+            bundles = containedCosts.join("") + bundles;
         }
 
         let bundledWithFlag = "";

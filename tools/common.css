@@ -401,6 +401,36 @@ section p {
   font-weight: 500;
 }
 
+#item-shop-settings {
+  margin-top: 2.5rem;
+}
+
+.item-shop-extra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.item-shop-extra-grid.hidden {
+  display: none;
+}
+
+.item-shop-extra-grid .source-settings {
+  margin-top: 0;
+  align-self: start;
+}
+
+.item-shop-extra-grid #item-shop-bundle-settings,
+.item-shop-extra-grid #contained-cosmetics-box {
+  margin: 0;
+}
+
+.item-shop-bundle-settings #bundles-box {
+  margin: 0;
+}
+
 /* Checkbox labels */
 .checkbox-label {
   display: flex;
@@ -499,8 +529,13 @@ input:checked + .slider:before {
   margin: 0 0 0.5rem 0;
 }
 
-#bundles-box {
+#bundles-box,
+#contained-cosmetics-box {
   margin: 1.5rem 0rem 0rem 0rem;
+}
+
+#contained-cosmetics-box {
+  margin-bottom: 1.5rem;
 }
 
 /* Battle Pass Settings */
@@ -551,37 +586,49 @@ input:checked + .slider:before {
     }
 
     /* Stack columns vertically on mobile */
-    .two-column-layout {
+    .two-column-layout,
+    .item-shop-extra-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 }
 
 
-#bundles-list.scrollbox {
+#bundles-list.scrollbox,
+#contained-cosmetics-list.scrollbox {
     max-height: 350px;
     overflow-y: auto;
-    padding: 8px;
+    padding: 0;
 }
 
 .bundle-entry input[type="text"], input[type="number"] {
     margin-right: 0.5rem;
-    padding: 6px;
+    padding: 0.75rem;
     box-sizing: border-box;
 }
 
-.bundle-entry input[type="text"].bundle-display {
+.bundle-entry input[type="text"].bundle-display,
+.contained-cosmetic-entry input[type="text"].contained-cosmetic-display {
     width: 80%;
+    min-height: 2.5rem;
 }
 
-.bundle-entry .suggestions {
+.bundle-entry input[type="text"].vbucks-cost,
+.contained-cosmetic-entry input[type="text"].vbucks-cost {
+    width: 150px !important;
+    min-height: 2.5rem;
+}
+
+.bundle-entry .suggestions,
+.contained-cosmetic-entry .suggestions {
     position: relative; 
     margin-top: 4px;
     max-height: 160px;
     overflow-y: auto;
 }
 
-.bundle-entry .suggestions div {
+.bundle-entry .suggestions div,
+.contained-cosmetic-entry .suggestions div {
     padding: 6px;
     cursor: pointer;
 }

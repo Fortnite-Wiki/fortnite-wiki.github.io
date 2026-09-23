@@ -627,10 +627,8 @@ async function handleGenerate() {
 				let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 					props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 				
-				let cosmeticType = props.ItemShortDescription?.SourceString;
-				if (!cosmeticType) {
-					cosmeticType = TYPE_MAP[itemDefinitionData.Type] || "";
-				}
+				const typeNameOverride = (props.DataList || []).find(entry => entry?.ItemTypeNameOverride)?.ItemTypeNameOverride?.SourceString;
+				let cosmeticType = TYPE_MAP[itemDefinitionData.Type] || typeNameOverride || props.ItemShortDescription?.SourceString || "";
 				cosmeticType = normalizeCosmeticType(cosmeticType);
 
 				const carBodyName = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag)?.name;

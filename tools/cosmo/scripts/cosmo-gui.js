@@ -232,6 +232,7 @@ let latestDav2Paths = new Map();
 let generatedImages = [];
 let selectedAsset = null;
 let detectedStyleGroups = [];
+let junoProductStyleGroups = [];
 let previewLoadRun = 0;
 
 const elements = {};
@@ -308,6 +309,7 @@ function getAssetCandidates() {
 				name: entry.name,
 				dataPath: entry.path || '',
 				carBodyTag: entry.carBodyTag || '',
+				jido: entry.jido || '',
 				dav2Path,
 				dav2Id: getDisplayAssetId(dav2Path) || getPrimaryDisplayAssetId(entry.id),
 			});
@@ -437,6 +439,7 @@ function applyAssetMode(asset = selectedAsset) {
 
 function clearDetectedStyles(message = '') {
 	detectedStyleGroups = [];
+	junoProductStyleGroups = [];
 	if (elements.detectedStyleControls) elements.detectedStyleControls.innerHTML = '';
 	if (elements.detectedStyleStatus) elements.detectedStyleStatus.textContent = message;
 }
@@ -450,6 +453,7 @@ async function loadDetectedStyles() {
 	try {
 		clearDetectedStyles('Loading options...');
 		const imageType = elements.imageType.value;
+		junoProductStyleGroups = [];
 		detectedStyleGroups = imageType === 'store_image'
 			? await loadStoreStyleGroups(selectedAsset)
 			: await loadCosmeticStyleGroups(selectedAsset);
@@ -484,11 +488,13 @@ async function loadCosmeticStyleGroups(asset) {
 				channelIndex,
 				name,
 				tagName: props.VariantChannelTag?.TagName || '',
+				productTags: (props.ProductTags || []).map((tag) => tag?.TagName).filter(Boolean),
 				optionSource: optionInfo.source,
 				options: optionInfo.options,
 			};
 		}));
 
+	junoProductStyleGroups = styleGroups.filter((group) => isJunoProductStyleGroup(group));
 	return styleGroups.filter((group) => !isUnsupportedCosmoStyleGroup(group));
 }
 
@@ -842,6 +848,13 @@ function isUnsupportedCosmoStyleGroup(group) {
 	return /lego/i.test(group.name);
 }
 
+function isJunoProductStyleGroup(group) {
+	return (
+		group?.productTags?.some((tagName) => /^Product\.Juno$/i.test(tagName)) &&
+		group?.options?.length > 0
+	);
+}
+
 function isVehiclePaintedStyleGroup(group) {
 	return /^Cosmetics\.Variant\.Channel\.Vehicle\.Painted\b/i.test(String(group?.tagName || ''));
 }
@@ -957,6 +970,38 @@ function selectedDetectedStyle() {
 	return [detectedStyleGroups.map((group, groupIndex) => (
 		selectedByGroupIndex.get(groupIndex) ?? getDefaultOptionValue(group)
 	))];
+}
+
+function getJunoProductStyleArrays() {
+	if (!junoProductStyleGroups.length) return [];
+
+	const allGroups = getAllCosmeticStyleGroups();
+	if (!allGroups.length) return [];
+
+	const maxChannelIndex = Math.max(...allGroups.map((group) => group.channelIndex ?? -1));
+	if (maxChannelIndex < 0) return [];
+
+	const baseStyle = Array(maxChannelIndex + 1).fill(0);
+	for (const group of allGroups) {
+		if (Number.isInteger(group.channelIndex)) {
+			baseStyle[group.channelIndex] = getDefaultOptionValue(group);
+		}
+	}
+
+	return cartesianProduct(junoProductStyleGroups.map((group) => getStyleValuesForCombination(group)))
+		.map((values) => {
+			const style = [...baseStyle];
+			values.forEach((value, valueIndex) => {
+				const group = junoProductStyleGroups[valueIndex];
+				if (Number.isInteger(group?.channelIndex)) style[group.channelIndex] = value;
+			});
+			return style;
+		});
+}
+
+function getAllCosmeticStyleGroups() {
+	return [...detectedStyleGroups, ...junoProductStyleGroups]
+		.sort((a, b) => (a.channelIndex ?? 0) - (b.channelIndex ?? 0));
 }
 
 function allDetectedStyles() {
@@ -1281,6 +1326,37 @@ function buildCandidatePaths(assetId, imageType, styleArray, version, dav2Id = '
 	return paths;
 }
 
+function getCosmoGenerationAssetIds(assetId, imageType) {
+	return uniqueStrings([assetId, ...getProductCosmoAssetIds(assetId, imageType)]);
+}
+
+function getProductCosmoAssetIds(assetId, imageType) {
+	if (!shouldAddJunoProductCandidate(assetId, imageType)) return [];
+	return [`${getAssetBaseId(assetId)}[Product.Juno]`];
+}
+
+function isJunoProductAssetId(assetId) {
+	return /\[Product\.Juno\]/i.test(String(assetId || ''));
+}
+
+function shouldAddJunoProductCandidate(assetId, imageType) {
+	if (imageType === 'store_image' || imageType === 'preview_permutation_image') return false;
+	if (String(assetId || '').includes('[')) return false;
+	if (!isCharacterAssetId(assetId)) return false;
+
+	const baseId = getAssetBaseId(assetId).toLowerCase();
+	const selectedBaseId = String(selectedAsset?.id || '').toLowerCase();
+	if (selectedBaseId === baseId) return Boolean(selectedAsset?.jido);
+
+	const entry = index.find((item) => String(item?.id || '').toLowerCase() === baseId);
+	return Boolean(entry?.jido);
+}
+
+function isCharacterAssetId(assetId) {
+	const baseId = getAssetBaseId(assetId);
+	return /^(character_|cid_|solidwave_character)/i.test(baseId);
+}
+
 function getCosmoAssetTypeFallbacks(assetId, imageType) {
 	if (imageType === 'store_image') return [];
 
@@ -1332,11 +1408,12 @@ function getFileName(imageType, styleArray) {
 }
 
 function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()) {
-	if (!Array.isArray(styleArray) || !detectedStyleGroups.length) return [];
+	const styleGroups = getStyleSelectionGroups(assetId);
+	if (!Array.isArray(styleArray) || !styleGroups.length) return [];
 
 	if (usesVariantOptionStyleFormat(imageType)) {
 		const [groupIndex, optionValue] = styleArray;
-		const group = detectedStyleGroups.find((item) => item.channelIndex === groupIndex) || detectedStyleGroups[groupIndex];
+		const group = styleGroups.find((item) => item.channelIndex === groupIndex) || styleGroups[groupIndex];
 		const option = group?.options.find((item) => Number(item.value) === Number(optionValue));
 
 		return [{
@@ -1347,7 +1424,7 @@ function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()
 	}
 
 	return styleArray.map((value, index) => {
-		const group = detectedStyleGroups[index];
+		const group = styleGroups.find((item) => item.channelIndex === index) || styleGroups[index];
 		if (shouldUseImmutableOnlyStyles(imageType, assetId)) {
 			const shouldIncludeGroup = imageType === 'preview_permutation_image'
 				? isImmutableVariantGroup(group)
@@ -1362,6 +1439,10 @@ function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()
 			value,
 		};
 	}).filter(Boolean);
+}
+
+function getStyleSelectionGroups(assetId) {
+	return isJunoProductAssetId(assetId) ? getAllCosmeticStyleGroups() : detectedStyleGroups;
 }
 
 function getStyleLabel(styleArray, imageType, assetId = getCurrentAssetId()) {
@@ -1385,29 +1466,68 @@ async function generateImages() {
 
 	const styles = await getStyleArraysForGeneration(imageType, assetId, release, dav2Id);
 	const images = [];
+	const candidateAssetIds = getCosmoGenerationAssetIds(assetId, imageType);
+	const generationRequests = getOrderedGenerationRequests(imageType, styles, candidateAssetIds);
 
-	for (const style of styles) {
-		const paths = buildCandidatePaths(assetId, imageType, style, release.version, dav2Id);
-		const fallbackGroupKey = paths.length > 1 ? getFallbackGroupKey(assetId, imageType, style) : '';
-		for (let fallbackRank = 0; fallbackRank < paths.length; fallbackRank++) {
-			const path = paths[fallbackRank];
-			images.push({
-				assetId,
-				imageType,
-				requestedImageType: imageType,
-				style,
-				path,
-				url: await makeUrl(path, release.key),
-				fileName: getFileName(imageType, style),
-				styleLabel: getStyleLabel(style, imageType, assetId),
-				styleSelections: getStyleSelections(style, imageType, assetId),
-				fallbackGroupKey,
-				fallbackRank,
-			});
+	for (const { assetId: candidateAssetId, styles: candidateStyles } of generationRequests) {
+		for (const candidateStyle of candidateStyles) {
+			const paths = buildCandidatePaths(candidateAssetId, imageType, candidateStyle, release.version, dav2Id);
+			const fallbackGroupKey = paths.length > 1 ? getFallbackGroupKey(candidateAssetId, imageType, candidateStyle) : '';
+			for (let fallbackRank = 0; fallbackRank < paths.length; fallbackRank++) {
+				const path = paths[fallbackRank];
+				images.push({
+					assetId: candidateAssetId,
+					baseAssetId: assetId,
+					imageType,
+					requestedImageType: imageType,
+					style: candidateStyle,
+					path,
+					url: await makeUrl(path, release.key),
+					fileName: getFileName(imageType, candidateStyle),
+					styleLabel: getStyleLabel(candidateStyle, imageType, candidateAssetId),
+					styleSelections: getStyleSelections(candidateStyle, imageType, candidateAssetId),
+					fallbackGroupKey,
+					fallbackRank,
+				});
+			}
 		}
 	}
 
 	return images;
+}
+
+function getOrderedGenerationRequests(imageType, styles, candidateAssetIds) {
+	const fallbackRequests = candidateAssetIds.map((assetId) => ({
+		assetId,
+		styles: getStyleArraysForCandidate(assetId, imageType, styles),
+	}));
+	const junoAssetIds = candidateAssetIds.filter((assetId) => isJunoProductAssetId(assetId));
+	if (!junoAssetIds.length || elements.styleSource.value === 'manual') return fallbackRequests;
+
+	const defaultStyles = styles.filter((style) => style === null);
+	if (!defaultStyles.length) return fallbackRequests;
+
+	const regularAssetIds = candidateAssetIds.filter((assetId) => !isJunoProductAssetId(assetId));
+	const remainingStyles = styles.filter((style) => style !== null);
+	const requests = [
+		...regularAssetIds.map((assetId) => ({ assetId, styles: defaultStyles })),
+		...junoAssetIds.map((assetId) => ({
+			assetId,
+			styles: getStyleArraysForCandidate(assetId, imageType, styles),
+		})),
+		...regularAssetIds.map((assetId) => ({ assetId, styles: remainingStyles })),
+	];
+
+	return requests.filter((request) => request.styles.length);
+}
+
+function getStyleArraysForCandidate(assetId, imageType, styles) {
+	if (!isJunoProductAssetId(assetId) || elements.styleSource.value === 'manual') return styles;
+
+	const junoStyles = getJunoProductStyleArrays();
+	if (!junoStyles.length) return styles;
+
+	return uniqueStyleArrays(junoStyles);
 }
 
 function getSelectedRelease() {

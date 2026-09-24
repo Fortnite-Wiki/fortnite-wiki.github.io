@@ -62,6 +62,7 @@ const TYPE_MAPPINGS = {
 	character_: 'AthenaCharacter',
 	solidwave_character: 'AthenaCharacter',
 	cid_: 'AthenaCharacter',
+	bean_: 'AthenaCharacter',
 	eid_: 'AthenaDance',
 	bid_: 'AthenaBackpack',
 	backpack_: 'AthenaBackpack',
@@ -310,6 +311,7 @@ function getAssetCandidates() {
 				dataPath: entry.path || '',
 				carBodyTag: entry.carBodyTag || '',
 				jido: entry.jido || '',
+				beanid: entry.beanid || '',
 				dav2Path,
 				dav2Id: getDisplayAssetId(dav2Path) || getPrimaryDisplayAssetId(entry.id),
 			});
@@ -951,6 +953,76 @@ function renderDetectedStyleControls() {
 		}
 		elements.detectedStyleControls.appendChild(row);
 	});
+
+	renderProductPreviewRows(imageType);
+}
+
+function renderProductPreviewRows(imageType) {
+	if (elements.styleSource.value === 'manual') return;
+
+	const rows = getProductPreviewRows(imageType);
+	for (const productRow of rows) {
+		const row = document.createElement('div');
+		row.className = 'detected-style-row';
+
+		const label = document.createElement('label');
+		label.textContent = productRow.name;
+
+		const options = document.createElement('div');
+		options.className = 'detected-style-options';
+
+		productRow.options.forEach((option) => {
+			const optionEl = document.createElement('span');
+			optionEl.className = 'detected-style-option';
+			optionEl.textContent = option;
+			options.appendChild(optionEl);
+		});
+
+		row.append(label, options);
+		elements.detectedStyleControls.appendChild(row);
+	}
+}
+
+function getProductPreviewRows(imageType) {
+	if (imageType === 'store_image' || imageType === 'preview_permutation_image') return [];
+
+	const rows = [];
+	if (shouldShowJunoProductPreviewRow()) {
+		rows.push({
+			name: 'LEGO Fortnite',
+			options: getJunoProductPreviewOptionLabels(),
+		});
+	}
+
+	if (shouldShowBeanstalkProductPreviewRow()) {
+		rows.push({
+			name: 'Fall Guys',
+			options: getBeanstalkProductPreviewOptionLabels(),
+		});
+	}
+
+	return rows;
+}
+
+function shouldShowJunoProductPreviewRow() {
+	return Boolean(selectedAsset?.jido || getIndexEntryForAssetId(getCurrentAssetId())?.jido);
+}
+
+function shouldShowBeanstalkProductPreviewRow() {
+	return Boolean(selectedAsset?.beanid || getIndexEntryForAssetId(getCurrentAssetId())?.beanid);
+}
+
+function getJunoProductPreviewOptionLabels() {
+	if (!junoProductStyleGroups.length) return ['Default'];
+
+	return junoProductStyleGroups.flatMap((group) => (
+		group.options.map((option) => `${option.value} - ${option.name}`)
+	));
+}
+
+function getBeanstalkProductPreviewOptionLabels() {
+	const beanId = selectedAsset?.beanid || getIndexEntryForAssetId(getCurrentAssetId())?.beanid || 'Bean preview';
+	return [beanId];
 }
 
 function getVisibleDetectedStyleGroups(imageType) {
@@ -1306,12 +1378,31 @@ function getCosmoGenerationAssetIds(assetId, imageType) {
 }
 
 function getProductCosmoAssetIds(assetId, imageType) {
+	return [
+		...getJunoProductCosmoAssetIds(assetId, imageType),
+		...getBeanstalkProductCosmoAssetIds(assetId, imageType),
+	];
+}
+
+function getJunoProductCosmoAssetIds(assetId, imageType) {
 	if (!shouldAddJunoProductCandidate(assetId, imageType)) return [];
 	return [`${getAssetBaseId(assetId)}[Product.Juno]`];
 }
 
+function getBeanstalkProductCosmoAssetIds(assetId, imageType) {
+	if (!shouldAddBeanstalkProductCandidate(assetId, imageType)) return [];
+
+	const entry = getIndexEntryForAssetId(assetId);
+	const beanId = selectedAsset?.beanid || entry?.beanid || '';
+	return beanId ? [`${beanId}[Product.Beanstalk]`] : [];
+}
+
 function isJunoProductAssetId(assetId) {
 	return /\[Product\.Juno\]/i.test(String(assetId || ''));
+}
+
+function isBeanstalkProductAssetId(assetId) {
+	return /\[Product\.Beanstalk\]/i.test(String(assetId || ''));
 }
 
 function shouldAddJunoProductCandidate(assetId, imageType) {
@@ -1323,8 +1414,26 @@ function shouldAddJunoProductCandidate(assetId, imageType) {
 	const selectedBaseId = String(selectedAsset?.id || '').toLowerCase();
 	if (selectedBaseId === baseId) return Boolean(selectedAsset?.jido);
 
-	const entry = index.find((item) => String(item?.id || '').toLowerCase() === baseId);
+	const entry = getIndexEntryForAssetId(assetId);
 	return Boolean(entry?.jido);
+}
+
+function shouldAddBeanstalkProductCandidate(assetId, imageType) {
+	if (imageType === 'store_image' || imageType === 'preview_permutation_image') return false;
+	if (String(assetId || '').includes('[')) return false;
+	if (!isCharacterAssetId(assetId)) return false;
+
+	const baseId = getAssetBaseId(assetId).toLowerCase();
+	const selectedBaseId = String(selectedAsset?.id || '').toLowerCase();
+	if (selectedBaseId === baseId) return Boolean(selectedAsset?.beanid);
+
+	const entry = getIndexEntryForAssetId(assetId);
+	return Boolean(entry?.beanid);
+}
+
+function getIndexEntryForAssetId(assetId) {
+	const baseId = getAssetBaseId(assetId).toLowerCase();
+	return index.find((item) => String(item?.id || '').toLowerCase() === baseId);
 }
 
 function isCharacterAssetId(assetId) {
@@ -1477,16 +1586,24 @@ function getOrderedGenerationRequests(imageType, styles, candidateAssetIds) {
 		styles: getStyleArraysForCandidate(assetId, imageType, styles),
 	}));
 	const junoAssetIds = candidateAssetIds.filter((assetId) => isJunoProductAssetId(assetId));
-	if (!junoAssetIds.length || elements.styleSource.value === 'manual') return fallbackRequests;
+	const beanstalkAssetIds = candidateAssetIds.filter((assetId) => isBeanstalkProductAssetId(assetId));
+	if ((!junoAssetIds.length && !beanstalkAssetIds.length) || elements.styleSource.value === 'manual') return fallbackRequests;
 
 	const defaultStyles = styles.filter((style) => style === null);
 	if (!defaultStyles.length) return fallbackRequests;
 
-	const regularAssetIds = candidateAssetIds.filter((assetId) => !isJunoProductAssetId(assetId));
+	const regularAssetIds = candidateAssetIds.filter((assetId) => (
+		!isJunoProductAssetId(assetId) &&
+		!isBeanstalkProductAssetId(assetId)
+	));
 	const remainingStyles = styles.filter((style) => style !== null);
 	const requests = [
 		...regularAssetIds.map((assetId) => ({ assetId, styles: defaultStyles })),
 		...junoAssetIds.map((assetId) => ({
+			assetId,
+			styles: getStyleArraysForCandidate(assetId, imageType, styles),
+		})),
+		...beanstalkAssetIds.map((assetId) => ({
 			assetId,
 			styles: getStyleArraysForCandidate(assetId, imageType, styles),
 		})),
@@ -1497,6 +1614,7 @@ function getOrderedGenerationRequests(imageType, styles, candidateAssetIds) {
 }
 
 function getStyleArraysForCandidate(assetId, imageType, styles) {
+	if (isBeanstalkProductAssetId(assetId)) return [null];
 	if (!isJunoProductAssetId(assetId) || elements.styleSource.value === 'manual') return styles;
 
 	const junoStyles = getJunoProductStyleArrays();
@@ -2587,6 +2705,7 @@ function getZipAssetTypeLabel(image) {
 function getZipGameLabel(image, storeOption = null) {
 	const assetId = image?.assetId || image;
 	if (isLegoStoreOption(image, storeOption)) return 'LEGO Fortnite';
+	if (isBeanstalkProductAssetId(assetId)) return 'Fall Guys';
 	return isSparksInstrumentImage(image) || /^sparks/i.test(String(assetId || '')) ? 'Fortnite Festival' : 'Fortnite';
 }
 

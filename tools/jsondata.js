@@ -1,4 +1,5 @@
 // jsondata.js - shared JSON data loading for generators
+// https://www.npmjs.com/package/fflate
 
 let fflatePromise = null;
 

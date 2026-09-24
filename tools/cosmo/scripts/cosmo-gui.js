@@ -1468,19 +1468,35 @@ function bytesToBase64Url(bytes) {
 	return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_');
 }
 
-async function makeToken(assetPath, releaseKey) {
+function hexToBytes(value) {
+	const normalized = String(value || '').trim().replace(/^0x/i, '');
+	if (!normalized) return new Uint8Array();
+	if (!/^[\da-f]+$/i.test(normalized) || normalized.length % 2 !== 0) {
+		throw new Error('AES key is not valid.');
+	}
+
+	const bytes = new Uint8Array(normalized.length / 2);
+	for (let index = 0; index < bytes.length; index++) {
+		bytes[index] = Number.parseInt(normalized.slice(index * 2, index * 2 + 2), 16);
+	}
+	return bytes;
+}
+
+async function makeToken(assetPath, releaseKey, aesKey = '') {
 	const pathBytes = new TextEncoder().encode(assetPath);
-	const keyBytes = base64ToBytes(releaseKey);
-	const combined = new Uint8Array(pathBytes.length + keyBytes.length);
+	const rkeyBytes = base64ToBytes(releaseKey);
+	const aesKeyBytes = hexToBytes(aesKey);
+	const combined = new Uint8Array(pathBytes.length + rkeyBytes.length + aesKeyBytes.length);
 	combined.set(pathBytes, 0);
-	combined.set(keyBytes, pathBytes.length);
+	combined.set(rkeyBytes, pathBytes.length);
+	combined.set(aesKeyBytes, pathBytes.length + rkeyBytes.length);
 
 	const hash = await crypto.subtle.digest('SHA-256', combined);
 	return bytesToBase64Url(new Uint8Array(hash));
 }
 
-async function makeUrl(assetPath, releaseKey) {
-	return `${BASE_URL}/${await makeToken(assetPath, releaseKey)}/png`;
+async function makeUrl(assetPath, releaseKey, aesKey = elements.aesKey?.value || '') {
+	return `${BASE_URL}/${await makeToken(assetPath, releaseKey, aesKey)}/png`;
 }
 
 function styleSuffix(styleArray) {
@@ -2907,6 +2923,7 @@ function cacheElements() {
 		assetSuggestions: document.getElementById('asset-suggestions'),
 		imageType: document.getElementById('image-type'),
 		releaseVersion: document.getElementById('release-version'),
+		aesKey: document.getElementById('aes-key'),
 		customReleaseFields: document.getElementById('custom-release-fields'),
 		customReleaseVersion: document.getElementById('custom-release-version'),
 		customReleaseKey: document.getElementById('custom-release-key'),

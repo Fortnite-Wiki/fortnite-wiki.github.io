@@ -44,6 +44,44 @@ aside {
 	min-width: min(24rem, 100%);
 }
 
+.aes-key-input {
+	width: 20rem;
+	min-width: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.aes-key-help {
+	position: relative;
+	flex: 0 0 auto;
+	cursor: help;
+}
+
+.aes-key-help::after {
+	position: absolute;
+	bottom: calc(100% + 0.5rem);
+	left: 0;
+	z-index: 10;
+	display: none;
+	border: 2px solid var(--col-acc);
+	border-radius: 4px;
+	background: var(--col-bg2);
+	padding: 0.5rem 0.65rem;
+	width: max-content;
+	max-width: 18rem;
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 400;
+	line-height: 1.3;
+	white-space: normal;
+	content: attr(data-tooltip);
+}
+
+.aes-key-help:hover::after,
+.aes-key-help:focus-visible::after {
+	display: block;
+}
+
 .suggestions {
 	max-height: 250px;
 	overflow-y: auto;

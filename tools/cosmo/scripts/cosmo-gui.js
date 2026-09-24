@@ -2320,6 +2320,9 @@ function formatGalleryFileName(fileName) {
 
 function getGalleryCaption(image, contextImages = [image]) {
 	const cosmeticName = getZipCosmeticName(image);
+	if (isJunoProductAssetId(image?.assetId)) {
+		return getJunoGalleryCaption(image, contextImages, cosmeticName);
+	}
 	if (isRacingCosmeticImage(image)) {
 		const racingCaption = getRacingGalleryCaption(image);
 		if (racingCaption) return racingCaption;
@@ -2338,6 +2341,28 @@ function getGalleryCaption(image, contextImages = [image]) {
 		.filter((label) => shouldUseGalleryCaptionLabel(label, cosmeticName));
 
 	return labels.length ? labels.join(', ') : cosmeticName;
+}
+
+function getJunoGalleryCaption(image, contextImages, cosmeticName) {
+	const baseCaption = `${cosmeticName} - LEGO® Style`;
+	if (!hasSignatureAndBaseJunoImagesInGallery(image, contextImages)) return baseCaption;
+
+	const optionName = getJunoStyleOptionName(image);
+	return optionName ? `${baseCaption} - ${optionName}` : baseCaption;
+}
+
+function hasSignatureAndBaseJunoImagesInGallery(image, contextImages) {
+	const matchingImages = contextImages.filter((contextImage) => (
+		isJunoProductAssetId(contextImage?.assetId) &&
+		getAssetBaseId(contextImage?.baseAssetId || contextImage?.assetId) === getAssetBaseId(image?.baseAssetId || image?.assetId)
+	));
+	const optionNames = new Set(matchingImages.map(getJunoStyleOptionName).filter(Boolean).map((name) => name.toLowerCase()));
+	return optionNames.has('signature') && optionNames.has('base');
+}
+
+function getJunoStyleOptionName(image) {
+	const selection = (image?.styleSelections || []).find((item) => /lego/i.test(String(item?.groupName || '')));
+	return selection?.optionName || '';
 }
 
 function getRacingGalleryCaption(image) {
@@ -2567,8 +2592,15 @@ function getRacingDecalCarBodyFromPath(image) {
 
 function getZipStylePart(image, contextImages = [image]) {
 	if (!Array.isArray(image.style)) return '';
+	if (isJunoProductAssetId(image?.assetId)) return getJunoZipStylePart(image, contextImages);
 	if (shouldUseImmutableOnlyStyles(image.imageType, image.assetId)) return getCompanionStylePart(image.style, image.imageType);
 	if (isZeroStyleArray(image.style) && !hasDefaultImageCandidate(image, contextImages)) return '';
+	return image.style.join(',');
+}
+
+function getJunoZipStylePart(image, contextImages) {
+	if (!hasSignatureAndBaseJunoImagesInGallery(image, contextImages)) return '';
+	if (isZeroStyleArray(image.style)) return '';
 	return image.style.join(',');
 }
 

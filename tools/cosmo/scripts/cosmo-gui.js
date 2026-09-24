@@ -975,33 +975,8 @@ function selectedDetectedStyle() {
 function getJunoProductStyleArrays() {
 	if (!junoProductStyleGroups.length) return [];
 
-	const allGroups = getAllCosmeticStyleGroups();
-	if (!allGroups.length) return [];
-
-	const maxChannelIndex = Math.max(...allGroups.map((group) => group.channelIndex ?? -1));
-	if (maxChannelIndex < 0) return [];
-
-	const baseStyle = Array(maxChannelIndex + 1).fill(0);
-	for (const group of allGroups) {
-		if (Number.isInteger(group.channelIndex)) {
-			baseStyle[group.channelIndex] = getDefaultOptionValue(group);
-		}
-	}
-
 	return cartesianProduct(junoProductStyleGroups.map((group) => getStyleValuesForCombination(group)))
-		.map((values) => {
-			const style = [...baseStyle];
-			values.forEach((value, valueIndex) => {
-				const group = junoProductStyleGroups[valueIndex];
-				if (Number.isInteger(group?.channelIndex)) style[group.channelIndex] = value;
-			});
-			return style;
-		});
-}
-
-function getAllCosmeticStyleGroups() {
-	return [...detectedStyleGroups, ...junoProductStyleGroups]
-		.sort((a, b) => (a.channelIndex ?? 0) - (b.channelIndex ?? 0));
+		.map((values) => [...values]);
 }
 
 function allDetectedStyles() {
@@ -1442,7 +1417,7 @@ function getStyleSelections(styleArray, imageType, assetId = getCurrentAssetId()
 }
 
 function getStyleSelectionGroups(assetId) {
-	return isJunoProductAssetId(assetId) ? getAllCosmeticStyleGroups() : detectedStyleGroups;
+	return isJunoProductAssetId(assetId) ? junoProductStyleGroups : detectedStyleGroups;
 }
 
 function getStyleLabel(styleArray, imageType, assetId = getCurrentAssetId()) {

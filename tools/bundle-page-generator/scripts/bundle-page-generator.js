@@ -372,6 +372,29 @@ function updateBannerSuggestions(idField, fileField, nameField, sugDiv) {
 	});
 }
 
+function normalizeLinkCollisionKey(name) {
+	return String(name || '').trim().toLowerCase();
+}
+
+function addNameCount(nameCounts, name) {
+	const key = normalizeLinkCollisionKey(name);
+	if (!key) return;
+	nameCounts[key] = (nameCounts[key] || 0) + 1;
+}
+
+function getNameCount(nameCounts, name) {
+	return nameCounts[normalizeLinkCollisionKey(name)] || 0;
+}
+
+function getCanonicalJamTrackTitle(title) {
+	const normalizedTitle = normalizeLinkCollisionKey(title);
+	if (!normalizedTitle || !jamTracksData) return title;
+
+	return Object.values(jamTracksData).find((trackTitle) => (
+		normalizeLinkCollisionKey(trackTitle) === normalizedTitle
+	)) || title;
+}
+
 async function getBundleData(bundleID, bundleName) {
 	const entryMeta = index.find(e =>
 		(e.bundle_id && (e.bundle_id.toLowerCase().replace('_Athena_Commando', '') === bundleID.toLowerCase() || e.bundle_id.toLowerCase() === bundleID.toLowerCase())) ||
@@ -599,11 +622,11 @@ async function handleGenerate() {
 	const nameCounts = {};
 	for (const e of cosmeticsEntries) {
 		const hiddenName = (e.hiddenName && e.hiddenName.value || '').trim();
-		nameCounts[hiddenName] = (nameCounts[hiddenName] || 0) + 1;
+		addNameCount(nameCounts, hiddenName);
 	}
 	for (const jt of jamTracksEntries) {
-		const title = jt.input.value;
-		nameCounts[title] = (nameCounts[title] || 0) + 1;
+		const title = getCanonicalJamTrackTitle(jt.input.value);
+		addNameCount(nameCounts, title);
 	}
 
 	const cosmetics = [];
@@ -687,7 +710,7 @@ async function handleGenerate() {
 					hasLEGOStyle = true;
 				}
 
-				const hasDuplicate = nameCounts[name] > 1;
+				const hasDuplicate = getNameCount(nameCounts, name) > 1;
 				const duplicateType = cosmeticType == "Wheel" ? "Wheels" : cosmeticType;
 				const linkTarget = hasDuplicate ? `${name} (${carBodyName || duplicateType})` : (carBodyName ? `${name} (${carBodyName})` : name);
 				const linkDisplay = name;
@@ -712,10 +735,10 @@ async function handleGenerate() {
 	}
 
 	for (const jt of jamTracksEntries) {
-		const title = (jt.input && jt.input.value || '').trim();
+		const title = getCanonicalJamTrackTitle((jt.input && jt.input.value || '').trim());
 		if (!title) continue;
 
-		const hasDuplicate = nameCounts[title] > 1;
+		const hasDuplicate = getNameCount(nameCounts, title) > 1;
 		const linkTarget = hasDuplicate ? `${title} (Jam Track)` : title;
 
 		cosmetics.push({

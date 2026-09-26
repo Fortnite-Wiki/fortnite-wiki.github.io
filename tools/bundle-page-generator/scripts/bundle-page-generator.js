@@ -395,6 +395,15 @@ function getCanonicalJamTrackTitle(title) {
 	)) || title;
 }
 
+const CAR_BUNDLE_COSMETIC_TYPES = new Set([
+	'Car Body',
+	'Decal',
+	'Wheel',
+	'Wheels',
+	'Boost',
+	'Trail',
+]);
+
 async function getBundleData(bundleID, bundleName) {
 	const entryMeta = index.find(e =>
 		(e.bundle_id && (e.bundle_id.toLowerCase().replace('_Athena_Commando', '') === bundleID.toLowerCase() || e.bundle_id.toLowerCase() === bundleID.toLowerCase())) ||
@@ -429,6 +438,54 @@ async function getBundleData(bundleID, bundleName) {
 	return { da, dav2 };
 }
 
+function buildBundleImageParameter(bundleName, imageProductTagCounts, hasCarCosmetic) {
+	const entries = buildBundleImageEntries(bundleName, imageProductTagCounts, hasCarCosmetic);
+	if (entries.length > 1) {
+		return ['{{InfoboxTabber|', ...entries.map((filename, idx) => `${filename}|${idx + 1}`), '}}'].join('\n');
+	}
+
+	return entries[0] || '';
+}
+
+function buildBundleImageEntries(bundleName, imageProductTagCounts = {}, hasCarCosmetic = false) {
+	const entries = [];
+	const brCount = imageProductTagCounts['Product.BR'] || 0;
+	const delMarCount = imageProductTagCounts['Product.DelMar'] || 0;
+	const junoCount = imageProductTagCounts['Product.Juno'] || 0;
+	const fortniteCount = brCount + delMarCount;
+	const fortniteLabel = hasCarCosmetic ? 'Item Shop' : '';
+
+	entries.push(...getNumberedBundleImageEntries(bundleName, fortniteCount, fortniteLabel));
+	entries.push(...getNumberedBundleImageEntries(bundleName, junoCount, 'LEGO'));
+
+	return entries;
+}
+
+function getNumberedBundleImageEntries(bundleName, count, label = '') {
+	const entries = [];
+	for (let i = 1; i <= count; i++) {
+		entries.push(getBundleImageFileName(bundleName, getBundleImageSuffix(i, label)));
+	}
+	return entries;
+}
+
+function getBundleImageSuffix(index, label = '') {
+	if (label) return index === 1 ? label : `${label} - ${String(index).padStart(2, '0')}`;
+	return index === 1 ? '' : String(index).padStart(2, '0');
+}
+
+function getBundleImageFileName(bundleName, suffix = '') {
+	return `${bundleName}${suffix ? ` (${suffix})` : ''} - Item Shop Bundle - Fortnite.png`;
+}
+
+function hasCarCosmetic(cosmetics) {
+	return cosmetics.some((cosmetic) => (
+		cosmetic.isRacingCosmetic ||
+		CAR_BUNDLE_COSMETIC_TYPES.has(cosmetic.cosmeticType) ||
+		CAR_BUNDLE_COSMETIC_TYPES.has(cosmetic.fileType)
+	));
+}
+
 async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
 	const infobox = [];
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
@@ -437,40 +494,8 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	if (settings.isRocketLeagueCosmetic) infobox.push('{{Rocket League Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
 	infobox.push(`|name = ${bundleName}`);
-	let imageParameter = '';
-	if (!usePlaceholderImage && imageProductTagCounts && Object.keys(imageProductTagCounts).length > 0) {
-		const tagLabelMap = {
-			'Product.Juno': 'LEGO',
-		};
-
-		const tempEntries = Object.entries(imageProductTagCounts).flatMap(([tag, count]) => {
-			const entries = [];
-			const label = tagLabelMap[tag] || tag;
-
-			if (tag in tagLabelMap) {
-				if (count >= 1) entries.push(`${bundleName} (${label}) - Item Shop Bundle - Fortnite.png`);
-				for (let i = 2; i <= count; i++) {
-					entries.push(`${bundleName} (${label} - ${String(i).padStart(2, '0')}) - Item Shop Bundle - Fortnite.png`);
-				}
-			} else {
-				if (count >= 1) entries.push(`${bundleName} - Item Shop Bundle - Fortnite.png`);
-				for (let i = 2; i <= count; i++) {
-					entries.push(`${bundleName} (${String(i).padStart(2, '0')}) - Item Shop Bundle - Fortnite.png`);
-				}
-			}
-
-			return entries;
-		});
-
-		if (tempEntries.length > 1) {
-			// Add increasing numeric caption (|1, |2, ...) after each image in the gallery
-			const numbered = tempEntries.map((filename, idx) => `${filename}|${idx + 1}`);
-			imageParameter = `<gallery>\n${numbered.join('\n')}\n</gallery>`;
-		} else if (tempEntries.length === 1) {
-			imageParameter = tempEntries[0];
-		}
-	}
-	infobox.push(`|image = ${usePlaceholderImage ? 'Placeholder (Featured - New) - Item Shop Bundle - Fortnite.png' : imageParameter}`);
+	const imageParameter = buildBundleImageParameter(bundleName, imageProductTagCounts, hasCarCosmetic(cosmetics));
+	infobox.push(`|image = ${imageParameter || (usePlaceholderImage ? 'Placeholder (Featured - New) - Item Shop Bundle - Fortnite.png' : '')}`);
 
 	let rarity = cosmetics[0]?.rarity || "";
 	infobox.push(`|rarities = ${rarity}`);
@@ -806,11 +831,7 @@ async function handleGenerate() {
 				const renderImage = pres?.RenderImage?.AssetPathName;
 				if (renderImage == '/OfferCatalog/Art/A_Shop_Tiles_Textures/T_UI_PlaceholderCube.T_UI_PlaceholderCube') {
 					usePlaceholderImage = true;
-					break;
 				}
-			}
-			if (usePlaceholderImage) {
-				break;
 			}
 		}
 	}

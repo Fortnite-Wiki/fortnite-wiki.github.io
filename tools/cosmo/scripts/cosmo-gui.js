@@ -515,6 +515,7 @@ async function loadStoreStyleGroups(asset) {
 		options: presentations.map((presentation, index) => ({
 			value: index,
 			name: storePresentationName(presentation, index),
+			productTag: presentation?.ProductTag?.TagName || '',
 		})),
 	}];
 }
@@ -2529,6 +2530,82 @@ function isZipBundleImage(image) {
 	return elements.assetKind.value === 'Bundle' || selectedAsset?.kind === 'Bundle' || /^bundle_/i.test(image?.assetId || '');
 }
 
+function shouldUseItemShopBundleStoreDescriptor(storeOption) {
+	return isCarBundleStoreImage() && !isLegoStoreOptionName(storeOption?.name);
+}
+
+function getNumberedItemShopBundleStoreDescriptor(storeOption) {
+	const options = getBundleStoreOptions().filter((option) => !isLegoStoreOptionName(option?.name));
+	const optionIndex = options.findIndex((option) => Number(option.value) === Number(storeOption?.value));
+	if (optionIndex <= 0) return 'Item Shop';
+	return `Item Shop - ${String(optionIndex + 1).padStart(2, '0')}`;
+}
+
+function getBundleStoreOptions() {
+	return detectedStyleGroups[0]?.options || [];
+}
+
+function isDelMarStoreOption(storeOption) {
+	return /^Product\.DelMar$/i.test(String(storeOption?.productTag || '').replace('Delmar', 'DelMar'));
+}
+
+function isCarBundleStoreImage() {
+	return (
+		getBundleStoreOptions().some((option) => isDelMarStoreOption(option)) ||
+		hasRacingCosmeticForCurrentBundle()
+	);
+}
+
+function hasRacingCosmeticForCurrentBundle() {
+	if (!Array.isArray(index)) return false;
+	const tokens = getCurrentBundleIdentityTokens();
+	if (!tokens.length) return false;
+
+	return index.some((entry) => (
+		isRacingCosmeticIndexEntry(entry) &&
+		tokens.some((token) => racingEntryMatchesBundleToken(entry, token))
+	));
+}
+
+function getCurrentBundleIdentityTokens() {
+	return uniqueStrings([
+		selectedAsset?.id,
+		getEnteredAssetId(),
+		getPrimaryBundleIdFromDav2Id(elements.assetDav2Id?.value),
+		getPrimaryBundleIdFromDav2Path(elements.assetDav2Path?.value),
+	]).map(normalizeBundleIdentityToken).filter(Boolean);
+}
+
+function getPrimaryBundleIdFromDav2Path(path) {
+	return getPrimaryBundleIdFromDav2Id(getDisplayAssetId(path));
+}
+
+function getPrimaryBundleIdFromDav2Id(dav2Id) {
+	return String(dav2Id || '')
+		.replace(/^DAv2_/i, '')
+		.replace(/^Bundle_Featured_/i, '')
+		.replace(/^Featured_Bundle_/i, '')
+		.replace(/_Bundle$/i, '');
+}
+
+function normalizeBundleIdentityToken(value) {
+	return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function isRacingCosmeticIndexEntry(entry) {
+	return /^Racing\//i.test(String(entry?.path || ''));
+}
+
+function racingEntryMatchesBundleToken(entry, token) {
+	const haystack = normalizeBundleIdentityToken([
+		entry?.id,
+		entry?.path,
+		entry?.name,
+		entry?.carBodyTag,
+	].filter(Boolean).join(' '));
+	return token.length >= 4 && haystack.includes(token);
+}
+
 function getZipCosmeticName(image) {
 	const storedName = elements.assetName.value.trim() || selectedAsset?.name || '';
 	if (storedName) return storedName;
@@ -2644,6 +2721,9 @@ function hasDefaultImageCandidate(image, contextImages) {
 
 function getZipStoreDescriptor(image, storeOption, assetType) {
 	const baseLabel = getZipStoreBaseLabel(storeOption?.name);
+	if (isZipBundleImage(image) && shouldUseItemShopBundleStoreDescriptor(storeOption)) {
+		return getNumberedItemShopBundleStoreDescriptor(storeOption);
+	}
 	if (isLegoStoreOption(image, storeOption)) {
 		const legoDescriptor = getNumberedLegoStoreDescriptor(storeOption);
 		if (legoDescriptor) return legoDescriptor;

@@ -99,7 +99,7 @@ export function generateUnlockedParameter(settings, bundleEntries = [], containe
 export function generateCostParameter(settings, bundleEntries = [], isFestivalCosmetic = false, name = '', rarity = '', cosmeticType = '', instrumentType = '', containedCosmeticEntries = []) {
     let cost = ''
 
-    if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLEGO)) {
+    if ((settings.isBattlePass && settings.passFreeBP) || (settings.isOGPass && settings.passFreeOG) || (settings.isMusicPass && settings.passFreeMusic) || (settings.isLEGOPass && settings.passFreeLEGO) || (settings.isRocketPass && settings.passFreeRocket)) {
         cost = "Free";
     
     } else if (settings.isFortniteCrew || rarity === "Crew Series") {

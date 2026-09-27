@@ -557,6 +557,78 @@ function chunkList(lst, size) {
 	return Array.from({ length: Math.ceil(lst.length / size) }, (_, i) => lst.slice(i * size, i * size + size));
 }
 
+function uniqueStrings(values) {
+	const seen = new Set();
+	return values.filter((value) => {
+		if (!value || seen.has(value)) return false;
+		seen.add(value);
+		return true;
+	});
+}
+
+const COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES = new Set([
+	'MaterialParameterSets',
+	'MaterialParamaterSets',
+	'MaterialParameters',
+	'MPS',
+	'ColorSwatches',
+	'MaterialParamSets',
+	'MaterialParametrs',
+	'MaterialParamSettings',
+	'MaterialParametrSets',
+]);
+
+function companionMaterialParameterSetDataPaths(objectPath) {
+	const parts = String(objectPath || '').split('/').filter(Boolean);
+	const folderIndex = parts.findIndex((part) => COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES.has(part));
+	if (folderIndex < 1 || folderIndex >= parts.length - 1) return directCompanionMaterialParameterSetDataPaths(parts);
+
+	const companionFolder = parts[folderIndex - 1];
+	const fileName = parts[folderIndex + 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !fileName) return [];
+
+	const exportedFolder = parts[folderIndex];
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`,
+		`${DATA_BASE_PATH}cosmetics/Companions/${exportedFolder}/${companionFolder}/${fileName}.json`,
+	]);
+}
+
+function directCompanionMaterialParameterSetDataPaths(parts) {
+	const companionFolder = parts[parts.length - 2];
+	const fileName = parts[parts.length - 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !/^MPS_/i.test(fileName || '')) return [];
+
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`,
+	]);
+}
+
+function companionColorSwatchDataPaths(assetPathName) {
+	const [objectPath] = String(assetPathName || '').split('.');
+	const parts = objectPath.split('/').filter(Boolean);
+	const folderIndex = parts.findIndex((part) => COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES.has(part));
+	if (folderIndex < 1 || folderIndex >= parts.length - 1) return directCompanionColorSwatchDataPaths(parts);
+
+	const companionFolder = parts[folderIndex - 1];
+	const fileName = parts[folderIndex + 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !/^CS_/i.test(fileName || '')) return [];
+
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/ColorSwatches/${companionFolder}/${fileName}.json`,
+	]);
+}
+
+function directCompanionColorSwatchDataPaths(parts) {
+	const companionFolder = parts[parts.length - 2];
+	const fileName = parts[parts.length - 1]?.replace(/\.\d+$/, '');
+	if (!companionFolder || !/^CS_/i.test(fileName || '')) return [];
+
+	return uniqueStrings([
+		`${DATA_BASE_PATH}cosmetics/Companions/ColorSwatches/${companionFolder}/${fileName}.json`,
+	]);
+}
+
 // This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
 async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, outputFeatured, numBRDav2Assets, channelIconMap) {
 	const variantChannels = new Map();
@@ -592,20 +664,22 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 			const richColorVar = props.InlineVariant?.RichColorVar;
 			if (!richColorVar) continue;
 
-			let colorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
-			colorSwatchPath =
+			const colorSwatchPaths = companionColorSwatchDataPaths(richColorVar.ColorSwatchForChoices?.AssetPathName);
+			let fallbackColorSwatchPath = richColorVar.ColorSwatchForChoices.AssetPathName.split('.')[0] || "";
+			fallbackColorSwatchPath =
 				DATA_BASE_PATH +
-				colorSwatchPath
+				fallbackColorSwatchPath
 					.replace('/VehicleCosmetics/Mutable/Bodies/', 'cosmetics/Racing/Bodies/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/')
 					.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs|MaterialParamSettings|MaterialParametrSets)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') // fallback fix
 					.replace(/(?:Game|BRCosmetics)\/Characters\/CharacterColorSwatches\/(?:Misc)\//, 'cosmetics/Characters/ColorSwatches/')
 				+ '.json';
 
-			const colorSwatchData = await loadGzJson(colorSwatchPath).catch(err => {
-				console.warn("Failed to load color swatch data:", err);
-				return null;
-			});
+			let colorSwatchData = null;
+			for (const colorSwatchPath of uniqueStrings([...colorSwatchPaths, fallbackColorSwatchPath])) {
+				colorSwatchData = await loadGzJson(colorSwatchPath).catch(() => null);
+				if (colorSwatchData) break;
+			}
 			if (!colorSwatchData) continue;
 
 			const colorPairs = colorSwatchData[0].Properties.ColorPairs;
@@ -664,14 +738,12 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 
 			const defaultActiveVariantTag = inlineVariant.DefaultActiveVariantTag?.TagName || "";
 
-			let materialParamsPath = inlineVariant.MaterialParameterSetChoices.ObjectPath.split('.')[0] || "";
-			materialParamsPath = DATA_BASE_PATH + materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^\/]*)\/(?:MaterialParameterSets|MaterialParamaterSets|MaterialParameters|MPS|MaterialParamSets|MaterialParametrs|MaterialParamSettings|MaterialParametrSets)\//, 'cosmetics/Companions/MaterialParameterSets/$1/') + '.json';
-			materialParamsPath = materialParamsPath.replace(/CosmeticCompanions\/Assets\/(?:Quadruped|Biped|Other)\/([^/]*)\/ColorSwatches\//, 'cosmetics/Companions/ColorSwatches/$1/'); // fallback fix
-
-			const materialParamsData = await loadGzJson(materialParamsPath).catch(err => {
-				console.warn("Failed to load material parameters data:", err);
-				return null;
-			});
+			const materialParamsPaths = companionMaterialParameterSetDataPaths(inlineVariant.MaterialParameterSetChoices?.ObjectPath);
+			let materialParamsData = null;
+			for (const materialParamsPath of materialParamsPaths) {
+				materialParamsData = await loadGzJson(materialParamsPath).catch(() => null);
+				if (materialParamsData) break;
+			}
 			if (!materialParamsData) continue;
 
 			const materialChoices = materialParamsData[0].Properties.Choices;

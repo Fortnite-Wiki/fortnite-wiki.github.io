@@ -307,6 +307,11 @@ function getBundleLinkForOutput(bundleEntry) {
 	return `${theFlag}${addItemShopBundleTag ? `[[${bundleName} (Item Shop Bundle)|${bundleName}]]` : `[[${bundleName}]]`}`;
 }
 
+function getSidekickRewardsLink(name) {
+	const rewardsPageName = /s$/i.test(name) ? `${name}' Rewards` : `${name}'s Rewards`;
+	return `[[${rewardsPageName}]]`;
+}
+
 function getItemShopAppearancesContext(settings, bundleEntries, containedCosmeticEntries, name) {
 	const fallbackName = settings.shopAppearances || name;
 	if (settings.shopCost && settings.shopCost.trim()) return { appearancesName: fallbackName, bundledWith: '' };
@@ -1644,6 +1649,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		} else {
 			bundledWithParts.push(`[[${name} (Back Bling)|${name}]]`, `[[${name} (Pickaxe)|${name}]]`);
 		}
+	}
+	if (cosmeticType === "Sidekick") {
+		bundledWithParts.push(getSidekickRewardsLink(name));
 	}
 	if (bundledWithParts.length > 0) {
 		out.push(`|bundled_with = ${bundledWithParts.join(' <br> ')}`);

@@ -813,21 +813,25 @@ function directCompanionMaterialParameterSetDataPaths(parts) {
 function colorSwatchDataPaths(assetPathName) {
 	const [objectPath] = String(assetPathName).split('.');
 	const parts = objectPath.split('/').filter(Boolean);
-	const folderIndex = parts.findIndex((part) => part === 'ColorSwatches');
-	if (folderIndex < 0 || folderIndex >= parts.length - 1) return directCompanionColorSwatchDataPaths(parts);
-
 	const fileName = parts[parts.length - 1];
 	if (!fileName) return [];
+	const isColorSwatchFile = /^CS_/i.test(fileName);
+	const folderIndex = parts.findIndex((part) => part === 'ColorSwatches' || (isColorSwatchFile && COMPANION_MATERIAL_PARAMETER_FOLDER_NAMES.has(part)));
+	if (folderIndex < 0 || folderIndex >= parts.length - 1) return directCompanionColorSwatchDataPaths(parts);
 
 	const paths = [];
 	const companionFolder = parts[folderIndex - 1];
+	const exportedFolder = parts[folderIndex];
 	if (companionFolder && companionFolder !== fileName) {
 		paths.push(`${DATA_BASE_PATH}cosmetics/Companions/ColorSwatches/${companionFolder}/${fileName}.json`);
+		if (exportedFolder !== 'ColorSwatches') {
+			paths.push(`${DATA_BASE_PATH}cosmetics/Companions/${exportedFolder}/${companionFolder}/${fileName}.json`);
+		}
 	}
 
 	paths.push(`${DATA_BASE_PATH}cosmetics/Characters/ColorSwatches/${fileName}.json`);
 
-	return paths;
+	return uniqueStrings(paths);
 }
 
 function directCompanionColorSwatchDataPaths(parts) {
@@ -837,6 +841,7 @@ function directCompanionColorSwatchDataPaths(parts) {
 
 	return uniqueStrings([
 		`${DATA_BASE_PATH}cosmetics/Companions/ColorSwatches/${companionFolder}/${fileName}.json`,
+		`${DATA_BASE_PATH}cosmetics/Companions/MaterialParameterSets/${companionFolder}/${fileName}.json`,
 	]);
 }
 

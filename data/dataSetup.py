@@ -122,6 +122,11 @@ WEAPON_DEFINITIONS_DIR = os.path.join(
     r"Plugins\GameFeatures\BRCosmetics\Content\Athena\Items\Weapons"
 )
 
+OLD_WEAPON_DEFINITIONS_DIR = os.path.join(
+    BASE_DIR,
+    r"Content\Athena\Items\Weapons"
+)
+
 BANNER_ICONS_DIR = os.path.join(
     BASE_DIR,
     r"Plugins\GameFeatures\BRCosmetics\Content\Athena\Items\BannerIcons"
@@ -228,15 +233,24 @@ def build_index(dirs):
     def get_weapon_definition(entry):
         if entry.get("Type") != "AthenaPickaxeItemDefinition":
             return ""
-        weapon_definition = entry.get("Properties", {}) \
-                                 .get("WeaponDefinition", {}) \
-                                 .get("ObjectPath", "") \
-                                 .split(".") \
-                                 [0]
-        return weapon_definition.replace(
-            "/BRCosmetics/Athena/Items",
-            "cosmetics"
-        ) + ".json"
+
+        ref = entry.get("Properties", {}).get("WeaponDefinition", {})
+        weapon_definition = (ref.get("AssetPathName") or ref.get("ObjectPath") or "").split(".")[0].lstrip("/")
+        if not weapon_definition:
+            return ""
+
+        if weapon_definition.startswith("SparksCosmetics/Items/Weapons/"):
+            rel_path = weapon_definition.removeprefix("SparksCosmetics/")
+            return f"cosmetics/Festival/{rel_path}.json"
+
+        if (
+            weapon_definition.startswith("BRCosmetics/Athena/Items/Weapons/") or
+            weapon_definition.startswith("Game/Athena/Items/Weapons/")
+        ):
+            rel_path = weapon_definition.split("/Items/Weapons/", 1)[1]
+            return f"cosmetics/Weapons/{rel_path}.json"
+
+        return ""
 
     def get_companion_emotes(data):
         found_emotes = []
@@ -317,8 +331,11 @@ def build_index(dirs):
         rel_path = normalize_path(path, directory)
         if directory == KICKS_DIR:
             return "Shoes/" + rel_path
+        elif directory == OLD_BR_COSMETICS_DIR and rel_path.startswith("PickAxes/"):
+            return "Pickaxes/" + rel_path.removeprefix("PickAxes/")
         elif directory == FESTIVAL_COSMETICS_DIR:
-            return "Festival/" + rel_path.replace("Cosmetics/", "")
+            rel_path = rel_path.replace("Cosmetics/", "").replace("Items/Pickaxes/", "Items/PickAxes/")
+            return "Festival/" + rel_path
         elif directory == RACING_COSMETICS_DIR:
             return "Racing/" + rel_path
         elif directory == COMPANIONS_DIR:
@@ -365,9 +382,6 @@ def build_index(dirs):
                 rel_path = adjust_path(path, directory)
                 car_body_tag = get_car_body_tag(props)
                 set_id = get_set_id(props)
-
-                if rel_path.startswith("Festival") and weapon_definition_path != "":
-                    weapon_definition_path = weapon_definition_path.replace("SparksCosmetics", "cosmetics/Festival")
 
                 companion_emotes = []
                 if entry.get("Type") == "CosmeticCompanionItemDefinition":
@@ -775,6 +789,8 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
         rel = os.path.relpath(subdir, src_root)
         rel_parts = rel.split(os.sep)
         filtered_parts = [part for part in rel_parts if part != "Cosmetics"]
+        if src_root == FESTIVAL_COSMETICS_DIR and len(filtered_parts) >= 2 and filtered_parts[0] == "Items" and filtered_parts[1] == "Pickaxes":
+            filtered_parts[1] = "PickAxes"
         rel = os.path.join(*filtered_parts) if filtered_parts else ""
 
         dest_dir = os.path.join(dest_root, rel)
@@ -1125,8 +1141,12 @@ build_localization_index()
 copy_and_gzip(DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DAv2"), "DAv2")
 copy_and_gzip(BUNDLE_DISPLAY_ASSETS_DIR, os.path.join(os.path.dirname(__file__), "DA"), "DA (Bundle)", bundle_re)
 copy_and_gzip(WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons")
+copy_and_gzip(OLD_WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons (default pickaxe)", re.compile(r"^WID_Harvest_Pickaxe_Athena_C_T01$"))
 copy_and_gzip(BANNER_ICONS_DIR, os.path.join(os.path.dirname(__file__), "banners"), "banners")
 copy_and_gzip(COMPANION_FILTER_SET_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions", "VariantFilterSets"), "cosmetics/Companions/VariantFilterSets")
 print(f"Completed in {time.time() - t0:.2f}s")
 
-input("\nPress Enter to exit...")
+try:
+    input("\nPress Enter to exit...")
+except EOFError:
+    pass

@@ -5,15 +5,21 @@ const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const COSMO_PROXY_URL = 'https://cosmo-proxy.fortnite-wiki-tools.workers.dev/?url=';
 const CUSTOM_RELEASE_VALUE = '__custom__';
 const MAX_AUTO_COMBINATIONS = 1000;
+const MAX_EXPANDED_COMBINATIONS = 5000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
 const ZIP_DOWNLOAD_TIMEOUT_MS = 10000;
 const MIN_DAV2_SEASON = 19;
 
 const RELEASES = [
 	{
+		version: '42.30',
+		key: 'ZufZhuW1ZRKA0aYxGzsdnpidnXt9TgFzD86xyY/lFL4=',
+		label: '42.30 - Latest',
+	},
+	{
 		version: '42.20',
 		key: 'B6uZdxOe93qSiI/qMiSx28O3CfHRttPHHt5n1DCSyds=',
-		label: '42.20 - Latest',
+		label: '42.20',
 	},
 	{
 		version: '42.10',
@@ -125,6 +131,7 @@ const VARIANT_OPTION_FIELDS = [
 	'TextureOptions',
 	'NumericalOptions',
 	'ProgressiveStageOptions',
+	'ParameterOptions',
 	'GenericPropertyOptions',
 	'ContextualAnimSceneEmoteOptions',
 	'AdditivePoseOptions',
@@ -674,7 +681,7 @@ async function getVariantOptionInfo(props) {
 			source: optionField,
 			options: props[optionField].map((option, optionIndex) => ({
 				value: optionIndex,
-				name: localizedText(option?.VariantName) || localizedText(option?.ColorName) || option?.Name || `Option ${optionIndex}`,
+				name: variantOptionName(option, optionIndex),
 				previewImage: option?.PreviewImage?.AssetPathName || '',
 				variantTag: option?.CustomizationVariantTag?.TagName || '',
 				cosmeticProperties: option?.CosmeticProperties || [],
@@ -721,6 +728,27 @@ async function getVariantOptionInfo(props) {
 			name: 'Default',
 		}],
 	};
+}
+
+function variantOptionName(option, optionIndex) {
+	return localizedText(option?.VariantName) ||
+		localizedText(option?.ColorName) ||
+		option?.Name ||
+		variantTagOptionName(option?.CustomizationVariantTag?.TagName) ||
+		previewImageOptionName(option?.PreviewImage?.AssetPathName) ||
+		`Option ${optionIndex}`;
+}
+
+function variantTagOptionName(tagName) {
+	const value = String(tagName || '').split('.').pop() || '';
+	if (!value || /^(Mat|Particle|Stage)\d+$/i.test(value)) return '';
+	return value.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
+}
+
+function previewImageOptionName(assetPathName) {
+	const value = String(assetPathName || '').split('.').pop() || '';
+	const match = value.match(/(?:jumpsuit-|jumpsuita-|jumpsuitscrap-)([a-z]+)$/i);
+	return match ? titleCaseWords(match[1]) : '';
 }
 
 async function loadMaterialParameterSetChoices(props) {
@@ -1300,6 +1328,11 @@ function parseStyleInput(styleInput) {
 }
 
 function cartesianProduct(arrays) {
+	const combinationCount = arrays.reduce((total, values) => total * values.length, 1);
+	if (combinationCount > MAX_EXPANDED_COMBINATIONS) {
+		throw new Error(`That style set has ${combinationCount.toLocaleString()} combinations. Narrow the selected styles or use manual ranges below ${MAX_EXPANDED_COMBINATIONS.toLocaleString()} combinations so the page does not freeze.`);
+	}
+
 	return arrays.reduce(
 		(acc, values) => acc.flatMap((prefix) => values.map((value) => [...prefix, value])),
 		[[]]

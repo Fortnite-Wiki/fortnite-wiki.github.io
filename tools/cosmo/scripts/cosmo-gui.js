@@ -5,7 +5,7 @@ const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
 const COSMO_PROXY_URL = 'https://cosmo-proxy.fortnite-wiki-tools.workers.dev/?url=';
 const CUSTOM_RELEASE_VALUE = '__custom__';
 const MAX_AUTO_COMBINATIONS = 1000;
-const MAX_EXPANDED_COMBINATIONS = 5000;
+const MAX_EXPANDED_COMBINATIONS = 8000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
 const ZIP_DOWNLOAD_TIMEOUT_MS = 10000;
 const MIN_DAV2_SEASON = 19;

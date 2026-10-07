@@ -14,6 +14,7 @@ const CATEGORIES_FOR_SELECTION = [
 	'Tournament Cosmetics',
 	'Compatible Cosmetics',
 	'Transformative Cosmetics',
+	'Fortnitemares Cosmetics',
 	'Winter Cosmetics',
 	"Valentine's Day Cosmetics",
 	"Saint Patrick's Day Cosmetics",

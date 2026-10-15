@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cosmo Image API</title>
 
-	<script src="./scripts/cosmo-gui.js?v=20261015-release-4240" type="module"></script>
+	<script src="./scripts/cosmo-gui.js?v=20261015-sidekick-probe" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
@@ -92,6 +92,20 @@
 							<span>
 								<strong>Check large style sets</strong>
 								<small>Very large sets are capped so the page does not freeze.</small>
+							</span>
+						</label>
+						<label class="large-style-toggle" for="allow-unlimited-combinations">
+							<input type="checkbox" id="allow-unlimited-combinations" />
+							<span>
+								<strong>Allow unlimited combinations</strong>
+								<small>May freeze or crash the browser on very large sets.</small>
+							</span>
+						</label>
+						<label class="large-style-toggle" for="probe-sidekick-styles" id="probe-sidekick-styles-label" style="display: none;">
+							<input type="checkbox" id="probe-sidekick-styles" checked />
+							<span>
+								<strong>Probe sidekick styles</strong>
+								<small>Check the base and each style on its own for large sets.</small>
 							</span>
 						</label>
 					</div>

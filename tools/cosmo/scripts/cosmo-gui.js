@@ -449,6 +449,7 @@ function applyAssetMode(asset = selectedAsset) {
 
 	elements.checkLargeStyleSets.checked = isCompanion;
 	elements.checkLargeStyleSets.disabled = isCompanion;
+	updateSidekickProbeVisibility();
 }
 
 function clearDetectedStyles(message = '') {
@@ -947,6 +948,8 @@ function renderDetectedStyleControls() {
 	if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
 		const comboCount = getFullCombinationCount();
 		elements.detectedStyleStatus.textContent = `${comboCount.toLocaleString()} combinations detected. Only default candidates will be checked for this large set.`;
+	} else if (showAllOptions && shouldProbeSidekickStyles(imageType)) {
+		elements.detectedStyleStatus.textContent = `${generatedCount.toLocaleString()} representative combinations will be checked (of ${getPreviewPermutationCombinationCount(imageType).toLocaleString()} possible).`;
 	} else if (showAllOptions && shouldProbePaintedCarLockerPreview(imageType)) {
 		elements.detectedStyleStatus.textContent = 'Painted car detected. A few preview paths will be checked before expanding color/style combinations.';
 	} else {
@@ -1121,6 +1124,17 @@ function allPreviewPermutationStyles(imageType) {
 	const baseValues = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
 
 	if (!generatedGroups.length) return [baseValues];
+	if (shouldProbeSidekickStyles(imageType)) {
+		return [baseValues, ...generatedGroups.flatMap(({ group, groupIndex }) => (
+			group.options
+				.filter((option) => option.value !== baseValues[groupIndex])
+				.map((option) => {
+					const style = [...baseValues];
+					style[groupIndex] = option.value;
+					return style;
+				})
+		))];
+	}
 
 	return cartesianProduct(generatedGroups.map(({ group }) => getStyleValuesForCombination(group)))
 		.map((values) => {
@@ -1183,7 +1197,11 @@ function getDetectedGeneratedCount(imageType) {
 	if (shouldUseImmutableOnlyStyles(imageType) && usesVariantOptionStyleFormat(imageType)) {
 		return defaultCandidateCount + getCompanionPreviewOptionCount();
 	}
-	if (shouldUseImmutableOnlyStyles(imageType)) return defaultCandidateCount + getPreviewPermutationCombinationCount(imageType);
+	if (shouldUseImmutableOnlyStyles(imageType)) {
+		return defaultCandidateCount + (shouldProbeSidekickStyles(imageType)
+			? getRepresentativeSidekickStyleCount(imageType)
+			: getPreviewPermutationCombinationCount(imageType));
+	}
 	if (usesVariantOptionStyleFormat(imageType) || imageType === 'store_image') {
 		return defaultCandidateCount + detectedStyleGroups.reduce((total, group) => total + group.options.length, 0);
 	}
@@ -1201,6 +1219,29 @@ function getPreviewPermutationCombinationCount(imageType) {
 	const generatedGroups = detectedStyleGroups.filter(getCompanionCombinationGroupPredicate(imageType));
 	if (!generatedGroups.length) return 1;
 	return generatedGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
+}
+
+function shouldProbeSidekickStyles(imageType) {
+	return (
+		shouldUseImmutableOnlyStyles(imageType) &&
+		elements.styleSource?.value === 'detected-all' &&
+		elements.probeSidekickStyles?.checked &&
+		getPreviewPermutationCombinationCount(imageType) > MAX_EXPANDED_COMBINATIONS
+	);
+}
+
+function getRepresentativeSidekickStyleCount(imageType) {
+	return 1 + detectedStyleGroups
+		.filter(getCompanionCombinationGroupPredicate(imageType))
+		.reduce((total, group) => total + group.options.length - 1, 0);
+}
+
+function updateSidekickProbeVisibility() {
+	elements.probeSidekickStylesLabel.style.display = (
+		isCompanionAssetId(getCurrentAssetId()) &&
+		elements.imageType.value !== 'store_image' &&
+		elements.styleSource.value === 'detected-all'
+	) ? '' : 'none';
 }
 
 function getCompanionPreviewOptionCount() {
@@ -1252,6 +1293,7 @@ function shouldUseDefaultOnlyForLargeCombos(imageType) {
 		usesFullStyleCombinations(imageType) &&
 		elements.styleSource?.value === 'detected-all' &&
 		!elements.checkLargeStyleSets?.checked &&
+		!elements.allowUnlimitedCombinations?.checked &&
 		getFullCombinationCount() > MAX_AUTO_COMBINATIONS
 	);
 }
@@ -1334,8 +1376,8 @@ function parseStyleInput(styleInput) {
 
 function cartesianProduct(arrays) {
 	const combinationCount = arrays.reduce((total, values) => total * values.length, 1);
-	if (combinationCount > MAX_EXPANDED_COMBINATIONS) {
-		throw new Error(`That style set has ${combinationCount.toLocaleString()} combinations. Narrow the selected styles or use manual ranges below ${MAX_EXPANDED_COMBINATIONS.toLocaleString()} combinations so the page does not freeze.`);
+	if (combinationCount > MAX_EXPANDED_COMBINATIONS && !elements.allowUnlimitedCombinations?.checked) {
+		throw new Error(`That style set has ${combinationCount.toLocaleString()} combinations. Narrow the selected styles or enable "Allow unlimited combinations" to generate them anyway.`);
 	}
 
 	return arrays.reduce(
@@ -1925,6 +1967,7 @@ function updateStyleSourceUI() {
 	elements.styleArray.closest('.inline-group').style.display = useManual ? 'flex' : 'none';
 	elements.detectedStyleBox.style.display = useManual ? 'none' : 'block';
 	if (!useManual) renderDetectedStyleControls();
+	updateSidekickProbeVisibility();
 }
 
 function getLoadedImages() {
@@ -3053,6 +3096,9 @@ function cacheElements() {
 		styleArray: document.getElementById('style-array'),
 		styleSource: document.getElementById('style-source'),
 		checkLargeStyleSets: document.getElementById('check-large-style-sets'),
+		allowUnlimitedCombinations: document.getElementById('allow-unlimited-combinations'),
+		probeSidekickStyles: document.getElementById('probe-sidekick-styles'),
+		probeSidekickStylesLabel: document.getElementById('probe-sidekick-styles-label'),
 		galleryOutput: document.getElementById('gallery-output'),
 		copyGalleryOutput: document.getElementById('copy-gallery-output'),
 		nestedTabberOutput: document.getElementById('nested-tabber-output'),
@@ -3097,11 +3143,14 @@ function setupEvents() {
 	elements.assetDisplay.addEventListener('input', updateAssetSuggestions);
 	elements.imageType.addEventListener('change', () => {
 		updateDav2Hint();
+		updateSidekickProbeVisibility();
 		loadDetectedStyles();
 	});
 	elements.releaseVersion.addEventListener('change', updateCustomReleaseFields);
 	elements.styleSource.addEventListener('change', updateStyleSourceUI);
 	elements.checkLargeStyleSets.addEventListener('change', renderDetectedStyleControls);
+	elements.allowUnlimitedCombinations.addEventListener('change', renderDetectedStyleControls);
+	elements.probeSidekickStyles.addEventListener('change', renderDetectedStyleControls);
 	elements.generateBtn.addEventListener('click', handleGenerate);
 	elements.clearBtn.addEventListener('click', clearAll);
 	elements.selectAllImages.addEventListener('click', selectAllImages);

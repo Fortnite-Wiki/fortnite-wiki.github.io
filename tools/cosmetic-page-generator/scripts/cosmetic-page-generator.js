@@ -20,6 +20,14 @@ const CATEGORIES_FOR_SELECTION = [
 	"Saint Patrick's Day Cosmetics",
 ];
 
+const ITEM_TYPE_TAG_TYPE_MAP = {
+	VehicleCosmetics_Body: "Car Body",
+	VehicleCosmetics_Skin: "Decal",
+	VehicleCosmetics_Wheel: "Wheels",
+	VehicleCosmetics_DriftTrail: "Trail",
+	VehicleCosmetics_Booster: "Boost"
+};
+
 let index = [];
 let companionVTIDs = [];
 let cosmeticSets = {};
@@ -635,7 +643,6 @@ function directCompanionColorSwatchDataPaths(parts) {
 	]);
 }
 
-// This function assumes that variant channels containing "Immutable" pertain to Sidekick Appearance!
 async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, outputFeatured, numBRDav2Assets, channelIconMap) {
 	const variantChannels = new Map();
 	const immutableChannels = new Set();
@@ -664,7 +671,7 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 
 		if (!channelName) channelName = "Style";
 		const immutable = (props.VariantChannelTag?.TagName || "").startsWith("Cosmetics.Variant.Channel.Immutable.");
-		if (immutable) immutableChannels.add(channelName);
+		if (immutable && cosmeticType == "Sidekick") immutableChannels.add(channelName);
 
 		if (variant.Type == "FortCosmeticRichColorVariant") {
 			const richColorVar = props.InlineVariant?.RichColorVar;
@@ -1361,7 +1368,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
 	if (cosmeticType === description) {
-		cosmeticType = props.ItemTypeTag?.TagName || cosmeticType;
+		const itemTypeTag = props.ItemTypeTag?.TagName;
+		cosmeticType = ITEM_TYPE_TAG_TYPE_MAP[itemTypeTag] || itemTypeTag || cosmeticType;
 	}
 	cosmeticType = normalizeCosmeticType(cosmeticType);
 

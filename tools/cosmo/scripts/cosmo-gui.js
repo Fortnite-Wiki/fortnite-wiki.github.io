@@ -12,9 +12,14 @@ const MIN_DAV2_SEASON = 19;
 
 const RELEASES = [
 	{
+		version: '42.40',
+		key: 'LNc54GPUCzEla6JOWpWzWzw5T7z6WHLaWn8dTLBHN2s=',
+		label: '42.40 - Latest',
+	},
+	{
 		version: '42.30',
 		key: 'ZufZhuW1ZRKA0aYxGzsdnpidnXt9TgFzD86xyY/lFL4=',
-		label: '42.30 - Latest',
+		label: '42.30',
 	},
 	{
 		version: '42.20',

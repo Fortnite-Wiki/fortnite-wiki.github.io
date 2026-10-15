@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cosmo Image API</title>
 
-	<script src="./scripts/cosmo-gui.js?v=20261015-sidekick-probe" type="module"></script>
+	<script src="./scripts/cosmo-gui.js?v=20261015-lynx-constraint" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
@@ -114,6 +114,14 @@
 						<div class="generator-actions">
 							<button class="sec-subm" id="generate-btn">Generate URLs</button>
 							<div id="status" class="status hidden"></div>
+							<div id="permutation-scan-controls" style="display: none;">
+								<button class="sec-subm secondary" id="start-permutation-scan">Scan all combinations</button>
+								<button class="sec-subm secondary" id="pause-permutation-scan" style="display: none;">Pause scan</button>
+								<progress id="permutation-scan-progress" value="0" max="1" style="width: 100%;"></progress>
+								<div id="permutation-scan-status" aria-live="polite"></div>
+								<button class="sec-subm secondary compact-action" id="older-permutation-hits" style="display: none;">Older results</button>
+								<button class="sec-subm secondary compact-action" id="latest-permutation-hits" style="display: none;">Latest results</button>
+							</div>
 						</div>
 						<div id="detected-style-box" class="detected-style-box">
 							<div id="detected-style-status" class="detected-style-status">Select an asset to load options.</div>

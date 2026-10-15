@@ -7,6 +7,9 @@ const CUSTOM_RELEASE_VALUE = '__custom__';
 const MAX_AUTO_COMBINATIONS = 1000;
 const MAX_EXPANDED_COMBINATIONS = 8000;
 const MAX_PARALLEL_PREVIEW_LOADS = 6;
+const PERMUTATION_SCAN_BATCH_SIZE = 120;
+const PERMUTATION_SCAN_PAGE_SIZE = 60;
+const PERMUTATION_SCAN_TIMEOUT_MS = 15000;
 const ZIP_DOWNLOAD_TIMEOUT_MS = 10000;
 const MIN_DAV2_SEASON = 19;
 
@@ -247,6 +250,10 @@ let selectedAsset = null;
 let detectedStyleGroups = [];
 let junoProductStyleGroups = [];
 let previewLoadRun = 0;
+let activePermutationScan = null;
+let permutationScanStarting = false;
+let permutationScanUiRevision = 0;
+let permutationHitPageBefore = Infinity;
 
 const elements = {};
 
@@ -423,6 +430,7 @@ function updateAssetSuggestions() {
 }
 
 async function selectAsset(asset) {
+	pausePermutationScan();
 	selectedAsset = asset;
 	elements.assetDisplay.value = `${asset.name} (${asset.id})`;
 	elements.assetId.value = asset.id;
@@ -474,8 +482,10 @@ async function loadDetectedStyles() {
 			: await loadCosmeticStyleGroups(selectedAsset);
 
 		renderDetectedStyleControls();
+		refreshPermutationScanControls();
 	} catch (error) {
 		clearDetectedStyles(error.message || String(error));
+		refreshPermutationScanControls();
 	}
 }
 
@@ -949,7 +959,7 @@ function renderDetectedStyleControls() {
 		const comboCount = getFullCombinationCount();
 		elements.detectedStyleStatus.textContent = `${comboCount.toLocaleString()} combinations detected. Only default candidates will be checked for this large set.`;
 	} else if (showAllOptions && shouldProbeSidekickStyles(imageType)) {
-		elements.detectedStyleStatus.textContent = `${generatedCount.toLocaleString()} representative combinations will be checked (of ${getPreviewPermutationCombinationCount(imageType).toLocaleString()} possible).`;
+		elements.detectedStyleStatus.textContent = `${generatedCount.toLocaleString()} representative combinations will be checked (of ${getPreviewPermutationCombinationCount(imageType).toLocaleString()} usable).`;
 	} else if (showAllOptions && shouldProbePaintedCarLockerPreview(imageType)) {
 		elements.detectedStyleStatus.textContent = 'Painted car detected. A few preview paths will be checked before expanding color/style combinations.';
 	} else {
@@ -1124,17 +1134,9 @@ function allPreviewPermutationStyles(imageType) {
 	const baseValues = detectedStyleGroups.map((group) => getDefaultOptionValue(group));
 
 	if (!generatedGroups.length) return [baseValues];
-	if (shouldProbeSidekickStyles(imageType)) {
-		return [baseValues, ...generatedGroups.flatMap(({ group, groupIndex }) => (
-			group.options
-				.filter((option) => option.value !== baseValues[groupIndex])
-				.map((option) => {
-					const style = [...baseValues];
-					style[groupIndex] = option.value;
-					return style;
-				})
-		))];
-	}
+	if (shouldProbeSidekickStyles(imageType)) return getRepresentativeSidekickStyles(imageType);
+	const constraint = getSidekickPermutationConstraint(getCurrentAssetId());
+	if (constraint) return getConstrainedSidekickStyles(generatedGroups, baseValues, constraint);
 
 	return cartesianProduct(generatedGroups.map(({ group }) => getStyleValuesForCombination(group)))
 		.map((values) => {
@@ -1144,6 +1146,35 @@ function allPreviewPermutationStyles(imageType) {
 			});
 			return style;
 		});
+}
+
+function getConstrainedSidekickStyles(generatedGroups, baseValues, constraint) {
+	const rawTotal = generatedGroups.reduce((total, { group }) => total * group.options.length, 1);
+	const usableTotal = getUsablePermutationCount(rawTotal, constraint);
+	if (usableTotal > MAX_EXPANDED_COMBINATIONS && !elements.allowUnlimitedCombinations?.checked) {
+		throw new Error(`That style set has ${usableTotal.toLocaleString()} usable combinations. Narrow the selected styles or use the resumable scan.`);
+	}
+
+	const styles = [];
+	const style = [...baseValues];
+	const assigned = new Set();
+	function visit(index) {
+		if (index === generatedGroups.length) {
+			styles.push([...style]);
+			return;
+		}
+		const { group, groupIndex } = generatedGroups[index];
+		assigned.add(groupIndex);
+		for (const option of group.options) {
+			style[groupIndex] = option.value;
+			if (assigned.has(constraint.lynxIndex) && assigned.has(constraint.colorIndex) &&
+				!isUsablePermutationStyle(style, constraint)) continue;
+			visit(index + 1);
+		}
+		assigned.delete(groupIndex);
+	}
+	visit(0);
+	return styles;
 }
 
 function selectedDetectedOptionStyles() {
@@ -1218,7 +1249,8 @@ function getPreviewPermutationCombinationCount(imageType) {
 	if (!detectedStyleGroups.length) return 0;
 	const generatedGroups = detectedStyleGroups.filter(getCompanionCombinationGroupPredicate(imageType));
 	if (!generatedGroups.length) return 1;
-	return generatedGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
+	const rawTotal = generatedGroups.reduce((total, group) => total * getStyleValuesForCombination(group).length, 1);
+	return getUsablePermutationCount(rawTotal, getSidekickPermutationConstraint(getCurrentAssetId()));
 }
 
 function shouldProbeSidekickStyles(imageType) {
@@ -1231,9 +1263,21 @@ function shouldProbeSidekickStyles(imageType) {
 }
 
 function getRepresentativeSidekickStyleCount(imageType) {
-	return 1 + detectedStyleGroups
-		.filter(getCompanionCombinationGroupPredicate(imageType))
-		.reduce((total, group) => total + group.options.length - 1, 0);
+	return getRepresentativeSidekickStyles(imageType).length;
+}
+
+function getRepresentativeSidekickStyles(imageType) {
+	const baseValues = detectedStyleGroups.map(getDefaultOptionValue);
+	const constraint = getSidekickPermutationConstraint(getCurrentAssetId());
+	return [baseValues, ...detectedStyleGroups.flatMap((group, groupIndex) => (
+		getCompanionCombinationGroupPredicate(imageType)(group)
+			? group.options.filter((option) => option.value !== baseValues[groupIndex]).map((option) => {
+				const style = [...baseValues];
+				style[groupIndex] = option.value;
+				return style;
+			})
+			: []
+	))].filter((style) => isUsablePermutationStyle(style, constraint));
 }
 
 function updateSidekickProbeVisibility() {
@@ -1968,6 +2012,7 @@ function updateStyleSourceUI() {
 	elements.detectedStyleBox.style.display = useManual ? 'none' : 'block';
 	if (!useManual) renderDetectedStyleControls();
 	updateSidekickProbeVisibility();
+	refreshPermutationScanControls();
 }
 
 function getLoadedImages() {
@@ -2038,7 +2083,7 @@ function renderPreview(images) {
 
 		const status = document.createElement('span');
 		status.className = 'preview-state';
-		status.textContent = 'Preview';
+		status.textContent = image.exists === true ? 'Found' : 'Preview';
 		header.append(selectLabel, status);
 
 		const styleInfo = document.createElement('div');
@@ -2093,10 +2138,18 @@ function renderPreview(images) {
 		elements.previewGrid.appendChild(card);
 		image.previewCard = card;
 		image.previewSelectInput = selectInput;
-		previewItems.push({ card, image, img, status, selectInput });
+		if (image.exists === true) {
+			img.onerror = () => {
+				img.onerror = null;
+				img.src = getProxiedCosmoUrl(image.url);
+			};
+			img.src = image.url;
+		}
+		else previewItems.push({ card, image, img, status, selectInput });
 	}
 
 	updateSelectionControls();
+	if (images.some((image) => image.exists === true)) updateGalleryOutput();
 	loadPreviewImages(previewItems, loadRun);
 }
 
@@ -3047,7 +3100,325 @@ function downloadBlob(blob, fileName) {
 	setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function getPermutationScanConfig() {
+	const assetId = getEnteredAssetId();
+	const imageType = elements.imageType.value;
+	if (!selectedAsset || !isCompanionAssetId(assetId) || imageType !== 'preview_permutation_image' ||
+		elements.styleSource.value !== 'detected-all' || !detectedStyleGroups.length) return null;
+
+	const groups = detectedStyleGroups
+		.map((group, groupIndex) => ({ group, groupIndex }))
+		.filter(({ group }) => isImmutableVariantGroup(group))
+		.map(({ group, groupIndex }) => ({ groupIndex, values: getStyleValuesForCombination(group) }));
+	const total = groups.reduce((count, group) => count * group.values.length, 1);
+	if (!Number.isSafeInteger(total)) throw new Error('This style set is too large to index safely.');
+	const constraint = getSidekickPermutationConstraint(assetId);
+
+	return {
+		assetId,
+		imageType,
+		release: getSelectedRelease(),
+		aesKey: elements.aesKey.value.trim(),
+		baseValues: detectedStyleGroups.map(getDefaultOptionValue),
+		groups,
+		total,
+		constraint,
+		usableTotal: getUsablePermutationCount(total, constraint),
+	};
+}
+
+function getSidekickPermutationConstraint(assetId) {
+	if (assetId.toLowerCase() !== 'companion_floppynib') return null;
+	const lynxIndex = detectedStyleGroups.findIndex((group) => group.name === 'Lynx');
+	const colorIndex = detectedStyleGroups.findIndex((group) => group.name === 'Lynx Color');
+	if (lynxIndex < 0 || colorIndex < 0) return null;
+	const lynx = detectedStyleGroups[lynxIndex];
+	const color = detectedStyleGroups[colorIndex];
+	const off = lynx.options.find((option) => option.name === 'Off');
+	if (!off || !lynx.options.some((option) => option.name === 'On')) return null;
+	return {
+		lynxIndex,
+		colorIndex,
+		offValue: off.value,
+		defaultColorValue: getDefaultOptionValue(color),
+		lynxOptionCount: lynx.options.length,
+		colorOptionCount: color.options.length,
+	};
+}
+
+function getUsablePermutationCount(total, constraint) {
+	if (!constraint) return total;
+	const { lynxOptionCount, colorOptionCount } = constraint;
+	return total - total / (lynxOptionCount * colorOptionCount) * (colorOptionCount - 1);
+}
+
+function isUsablePermutationStyle(style, constraint) {
+	return !constraint || style[constraint.lynxIndex] !== constraint.offValue ||
+		style[constraint.colorIndex] === constraint.defaultColorValue;
+}
+
+async function getPermutationScanKey(config) {
+	const signature = JSON.stringify({
+		assetId: config.assetId,
+		imageType: config.imageType,
+		release: config.release,
+		aesKey: config.aesKey,
+		baseValues: config.baseValues,
+		groups: config.groups,
+	});
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(signature));
+	return bytesToBase64Url(new Uint8Array(digest));
+}
+
+function getPermutationStyleAt(config, index) {
+	const style = [...config.baseValues];
+	for (let groupIndex = config.groups.length - 1; groupIndex >= 0; groupIndex--) {
+		const { values, groupIndex: channelIndex } = config.groups[groupIndex];
+		style[channelIndex] = values[index % values.length];
+		index = Math.floor(index / values.length);
+	}
+	return style;
+}
+
+function openPermutationScanDb() {
+	return new Promise((resolve, reject) => {
+		const request = indexedDB.open('cosmo-permutation-scans', 1);
+		request.onupgradeneeded = () => {
+			request.result.createObjectStore('progress', { keyPath: 'key' });
+			request.result.createObjectStore('hits', { keyPath: ['key', 'index'] });
+		};
+		request.onsuccess = () => resolve(request.result);
+		request.onerror = () => reject(request.error);
+	});
+}
+
+function readPermutationScanProgress(db, key) {
+	return new Promise((resolve, reject) => {
+		const request = db.transaction('progress', 'readonly').objectStore('progress').get(key);
+		request.onsuccess = () => resolve(request.result || { key, cursor: 0, found: 0 });
+		request.onerror = () => reject(request.error);
+	});
+}
+
+function savePermutationScanBatch(db, progress, end, hits) {
+	return new Promise((resolve, reject) => {
+		const transaction = db.transaction(['progress', 'hits'], 'readwrite');
+		for (const index of hits) transaction.objectStore('hits').put({ key: progress.key, index });
+		const next = { ...progress, cursor: end, found: progress.found + hits.length };
+		transaction.objectStore('progress').put(next);
+		transaction.oncomplete = () => resolve(next);
+		transaction.onerror = () => reject(transaction.error);
+		transaction.onabort = () => reject(transaction.error || new Error('Could not save scan progress.'));
+	});
+}
+
+function readPermutationHitPage(db, key, beforeIndex = Infinity) {
+	return new Promise((resolve, reject) => {
+		const upper = beforeIndex === Infinity ? Number.MAX_SAFE_INTEGER : beforeIndex - 1;
+		if (upper < 0) return resolve({ indices: [], hasOlder: false });
+		const range = IDBKeyRange.bound([key, 0], [key, upper]);
+		const request = db.transaction('hits', 'readonly').objectStore('hits').openCursor(range, 'prev');
+		const indices = [];
+		request.onsuccess = () => {
+			const cursor = request.result;
+			if (!cursor || indices.length > PERMUTATION_SCAN_PAGE_SIZE) {
+				resolve({ indices: indices.slice(0, PERMUTATION_SCAN_PAGE_SIZE), hasOlder: indices.length > PERMUTATION_SCAN_PAGE_SIZE });
+				return;
+			}
+			indices.push(cursor.value.index);
+			cursor.continue();
+		};
+		request.onerror = () => reject(request.error);
+	});
+}
+
+async function makePermutationScanImage(config, key, index) {
+	const style = getPermutationStyleAt(config, index);
+	const path = buildPath(config.assetId, config.imageType, style, config.release.version);
+	return {
+		assetId: config.assetId,
+		baseAssetId: config.assetId,
+		imageType: config.imageType,
+		requestedImageType: config.imageType,
+		style,
+		path,
+		url: await makeUrl(path, config.release.key, config.aesKey),
+		fileName: getFileName(config.imageType, style),
+		styleLabel: getStyleLabel(style, config.imageType, config.assetId),
+		styleSelections: getStyleSelections(style, config.imageType, config.assetId),
+		exists: true,
+		selected: true,
+		scanKey: key,
+		scanIndex: index,
+	};
+}
+
+async function showPermutationHitPage(config, key, db, beforeIndex = Infinity) {
+	const page = await readPermutationHitPage(db, key, beforeIndex);
+	const currentConfig = getPermutationScanConfig();
+	if (!currentConfig || await getPermutationScanKey(currentConfig) !== key) return;
+	const images = await Promise.all(page.indices.map((index) => makePermutationScanImage(config, key, index)));
+	permutationHitPageBefore = beforeIndex;
+	generatedImages = images;
+	renderPreview(images);
+	elements.olderPermutationHits.style.display = page.hasOlder ? '' : 'none';
+	elements.latestPermutationHits.style.display = beforeIndex === Infinity ? 'none' : '';
+}
+
+function showPermutationScanProgress(progress, config) {
+	elements.permutationScanProgress.max = config.total;
+	elements.permutationScanProgress.value = progress.cursor;
+	elements.permutationScanStatus.textContent = `${progress.cursor.toLocaleString()} / ${config.total.toLocaleString()} positions covered; ${config.usableTotal.toLocaleString()} usable combinations, ${progress.found.toLocaleString()} images found.`;
+}
+
+async function refreshPermutationScanControls() {
+	const revision = ++permutationScanUiRevision;
+	let config;
+	try {
+		config = getPermutationScanConfig();
+	} catch (error) {
+		elements.permutationScanStatus.textContent = error.message || String(error);
+		return;
+	}
+	elements.permutationScanControls.style.display = config && config.total > MAX_EXPANDED_COMBINATIONS ? '' : 'none';
+	if (!config || config.total <= MAX_EXPANDED_COMBINATIONS) return;
+
+	const running = Boolean(activePermutationScan);
+	elements.startPermutationScan.style.display = running ? 'none' : '';
+	elements.pausePermutationScan.style.display = running ? '' : 'none';
+	if (running) return;
+
+	try {
+		const key = await getPermutationScanKey(config);
+		const db = await openPermutationScanDb();
+		try {
+			const progress = await readPermutationScanProgress(db, key);
+			if (revision !== permutationScanUiRevision) return;
+			showPermutationScanProgress(progress, config);
+			elements.startPermutationScan.textContent = progress.cursor ? 'Resume scan' : 'Scan all combinations';
+			elements.startPermutationScan.disabled = progress.cursor >= config.total;
+			if (progress.found && !generatedImages.some((image) => image.scanKey === key)) {
+				await showPermutationHitPage(config, key, db);
+			}
+		} finally {
+			db.close();
+		}
+	} catch (error) {
+		if (revision === permutationScanUiRevision) elements.permutationScanStatus.textContent = error.message || String(error);
+	}
+}
+
+function pausePermutationScan() {
+	if (!activePermutationScan) return;
+	activePermutationScan.stopped = true;
+	activePermutationScan.controller?.abort();
+}
+
+async function checkPermutationScanUrl(url, signal) {
+	const controller = new AbortController();
+	const abort = () => controller.abort();
+	if (signal.aborted) abort();
+	else signal.addEventListener('abort', abort, { once: true });
+	const timeout = setTimeout(abort, PERMUTATION_SCAN_TIMEOUT_MS);
+	try {
+		const response = await fetch(getProxiedCosmoUrl(url), {
+			cache: 'no-store',
+			credentials: 'omit',
+			referrerPolicy: 'no-referrer',
+			signal: controller.signal,
+		});
+		response.body?.cancel();
+		if (response.ok) return true;
+		if (response.status === 404 || response.status === 410) return false;
+		throw new Error(`Cosmo returned HTTP ${response.status}.`);
+	} finally {
+		clearTimeout(timeout);
+		signal.removeEventListener('abort', abort);
+	}
+}
+
+async function scanPermutationBatch(run, progress) {
+	const end = Math.min(progress.cursor + PERMUTATION_SCAN_BATCH_SIZE, run.config.total);
+	const hits = [];
+	let next = progress.cursor;
+	let failure = null;
+	run.controller = new AbortController();
+	async function worker() {
+		while (next < end && !run.stopped && !failure) {
+			const index = next++;
+			try {
+				const style = getPermutationStyleAt(run.config, index);
+				if (!isUsablePermutationStyle(style, run.config.constraint)) continue;
+				const path = buildPath(run.config.assetId, run.config.imageType, style, run.config.release.version);
+				const url = await makeUrl(path, run.config.release.key, run.config.aesKey);
+				if (await checkPermutationScanUrl(url, run.controller.signal)) hits.push(index);
+			} catch (error) {
+				if (!run.stopped && !failure) {
+					failure = error;
+					run.controller.abort();
+				}
+			}
+		}
+	}
+	await Promise.all(Array.from({ length: MAX_PARALLEL_PREVIEW_LOADS }, worker));
+	run.controller = null;
+	if (run.stopped) return null;
+	if (failure) throw failure;
+	return { progress: await savePermutationScanBatch(run.db, progress, end, hits), hits };
+}
+
+async function startPermutationScan() {
+	if (activePermutationScan || permutationScanStarting) return;
+	permutationScanStarting = true;
+	elements.startPermutationScan.disabled = true;
+	let db;
+	let failureMessage = '';
+	try {
+		const config = getPermutationScanConfig();
+		if (!config) return;
+		const key = await getPermutationScanKey(config);
+		db = await openPermutationScanDb();
+		let progress = await readPermutationScanProgress(db, key);
+		const run = { config, key, db, stopped: false, controller: null };
+		activePermutationScan = run;
+		refreshPermutationScanControls();
+		while (!run.stopped && progress.cursor < config.total) {
+			const batch = await scanPermutationBatch(run, progress);
+			if (!batch) break;
+			progress = batch.progress;
+			if (run.stopped) break;
+			showPermutationScanProgress(progress, config);
+			if (batch.hits.length && permutationHitPageBefore === Infinity) {
+				await showPermutationHitPage(config, key, db);
+			}
+			await new Promise((resolve) => setTimeout(resolve, 0));
+		}
+		if (progress.cursor >= config.total) elements.permutationScanStatus.textContent += ' Scan complete.';
+	} catch (error) {
+		failureMessage = `Scan paused: ${error.message || String(error)}`;
+	} finally {
+		db?.close();
+		activePermutationScan = null;
+		permutationScanStarting = false;
+		await refreshPermutationScanControls();
+		if (failureMessage) elements.permutationScanStatus.textContent = failureMessage;
+	}
+}
+
+async function browsePermutationHits(beforeIndex) {
+	const config = getPermutationScanConfig();
+	if (!config) return;
+	const key = await getPermutationScanKey(config);
+	const db = await openPermutationScanDb();
+	try {
+		await showPermutationHitPage(config, key, db, beforeIndex);
+	} finally {
+		db.close();
+	}
+}
+
 async function handleGenerate() {
+	pausePermutationScan();
 	try {
 		showStatus('Generating candidate URLs...', 'loading');
 		generatedImages = await generateImages();
@@ -3068,6 +3439,7 @@ async function handleGenerate() {
 }
 
 function clearAll() {
+	pausePermutationScan();
 	previewLoadRun++;
 	generatedImages = [];
 	elements.previewGrid.innerHTML = '';
@@ -3099,6 +3471,13 @@ function cacheElements() {
 		allowUnlimitedCombinations: document.getElementById('allow-unlimited-combinations'),
 		probeSidekickStyles: document.getElementById('probe-sidekick-styles'),
 		probeSidekickStylesLabel: document.getElementById('probe-sidekick-styles-label'),
+		permutationScanControls: document.getElementById('permutation-scan-controls'),
+		startPermutationScan: document.getElementById('start-permutation-scan'),
+		pausePermutationScan: document.getElementById('pause-permutation-scan'),
+		permutationScanProgress: document.getElementById('permutation-scan-progress'),
+		permutationScanStatus: document.getElementById('permutation-scan-status'),
+		olderPermutationHits: document.getElementById('older-permutation-hits'),
+		latestPermutationHits: document.getElementById('latest-permutation-hits'),
 		galleryOutput: document.getElementById('gallery-output'),
 		copyGalleryOutput: document.getElementById('copy-gallery-output'),
 		nestedTabberOutput: document.getElementById('nested-tabber-output'),
@@ -3142,15 +3521,36 @@ function updateCustomReleaseFields() {
 function setupEvents() {
 	elements.assetDisplay.addEventListener('input', updateAssetSuggestions);
 	elements.imageType.addEventListener('change', () => {
+		pausePermutationScan();
 		updateDav2Hint();
 		updateSidekickProbeVisibility();
 		loadDetectedStyles();
 	});
-	elements.releaseVersion.addEventListener('change', updateCustomReleaseFields);
-	elements.styleSource.addEventListener('change', updateStyleSourceUI);
+	elements.releaseVersion.addEventListener('change', () => {
+		pausePermutationScan();
+		updateCustomReleaseFields();
+		refreshPermutationScanControls();
+	});
+	for (const input of [elements.customReleaseVersion, elements.customReleaseKey, elements.aesKey]) {
+		input.addEventListener('input', () => {
+			pausePermutationScan();
+			refreshPermutationScanControls();
+		});
+	}
+	elements.styleSource.addEventListener('change', () => {
+		pausePermutationScan();
+		updateStyleSourceUI();
+	});
 	elements.checkLargeStyleSets.addEventListener('change', renderDetectedStyleControls);
 	elements.allowUnlimitedCombinations.addEventListener('change', renderDetectedStyleControls);
 	elements.probeSidekickStyles.addEventListener('change', renderDetectedStyleControls);
+	elements.startPermutationScan.addEventListener('click', startPermutationScan);
+	elements.pausePermutationScan.addEventListener('click', pausePermutationScan);
+	elements.olderPermutationHits.addEventListener('click', () => {
+		const oldest = Math.min(...generatedImages.filter((image) => image.scanIndex !== undefined).map((image) => image.scanIndex));
+		if (Number.isFinite(oldest)) browsePermutationHits(oldest);
+	});
+	elements.latestPermutationHits.addEventListener('click', () => browsePermutationHits(Infinity));
 	elements.generateBtn.addEventListener('click', handleGenerate);
 	elements.clearBtn.addEventListener('click', clearAll);
 	elements.selectAllImages.addEventListener('click', selectAllImages);

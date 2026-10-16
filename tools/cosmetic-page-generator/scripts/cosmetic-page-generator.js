@@ -425,7 +425,8 @@ async function extractPickaxeSubtype(weapon_definition) {
 			"GAB_Melee_Dagger1H_ImpactCombo_Athena"
 		],
 		"Spear": [
-			"GAB_Melee_Lance_ImpactCombo_Athena"
+			"GAB_Melee_Lance_ImpactCombo_Athena",
+			"GAB_Melee_Polearm_ImpactCombo_Athena"
 		],
 		"Staff": [
 			"GAB_Melee_StaffAlt_ImpactCombo_Athena",

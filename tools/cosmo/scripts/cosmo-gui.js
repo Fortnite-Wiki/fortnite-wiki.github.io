@@ -12,6 +12,7 @@ const PERMUTATION_SCAN_PAGE_SIZE = 60;
 const PERMUTATION_SCAN_TIMEOUT_MS = 15000;
 const ZIP_DOWNLOAD_TIMEOUT_MS = 10000;
 const MIN_DAV2_SEASON = 19;
+const RANKED_STYLE_NAMES = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Elite', 'Champion', 'Unreal'];
 
 const RELEASES = [
 	{
@@ -249,6 +250,7 @@ let generatedImages = [];
 let selectedAsset = null;
 let detectedStyleGroups = [];
 let junoProductStyleGroups = [];
+let rankedStyleGroups = [];
 let previewLoadRun = 0;
 let activePermutationScan = null;
 let permutationScanStarting = false;
@@ -463,6 +465,7 @@ function applyAssetMode(asset = selectedAsset) {
 function clearDetectedStyles(message = '') {
 	detectedStyleGroups = [];
 	junoProductStyleGroups = [];
+	rankedStyleGroups = [];
 	if (elements.detectedStyleControls) elements.detectedStyleControls.innerHTML = '';
 	if (elements.detectedStyleStatus) elements.detectedStyleStatus.textContent = message;
 }
@@ -477,6 +480,7 @@ async function loadDetectedStyles() {
 		clearDetectedStyles('Loading options...');
 		const imageType = elements.imageType.value;
 		junoProductStyleGroups = [];
+		rankedStyleGroups = [];
 		detectedStyleGroups = imageType === 'store_image'
 			? await loadStoreStyleGroups(selectedAsset)
 			: await loadCosmeticStyleGroups(selectedAsset);
@@ -508,18 +512,22 @@ async function loadCosmeticStyleGroups(asset) {
 			const variant = findVariantObject(data, variantRef);
 			const props = variant?.Properties || {};
 			const optionInfo = await getVariantOptionInfo(props);
+			const isRanked = variant?.Type === 'FortCosmeticRankedVariant';
 			const name = localizedText(props.VariantChannelName) || friendlyVariantType(variant?.Type) || `Channel ${channelIndex + 1}`;
 			return {
 				channelIndex,
 				name,
 				tagName: props.VariantChannelTag?.TagName || '',
 				productTags: (props.ProductTags || []).map((tag) => tag?.TagName).filter(Boolean),
-				optionSource: optionInfo.source,
-				options: optionInfo.options,
+				optionSource: isRanked ? 'Ranked' : optionInfo.source,
+				options: isRanked ? [{ value: 0, name: 'Bronze' }] : optionInfo.options,
 			};
 		}));
 
 	junoProductStyleGroups = styleGroups.filter((group) => isJunoProductStyleGroup(group));
+	rankedStyleGroups = styleGroups
+		.filter((group) => group.optionSource === 'Ranked')
+		.map((group) => ({ ...group, options: RANKED_STYLE_NAMES.map((name) => ({ name })) }));
 	return styleGroups.filter((group) => !isUnsupportedCosmoStyleGroup(group));
 }
 
@@ -943,19 +951,22 @@ function storePresentationName(presentation, index) {
 function renderDetectedStyleControls() {
 	elements.detectedStyleControls.innerHTML = '';
 
-	if (!detectedStyleGroups.length) {
+	if (!detectedStyleGroups.length && !rankedStyleGroups.length) {
 		elements.detectedStyleStatus.textContent = 'No detected style options for this asset/image type.';
 		return;
 	}
 
 	const showAllOptions = elements.styleSource.value === 'detected-all';
 	const imageType = elements.imageType.value;
-	const visibleGroups = getVisibleDetectedStyleGroups(imageType);
+	const visibleGroups = getVisibleDetectedStyleGroups(imageType)
+		.filter(({ group }) => group.optionSource !== 'Ranked');
 	const generatedCount = getDetectedGeneratedCount(imageType);
 	const detectedUnit = (!shouldUseImmutableOnlyStyles(imageType) && usesVariantOptionStyleFormat(imageType)) || imageType === 'store_image'
 		? 'option'
 		: 'combination';
-	if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
+	if (!visibleGroups.length && rankedStyleGroups.length) {
+		elements.detectedStyleStatus.textContent = 'Rank styles are selected in-game; Cosmo only provides the default preview.';
+	} else if (showAllOptions && shouldUseDefaultOnlyForLargeCombos(imageType)) {
 		const comboCount = getFullCombinationCount();
 		elements.detectedStyleStatus.textContent = `${comboCount.toLocaleString()} combinations detected. Only default candidates will be checked for this large set.`;
 	} else if (showAllOptions && shouldProbeSidekickStyles(imageType)) {
@@ -966,6 +977,9 @@ function renderDetectedStyleControls() {
 		elements.detectedStyleStatus.textContent = showAllOptions
 			? `${generatedCount} detected ${detectedUnit}${generatedCount === 1 ? '' : 's'} will be generated.`
 			: `${visibleGroups.length} option group${visibleGroups.length === 1 ? '' : 's'} detected.`;
+	}
+	if (visibleGroups.length && rankedStyleGroups.length) {
+		elements.detectedStyleStatus.textContent += ' Only the Bronze/default rank preview is available from Cosmo.';
 	}
 
 	visibleGroups.forEach(({ group, groupIndex }) => {
@@ -1005,6 +1019,22 @@ function renderDetectedStyleControls() {
 		}
 		elements.detectedStyleControls.appendChild(row);
 	});
+	for (const group of rankedStyleGroups) {
+		const row = document.createElement('div');
+		row.className = 'detected-style-row';
+		const label = document.createElement('span');
+		label.textContent = group.name;
+		const options = document.createElement('div');
+		options.className = 'detected-style-options';
+		for (const option of group.options) {
+			const optionEl = document.createElement('span');
+			optionEl.className = 'detected-style-option';
+			optionEl.textContent = option.name;
+			options.appendChild(optionEl);
+		}
+		row.append(label, options);
+		elements.detectedStyleControls.appendChild(row);
+	}
 
 	renderProductPreviewRows(imageType);
 }
@@ -3070,7 +3100,7 @@ function getZipDownloadName() {
 
 function sanitizeFileName(value) {
 	return String(value || '')
-		.replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_')
+		.replace(/[<>:"/\\|?*\u0000-\u001f]/g, '-')
 		.replace(/\s+/g, ' ')
 		.trim();
 }

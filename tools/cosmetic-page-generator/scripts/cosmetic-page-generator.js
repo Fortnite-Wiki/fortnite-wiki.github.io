@@ -557,6 +557,10 @@ const IGNORE_VARIANT_TYPES = [
 	"FortCosmeticTextVariant"
 ];
 
+const RANKED_STYLE_NAMES = [
+	"Bronze", "Silver", "Gold", "Platinum", "Diamond", "Elite", "Champion", "Unreal"
+];
+
 const VARIANT_OPTION_FIELDS = [
 	"ParticleOptions",
 	"PartOptions",
@@ -673,6 +677,14 @@ async function generateStyleSection(data, name, cosmeticType, isFestivalCosmetic
 		if (!channelName) channelName = "Style";
 		const immutable = (props.VariantChannelTag?.TagName || "").startsWith("Cosmetics.Variant.Channel.Immutable.");
 		if (immutable && cosmeticType == "Sidekick") immutableChannels.add(channelName);
+
+		if (variant.Type == "FortCosmeticRankedVariant") {
+			variantChannels.set(channelName, { variants: [...RANKED_STYLE_NAMES], icon: null, colspan: 3 });
+			for (const rank of RANKED_STYLE_NAMES) {
+				styleImages[`${channelName},${rank}`] = `${name} (${channelName} - ${rank}) - ${cosmeticType} - Fortnite.png`;
+			}
+			continue;
+		}
 
 		if (variant.Type == "FortCosmeticRichColorVariant") {
 			const richColorVar = props.InlineVariant?.RichColorVar;

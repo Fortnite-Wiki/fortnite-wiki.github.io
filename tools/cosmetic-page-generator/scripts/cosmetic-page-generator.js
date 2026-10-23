@@ -1717,6 +1717,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`|featured = ${featured}`);
 	}
 
+	if (tags.includes("Cosmetics.Gating.RatingMin.Teen")) {
+		out.push("|age-restricted = y");
+	}
 	out.push(`|ID = ${ID}`);
 
 	// LEGO and Bean style support

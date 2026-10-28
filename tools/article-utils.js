@@ -259,7 +259,7 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
         article += ` that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;
     
     } else if (settings.isRocketPass && settings.rocketPassLevel && settings.rocketPassSeason) {
-        article += ` that can be unlocked by reaching Level ${settings.rocketPassLevel} of the [[w:c:rocketleague:Season ${settings.rocketPassSeason}#Rocket_Pass|Season ${settings.rocketPassSeason} Rocket Pass]].`;
+        article += ` that can be unlocked by reaching Level ${settings.rocketPassLevel} of the [[fandom:rocketleague:Season ${settings.rocketPassSeason}#Rocket_Pass|Season ${settings.rocketPassSeason} Rocket Pass]].`;
     
     } else if (settings.isUnreleased) {
         article += ` that ${usePlural ? 'are' : 'is'} currently unreleased.`;

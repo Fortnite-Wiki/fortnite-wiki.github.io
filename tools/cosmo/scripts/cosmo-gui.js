@@ -141,6 +141,7 @@ const VARIANT_OPTION_FIELDS = [
 	'NumericalOptions',
 	'ProgressiveStageOptions',
 	'ParameterOptions',
+	'GenericTagOptions',
 	'GenericPropertyOptions',
 	'ContextualAnimSceneEmoteOptions',
 	'AdditivePoseOptions',

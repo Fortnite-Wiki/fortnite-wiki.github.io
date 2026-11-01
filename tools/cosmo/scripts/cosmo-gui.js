@@ -16,9 +16,14 @@ const RANKED_STYLE_NAMES = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', '
 
 const RELEASES = [
 	{
+		version: '43.00',
+		key: 'QhIe4f8JnMEIMrivOkH7wavOymor5lDYX4S7R6C7ffM=',
+		label: '43.00 - Latest',
+	},
+	{
 		version: '42.40',
 		key: 'LNc54GPUCzEla6JOWpWzWzw5T7z6WHLaWn8dTLBHN2s=',
-		label: '42.40 - Latest',
+		label: '42.40',
 	},
 	{
 		version: '42.30',

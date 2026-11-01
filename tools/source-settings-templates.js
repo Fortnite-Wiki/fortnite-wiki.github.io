@@ -53,7 +53,7 @@ const SOURCE_SETTINGS = {
 			<h5>Battle Pass Settings</h5>
 			<div class="inline-group">
 				<label for="bp-season">Season:</label>
-				<input type="text" id="bp-season" placeholder="C6S4" pattern="C[0-9]+S[0-9]+">
+				<input type="text" id="bp-season" placeholder="C6S4, C2R, or TH">
 			</div>
 			<div class="inline-group" id="bp-mode-group">
 				<label>Battle Pass Type:</label>

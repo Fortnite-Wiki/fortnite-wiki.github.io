@@ -41,7 +41,7 @@ export const SEASON_RELEASE_DATES = {
     'C7S2': new Date(2026, 2, 19), // March 19, 2026
     'C7S3': new Date(2026, 5, 6), // June 6, 2026
     'C7S4': new Date(2026, 7, 20), // August 20, 2026
-    'C7MS': new Date(2026, 10, 1), // November 1, 2026
+    'TH': new Date(2026, 10, 1), // November 1, 2026
 };
 
 export const SEASON_UPDATE_VERSIONS = {
@@ -87,7 +87,7 @@ export const SEASON_UPDATE_VERSIONS = {
     'C7S2': '40.00',
     'C7S3': '41.00',
     'C7S4': '42.00',
-    'C7MS': '43.00'
+    'TH': '43.00'
 };
 
 export const OG_SEASON_RELEASE_DATES = {

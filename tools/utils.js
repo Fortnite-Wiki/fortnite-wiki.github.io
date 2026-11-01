@@ -204,7 +204,7 @@ export function getSeasonReleased(releaseDate, settings, usePlural = false) {
 				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Galactic Battle]]`;
 			} else if (matchedSeasonKey === 'C6MS2') {
 				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Chapter 6: Mini Season 2]]`;
-			} else if (matchedSeasonKey === 'C7MS') {
+			} else if (matchedSeasonKey === 'TH') {
 				return ` ${usePlural ? 'were' : 'was'} ${firstTextFlag}released in [[Treasure Hunters]]`;
 			} else {
 				const keyMatch = matchedSeasonKey.match(/^C(\d+)(M)?S(\d+)$/);

@@ -13,7 +13,7 @@ export function validateSourceSettings(settings, elements) {
 		}
 
 		if (!parseBattlePassSeason(elements.bpSeason?.value)) {
-			return 'Invalid season format. Use format like C6S4';
+			return 'Invalid season format. Use C6S4, C2R, or TH';
 		}
 
 		if (elements.bpModeNonLinear?.checked) {
@@ -68,9 +68,13 @@ export function validateSourceSettings(settings, elements) {
 }
 
 function parseBattlePassSeason(seasonInput) {
-	const match = seasonInput.toUpperCase().match(/^C(\d+)(M)?S(\d+)$/);
+	const key = seasonInput.trim().toUpperCase();
+	if (key === 'TH' || key === 'C2R') {
+		return { key, chapter: '', season: '', mini: false };
+	}
+	const match = key.match(/^C(\d+)(M)?S(\d+)$/);
 	if (match) {
-		return { chapter: match[1], season: match[3], mini: !!match[2] };
+		return { key, chapter: match[1], season: match[3], mini: !!match[2] };
 	}
 	return null;
 }
@@ -338,6 +342,7 @@ export function getSourceReleaseSettings(elements) {
 	if (settings.isBattlePass && elements.bpSeason?.value) {
 		const seasonData = parseBattlePassSeason(elements.bpSeason.value.trim());
 		if (seasonData) {
+			settings.bpSeasonKey = seasonData.key;
 			settings.bpChapter = seasonData.chapter;
 			settings.bpSeasonNum = seasonData.season;
 			settings.isMiniSeason = seasonData.mini;

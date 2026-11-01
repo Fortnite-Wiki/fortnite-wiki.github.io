@@ -36,22 +36,45 @@ function hasContainedCosmeticEntries(containedCosmeticEntries) {
     return containedCosmeticEntries.some(entry => getContainedCosmeticName(entry));
 }
 
+function getBattlePassSeasonKey(settings) {
+    return settings.bpSeasonKey || (settings.bpChapter && settings.bpSeasonNum
+        ? `C${settings.bpChapter}${settings.isMiniSeason ? 'M' : ''}S${settings.bpSeasonNum}`
+        : '');
+}
+
+function getBattlePassTemplate(settings, free = false) {
+    const seasonKey = getBattlePassSeasonKey(settings);
+    const freeFlag = free ? '|Free' : '';
+    if (seasonKey === 'TH' || seasonKey === 'C2R') {
+        return `{{BattlePass${seasonKey}${freeFlag}}}`;
+    }
+    const miniSeasonFlag = settings.isMiniSeason ? '/MiniSeason' : '';
+    return `{{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+}
+
+function getBattlePassSeasonLink(settings) {
+    const seasonKey = getBattlePassSeasonKey(settings);
+    if (seasonKey === 'TH') return '[[Treasure Hunters]]';
+    if (seasonKey === 'C2R') return '[[Chapter 2 Remix]]';
+    const miniSeasonFlag = settings.isMiniSeason ? 'Mini ' : '';
+    return `[[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]]`;
+}
+
 export function generateUnlockedParameter(settings, bundleEntries = [], containedCosmeticEntries = []) {
     let unlocked = '';
 
     if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
         unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
     
-    } else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
-        const freeFlag = settings.passFreeBP ? "|Free" : "";
+    } else if (settings.isBattlePass && settings.bpPage && getBattlePassSeasonKey(settings)) {
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-        const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
+        const battlePassTemplate = getBattlePassTemplate(settings, settings.passFreeBP);
         if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
             const rawName = settings.bpNonLinearSetName.trim();
             const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-            unlocked = `Page ${settings.bpPage} <br> ${possessive} ${bonusFlag}Set <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+            unlocked = `Page ${settings.bpPage} <br> ${possessive} ${bonusFlag}Set <br> ${battlePassTemplate}`;
         } else {
-            unlocked = `${bonusFlag}Page ${settings.bpPage} <br> {{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
+            unlocked = `${bonusFlag}Page ${settings.bpPage} <br> ${battlePassTemplate}`;
         }
     
     } else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
@@ -105,9 +128,8 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
     } else if (settings.isFortniteCrew || rarity === "Crew Series") {
         cost = "$11.99 <br> ({{Fortnite Crew}})";
     
-    } else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-        const miniSeasonFlag = settings.isMiniSeason ? "/MiniSeason" : "";
-        cost = `{{V-Bucks|800}} ({{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}}})`;
+    } else if (settings.isBattlePass && getBattlePassSeasonKey(settings)) {
+        cost = `{{V-Bucks|800}} (${getBattlePassTemplate(settings)})`;
     
     } else if (settings.isOGPass && settings.ogSeason) {
         cost = `{{V-Bucks|800}} ({{OGPass|${settings.ogSeason}}})`;
@@ -181,8 +203,8 @@ export function generateReleaseParameter(settings) {
 		}
 	} else if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
 		return `[[Item Shop History/${settings.crewMonth} 1st ${settings.crewYear}|${settings.crewMonth} 1st ${settings.crewYear}]]`;
-	} else if (settings.isBattlePass && settings.bpChapter && settings.bpSeasonNum) {
-		const seasonKey = `C${settings.bpChapter}${settings.isMiniSeason ? 'M' : ''}S${settings.bpSeasonNum}`;
+	} else if (settings.isBattlePass && getBattlePassSeasonKey(settings)) {
+		const seasonKey = getBattlePassSeasonKey(settings);
 		const seasonReleaseDate = SEASON_RELEASE_DATES[seasonKey];
 		if (seasonReleaseDate) {
 			return getFormattedReleaseDate(seasonReleaseDate);
@@ -233,20 +255,20 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
     if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
         article += ` that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
     
-    } else if (settings.isBattlePass && settings.bpPage && settings.bpChapter && settings.bpSeasonNum) {
+    } else if (settings.isBattlePass && settings.bpPage && getBattlePassSeasonKey(settings)) {
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
-        const miniSeasonFlag = settings.isMiniSeason ? "Mini " : "";
+        const seasonLink = getBattlePassSeasonLink(settings);
 
         if (settings.battlePassMode === 'non-linear' && settings.bpNonLinearSetName) {
             const rawName = settings.bpNonLinearSetName.trim();
             const possessive = (rawName.slice(-1).toLowerCase() === 's') ? `[[${rawName}]]'` : `[[${rawName}]]'s`;
-            article += ` that can be obtained${pageCompletionFlag} on Page ${settings.bpPage} of ${possessive} ${bonusFlag}Set in the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]]`;
+            article += ` that can be obtained${pageCompletionFlag} on Page ${settings.bpPage} of ${possessive} ${bonusFlag}Set in the ${seasonLink} [[Battle Pass]]`;
             if (settings.bpNonLinearLevel) {
                 article += `, which can only be unlocked after reaching Level ${settings.bpNonLinearLevel}`;
             }
             article += ".";
         } else {
-            article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the [[Chapter ${settings.bpChapter}: ${miniSeasonFlag}Season ${settings.bpSeasonNum}]] [[Battle Pass]].`;
+            article += ` that can be obtained${pageCompletionFlag} on ${bonusFlag}Page ${settings.bpPage} of the ${seasonLink} [[Battle Pass]].`;
         }
     
     } else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {

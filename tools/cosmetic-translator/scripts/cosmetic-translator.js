@@ -2,6 +2,7 @@ import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
+const LOCALIZATION_LANGUAGES = ['ar', 'de', 'en', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 let index = [];
 
 // Flag cycling functionality
@@ -77,12 +78,10 @@ function updateSuggestions() {
 
 async function getLocalizationFolders() {
   try {
-    const apiFolders = await getFortniteApiLocalizationFolders();
-    const localFolders = await getLocalLocalizationFolders().catch(() => []);
-    return mergeLocalizationFolders(apiFolders, localFolders);
+    return await getLocalLocalizationFolders();
   } catch (error) {
-    console.warn("Falling back to local localization folder index:", error);
-    return getLocalLocalizationFolders();
+    console.warn("Local localization folder index unavailable; trying FortniteAPI:", error);
+    return getFortniteApiLocalizationFolders();
   }
 }
 
@@ -116,16 +115,6 @@ async function getLocalLocalizationFolders() {
   }
 
   return folders.filter(folder => folder !== 'SparksCosmetics' && !folder.startsWith('UEFN'));
-}
-
-function mergeLocalizationFolders(primaryFolders, fallbackFolders) {
-  const merged = [];
-  for (const folder of [...primaryFolders, ...fallbackFolders]) {
-    if (folder !== 'SparksCosmetics' && !folder.startsWith('UEFN') && !merged.includes(folder)) {
-      merged.push(folder);
-    }
-  }
-  return merged;
 }
 
 async function search() {
@@ -194,35 +183,56 @@ async function translateKeys(nameKey, descriptionKey) {
   
   const nameTranslations = {};
   const descriptionTranslations = {};
-
+  const englishFolders = [];
   for (const folder of folders) {
     try {
-      const metaPath = `../../data/localization/${folder}/${folder}.json`;
-      const meta = await loadGzJson(metaPath);
-      const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
+      const english = await loadGzJson(`../../data/localization/${folder}/en/${folder}.json`);
+      englishFolders.push({ folder, strings: english[''] || {} });
+    } catch (error) {
+      console.warn(`Could not load English localization for ${folder}:`, error);
+    }
+  }
 
-      for (const lang of compiledLangs) {
+  const resolveKeys = (key) => {
+    if (!key) return new Map();
+    const exact = englishFolders.filter(({ strings }) => Object.hasOwn(strings, key));
+    return new Map(exact.map(({ folder }) => [folder, key]));
+  };
+
+  const nameKeys = resolveKeys(nameKey);
+  const descriptionKeys = resolveKeys(descriptionKey);
+
+  for (const { folder, strings: englishStrings } of englishFolders) {
+    const nameLookupKey = nameKeys.get(folder);
+    const descriptionLookupKey = descriptionKeys.get(folder);
+    if (!nameLookupKey && !descriptionLookupKey) continue;
+
+    await Promise.all(LOCALIZATION_LANGUAGES.map(async (lang) => {
         const alreadyHasName = nameKey ? nameTranslations[lang] !== undefined : true;
         const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
-
-        if (alreadyHasName && alreadyHasDesc) continue;
-
-        const locPath = `../../data/localization/${folder}/${lang}/${folder}.json`;
+        if (alreadyHasName && alreadyHasDesc) return;
         try {
-          const loc = await loadGzJson(locPath);
+          const strings = lang === 'en'
+            ? englishStrings
+            : (await loadGzJson(`../../data/localization/${folder}/${lang}/${folder}.json`))[''] || {};
 
-          if (nameKey && !alreadyHasName) {
-            const nameText = loc[""]?.[nameKey];
+          if (nameLookupKey && !alreadyHasName) {
+            const nameText = strings[nameLookupKey];
             if (nameText) nameTranslations[lang] = nameText;
           }
 
-          if (descriptionKey && !alreadyHasDesc) {
-            const descText = loc[""]?.[descriptionKey];
+          if (descriptionLookupKey && !alreadyHasDesc) {
+            const descText = strings[descriptionLookupKey];
             if (descText) descriptionTranslations[lang] = descText;
           }
         } catch {}
-      }
-    } catch {}
+    }));
+  }
+
+  if (!Object.keys(nameTranslations).length && !Object.keys(descriptionTranslations).length) {
+    output.value = 'No matching translations found in the local localization files.';
+    document.getElementById('copy-btn').disabled = true;
+    return;
   }
 
   // Build the Cosmetic Translations output

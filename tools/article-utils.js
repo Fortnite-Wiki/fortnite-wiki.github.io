@@ -129,17 +129,17 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         cost = "$11.99 <br> ({{Fortnite Crew}})";
     
     } else if (settings.isBattlePass && getBattlePassSeasonKey(settings)) {
-        cost = `{{V-Bucks|800}} (${getBattlePassTemplate(settings)})`;
+        cost = `{{V-Bucks|800}} <br> (${getBattlePassTemplate(settings)})`;
     
     } else if (settings.isOGPass && settings.ogSeason) {
-        cost = `{{V-Bucks|800}} ({{OGPass|${settings.ogSeason}}})`;
+        cost = `{{V-Bucks|800}} <br> ({{OGPass|${settings.ogSeason}}})`;
     
     } else if (settings.isMusicPass && settings.musicSeason) {
-        cost = `{{V-Bucks|1,200}} ({{MusicPass|${settings.musicSeason}}})`;
+        cost = `{{V-Bucks|1,200}} <br> ({{MusicPass|${settings.musicSeason}}})`;
     
     } else if (settings.isLEGOPass && settings.legoSeason) {
         const vbucksAmount = LEGO_SEASON_NAMES["1400"].includes(settings.legoSeason) ? "1,400" : "1,200";
-        cost = `{{V-Bucks|${vbucksAmount}}} ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
+        cost = `{{V-Bucks|${vbucksAmount}}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
     
     } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
@@ -191,6 +191,7 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         }
     }
 
+    if (settings.isBattlePass || settings.isOGPass || settings.isMusicPass || settings.isLEGOPass) return cost;
     return normalizeVbucksInfoboxBreaks(cost);
 }
 

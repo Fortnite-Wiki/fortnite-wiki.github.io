@@ -16,27 +16,6 @@ export function initFormBehaviors(elementsObj) {
 function handleBPModeChange() {
 	if (!elements.bpModeLinear || !elements.bpModeNonLinear) return;
 	
-	const bpBonusChecked = elements.bpBonus && elements.bpBonus.checked;
-	if (bpBonusChecked) {
-		if (elements.bpNonLinearLevel) {
-			const lvl = elements.bpNonLinearLevel;
-			lvl.disabled = true;
-			lvl.value = '';
-			lvl.style.display = 'none';
-			const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
-			if (lbl) lbl.style.display = 'none';
-		}
-	} else {
-		if (elements.bpNonLinearLevel) {
-			const lvl = elements.bpNonLinearLevel;
-			lvl.disabled = false;
-			lvl.style.display = '';
-			const lbl = document.querySelector(`label[for="${lvl.id}"]`) || (lvl.previousElementSibling && lvl.previousElementSibling.tagName === 'LABEL' ? lvl.previousElementSibling : null);
-			if (lbl) lbl.style.display = '';
-		}
-	}
-
-	const linear = elements.bpModeLinear && elements.bpModeLinear.checked;
 	const nonlinear = elements.bpModeNonLinear && elements.bpModeNonLinear.checked;
 
 	const nonLinearFields = document.getElementById('bp-nonlinear-fields');
@@ -60,7 +39,6 @@ function setupBattlePassModeHandling() {
 	
 	if (elements.bpModeLinear) elements.bpModeLinear.addEventListener('change', handleBPModeChange);
 	if (elements.bpModeNonLinear) elements.bpModeNonLinear.addEventListener('change', handleBPModeChange);
-	if (elements.bpBonus) elements.bpBonus.addEventListener('change', handleBPModeChange);
 	
 	// Ensure bpPage cannot be set above allowed max by keyboard input
 	if (elements.bpPage) {

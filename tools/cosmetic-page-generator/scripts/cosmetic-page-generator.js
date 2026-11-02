@@ -1338,7 +1338,8 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	out.push("}}");
 
 	const seasonFirstReleasedFlag = getSeasonReleased(settings.releaseDate, settings);
-	out.push(`'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[Emote]] in [[Fortnite]] that can be obtained as a reward from [[${companionName}'s Rewards]]. ${seasonFirstReleasedFlag ? `${name}${seasonFirstReleasedFlag}` : ""}`);
+	const firstReleasedSentence = seasonFirstReleasedFlag ? ` ${name}${seasonFirstReleasedFlag}.` : '';
+	out.push(`'''${name}''' is ${articleFor(rarity)} {{${rarity}}} [[Emote]] in [[Fortnite]] that can be obtained as a reward from [[${companionName}'s Rewards]].${firstReleasedSentence}`);
 
 	out.push(`\n${name} is [[${companionName}]]'s [[Built-In Cosmetics|Built-In Emote]] and can only be used while using it.`);
 

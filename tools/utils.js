@@ -375,3 +375,17 @@ export async function getMostUpToDateImage(name, cosmeticType, ending = "Fortnit
 
 	return { file: `${name} - ${cosmeticType} - ${ending}.png`, pageTitle: name };
 }
+
+// Only change file titles in generated wiki text. Page titles, links, and prose
+// can legitimately contain these characters and must keep their original text.
+export function sanitizeGeneratedFileNames(text) {
+	const safe = filename => filename.replace(/[/:]/g, '-');
+	const extension = '(?:png|webm|webp|jpe?g|gif|svg|mp4)';
+	return String(text)
+		.replace(new RegExp(`(\\[\\[File:)([^|\\]\\r\\n]+\\.${extension})(?=\\||\\]\\])`, 'gi'),
+			(_, prefix, filename) => prefix + safe(filename))
+		.replace(new RegExp(`(^\\s*\\|(?:image|full_screen)\\s*=\\s*)([^|{}\\r\\n]+\\.${extension})(?=\\s*$)`, 'gmi'),
+			(_, prefix, filename) => prefix + safe(filename))
+		.replace(new RegExp(`(^|\\|)([^|{}\\[\\]\\r\\n]+\\.${extension})(?=\\||\\}|\\]|\\r?$)`, 'gmi'),
+			(_, prefix, filename) => prefix + safe(filename));
+}

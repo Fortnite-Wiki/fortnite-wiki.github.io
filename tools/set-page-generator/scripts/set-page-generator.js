@@ -84,7 +84,7 @@ async function getFirstBundleFromCategory(categoryName) {
 	return { bundleName: null, bundleCost: null };
 }
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks, stripVbucksTemplate } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks, stripVbucksTemplate, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -657,7 +657,7 @@ async function handleGenerate() {
 		bundleName: bundleNameField
 	});
 
-	document.getElementById('output').value = page;
+	document.getElementById('output').value = sanitizeGeneratedFileNames(page);
 	document.getElementById('copy-btn').disabled = false;
 	showStatus('Page generated successfully!', 'success');
 	setTimeout(hideStatus, 2000);

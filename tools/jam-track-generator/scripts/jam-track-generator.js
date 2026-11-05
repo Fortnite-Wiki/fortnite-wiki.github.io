@@ -1,6 +1,6 @@
 import { loadGzJson } from '../../jsondata.js';
 import { decryptMidi, extractFormattedProVocalsSentences } from './midi-utils.js';
-import { getSeasonReleased, pageExists } from '../../utils.js';
+import { getSeasonReleased, pageExists, sanitizeGeneratedFileNames } from '../../utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../source-release.js';
 import { initBundleControls, getBundleEntries, removeBundleEntry, setupBundleControls } from '../../bundle-controls.js';
@@ -385,7 +385,7 @@ async function generatePage() {
 	settings.ageRestricted = elements.ageRestricted.checked;
 	
 	const wikiText = generateWikiText(currentTrackData, lyricSentences, settings);
-	elements.output.value = wikiText;
+	elements.output.value = sanitizeGeneratedFileNames(wikiText);
 	elements.copyBtn.disabled = false;
 	showStatus('Page generated successfully!', 'success');
 }

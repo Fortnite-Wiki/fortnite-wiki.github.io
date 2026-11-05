@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists } from '../../../tools/utils.js';
+import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getSeasonReleased, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro, formatContainedCosmeticLink } from '../../article-utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../../tools/source-release.js';
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
@@ -2110,7 +2110,7 @@ function hideStatus() {
 
 function displayOutput(content) {
 	if (elements.output) {
-		elements.output.textContent = content;
+		elements.output.textContent = sanitizeGeneratedFileNames(content);
 		elements.copyBtn.disabled = false;
 	}
 }

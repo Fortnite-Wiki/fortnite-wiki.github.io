@@ -4,7 +4,7 @@ import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSett
 import { initBundleControls, getBundleEntries, removeBundleEntry, setupBundleControls } from '../../bundle-controls.js';
 import { initFormBehaviors } from '../../form-behaviors.js';
 
-import { getSeasonReleased, pageExists } from '../../utils.js';
+import { getSeasonReleased, pageExists, sanitizeGeneratedFileNames } from '../../utils.js';
 import { generateUnlockedParameter, generateCostParameter, generateReleaseParameter, generateArticleIntro } from '../../article-utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -129,7 +129,7 @@ function hideStatus() {
 
 function displayOutput(content) {
 	if (elements.output) {
-		elements.output.value = content;
+		elements.output.value = sanitizeGeneratedFileNames(content);
 		elements.copyBtn.disabled = false;
 	}
 }

@@ -1,5 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
-import { SERIES_CONVERSION, getMostUpToDateImage } from '../../../tools/utils.js';
+import { SERIES_CONVERSION, getMostUpToDateImage, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -197,7 +197,7 @@ async function generateMarkup() {
     lines.push('}}');
     lines.push('}}');
 
-    output.value = lines.join('\n');
+    output.value = sanitizeGeneratedFileNames(lines.join('\n'));
     copyBtn.disabled = false;
     setStatus('Markup generated.', 'success');
 }

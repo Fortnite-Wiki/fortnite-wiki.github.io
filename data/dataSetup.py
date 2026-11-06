@@ -7,6 +7,20 @@ import re
 
 t0 = time.time()
 
+# The exported emote has no ItemName, so it would otherwise be omitted from the index.
+MISSING_ITEM_NAMES = {"EID_TonicMailWeb": "Helicopter"}
+
+def add_missing_item_name(data):
+    changed = False
+    for entry in data:
+        name = MISSING_ITEM_NAMES.get(entry.get("Name"))
+        if name and not entry.get("Properties", {}).get("ItemName", {}).get("LocalizedString"):
+            entry.setdefault("Properties", {})["ItemName"] = {
+                "Namespace": "", "Key": "", "SourceString": name, "LocalizedString": name
+            }
+            changed = True
+    return changed
+
 CONFIG_FILE = "mt_config.json"
 
 config = {}
@@ -356,6 +370,8 @@ def build_index(dirs):
                 data = load_json(path)
                 if not is_valid_json(data):
                     continue
+
+                add_missing_item_name(data)
 
                 entry = get_entry(data)
                 if not entry:
@@ -809,6 +825,10 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
             if not (config.get("ignore_same_gz", False) and os.path.exists(dest_path)):
                 with open(src_path, "rb") as f_in:
                     raw = f_in.read()
+                    if file == "EID_TonicMailWeb.json" and src_root == BR_COSMETICS_DIR:
+                        data = json.loads(raw)
+                        if add_missing_item_name(data):
+                            raw = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
                     compressed = gzip.compress(raw, mtime=0)
                     with open(dest_path, "wb") as f_out:
                         f_out.write(compressed)

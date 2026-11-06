@@ -828,6 +828,11 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
                     if file == "EID_TonicMailWeb.json" and src_root == BR_COSMETICS_DIR:
                         data = json.loads(raw)
                         if add_missing_item_name(data):
+                            if os.path.exists(dest_path):
+                                with gzip.open(dest_path, "rb") as existing_file:
+                                    if json.load(existing_file) == data:
+                                        count += 1
+                                        continue
                             raw = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
                     compressed = gzip.compress(raw, mtime=0)
                     with open(dest_path, "wb") as f_out:

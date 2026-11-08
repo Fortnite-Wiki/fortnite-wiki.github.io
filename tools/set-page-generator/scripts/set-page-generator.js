@@ -122,6 +122,7 @@ const TYPE_FIELD_MAP = {
 let index = [];
 let cosmeticSets = {};
 let cosmeticSetLocalizations = {};
+const SET_TRANSLATION_LANGUAGES = ['ar', 'de', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -299,39 +300,21 @@ function findCosmeticsInSet(setId) {
 }
 
 async function fetchTranslations(translationKey) {
-	let output = [];
-	let translations = [];
+	if (!translationKey) return [];
 
-	const localizationFolder = "Fortnite";
-	try {
-		const metaPath = `${DATA_BASE_PATH}localization/${localizationFolder}/${localizationFolder}.json`;
-		const meta = await loadGzJson(metaPath);
-		const compiledLangs = Array.isArray(meta.CompiledCultures) ? meta.CompiledCultures : [];
-
-		for (const lang of compiledLangs) {
-			const alreadyHasTranslation = translations[lang] !== undefined;
-
-			if (alreadyHasTranslation) continue;
-			
-			const locPath = `${DATA_BASE_PATH}localization/${localizationFolder}/${lang}/${localizationFolder}.json`;
-			try {
-				const loc = await loadGzJson(locPath);
-
-				const translationText = loc["CosmeticSets"]?.[translationKey] || loc[""]?.[translationKey];
-				if (translationText) translations[lang] = translationText;
-			} catch {}
+	const results = await Promise.all(SET_TRANSLATION_LANGUAGES.map(async lang => {
+		try {
+			const loc = await loadGzJson(`${DATA_BASE_PATH}localization/Fortnite/${lang}/Fortnite.json`);
+			return [lang, loc["CosmeticSets"]?.[translationKey] || loc[""]?.[translationKey]];
+		} catch (error) {
+			console.warn(`Could not load Fortnite set localization for ${lang}:`, error);
+			return [lang, null];
 		}
-	} catch {}
+	}));
 
-
-    for (const [lang, translation] of Object.entries(translations)) {
-      if (lang === "en") continue; // Skip English as it's already added as |name
-      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-      const translation = translations[lang] || "";
-      output.push(`|${langKey} = ${translation}`);
-    }
-
-	return output;
+	return results
+		.filter(([lang, translation]) => translation)
+		.map(([lang, translation]) => `|${lang.toLowerCase()} = ${translation}`);
 }
 
 async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleased, isCollaboration, options = {}) {

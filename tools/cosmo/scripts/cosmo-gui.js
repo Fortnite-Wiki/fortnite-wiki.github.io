@@ -2478,15 +2478,23 @@ function buildGalleryBodyLines(title, images, tabPrefix) {
 
 function buildGalleryLines(images) {
 	const lines = ['<gallery>'];
+	const galleryImages = orderGalleryImages(images);
 
-	for (const image of images) {
-		const fileName = formatGalleryFileName(getImageDownloadFileName(image, images));
-		const caption = getGalleryCaption(image, images);
+	for (const image of galleryImages) {
+		const fileName = formatGalleryFileName(getImageDownloadFileName(image, galleryImages));
+		const caption = getGalleryCaption(image, galleryImages);
 		lines.push(`${fileName}|${caption}`);
 	}
 
 	lines.push('</gallery>');
 	return lines;
+}
+
+function orderGalleryImages(images) {
+	if (images[0]?.imageType !== 'locker_preview_image' || !isJunoProductAssetId(images[0]?.assetId)) return images;
+	const firstNonLego = images.find((image) => !isJunoProductAssetId(image?.assetId));
+	if (!firstNonLego || isRacingCosmeticImage(firstNonLego)) return images;
+	return [firstNonLego, ...images.filter((image) => image !== firstNonLego)];
 }
 
 function isGallerySupportedImageType(imageType) {
@@ -2521,8 +2529,8 @@ function getGalleryCaption(image, contextImages = [image]) {
 	}
 	if (
 		image.imageType === 'locker_preview_image' &&
-		!hasDefaultImageCandidateInGallery(contextImages) &&
-		image === contextImages[0]
+		!isRacingCosmeticImage(image) &&
+		image === contextImages.find((candidate) => !isJunoProductAssetId(candidate?.assetId))
 	) {
 		return cosmeticName;
 	}
@@ -2619,10 +2627,6 @@ function isRacingCarBodyAsset(assetId) {
 		return /^Racing\/Bodies\//i.test(selectedAsset?.dataPath || '');
 	}
 	return false;
-}
-
-function hasDefaultImageCandidateInGallery(images) {
-	return images.some((image) => image?.style === null);
 }
 
 function formatGalleryCaptionSelection(selection, selections) {

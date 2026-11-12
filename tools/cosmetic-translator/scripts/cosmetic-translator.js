@@ -1,8 +1,8 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP } from '../../../tools/utils.js';
+import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js';
 
 const DATA_BASE_PATH = '../../../data/';
-const LOCALIZATION_LANGUAGES = ['ar', 'de', 'en', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 let index = [];
 
 // Flag cycling functionality
@@ -76,47 +76,6 @@ function updateSuggestions() {
   });
 }
 
-async function getLocalizationFolders() {
-  try {
-    return await getLocalLocalizationFolders();
-  } catch (error) {
-    console.warn("Local localization folder index unavailable; trying FortniteAPI:", error);
-    return getFortniteApiLocalizationFolders();
-  }
-}
-
-async function getFortniteApiLocalizationFolders() {
-  const resp = await fetch("https://api.fortniteapi.com/v1/aes");
-  if (!resp.ok) throw new Error(`FortniteAPI AES request failed: ${resp.status}`);
-
-  const data = await resp.json();
-  const folders = [];
-
-  if (Array.isArray(data.dynamicKeys)) {
-    data.dynamicKeys.forEach(d => {
-      const match = d.name?.match(/^pakchunk(\d+)-/);
-      if (match) {
-        const folderName = `Fortnite_locchunk${match[1]}`;
-        if (!folders.includes(folderName)) folders.push(folderName);
-      }
-    });
-  }
-
-  return folders;
-}
-
-async function getLocalLocalizationFolders() {
-  const resp = await fetch("../../data/localization/index.json");
-  if (!resp.ok) throw new Error(`Failed to fetch localization index: ${resp.status}`);
-
-  const folders = await resp.json();
-  if (!Array.isArray(folders) || !folders.length) {
-    throw new Error("Localization index is empty.");
-  }
-
-  return folders.filter(folder => folder !== 'SparksCosmetics' && !folder.startsWith('UEFN'));
-}
-
 async function search() {
   const input = document.getElementById("cosmetic-input").value.trim().toLowerCase();
   const output = document.getElementById("output");
@@ -165,120 +124,25 @@ async function search() {
 
 async function translateKeys(nameKey, descriptionKey) {
   const output = document.getElementById("output");
-  
-  let folders = null;
-  if (nameKey || descriptionKey) {
-    output.value = "Getting translations...";
-    try {
-      folders = await getLocalizationFolders();
-    } catch (error) {
-      console.error(error);
-      output.value = "Could not load the local localization folder index.";
-      return;
-    }
-  } else {
-    output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
-    return;
-  }
-  
-  const nameTranslations = {};
-  const descriptionTranslations = {};
-  const englishFolders = [];
-  for (const folder of folders) {
-    try {
-      const english = await loadGzJson(`../../data/localization/${folder}/en/${folder}.json`);
-      englishFolders.push({ folder, strings: english[''] || {} });
-    } catch (error) {
-      console.warn(`Could not load English localization for ${folder}:`, error);
-    }
-  }
-
-  const resolveKeys = (key) => {
-    if (!key) return new Map();
-    const exact = englishFolders.filter(({ strings }) => Object.hasOwn(strings, key));
-    return new Map(exact.map(({ folder }) => [folder, key]));
-  };
-
-  const nameKeys = resolveKeys(nameKey);
-  const descriptionKeys = resolveKeys(descriptionKey);
-
-  for (const { folder, strings: englishStrings } of englishFolders) {
-    const nameLookupKey = nameKeys.get(folder);
-    const descriptionLookupKey = descriptionKeys.get(folder);
-    if (!nameLookupKey && !descriptionLookupKey) continue;
-
-    await Promise.all(LOCALIZATION_LANGUAGES.map(async (lang) => {
-        const alreadyHasName = nameKey ? nameTranslations[lang] !== undefined : true;
-        const alreadyHasDesc = descriptionKey ? descriptionTranslations[lang] !== undefined : true;
-        if (alreadyHasName && alreadyHasDesc) return;
-        try {
-          const strings = lang === 'en'
-            ? englishStrings
-            : (await loadGzJson(`../../data/localization/${folder}/${lang}/${folder}.json`))[''] || {};
-
-          if (nameLookupKey && !alreadyHasName) {
-            const nameText = strings[nameLookupKey];
-            if (nameText) nameTranslations[lang] = nameText;
-          }
-
-          if (descriptionLookupKey && !alreadyHasDesc) {
-            const descText = strings[descriptionLookupKey];
-            if (descText) descriptionTranslations[lang] = descText;
-          }
-        } catch {}
-    }));
-  }
-
-  if (!Object.keys(nameTranslations).length && !Object.keys(descriptionTranslations).length) {
-    output.value = 'No matching translations found in the local localization files.';
-    document.getElementById('copy-btn').disabled = true;
-    return;
-  }
-
-  // Build the Cosmetic Translations output
-  const includeClear = document.getElementById("include-clear")?.checked ?? true;
-  let lines = [];
-  
-  if (includeClear) {
-    lines.push("{{Clear}}");
-  }
-  
-  lines.push("== Other Languages ==", "{{Cosmetic Translations");
-  
-  if (nameKey) {
-    const nameEn = nameTranslations["en"] || "";
-    if (nameEn) lines.push(`|name = ${nameEn}`);
-    
-    for (const [lang, translation] of Object.entries(nameTranslations)) {
-      if (lang === "en") continue; // Skip English as it's already added as |name
-      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-      const translation = nameTranslations[lang] || "";
-      lines.push(`|name-${langKey} = ${translation}`);
-    }
-    
-    if (descriptionKey) {
-      lines.push("");
-    }
-  }
-
-  
-  if (descriptionKey) {
-    const descEn = descriptionTranslations["en"];
-    if (descEn) lines.push(`|desc = ${descEn}`);
-    
-    for (const [lang, translation] of Object.entries(descriptionTranslations)) {
-      if (lang === "en") continue; // Skip English as it's already added as |desc
-      const langKey = lang.toLowerCase().replace("pt-br", "pt-br");
-      lines.push(`|desc-${langKey} = ${translation}`);
-    }
-  }
-  
-  lines.push("}}");
-  output.value = lines.join("\n");
-  
-  // Enable copy button
   const copyBtn = document.getElementById("copy-btn");
-  copyBtn.disabled = false;
+  if (!nameKey && !descriptionKey) {
+    output.value = "Couldn't figure out a localization key for both name and description of this cosmetic.";
+    copyBtn.disabled = true;
+    return;
+  }
+
+  output.value = "Getting translations...";
+  try {
+    const section = await getCosmeticTranslationSection(nameKey, descriptionKey, {
+      includeClear: document.getElementById("include-clear")?.checked ?? true
+    });
+    output.value = section || 'No matching translations found in the local localization files.';
+    copyBtn.disabled = !section;
+  } catch (error) {
+    console.error(error);
+    output.value = 'Could not load the local localization files.';
+    copyBtn.disabled = true;
+  }
 }
 
 async function copyToClipboard() {

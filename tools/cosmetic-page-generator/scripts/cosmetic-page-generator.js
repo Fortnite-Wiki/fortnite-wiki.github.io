@@ -5,6 +5,7 @@ import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSett
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
 import { initContainedCosmeticControls, getContainedCosmeticEntries, removeContainedCosmeticEntry, setupContainedCosmeticControls } from '../../../tools/contained-cosmetic-controls.js';
 import { initFormBehaviors } from '../../../tools/form-behaviors.js';
+import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -1347,10 +1348,21 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 
 	out.push("");
 
+	await appendTranslations(out, settings, entryMeta.itemNameKey, entryMeta.itemDescriptionKey);
 	out.push("[[Category:Built-In Emotes]]");
 	out.push("[[Category:Sidekick Emotes]]");
 
 	return out.join("\n");
+}
+
+async function appendTranslations(out, settings, nameKey, descriptionKey) {
+	if (!settings.includeTranslations) return;
+	try {
+		const section = await getCosmeticTranslationSection(nameKey, descriptionKey);
+		if (section) out.push(section, "");
+	} catch (error) {
+		console.warn('Could not load cosmetic translations:', error);
+	}
 }
 
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
@@ -2051,6 +2063,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`== Gallery ==\n<tabber>\n|-|Other=\n=== Other ===\n<gallery>\n${name} (Sheet) - ${cosmeticType} - Fortnite.png|Sprite Sheet\n</gallery>\n</tabber>\n`);
 	}
 
+	await appendTranslations(out, settings, props.ItemName?.Key || entryMeta.itemNameKey, props.ItemDescription?.Key || entryMeta.itemDescriptionKey);
+
 	// Categories
 	const addedCategories = new Set(); // Track categories that have been added
 	
@@ -2205,6 +2219,7 @@ async function generatePage() {
 		updateVersion: elements.updateVersion.value.trim(),
 		isCollaboration: elements.collaboration.checked,
 		hasRenders: elements.hasRenders ? elements.hasRenders.checked : false,
+		includeTranslations: elements.includeTranslations?.checked || false,
 		remixOf: elements.remixOf ? elements.remixOf.value.trim() : '',
 		isRocketLeagueCosmetic: elements.isRocketLeagueCosmetic.checked,
 		isRocketLeagueExclusive: elements.isRocketLeagueExclusive.checked
@@ -2242,8 +2257,9 @@ async function generatePage() {
 		const pageContent = await generateCosmeticPage(data, allData, settings, entryMeta);
 		
 		displayOutput(pageContent);
-		showStatus('Page generated successfully!', 'success');
-		setTimeout(hideStatus, 2000);
+		const missingTranslations = settings.includeTranslations && !pageContent.includes('== Other Languages ==');
+		showStatus(missingTranslations ? 'Page generated, but no matching translations were found.' : 'Page generated successfully!', missingTranslations ? 'info' : 'success');
+		setTimeout(hideStatus, missingTranslations ? 5000 : 2000);
 
 	} catch (error) {
 		console.error('Error generating page:', error);
@@ -2587,6 +2603,7 @@ async function initialiseApp() {
 		isRocketLeagueCosmetic: document.getElementById('rocket-league-cosmetic'),
 		isRocketLeagueExclusive: document.getElementById('rocket-league-exclusive'),
 		hasRenders: document.getElementById('has-renders'),
+		includeTranslations: document.getElementById('include-translations'),
 		remixOf: document.getElementById('remix-of'),
 		categoriesDropdown: document.getElementById('categories-dropdown'),
 	};

@@ -4,19 +4,19 @@ import { SOURCE_SETTINGS_FIELDS } from './source-settings-templates.js';
 export function validateSourceSettings(settings, elements) {
 
 	if (settings.isBattlePass) {
-		if (!elements.bpModeLinear?.checked && !elements.bpModeNonLinear?.checked) {
+		if (!settings.bpPassPurchase && !elements.bpModeLinear?.checked && !elements.bpModeNonLinear?.checked) {
 			return 'Please choose Battle Pass mode: Linear or Non-Linear';
 		}
 
-		if (!elements.bpSeason?.value || !settings.bpPage) {
-			return 'Please fill in Battle Pass season and page';
+		if (!elements.bpSeason?.value || (!settings.bpPassPurchase && !settings.bpPage)) {
+			return 'Please fill in Battle Pass season and page, or select pass purchase';
 		}
 
 		if (!parseBattlePassSeason(elements.bpSeason?.value)) {
 			return 'Invalid season format. Use C6S4, C2R, or TH';
 		}
 
-		if (elements.bpModeNonLinear?.checked) {
+		if (!settings.bpPassPurchase && elements.bpModeNonLinear?.checked) {
 			const p = Number(settings.bpPage);
 			if (isNaN(p) || p < 1 || p > 2) {
 				return 'For Non-Linear mode the page must be 1 or 2';
@@ -35,20 +35,20 @@ export function validateSourceSettings(settings, elements) {
 	}
 	
 	if (settings.isOGPass) {
-		if (!settings.ogSeason || !settings.ogPage) {
-			return 'Please fill in OG Pass season and page';
+		if (!settings.ogSeason || (!settings.ogPassPurchase && !settings.ogPage)) {
+			return 'Please fill in OG Pass season and page, or select pass purchase';
 		}
 	}
 	
 	if (settings.isMusicPass) {
-		if (!settings.musicSeason || !settings.musicPage) {
-			return 'Please fill in Music Pass season and page';
+		if (!settings.musicSeason || (!settings.musicPassPurchase && !settings.musicPage)) {
+			return 'Please fill in Music Pass season and page, or select pass purchase';
 		}
 	}
 	
 	if (settings.isLEGOPass) {
-		if (!settings.legoSeason || !settings.legoPage) {
-			return 'Please fill in LEGO Pass season and page';
+		if (!settings.legoSeason || (!settings.legoPassPurchase && !settings.legoPage)) {
+			return 'Please fill in LEGO Pass season and page, or select pass purchase';
 		}
 	}
 
@@ -300,6 +300,26 @@ export function initSourceReleaseControls({
 		}
 	});
 
+	for (const [purchaseId, freeId] of [
+		['bp-pass-purchase', 'pass-free-bp'],
+		['og-pass-purchase', 'pass-free-og'],
+		['music-pass-purchase', 'pass-free-music'],
+		['lego-pass-purchase', 'pass-free-lego']
+	]) {
+		const purchase = document.getElementById(purchaseId);
+		const free = document.getElementById(freeId);
+		if (!purchase || !free) continue;
+		purchase.addEventListener('change', () => {
+			if (purchase.checked && free.checked) {
+				free.checked = false;
+				free.dispatchEvent(new Event('change'));
+			}
+		});
+		free.addEventListener('change', () => {
+			if (free.checked) purchase.checked = false;
+		});
+	}
+
 	return elements;
 }
 
@@ -337,6 +357,7 @@ export function getSourceReleaseSettings(elements) {
 	settings.bpNonLinearLevel = elements.bpNonLinearLevel?.value.trim() || '';
 	settings.bpBonus = elements.bpBonus?.checked || false;
 	settings.bpPageCompletion = elements.bpPageCompletion?.checked || false;
+	settings.bpPassPurchase = elements.bpPassPurchase?.checked || false;
 	settings.passFreeBP = elements.passFreeBP?.checked || false;
 
 	if (settings.isBattlePass && elements.bpSeason?.value) {
@@ -357,18 +378,21 @@ export function getSourceReleaseSettings(elements) {
 	settings.ogSeason = elements.ogSeason?.value || '';
 	settings.ogPage = elements.ogPage?.value || '';
 	settings.ogPageCompletion = elements.ogPageCompletion?.checked || false;
+	settings.ogPassPurchase = elements.ogPassPurchase?.checked || false;
 	settings.passFreeOG = elements.passFreeOG?.checked || false;
 	
 	// Music Pass settings
-	settings.musicSeason = elements.musicSeason?.value || '';
+	settings.musicSeason = elements.musicSeason?.value.trim().toUpperCase() || '';
 	settings.musicPage = elements.musicPage?.value || '';
 	settings.musicPageCompletion = elements.musicPageCompletion?.checked || false;
+	settings.musicPassPurchase = elements.musicPassPurchase?.checked || false;
 	settings.passFreeMusic = elements.passFreeMusic?.checked || false;
 	
 	// LEGO Pass settings
 	settings.legoSeason = elements.legoSeason?.value || '';
 	settings.legoPage = elements.legoPage?.value || '';
 	settings.legoPageCompletion = elements.legoPageCompletion?.checked || false;
+	settings.legoPassPurchase = elements.legoPassPurchase?.checked || false;
 	settings.passFreeLEGO = elements.passFreeLEGO?.checked || false;
 	
 	// Quest Reward settings

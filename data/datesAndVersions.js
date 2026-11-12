@@ -132,6 +132,7 @@ export const FESTIVAL_SEASON_RELEASE_DATES = {
     13: new Date(2026, 1, 5), // February 5th, 2026
     14: new Date(2026, 3, 16), // April 16th, 2026
     15: new Date(2026, 6, 30), // July 30th, 2026
+    'TD': new Date(2026, 10, 12), // November 12, 2026
 };
 
 export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
@@ -149,7 +150,8 @@ export const FESTIVAL_SEASON_UPDATE_VERSIONS = {
     12: '39.00',
     13: '39.40',
     14: '40.20',
-    15: '41.30'
+    15: '41.30',
+    'TD': '43.10'
 };
 
 // divided by V-Bucks cost

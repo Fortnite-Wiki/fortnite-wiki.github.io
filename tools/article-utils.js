@@ -52,6 +52,27 @@ function getBattlePassTemplate(settings, free = false) {
     return `{{BattlePass${miniSeasonFlag}|${settings.bpChapter}|${settings.bpSeasonNum}${freeFlag}}}`;
 }
 
+function getOGPassTemplate(settings, free = false) {
+    return `{{OGPass|${settings.ogSeason}${free ? '|Free' : ''}}}`;
+}
+
+function getMusicPassTemplate(settings, free = false) {
+    const template = settings.musicSeason.toUpperCase() === 'TD' ? 'MusicMiniPass' : 'MusicPass';
+    return `{{${template}|${settings.musicSeason}${free ? '|Free' : ''}}}`;
+}
+
+function getLEGOPassTemplate(settings, free = false) {
+    return `{{LEGOPass|${settings.legoSeason}|${free ? 'Free' : ''}|${abbreviate(settings.legoSeason)}}}`;
+}
+
+function getPassPurchaseTemplate(settings) {
+    if (settings.isBattlePass && settings.bpPassPurchase && getBattlePassSeasonKey(settings)) return getBattlePassTemplate(settings);
+    if (settings.isOGPass && settings.ogPassPurchase && settings.ogSeason) return getOGPassTemplate(settings);
+    if (settings.isMusicPass && settings.musicPassPurchase && settings.musicSeason) return getMusicPassTemplate(settings);
+    if (settings.isLEGOPass && settings.legoPassPurchase && settings.legoSeason) return getLEGOPassTemplate(settings);
+    return '';
+}
+
 function getBattlePassSeasonLink(settings) {
     const seasonKey = getBattlePassSeasonKey(settings);
     if (seasonKey === 'TH') return '[[Treasure Hunters]]';
@@ -62,9 +83,13 @@ function getBattlePassSeasonLink(settings) {
 
 export function generateUnlockedParameter(settings, bundleEntries = [], containedCosmeticEntries = []) {
     let unlocked = '';
+    const passPurchaseTemplate = getPassPurchaseTemplate(settings);
 
     if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
         unlocked = `[[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]]`;
+
+    } else if (passPurchaseTemplate) {
+        unlocked = passPurchaseTemplate;
     
     } else if (settings.isBattlePass && settings.bpPage && getBattlePassSeasonKey(settings)) {
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
@@ -78,16 +103,13 @@ export function generateUnlockedParameter(settings, bundleEntries = [], containe
         }
     
     } else if (settings.isOGPass && settings.ogPage && settings.ogSeason) {
-        const freeFlag = settings.passFreeOG ? "|Free" : "";
-        unlocked = `Page ${settings.ogPage} <br> {{OGPass|${settings.ogSeason}${freeFlag}}}`;
+        unlocked = `Page ${settings.ogPage} <br> ${getOGPassTemplate(settings, settings.passFreeOG)}`;
     
     } else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-        const freeFlag = settings.passFreeMusic ? "|Free" : "";
-        unlocked = `Page ${settings.musicPage} <br> {{MusicPass|${settings.musicSeason}${freeFlag}}}`;
+        unlocked = `Page ${settings.musicPage} <br> ${getMusicPassTemplate(settings, settings.passFreeMusic)}`;
     
     } else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
-        const freeFlag = settings.passFreeLEGO ? "|Free" : "|";
-        unlocked = `Page ${settings.legoPage} <br> {{LEGOPass|${settings.legoSeason}${freeFlag}|${abbreviate(settings.legoSeason)}}}`;
+        unlocked = `Page ${settings.legoPage} <br> ${getLEGOPassTemplate(settings, settings.passFreeLEGO)}`;
     
     } else if (settings.isQuestReward) {
         unlocked = `[[${settings.questName}]]`;
@@ -132,14 +154,14 @@ export function generateCostParameter(settings, bundleEntries = [], isFestivalCo
         cost = `{{V-Bucks|800}} <br> (${getBattlePassTemplate(settings)})`;
     
     } else if (settings.isOGPass && settings.ogSeason) {
-        cost = `{{V-Bucks|800}} <br> ({{OGPass|${settings.ogSeason}}})`;
+        cost = `{{V-Bucks|800}} <br> (${getOGPassTemplate(settings)})`;
     
     } else if (settings.isMusicPass && settings.musicSeason) {
-        cost = `{{V-Bucks|1,200}} <br> ({{MusicPass|${settings.musicSeason}}})`;
+        cost = `{{V-Bucks|1,200}} <br> (${getMusicPassTemplate(settings)})`;
     
     } else if (settings.isLEGOPass && settings.legoSeason) {
         const vbucksAmount = LEGO_SEASON_NAMES["1400"].includes(settings.legoSeason) ? "1,400" : "1,200";
-        cost = `{{V-Bucks|${vbucksAmount}}} <br> ({{LEGOPass|${settings.legoSeason}||${abbreviate(settings.legoSeason)}}})`;
+        cost = `{{V-Bucks|${vbucksAmount}}} <br> (${getLEGOPassTemplate(settings)})`;
     
     } else if (settings.isItemShop && settings.shopCost && !settings.isUnreleased) {
         if (isFestivalCosmetic && cosmeticType != "Aura" && instrumentType != cosmeticType
@@ -253,9 +275,14 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
     
     const pageCompletionFlag = obtainedOnPageCompletion ? " by purchasing all cosmetics" : "";
 
+    const passPurchaseTemplate = getPassPurchaseTemplate(settings);
+
     if (settings.isFortniteCrew && settings.crewMonth && settings.crewYear) {
         article += ` that can be obtained by becoming a member of the [[Fortnite Crew]] during ${settings.crewMonth} ${settings.crewYear}, as part of the [[${settings.crewMonth} ${settings.crewYear} Fortnite Crew Pack]].`;
     
+    } else if (passPurchaseTemplate) {
+        article += ` that can be obtained by purchasing the ${passPurchaseTemplate}.`;
+
     } else if (settings.isBattlePass && settings.bpPage && getBattlePassSeasonKey(settings)) {
         const bonusFlag = settings.bpBonus ? "Bonus Rewards " : "";
         const seasonLink = getBattlePassSeasonLink(settings);
@@ -276,7 +303,10 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
         article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
     
     } else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-        article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the [[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]].`;
+        const pass = settings.musicSeason.toUpperCase() === 'TD'
+            ? getMusicPassTemplate(settings, settings.passFreeMusic)
+            : `[[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]]`;
+        article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the ${pass}.`;
     
     } else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {
         article += ` that can be obtained${pageCompletionFlag} on Page ${settings.legoPage} of the [[LEGO Fortnite:LEGO® Pass#${settings.legoSeason}|${settings.legoSeason} LEGO® Pass]].`;

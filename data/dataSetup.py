@@ -4,8 +4,29 @@ import gzip
 import shutil
 import time
 import re
+from pathlib import Path
+
+from incremental_gzip import IncrementalGzip
 
 t0 = time.time()
+gzip_cache = IncrementalGzip(os.path.dirname(__file__))
+
+def prune_generated_gz(root, keep):
+    root = Path(root).resolve()
+    if not root.is_relative_to(gzip_cache.root) or not root.exists():
+        return
+    for path in root.rglob("*.json.gz"):
+        if path.resolve().is_relative_to(root) and path.resolve() not in keep:
+            gzip_cache.remove(path)
+
+def copy_if_changed(source, destination):
+    raw = Path(source).read_bytes()
+    destination = Path(destination)
+    if destination.is_file() and destination.read_bytes() == raw:
+        return False
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, destination)
+    return True
 
 # The exported emote has no ItemName, so it would otherwise be omitted from the index.
 MISSING_ITEM_NAMES = {"EID_TonicMailWeb": "Helicopter"}
@@ -767,9 +788,15 @@ index = build_bundle_index(index)
 index = build_banner_index(index)
 
 index_json = json.dumps(index, indent=2, ensure_ascii=False, sort_keys=True)
-compressed_index = gzip.compress(index_json.encode('utf-8'), mtime=0)
-with open("index.json.gz", "wb") as f:
-    f.write(compressed_index)
+index_raw = index_json.encode('utf-8')
+index_path = Path("index.json.gz")
+try:
+    with gzip.open(index_path, "rb") as existing_index:
+        index_unchanged = existing_index.read() == index_raw
+except (OSError, EOFError):
+    index_unchanged = False
+if not index_unchanged:
+    index_path.write_bytes(gzip.compress(index_raw, mtime=0))
 
 print(f"index.json.gz created with {len(index)} entries. "
           f"{len(jido_map)} have JIDO values, "
@@ -797,6 +824,7 @@ print(f"CompanionStyleVariantTokens.json created with {len(companion_style_index
 
 def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
     count = 0
+    written_before = gzip_cache.written
     for subdir, _, files in os.walk(src_root):
         if "Archive" in subdir or "Tandem" in subdir or "Datatables" in subdir or "TestItems" in subdir or "Abilities" in subdir or ("Localization" not in src_root and "Localization" in subdir) or "CosmeticVariantTokens" in subdir or "QuestAssets" in subdir or "Prototype" in subdir:
             continue
@@ -822,44 +850,33 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
                     continue
             src_path = os.path.join(subdir, file)
             dest_path = os.path.join(dest_dir, file + ".gz")
-            if not (config.get("ignore_same_gz", False) and os.path.exists(dest_path)):
-                with open(src_path, "rb") as f_in:
-                    raw = f_in.read()
-                    if file == "EID_TonicMailWeb.json" and src_root == BR_COSMETICS_DIR:
-                        data = json.loads(raw)
-                        if add_missing_item_name(data):
-                            if os.path.exists(dest_path):
-                                with gzip.open(dest_path, "rb") as existing_file:
-                                    if json.load(existing_file) == data:
-                                        count += 1
-                                        continue
-                            raw = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
-                    compressed = gzip.compress(raw, mtime=0)
-                    with open(dest_path, "wb") as f_out:
-                        f_out.write(compressed)
+            raw = Path(src_path).read_bytes()
+            if file == "EID_TonicMailWeb.json" and src_root == BR_COSMETICS_DIR:
+                data = json.loads(raw)
+                if add_missing_item_name(data):
+                    raw = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
+            gzip_cache.compress_bytes(raw, dest_path)
             count += 1
-    print(f"{count} JSON files compressed and saved as .gz in {label}")
+    print(f"{count} JSON files checked in {label}; {gzip_cache.written - written_before} compressed")
 
-# Move and compress RACING_LOC_DIRECTORY
+# Copy and compress RACING_LOC_DIRECTORY
 if os.path.exists(RACING_LOC_DIRECTORY):
     target_path = os.path.join(os.path.join(os.path.dirname(__file__), "localization"), "VehicleCosmetics")
-    if os.path.exists(target_path):
-        shutil.rmtree(target_path)
-    shutil.copytree(RACING_LOC_DIRECTORY, target_path)
-
+    keep = set()
     count = 0
-    for root, _, files in os.walk(target_path):
+    for root, _, files in os.walk(RACING_LOC_DIRECTORY):
+        relative = os.path.relpath(root, RACING_LOC_DIRECTORY)
         for file in files:
             src_path = os.path.join(root, file)
-            if not file.endswith('.gz'):
-                dest_path = src_path + '.gz'
-                with open(src_path, "rb") as f_in:
-                    raw = f_in.read()
-                    compressed = gzip.compress(raw, mtime=0)
-                    with open(dest_path, "wb") as f_out:
-                        f_out.write(compressed)
-                        count += 1
-                os.remove(src_path)
+            dest_path = os.path.join(target_path, relative, file)
+            if file.endswith('.gz'):
+                copy_if_changed(src_path, dest_path)
+            else:
+                dest_path += '.gz'
+                gzip_cache.compress(src_path, dest_path)
+                count += 1
+            keep.add(Path(dest_path).resolve())
+    prune_generated_gz(target_path, keep)
     
     print(f"Moved and compressed {count} Racing localization JSON files from RACING_LOC_DIRECTORY")
 
@@ -897,23 +914,21 @@ def build_localization_index():
 
 if os.path.exists(CHARACTER_COLOR_SWATCHES_DIR):
     target_path = os.path.join(os.path.dirname(__file__), "cosmetics", "Characters", "ColorSwatches")
-    if os.path.exists(target_path):
-        shutil.rmtree(target_path)
-    shutil.copytree(CHARACTER_COLOR_SWATCHES_DIR, target_path)
-
+    keep = set()
     count = 0
-    for root, _, files in os.walk(target_path):
+    for root, _, files in os.walk(CHARACTER_COLOR_SWATCHES_DIR):
+        relative = os.path.relpath(root, CHARACTER_COLOR_SWATCHES_DIR)
         for file in files:
             src_path = os.path.join(root, file)
-            if not file.endswith('.gz'):
-                dest_path = src_path + '.gz'
-                with open(src_path, "rb") as f_in:
-                    raw = f_in.read()
-                    compressed = gzip.compress(raw, mtime=0)
-                    with open(dest_path, "wb") as f_out:
-                        f_out.write(compressed)
-                        count += 1
-                os.remove(src_path)
+            dest_path = os.path.join(target_path, relative, file)
+            if file.endswith('.gz'):
+                copy_if_changed(src_path, dest_path)
+            else:
+                dest_path += '.gz'
+                gzip_cache.compress(src_path, dest_path)
+                count += 1
+            keep.add(Path(dest_path).resolve())
+    prune_generated_gz(target_path, keep)
 
     print(f"Moved and compressed {count} Character ColorSwatches")
 
@@ -928,6 +943,7 @@ COMPANION_COLORS_AND_MATERIALS_DIRS = [
 ]
 def move_and_compress_companion_colors_and_materials(src_dirs):
     count = 0
+    keep = set()
     base_target = os.path.join(
         os.path.dirname(__file__),
         "cosmetics",
@@ -936,8 +952,6 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
 
     for sub in ("ColorSwatches", "MaterialParameterSets"):
         target_path = os.path.join(base_target, sub)
-        if os.path.exists(target_path):
-            shutil.rmtree(target_path)
         os.makedirs(target_path, exist_ok=True)
 
     for src_root in src_dirs:
@@ -988,23 +1002,24 @@ def move_and_compress_companion_colors_and_materials(src_dirs):
 
             src_path = os.path.join(root, file)
             dest_path = src_path + '.gz'
-            with open(src_path, "rb") as f_in, open(dest_path, "wb") as f_out:
-                f_out.write(gzip.compress(f_in.read(), mtime=0))
+            gzip_cache.compress(src_path, dest_path)
+            keep.add(Path(dest_path).resolve())
             os.remove(src_path)
             count += 1
 
+    for sub in ("ColorSwatches", "MaterialParameterSets"):
+        prune_generated_gz(os.path.join(base_target, sub), keep)
     print(f"Moved and compressed {count} ColorSwatches/MaterialParameterSets for Companions")
 
 def move_and_compress_lego():
     jbp_count = 0
     prop_count = 0
+    keep = set()
     juno_root = os.path.join(BASE_DIR, r"Plugins\GameFeatures\Juno")
     target_decor = os.path.join(os.path.dirname(__file__), "LEGO", "Decor Bundles")
     target_props = os.path.join(os.path.dirname(__file__), "LEGO", "CraftingFormulas")
 
     for target in (target_decor, target_props):
-        if os.path.exists(target):
-            shutil.rmtree(target)
         os.makedirs(target, exist_ok=True)
 
     if os.path.exists(juno_root):
@@ -1016,24 +1031,21 @@ def move_and_compress_lego():
                 if file.startswith("JBPID_"):
                     src_path = os.path.join(root, file)
                     dest_path = os.path.join(target_decor, file + ".gz")
-                    with open(src_path, "rb") as f_in:
-                        raw = f_in.read()
-                        compressed = gzip.compress(raw, mtime=0)
-                        with open(dest_path, "wb") as f_out:
-                            f_out.write(compressed)
+                    gzip_cache.compress(src_path, dest_path)
+                    keep.add(Path(dest_path).resolve())
                     jbp_count += 1
                     continue
 
                 if "_CraftingFormulas.json" in file:
                     src_path = os.path.join(root, file)
                     dest_path = os.path.join(target_props, file + ".gz")
-                    with open(src_path, "rb") as f_in:
-                        raw = f_in.read()
-                        compressed = gzip.compress(raw, mtime=0)
-                        with open(dest_path, "wb") as f_out:
-                            f_out.write(compressed)
+                    gzip_cache.compress(src_path, dest_path)
+                    keep.add(Path(dest_path).resolve())
                     prop_count += 1
 
+    if os.path.exists(juno_root):
+        for target in (target_decor, target_props):
+            prune_generated_gz(target, keep)
     print(f"Moved and compressed {jbp_count} JBPID JSON files to LEGO/Decor Bundles")
     print(f"Moved and compressed {prop_count} _CraftingFormulas JSON files to LEGO/CraftingFormulas")
 
@@ -1169,6 +1181,8 @@ copy_and_gzip(WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "c
 copy_and_gzip(OLD_WEAPON_DEFINITIONS_DIR, os.path.join(os.path.dirname(__file__), "cosmetics/Weapons"), "cosmetics/Weapons (default pickaxe)", re.compile(r"^WID_Harvest_Pickaxe_Athena_C_T01$"))
 copy_and_gzip(BANNER_ICONS_DIR, os.path.join(os.path.dirname(__file__), "banners"), "banners")
 copy_and_gzip(COMPANION_FILTER_SET_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions", "VariantFilterSets"), "cosmetics/Companions/VariantFilterSets")
+gzip_cache.save()
+print(f"Gzip output: {gzip_cache.written} compressed, {gzip_cache.reused} reused")
 print(f"Completed in {time.time() - t0:.2f}s")
 
 try:

@@ -87,6 +87,9 @@ const SOURCE_SETTINGS = {
 					Obtained on page completion?
 				</label>
 			</div>
+			<div class="inline-group">
+				${createCheckbox('bp-pass-purchase', 'Obtained on pass purchase?')}
+			</div>
 		</div>`,
 	fortniteCrew: `
 		<div id="fortnite-crew-settings" class="source-settings hidden">
@@ -137,13 +140,16 @@ const SOURCE_SETTINGS = {
 					Obtained on page completion?
 				</label>
 			</div>
+			<div class="inline-group">
+				${createCheckbox('og-pass-purchase', 'Obtained on pass purchase?')}
+			</div>
 		</div>`,
 	musicPass: `
 		<div id="music-pass-settings" class="source-settings hidden">
 			<h5>Music Pass Settings</h5>
 			<div class="inline-group">
 				<label for="music-season">Season:</label>
-				<input type="text" id="music-season" placeholder="11" pattern="[0-9]+">
+				<input type="text" id="music-season" placeholder="11 or TD" pattern="(?:[0-9]+|[Tt][Dd])">
 			</div>
 			<div class="inline-group">
 				<label for="music-page">Page:</label>
@@ -160,6 +166,9 @@ const SOURCE_SETTINGS = {
 					<input type="checkbox" id="music-page-completion">
 					Obtained on page completion?
 				</label>
+			</div>
+			<div class="inline-group">
+				${createCheckbox('music-pass-purchase', 'Obtained on pass purchase?')}
 			</div>
 		</div>`,
 	legoPass: `
@@ -188,6 +197,9 @@ const SOURCE_SETTINGS = {
 					<input type="checkbox" id="lego-page-completion">
 					Obtained on page completion?
 				</label>
+			</div>
+			<div class="inline-group">
+				${createCheckbox('lego-pass-purchase', 'Obtained on pass purchase?')}
 			</div>
 		</div>`,
 	questReward: `
@@ -281,11 +293,11 @@ export function injectSourceSettings(container, sources) {
 // Map of which form fields belong to each source
 export const SOURCE_SETTINGS_FIELDS = {
 	itemShop: ['shop-cost', 'include-appearances', 'shop-appearances'],
-	battlePass: ['bp-season', 'bp-page', 'bp-mode-linear', 'bp-mode-nonlinear', 'bp-nonlinear-set', 'bp-nonlinear-level', 'bp-bonus', 'bp-page-completion', 'pass-free-bp'],
+	battlePass: ['bp-season', 'bp-page', 'bp-mode-linear', 'bp-mode-nonlinear', 'bp-nonlinear-set', 'bp-nonlinear-level', 'bp-bonus', 'bp-page-completion', 'bp-pass-purchase', 'pass-free-bp'],
 	fortniteCrew: ['crew-month', 'crew-year'],
-	ogPass: ['og-season', 'og-page', 'og-page-completion', 'pass-free-og'],
-	musicPass: ['music-season', 'music-page', 'music-page-completion', 'pass-free-music'],
-	legoPass: ['lego-season', 'lego-season-abbr', 'lego-page', 'lego-page-completion', 'pass-free-lego'],
+	ogPass: ['og-season', 'og-page', 'og-page-completion', 'og-pass-purchase', 'pass-free-og'],
+	musicPass: ['music-season', 'music-page', 'music-page-completion', 'music-pass-purchase', 'pass-free-music'],
+	legoPass: ['lego-season', 'lego-season-abbr', 'lego-page', 'lego-page-completion', 'lego-pass-purchase', 'pass-free-lego'],
 	questReward: ['quest-name', 'quest-cost', 'quest-first-released'],
 	rocketPass: ['rocket-pass-season', 'rocket-pass-level', 'pass-free-rocket']
 };

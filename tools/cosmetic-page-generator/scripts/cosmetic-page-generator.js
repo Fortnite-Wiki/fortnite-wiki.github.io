@@ -43,6 +43,154 @@ let selectedCategories = [];
 let addCompatibleCosmeticsCategory = false;
 
 let pageTitle = '';
+const COSMO_GALLERY_PAGE_SIZE = 48;
+let cosmoGallerySelection = null;
+let cosmoPickerReady = false;
+let cosmoPreviewAssetId = '';
+let cosmoImages = [];
+let cosmoSelectedIndices = new Set();
+let cosmoGalleryPage = 0;
+let cosmoRenderedPage = '';
+let cosmoGalleryRequestId = 0;
+
+function clearCosmoGallerySelection() {
+	cosmoGallerySelection = null;
+	cosmoPreviewAssetId = '';
+	cosmoImages = [];
+	cosmoSelectedIndices = new Set();
+	cosmoGalleryPage = 0;
+	cosmoRenderedPage = '';
+	elements.cosmoGalleryGrid.replaceChildren();
+	elements.cosmoGalleryMessage.textContent = 'Select a cosmetic to load previews.';
+	updateCosmoGalleryControls();
+}
+
+function requestCosmoPreviews(assetId, force = false) {
+	cosmoPreviewAssetId = assetId;
+	cosmoGallerySelection = null;
+	cosmoImages = [];
+	cosmoSelectedIndices = new Set();
+	cosmoGalleryPage = 0;
+	cosmoRenderedPage = '';
+	elements.cosmoGalleryGrid.replaceChildren();
+	elements.cosmoGalleryMessage.textContent = cosmoPickerReady ? 'Generating Cosmo previews...' : 'Loading Cosmo preview data...';
+	updateCosmoGalleryControls();
+	if (cosmoPickerReady) {
+		elements.cosmoGalleryFrame.contentWindow.postMessage({ type: 'cosmo-picker-select', assetId, force }, location.origin);
+	}
+}
+
+function updateCosmoGalleryControls() {
+	const selectedCount = cosmoImages.filter(image => cosmoSelectedIndices.has(image.index)).length;
+	elements.cosmoGalleryCount.textContent = `${selectedCount}/${cosmoImages.length} selected`;
+	elements.toggleCosmoGallery.disabled = cosmoImages.length === 0;
+	elements.toggleCosmoGallery.textContent = selectedCount === cosmoImages.length && cosmoImages.length ? 'Unselect All' : 'Select All';
+	const pageCount = Math.ceil(cosmoImages.length / COSMO_GALLERY_PAGE_SIZE);
+	elements.cosmoGalleryPages.hidden = pageCount <= 1;
+	elements.cosmoGalleryPrevious.disabled = cosmoGalleryPage === 0;
+	elements.cosmoGalleryNext.disabled = cosmoGalleryPage >= pageCount - 1;
+	elements.cosmoGalleryPageLabel.textContent = `Page ${cosmoGalleryPage + 1} of ${Math.max(1, pageCount)}`;
+}
+
+function renderCosmoGallery() {
+	const pageCount = Math.ceil(cosmoImages.length / COSMO_GALLERY_PAGE_SIZE);
+	cosmoGalleryPage = Math.min(cosmoGalleryPage, Math.max(0, pageCount - 1));
+	const visibleImages = cosmoImages.slice(cosmoGalleryPage * COSMO_GALLERY_PAGE_SIZE, (cosmoGalleryPage + 1) * COSMO_GALLERY_PAGE_SIZE);
+	const pageKey = visibleImages.map(image => image.index).join(',');
+	if (pageKey !== cosmoRenderedPage) {
+		cosmoRenderedPage = pageKey;
+		elements.cosmoGalleryGrid.replaceChildren();
+		for (const image of visibleImages) {
+			const card = document.createElement('label');
+			card.className = 'cosmo-gallery-card';
+			const select = document.createElement('input');
+			select.type = 'checkbox';
+			select.checked = cosmoSelectedIndices.has(image.index);
+			select.addEventListener('change', () => {
+				if (select.checked) cosmoSelectedIndices.add(image.index);
+				else cosmoSelectedIndices.delete(image.index);
+				updateCosmoGalleryControls();
+			});
+			const kind = document.createElement('span');
+			kind.textContent = image.imageType === 'preview_permutation_image' ? 'Permutation Icon' : 'Locker Preview';
+			const preview = document.createElement('img');
+			preview.alt = image.styleLabel || kind.textContent;
+			preview.loading = 'lazy';
+			preview.onerror = () => {
+				preview.onerror = null;
+				preview.src = image.proxyUrl;
+			};
+			preview.src = image.url;
+			const style = document.createElement('span');
+			style.className = 'cosmo-gallery-style';
+			style.textContent = image.styleLabel || 'Default';
+			style.title = style.textContent;
+			card.append(select, kind, preview, style);
+			elements.cosmoGalleryGrid.appendChild(card);
+		}
+	}
+	updateCosmoGalleryControls();
+}
+
+function handleCosmoPickerMessage(event) {
+	if (event.origin !== location.origin || event.source !== elements.cosmoGalleryFrame.contentWindow) return;
+	const message = event.data;
+	if (message?.type === 'cosmo-picker-ready') {
+		cosmoPickerReady = true;
+		if (cosmoPreviewAssetId) {
+			elements.cosmoGalleryFrame.contentWindow.postMessage({ type: 'cosmo-picker-select', assetId: cosmoPreviewAssetId }, location.origin);
+		}
+	} else if (message?.type === 'cosmo-picker-images' && message.assetId?.toLowerCase() === cosmoPreviewAssetId.toLowerCase()) {
+		const knownIndices = new Set(cosmoImages.map(image => image.index));
+		cosmoImages = message.images;
+		for (const image of cosmoImages) {
+			if (!knownIndices.has(image.index)) cosmoSelectedIndices.add(image.index);
+		}
+		const progress = message.checked < message.total
+			? `Checking ${message.checked}/${message.total} candidates; ${cosmoImages.length} found.`
+			: `${cosmoImages.length} preview${cosmoImages.length === 1 ? '' : 's'} found.`;
+		elements.cosmoGalleryMessage.textContent = message.warning ? `${progress} ${message.warning}` : progress;
+		renderCosmoGallery();
+	} else if (message?.type === 'cosmo-picker-error' && (!message.assetId || message.assetId.toLowerCase() === cosmoPreviewAssetId.toLowerCase())) {
+		elements.cosmoGalleryMessage.textContent = message.message;
+	}
+}
+
+function requestCosmoGalleryBody(assetId) {
+	const selectedIndices = cosmoImages.filter(image => cosmoSelectedIndices.has(image.index)).map(image => image.index);
+	if (!selectedIndices.length) return Promise.resolve('');
+	if (!cosmoPickerReady || assetId.toLowerCase() !== cosmoPreviewAssetId.toLowerCase()) {
+		return Promise.reject(new Error('Cosmo previews are not ready for this cosmetic.'));
+	}
+	const requestId = ++cosmoGalleryRequestId;
+	return new Promise((resolve, reject) => {
+		const cleanup = () => {
+			clearTimeout(timeout);
+			window.removeEventListener('message', onMessage);
+		};
+		const onMessage = event => {
+			if (event.origin !== location.origin || event.source !== elements.cosmoGalleryFrame.contentWindow ||
+				event.data?.type !== 'cosmo-picker-result' || event.data.requestId !== requestId) return;
+			cleanup();
+			if (event.data.assetId?.toLowerCase() !== assetId.toLowerCase()) reject(new Error('Cosmo selection changed cosmetics.'));
+			else resolve(event.data.body || '');
+		};
+		const timeout = setTimeout(() => { cleanup(); reject(new Error('Cosmo gallery did not respond.')); }, 5000);
+		window.addEventListener('message', onMessage);
+		elements.cosmoGalleryFrame.contentWindow.postMessage({ type: 'cosmo-picker-get-selection', assetId, selectedIndices, requestId }, location.origin);
+	});
+}
+
+function appendCosmoGallery(out, entryMeta) {
+	if (!cosmoGallerySelection || cosmoGallerySelection.assetId.toLowerCase() !== entryMeta.id.toLowerCase()) return;
+	const body = cosmoGallerySelection.body;
+	const existingGallery = out.findIndex(section => section.startsWith('== Gallery =='));
+	if (existingGallery >= 0) {
+		out[existingGallery] = out[existingGallery].replace('<tabber>\n', `<tabber>\n${body}\n`);
+	} else {
+		out.push(`== Gallery ==\n<tabber>\n${body}\n</tabber>\n`);
+	}
+}
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
@@ -120,6 +268,7 @@ function updateSuggestions() {
 			while (featuredCharactersEntries.length != 0) removeFeaturedCharacterEntry();
 
 			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+			// requestCosmoPreviews(entry.id); // Paused for the current pak update.
 			document.getElementById("cosmetic-input").value = entry.id;
 			document.getElementById("cosmetic-input-name").value = entry.name;
 			document.getElementById("shop-appearances").value = entry.name;
@@ -1348,6 +1497,7 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 
 	out.push("");
 
+	// appendCosmoGallery(out, entryMeta); // Paused for the current pak update.
 	await appendTranslations(out, settings, entryMeta.itemNameKey, entryMeta.itemDescriptionKey);
 	out.push("[[Category:Built-In Emotes]]");
 	out.push("[[Category:Sidekick Emotes]]");
@@ -2063,6 +2213,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		out.push(`== Gallery ==\n<tabber>\n|-|Other=\n=== Other ===\n<gallery>\n${name} (Sheet) - ${cosmeticType} - Fortnite.png|Sprite Sheet\n</gallery>\n</tabber>\n`);
 	}
 
+	// appendCosmoGallery(out, entryMeta); // Paused for the current pak update.
 	await appendTranslations(out, settings, props.ItemName?.Key || entryMeta.itemNameKey, props.ItemDescription?.Key || entryMeta.itemDescriptionKey);
 
 	// Categories
@@ -2253,6 +2404,8 @@ async function generatePage() {
 		showStatus('Generating page...', 'loading');
 
 		console.log('Generating page with data:', { data, allData, settings, entryMeta });
+		// const cosmoBody = await requestCosmoGalleryBody(entryMeta.id);
+		// cosmoGallerySelection = cosmoBody ? { assetId: entryMeta.id, body: cosmoBody } : null;
 
 		const pageContent = await generateCosmeticPage(data, allData, settings, entryMeta);
 		
@@ -2606,7 +2759,34 @@ async function initialiseApp() {
 		includeTranslations: document.getElementById('include-translations'),
 		remixOf: document.getElementById('remix-of'),
 		categoriesDropdown: document.getElementById('categories-dropdown'),
+		cosmoGalleryFrame: document.getElementById('cosmo-gallery-frame'),
+		cosmoGalleryMessage: document.getElementById('cosmo-gallery-message'),
+		cosmoGalleryCount: document.getElementById('cosmo-gallery-count'),
+		cosmoGalleryGrid: document.getElementById('cosmo-gallery-grid'),
+		cosmoGalleryPages: document.getElementById('cosmo-gallery-pages'),
+		cosmoGalleryPrevious: document.getElementById('cosmo-gallery-previous'),
+		cosmoGalleryNext: document.getElementById('cosmo-gallery-next'),
+		cosmoGalleryPageLabel: document.getElementById('cosmo-gallery-page-label'),
+		toggleCosmoGallery: document.getElementById('toggle-cosmo-gallery'),
 	};
+	document.getElementById('refresh-cosmo-gallery').addEventListener('click', () => {
+		const assetId = elements.cosmeticInput.value.trim();
+		if (assetId && elements.cosmeticDisplayInput.value.endsWith(`(${assetId})`)) requestCosmoPreviews(assetId, true);
+		else showStatus('Select a cosmetic from the search results first.', 'error');
+	});
+	elements.toggleCosmoGallery.addEventListener('click', () => {
+		const selectAll = cosmoImages.some(image => !cosmoSelectedIndices.has(image.index));
+		for (const image of cosmoImages) {
+			if (selectAll) cosmoSelectedIndices.add(image.index);
+			else cosmoSelectedIndices.delete(image.index);
+		}
+		cosmoRenderedPage = '';
+		renderCosmoGallery();
+	});
+	elements.cosmoGalleryPrevious.addEventListener('click', () => { cosmoGalleryPage--; cosmoRenderedPage = ''; renderCosmoGallery(); });
+	elements.cosmoGalleryNext.addEventListener('click', () => { cosmoGalleryPage++; cosmoRenderedPage = ''; renderCosmoGallery(); });
+	elements.cosmeticDisplayInput.addEventListener('input', clearCosmoGallerySelection);
+	window.addEventListener('message', handleCosmoPickerMessage);
 
 	initSourceReleaseControls({
 		sources: ['itemShop', 'battlePass', 'fortniteCrew', 'ogPass', 'musicPass', 'legoPass', 'questReward', 'rocketPass'],

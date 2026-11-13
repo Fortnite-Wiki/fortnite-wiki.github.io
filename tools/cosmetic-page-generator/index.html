@@ -20,7 +20,7 @@
 		}, { once: true });
 	</script>
 	
-	<script src="./scripts/cosmetic-page-generator.js" type="module"></script>
+	<script src="./scripts/cosmetic-page-generator.js?v=20261112-inline-cosmo-gallery" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
@@ -43,6 +43,14 @@
 		.category-badge .remove-category { cursor: pointer; font-weight: bold; opacity: 0.7; transition: opacity 0.2s; }
 		.category-badge .remove-category:hover { opacity: 1; }
 		#selected-categories:empty::before { content: 'No categories selected'; color: #888; font-style: italic; }
+		#cosmo-gallery-section .cosmo-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+		#cosmo-gallery-message { margin: 0.5rem 0; }
+		#cosmo-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(125px, 1fr)); gap: 0.6rem; max-height: 480px; overflow-y: auto; }
+		.cosmo-gallery-card { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; padding: 0.5rem; border: 1px solid #454545; border-radius: 4px; background: #303030; cursor: pointer; }
+		.cosmo-gallery-card img { width: 100%; height: 145px; object-fit: contain; }
+		.cosmo-gallery-card .cosmo-gallery-style { font-size: 0.75rem; overflow-wrap: anywhere; }
+		#cosmo-gallery-pages { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+		#cosmo-gallery-frame { position: absolute; left: -10000px; width: 1px; height: 1px; border: 0; pointer-events: none; }
 	</style>
 	<link rel="icon" href="/files/images/siteIcon.png" />
 </head>
@@ -73,6 +81,23 @@
 
 		<section id="source-release-container">
 			<!-- Source and release controls will be injected here -->
+		</section>
+		<!-- Cosmo gallery integration is paused while the current pak updates are shipped. -->
+		<section id="cosmo-gallery-section" hidden>
+			<h3>Cosmo Gallery</h3>
+			<p>Found previews appear here when you select a cosmetic. Check the images to include in the page.</p>
+			<div class="cosmo-toolbar">
+				<button type="button" class="sec-subm secondary" id="refresh-cosmo-gallery">Refresh previews</button>
+				<button type="button" class="sec-subm secondary" id="toggle-cosmo-gallery" disabled>Unselect All</button>
+				<span id="cosmo-gallery-count">No images selected</span>
+			</div>
+			<p id="cosmo-gallery-message" role="status">Select a cosmetic to load previews.</p>
+			<div id="cosmo-gallery-grid"></div>
+			<div id="cosmo-gallery-pages" hidden>
+				<button type="button" class="sec-subm secondary" id="cosmo-gallery-previous">Previous</button>
+				<span id="cosmo-gallery-page-label"></span>
+				<button type="button" class="sec-subm secondary" id="cosmo-gallery-next">Next</button>
+			</div>
 		</section>
 
 		<section>
@@ -147,5 +172,7 @@
 			</section>
 		</aside>
 	</div>
+	<!-- Cosmo picker source is paused; restore it when enabling the gallery. -->
+	<iframe id="cosmo-gallery-frame" title="Cosmo preview engine" src="about:blank"></iframe>
 </body>
 </html>

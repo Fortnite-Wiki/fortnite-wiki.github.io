@@ -6,11 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cosmo Image API</title>
 
-	<script src="./scripts/cosmo-gui.js?v=20261112-release-43.10" type="module"></script>
+	<script src="./scripts/cosmo-gui.js?v=20261112-inline-sidekick-gallery" type="module"></script>
 	<script src="/scripts/pageinfo.js" type="module"></script>
 	<script src="/scripts/load-site-notices.js" type="module"></script>
 
 	<link rel="stylesheet" href="./styles/styles.css" />
+	<script>
+		if (new URLSearchParams(location.search).get('picker') === '1') document.documentElement.classList.add('cosmo-picker');
+	</script>
+	<style>
+		html.cosmo-picker body > header { display: none; }
+		html.cosmo-picker #wrapper { margin-top: 0; }
+	</style>
 	<link rel="icon" href="/files/images/siteIcon.png" />
 </head>
 

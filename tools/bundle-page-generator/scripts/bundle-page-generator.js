@@ -395,15 +395,6 @@ function getCanonicalJamTrackTitle(title) {
 	)) || title;
 }
 
-const CAR_BUNDLE_COSMETIC_TYPES = new Set([
-	'Car Body',
-	'Decal',
-	'Wheel',
-	'Wheels',
-	'Boost',
-	'Trail',
-]);
-
 async function getBundleData(bundleID, bundleName) {
 	const entryMeta = index.find(e =>
 		(e.bundle_id && (e.bundle_id.toLowerCase().replace('_Athena_Commando', '') === bundleID.toLowerCase() || e.bundle_id.toLowerCase() === bundleID.toLowerCase())) ||
@@ -438,8 +429,8 @@ async function getBundleData(bundleID, bundleName) {
 	return { da, dav2 };
 }
 
-function buildBundleImageParameter(bundleName, imageProductTagCounts, hasCarCosmetic) {
-	const entries = buildBundleImageEntries(bundleName, imageProductTagCounts, hasCarCosmetic);
+function buildBundleImageParameter(bundleName, imageProductTagCounts) {
+	const entries = buildBundleImageEntries(bundleName, imageProductTagCounts);
 	if (entries.length > 1) {
 		return ['{{InfoboxTabber|', ...entries.map((filename, idx) => `${filename}|${idx + 1}`), '}}'].join('\n');
 	}
@@ -447,15 +438,13 @@ function buildBundleImageParameter(bundleName, imageProductTagCounts, hasCarCosm
 	return entries[0] || '';
 }
 
-function buildBundleImageEntries(bundleName, imageProductTagCounts = {}, hasCarCosmetic = false) {
+function buildBundleImageEntries(bundleName, imageProductTagCounts = {}) {
 	const entries = [];
 	const brCount = imageProductTagCounts['Product.BR'] || 0;
 	const delMarCount = imageProductTagCounts['Product.DelMar'] || 0;
 	const junoCount = imageProductTagCounts['Product.Juno'] || 0;
 	const fortniteCount = brCount + delMarCount;
-	const fortniteLabel = hasCarCosmetic ? 'Item Shop' : '';
-
-	entries.push(...getNumberedBundleImageEntries(bundleName, fortniteCount, fortniteLabel));
+	entries.push(...getNumberedBundleImageEntries(bundleName, fortniteCount));
 	entries.push(...getNumberedBundleImageEntries(bundleName, junoCount, 'LEGO'));
 
 	return entries;
@@ -478,14 +467,6 @@ function getBundleImageFileName(bundleName, suffix = '') {
 	return `${bundleName}${suffix ? ` (${suffix})` : ''} - Item Shop Bundle - Fortnite.png`;
 }
 
-function hasCarCosmetic(cosmetics) {
-	return cosmetics.some((cosmetic) => (
-		cosmetic.isRacingCosmetic ||
-		CAR_BUNDLE_COSMETIC_TYPES.has(cosmetic.cosmeticType) ||
-		CAR_BUNDLE_COSMETIC_TYPES.has(cosmetic.fileType)
-	));
-}
-
 async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, imageProductTagCounts, usePlaceholderImage, settings) {
 	const infobox = [];
 	if (settings.displayTitle) infobox.push(`{{DISPLAYTITLE:${bundleName}}}`);
@@ -494,7 +475,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	if (settings.isRocketLeagueCosmetic) infobox.push('{{Rocket League Cosmetic}}');
 	infobox.push('{{Infobox Bundles');
 	infobox.push(`|name = ${bundleName}`);
-	const imageParameter = buildBundleImageParameter(bundleName, imageProductTagCounts, hasCarCosmetic(cosmetics));
+	const imageParameter = buildBundleImageParameter(bundleName, imageProductTagCounts);
 	infobox.push(`|image = ${imageParameter || (usePlaceholderImage ? 'Placeholder (Featured - New) - Item Shop Bundle - Fortnite.png' : '')}`);
 
 	let rarity = cosmetics[0]?.rarity || "";

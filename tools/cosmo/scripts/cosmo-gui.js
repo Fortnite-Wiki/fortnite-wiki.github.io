@@ -2718,15 +2718,15 @@ function isZipBundleImage(image) {
 	return elements.assetKind.value === 'Bundle' || selectedAsset?.kind === 'Bundle' || /^bundle_/i.test(image?.assetId || '');
 }
 
-function shouldUseItemShopBundleStoreDescriptor(storeOption) {
+function shouldUseNumberedCarBundleStoreDescriptor(storeOption) {
 	return isCarBundleStoreImage() && !isLegoStoreOptionName(storeOption?.name);
 }
 
-function getNumberedItemShopBundleStoreDescriptor(storeOption) {
+function getNumberedCarBundleStoreDescriptor(storeOption) {
 	const options = getBundleStoreOptions().filter((option) => !isLegoStoreOptionName(option?.name));
 	const optionIndex = options.findIndex((option) => Number(option.value) === Number(storeOption?.value));
-	if (optionIndex <= 0) return 'Item Shop';
-	return `Item Shop - ${String(optionIndex + 1).padStart(2, '0')}`;
+	if (optionIndex <= 0) return 'Featured';
+	return `${String(optionIndex + 1).padStart(2, '0')} - Featured`;
 }
 
 function getBundleStoreOptions() {
@@ -2909,8 +2909,8 @@ function hasDefaultImageCandidate(image, contextImages) {
 
 function getZipStoreDescriptor(image, storeOption, assetType) {
 	const baseLabel = getZipStoreBaseLabel(storeOption?.name);
-	if (isZipBundleImage(image) && shouldUseItemShopBundleStoreDescriptor(storeOption)) {
-		return getNumberedItemShopBundleStoreDescriptor(storeOption);
+	if (isZipBundleImage(image) && shouldUseNumberedCarBundleStoreDescriptor(storeOption)) {
+		return getNumberedCarBundleStoreDescriptor(storeOption);
 	}
 	if (isLegoStoreOption(image, storeOption)) {
 		const legoDescriptor = getNumberedLegoStoreDescriptor(storeOption);

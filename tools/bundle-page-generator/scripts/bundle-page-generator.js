@@ -551,7 +551,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 		return out;
 	}
 
-	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
+	const cosmeticsTable = ['== Cosmetics ==', '{| class="reward-table"'];
 
 	const imageCells = [];
 	const nameCells = [];
@@ -599,7 +599,7 @@ async function generateBundlePage(bundleID, bundleName, cosmetics, da, dav2, ima
 	}
 
 	if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
-	cosmeticsTable.push('|}', '</center>', '');
+	cosmeticsTable.push('|}', '');
 
 	const appearancesSection = [];
 	if (settings.includeAppearances) {

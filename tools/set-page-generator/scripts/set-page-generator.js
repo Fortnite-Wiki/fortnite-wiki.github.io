@@ -531,7 +531,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		return out;
 	}
 
-	const cosmeticsTable = ['== Cosmetics ==', '<center>', '{| class="reward-table"'];
+	const cosmeticsTable = ['== Cosmetics ==', '{| class="reward-table"'];
 	for (const row of chunk(grouped, 3)) {
 		cosmeticsTable.push('|' + row.map(({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay, bannerFile }) => {
 			// Banners: show the provided file and link to Banner Icons
@@ -554,7 +554,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		cosmeticsTable.push('|-');
 	}
 	if (cosmeticsTable[cosmeticsTable.length - 1] === '|-') cosmeticsTable.pop();
-	cosmeticsTable.push('|}', '</center>', '\n[[Category:Sets]]');
+	cosmeticsTable.push('|}', '\n[[Category:Sets]]');
 
     return [...infobox, summary, ...cosmeticsTable].join('\n');
 }

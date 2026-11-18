@@ -61,6 +61,12 @@ function getMusicPassTemplate(settings, free = false) {
     return `{{${template}|${settings.musicSeason}${free ? '|Free' : ''}}}`;
 }
 
+function getMusicPassParagraphLink(settings) {
+    return settings.musicSeason.toUpperCase() === 'TD'
+        ? '[[Music Pass#TD|TwinDrill Diva Music Mini-Pass]]'
+        : `[[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]]`;
+}
+
 function getLEGOPassTemplate(settings, free = false) {
     return `{{LEGOPass|${settings.legoSeason}|${free ? 'Free' : ''}|${abbreviate(settings.legoSeason)}}}`;
 }
@@ -68,7 +74,9 @@ function getLEGOPassTemplate(settings, free = false) {
 function getPassPurchaseTemplate(settings) {
     if (settings.isBattlePass && settings.bpPassPurchase && getBattlePassSeasonKey(settings)) return getBattlePassTemplate(settings);
     if (settings.isOGPass && settings.ogPassPurchase && settings.ogSeason) return getOGPassTemplate(settings);
-    if (settings.isMusicPass && settings.musicPassPurchase && settings.musicSeason) return getMusicPassTemplate(settings);
+    if (settings.isMusicPass && settings.musicPassPurchase && settings.musicSeason) {
+        return settings.musicSeason.toUpperCase() === 'TD' ? getMusicPassParagraphLink(settings) : getMusicPassTemplate(settings);
+    }
     if (settings.isLEGOPass && settings.legoPassPurchase && settings.legoSeason) return getLEGOPassTemplate(settings);
     return '';
 }
@@ -303,9 +311,7 @@ export function generateArticleIntro(settings, bundleEntries = [], name = '', co
         article += ` that can be obtained${pageCompletionFlag} on Page ${settings.ogPage} of the [[OG Pass#Season ${settings.ogSeason}|Season ${settings.ogSeason} OG Pass]].`;
     
     } else if (settings.isMusicPass && settings.musicPage && settings.musicSeason) {
-        const pass = settings.musicSeason.toUpperCase() === 'TD'
-            ? getMusicPassTemplate(settings, settings.passFreeMusic)
-            : `[[Music Pass#Season ${settings.musicSeason}|Season ${settings.musicSeason} Music Pass]]`;
+        const pass = getMusicPassParagraphLink(settings);
         article += ` that can be obtained${pageCompletionFlag} on Page ${settings.musicPage} of the ${pass}.`;
     
     } else if (settings.isLEGOPass && settings.legoPage && settings.legoSeason) {

@@ -1695,11 +1695,11 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		if (variantData.length > 0) {
-			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, !settings.isUnreleased && are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
+			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
 		}
 	}
 
-	if (!settings.isUnreleased && !featured && are_there_shop_assets(entryMeta)) {
+	if (!featured && are_there_shop_assets(entryMeta)) {
 		const leftToDo = await getNumBRDav2Assets(entryMeta) - 1;
 		if (leftToDo > 0) {
 			const featuredFiles = [];
@@ -1746,7 +1746,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	out.push("{{Infobox Cosmetics");
 	out.push(`|name = ${name}`);
 	
-	if (are_there_shop_assets(entryMeta) || (itemshop && !settings.isBattlePass && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || cosmeticType == "Car Body") {
+	if (!settings.isUnreleased && (are_there_shop_assets(entryMeta) || (itemshop && !settings.isBattlePass && cosmeticType != "Aura" && cosmeticType != "Reaction" && cosmeticType != "Loading Screen") || cosmeticType == "Car Body")) {
 		if (isFestivalCosmetic) {
 			if (cosmeticType != instrumentType) {
 				if (instrumentType == "Drums") {
@@ -1754,8 +1754,6 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				} else {
 					out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
 				}
-			} else if (settings.isUnreleased) {
-				out.push(`|image = ${name} - ${instrumentType} - Fortnite Festival.png`);
 			} else {
 				out.push("|image = {{InfoboxTabber|");
 				out.push(`${name} - ${instrumentType} - Fortnite Festival.png|Icon`);
@@ -1763,38 +1761,26 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				out.push("}}");
 			}
 		} else if (isRacingCosmetic && cosmeticType == "Wheel") {
-			if (settings.isUnreleased) {
-				out.push(`|image = ${name} - Wheels - Fortnite.png`);
-			} else {
-				out.push("|image = {{InfoboxTabber|");
-				out.push(`${name} - Wheels - Fortnite.png|Icon`);
-				out.push(`${name} (Featured) - Wheels - Fortnite.png|Featured`);
-				out.push("}}");
-			}
-		} else {
-			if (settings.isUnreleased) {
-				out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
-			} else {
-				out.push("|image = {{InfoboxTabber|");
-				out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-				if (cosmeticType == "Loading Screen" && settings.isBattlePass) {
-					out.push(`${name} (Battle Pass) - ${cosmeticType} - Fortnite.png|Featured`);
-				} else {
-					out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
-				}
-				out.push("}}");
-			}
-		}
-	} else if ((cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
-		if (settings.isUnreleased) {
-			out.push(`|image = ${name} - ${cosmeticType} - Fortnite.png`);
+			out.push("|image = {{InfoboxTabber|");
+			out.push(`${name} - Wheels - Fortnite.png|Icon`);
+			out.push(`${name} (Featured) - Wheels - Fortnite.png|Featured`);
+			out.push("}}");
 		} else {
 			out.push("|image = {{InfoboxTabber|");
 			out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
-			const pass = settings.isOGPass ? "OG Pass" : settings.isLEGOPass ? "LEGO Pass" : settings.isMusicPass ? "Music Pass" : "Battle Pass";
-			out.push(`${name} (${pass}) - ${cosmeticType} - Fortnite.png|Featured`);
+			if (cosmeticType == "Loading Screen" && settings.isBattlePass) {
+				out.push(`${name} (Battle Pass) - ${cosmeticType} - Fortnite.png|Featured`);
+			} else {
+				out.push(`${name}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' (Featured)'} - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png|Featured`);
+			}
 			out.push("}}");
 		}
+	} else if (!settings.isUnreleased && (cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
+		out.push("|image = {{InfoboxTabber|");
+		out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
+		const pass = settings.isOGPass ? "OG Pass" : settings.isLEGOPass ? "LEGO Pass" : settings.isMusicPass ? "Music Pass" : "Battle Pass";
+		out.push(`${name} (${pass}) - ${cosmeticType} - Fortnite.png|Featured`);
+		out.push("}}");
 	} else {
 		if (cosmeticType === "Spray") {
 			out.push("|image = {{InfoboxTabber|");

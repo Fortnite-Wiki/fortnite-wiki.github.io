@@ -1775,7 +1775,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			}
 			out.push("}}");
 		}
-	} else if (!settings.isUnreleased && (cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
+	} else if ((cosmeticType == "Outfit" || cosmeticType == "Loading Screen") && (settings.isBattlePass || settings.isOGPass || settings.isLEGOPass || settings.isMusicPass)) {
 		out.push("|image = {{InfoboxTabber|");
 		out.push(`${name} - ${cosmeticType} - Fortnite.png|Icon`);
 		const pass = settings.isOGPass ? "OG Pass" : settings.isLEGOPass ? "LEGO Pass" : settings.isMusicPass ? "Music Pass" : "Battle Pass";

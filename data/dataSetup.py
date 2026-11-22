@@ -843,6 +843,9 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
         for file in files:
             if not file.endswith(".json"):
                 continue
+            if (rel == "Characters" and src_root in {BR_COSMETICS_DIR, OLD_BR_COSMETICS_DIR}
+                    and os.path.isfile(os.path.join(DEFAULT_ATHENA_CHARACTER_DIR, file))):
+                continue
             # Apply filename pattern filter if provided
             if filename_pattern:
                 filename_no_ext = os.path.splitext(file)[0]

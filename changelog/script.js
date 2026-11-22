@@ -81,8 +81,12 @@ function renderSiteUpdates() {
         const article = element('article', 'site-update');
         const heading = element('div', 'site-update-heading');
         heading.appendChild(element('h4', '', update.title));
-        const date = element('time', '', update.date);
-        date.dateTime = update.date;
+        const date = element('time');
+        date.dateTime = update.publishedAt;
+        date.textContent = new Date(update.publishedAt).toLocaleString(undefined, {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+        });
         heading.appendChild(date);
         article.appendChild(heading);
         const list = element('ul');

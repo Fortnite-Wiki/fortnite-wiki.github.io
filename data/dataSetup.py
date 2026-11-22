@@ -385,6 +385,9 @@ def build_index(dirs):
             for file in files:
                 if not file.endswith('.json'):
                     continue
+                if (directory == OLD_BR_COSMETICS_DIR
+                        and os.path.isfile(os.path.join(BR_COSMETICS_DIR, os.path.relpath(subdir, directory), file))):
+                    continue
                 
                 path = os.path.join(subdir, file)
                 data = load_json(path)
@@ -400,6 +403,10 @@ def build_index(dirs):
                 cosmetic_id = entry.get("Name")
                 props = entry.get("Properties", {})
                 item_name = props.get("ItemName", {}).get("LocalizedString") or ""
+                rel_path = adjust_path(path, directory)
+                if item_name.strip().casefold() == "blank":
+                    gzip_cache.preserve_blank_text(data, gzip_cache.root / "cosmetics" / (rel_path + ".gz"))
+                    item_name = props.get("ItemName", {}).get("LocalizedString") or ""
                 if not item_name and entry.get("Type") == "AthenaGliderItemDefinition":
                     item_name = cosmetic_id
                 elif not item_name and cosmetic_id == "DefaultContrail":
@@ -415,7 +422,6 @@ def build_index(dirs):
                         break
 
                 weapon_definition_path = get_weapon_definition(entry)
-                rel_path = adjust_path(path, directory)
                 car_body_tag = get_car_body_tag(props)
                 set_id = get_set_id(props)
 
@@ -834,6 +840,9 @@ def copy_and_gzip(src_root, dest_root, label, filename_pattern=None):
         
         for file in files:
             if not file.endswith(".json"):
+                continue
+            if (src_root == OLD_BR_COSMETICS_DIR
+                    and os.path.isfile(os.path.join(BR_COSMETICS_DIR, os.path.relpath(subdir, src_root), file))):
                 continue
             if (rel == "Characters" and src_root in {BR_COSMETICS_DIR, OLD_BR_COSMETICS_DIR}
                     and os.path.isfile(os.path.join(DEFAULT_ATHENA_CHARACTER_DIR, file))):

@@ -3,8 +3,11 @@
 from collections import Counter
 import gzip
 import hashlib
+import io
 import json
 import os
+import re
+import subprocess
 from pathlib import Path
 
 
@@ -24,16 +27,58 @@ def _report_label(path):
     return path
 
 
-def _write_json_changes(report, before, after, path="", set_names=None):
+TEXT_FIELDS = {"LocalizedString", "SourceString", "CultureInvariantString"}
+BLANK_BYTES = re.compile(rb'"blank"', re.IGNORECASE)
+
+
+def _is_blank(value):
+    return isinstance(value, str) and value.strip().casefold() == "blank"
+
+
+def _has_blank_text(data):
+    if isinstance(data, dict):
+        return any((_is_blank(value) if key in TEXT_FIELDS else _has_blank_text(value))
+                   for key, value in data.items())
+    if isinstance(data, list):
+        return any(_has_blank_text(value) for value in data)
+    return False
+
+
+def _preserve_text(data, previous):
+    changed = 0
+    if isinstance(data, dict) and isinstance(previous, dict):
+        for key, value in data.items():
+            old = previous.get(key)
+            if key in TEXT_FIELDS and _is_blank(value) and isinstance(old, str) and old and not _is_blank(old):
+                data[key] = old
+                changed += 1
+            else:
+                changed += _preserve_text(value, old)
+    elif isinstance(data, list) and isinstance(previous, list):
+        named = {(item.get("Type"), item.get("Name")): item for item in previous
+                 if isinstance(item, dict) and item.get("Name")}
+        for index, item in enumerate(data):
+            old = None
+            if isinstance(item, dict) and item.get("Name"):
+                old = named.get((item.get("Type"), item.get("Name")))
+            if old is None and index < len(previous):
+                old = previous[index]
+            changed += _preserve_text(item, old)
+    return changed
+
+
+def _write_json_changes(report, before, after, path="", set_names=None, skip_blank=False):
     if isinstance(before, dict) and isinstance(after, dict):
         for key in sorted(before.keys() | after.keys()):
+            if key == "GeneratedTagsIndexes":
+                continue
             child = f"{path} > {key}" if path else str(key)
             if key not in before:
                 report.write(f"  Added {_report_label(child)}: {json.dumps(after[key], ensure_ascii=False)}\n")
             elif key not in after:
                 report.write(f"  Removed {_report_label(child)}: {json.dumps(before[key], ensure_ascii=False)}\n")
             elif before[key] != after[key]:
-                _write_json_changes(report, before[key], after[key], child, set_names)
+                _write_json_changes(report, before[key], after[key], child, set_names, skip_blank)
     elif isinstance(before, list) and isinstance(after, list):
         if all(not isinstance(value, (dict, list)) for value in before + after):
             label = "tag" if path.endswith(" > Tags") or path == "Tags" else f"value in {path.rsplit(' > ', 1)[-1] or 'list'}"
@@ -65,8 +110,10 @@ def _write_json_changes(report, before, after, path="", set_names=None):
                 elif index >= len(after):
                     report.write(f"  Removed {child}: {json.dumps(before[index], ensure_ascii=False)}\n")
                 elif before[index] != after[index]:
-                    _write_json_changes(report, before[index], after[index], child, set_names)
+                    _write_json_changes(report, before[index], after[index], child, set_names, skip_blank)
     else:
+        if skip_blank and (_is_blank(before) or _is_blank(after)):
+            return
         report.write(f"  Changed {_report_label(path) or 'value'}:\n")
         report.write(f"    Before: {json.dumps(before, ensure_ascii=False)}\n")
         report.write(f"    After:  {json.dumps(after, ensure_ascii=False)}\n")
@@ -121,6 +168,7 @@ class IncrementalGzip:
         self.reused = 0
         self.originals = {}
         self.previous_set_names = _load_set_names(self.root / "CosmeticSets.json")
+        self._baseline_json = {}
 
     def _key(self, destination):
         return Path(destination).resolve().relative_to(self.root).as_posix()
@@ -131,6 +179,13 @@ class IncrementalGzip:
     def compress_bytes(self, raw, destination, *, equivalent_json=True):
         destination = Path(destination)
         key = self._key(destination)
+        if key.startswith("cosmetics/") and BLANK_BYTES.search(raw):
+            try:
+                data = json.loads(raw)
+                if self.preserve_blank_text(data, destination):
+                    raw = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
+            except ValueError:
+                pass
         digest = hashlib.sha256(raw).hexdigest()
         previous = self.entries.get(key)
 
@@ -181,6 +236,33 @@ class IncrementalGzip:
         self.written += 1
         return True
 
+    def preserve_blank_text(self, data, destination):
+        if not _has_blank_text(data):
+            return 0
+        destination = Path(destination)
+        try:
+            with gzip.open(destination, "rb") as source:
+                previous = json.load(source)
+        except (OSError, EOFError, ValueError):
+            previous = None
+        changed = _preserve_text(data, previous)
+        if destination.is_file() and _has_blank_text(data):
+            key = self._key(destination)
+            if key not in self._baseline_json:
+                try:
+                    result = subprocess.run(
+                        ["git", "show", f"HEAD:data/{key}"],
+                        cwd=self.root.parent, capture_output=True, check=False
+                    )
+                except OSError:
+                    result = None
+                try:
+                    self._baseline_json[key] = json.loads(gzip.decompress(result.stdout)) if result and result.returncode == 0 else None
+                except (OSError, EOFError, ValueError):
+                    self._baseline_json[key] = None
+            changed += _preserve_text(data, self._baseline_json[key])
+        return changed
+
     def remove(self, destination):
         key = self._key(destination)
         if key not in self.originals:
@@ -200,7 +282,7 @@ class IncrementalGzip:
         counts = {"ADDED": 0, "CHANGED": 0, "REMOVED": 0, "REPLACED": 0}
         set_names = (self.previous_set_names, _load_set_names(self.root / "CosmeticSets.json"))
 
-        with temp_path.open("w", encoding="utf-8") as report:
+        with temp_path.open("w", encoding="utf-8", newline="\n") as report:
             report.write("Data setup compressed JSON changes\n\n")
             for key, (existed, original) in sorted(self.originals.items()):
                 destination = self.root / key
@@ -225,15 +307,24 @@ class IncrementalGzip:
                 else:
                     status = "REPLACED" if existed else "ADDED"
 
+                if status == "CHANGED":
+                    if original_json is not None and current_json is not None:
+                        details = io.StringIO()
+                        if key == "index.json.gz" and isinstance(original_json, list) and isinstance(current_json, list):
+                            _write_json_changes(details, _index_entries(original_json), _index_entries(current_json), set_names=set_names, skip_blank=True)
+                        else:
+                            _write_json_changes(details, original_json, current_json, set_names=set_names, skip_blank=key.startswith("cosmetics/"))
+                        if not details.getvalue():
+                            continue
+                    else:
+                        details = None
+
                 counts[status] += 1
                 heading = _changed_heading(key, current_json) if status == "CHANGED" else f"data/{key}"
                 report.write(f"{status} {heading}\n")
                 if status == "CHANGED":
-                    if original_json is not None and current_json is not None:
-                        if key == "index.json.gz" and isinstance(original_json, list) and isinstance(current_json, list):
-                            _write_json_changes(report, _index_entries(original_json), _index_entries(current_json), set_names=set_names)
-                        else:
-                            _write_json_changes(report, original_json, current_json, set_names=set_names)
+                    if details is not None:
+                        report.write(details.getvalue())
                     else:
                         before = original.decode("utf-8", errors="replace")
                         after = current.decode("utf-8", errors="replace")

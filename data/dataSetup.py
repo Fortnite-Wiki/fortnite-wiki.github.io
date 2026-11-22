@@ -1,6 +1,5 @@
 import os
 import json
-import gzip
 import shutil
 import time
 import re
@@ -789,14 +788,7 @@ index = build_banner_index(index)
 
 index_json = json.dumps(index, indent=2, ensure_ascii=False, sort_keys=True)
 index_raw = index_json.encode('utf-8')
-index_path = Path("index.json.gz")
-try:
-    with gzip.open(index_path, "rb") as existing_index:
-        index_unchanged = existing_index.read() == index_raw
-except (OSError, EOFError):
-    index_unchanged = False
-if not index_unchanged:
-    index_path.write_bytes(gzip.compress(index_raw, mtime=0))
+gzip_cache.compress_bytes(index_raw, gzip_cache.root / "index.json.gz")
 
 print(f"index.json.gz created with {len(index)} entries. "
           f"{len(jido_map)} have JIDO values, "
@@ -1186,6 +1178,11 @@ copy_and_gzip(BANNER_ICONS_DIR, os.path.join(os.path.dirname(__file__), "banners
 copy_and_gzip(COMPANION_FILTER_SET_DIR, os.path.join(os.path.dirname(__file__), "cosmetics", "Companions", "VariantFilterSets"), "cosmetics/Companions/VariantFilterSets")
 gzip_cache.save()
 print(f"Gzip output: {gzip_cache.written} compressed, {gzip_cache.reused} reused")
+report_path = Path(__file__).resolve().parent.parent / "temp" / "datasetup-changes.txt"
+report_counts = gzip_cache.write_report(report_path)
+if sum(report_counts.values()):
+    shutil.copyfile(report_path, Path(__file__).resolve().parent / "datasetup-changes.txt")
+print(f"Change report: {report_path} ({sum(report_counts.values())} files)")
 print(f"Completed in {time.time() - t0:.2f}s")
 
 try:

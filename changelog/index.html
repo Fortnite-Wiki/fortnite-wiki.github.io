@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Changelog - Fortnite Wiki Tools</title>
+    <link rel="icon" href="/files/images/siteIcon.png">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/tools/common.css">
+    <link rel="stylesheet" href="/changelog/styles.css">
+    <script type="module" src="/changelog/script.js"></script>
+</head>
+<body>
+    <header>
+        <a href="/index.html" id="return-main" aria-label="Close changelog tab" title="Close tab">
+            <span><img src="/files/images/return-icon.png" alt=""></span>
+        </a>
+        <img src="/files/images/siteIcon.png" alt="Fortnite Wiki Tools">
+        <span><h1 class="name">Changelog</h1></span>
+    </header>
+    <main id="changelog-main">
+        <section class="changelog-section">
+            <h3>Site updates</h3>
+            <div id="site-updates" class="site-updates"></div>
+        </section>
+        <section class="changelog-section">
+            <div class="section-heading">
+                <div>
+                    <h3>Latest cosmetic data changes</h3>
+                    <p id="update-name">Loading update...</p>
+                </div>
+                <a class="raw-link" href="/data/datasetup-changes.txt" target="_blank" rel="noopener noreferrer">View raw text</a>
+            </div>
+            <div id="summary" class="summary" aria-live="polite"></div>
+            <label for="change-search">Search changes</label>
+            <input id="change-search" type="search" placeholder="Cosmetic, ID, set, or tag" autocomplete="off">
+            <p id="message" class="message" role="status">Loading changelog...</p>
+            <div id="entries" class="entries"></div>
+        </section>
+    </main>
+</body>
+</html>

@@ -61,6 +61,16 @@ import noticesConfig from '../data/site-notices.js';
             span.innerHTML = n.summaryText;
             header.appendChild(span);
 
+            if (n.changelogUrl) {
+                const link = document.createElement('a');
+                link.className = 'update-changelog-link';
+                link.href = n.changelogUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = 'View changelog';
+                header.appendChild(link);
+            }
+
             const toggle = document.createElement('button');
             toggle.className = 'notice-toggle';
             toggle.setAttribute('aria-label','Toggle notice');
@@ -84,6 +94,17 @@ import noticesConfig from '../data/site-notices.js';
             const wrapper = document.createElement('div');
             wrapper.className = 'notice-body-inner';
             wrapper.innerHTML = n.bodyHtml || '';
+            if (n.changelogUrl) {
+                const link = document.createElement('a');
+                link.className = 'update-changelog-link';
+                link.href = n.changelogUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = 'View changelog';
+                const lastParagraph = wrapper.querySelector('p:last-child') || wrapper;
+                lastParagraph.appendChild(document.createTextNode(' '));
+                lastParagraph.appendChild(link);
+            }
             body.appendChild(wrapper);
 
             root.appendChild(body);
@@ -182,8 +203,12 @@ import noticesConfig from '../data/site-notices.js';
                 };
 
                 if (header) {
-                    header.addEventListener('click', toggleFn);
+                    header.addEventListener('click', (ev) => {
+                        if (ev.target.closest('a')) return;
+                        toggleFn(ev);
+                    });
                     header.addEventListener('keydown', (ev) => {
+                        if (ev.target.closest('a')) return;
                         if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') { ev.preventDefault(); toggleFn(); }
                     });
                 }

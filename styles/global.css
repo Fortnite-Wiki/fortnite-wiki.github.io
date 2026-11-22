@@ -186,6 +186,46 @@ header .site-notices {
 .notice.collapsible .summary { display: none; }
 .notice.collapsible.collapsed .summary { display: inline-block; }
 
+#update-info.notice.collapsible.collapsed .summary {
+    flex: 1;
+    min-width: 0;
+}
+
+#update-info.notice.collapsible.collapsed {
+    padding: 8px 12px;
+}
+
+#update-info.notice.collapsible:not(.collapsed) .notice-header {
+    display: none;
+}
+
+.site-notices .update-changelog-link {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0;
+    border: 1px solid #0c5460;
+    border-radius: 3px;
+    background: #0c5460;
+    padding: 3px 8px;
+    width: auto;
+    height: auto;
+    color: white;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.site-notices .update-changelog-link:hover,
+.site-notices .update-changelog-link:focus {
+    box-shadow: none;
+    background: #083d46;
+}
+
+.site-notices .notice-body .update-changelog-link {
+    margin-left: 0.65rem;
+}
+
 /* header toggle (visible only when collapsed) */
 .notice-toggle {
     background: transparent;

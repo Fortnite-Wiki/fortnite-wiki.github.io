@@ -1,8 +1,10 @@
 let containedCosmeticEntries = [];
 let dataIndex = null;
+let getName = entry => entry.name;
 
-export function initContainedCosmeticControls(index) {
+export function initContainedCosmeticControls(index, resolveName = entry => entry.name) {
 	dataIndex = index;
+	getName = resolveName;
 	containedCosmeticEntries = [];
 }
 
@@ -117,13 +119,13 @@ function updateContainedCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl,
 			return true;
 		})
 		.map(e => {
-			const name = (e.name || '').toLowerCase();
+			const name = getName(e).toLowerCase();
 			const id = (e.id || '').toLowerCase();
 			let score = 0;
 
-			if (name === input) score += 100;
+			if (name === input || e.name.toLowerCase() === input) score += 100;
 			else if (name.startsWith(input)) score += 75;
-			else if (name.includes(input)) score += 50;
+			else if (name.includes(input) || e.name.toLowerCase().includes(input)) score += 50;
 
 			if (id === input) score += 40;
 			else if (id.startsWith(input)) score += 25;
@@ -137,12 +139,12 @@ function updateContainedCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl,
 
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
-		div.textContent = `${entry.name} (${entry.id})`;
+		div.textContent = `${getName(entry)} (${entry.id})`;
 		div.onclick = () => {
-			displayEl.value = `${entry.name} (${entry.id})`;
+			displayEl.value = `${getName(entry)} (${entry.id})`;
 			optionsWrapper.style.display = 'flex';
 			hiddenIdEl.value = entry.id;
-			hiddenNameEl.value = entry.name;
+			hiddenNameEl.value = getName(entry);
 			hiddenPathEl.value = entry.path || '';
 			sugDiv.innerHTML = '';
 			updateShopAppearancesFromContainedCosmeticsIfNeeded();

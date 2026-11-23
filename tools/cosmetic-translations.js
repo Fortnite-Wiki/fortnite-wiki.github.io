@@ -1,5 +1,5 @@
 import { loadGzJson } from './jsondata.js';
-import { applyHotfixLanguages, HOTFIX_DATA_URL, loadLocalizationHotfixes } from './localization-hotfixes.js';
+import { applyHotfixLanguages, HOTFIX_DATA_URL, loadLocalizationHotfixes } from './localization-hotfixes.js?v=20261122-hotfix-names';
 
 const LOCALIZATION_LANGUAGES = ['ar', 'de', 'en', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 

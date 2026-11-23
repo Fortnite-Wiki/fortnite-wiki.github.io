@@ -5,8 +5,8 @@ import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSett
 import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEntry, setupBundleControls } from '../../../tools/bundle-controls.js';
 import { initContainedCosmeticControls, getContainedCosmeticEntries, removeContainedCosmeticEntry, setupContainedCosmeticControls } from '../../../tools/contained-cosmetic-controls.js';
 import { initFormBehaviors } from '../../../tools/form-behaviors.js';
-import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js';
-import { loadLocalizationHotfixes, hotfixEnglish, resolveCosmeticText } from '../../../tools/localization-hotfixes.js';
+import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js?v=20261122-hotfix-names';
+import { loadLocalizationHotfixes, loadHotfixEntryNames, getHotfixedEntryName, hotfixEnglish, resolveCosmeticText } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -31,7 +31,7 @@ const ITEM_TYPE_TAG_TYPE_MAP = {
 };
 
 let index = [];
-const hotfixSearchNames = new Map();
+let hotfixSearchNames = new Map();
 let companionVTIDs = [];
 let cosmeticSets = {};
 let jamTrackNames = [];
@@ -199,23 +199,11 @@ async function loadIndex() {
 }
 
 async function loadHotfixSearchNames() {
-	const hotfixes = await loadLocalizationHotfixes();
-	if (!hotfixes) return;
-	let localizationKeys = {};
-	try {
-		localizationKeys = await loadGzJson(DATA_BASE_PATH + 'hotfixes/cosmetic-keys.json');
-	} catch (error) {
-		console.warn('Cosmetic localization key index unavailable; using keys already in the search index.', error);
-	}
-	for (const entry of index) {
-		if (!entry.id || !entry.name) continue;
-		const name = hotfixEnglish(hotfixes, localizationKeys[entry.path], entry.itemNameKey, entry.name);
-		if (name !== entry.name) hotfixSearchNames.set(entry, name);
-	}
+	hotfixSearchNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
 }
 
 function getSearchName(entry) {
-	return hotfixSearchNames.get(entry) || entry.name;
+	return getHotfixedEntryName(entry, hotfixSearchNames);
 }
 
 async function loadCompanionVTIDs() {
@@ -378,8 +366,8 @@ function updateSuggestions() {
 					const optionsWrapper = bundleEntryWrapper.querySelector('.bundle-options');
 					
 					if (inputEl) inputEl.value = matchingBundleEntry.bundle_id;
-					if (nameEl) nameEl.value = matchingBundleEntry.bundle_name;
-					if (displayEl) displayEl.value = `${matchingBundleEntry.bundle_name} (${matchingBundleEntry.bundle_id})`;
+					if (nameEl) nameEl.value = getSearchName(matchingBundleEntry);
+					if (displayEl) displayEl.value = `${getSearchName(matchingBundleEntry)} (${matchingBundleEntry.bundle_id})`;
 					optionsWrapper.style.display = 'flex';
 				} else {
 					removeBundleEntry();
@@ -1300,7 +1288,8 @@ async function generateDecalsTable(name, tags) {
 		return matchingTags.has(e.carBodyTag);
 	});
 
-	const carBodyName = index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_") || e.id.toLowerCase().startsWith("id_body_")) && matchingTags.has(e.carBodyTag))?.name;
+	const carBody = index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_") || e.id.toLowerCase().startsWith("id_body_")) && matchingTags.has(e.carBodyTag));
+	const carBodyName = carBody ? getSearchName(carBody) : '';
 	
 	const decalRows = [];
 	let currentIcons = [];
@@ -1316,7 +1305,8 @@ async function generateDecalsTable(name, tags) {
 			
 			const localized = props.ItemName?.LocalizedString;
 			let rarity = props.Rarity?.value || "Uncommon";
-			const name = localized || mi.name || mi.id;
+			const name = hotfixEnglish(await loadLocalizationHotfixes(), props.ItemName, mi.itemNameKey,
+				getSearchName(mi) || localized || mi.id);
 			const fileName = `${name} - Decal - Fortnite.png`;
 
 			let series = null;
@@ -1416,7 +1406,8 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 				const props = itemDefinitionData.Properties;
 				const ID = itemDefinitionData.Name;
 				const type = itemDefinitionData.Type;
-				rewardName = props.ItemName?.LocalizedString || "Unknown";
+				rewardName = hotfixEnglish(await loadLocalizationHotfixes(), props.ItemName, entryMeta.itemNameKey,
+				getSearchName(entryMeta) || "Unknown");
 				let cosmeticType = props.ItemShortDescription?.SourceString.trim();
 				if (!cosmeticType) {
 					cosmeticType = TYPE_MAP[type] || "";
@@ -1424,7 +1415,7 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 
 				fileName = `${rewardName} - ${cosmeticType} - Fortnite.png`;
 			} else if (entryMeta.companionEmote) {
-				rewardName = entryMeta.name;
+				rewardName = getSearchName(entryMeta);
 				fileName = `${rewardName} - Sidekick Emote - Fortnite.png`;
 			} else if (entryMeta.banner_icon) {
 				fileName = entryMeta.banner_icon + '.png';
@@ -1455,7 +1446,8 @@ async function generateCompanionEmotePage(entryMeta, settings, hotfixes) {
 	const out = [];
 
 	const assetName = entryMeta.name;
-	const name = hotfixEnglish(hotfixes, null, entryMeta.itemNameKey, assetName);
+	const name = hotfixEnglish(hotfixes, null, entryMeta.itemNameKey,
+		getSearchName(entryMeta) || assetName);
 	const id = entryMeta.id;
 
 	const result = await searchCosmetic(entryMeta.companion_id);
@@ -2160,7 +2152,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				const useFestivalEnding = isFestivalCosmetic && cosmeticType != "Pickaxe" && cosmeticType != "Back Bling";
 				let fileEnding = useFestivalEnding ? 'Fortnite Festival' : 'Fortnite';
 
-				const carBodyName = cosmeticType == "Decal" && entryMeta.carBodyTag && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.startsWith("body_")) && entryMeta.carBodyTag == e.carBodyTag)?.name;
+				const carBody = cosmeticType == "Decal" && entryMeta.carBodyTag && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.startsWith("body_")) && entryMeta.carBodyTag == e.carBodyTag);
+				const carBodyName = carBody ? getSearchName(carBody) : '';
 				let carNameFlag = carBodyName ? `${carBodyName} - ` : '';
 
 				if (c === 'LEGO') {
@@ -2330,9 +2323,9 @@ async function copyToClipboard() {
 	}
 }
 
-async function determinePageTitle(cosmeticName, cosmeticType, originalName = cosmeticName) {
+async function determinePageTitle(cosmeticName, cosmeticType) {
 	const duplicates = index.filter(e => e.name &&
-		(e.name.toLowerCase() === originalName.toLowerCase() || e.name.toLowerCase() === cosmeticName.toLowerCase()));
+		getSearchName(e).toLowerCase() === cosmeticName.toLowerCase());
 	const nonJoinerDuplicates = duplicates.filter(e => !isJoinerVariant(e));
 	const jamTrackExists = jamTrackNames.filter(name => name.toLowerCase() === cosmeticName.toLowerCase()).length > 0;
 
@@ -2376,8 +2369,9 @@ async function openWikiPage() {
 }
 
 async function updateWikiPageButton(cosmeticName, cosmeticType, selectedEntry = null) {
-	const cosmetic = selectedEntry || index.find(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
-	pageTitle = await determinePageTitle(cosmeticName, cosmeticType, cosmetic?.name || cosmeticName);
+	const cosmetic = selectedEntry || index.find(e => e.name &&
+		(e.name.toLowerCase() === cosmeticName.toLowerCase() || getSearchName(e).toLowerCase() === cosmeticName.toLowerCase()));
+	pageTitle = await determinePageTitle(cosmeticName, cosmeticType);
 	
 	if (!cosmetic) {
 		elements.wikiPageBtn.disabled = true;
@@ -2596,7 +2590,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 
 	const scoredMatches = candidateIndex
 		.map(e => {
-		const name = (e.name || '').toLowerCase();
+		const name = getSearchName(e).toLowerCase();
 		const id = (e.id || '').toLowerCase();
 		let score = 0;
 
@@ -2616,7 +2610,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 	
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
-		div.textContent = `${entry.name} (${entry.id})`;
+		div.textContent = `${getSearchName(entry)} (${entry.id})`;
 		div.onclick = async () => {
 			sugDiv.innerHTML = '';
 
@@ -2627,7 +2621,7 @@ function updateFeaturedCharacterSuggestions(inputEl, sugDiv) {
 			const character_name = detailsWrapper.querySelector('.character-name');
 			const character_file = detailsWrapper.querySelector('.character-file');
 
-			character_name.value = entry.name;
+			character_name.value = getSearchName(entry);
 			character_file.value = 'Resolving image...';
 
 			const cosmeticData = await loadGzJson(`${DATA_BASE_PATH}cosmetics/${entry.path}`);
@@ -2926,9 +2920,9 @@ async function initialiseApp() {
 	}
 
 	// Initialize shared bundle controls
-	initBundleControls(index);
+	initBundleControls(index, getSearchName);
 	setupBundleControls();
-	initContainedCosmeticControls(index);
+	initContainedCosmeticControls(index, getSearchName);
 	setupContainedCosmeticControls();
 }
 

@@ -1,10 +1,13 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, characterBundlePattern, lockerBundlePattern, articleFor, forceTitleCase, getFormattedReleaseDate, getItemShopHistoryDate, getSeasonReleased, ensureVbucksTemplate, getMostUpToDateImage, normalizeCosmeticType, normalizeVbucksInfoboxBreaks, pageExists, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 import { initSourceReleaseControls, getSourceReleaseSettings } from '../../../tools/source-release.js';
+import { loadLocalizationHotfixes, loadHotfixEntryNames, getHotfixedEntryName, hotfixEnglish } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 const DATA_BASE_PATH = '../../../data/';
 
 let index = [];
+let hotfixNames = new Map();
+let hotfixes = null;
 let cosmeticSets = {};
 let jamTracksData = null;
 
@@ -19,6 +22,8 @@ let pageTitle = '';
 
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+	hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
+	hotfixes = await loadLocalizationHotfixes();
 	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
 	cosmeticSets = await resp.json();
 }
@@ -56,13 +61,13 @@ function updateBundleSuggestions() {
 			return e.bundle_name && e.bundle_id;
 		})
 		.map(e => {
-			const bundle_name = (e.bundle_name || '').toLowerCase();
+			const bundle_name = getHotfixedEntryName(e, hotfixNames).toLowerCase();
 			const bundle_id = (e.bundle_id || '').toLowerCase();
 			let score = 0;
 
-			if (bundle_name === input) score += 100;
+			if (bundle_name === input || e.bundle_name.toLowerCase() === input) score += 100;
 			else if (bundle_name.startsWith(input)) score += 75;
-			else if (bundle_name.includes(input)) score += 50;
+			else if (bundle_name.includes(input) || e.bundle_name.toLowerCase().includes(input)) score += 50;
 
 			if (bundle_id === input) score += 40;
 			else if (bundle_id.startsWith(input)) score += 25;
@@ -76,19 +81,19 @@ function updateBundleSuggestions() {
 
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
-		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
+		div.textContent = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.bundle_id})`;
 		div.onclick = async () => {
-			document.getElementById('bundle-display').value = `${entry.bundle_name} (${entry.bundle_id})`;
+			document.getElementById('bundle-display').value = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.bundle_id})`;
 			document.getElementById('bundle-input').value = entry.bundle_id;
-			document.getElementById('bundle-input-name').value = entry.bundle_name;
-			currentBundleName = entry.bundle_name;
+			document.getElementById('bundle-input-name').value = getHotfixedEntryName(entry, hotfixNames);
+			currentBundleName = getHotfixedEntryName(entry, hotfixNames);
 			if (elements.includeAppearances && elements.includeAppearances.checked) {
-				elements.shopAppearances.value = entry.bundle_name;
+				elements.shopAppearances.value = getHotfixedEntryName(entry, hotfixNames);
 			}
 			if (entry.bundle_id.includes('Architect_') || entry.bundle_id.includes('architect_')) {
 				elements.collaboration.checked = true;
 				elements.collaboration.disabled = true;
-				elements.lockerBundleOwner.value = entry.bundle_name.replace('\'s Locker Bundle', '').trim();
+				elements.lockerBundleOwner.value = getHotfixedEntryName(entry, hotfixNames).replace('\'s Locker Bundle', '').trim();
 				document.getElementById('locker-bundle-fields').style.display = 'block';
 			} else {
 				elements.collaboration.checked = false;
@@ -179,13 +184,13 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 
 	const scoredMatches = candidateIndex
 		.map(e => {
-			const name = (e.name || '').toLowerCase();
+			const name = getHotfixedEntryName(e, hotfixNames).toLowerCase();
 			const id = (e.id || '').toLowerCase();
 			let score = 0;
 
-			if (name === input) score += 100;
+			if (name === input || e.name.toLowerCase() === input) score += 100;
 			else if (name.startsWith(input)) score += 75;
-			else if (name.includes(input)) score += 50;
+			else if (name.includes(input) || e.name.toLowerCase().includes(input)) score += 50;
 
 			if (id === input) score += 40;
 			else if (id.startsWith(input)) score += 25;
@@ -199,11 +204,11 @@ function updateCosmeticSuggestions(displayEl, hiddenIdEl, hiddenNameEl, sugDiv) 
 
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
-		div.textContent = `${entry.name} (${entry.id})`;
+		div.textContent = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
 		div.onclick = () => {
-			displayEl.value = `${entry.name} (${entry.id})`;
+			displayEl.value = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
 			hiddenIdEl.value = entry.id;
-			hiddenNameEl.value = entry.name;
+			hiddenNameEl.value = getHotfixedEntryName(entry, hotfixNames);
 			sugDiv.innerHTML = '';
 
 			if (entry.path.startsWith("Racing")) {
@@ -652,7 +657,8 @@ async function handleGenerate() {
 				const props = itemDefinitionData.Properties || {};
 				const ID = itemDefinitionData.Name;
 				const type = itemDefinitionData.Type;
-				const name = props.ItemName?.LocalizedString;
+				const name = hotfixEnglish(hotfixes, props.ItemName, entryMeta.itemNameKey,
+					getHotfixedEntryName(entryMeta, hotfixNames));
 				let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 					props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 				
@@ -660,7 +666,8 @@ async function handleGenerate() {
 				let cosmeticType = TYPE_MAP[itemDefinitionData.Type] || typeNameOverride || props.ItemShortDescription?.SourceString || "";
 				cosmeticType = normalizeCosmeticType(cosmeticType);
 
-				const carBodyName = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag)?.name;
+				const carBody = (cosmeticType == "Decal" && entryMeta.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == entryMeta.carBodyTag);
+				const carBodyName = carBody ? getHotfixedEntryName(carBody, hotfixNames) : '';
 
 				const isFestivalCosmetic = entryMeta.path.startsWith("Festival");
 				let instrumentType;

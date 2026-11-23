@@ -84,6 +84,7 @@ async function getFirstBundleFromCategory(categoryName) {
 	return { bundleName: null, bundleCost: null };
 }
 import { loadGzJson } from '../../../tools/jsondata.js';
+import { loadLocalizationHotfixes, loadHotfixEntryNames, getHotfixedEntryName, hotfixEnglish, applyHotfixLanguages } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 import { TYPE_MAP, INSTRUMENTS_TYPE_MAP, SERIES_CONVERSION, ensureVbucksTemplate, normalizeVbucksInfoboxBreaks, stripVbucksTemplate, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -120,35 +121,46 @@ const TYPE_FIELD_MAP = {
 };
 
 let index = [];
+let hotfixNames = new Map();
+let hotfixes = null;
 let cosmeticSets = {};
 let cosmeticSetLocalizations = {};
 const SET_TRANSLATION_LANGUAGES = ['ar', 'de', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 
 async function loadData() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+	hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
+	hotfixes = await loadLocalizationHotfixes();
 	const resp = await fetch(DATA_BASE_PATH + 'CosmeticSets.json');
 	cosmeticSets = await resp.json();
 	const resp2 = await fetch(DATA_BASE_PATH + 'CosmeticSetLocalizations.json');
 	cosmeticSetLocalizations = await resp2.json();
 }
 
+function getSetName(id, original) {
+	return hotfixEnglish(hotfixes, null, cosmeticSetLocalizations[id], original);
+}
+
 function updateSetSuggestions() {
+	document.getElementById('set-input').value = '';
+	document.getElementById('set-input-name').value = '';
 	const input = document.getElementById('set-display').value.trim().toLowerCase();
 	const sugDiv = document.getElementById('suggestions');
 	sugDiv.innerHTML = '';
 	if (!input) return;
 	const matches = Object.entries(cosmeticSets)
 		.filter(([id, name]) =>
-			id.toLowerCase().includes(input) || name.toLowerCase().includes(input)
+			id.toLowerCase().includes(input) || name.toLowerCase().includes(input) ||
+			getSetName(id, name).toLowerCase().includes(input)
 		)
 		.slice(0, 10);
 	matches.forEach(([id, name]) => {
 		const div = document.createElement('div');
-		div.textContent = `${name} (${id.replace('Cosmetics.Set.', '')})`;
+		div.textContent = `${getSetName(id, name)} (${id.replace('Cosmetics.Set.', '')})`;
 		div.onclick = () => {
-			document.getElementById('set-display').value = `${name} (${id.replace('Cosmetics.Set.', '')})`;
+			document.getElementById('set-display').value = `${getSetName(id, name)} (${id.replace('Cosmetics.Set.', '')})`;
 			document.getElementById('set-input').value = id.replace('Cosmetics.Set.', '');
-			document.getElementById('set-input-name').value = name;
+			document.getElementById('set-input-name').value = getSetName(id, name);
 			sugDiv.innerHTML = '';
 
 			// Check for banners in this set and prompt for names if found
@@ -312,8 +324,10 @@ async function fetchTranslations(translationKey) {
 		}
 	}));
 
-	return results
-		.filter(([lang, translation]) => translation)
+	const translations = Object.fromEntries(results.filter(([, translation]) => translation));
+	applyHotfixLanguages(translations, hotfixes?.find(null, translationKey));
+	return Object.entries(translations)
+		.filter(([lang]) => lang.toLowerCase() !== 'en')
 		.map(([lang, translation]) => `|${lang.toLowerCase()} = ${translation}`);
 }
 
@@ -332,7 +346,8 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 	const nameCounts = {};
 	for (const obj of cosmetics) {
 		const props = obj.data?.Properties || obj.Properties || {};
-		const name = props.ItemName?.SourceString || obj.name;
+		const name = hotfixEnglish(hotfixes, props.ItemName, obj.entryMeta?.itemNameKey,
+			getHotfixedEntryName(obj.entryMeta, hotfixNames) || props.ItemName?.SourceString || obj.name);
 		nameCounts[name] = (nameCounts[name] || 0) + 1;
 	}
 
@@ -340,7 +355,8 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		const props = obj.data?.Properties || obj.Properties || {};
 		const objType = obj.data?.Type || obj.Type;
 		const cosmeticType = TYPE_MAP[objType];
-		const name = props.ItemName?.SourceString || obj.name;
+		const name = hotfixEnglish(hotfixes, props.ItemName, obj.entryMeta?.itemNameKey,
+			getHotfixedEntryName(obj.entryMeta, hotfixNames) || props.ItemName?.SourceString || obj.name);
 		let rarity = (props.Rarity || '').split('::').pop() || 'Uncommon';
 
 		if (props.DataList) {
@@ -359,7 +375,8 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 			}
 		}
 
-		const carBodyName = (cosmeticType == "Decal" && obj.entryMeta?.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == obj.entryMeta?.carBodyTag)?.name;
+		const carBody = (cosmeticType == "Decal" && obj.entryMeta?.carBodyTag) && index.find(e => e.id && (e.id.toLowerCase().startsWith("carbody_") || e.id.toLowerCase().startsWith("body_")) && e.carBodyTag == obj.entryMeta?.carBodyTag);
+		const carBodyName = carBody ? getHotfixedEntryName(carBody, hotfixNames) : '';
 
 		const isFestivalCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Festival') && objType != "AthenaDanceItemDefinition";
 		const isRacingCosmetic = obj.entryMeta?.path && obj.entryMeta.path.startsWith('Racing');
@@ -401,7 +418,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		const linkDisplay = name;
 
 		flatIconList.push({ rarity, name, cosmeticType, fileType, isFestivalCosmetic, isRacingCosmetic, isPickaxeOverride, linkTarget, linkDisplay });
-		if (cosmeticType === 'Outfit') outfitCosmetics.push(props);
+		if (cosmeticType === 'Outfit') outfitCosmetics.push({ ...props, hotfixedName: name });
 	}
 
 	const bannerEntries = index.filter(e => e.setID === setId && (e.banner_id || e.banner_icon));
@@ -503,7 +520,7 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
         else if (gender == 2) pronoun = 'her';
     }
 
-    const outfitNames = outfitCosmetics.map(props => props.ItemName?.SourceString).filter(Boolean);
+    const outfitNames = outfitCosmetics.map(props => props.hotfixedName).filter(Boolean);
     let subject = 'various cosmetics';
     if (outfitNames.length === 1) {
         subject = `[[${outfitNames[0]}]] and ${pronoun} matching cosmetics`;
@@ -561,6 +578,10 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 
 async function handleGenerate() {
 	const setId = document.getElementById('set-input').value.trim();
+	if (!setId) {
+		showStatus('Select a set from the suggestions first.', 'error');
+		return;
+	}
 
 	const translationsOnly = document.getElementById('translations-only').checked;
 	if (translationsOnly) {
@@ -620,7 +641,13 @@ async function handleGenerate() {
 
 
 	// Fetch bundle info
-	const { bundleName, bundleCost } = await getFirstBundleFromCategory(`Category:${setName} Set`);
+	const originalSetName = cosmeticSets["Cosmetics.Set." + setId] || setName;
+	let bundleName = null;
+	let bundleCost = null;
+	for (const name of new Set([setName, originalSetName])) {
+		({ bundleName, bundleCost } = await getFirstBundleFromCategory(`Category:${name} Set`));
+		if (bundleName) break;
+	}
 
 	// Only auto-fill bundle fields if empty (let user override)
 	if (bundleNameInput && !bundleNameInput.value) bundleNameInput.value = bundleName || '';

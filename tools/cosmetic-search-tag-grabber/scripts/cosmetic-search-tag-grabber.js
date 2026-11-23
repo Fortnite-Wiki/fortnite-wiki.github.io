@@ -1,12 +1,15 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 const DATA_BASE_PATH = '../../../data/';
 
 let index = [];
+let hotfixNames = new Map();
 let searchTags = [];
 
 async function loadIndex() {
     index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+    hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
 }
 
 async function loadSearchTags() {
@@ -30,12 +33,12 @@ function updateSuggestions() {
 
     const scoredMatches = candidateIndex
         .map(e => {
-            const name = (e.name || '').toLowerCase();
+            const name = getHotfixedEntryName(e, hotfixNames).toLowerCase();
             const id = (e.id || '').toLowerCase();
             let score = 0;
-            if (name === input) score += 100;
+            if (name === input || e.name.toLowerCase() === input) score += 100;
             else if (name.startsWith(input)) score += 75;
-            else if (name.includes(input)) score += 50;
+            else if (name.includes(input) || e.name.toLowerCase().includes(input)) score += 50;
             if (id === input) score += 40;
             else if (id.startsWith(input)) score += 25;
             else if (id.includes(input)) score += 10;
@@ -47,11 +50,11 @@ function updateSuggestions() {
 
     scoredMatches.forEach(({ entry }) => {
         const div = document.createElement("div");
-        div.textContent = `${entry.name} (${entry.id})`;
+        div.textContent = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
         div.onclick = () => {
-            document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+            document.getElementById("cosmetic-display").value = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
             document.getElementById("cosmetic-input").value = entry.id;
-            document.getElementById("cosmetic-input-name").value = entry.name;
+            document.getElementById("cosmetic-input-name").value = getHotfixedEntryName(entry, hotfixNames);
             sugDiv.innerHTML = "";
         };
         sugDiv.appendChild(div);
@@ -147,7 +150,7 @@ function setupEvents() {
             return;
         }
 
-        output.value = matches.map(e => `${e.name} (${e.id})`).join("\n");
+        output.value = matches.map(e => `${getHotfixedEntryName(e, hotfixNames)} (${e.id})`).join("\n");
         document.getElementById("copy-btn").disabled = false;
         showStatus(`Found ${matches.length} cosmetics.`, "success");
     });

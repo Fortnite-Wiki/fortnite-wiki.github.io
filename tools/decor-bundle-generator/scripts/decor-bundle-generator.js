@@ -1,4 +1,5 @@
 import { loadGzJson } from '../../jsondata.js';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../../localization-hotfixes.js?v=20261122-hotfix-names';
 
 import { initSourceReleaseControls, getSourceReleaseSettings, validateSourceSettings } from '../../source-release.js';
 import { initBundleControls, getBundleEntries, removeBundleEntry, setupBundleControls } from '../../bundle-controls.js';
@@ -13,6 +14,7 @@ let jbpidIndex = [];
 let elements = {};
 let buildingPropIndex = [];
 let cosmeticIndex = [];
+let hotfixNames = new Map();
 let bundleEntries = [];
 
 async function loadJBPIDIndex() {
@@ -33,6 +35,7 @@ async function loadBuildingPropIndex() {
 async function loadCosmeticIndex() {
 	try {
 		cosmeticIndex = await loadGzJson(DATA_BASE_PATH + 'index.json');
+		hotfixNames = await loadHotfixEntryNames(cosmeticIndex, DATA_BASE_PATH);
 	} catch (e) {
 		console.error('Failed to load cosmetic index', e);
 		cosmeticIndex = [];
@@ -401,7 +404,7 @@ async function initialiseApp() {
 	}, elements);
 
 	// Initialize shared bundle controls
-	initBundleControls(cosmeticIndex);
+	initBundleControls(cosmeticIndex, entry => getHotfixedEntryName(entry, hotfixNames));
 	setupBundleControls();
 
 	// Initialize shared form behaviors

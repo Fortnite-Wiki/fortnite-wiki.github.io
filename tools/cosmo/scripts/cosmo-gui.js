@@ -1,4 +1,5 @@
 import { loadFflate, loadGzJson } from '../../jsondata.js';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../../localization-hotfixes.js?v=20261122-hotfix-names';
 
 const DATA_BASE_PATH = '../../../data/';
 const BASE_URL = 'https://cosmo.fdeb.live.use1a.on.epicgames.com/v1/item';
@@ -256,6 +257,7 @@ const ZIP_IMAGE_TYPE_LABELS = {
 };
 
 let index = [];
+let hotfixNames = new Map();
 let latestDav2Paths = new Map();
 let generatedImages = [];
 let selectedAsset = null;
@@ -275,6 +277,7 @@ const elements = {};
 
 async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+	hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
 	latestDav2Paths = buildLatestDav2PathMap(index);
 }
 
@@ -342,7 +345,8 @@ function getAssetCandidates() {
 			candidates.push({
 				kind: 'Cosmetic',
 				id: entry.id,
-				name: entry.name,
+				name: getHotfixedEntryName(entry, hotfixNames),
+				originalName: entry.name,
 				dataPath: entry.path || '',
 				carBodyTag: entry.carBodyTag || '',
 				jido: entry.jido || '',
@@ -357,7 +361,8 @@ function getAssetCandidates() {
 			candidates.push({
 				kind: 'Bundle',
 				id: entry.bundle_id,
-				name: entry.bundle_name,
+				name: getHotfixedEntryName(entry, hotfixNames),
+				originalName: entry.bundle_name,
 				dataPath: '',
 				dav2Path,
 				dav2Id: getDisplayAssetId(dav2Path),
@@ -424,7 +429,8 @@ function updateAssetSuggestions() {
 		.map((asset) => ({
 			asset,
 			score:
-				scoreMatch(asset.name, input, 100, 75, 50) +
+				Math.max(scoreMatch(asset.name, input, 100, 75, 50),
+					scoreMatch(asset.originalName, input, 100, 75, 50)) +
 				scoreMatch(asset.id, input, 60, 35, 15),
 		}))
 		.filter((item) => item.score > 0)
@@ -2833,7 +2839,7 @@ function getRacingDecalCarBodyName(image) {
 	)) : null;
 	const fallbackBody = body || getRacingDecalCarBodyFromPath(image);
 
-	return fallbackBody?.name || '';
+	return fallbackBody ? getHotfixedEntryName(fallbackBody, hotfixNames) : '';
 }
 
 function getRacingDecalCarBodyTag(image) {

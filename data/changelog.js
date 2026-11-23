@@ -3,6 +3,16 @@
 // Keep the newest update first. You can add as many changes as you need.
 export default [
     {
+        publishedAt: '2026-11-23T03:03:04Z',
+        title: 'Hotfixed names across generators',
+        changes: [
+            'Search results now show hotfixed cosmetic and bundle names across the generators and Cosmo.',
+            'The translator now includes available hotfixed names, descriptions, and translations.',
+            'Set pages use hotfixed set names and can find bundles under either the new or original set category.',
+            'Bundle pages and Cosmo filenames now use hotfixed cosmetic names where available.'
+        ]
+    },
+    {
         publishedAt: '2026-11-23T02:27:24Z',
         title: 'Cosmetic localization hotfixes',
         changes: [

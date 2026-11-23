@@ -1,9 +1,11 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
 import { TYPE_MAP } from '../../../tools/utils.js';
-import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js';
+import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js?v=20261122-hotfix-names';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 const DATA_BASE_PATH = '../../../data/';
 let index = [];
+let hotfixNames = new Map();
 
 // Flag cycling functionality
 const flagThumbnails = ["flag-en", "flag-ar", "flag-de", "flag-es", "flag-fr", "flag-it", "flag-ja", "flag-ko", "flag-pl", "flag-pt-BR", "flag-ru", "flag-tr"];
@@ -31,9 +33,11 @@ function initialiseFlagCycling() {
 
 async function loadIndex() {
   index = await loadGzJson(DATA_BASE_PATH + 'index.json');
+  hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
 }
 
 function updateSuggestions() {
+  document.getElementById("cosmetic-input").value = '';
   const input = document.getElementById("cosmetic-display").value.trim().toLowerCase();
   const sugDiv = document.getElementById("suggestions");
   sugDiv.innerHTML = "";
@@ -46,13 +50,13 @@ function updateSuggestions() {
       return e.name && e.id;
     })
     .map(e => {
-      const name = (e.name || '').toLowerCase();
+      const name = getHotfixedEntryName(e, hotfixNames).toLowerCase();
       const id = (e.id || '').toLowerCase();
       let score = 0;
 
-      if (name === input) score += 100;
+      if (name === input || e.name.toLowerCase() === input) score += 100;
       else if (name.startsWith(input)) score += 75;
-      else if (name.includes(input)) score += 50;
+      else if (name.includes(input) || e.name.toLowerCase().includes(input)) score += 50;
 
       if (id === input) score += 40;
       else if (id.startsWith(input)) score += 25;
@@ -66,9 +70,9 @@ function updateSuggestions() {
 
   scoredMatches.forEach(({ entry }) => {
     const div = document.createElement("div");
-    div.textContent = `${entry.name} (${entry.id})`;
+    div.textContent = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
     div.onclick = () => { 
-	  document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+	  document.getElementById("cosmetic-display").value = `${getHotfixedEntryName(entry, hotfixNames)} (${entry.id})`;
 	  document.getElementById("cosmetic-input").value = entry.id;
       sugDiv.innerHTML = ""; 
     };
@@ -77,7 +81,8 @@ function updateSuggestions() {
 }
 
 async function search() {
-  const input = document.getElementById("cosmetic-input").value.trim().toLowerCase();
+  const input = (document.getElementById("cosmetic-input").value.trim() ||
+    document.getElementById("cosmetic-display").value.trim()).toLowerCase();
   const output = document.getElementById("output");
   output.value = "";
   
@@ -91,7 +96,8 @@ async function search() {
   
   if (!input) return;
 
-  const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input || e.name && e.name.toLowerCase() === input);
+  const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input ||
+    e.name && (e.name.toLowerCase() === input || getHotfixedEntryName(e, hotfixNames).toLowerCase() === input));
   if (!entryMeta) {
     output.value = "Cosmetic not found.";
     return;
@@ -102,6 +108,8 @@ async function search() {
   try {
     let nameKey = null;
     let descriptionKey = null;
+    let nameField = null;
+    let descriptionField = null;
 
     if (entryMeta.path) {
       const data = await loadGzJson("../../data/cosmetics/" + entryMeta.path);
@@ -110,19 +118,22 @@ async function search() {
       const item = itemDefData?.Properties || {};
       nameKey = item?.ItemName?.Key;
       descriptionKey = item?.ItemDescription?.Key;
+      nameField = item?.ItemName;
+      descriptionField = item?.ItemDescription;
     } else {
       nameKey = entryMeta.itemNameKey || null;
       descriptionKey = entryMeta.itemDescriptionKey || null;
     }
 	
-    await translateKeys(nameKey, descriptionKey);
+	await translateKeys(nameKey || entryMeta.itemNameKey, descriptionKey || entryMeta.itemDescriptionKey,
+      nameField, descriptionField);
   } catch (e) {
     console.error(e);
     output.value = "Error loading cosmetic data or localization.";
   }
 }
 
-async function translateKeys(nameKey, descriptionKey) {
+async function translateKeys(nameKey, descriptionKey, nameField, descriptionField) {
   const output = document.getElementById("output");
   const copyBtn = document.getElementById("copy-btn");
   if (!nameKey && !descriptionKey) {
@@ -134,7 +145,8 @@ async function translateKeys(nameKey, descriptionKey) {
   output.value = "Getting translations...";
   try {
     const section = await getCosmeticTranslationSection(nameKey, descriptionKey, {
-      includeClear: document.getElementById("include-clear")?.checked ?? true
+      includeClear: document.getElementById("include-clear")?.checked ?? true,
+      useHotfixes: true, nameField, descriptionField
     });
     output.value = section || 'No matching translations found in the local localization files.';
     copyBtn.disabled = !section;
@@ -185,7 +197,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
     document.getElementById("translate-btn").addEventListener("click", search);
     document.getElementById("copy-btn").addEventListener("click", copyToClipboard);
-    loadIndex();
+    await loadIndex();
     initialiseFlagCycling();
   } catch (error) {
     console.error('Failed to initialise cosmetic translator:', error);

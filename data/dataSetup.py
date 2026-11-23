@@ -585,7 +585,7 @@ def build_starter_dav2_candidates(starter_id):
         ])
     return candidates
 
-def build_bundle_index(index):
+def build_bundle_index(index, localization_keys):
     # Build a quick lookup of DAv2 display asset files
     dav2_files = {}
     for droot, _, dfiles in os.walk(DISPLAY_ASSETS_DIR):
@@ -632,6 +632,11 @@ def build_bundle_index(index):
 
                 rel_da_path = os.path.relpath(file_path, BUNDLE_DISPLAY_ASSETS_DIR).replace("\\", "/")
                 da_path = f"DA/{rel_da_path}"
+                if display.get("Key"):
+                    localization_keys[da_path] = {
+                        "Key": display["Key"],
+                        "Namespace": display.get("Namespace", "")
+                    }
 
                 # Try to find a matching DAv2 file in DISPLAY_ASSETS_DIR
                 dav2_path = None
@@ -797,7 +802,7 @@ for entry in index:
             entry["dav2"] = f"DAv2/{latest_display_asset_path}"
             break
 
-index = build_bundle_index(index)
+index = build_bundle_index(index, cosmetic_localization_keys)
 index = build_banner_index(index)
 
 index_json = json.dumps(index, indent=2, ensure_ascii=False, sort_keys=True)

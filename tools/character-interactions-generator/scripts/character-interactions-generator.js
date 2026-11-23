@@ -1,4 +1,5 @@
 import { loadGzJson } from '../../../tools/jsondata.js';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../../../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 import { SERIES_CONVERSION, getMostUpToDateImage, sanitizeGeneratedFileNames } from '../../../tools/utils.js';
 
 const DATA_BASE_PATH = '../../../data/';
@@ -83,6 +84,7 @@ async function generateMarkup() {
 
     let index = [];
     try { index = await loadGzJson(DATA_BASE_PATH + 'index.json'); } catch (e) { console.warn('Could not load index.json.gz', e); }
+    const hotfixNames = await loadHotfixEntryNames(index, DATA_BASE_PATH);
 
     function findReqByName(name) {
         if (!Array.isArray(lastJson)) return null;
@@ -122,10 +124,10 @@ async function generateMarkup() {
                 let series = seriesEntry.Series.ObjectName?.split("'")?.slice(-2)[0];
                 rarity = SERIES_CONVERSION[series] || rarity;
             }
-            const displayName = entry.name || (props?.ItemName?.Key || key);
+            const displayName = getHotfixedEntryName(entry, hotfixNames) || (props?.ItemName?.Key || key);
             return { name: displayName, rarity };
         } catch (e) {
-            return { name: entry.name || key, rarity: entry.rarity || 'Common' };
+            return { name: getHotfixedEntryName(entry, hotfixNames) || key, rarity: entry.rarity || 'Common' };
         }
     }
 

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { gzipSync, gunzipSync } from 'node:zlib';
-import { createHotfixLookup, hotfixEnglish, resolveCosmeticText, applyHotfixLanguages, loadLocalizationHotfixes } from '../tools/localization-hotfixes.js';
+import { createHotfixLookup, hotfixEnglish, resolveCosmeticText, applyHotfixLanguages, loadLocalizationHotfixes, buildHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 import { getCosmeticTranslationSection } from '../tools/cosmetic-translations.js';
 
 const now = Date.parse('2026-11-22T20:00:00Z');
@@ -117,6 +117,22 @@ test('the search key index resolves Golden Llama Crew without matching the word 
   assert.equal(field.Key, '3BEAC37F4C98EE7F10DF5A96A396D636');
   assert.equal(hotfixEnglish(lookup, field, null, 'Blank'), 'Golden Llama Crew');
   assert.equal(hotfixEnglish(lookup, { Key: 'NOT_A_HOTFIX', Namespace: '' }, null, 'Blank'), 'Blank');
+  const entry = { id: 'CarSkin_WurstTreasureHunt01', name: 'Blank', path: 'Racing/Skins/Wurst/CarSkin_WurstTreasureHunt01.json' };
+  const unrelated = { id: 'Other', name: 'Blank', path: 'other.json' };
+  const names = buildHotfixEntryNames([entry, unrelated], lookup, keys);
+  assert.equal(getHotfixedEntryName(entry, names), 'Golden Llama Crew');
+  assert.equal(getHotfixedEntryName(unrelated, names), 'Blank');
+});
+
+test('bundle names also use their exact saved localization key', () => {
+  const keys = JSON.parse(gunzipSync(readFileSync(new URL('../data/hotfixes/cosmetic-keys.json.gz', import.meta.url))));
+  const bundlePath = Object.keys(keys).find(path => path.startsWith('DA/'));
+  assert.ok(bundlePath);
+  const entry = { bundle_id: 'TestBundle', bundle_name: 'Old bundle', da_path: bundlePath };
+  const lookup = createHotfixLookup(dataset(record(keys[bundlePath].Key,
+    keys[bundlePath].Namespace, 'Game', { en: 'New bundle' })), { now });
+  assert.equal(getHotfixedEntryName(entry, buildHotfixEntryNames([entry], lookup, keys)), 'New bundle');
+  assert.equal(getHotfixedEntryName(entry, buildHotfixEntryNames([entry], null, keys)), 'Old bundle');
 });
 
 test('the existing translation section keeps unpatched languages and uses hotfix-only languages', async () => {

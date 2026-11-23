@@ -1,8 +1,10 @@
 let bundlesEntries = [];
 let dataIndex = null;
+let getName = entry => entry.bundle_name;
 
-export function initBundleControls(index) {
+export function initBundleControls(index, resolveName = entry => entry.bundle_name) {
 	dataIndex = index;
+	getName = resolveName;
 	bundlesEntries = [];
 }
 
@@ -111,13 +113,13 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWra
 			return true;
 		})
 		.map(e => {
-			const bundle_name = (e.bundle_name || '').toLowerCase();
+			const bundle_name = getName(e).toLowerCase();
 			const bundle_id = (e.bundle_id || '').toLowerCase();
 			let score = 0;
 
-			if (bundle_name === input) score += 100;
+			if (bundle_name === input || e.bundle_name.toLowerCase() === input) score += 100;
 			else if (bundle_name.startsWith(input)) score += 75;
-			else if (bundle_name.includes(input)) score += 50;
+			else if (bundle_name.includes(input) || e.bundle_name.toLowerCase().includes(input)) score += 50;
 
 			if (bundle_id === input) score += 40;
 			else if (bundle_id.startsWith(input)) score += 25;
@@ -131,12 +133,12 @@ function updateBundleSuggestions(displayEl, hiddenIdEl, hiddenNameEl, optionsWra
 
 	scoredMatches.forEach(({ entry }) => {
 		const div = document.createElement('div');
-		div.textContent = `${entry.bundle_name} (${entry.bundle_id})`;
+		div.textContent = `${getName(entry)} (${entry.bundle_id})`;
 		div.onclick = () => {
-			displayEl.value = `${entry.bundle_name} (${entry.bundle_id})`;
+			displayEl.value = `${getName(entry)} (${entry.bundle_id})`;
 			optionsWrapper.style.display = 'flex';
 			hiddenIdEl.value = entry.bundle_id;
-			hiddenNameEl.value = entry.bundle_name;
+			hiddenNameEl.value = getName(entry);
 			sugDiv.innerHTML = '';
 			updateShopAppearancesIfNeeded();
 		};

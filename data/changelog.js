@@ -3,6 +3,14 @@
 // Keep the newest update first. You can add as many changes as you need.
 export default [
     {
+        publishedAt: '2026-11-23T16:00:00Z',
+        title: 'Direct localization hotfix updates',
+        changes: [
+            'Generators now load localization hotfixes directly from the public hotfix API.',
+            'Removed the separate hotfix synchronization workflow.'
+        ]
+    },
+    {
         publishedAt: '2026-11-23T03:31:06Z',
         title: 'Hotfixed names in data changes',
         changes: [

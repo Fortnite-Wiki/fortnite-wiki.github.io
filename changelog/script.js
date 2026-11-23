@@ -1,6 +1,6 @@
 import siteUpdates from '../data/changelog.js';
 import { loadGzJson } from '../tools/jsondata.js';
-import { loadHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
+import { HOTFIX_CHANGES_URL, loadHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 export function parseReport(text) {
     const entries = [];
@@ -37,6 +37,61 @@ export function applyHotfixedReportNames(entries, index, hotfixNames) {
         const name = getHotfixedEntryName(cosmetic, hotfixNames);
         if (!name || name === cosmetic.name) continue;
         entry.title = `${id} (${name})${entry.title.endsWith(' [hotfix]') ? ' [hotfix]' : ''}`;
+    }
+}
+
+function hotfixChangeDetails(change) {
+    if (change.type === 'added') return [];
+    const before = change.previous?.localizedStrings || {};
+    const after = change.current?.localizedStrings || {};
+    const details = [];
+    for (const language of [...new Set([...Object.keys(before), ...Object.keys(after)])].sort()) {
+        if (before[language] === after[language]) continue;
+        if (before[language] === undefined) {
+            details.push({ kind: 'added', text: `Added ${language} hotfix: ${after[language]}` });
+        } else if (after[language] === undefined) {
+            details.push({ kind: 'removed', text: `Removed ${language} hotfix: ${before[language]}` });
+        } else {
+            details.push({ kind: 'changed', text: `Changed ${language} hotfix`, before: before[language], after: after[language] });
+        }
+    }
+    return details.length ? details : [{ kind: 'changed', text: 'Changed hotfix metadata' }];
+}
+
+export function buildHotfixChangeEntries(report, index, localizationKeys, hotfixNames) {
+    if (!Array.isArray(report?.changes)) return [];
+    const entries = [];
+    for (const change of report.changes) {
+        const record = change.current || change.previous;
+        if (!record?.key || !['added', 'removed', 'modified'].includes(change.type)) continue;
+        const matches = index.filter(entry => {
+            const field = localizationKeys[entry.path || entry.da_path];
+            return field?.Key === record.key && (field.Namespace || '') === record.namespace;
+        });
+        const status = change.type === 'added' ? 'ADDED' : change.type === 'removed' ? 'REMOVED' : 'CHANGED';
+        const targets = matches.length ? matches : [null];
+        for (const entry of targets) {
+            const original = entry && getHotfixedEntryName(entry, hotfixNames);
+            const english = record.localizedStrings?.en;
+            const name = change.type === 'removed' ? (english || original) : (original || english);
+            const id = entry?.id || entry?.bundle_id || `Localization key ${record.key}`;
+            entries.push({
+                status,
+                title: name ? `${id} (${name}) [hotfix]` : id,
+                changes: hotfixChangeDetails(change)
+            });
+        }
+    }
+    return entries;
+}
+
+function renderSummary(summary, entries) {
+    summary.replaceChildren();
+    const counts = { ADDED: 0, CHANGED: 0, REMOVED: 0, REPLACED: 0 };
+    for (const entry of entries) counts[entry.status]++;
+    summary.appendChild(element('span', 'summary-chip', `${entries.length} files`));
+    for (const [status, count] of Object.entries(counts)) {
+        if (count) summary.appendChild(element('span', 'summary-chip', `${count} ${status.toLowerCase()}`));
     }
 }
 
@@ -128,12 +183,6 @@ async function init() {
         const response = await fetch('/data/datasetup-changes.txt', { cache: 'no-cache' });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const entries = parseReport(await response.text());
-        const counts = { ADDED: 0, CHANGED: 0, REMOVED: 0, REPLACED: 0 };
-        for (const entry of entries) counts[entry.status]++;
-        summary.appendChild(element('span', 'summary-chip', `${entries.length} files`));
-        for (const [status, count] of Object.entries(counts)) {
-            if (count) summary.appendChild(element('span', 'summary-chip', `${count} ${status.toLowerCase()}`));
-        }
 
         function render() {
             const query = search.value.trim().toLowerCase();
@@ -147,14 +196,26 @@ async function init() {
         }
 
         search.addEventListener('input', render);
+        renderSummary(summary, entries);
         render();
         try {
-            const index = await loadGzJson('/data/index.json');
+            const [index, localizationKeys, hotfixResponse] = await Promise.all([
+                loadGzJson('/data/index.json'),
+                loadGzJson('/data/hotfixes/cosmetic-keys.json'),
+                fetch(HOTFIX_CHANGES_URL, { cache: 'no-cache' }).catch(error => {
+                    console.warn('Could not fetch localization hotfix changes:', error);
+                    return null;
+                })
+            ]);
             const hotfixNames = await loadHotfixEntryNames(index, '/data/');
             applyHotfixedReportNames(entries, index, hotfixNames);
+            if (hotfixResponse?.ok) {
+                entries.unshift(...buildHotfixChangeEntries(await hotfixResponse.json(), index, localizationKeys, hotfixNames));
+            }
+            renderSummary(summary, entries);
             render();
         } catch (error) {
-            console.warn('Could not resolve hotfixed changelog names:', error);
+            console.warn('Could not load localization hotfix changes:', error);
         }
     } catch (error) {
         message.textContent = 'Could not load the changelog. Try the raw text link above.';

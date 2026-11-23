@@ -33,7 +33,8 @@ export default [
         changes: [
             'Cosmetic pages now use available localization hotfixes for names, descriptions, and translations.',
             'Cosmetics with hotfixed names can be found by their updated name in the page generator; generated page text and image filenames use that name too.',
-            'Added automatic syncing of localization hotfixes from the collector every five minutes.'
+            'Generators now read localization hotfixes directly from the public collector feed.',
+            'The cosmetic data changelog includes the latest changes detected by the collector.'
         ]
     },
     {

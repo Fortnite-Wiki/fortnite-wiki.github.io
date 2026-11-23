@@ -1,7 +1,10 @@
 import { loadGzJson } from './jsondata.js';
 
-// Set this before loading the generator when a public feed replaces the local snapshot.
-export const HOTFIX_DATA_URL = globalThis.FORTNITE_LOCALIZATION_HOTFIX_URL || '/data/hotfixes/current.json';
+export const LOCAL_HOTFIX_DATA_URL = '/data/hotfixes/current.json';
+export const HOTFIX_DATA_URL = globalThis.FORTNITE_LOCALIZATION_HOTFIX_URL ||
+  'https://raw.githubusercontent.com/Fortnite-Wiki/fortnite-localization-hotfix-api/main/data/current.json';
+export const HOTFIX_CHANGES_URL = globalThis.FORTNITE_LOCALIZATION_HOTFIX_CHANGES_URL ||
+  'https://raw.githubusercontent.com/Fortnite-Wiki/fortnite-localization-hotfix-api/main/data/last_changes.json';
 const requests = new Map();
 
 export function createHotfixLookup(data, { now = Date.now() } = {}) {
@@ -62,6 +65,17 @@ export function loadLocalizationHotfixes(url = HOTFIX_DATA_URL) {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return createHotfixLookup(await response.json());
       } catch (error) {
+        if (url === HOTFIX_DATA_URL && url !== LOCAL_HOTFIX_DATA_URL) {
+          console.warn(`Localization hotfix feed unavailable at ${url}; trying the bundled snapshot.`, error);
+          try {
+            const response = await fetch(LOCAL_HOTFIX_DATA_URL);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return createHotfixLookup(await response.json());
+          } catch (fallbackError) {
+            console.warn(`Bundled localization hotfix snapshot unavailable at ${LOCAL_HOTFIX_DATA_URL}; using original cosmetic data.`, fallbackError);
+            return null;
+          }
+        }
         console.warn(`Localization hotfixes unavailable at ${url}; using original cosmetic data.`, error);
         return null;
       }

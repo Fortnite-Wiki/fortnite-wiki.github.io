@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { gzipSync, gunzipSync } from 'node:zlib';
-import { createHotfixLookup, hotfixEnglish, resolveCosmeticText, applyHotfixLanguages, loadLocalizationHotfixes, buildHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
+import { HOTFIX_DATA_URL, createHotfixLookup, hotfixEnglish, resolveCosmeticText, applyHotfixLanguages, loadLocalizationHotfixes, buildHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 import { getCosmeticTranslationSection } from '../tools/cosmetic-translations.js';
-import { parseReport, applyHotfixedReportNames } from '../changelog/script.js';
+import { parseReport, applyHotfixedReportNames, buildHotfixChangeEntries } from '../changelog/script.js';
 
 const now = Date.parse('2026-11-22T20:00:00Z');
 const record = (key, namespace, category, localizedStrings) => ({
@@ -140,6 +140,28 @@ test('bundle names also use their exact saved localization key', () => {
   assert.equal(getHotfixedEntryName(entry, buildHotfixEntryNames([entry], null, keys)), 'Old bundle');
 });
 
+test('collector hotfix changes become cosmetic changelog entries', () => {
+  const entry = { id: 'CID_Test', name: 'Old name', path: 'Characters/Test.json' };
+  const report = {
+    changes: [
+      { type: 'modified', previous: record('NAME', '', 'Game', { en: 'Old name', fr: 'Ancien' }),
+        current: record('NAME', '', 'Game', { en: 'New name', fr: 'Nouveau' }) },
+      { type: 'added', current: record('NEW', '', 'Game', { en: 'Added name' }) }
+    ]
+  };
+  const names = new Map([[entry, 'New name']]);
+  const changes = buildHotfixChangeEntries(report, [entry], {
+    'Characters/Test.json': { Key: 'NAME', Namespace: '' }
+  }, names);
+  assert.equal(changes[0].status, 'CHANGED');
+  assert.equal(changes[0].title, 'CID_Test (New name) [hotfix]');
+  assert.deepEqual(changes[0].changes[0], {
+    kind: 'changed', text: 'Changed en hotfix', before: 'Old name', after: 'New name'
+  });
+  assert.equal(changes[1].status, 'ADDED');
+  assert.equal(changes[1].changes.length, 0);
+});
+
 test('the existing translation section keeps unpatched languages and uses hotfix-only languages', async () => {
   const oldFetch = globalThis.fetch;
   const oldDocument = globalThis.document;
@@ -160,7 +182,7 @@ test('the existing translation section keeps unpatched languages and uses hotfix
     } }
   };
   globalThis.fetch = async url => {
-    if (url === '/data/hotfixes/current.json') return {
+    if (url === HOTFIX_DATA_URL || url === '/data/hotfixes/current.json') return {
       ok: true,
       json: async () => ({
         schemaVersion: 1, checkedAt: new Date().toISOString(), count: 2,

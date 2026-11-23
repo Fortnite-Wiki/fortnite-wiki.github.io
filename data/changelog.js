@@ -3,6 +3,15 @@
 // Keep the newest update first. You can add as many changes as you need.
 export default [
     {
+        publishedAt: '2026-11-23T02:27:24Z',
+        title: 'Cosmetic localization hotfixes',
+        changes: [
+            'Cosmetic pages now use available localization hotfixes for names, descriptions, and translations.',
+            'Cosmetics with hotfixed names can be found by their updated name in the page generator; generated page text and image filenames use that name too.',
+            'Added automatic syncing of localization hotfixes from the collector every five minutes.'
+        ]
+    },
+    {
         publishedAt: '2026-11-22T08:11:23Z',
         title: 'Local changelog times',
         changes: [

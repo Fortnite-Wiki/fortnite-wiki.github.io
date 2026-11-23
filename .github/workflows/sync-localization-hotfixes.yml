@@ -1,0 +1,64 @@
+name: Sync localization hotfixes
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Follow the collector's 1, 6, 11... minute checks by two minutes.
+    - cron: '3-59/5 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: localization-hotfix-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'Fortnite-Wiki/fortnite-wiki.github.io' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check sync token
+        id: access
+        env:
+          HOTFIX_SYNC_TOKEN: ${{ secrets.HOTFIX_SYNC_TOKEN }}
+        run: |
+          if [ -n "$HOTFIX_SYNC_TOKEN" ]; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo '::warning::Set HOTFIX_SYNC_TOKEN with read access to the private collector and write access to this repository.'
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.access.outputs.ready == 'true'
+        with:
+          token: ${{ secrets.HOTFIX_SYNC_TOKEN }}
+          persist-credentials: true
+
+      - uses: actions/checkout@v4
+        if: steps.access.outputs.ready == 'true'
+        with:
+          repository: Fortnite-Wiki/fortnite-localization-hotfix-api
+          token: ${{ secrets.HOTFIX_SYNC_TOKEN }}
+          path: temp/hotfix-collector
+          persist-credentials: false
+
+      - name: Validate and copy current snapshot
+        if: steps.access.outputs.ready == 'true'
+        run: |
+          python .github/scripts/sync-localization-hotfixes.py \
+            temp/hotfix-collector/data/current.json data/hotfixes/current.json
+
+      - name: Commit changed snapshot
+        if: steps.access.outputs.ready == 'true'
+        run: |
+          git add -- data/hotfixes/current.json
+          if git diff --cached --quiet; then
+            echo 'No hotfix changes to publish.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Sync localization hotfixes'
+          git push origin HEAD:main

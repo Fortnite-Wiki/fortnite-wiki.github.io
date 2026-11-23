@@ -1,4 +1,5 @@
 import { loadGzJson } from './jsondata.js';
+import { applyHotfixLanguages, HOTFIX_DATA_URL, loadLocalizationHotfixes } from './localization-hotfixes.js';
 
 const LOCALIZATION_LANGUAGES = ['ar', 'de', 'en', 'es', 'es-419', 'fr', 'id', 'it', 'ja', 'ko', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'vi', 'zh-Hans', 'zh-Hant'];
 
@@ -26,10 +27,20 @@ async function getLocalizationFolders() {
   }
 }
 
-export async function getCosmeticTranslationSection(nameKey, descriptionKey, { includeClear = false } = {}) {
+export async function getCosmeticTranslationSection(nameKey, descriptionKey, {
+  includeClear = false, useHotfixes = false, hotfixUrl = HOTFIX_DATA_URL, nameField, descriptionField
+} = {}) {
   if (!nameKey && !descriptionKey) return '';
 
-  const folders = await getLocalizationFolders();
+  const hotfixes = useHotfixes ? await loadLocalizationHotfixes(hotfixUrl) : null;
+  const nameHotfix = hotfixes?.find(nameField, nameKey);
+  const descriptionHotfix = hotfixes?.find(descriptionField, descriptionKey);
+  let folders = [];
+  try {
+    folders = await getLocalizationFolders();
+  } catch (error) {
+    console.warn('Could not load localization folders; using available hotfix translations:', error);
+  }
   const nameTranslations = {};
   const descriptionTranslations = {};
   const englishFolders = [];
@@ -71,6 +82,10 @@ export async function getCosmeticTranslationSection(nameKey, descriptionKey, { i
       } catch {}
     }));
   }
+
+  // Missing hotfix languages leave the corresponding local translation intact.
+  applyHotfixLanguages(nameTranslations, nameHotfix);
+  applyHotfixLanguages(descriptionTranslations, descriptionHotfix);
 
   if (!Object.keys(nameTranslations).length && !Object.keys(descriptionTranslations).length) return '';
 

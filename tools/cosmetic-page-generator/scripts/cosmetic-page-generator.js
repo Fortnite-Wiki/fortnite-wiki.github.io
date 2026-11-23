@@ -6,6 +6,7 @@ import { initBundleControls, getBundleEntries, createBundleEntry, removeBundleEn
 import { initContainedCosmeticControls, getContainedCosmeticEntries, removeContainedCosmeticEntry, setupContainedCosmeticControls } from '../../../tools/contained-cosmetic-controls.js';
 import { initFormBehaviors } from '../../../tools/form-behaviors.js';
 import { getCosmeticTranslationSection } from '../../../tools/cosmetic-translations.js';
+import { loadLocalizationHotfixes, hotfixEnglish, resolveCosmeticText } from '../../../tools/localization-hotfixes.js';
 
 const DATA_BASE_PATH = '../../../data/';
 
@@ -30,6 +31,7 @@ const ITEM_TYPE_TAG_TYPE_MAP = {
 };
 
 let index = [];
+const hotfixSearchNames = new Map();
 let companionVTIDs = [];
 let cosmeticSets = {};
 let jamTrackNames = [];
@@ -196,6 +198,26 @@ async function loadIndex() {
 	index = await loadGzJson(DATA_BASE_PATH + 'index.json');
 }
 
+async function loadHotfixSearchNames() {
+	const hotfixes = await loadLocalizationHotfixes();
+	if (!hotfixes) return;
+	let localizationKeys = {};
+	try {
+		localizationKeys = await loadGzJson(DATA_BASE_PATH + 'hotfixes/cosmetic-keys.json');
+	} catch (error) {
+		console.warn('Cosmetic localization key index unavailable; using keys already in the search index.', error);
+	}
+	for (const entry of index) {
+		if (!entry.id || !entry.name) continue;
+		const name = hotfixEnglish(hotfixes, localizationKeys[entry.path], entry.itemNameKey, entry.name);
+		if (name !== entry.name) hotfixSearchNames.set(entry, name);
+	}
+}
+
+function getSearchName(entry) {
+	return hotfixSearchNames.get(entry) || entry.name;
+}
+
 async function loadCompanionVTIDs() {
 	const resp = await fetch(DATA_BASE_PATH + 'CompanionStyleVariantTokens.json');
 	companionVTIDs = await resp.json();
@@ -228,13 +250,10 @@ function updateSuggestions() {
 
 	const scoredMatches = candidateIndex
 		.map(e => {
-		const name = (e.name || '').toLowerCase();
+			const names = [getSearchName(e), e.name].map(name => name.toLowerCase());
 		const id = (e.id || '').toLowerCase();
-		let score = 0;
-
-		if (name === input) score += 100;
-		else if (name.startsWith(input)) score += 75;
-		else if (name.includes(input)) score += 50;
+			let score = Math.max(...names.map(name =>
+				name === input ? 100 : name.startsWith(input) ? 75 : name.includes(input) ? 50 : 0));
 
 		if (id === input) score += 40;
 		else if (id.startsWith(input)) score += 25;
@@ -247,8 +266,9 @@ function updateSuggestions() {
 		.slice(0, 10);
 
 	scoredMatches.forEach(({ entry }) => {
+		const displayName = getSearchName(entry);
 		const div = document.createElement("div");
-		div.textContent = `${entry.name} (${entry.id})`;
+		div.textContent = `${displayName} (${entry.id})`;
 		div.onclick = async () => {
 			elements.displayTitle.disabled = false;
 
@@ -267,11 +287,11 @@ function updateSuggestions() {
 			ftChrsSection?.parentNode.removeChild(ftChrsSection);
 			while (featuredCharactersEntries.length != 0) removeFeaturedCharacterEntry();
 
-			document.getElementById("cosmetic-display").value = `${entry.name} (${entry.id})`;
+			document.getElementById("cosmetic-display").value = `${displayName} (${entry.id})`;
 			// requestCosmoPreviews(entry.id); // Paused for the current pak update.
 			document.getElementById("cosmetic-input").value = entry.id;
-			document.getElementById("cosmetic-input-name").value = entry.name;
-			document.getElementById("shop-appearances").value = entry.name;
+			document.getElementById("cosmetic-input-name").value = displayName;
+			document.getElementById("shop-appearances").value = displayName;
 			sugDiv.innerHTML = "";
 
 
@@ -280,7 +300,7 @@ function updateSuggestions() {
 				const displayTitleEl = document.getElementById('display-title');
 				displayTitleEl.checked = false;
 				displayTitleEl.disabled = false;
-				await updateWikiPageButton(entry.name, 'Emote');
+				await updateWikiPageButton(displayName, 'Emote', entry);
 
 				elements.sourceQuestReward.checked = true;
 				elements.sourceQuestReward.dispatchEvent(new Event('change'));
@@ -295,7 +315,7 @@ function updateSuggestions() {
 			let cosmeticType = itemDefinitionData.Properties.ItemShortDescription?.SourceString.trim() || TYPE_MAP[itemDefinitionData.Type] || "";
 			cosmeticType = normalizeCosmeticType(cosmeticType);
 
-			await updateWikiPageButton(entry.name, cosmeticType);
+			await updateWikiPageButton(displayName, cosmeticType, entry);
 
 			const props = itemDefinitionData.Properties || {};
 			let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
@@ -393,7 +413,8 @@ function updateSuggestions() {
 }
 
 async function searchCosmetic(input) {
-	const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input.toLowerCase() || e.name && e.name.toLowerCase() === input.toLowerCase());
+	const entryMeta = index.find(e => e.id && e.id.toLowerCase() === input.toLowerCase() ||
+		e.name && (e.name.toLowerCase() === input.toLowerCase() || getSearchName(e).toLowerCase() === input.toLowerCase()));
 	
 	if (!entryMeta) return { data: null, allData: null, entryMeta: null };
 	
@@ -1430,14 +1451,15 @@ async function generateSidekickRewardsSection(ProgressionRewards, filenameTagMap
 	return section;
 }
 
-async function generateCompanionEmotePage(entryMeta, settings) {
+async function generateCompanionEmotePage(entryMeta, settings, hotfixes) {
 	const out = [];
 
-	const name = entryMeta.name;
+	const assetName = entryMeta.name;
+	const name = hotfixEnglish(hotfixes, null, entryMeta.itemNameKey, assetName);
 	const id = entryMeta.id;
 
 	const result = await searchCosmetic(entryMeta.companion_id);
-	const { data, allData, companionEntryMeta } = result;
+	const { data, allData, entryMeta: companionEntryMeta } = result;
 	const props = data.Properties;
 
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
@@ -1456,7 +1478,8 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 		}
 	}
 
-	const companionName = props.ItemName?.LocalizedString.trim();
+	const companionName = hotfixEnglish(hotfixes, props.ItemName, companionEntryMeta?.itemNameKey,
+		props.ItemName?.LocalizedString?.trim() || '');
 
 	if (settings.displayTitle) {
 		out.push(`{{DISPLAYTITLE:${name}}}`);
@@ -1505,10 +1528,11 @@ async function generateCompanionEmotePage(entryMeta, settings) {
 	return out.join("\n");
 }
 
-async function appendTranslations(out, settings, nameKey, descriptionKey) {
+async function appendTranslations(out, settings, nameKey, descriptionKey, nameField, descriptionField) {
 	if (!settings.includeTranslations) return;
 	try {
-		const section = await getCosmeticTranslationSection(nameKey, descriptionKey);
+		const section = await getCosmeticTranslationSection(nameKey, descriptionKey,
+			{ useHotfixes: true, nameField, descriptionField });
 		if (section) out.push(section, "");
 	} catch (error) {
 		console.warn('Could not load cosmetic translations:', error);
@@ -1516,8 +1540,9 @@ async function appendTranslations(out, settings, nameKey, descriptionKey) {
 }
 
 async function generateCosmeticPage(data, allData, settings, entryMeta) {
+	const hotfixes = await loadLocalizationHotfixes();
 	if (!entryMeta.path && entryMeta.companionEmote) {
-		return await generateCompanionEmotePage(entryMeta, settings);
+		return await generateCompanionEmotePage(entryMeta, settings, hotfixes);
 	}
 
 	const bundleEntries = getBundleEntries();
@@ -1534,8 +1559,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	const props = data.Properties;
 	const ID = data.Name;
 	const type = data.Type;
-	const name = props.ItemName?.LocalizedString.trim() || "Unknown";
-	const description = props.ItemDescription?.LocalizedString.trim() || "";
+	const originalDescription = props.ItemDescription?.LocalizedString?.trim() || "";
+	const { assetName, name, description } = resolveCosmeticText(props, entryMeta, hotfixes);
 	let rarity = props.Rarity?.split("::")?.pop()?.charAt(0).toUpperCase() + 
 				 props.Rarity?.split("::")?.pop()?.slice(1).toLowerCase() || "Uncommon";
 
@@ -1543,7 +1568,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	if (!cosmeticType) {
 		cosmeticType = TYPE_MAP[type] || "";
 	}
-	if (cosmeticType === description) {
+	if (cosmeticType === originalDescription) {
 		const itemTypeTag = props.ItemTypeTag?.TagName;
 		cosmeticType = ITEM_TYPE_TAG_TYPE_MAP[itemTypeTag] || itemTypeTag || cosmeticType;
 	}
@@ -1695,7 +1720,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 
 		if (variantData.length > 0) {
-			[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
+		[styleSection, featured, variantChannels, filenameTagMap, variantMatchesMain] = await generateStyleSection(variantData, name, cosmeticType, isFestivalCosmetic, instrumentType, mainIcon, are_there_shop_assets(entryMeta) && !inOwnCharacterBundle, await getNumBRDav2Assets(entryMeta), channelIconMap);
 		}
 	}
 
@@ -1704,7 +1729,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (leftToDo > 0) {
 			const featuredFiles = [];
 			for (let i = 2; i <= leftToDo + 1; i++)
-				featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
+			featuredFiles.push(`${name} (${String(i).padStart(2, '0')}${inOwnCharacterBundle && cosmeticType == "Outfit" ? '' : ' - Featured'}) - ${inOwnCharacterBundle && cosmeticType == "Outfit" ? 'Item Shop Bundle' : cosmeticType} - Fortnite.png`);
 
 			if (featuredFiles.length > 0) {
 				if (featuredFiles.length === 1) {
@@ -1716,7 +1741,9 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		}
 	}
 
-	const itemShopAppearancesContext = getItemShopAppearancesContext(settings, bundleEntries, containedCosmeticEntries, name);
+	const appearancesSettings = settings.shopAppearances === assetName
+		? { ...settings, shopAppearances: name } : settings;
+	const itemShopAppearancesContext = getItemShopAppearancesContext(appearancesSettings, bundleEntries, containedCosmeticEntries, name);
 
 	const out = [];
 
@@ -1948,7 +1975,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				const variants = Array.isArray(info) ? info : (info && Array.isArray(info.variants) ? info.variants : []);
 				if (channel.toLowerCase() === "style") {
 					for (const v of variants) {
-						if (v !== name) {
+					if (v !== assetName) {
 							legacyStyles.push(v);
 						}
 					}
@@ -2049,14 +2076,14 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 		if (hasLegoStyleFlag) {
 			const hasLegoFeaturedRender = await hasLegoFeatured(entryMeta);
 			if (!hasLegoFeaturedRender) {
-				out.push(`{{LEGO Style|${name}|featured=n}}`);
+			out.push(`{{LEGO Style|${name}|featured=n}}`);
 			} else {
-				out.push(`{{LEGO Style|${name}}}`);
+			out.push(`{{LEGO Style|${name}}}`);
 			}
 		}
 		
 		if (hasBeanStyleFlag) {
-			out.push(`{{Bean Style|${name}}}`);
+		out.push(`{{Bean Style|${name}}}`);
 		}
 
 		if (hasLegoStyleFlag || hasBeanStyleFlag) {
@@ -2065,7 +2092,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	} else if (cosmeticType === "Emote") {
 		const hasLegoStyleFlag = hasLegoStyle(entryMeta);
 		if (hasLegoStyleFlag) {
-			out.push(`{{LEGO Emote|${name}}}`);
+		out.push(`{{LEGO Emote|${name}}}`);
 			out.push("");
 		}
 	}
@@ -2089,12 +2116,12 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 					return !variantMatchesMain[key];
 				});
 			}
-			if (!columns.includes(name)) {
-				columns.unshift(name);
+			if (!columns.includes(assetName)) {
+				columns.unshift(assetName);
 			}
-			if (columns.length === 0) columns = [name];
+			if (columns.length === 0) columns = [assetName];
 		} else {
-			columns = [name];
+			columns = [assetName];
 		}
 
 		// DISABLED SINCE WEB SHOP NO LONGER HAS LEGO RENDERS FOR NOW
@@ -2119,8 +2146,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 			const chunk = chunks[i];
 
 			rendersSection.push(chunk.map(c => {
-				let styleName = c;
-				if (c !== 'LEGO' && c !== name && variantMatchesMain && !variantMatchesMain[`${channelKeys[0]},${c}`]) {
+				let styleName = c === assetName ? name : c;
+				if (c !== 'LEGO' && c !== assetName && variantMatchesMain && !variantMatchesMain[`${channelKeys[0]},${c}`]) {
 					styleName = `${channelPrefix}${c}`;
 				}
 				return `!${styleName}`;
@@ -2138,7 +2165,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 				if (c === 'LEGO') {
 					filename = `${name} (Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - LEGO Fortnite.webm`;
-				} else if (c === name) {
+				} else if (c === assetName) {
 					filename = `${name} (${carNameFlag}Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
 				} else {
 					filename = `${name} (${channelPrefix}${c} - Render) - ${cosmeticType == "Wheel" ? "Wheels" : cosmeticType} - ${fileEnding}.webm`;
@@ -2181,7 +2208,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 				for (const be of bundleEntries) {
 					if (characterBundlePattern.test(be.bundleID.value)) {
 						if (be.bundleName && be.bundleName.value) {
-							if (be.bundleName.value.trim().toLowerCase() === name.toLowerCase() || settings.shopCost == "") {
+						if (be.bundleName.value.trim().toLowerCase() === assetName.toLowerCase() || settings.shopCost == "") {
 								const rawName = be.bundleName.value.trim();
 								const bundleName = (be.forceTitleCase && be.forceTitleCase.checked) ? forceTitleCase(rawName) : rawName;
 								const addItemShopBundleTag = characterBundlePattern.test(be.bundleID.value);
@@ -2214,7 +2241,8 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 	}
 
 	// appendCosmoGallery(out, entryMeta); // Paused for the current pak update.
-	await appendTranslations(out, settings, props.ItemName?.Key || entryMeta.itemNameKey, props.ItemDescription?.Key || entryMeta.itemDescriptionKey);
+	await appendTranslations(out, settings, props.ItemName?.Key || entryMeta.itemNameKey,
+		props.ItemDescription?.Key || entryMeta.itemDescriptionKey, props.ItemName, props.ItemDescription);
 
 	// Categories
 	const addedCategories = new Set(); // Track categories that have been added
@@ -2302,8 +2330,9 @@ async function copyToClipboard() {
 	}
 }
 
-async function determinePageTitle(cosmeticName, cosmeticType) {
-	const duplicates = index.filter(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
+async function determinePageTitle(cosmeticName, cosmeticType, originalName = cosmeticName) {
+	const duplicates = index.filter(e => e.name &&
+		(e.name.toLowerCase() === originalName.toLowerCase() || e.name.toLowerCase() === cosmeticName.toLowerCase()));
 	const nonJoinerDuplicates = duplicates.filter(e => !isJoinerVariant(e));
 	const jamTrackExists = jamTrackNames.filter(name => name.toLowerCase() === cosmeticName.toLowerCase()).length > 0;
 
@@ -2346,9 +2375,9 @@ async function openWikiPage() {
 	setTimeout(hideStatus, 2000);
 }
 
-async function updateWikiPageButton(cosmeticName, cosmeticType) {
-	const cosmetic = index.find(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
-	pageTitle = await determinePageTitle(cosmeticName, cosmeticType);
+async function updateWikiPageButton(cosmeticName, cosmeticType, selectedEntry = null) {
+	const cosmetic = selectedEntry || index.find(e => e.name && e.name.toLowerCase() === cosmeticName.toLowerCase());
+	pageTitle = await determinePageTitle(cosmeticName, cosmeticType, cosmetic?.name || cosmeticName);
 	
 	if (!cosmetic) {
 		elements.wikiPageBtn.disabled = true;
@@ -2410,6 +2439,12 @@ async function generatePage() {
 		const pageContent = await generateCosmeticPage(data, allData, settings, entryMeta);
 		
 		displayOutput(pageContent);
+		const generatedName = pageContent.match(/^\|name = (.+)$/m)?.[1];
+		const generatedType = pageContent.match(/^\|type = (.+)$/m)?.[1];
+		const originalName = data?.Properties?.ItemName?.LocalizedString?.trim() || entryMeta?.name;
+		if (generatedName && generatedType && entryMeta && generatedName !== originalName) {
+			await updateWikiPageButton(generatedName, generatedType, entryMeta);
+		}
 		const missingTranslations = settings.includeTranslations && !pageContent.includes('== Other Languages ==');
 		showStatus(missingTranslations ? 'Page generated, but no matching translations were found.' : 'Page generated successfully!', missingTranslations ? 'info' : 'success');
 		setTimeout(hideStatus, missingTranslations ? 5000 : 2000);
@@ -2875,6 +2910,7 @@ async function initialiseApp() {
 		
 		await loadIndex();
 		console.log('Index loaded successfully');
+		await loadHotfixSearchNames();
 		await loadJamTrackNames();
 		console.log('Jam track names loaded successfully');
 		await loadCompanionVTIDs();

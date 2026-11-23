@@ -243,6 +243,7 @@ def get_set_id(props):
 
 def build_index(dirs):
     index = []
+    localization_keys = {}
 
     def should_skip_subdir(subdir):
         return subdir.endswith(("Archive", "Tandem", "Localization", "CosmeticVariantTokens", "QuestAssets", "TestItems", "Abilities", "Prototype"))
@@ -435,6 +436,13 @@ def build_index(dirs):
                     "path": rel_path
                 }
 
+                name_field = props.get("ItemName") or {}
+                if name_field.get("Key"):
+                    localization_keys[rel_path] = {
+                        field: name_field[field]
+                        for field in ("Key", "Namespace", "Category") if field in name_field
+                    }
+
                 if car_body_tag:
                     item_entry["carBodyTag"] = car_body_tag
                 if set_id:
@@ -459,7 +467,7 @@ def build_index(dirs):
                 
                 index.append(item_entry)
                 
-    return index
+    return index, localization_keys
 
 def build_jido_map(fig_dir):
     mapping = {}
@@ -731,7 +739,7 @@ def build_companion_style_index():
 
 print("Starting data setup...")
 
-index = build_index(COSMETICS_DIRS)
+index, cosmetic_localization_keys = build_index(COSMETICS_DIRS)
 jido_map = build_jido_map(FIGURE_COSMETICS_DIR)
 bean_map = build_bean_map(DT_BEAN_MAP_FILE, NEW_BEANSTALK_DEF_DIR)
 sets_map, localized_sets_map = build_sets_maps(SETS_JSON_FILE)
@@ -795,6 +803,10 @@ index = build_banner_index(index)
 index_json = json.dumps(index, indent=2, ensure_ascii=False, sort_keys=True)
 index_raw = index_json.encode('utf-8')
 gzip_cache.compress_bytes(index_raw, gzip_cache.root / "index.json.gz")
+gzip_cache.compress_bytes(
+    json.dumps(cosmetic_localization_keys, ensure_ascii=False, sort_keys=True).encode("utf-8"),
+    gzip_cache.root / "hotfixes" / "cosmetic-keys.json.gz"
+)
 
 print(f"index.json.gz created with {len(index)} entries. "
           f"{len(jido_map)} have JIDO values, "

@@ -85,7 +85,7 @@ def format_hotfix_changes(previous, current, titles):
                     lines.append(f"    Before: {json.dumps(before, ensure_ascii=False)}")
                     lines.append(f"    After: {json.dumps(after, ensure_ascii=False)}")
         if len(lines) > 1:
-            entries.append("\n".join(lines))
+            entries.append(lines[0] if status == "ADDED" else "\n".join(lines))
     return entries
 
 

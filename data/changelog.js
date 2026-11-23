@@ -3,6 +3,20 @@
 // Keep the newest update first. You can add as many changes as you need.
 export default [
     {
+        publishedAt: '2026-11-23T03:31:06Z',
+        title: 'Hotfixed names in data changes',
+        changes: [
+            'Cosmetic data changelog entries now show hotfixed cosmetic names when available.'
+        ]
+    },
+    {
+        publishedAt: '2026-11-23T03:27:32Z',
+        title: 'Cleaner added item entries',
+        changes: [
+            'Newly added cosmetics now show only their name and ID in the cosmetic data changelog.'
+        ]
+    },
+    {
         publishedAt: '2026-11-23T03:03:04Z',
         title: 'Hotfixed names across generators',
         changes: [

@@ -69,8 +69,7 @@ class HotfixChangelogTests(unittest.TestCase):
         current = snapshot(record("NEW", {"fr": "Nouveau texte"}))
         changes = sync.format_hotfix_changes(previous, current, {})
         self.assertEqual(len(changes), 2)
-        self.assertTrue(any("ADDED Localization key NEW" in change and
-                            'Added fr hotfix: "Nouveau texte"' in change for change in changes))
+        self.assertIn("ADDED Localization key NEW (Game/default) [hotfix]", changes)
         self.assertTrue(any("REMOVED Localization key OLD" in change and
                             'Removed en hotfix: "Old text"' in change for change in changes))
 

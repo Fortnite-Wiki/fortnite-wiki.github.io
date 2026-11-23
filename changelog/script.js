@@ -1,4 +1,6 @@
 import siteUpdates from '../data/changelog.js';
+import { loadGzJson } from '../tools/jsondata.js';
+import { loadHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 
 export function parseReport(text) {
     const entries = [];
@@ -10,7 +12,7 @@ export function parseReport(text) {
             entries.push(current);
             continue;
         }
-        if (!current || !line.trim()) continue;
+        if (!current || current.status === 'ADDED' || !line.trim()) continue;
         const detail = line.trim();
         const previous = /^Before: (.*)$/.exec(detail);
         const next = /^After:\s*(.*)$/.exec(detail);
@@ -24,6 +26,18 @@ export function parseReport(text) {
         }
     }
     return entries;
+}
+
+export function applyHotfixedReportNames(entries, index, hotfixNames) {
+    const byId = new Map(index.filter(item => item.id).map(item => [item.id, item]));
+    for (const entry of entries) {
+        const id = entry.title.split(' ', 1)[0];
+        const cosmetic = byId.get(id);
+        if (!cosmetic) continue;
+        const name = getHotfixedEntryName(cosmetic, hotfixNames);
+        if (!name || name === cosmetic.name) continue;
+        entry.title = `${id} (${name})${entry.title.endsWith(' [hotfix]') ? ' [hotfix]' : ''}`;
+    }
 }
 
 function element(tag, className, text) {
@@ -137,6 +151,14 @@ async function init() {
 
         search.addEventListener('input', render);
         render();
+        try {
+            const index = await loadGzJson('/data/index.json');
+            const hotfixNames = await loadHotfixEntryNames(index, '/data/');
+            applyHotfixedReportNames(entries, index, hotfixNames);
+            render();
+        } catch (error) {
+            console.warn('Could not resolve hotfixed changelog names:', error);
+        }
     } catch (error) {
         message.textContent = 'Could not load the changelog. Try the raw text link above.';
     }

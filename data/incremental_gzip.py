@@ -17,6 +17,39 @@ def _load_set_names(path):
         return {}
 
 
+def _load_hotfix_names(path):
+    try:
+        records = json.loads(path.read_text(encoding="utf-8"))["replacements"]
+        if not isinstance(records, list):
+            return {}
+        by_key = {}
+        for record in records:
+            if (not isinstance(record, dict) or not isinstance(record.get("key"), str)
+                    or not isinstance(record.get("namespace"), str)
+                    or not isinstance(record.get("category"), str)
+                    or not isinstance(record.get("localizedStrings"), dict)):
+                return {}
+            by_key.setdefault(record["key"], []).append(record)
+        return by_key
+    except (OSError, ValueError, TypeError, KeyError):
+        return {}
+
+
+def _hotfixed_name(field, hotfixes):
+    key = field.get("Key")
+    if not key:
+        return None
+    matches = [record for record in hotfixes.get(key, [])
+               if ("Namespace" not in field or record["namespace"] == field["Namespace"])
+               and ("Category" not in field or record["category"] == field["Category"])]
+    signatures = {(record["namespace"], record["category"],
+                   json.dumps(record["localizedStrings"], sort_keys=True)) for record in matches}
+    if len(signatures) != 1:
+        return None
+    name = matches[0]["localizedStrings"].get("en")
+    return name if isinstance(name, str) and name.strip() else None
+
+
 def _report_label(path):
     parts = path.split(" > ")
     if parts[-1] in ("LocalizedString", "SourceString"):
@@ -122,14 +155,14 @@ def _write_json_changes(report, before, after, path="", set_names=None, skip_bla
         report.write(f"    After:  {json.dumps(after, ensure_ascii=False)}\n")
 
 
-def _changed_heading(key, data):
+def _changed_heading(key, data, hotfixes=None):
     item_id = Path(key).name.removesuffix(".json.gz")
     if key.startswith("cosmetics/") and isinstance(data, list) and data and isinstance(data[0], dict):
         item = data[0]
         item_id = item.get("Name") or item_id
         properties = item.get("Properties") or {}
         name_field = properties.get("ItemName") or {}
-        name = name_field.get("LocalizedString") or name_field.get("SourceString")
+        name = _hotfixed_name(name_field, hotfixes or {}) or name_field.get("LocalizedString") or name_field.get("SourceString")
         if name:
             return f"{item_id} ({name})"
     return item_id
@@ -302,6 +335,7 @@ class IncrementalGzip:
         temp_path = report_path.with_name(report_path.name + ".tmp")
         counts = {"ADDED": 0, "CHANGED": 0, "REMOVED": 0, "REPLACED": 0}
         set_names = (self.previous_set_names, _load_set_names(self.root / "CosmeticSets.json"))
+        hotfixes = _load_hotfix_names(self.root / "hotfixes/current.json")
 
         with temp_path.open("w", encoding="utf-8", newline="\n") as report:
             report.write("Data setup compressed JSON changes\n\n")
@@ -338,9 +372,10 @@ class IncrementalGzip:
                     continue
 
                 counts[status] += 1
-                heading = _changed_heading(key, current_json if current_json is not None else original_json)
+                heading = _changed_heading(key, current_json if current_json is not None else original_json, hotfixes)
                 report.write(f"{status} {heading}\n")
-                report.write(details.getvalue())
+                if status != "ADDED":
+                    report.write(details.getvalue())
                 report.write("\n")
 
             if not any(counts.values()):

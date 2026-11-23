@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { gzipSync, gunzipSync } from 'node:zlib';
 import { createHotfixLookup, hotfixEnglish, resolveCosmeticText, applyHotfixLanguages, loadLocalizationHotfixes, buildHotfixEntryNames, getHotfixedEntryName } from '../tools/localization-hotfixes.js?v=20261122-hotfix-names';
 import { getCosmeticTranslationSection } from '../tools/cosmetic-translations.js';
+import { parseReport, applyHotfixedReportNames } from '../changelog/script.js';
 
 const now = Date.parse('2026-11-22T20:00:00Z');
 const record = (key, namespace, category, localizedStrings) => ({
@@ -122,6 +123,10 @@ test('the search key index resolves Golden Llama Crew without matching the word 
   const names = buildHotfixEntryNames([entry, unrelated], lookup, keys);
   assert.equal(getHotfixedEntryName(entry, names), 'Golden Llama Crew');
   assert.equal(getHotfixedEntryName(unrelated, names), 'Blank');
+  const report = parseReport('ADDED CarSkin_WurstTreasureHunt01 (Blank)\n\nADDED Other (Blank)\n');
+  applyHotfixedReportNames(report, [entry, unrelated], names);
+  assert.equal(report[0].title, 'CarSkin_WurstTreasureHunt01 (Golden Llama Crew)');
+  assert.equal(report[1].title, 'Other (Blank)');
 });
 
 test('bundle names also use their exact saved localization key', () => {

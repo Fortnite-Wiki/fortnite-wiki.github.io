@@ -77,7 +77,7 @@ function renderEntry(entry) {
 
 function renderSiteUpdates() {
     const container = document.getElementById('site-updates');
-    for (const update of siteUpdates) {
+    for (const update of [...siteUpdates].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))) {
         const article = element('article', 'site-update');
         const heading = element('div', 'site-update-heading');
         heading.appendChild(element('h4', '', update.title));

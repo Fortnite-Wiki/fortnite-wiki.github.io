@@ -9,7 +9,8 @@ export default [
             'Search results now show hotfixed cosmetic and bundle names across the generators and Cosmo.',
             'The translator now includes available hotfixed names, descriptions, and translations.',
             'Set pages use hotfixed set names and can find bundles under either the new or original set category.',
-            'Bundle pages and Cosmo filenames now use hotfixed cosmetic names where available.'
+            'Bundle pages and Cosmo filenames now use hotfixed cosmetic names where available.',
+            'The site updates list scrolls and always shows the newest update first.'
         ]
     },
     {

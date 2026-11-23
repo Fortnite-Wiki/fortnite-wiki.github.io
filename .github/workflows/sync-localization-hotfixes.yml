@@ -50,10 +50,10 @@ jobs:
           python .github/scripts/sync-localization-hotfixes.py \
             temp/hotfix-collector/data/current.json data/hotfixes/current.json
 
-      - name: Commit changed snapshot
+      - name: Commit changed snapshot and cosmetic changelog
         if: steps.access.outputs.ready == 'true'
         run: |
-          git add -- data/hotfixes/current.json
+          git add -- data/hotfixes/current.json data/datasetup-changes.txt
           if git diff --cached --quiet; then
             echo 'No hotfix changes to publish.'
             exit 0

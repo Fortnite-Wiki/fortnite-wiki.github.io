@@ -294,42 +294,7 @@ class IncrementalGzip:
         Path(destination).unlink()
         self.entries.pop(key, None)
 
-    def _report_originals(self, baseline_ref):
-        repo = self.root.parent
-        try:
-            changed = subprocess.run(
-                ["git", "diff-index", "--name-only", "-z", baseline_ref, "--", "data"],
-                cwd=repo, capture_output=True, check=False
-            )
-            untracked = subprocess.run(
-                ["git", "ls-files", "--others", "--exclude-standard", "-z", "--", "data"],
-                cwd=repo, capture_output=True, check=False
-            )
-        except OSError:
-            return self.originals
-        if changed.returncode or untracked.returncode:
-            return self.originals
-
-        paths = set((changed.stdout + untracked.stdout).decode("utf-8").split("\0"))
-        originals = {}
-        for path in paths:
-            if not path.startswith("data/") or not path.endswith(".gz"):
-                continue
-            key = path.removeprefix("data/")
-            previous = subprocess.run(
-                ["git", "show", f"{baseline_ref}:{path}"],
-                cwd=repo, capture_output=True, check=False
-            )
-            if previous.returncode:
-                originals[key] = (False, None)
-            else:
-                try:
-                    originals[key] = (True, gzip.decompress(previous.stdout))
-                except (OSError, EOFError):
-                    originals[key] = (True, None)
-        return originals
-
-    def write_report(self, report_path, baseline_ref="HEAD"):
+    def write_report(self, report_path):
         report_path = Path(report_path)
         report_path.parent.mkdir(parents=True, exist_ok=True)
         temp_path = report_path.with_name(report_path.name + ".tmp")
@@ -339,7 +304,10 @@ class IncrementalGzip:
 
         with temp_path.open("w", encoding="utf-8", newline="\n") as report:
             report.write("Data setup compressed JSON changes\n\n")
-            for key, (existed, original) in sorted(self._report_originals(baseline_ref).items()):
+            # `originals` is recorded as each output changes. Re-scanning every
+            # modified data file through Git here can take minutes after setup
+            # has otherwise completed, and includes changes from older runs.
+            for key, (existed, original) in sorted(self.originals.items()):
                 if key == "index.json.gz":
                     continue
                 destination = self.root / key

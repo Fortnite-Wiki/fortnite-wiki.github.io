@@ -176,10 +176,16 @@ COMPANION_FILTER_SET_DIR = os.path.join(
     r"Plugins/GameFeatures/CosmeticCompanions/Content/Data/VariantFilterSet"
 )
 
-CHARACTER_COLOR_SWATCHES_DIR = os.path.join(
-    BASE_DIR,
-    r"Content/Characters/CharacterColorSwatches/Misc"
-)
+CHARACTER_COLOR_SWATCHES_DIRS = [
+    os.path.join(
+        BASE_DIR,
+        r"Content/Characters/CharacterColorSwatches/Misc"
+    ),
+    os.path.join(
+        BASE_DIR,
+        r"Plugins/GameFeatures/BRCosmetics/Content/Characters/CharacterColorSwatches/Misc"
+    )
+]
 
 VALID_TYPES = {
     "AthenaCharacterItemDefinition",
@@ -933,30 +939,37 @@ def build_localization_index():
 
     print(f"localization/index.json created with {len(folders)} folders.")
 
-if os.path.exists(CHARACTER_COLOR_SWATCHES_DIR):
-    target_path = os.path.join(os.path.dirname(__file__), "cosmetics", "Characters", "ColorSwatches")
-    keep = set()
-    count = 0
-    for root, _, files in os.walk(CHARACTER_COLOR_SWATCHES_DIR):
-        relative = os.path.relpath(root, CHARACTER_COLOR_SWATCHES_DIR)
+ccs_target_path = os.path.join(os.path.dirname(__file__), "cosmetics", "Characters", "ColorSwatches")
+ccs_to_keep = set()
+ccs_count = 0
+
+for src_root in CHARACTER_COLOR_SWATCHES_DIRS:
+    if not os.path.exists(src_root):
+        continue
+
+    for root, _, files in os.walk(src_root):
+        relative = os.path.relpath(root, src_root)
+
         for file in files:
             src_path = os.path.join(root, file)
-            dest_path = os.path.join(target_path, relative, file)
+            dest_path = os.path.join(ccs_target_path, relative, file)
+            
             if file.endswith('.gz'):
                 copy_if_changed(src_path, dest_path)
             else:
                 dest_path += '.gz'
                 gzip_cache.compress(src_path, dest_path)
-                count += 1
-            keep.add(Path(dest_path).resolve())
-    prune_generated_gz(target_path, keep)
+                ccs_count += 1
+            
+            ccs_to_keep.add(Path(dest_path).resolve())
+    prune_generated_gz(ccs_target_path, ccs_to_keep)
 
-    print(f"Moved and compressed {count} Character ColorSwatches")
+    print(f"Moved and compressed {ccs_count} Character ColorSwatches")
 
 
 # Move and compress Companion ColorSwatches/MaterialParameterSets
 
-## these directories does contain a lot more else - so be careful!
+## these directories do contain a lot of other stuff - so be careful!
 COMPANION_COLORS_AND_MATERIALS_DIRS = [
     os.path.join(BASE_DIR, r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Biped"),
     os.path.join(BASE_DIR, r"Plugins\GameFeatures\CosmeticCompanions\Content\Assets\Quadruped"),

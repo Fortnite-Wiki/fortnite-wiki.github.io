@@ -25,7 +25,36 @@ export function parseReport(text) {
             current.changes.push({ kind, text: detail.replace(/:$/, '') });
         }
     }
+    applyReadableVehicleVariantTitles(entries);
     return entries;
+}
+
+function textValue(value) {
+    try {
+        const parsed = JSON.parse(value);
+        return typeof parsed === 'string' ? parsed : '';
+    } catch {
+        return '';
+    }
+}
+
+function vehicleNameFromVariant(entry) {
+    if (!/^FortCosmetic(?:RichColor|Property)Variant_\d+$/.test(entry.title)) return '';
+
+    const itemName = entry.changes.find(change => /ItemName (?:LocalizedString|SourceString)$/.test(change.text));
+    const name = textValue(itemName?.after || itemName?.before || '');
+    if (name) return name;
+
+    const channel = entry.changes.find(change => /VariantChannelName (?:LocalizedString|SourceString)$/.test(change.text));
+    const channelName = textValue(channel?.after || channel?.before || '');
+    return channelName.replace(/\s+(?:Body )?(?:Color|Painted Style)$/i, '');
+}
+
+export function applyReadableVehicleVariantTitles(entries) {
+    for (const entry of entries) {
+        const name = vehicleNameFromVariant(entry);
+        if (name) entry.title = name;
+    }
 }
 
 export function applyHotfixedReportNames(entries, index, hotfixNames) {

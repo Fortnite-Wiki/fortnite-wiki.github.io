@@ -157,8 +157,14 @@ def _write_json_changes(report, before, after, path="", set_names=None, skip_bla
 
 def _changed_heading(key, data, hotfixes=None):
     item_id = Path(key).name.removesuffix(".json.gz")
-    if key.startswith("cosmetics/") and isinstance(data, list) and data and isinstance(data[0], dict):
-        item = data[0]
+    if key.startswith("cosmetics/") and isinstance(data, list):
+        # Racing exports place property/colour variants before the cosmetic
+        # itself. Use the entry that actually owns ItemName, rather than the
+        # first internal variant object.
+        item = next((entry for entry in data if isinstance(entry, dict)
+                     and isinstance((entry.get("Properties") or {}).get("ItemName"), dict)), None)
+        if item is None:
+            return item_id
         item_id = item.get("Name") or item_id
         properties = item.get("Properties") or {}
         name_field = properties.get("ItemName") or {}

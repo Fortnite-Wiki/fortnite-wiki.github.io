@@ -496,13 +496,13 @@ async function generateSetPage(setId, setName, cosmetics, seasonName, isUnreleas
 		}
 	}
 
-	infobox.push(`|total_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.totalVbucks || ''} <br> {{SetIcon|Item Shop}}`)}`);
-
-	infobox.push(`|bundle_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`)}`);
-
 	if (options.bundleName) {
 		infobox.push(`|bundles = [[${options.bundleName}]]`);
 	}
+
+	infobox.push(`|total_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.totalVbucks || ''} <br> {{SetIcon|Item Shop}}`)}`);
+
+	infobox.push(`|bundle_v-buck_price = ${normalizeVbucksInfoboxBreaks(`${options.bundleVbucks || ''}${options.bundleName ? ` <br> {{BundleNameSets|${options.bundleName}}}` : ''}`)}`);
 
 	infobox.push(`|ID = ${setId}`);
 

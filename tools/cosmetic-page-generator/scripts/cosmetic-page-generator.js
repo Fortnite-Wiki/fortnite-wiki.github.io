@@ -2005,7 +2005,7 @@ async function generateCosmeticPage(data, allData, settings, entryMeta) {
 
 	// Featured Characters table (for Loading Screens only)
 	if ((cosmeticType === "Loading Screen" || cosmeticType === "Spray" || cosmeticType === "Emoticon") && featuredCharactersEntries.length > 0) {
-		let featuredCharactersSection = ["== Featured Characters ==", "{|class=\"reward-table\""];
+		let featuredCharactersSection = ["== Featured Characters ==", "{| class=\"reward-table\""];
 
 		let currentIcons = [];
 		let currentNames = [];
